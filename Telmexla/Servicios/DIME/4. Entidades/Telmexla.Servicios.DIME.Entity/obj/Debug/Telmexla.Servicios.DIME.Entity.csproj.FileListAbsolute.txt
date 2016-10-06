@@ -17,7 +17,6 @@ C:\Users\Alejandro\Desktop\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servici
 C:\Users\Alejandro\Desktop\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.dll
 C:\Users\Alejandro\Desktop\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.pdb
 C:\Users\Alejandro\Desktop\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.csprojResolveAssemblyReference.cache
-C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.dll
 \\172.19.216.114\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Debug\Telmexla.Servicios.DIME.Entity.dll.config
 \\172.19.216.114\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Debug\Telmexla.Servicios.DIME.Entity.dll
 \\172.19.216.114\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Debug\Telmexla.Servicios.DIME.Entity.pdb
@@ -28,8 +27,7 @@ C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servi
 \\172.19.216.114\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.csprojResolveAssemblyReference.cache
 \\172.19.216.114\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.dll
 \\172.19.216.114\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.pdb
-C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.csprojResolveAssemblyReference.cache
-C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.pdb
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.dll
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Debug\Telmexla.Servicios.DIME.Entity.dll.config
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Debug\Telmexla.Servicios.DIME.Entity.dll
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Debug\Telmexla.Servicios.DIME.Entity.pdb
@@ -37,3 +35,5 @@ C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servi
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Debug\EntityFramework.xml
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.pdb
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Debug\Telmexla.Servicios.DIME.Entity.csprojResolveAssemblyReference.cache
