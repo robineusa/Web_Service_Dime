@@ -9,6 +9,8 @@
 // TargetFrameworkVersion = 4.51
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
+using System.ComponentModel.DataAnnotations;
+
 namespace Telmexla.Servicios.DIME.Entity
 {
 
@@ -16,8 +18,12 @@ namespace Telmexla.Servicios.DIME.Entity
     public class Usuario
     {
         public int Id { get; set; } // ID (Primary key)
+
+        [Required]
         public decimal? Cedula { get; set; } // CEDULA
         public string Nombre { get; set; } // NOMBRE (length: 100)
+
+        [Required]
         public string Contrasena { get; set; } // CONTRASENA (length: 300)
         public string Genero { get; set; } // GENERO (length: 1)
         public string Correo { get; set; } // CORREO (length: 200)
