@@ -19,13 +19,16 @@ namespace Telmexla.Servicios.DIME.Entity
     {
         public int Id { get; set; } // ID (Primary key)
 
-        [Required]
+        [Required(ErrorMessage = "El campo cédula es obligatorio")]
         public decimal? Cedula { get; set; } // CEDULA
         public string Nombre { get; set; } // NOMBRE (length: 100)
 
-        [Required]
+        [Required(ErrorMessage = "El campo contraseña es obligatorio")]
         public string Contrasena { get; set; } // CONTRASENA (length: 300)
         public string Genero { get; set; } // GENERO (length: 1)
+
+        [Required(ErrorMessage = "El campo correo es obligatorio")]
+        [EmailAddress (ErrorMessage = "No es un correo")]
         public string Correo { get; set; } // CORREO (length: 200)
         public System.DateTime? FechaNacimiento { get; set; } // FECHA_NACIMIENTO
         public decimal? Telefono { get; set; } // TELEFONO
