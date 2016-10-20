@@ -23,22 +23,20 @@ namespace Telmexla.Servicios.DIME.Entity
         public decimal? Cedula { get; set; } // CEDULA
         public string Nombre { get; set; } // NOMBRE (length: 100)
 
-<<<<<<< HEAD
-  
-        public string Contrasena { get; set; } // CONTRASENA (length: 300)
-        public string Genero { get; set; } // GENERO (length: 1)
-
-        [Required]
-=======
         [Required(ErrorMessage = "El campo contraseña es obligatorio")]
         public string Contrasena { get; set; } // CONTRASENA (length: 300)
         public string Genero { get; set; } // GENERO (length: 1)
 
+        
+
         [Required(ErrorMessage = "El campo correo es obligatorio")]
-        [EmailAddress (ErrorMessage = "No es un correo")]
->>>>>>> origin/master
+        [EmailAddress (ErrorMessage = "La dirección de correo no tiene el formato correcto")]
         public string Correo { get; set; } // CORREO (length: 200)
+
+        [Required(ErrorMessage = "La fecha de nacimiento es obligatoria")]
         public System.DateTime? FechaNacimiento { get; set; } // FECHA_NACIMIENTO
+
+        [Required(ErrorMessage = "El campo teléfono es obligatorio")]
         public decimal? Telefono { get; set; } // TELEFONO
         public System.DateTime? FechaContrasena { get; set; } // FECHA_CONTRASENA
         public bool? Capacitado { get; set; } // Capacitado
