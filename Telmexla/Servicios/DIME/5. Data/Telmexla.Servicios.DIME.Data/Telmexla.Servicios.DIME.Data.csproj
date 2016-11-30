@@ -49,16 +49,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoRepository.cs" />
+    <Compile Include="CierreCicloRepository.cs" />
+    <Compile Include="ClaroVideoRepository.cs" />
+    <Compile Include="ClientesTodoRepository.cs" />
     <Compile Include="Configuration\AccesoConfiguration.cs" />
+    <Compile Include="Configuration\CierreCicloConfiguration.cs" />
+    <Compile Include="Configuration\ClaroVideoConfiguration.cs" />
+    <Compile Include="Configuration\ClientesTodoConfiguration.cs" />
+    <Compile Include="Configuration\ConvenioElectronicoConfiguration.cs" />
+    <Compile Include="Configuration\DatosAdicionalesClienteConfiguration.cs" />
+    <Compile Include="Configuration\DocsisOverlapConfiguration.cs" />
+    <Compile Include="Configuration\GestionOutboundConfiguration.cs" />
     <Compile Include="Configuration\LineaConfiguration.cs" />
+    <Compile Include="Configuration\MaestroOutboundCausaConfiguration.cs" />
+    <Compile Include="Configuration\MaestroOutboundCierreConfiguration.cs" />
+    <Compile Include="Configuration\MaestroOutboundMotivoConfiguration.cs" />
+    <Compile Include="Configuration\MaestroOutboundRazonConfiguration.cs" />
+    <Compile Include="Configuration\MaestroOutboundTipoContactoConfiguration.cs" />
+    <Compile Include="Configuration\MaestroOutboundTipoGestionConfiguration.cs" />
     <Compile Include="Configuration\ModosLoginConfiguration.cs" />
     <Compile Include="Configuration\PreguntasDesbloqueoConfiguration.cs" />
     <Compile Include="Configuration\RegistroSesionConfiguration.cs" />
+    <Compile Include="Configuration\TmpMaestroHobbiesClienteConfiguration.cs" />
     <Compile Include="Configuration\UsuarioConfiguration.cs" />
     <Compile Include="Configuration\UsuariosXAccesoConfiguration.cs" />
     <Compile Include="Configuration\UsuariosXPreguntasDesbConfiguration.cs" />
     <Compile Include="Context\DimeContext.cs" />
+    <Compile Include="Context\MaestrosContext.cs" />
+    <Compile Include="ConvenioElectronicoRepository.cs" />
+    <Compile Include="DatosAdicionalesClienteRepository.cs" />
+    <Compile Include="DocsisOverlapRepository.cs" />
+    <Compile Include="GestionOutboundRepository.cs" />
+    <Compile Include="LineaRepository.cs" />
+    <Compile Include="MaestroOutboundCausaRepository.cs" />
+    <Compile Include="MaestroOutboundCierreRepository.cs" />
+    <Compile Include="MaestroOutboundMotivoRepository.cs" />
+    <Compile Include="MaestroOutboundRazonRepository.cs" />
+    <Compile Include="MaestroOutboundTipoContactoRepository.cs" />
+    <Compile Include="ModosLoginRepository.cs" />
+    <Compile Include="PreguntasDesbloqueoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroSesionRepository.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="TmpMaestroHobbiesClienteRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="UnitOfWorkMaestros.cs" />
+    <Compile Include="UsuarioRepository.cs" />
+    <Compile Include="UsuariosXAccesoRepository.cs" />
+    <Compile Include="UsuariosXPreguntasDesbRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

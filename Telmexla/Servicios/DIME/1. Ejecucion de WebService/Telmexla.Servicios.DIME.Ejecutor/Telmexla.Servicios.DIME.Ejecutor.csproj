@@ -75,6 +75,14 @@
       <Project>{395D1809-BE70-4B2A-9413-46708EDFB957}</Project>
       <Name>Telmexla.Servicios.DIME.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\5. Data\Telmexla.Servicios.DIME.Data\Telmexla.Servicios.DIME.Data.csproj">
+      <Project>{A012A255-31D0-4A67-918B-4D7B6EB3AFC8}</Project>
+      <Name>Telmexla.Servicios.DIME.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\5. Data\Telmexla.Servicios.DIME.IData\Telmexla.Servicios.DIME.IData.csproj">
+      <Project>{0842C0D8-F2D3-4B5B-AA46-CEF83CE1AD12}</Project>
+      <Name>Telmexla.Servicios.DIME.IData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

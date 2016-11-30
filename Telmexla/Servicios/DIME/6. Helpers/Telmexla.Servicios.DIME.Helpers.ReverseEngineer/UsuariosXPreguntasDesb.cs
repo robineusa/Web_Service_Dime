@@ -23,8 +23,8 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string Respuesta { get; set; } // RESPUESTA (length: 200)
 
         // Foreign keys
-        public virtual PreguntasDesbloqueo PreguntasDesbloqueo { get; set; } // FK__TBL_USUAR__ID_PR__3A4CA8FD
-        public virtual Usuario Usuario { get; set; } // FK__TBL_USUAR__ID_US__3B40CD36
+        public virtual PreguntasDesbloqueo PreguntasDesbloqueo { get; set; } // FK__TBL_USUAR__ID_PR__22AA2996
+        public virtual Usuario Usuario { get; set; } // FK__TBL_USUAR__ID_US__239E4DCF
     }
 
 }

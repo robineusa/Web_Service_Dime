@@ -19,10 +19,20 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     public class DimeContext : System.Data.Entity.DbContext, IDimeContext
     {
         public System.Data.Entity.DbSet<Acceso> Accesoes { get; set; } // TBL_ACCESOS
+        public System.Data.Entity.DbSet<CierreCiclo> CierreCicloes { get; set; } // TBL_CIERRE_CICLO
+        public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; } // TBL_CLARO_VIDEO
+        public System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; } // TBL_CLIENTES_TODOS
+        public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; } // TBL_CONVENIO_ELECTRONICO
+        public System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; } // TBL_DATOS_ADICIONALES_CLIENTES
+        public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
+        public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; } // TBL_GESTION_OUTBOUND
+        public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; } // TBL_LINEA
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; } // TBL_MODOS_LOGINS
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; } // TBL_PREGUNTAS_DESBLOQUEO
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION
+        public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; } // sysdiagrams
+        public System.Data.Entity.DbSet<TmpMaestroHobbiesCliente> TmpMaestroHobbiesClientes { get; set; } // TMP_MAESTRO_HOBBIES_CLIENTE
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; } // TBL_USUARIOS
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // TBL_USUARIOS_X_ACCESOS
         public System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; } // TBL_USUARIOS_X_PREGUNTAS_DESB
@@ -76,10 +86,20 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Configurations.Add(new AccesoConfiguration());
+            modelBuilder.Configurations.Add(new CierreCicloConfiguration());
+            modelBuilder.Configurations.Add(new ClaroVideoConfiguration());
+            modelBuilder.Configurations.Add(new ClientesTodoConfiguration());
+            modelBuilder.Configurations.Add(new ConvenioElectronicoConfiguration());
+            modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration());
+            modelBuilder.Configurations.Add(new DocsisOverlapConfiguration());
+            modelBuilder.Configurations.Add(new GestionOutboundConfiguration());
+            modelBuilder.Configurations.Add(new IngresoConfiguration());
             modelBuilder.Configurations.Add(new LineaConfiguration());
             modelBuilder.Configurations.Add(new ModosLoginConfiguration());
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration());
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration());
+            modelBuilder.Configurations.Add(new SysdiagramConfiguration());
+            modelBuilder.Configurations.Add(new TmpMaestroHobbiesClienteConfiguration());
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration());
@@ -88,15 +108,61 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
         {
             modelBuilder.Configurations.Add(new AccesoConfiguration(schema));
+            modelBuilder.Configurations.Add(new CierreCicloConfiguration(schema));
+            modelBuilder.Configurations.Add(new ClaroVideoConfiguration(schema));
+            modelBuilder.Configurations.Add(new ClientesTodoConfiguration(schema));
+            modelBuilder.Configurations.Add(new ConvenioElectronicoConfiguration(schema));
+            modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration(schema));
+            modelBuilder.Configurations.Add(new DocsisOverlapConfiguration(schema));
+            modelBuilder.Configurations.Add(new GestionOutboundConfiguration(schema));
+            modelBuilder.Configurations.Add(new IngresoConfiguration(schema));
             modelBuilder.Configurations.Add(new LineaConfiguration(schema));
             modelBuilder.Configurations.Add(new ModosLoginConfiguration(schema));
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration(schema));
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration(schema));
+            modelBuilder.Configurations.Add(new SysdiagramConfiguration(schema));
+            modelBuilder.Configurations.Add(new TmpMaestroHobbiesClienteConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuarioConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration(schema));
             return modelBuilder;
         }
+        
+        // Stored Procedures
+        public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion)
+        {
+            var idAsesorParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Asesor", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Input, Value = idAsesor.GetValueOrDefault(), Precision = 10, Scale = 0 };
+            if (!idAsesor.HasValue)
+                idAsesorParam.Value = System.DBNull.Value;
+
+            var gestionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Gestion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = gestion, Size = 50 };
+            if (gestionParam.Value == null)
+                gestionParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+ 
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[APARTAR_CUENTA_GESTION_OUTBOUND_ASESOR] @Id_Asesor, @Gestion", idAsesorParam, gestionParam, procResultParam);
+ 
+            return (int) procResultParam.Value;
+        }
+
+        public int Consultas(decimal? nombreCab, System.Data.DataTable detalles)
+        {
+            var nombreCabParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Nombre_Cab", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = nombreCab.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!nombreCab.HasValue)
+                nombreCabParam.Value = System.DBNull.Value;
+
+            var detallesParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Detalles", SqlDbType = System.Data.SqlDbType.Structured, Direction = System.Data.ParameterDirection.Input, Value = detalles, TypeName = "dbo.TipoIConsultas" };
+            if (detallesParam.Value == null)
+                detallesParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+ 
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Consultas] @Nombre_Cab, @Detalles", nombreCabParam, detallesParam, procResultParam);
+ 
+            return (int) procResultParam.Value;
+        }
+
     }
 }
 // </auto-generated>

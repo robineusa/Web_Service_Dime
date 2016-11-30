@@ -15,7 +15,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface ILoginService
     {
         [OperationContract]
-        bool AutenticarUsuario(Usuario usuario);
+        int AutenticarUsuarioEnSesion(Usuario usuario);
 
 
         [OperationContract]
@@ -24,8 +24,50 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         bool RegistrarActualizarPreguntas(List<PreguntasDesbloqueo> preguntas, List<String> respuestas, Usuario usuario, int noPreguntas);
 
+
+        [OperationContract]
+        bool RegistrarActualizarDatosUsuario(Usuario usuario);
+
+        
         [OperationContract]
         List<PreguntasDesbloqueo> ObtenerPosiblesPreguntas();
+
+        [OperationContract]
+        bool BloquearUsuario(int id, int idUsuarioCambioo, string ipPrivadaCreacion, string ipPublicaCreacion);
+
+        [OperationContract]
+        int RecibirIdUsuario(decimal? cedula);
+
+
+        [OperationContract]
+        List<String> ObtenerPreguntasRegistradas(int id);
+
+
+        [OperationContract]
+        bool RespuestasValidas(List<string> respuestas, int idUsuario);
+
+
+        [OperationContract]
+        bool RestablecerContraseña(String contraseña, int idUsuario);
+
+        [OperationContract]
+        bool PreguntasDesbloqueoCompletas(int id);
+
+        [OperationContract]
+        bool DatosUsuarioCompleto(int id);
+
+        [OperationContract]
+        bool ContraseñaCaducada(int id);
+
+
+        [OperationContract]
+        bool Capacitado(int id);
+
+        [OperationContract]
+        bool CapacitarUsuario(int id);
+
+        [OperationContract]
+        bool RegistrarSesionUsuario(RegistroSesion registroSesion);
 
 
     }

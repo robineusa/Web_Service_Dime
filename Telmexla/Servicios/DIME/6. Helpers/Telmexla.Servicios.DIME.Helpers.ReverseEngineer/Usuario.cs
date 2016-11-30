@@ -19,11 +19,17 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     {
         public int Id { get; set; } // ID (Primary key)
         public decimal? Cedula { get; set; } // CEDULA
-        public string Nombre { get; set; } // NOMBRE (length: 20)
+        public string Nombre { get; set; } // NOMBRE (length: 100)
         public string Contrasena { get; set; } // CONTRASENA (length: 300)
+        public string Genero { get; set; } // GENERO (length: 1)
+        public string Correo { get; set; } // CORREO (length: 200)
+        public System.DateTime? FechaNacimiento { get; set; } // FECHA_NACIMIENTO
+        public decimal? Telefono { get; set; } // TELEFONO
+        public System.DateTime? FechaContrasena { get; set; } // FECHA_CONTRASENA
+        public bool? Capacitado { get; set; } // Capacitado
 
         // Reverse navigation
-        public virtual System.Collections.Generic.ICollection<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION.FK__TBL_REGIS__ID_US__37703C52
+        public virtual System.Collections.Generic.ICollection<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION.FK__TBL_REGIS__ID_US__1FCDBCEB
         public virtual System.Collections.Generic.ICollection<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // Many to many mapping
         public virtual System.Collections.Generic.ICollection<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; } // Many to many mapping
 

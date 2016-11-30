@@ -19,10 +19,20 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     public class FakeDimeContext : IDimeContext
     {
         public System.Data.Entity.DbSet<Acceso> Accesoes { get; set; }
+        public System.Data.Entity.DbSet<CierreCiclo> CierreCicloes { get; set; }
+        public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; }
+        public System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; }
+        public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; }
+        public System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; }
+        public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; }
+        public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; }
+        public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; }
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; }
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; }
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; }
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; }
+        public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; }
+        public System.Data.Entity.DbSet<TmpMaestroHobbiesCliente> TmpMaestroHobbiesClientes { get; set; }
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; }
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; }
         public System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; }
@@ -30,10 +40,20 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public FakeDimeContext()
         {
             Accesoes = new FakeDbSet<Acceso>("Id");
+            CierreCicloes = new FakeDbSet<CierreCiclo>("Id");
+            ClaroVideos = new FakeDbSet<ClaroVideo>("Id");
+            ClientesTodoes = new FakeDbSet<ClientesTodo>("Cuenta");
+            ConvenioElectronicoes = new FakeDbSet<ConvenioElectronico>("Id");
+            DatosAdicionalesClientes = new FakeDbSet<DatosAdicionalesCliente>("Cuenta");
+            DocsisOverlaps = new FakeDbSet<DocsisOverlap>("Id");
+            GestionOutbounds = new FakeDbSet<GestionOutbound>("Id");
+            Ingresoes = new FakeDbSet<Ingreso>("IdIngreso");
             Lineas = new FakeDbSet<Linea>("Id");
             ModosLogins = new FakeDbSet<ModosLogin>("Id");
             PreguntasDesbloqueos = new FakeDbSet<PreguntasDesbloqueo>("Id");
             RegistroSesions = new FakeDbSet<RegistroSesion>("Id");
+            Sysdiagrams = new FakeDbSet<Sysdiagram>("DiagramId");
+            TmpMaestroHobbiesClientes = new FakeDbSet<TmpMaestroHobbiesCliente>("IdHobby");
             Usuarios = new FakeDbSet<Usuario>("Id");
             UsuariosXAccesoes = new FakeDbSet<UsuariosXAcceso>("Id", "IdAcceso", "IdUsuario");
             UsuariosXPreguntasDesbs = new FakeDbSet<UsuariosXPreguntasDesb>("Id", "IdPregunta", "IdUsuario");
@@ -66,6 +86,20 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         {
             Dispose(true);
         }
+
+        // Stored Procedures
+        public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion)
+        {
+ 
+            return 0;
+        }
+
+        public int Consultas(decimal? nombreCab, System.Data.DataTable detalles)
+        {
+ 
+            return 0;
+        }
+
     }
 }
 // </auto-generated>

@@ -19,7 +19,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ExtenMethods
             {
                 str = str.Replace(con[i], sin[i]);
             }
-            str = str.Trim();
+            str = str.Replace(" ", "");
             return str;
         }
 

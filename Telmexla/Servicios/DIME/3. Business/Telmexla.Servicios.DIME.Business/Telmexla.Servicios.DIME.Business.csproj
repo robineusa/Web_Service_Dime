@@ -49,11 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArbolesDeTipificacion.cs" />
+    <Compile Include="BlendingBusiness.cs" />
+    <Compile Include="ClientesBusiness.cs" />
+    <Compile Include="OutboundBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\4. Entidades\Telmexla.Servicios.DIME.Entity\Telmexla.Servicios.DIME.Entity.csproj">
+      <Project>{395D1809-BE70-4B2A-9413-46708EDFB957}</Project>
+      <Name>Telmexla.Servicios.DIME.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\5. Data\Telmexla.Servicios.DIME.Data\Telmexla.Servicios.DIME.Data.csproj">
+      <Project>{A012A255-31D0-4A67-918B-4D7B6EB3AFC8}</Project>
+      <Name>Telmexla.Servicios.DIME.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\5. Data\Telmexla.Servicios.DIME.IData\Telmexla.Servicios.DIME.IData.csproj">
+      <Project>{0842c0d8-f2d3-4b5b-aa46-cef83ce1ad12}</Project>
+      <Name>Telmexla.Servicios.DIME.IData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -52,7 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBlendingService.cs" />
+    <Compile Include="IClientesService.cs" />
+    <Compile Include="IInboundService.cs" />
     <Compile Include="ILoginService.cs" />
+    <Compile Include="IMaestrosService.cs" />
     <Compile Include="IMainWebService\IWebService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

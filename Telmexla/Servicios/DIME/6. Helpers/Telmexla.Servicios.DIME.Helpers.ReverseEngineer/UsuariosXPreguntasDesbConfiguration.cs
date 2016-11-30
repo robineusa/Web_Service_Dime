@@ -33,8 +33,8 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.Respuesta).HasColumnName(@"RESPUESTA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(200);
 
             // Foreign keys
-            HasRequired(a => a.PreguntasDesbloqueo).WithMany(b => b.UsuariosXPreguntasDesbs).HasForeignKey(c => c.IdPregunta).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_PR__3A4CA8FD
-            HasRequired(a => a.Usuario).WithMany(b => b.UsuariosXPreguntasDesbs).HasForeignKey(c => c.IdUsuario).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_US__3B40CD36
+            HasRequired(a => a.PreguntasDesbloqueo).WithMany(b => b.UsuariosXPreguntasDesbs).HasForeignKey(c => c.IdPregunta).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_PR__22AA2996
+            HasRequired(a => a.Usuario).WithMany(b => b.UsuariosXPreguntasDesbs).HasForeignKey(c => c.IdUsuario).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_US__239E4DCF
         }
     }
 

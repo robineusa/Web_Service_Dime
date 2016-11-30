@@ -27,17 +27,18 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             ToTable("TBL_USUARIOS_X_ACCESOS", schema);
             HasKey(x => new { x.Id, x.IdAcceso, x.IdUsuario });
 
-            Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.IdUsuario).HasColumnName(@"ID_USUARIO").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
             Property(x => x.IdAcceso).HasColumnName(@"ID_ACCESO").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
             Property(x => x.IdUserCambioo).HasColumnName(@"ID_USER_CAMBIOO").IsOptional().HasColumnType("int");
-            Property(x => x.IpCreacion).HasColumnName(@"IP_CREACION").IsOptional().HasColumnType("nvarchar").HasMaxLength(15);
             Property(x => x.FechaCreacion).HasColumnName(@"FECHA_CREACION").IsOptional().HasColumnType("date");
             Property(x => x.HoraCreacion).HasColumnName(@"HORA_CREACION").IsOptional().HasColumnType("time");
+            Property(x => x.IpPublicaCreacion).HasColumnName(@"IP_PUBLICA_CREACION").IsOptional().HasColumnType("nvarchar").HasMaxLength(15);
+            Property(x => x.IpPrivadaCreacion).HasColumnName(@"IP_PRIVADA_CREACION").IsOptional().HasColumnType("nvarchar").HasMaxLength(15);
 
             // Foreign keys
-            HasRequired(a => a.Acceso).WithMany(b => b.UsuariosXAccesoes).HasForeignKey(c => c.IdAcceso).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_AC__3493CFA7
-            HasRequired(a => a.Usuario).WithMany(b => b.UsuariosXAccesoes).HasForeignKey(c => c.IdUsuario).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_US__339FAB6E
+            HasRequired(a => a.Acceso).WithMany(b => b.UsuariosXAccesoes).HasForeignKey(c => c.IdAcceso).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_AC__20C1E124
+            HasRequired(a => a.Usuario).WithMany(b => b.UsuariosXAccesoes).HasForeignKey(c => c.IdUsuario).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_US__21B6055D
         }
     }
 

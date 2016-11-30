@@ -9,11 +9,10 @@
 // TargetFrameworkVersion = 4.51
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using Telmexla.Servicios.DIME.Entity;
 
+using Telmexla.Servicios.DIME.Entity;
 namespace Telmexla.Servicios.DIME.Data.Configuration
 {
-
     // TBL_USUARIOS
     public class UsuarioConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Usuario>
     {
@@ -29,10 +28,15 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
 
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Cedula).HasColumnName(@"CEDULA").IsOptional().HasColumnType("numeric");
-            Property(x => x.Nombre).HasColumnName(@"NOMBRE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(20);
+            Property(x => x.Nombre).HasColumnName(@"NOMBRE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Contrasena).HasColumnName(@"CONTRASENA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(300);
+            Property(x => x.Genero).HasColumnName(@"GENERO").IsOptional().IsFixedLength().IsUnicode(false).HasColumnType("char").HasMaxLength(1);
+            Property(x => x.Correo).HasColumnName(@"CORREO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(200);
+            Property(x => x.FechaNacimiento).HasColumnName(@"FECHA_NACIMIENTO").IsOptional().HasColumnType("date");
+            Property(x => x.Telefono).HasColumnName(@"TELEFONO").IsOptional().HasColumnType("numeric");
+            Property(x => x.FechaContrasena).HasColumnName(@"FECHA_CONTRASENA").IsOptional().HasColumnType("date");
+            Property(x => x.Capacitado).HasColumnName(@"Capacitado").IsOptional().HasColumnType("bit");
         }
     }
 
 }
-

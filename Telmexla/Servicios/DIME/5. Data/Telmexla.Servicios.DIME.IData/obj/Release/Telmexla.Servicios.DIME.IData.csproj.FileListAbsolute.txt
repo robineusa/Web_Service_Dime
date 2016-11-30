@@ -10,3 +10,15 @@ C:\Users\1032381244\Documents\Visual Studio 2015\Projects\Telmexla\Servicios\DIM
 C:\Users\1032381244\Documents\Visual Studio 2015\Projects\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Release\Telmexla.Servicios.DIME.IData.csprojResolveAssemblyReference.cache
 C:\Users\1032381244\Documents\Visual Studio 2015\Projects\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Release\Telmexla.Servicios.DIME.IData.dll
 C:\Users\1032381244\Documents\Visual Studio 2015\Projects\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Release\Telmexla.Servicios.DIME.IData.pdb
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Release\Telmexla.Servicios.DIME.IData.dll.config
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Release\Telmexla.Servicios.DIME.IData.dll
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Release\Telmexla.Servicios.DIME.IData.pdb
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Release\EntityFramework.dll
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Release\Telmexla.Servicios.DIME.Entity.dll
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Release\Telmexla.Servicios.DIME.Entity.pdb
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Release\EntityFramework.xml
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Release\Telmexla.Servicios.DIME.IData.csprojResolveAssemblyReference.cache
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Release\Telmexla.Servicios.DIME.IData.dll
+C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Release\Telmexla.Servicios.DIME.IData.pdb

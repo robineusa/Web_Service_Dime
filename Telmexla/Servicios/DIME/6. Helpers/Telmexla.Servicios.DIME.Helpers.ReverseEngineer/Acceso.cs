@@ -18,14 +18,14 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     public class Acceso
     {
         public int Id { get; set; } // ID (Primary key)
-        public string Nombre { get; set; } // NOMBRE (length: 20)
-        public int? IdLinea { get; set; } // ID_LINEA
+        public string Nombre { get; set; } // NOMBRE (length: 50)
+        public int? IdModoLogin { get; set; } // ID_MODO_LOGIN
 
         // Reverse navigation
         public virtual System.Collections.Generic.ICollection<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // Many to many mapping
 
         // Foreign keys
-        public virtual Linea Linea { get; set; } // FK__TBL_ACCES__ID_LI__2CF2ADDF
+        public virtual ModosLogin ModosLogin { get; set; } // FK__TBL_ACCES__ID_MO__1DE57479
 
         public Acceso()
         {

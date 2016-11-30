@@ -30,12 +30,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.EsIngreso).HasColumnName(@"ES_INGRESO").IsOptional().HasColumnType("bit");
             Property(x => x.IdUsuario).HasColumnName(@"ID_USUARIO").IsOptional().HasColumnType("int");
-            Property(x => x.IpCreacion).HasColumnName(@"IP_CREACION").IsOptional().HasColumnType("nvarchar").HasMaxLength(15);
             Property(x => x.FechaCreacion).HasColumnName(@"FECHA_CREACION").IsOptional().HasColumnType("date");
             Property(x => x.HoraCreacion).HasColumnName(@"HORA_CREACION").IsOptional().HasColumnType("time");
+            Property(x => x.IpPublicaCreacion).HasColumnName(@"IP_PUBLICA_CREACION").IsOptional().HasColumnType("nvarchar").HasMaxLength(15);
+            Property(x => x.IpPrivadaCreacion).HasColumnName(@"IP_PRIVADA_CREACION").IsOptional().HasColumnType("nvarchar").HasMaxLength(15);
 
             // Foreign keys
-            HasOptional(a => a.Usuario).WithMany(b => b.RegistroSesions).HasForeignKey(c => c.IdUsuario).WillCascadeOnDelete(false); // FK__TBL_REGIS__ID_US__37703C52
+            HasOptional(a => a.Usuario).WithMany(b => b.RegistroSesions).HasForeignKey(c => c.IdUsuario).WillCascadeOnDelete(false); // FK__TBL_REGIS__ID_US__1FCDBCEB
         }
     }
 

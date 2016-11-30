@@ -18,19 +18,11 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     public class Linea
     {
         public int Id { get; set; } // ID (Primary key)
-        public string Nombre { get; set; } // NOMBRE (length: 20)
+        public string Nombre { get; set; } // NOMBRE (length: 50)
         public int? IdModoLogin { get; set; } // ID_MODO_LOGIN
 
-        // Reverse navigation
-        public virtual System.Collections.Generic.ICollection<Acceso> Accesoes { get; set; } // TBL_ACCESOS.FK__TBL_ACCES__ID_LI__2CF2ADDF
-
         // Foreign keys
-        public virtual ModosLogin ModosLogin { get; set; } // FK__TBL_LINEA__ID_MO__2A164134
-
-        public Linea()
-        {
-            Accesoes = new System.Collections.Generic.List<Acceso>();
-        }
+        public virtual ModosLogin ModosLogin { get; set; } // FK__TBL_LINEA__ID_MO__1ED998B2
     }
 
 }

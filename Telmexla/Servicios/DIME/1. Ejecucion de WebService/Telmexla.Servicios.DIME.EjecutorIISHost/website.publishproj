@@ -68,6 +68,22 @@ Copyright (C) Microsoft Corporation. Todos los derechos reservados.
       <Project>{0842C0D8-F2D3-4B5B-AA46-CEF83CE1AD12}</Project>
       <Name>Telmexla.Servicios.DIME.IData</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\Telmexla.Servicios.DIME.Helpers.EMails.csproj">
+      <Project>{88FBEF67-32EE-4694-A940-BB729E37B044}</Project>
+      <Name>Telmexla.Servicios.DIME.Helpers.EMails</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\Telmexla.Servicios.DIME.Helpers.Encription.csproj">
+      <Project>{3F5CB654-998C-409D-B00F-4479EF005389}</Project>
+      <Name>Telmexla.Servicios.DIME.Helpers.Encription</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\Telmexla.Servicios.DIME.Helpers.ExtenMethods.csproj">
+      <Project>{74D3F1F8-7EF2-4506-96AC-1D839BC39943}</Project>
+      <Name>Telmexla.Servicios.DIME.Helpers.ExtenMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.csproj">
+      <Project>{E9C2E579-A044-428D-8C28-BDD199B1DB02}</Project>
+      <Name>Telmexla.Servicios.DIME.Helpers.ReverseEngineer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
 </Project>

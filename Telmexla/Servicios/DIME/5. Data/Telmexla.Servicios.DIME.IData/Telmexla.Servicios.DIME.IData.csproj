@@ -49,7 +49,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAccesoRepository.cs" />
+    <Compile Include="ICierreCicloRepository.cs" />
+    <Compile Include="IClaroVideoRepository.cs" />
+    <Compile Include="IClientesTodoRespository.cs" />
     <Compile Include="IContext\IDimeContext.cs" />
+    <Compile Include="IContext\IMaestrosContext.cs" />
+    <Compile Include="IConvenioElectronicoRepository.cs" />
+    <Compile Include="IDatosAdicionalesClienteRepository.cs" />
+    <Compile Include="IDocsisOverlapRepository.cs" />
+    <Compile Include="IGestionOutboundRepository.cs" />
+    <Compile Include="ILineaRepository.cs" />
+    <Compile Include="IMaestroOutboundCausaRepository.cs" />
+    <Compile Include="IMaestroOutboundCierreRepository.cs" />
+    <Compile Include="IMaestroOutboundMotivoRepository.cs" />
+    <Compile Include="IMaestroOutboundRazonRepository.cs" />
+    <Compile Include="IMaestroOutboundTipoContactoRepository.cs" />
+    <Compile Include="IModosLoginRepository.cs" />
+    <Compile Include="IPreguntasDesbloqueoRepository.cs" />
+    <Compile Include="IRegistroSesionRepository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="ITmpMaestroHobbiesClienteRepository.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="IUnitOfWorkMaestros.cs" />
+    <Compile Include="IUsuarioRepository.cs" />
+    <Compile Include="IUsuariosXAccesoRepository.cs" />
+    <Compile Include="IUsuariosXPreguntasDesbRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
