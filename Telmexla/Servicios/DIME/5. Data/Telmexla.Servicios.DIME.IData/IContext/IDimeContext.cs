@@ -32,10 +32,10 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<CierreCiclo> CierreCicloes { get; set; } // TBL_CIERRE_CICLO
         System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; } // TBL_CLARO_VIDEO
         System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
+        System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; } //TMP_MAESTRO_MARCACION
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();
         System.Threading.Tasks.Task<int> SaveChangesAsync(System.Threading.CancellationToken cancellationToken);
-
         // Stored Procedures
         int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion);
         // ApartarCuentaGestionOutboundAsesorAsync cannot be created due to having out parameters, or is relying on the procedure result (int)

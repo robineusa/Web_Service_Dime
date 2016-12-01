@@ -62,6 +62,7 @@
     <Compile Include="Configuration\DocsisOverlapConfiguration.cs" />
     <Compile Include="Configuration\GestionOutboundConfiguration.cs" />
     <Compile Include="Configuration\LineaConfiguration.cs" />
+    <Compile Include="Configuration\MaestroMarcacionesConfiguration.cs" />
     <Compile Include="Configuration\MaestroOutboundCausaConfiguration.cs" />
     <Compile Include="Configuration\MaestroOutboundCierreConfiguration.cs" />
     <Compile Include="Configuration\MaestroOutboundMotivoConfiguration.cs" />

@@ -36,6 +36,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; } // TBL_CLARO_VIDEO
         public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; } // TBL_CONVENIO_ELECTRONICO
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
+        public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; }
 
         static DimeContext()
         {
@@ -103,6 +104,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration());
+            modelBuilder.Configurations.Add(new MaestroMarcacionesConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -123,6 +125,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new UsuarioConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration(schema));
+            modelBuilder.Configurations.Add(new MaestroMarcacionesConfiguration(schema));
             return modelBuilder;
         }
 

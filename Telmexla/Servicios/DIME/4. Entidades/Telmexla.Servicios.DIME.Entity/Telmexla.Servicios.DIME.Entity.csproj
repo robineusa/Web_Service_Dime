@@ -66,6 +66,7 @@
     <Compile Include="GestionOutbound.cs" />
     <Compile Include="GestionOutboundCollection.cs" />
     <Compile Include="Linea.cs" />
+    <Compile Include="MaestroMarcaciones.cs" />
     <Compile Include="MaestroOutboundCausa.cs" />
     <Compile Include="MaestroOutboundCausaCollection.cs" />
     <Compile Include="MaestroOutboundCierre.cs" />
