@@ -38,9 +38,9 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.CantidadDias).HasColumnName(@"CANTIDAD_DIAS").IsOptional().HasColumnType("int");
             Property(x => x.Canal).HasColumnName(@"CANAL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.TipoMarcacion).HasColumnName(@"TIPO_MARCACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.FechaCreacion).HasColumnName(@"FEHCA_CREACION").IsOptional().HasColumnType("datetime");
+            Property(x => x.FechaCreacion).HasColumnName(@"FECHA_CREACION").IsOptional().HasColumnType("datetime");
             Property(x => x.UsuarioCreacion).HasColumnName(@"USUARIO_CREACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.FechaActualizacion).HasColumnName(@"FEHCA_ACTUALIZACION").IsOptional().HasColumnType("datetime");
+            Property(x => x.FechaActualizacion).HasColumnName(@"FECHA_ACTUALIZACION").IsOptional().HasColumnType("datetime");
             Property(x => x.UsuarioActualizacion).HasColumnName(@"USUARIO_ACTUALIZACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             
             
