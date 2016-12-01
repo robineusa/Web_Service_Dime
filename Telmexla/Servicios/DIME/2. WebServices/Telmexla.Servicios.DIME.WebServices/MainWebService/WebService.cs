@@ -10,7 +10,7 @@ using Telmexla.Servicios.DIME.Helpers.ExtenMethods;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService
     {
 
         #region Login Service
@@ -296,5 +296,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
+
+        #region MarcacionesService
+        public void RegistrarMarcacion(MaestroMarcacione marcacion)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            marcacionesService.RegistrarMarcacion(marcacion);
+        }
+        #endregion
     }
 }
