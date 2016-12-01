@@ -309,6 +309,12 @@
     <Compile Include="NombreLineaConfiguration.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
+    <Compile Include="NotasIngreso.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotasIngresoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="PreguntasDesbloqueo.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -368,6 +374,12 @@
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="TmpMaestroHobbiesClienteConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpMaestroMarcacione.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TmpMaestroMarcacioneConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">

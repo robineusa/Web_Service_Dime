@@ -19,24 +19,6 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             static void Main()
           {
 
-            UnitOfWork prueba = new UnitOfWork(new DimeContext());
-
-            MaestroMarcacione maesprueba = new MaestroMarcacione();
-            maesprueba.CantidadDias = 34;
-            maesprueba.AreaResponsable = "Gestion";
-            maesprueba.FechaCreacion = DateTime.Now;
-            maesprueba.FechaActualizacion = DateTime.Now;
-            prueba.maestroMarcaciones.Add(maesprueba);
-            prueba.Complete();
-
-
-
-
-
-
-
-
-
            ClientesTodo DatosCliente = new ClientesTodo();
             ConvenioElectronicoCollection HistoricoConvenioElectronico = new ConvenioElectronicoCollection();
             ConvenioElectronico ConvenioElecGestionado = new ConvenioElectronico();

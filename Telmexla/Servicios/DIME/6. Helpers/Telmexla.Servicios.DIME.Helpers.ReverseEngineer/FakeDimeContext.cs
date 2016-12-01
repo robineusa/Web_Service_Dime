@@ -29,10 +29,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; }
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; }
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; }
+        public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; }
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; }
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; }
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; }
         public System.Data.Entity.DbSet<TmpMaestroHobbiesCliente> TmpMaestroHobbiesClientes { get; set; }
+        public System.Data.Entity.DbSet<TmpMaestroMarcacione> TmpMaestroMarcaciones { get; set; }
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; }
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; }
         public System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; }
@@ -50,10 +52,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Ingresoes = new FakeDbSet<Ingreso>("IdIngreso");
             Lineas = new FakeDbSet<Linea>("Id");
             ModosLogins = new FakeDbSet<ModosLogin>("Id");
+            NotasIngresoes = new FakeDbSet<NotasIngreso>("IdNota", "CuentaCliente", "NombreLineaNota");
             PreguntasDesbloqueos = new FakeDbSet<PreguntasDesbloqueo>("Id");
             RegistroSesions = new FakeDbSet<RegistroSesion>("Id");
             Sysdiagrams = new FakeDbSet<Sysdiagram>("DiagramId");
             TmpMaestroHobbiesClientes = new FakeDbSet<TmpMaestroHobbiesCliente>("IdHobby");
+            TmpMaestroMarcaciones = new FakeDbSet<TmpMaestroMarcacione>("Id");
             Usuarios = new FakeDbSet<Usuario>("Id");
             UsuariosXAccesoes = new FakeDbSet<UsuariosXAcceso>("Id", "IdAcceso", "IdUsuario");
             UsuariosXPreguntasDesbs = new FakeDbSet<UsuariosXPreguntasDesb>("Id", "IdPregunta", "IdUsuario");

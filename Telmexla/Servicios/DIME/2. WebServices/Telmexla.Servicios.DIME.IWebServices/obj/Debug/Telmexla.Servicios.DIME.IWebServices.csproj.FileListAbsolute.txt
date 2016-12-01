@@ -34,15 +34,3 @@ C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Ser
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\obj\Debug\Telmexla.Servicios.DIME.IWebServices.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\obj\Debug\Telmexla.Servicios.DIME.IWebServices.dll
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\obj\Debug\Telmexla.Servicios.DIME.IWebServices.pdb
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\Telmexla.Servicios.DIME.IWebServices.dll.config
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\Telmexla.Servicios.DIME.IWebServices.dll
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\Telmexla.Servicios.DIME.IWebServices.pdb
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\EntityFramework.dll
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\Telmexla.Servicios.DIME.Entity.dll
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\Telmexla.Servicios.DIME.Entity.pdb
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\EntityFramework.xml
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\obj\Debug\Telmexla.Servicios.DIME.IWebServices.csprojResolveAssemblyReference.cache
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\obj\Debug\Telmexla.Servicios.DIME.IWebServices.dll
-C:\Users\robin\OneDrive\Documentos\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\obj\Debug\Telmexla.Servicios.DIME.IWebServices.pdb

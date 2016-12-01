@@ -65,6 +65,7 @@
     <Compile Include="DocsisOverlapCollection.cs" />
     <Compile Include="GestionOutbound.cs" />
     <Compile Include="GestionOutboundCollection.cs" />
+    <Compile Include="Ingreso.cs" />
     <Compile Include="Linea.cs" />
     <Compile Include="MaestroMarcacione.cs" />
     <Compile Include="MaestroOutboundCausa.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="MaestroOutboundTipoGestion.cs" />
     <Compile Include="MaestroOutboundTipoGestionCollection.cs" />
     <Compile Include="ModosLogin.cs" />
+    <Compile Include="NotasIngreso.cs" />
     <Compile Include="PreguntasDesbloqueo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroSesion.cs" />

@@ -29,10 +29,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; } // TBL_LINEA
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; } // TBL_MODOS_LOGINS
+        public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; } // TBL_PREGUNTAS_DESBLOQUEO
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; } // sysdiagrams
         public System.Data.Entity.DbSet<TmpMaestroHobbiesCliente> TmpMaestroHobbiesClientes { get; set; } // TMP_MAESTRO_HOBBIES_CLIENTE
+        public System.Data.Entity.DbSet<TmpMaestroMarcacione> TmpMaestroMarcaciones { get; set; } // TMP_MAESTRO_MARCACIONES
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; } // TBL_USUARIOS
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // TBL_USUARIOS_X_ACCESOS
         public System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; } // TBL_USUARIOS_X_PREGUNTAS_DESB
@@ -96,10 +98,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new IngresoConfiguration());
             modelBuilder.Configurations.Add(new LineaConfiguration());
             modelBuilder.Configurations.Add(new ModosLoginConfiguration());
+            modelBuilder.Configurations.Add(new NotasIngresoConfiguration());
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration());
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration());
             modelBuilder.Configurations.Add(new SysdiagramConfiguration());
             modelBuilder.Configurations.Add(new TmpMaestroHobbiesClienteConfiguration());
+            modelBuilder.Configurations.Add(new TmpMaestroMarcacioneConfiguration());
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration());
@@ -118,10 +122,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new IngresoConfiguration(schema));
             modelBuilder.Configurations.Add(new LineaConfiguration(schema));
             modelBuilder.Configurations.Add(new ModosLoginConfiguration(schema));
+            modelBuilder.Configurations.Add(new NotasIngresoConfiguration(schema));
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration(schema));
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration(schema));
             modelBuilder.Configurations.Add(new SysdiagramConfiguration(schema));
             modelBuilder.Configurations.Add(new TmpMaestroHobbiesClienteConfiguration(schema));
+            modelBuilder.Configurations.Add(new TmpMaestroMarcacioneConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuarioConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration(schema));

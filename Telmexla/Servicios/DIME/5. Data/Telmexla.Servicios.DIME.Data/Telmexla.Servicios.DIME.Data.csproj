@@ -61,6 +61,7 @@
     <Compile Include="Configuration\DatosAdicionalesClienteConfiguration.cs" />
     <Compile Include="Configuration\DocsisOverlapConfiguration.cs" />
     <Compile Include="Configuration\GestionOutboundConfiguration.cs" />
+    <Compile Include="Configuration\IngresoConfiguration.cs" />
     <Compile Include="Configuration\LineaConfiguration.cs" />
     <Compile Include="Configuration\MaestroMarcacionesConfiguration.cs" />
     <Compile Include="Configuration\MaestroOutboundCausaConfiguration.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Configuration\MaestroOutboundTipoContactoConfiguration.cs" />
     <Compile Include="Configuration\MaestroOutboundTipoGestionConfiguration.cs" />
     <Compile Include="Configuration\ModosLoginConfiguration.cs" />
+    <Compile Include="Configuration\NotasIngresoConfiguration.cs" />
     <Compile Include="Configuration\PreguntasDesbloqueoConfiguration.cs" />
     <Compile Include="Configuration\RegistroSesionConfiguration.cs" />
     <Compile Include="Configuration\TmpMaestroHobbiesClienteConfiguration.cs" />

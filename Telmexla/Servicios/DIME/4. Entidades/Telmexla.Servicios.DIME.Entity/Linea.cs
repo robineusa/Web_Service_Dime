@@ -5,18 +5,6 @@
 // ReSharper disable PartialTypeWithSinglePart
 // ReSharper disable RedundantNameQualifier
 // ReSharper disable RedundantOverridenMember
-
-
-
-
-
-
-
-
-
-
-
-
 // ReSharper disable UseNameofExpression
 // TargetFrameworkVersion = 4.51
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning

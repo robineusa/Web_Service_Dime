@@ -36,6 +36,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; } // TBL_CLARO_VIDEO
         public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; } // TBL_CONVENIO_ELECTRONICO
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
+        public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
+        public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
         public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; }
 
         static DimeContext()
@@ -87,7 +89,6 @@ namespace Telmexla.Servicios.DIME.Data.Context
         protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
             modelBuilder.Configurations.Add(new AccesoConfiguration());
             modelBuilder.Configurations.Add(new CierreCicloConfiguration());
             modelBuilder.Configurations.Add(new ClaroVideoConfiguration());
@@ -96,8 +97,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration());
             modelBuilder.Configurations.Add(new DocsisOverlapConfiguration());
             modelBuilder.Configurations.Add(new GestionOutboundConfiguration());
+            modelBuilder.Configurations.Add(new IngresoConfiguration());
             modelBuilder.Configurations.Add(new LineaConfiguration());
             modelBuilder.Configurations.Add(new ModosLoginConfiguration());
+            modelBuilder.Configurations.Add(new NotasIngresoConfiguration());
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration());
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration());
             modelBuilder.Configurations.Add(new TmpMaestroHobbiesClienteConfiguration());
@@ -117,8 +120,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration(schema));
             modelBuilder.Configurations.Add(new DocsisOverlapConfiguration(schema));
             modelBuilder.Configurations.Add(new GestionOutboundConfiguration(schema));
+            modelBuilder.Configurations.Add(new IngresoConfiguration(schema));
             modelBuilder.Configurations.Add(new LineaConfiguration(schema));
             modelBuilder.Configurations.Add(new ModosLoginConfiguration(schema));
+            modelBuilder.Configurations.Add(new NotasIngresoConfiguration(schema));
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration(schema));
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration(schema));
             modelBuilder.Configurations.Add(new TmpMaestroHobbiesClienteConfiguration(schema));
