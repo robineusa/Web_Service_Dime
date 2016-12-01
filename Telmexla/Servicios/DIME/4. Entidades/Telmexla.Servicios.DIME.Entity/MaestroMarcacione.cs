@@ -19,7 +19,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Clase { get; set; } // MOTIVO (length: 100)
         public string ReporteTrimestral { get; set; } // MOTIVO (length: 100)
         public string Servicios { get; set; } // MOTIVO (length: 100)
-        public string CanalHabilitadp { get; set; } // MOTIVO (length: 100)
+        public string CanalHabilitado { get; set; } // MOTIVO (length: 100)
         public string QueHacer { get; set; } // MOTIVO (length: 100)
         public string QueHacerHtml { get; set; } // MOTIVO (length: 100)
         public string AreayUsuarioEscala { get; set; } // MOTIVO (length: 100)

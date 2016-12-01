@@ -83,6 +83,7 @@
     <Compile Include="DocsisOverlapRepository.cs" />
     <Compile Include="GestionOutboundRepository.cs" />
     <Compile Include="LineaRepository.cs" />
+    <Compile Include="MaestroMarcacioneRepository.cs" />
     <Compile Include="MaestroOutboundCausaRepository.cs" />
     <Compile Include="MaestroOutboundCierreRepository.cs" />
     <Compile Include="MaestroOutboundMotivoRepository.cs" />

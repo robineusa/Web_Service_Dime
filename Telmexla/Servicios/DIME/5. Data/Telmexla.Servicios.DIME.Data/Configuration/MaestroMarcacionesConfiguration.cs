@@ -29,7 +29,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Clase).HasColumnName(@"CLASE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.ReporteTrimestral).HasColumnName(@"REPORTE_TRIMESTRAL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Servicios).HasColumnName(@"SERVICIOS").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.CanalHabilitadp).HasColumnName(@"CANAL_HABILITADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.CanalHabilitado).HasColumnName(@"CANAL_HABILITADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.QueHacer).HasColumnName(@"QUE_HACER").IsOptional().IsUnicode(false).HasColumnType("ntext").IsMaxLength();
             Property(x => x.QueHacerHtml).HasColumnName(@"QUE_HACER_HTML").IsOptional().IsUnicode(false).HasColumnType("ntext").IsMaxLength();
             Property(x => x.AreayUsuarioEscala).HasColumnName(@"AREA_Y_USUARIO_ESCALA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);

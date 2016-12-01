@@ -51,6 +51,7 @@ namespace Telmexla.Servicios.DIME.Data
 
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
+
             Context.Set<TEntity>().RemoveRange(entities);
         }
 

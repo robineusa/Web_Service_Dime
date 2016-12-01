@@ -60,6 +60,7 @@
     <Compile Include="IDocsisOverlapRepository.cs" />
     <Compile Include="IGestionOutboundRepository.cs" />
     <Compile Include="ILineaRepository.cs" />
+    <Compile Include="IMaestroMarcacioneRepository.cs" />
     <Compile Include="IMaestroOutboundCausaRepository.cs" />
     <Compile Include="IMaestroOutboundCierreRepository.cs" />
     <Compile Include="IMaestroOutboundMotivoRepository.cs" />
