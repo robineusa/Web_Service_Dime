@@ -1,4 +1,0 @@
-C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\bin\Release\Telmexla.Servicios.DIME.Helpers.EMails.dll
-C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\bin\Release\Telmexla.Servicios.DIME.Helpers.EMails.pdb
-C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\obj\Release\Telmexla.Servicios.DIME.Helpers.EMails.dll
-C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\obj\Release\Telmexla.Servicios.DIME.Helpers.EMails.pdb
