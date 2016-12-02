@@ -40,3 +40,6 @@ C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Ser
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\obj\Release\Telmexla.Servicios.DIME.WebServices.pdb
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\bin\Release\Telmexla.Servicios.DIME.Business.dll
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\bin\Release\Telmexla.Servicios.DIME.Business.pdb
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\obj\Release\Telmexla.Servicios.DIME.WebServices.csprojResolveAssemblyReference.cache
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\obj\Release\Telmexla.Servicios.DIME.WebServices.dll
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\obj\Release\Telmexla.Servicios.DIME.WebServices.pdb

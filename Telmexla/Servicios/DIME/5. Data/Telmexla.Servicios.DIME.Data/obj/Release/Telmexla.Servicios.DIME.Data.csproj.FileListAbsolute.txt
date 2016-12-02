@@ -26,3 +26,6 @@ C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Release\Telmexla.Servicios.DIME.Data.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Release\Telmexla.Servicios.DIME.Data.dll
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Release\Telmexla.Servicios.DIME.Data.pdb
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Release\Telmexla.Servicios.DIME.Data.csprojResolveAssemblyReference.cache
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Release\Telmexla.Servicios.DIME.Data.dll
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Release\Telmexla.Servicios.DIME.Data.pdb
