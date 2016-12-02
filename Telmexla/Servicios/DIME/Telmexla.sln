@@ -1,0 +1,146 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servicios", "Servicios", "{8EBD70BF-9FA4-4C35-80FE-E58E94CA766C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DIME", "DIME", "{59F978F7-AC33-4E76-AFBF-8C6FF7013B20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Data", "5. Data", "{653A9BAF-893F-43FA-AF0B-B60F49A5C8C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Ejecucion de WebService", "1. Ejecucion de WebService", "{7C036785-2E9F-4E1C-8526-A1A7D0983F07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Entidades", "4. Entidades", "{7BA4E969-7664-4F19-92F9-EAFB678F2E20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Business", "3. Business", "{3FBC2D9C-AA2C-4785-87B2-9717E5F5F4BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Helpers", "6. Helpers", "{51C39553-5627-4DFC-867E-303D664723FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. WebServices", "2. WebServices", "{087B9CE3-AA0D-4098-897D-3460DA4883D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.IWebServices", "2. WebServices\Telmexla.Servicios.DIME.IWebServices\Telmexla.Servicios.DIME.IWebServices.csproj", "{36A723D0-ED8F-4172-BD2C-B26899CE8039}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.WebServices", "2. WebServices\Telmexla.Servicios.DIME.WebServices\Telmexla.Servicios.DIME.WebServices.csproj", "{DBBF4F0D-60E4-4772-A239-6A81583EF89D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.Business", "3. Business\Telmexla.Servicios.DIME.Business\Telmexla.Servicios.DIME.Business.csproj", "{C0E28F0D-D7F6-4CFF-8DFE-40BDE2AAB62B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.Entity", "4. Entidades\Telmexla.Servicios.DIME.Entity\Telmexla.Servicios.DIME.Entity.csproj", "{395D1809-BE70-4B2A-9413-46708EDFB957}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.Data", "5. Data\Telmexla.Servicios.DIME.Data\Telmexla.Servicios.DIME.Data.csproj", "{A012A255-31D0-4A67-918B-4D7B6EB3AFC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.IData", "5. Data\Telmexla.Servicios.DIME.IData\Telmexla.Servicios.DIME.IData.csproj", "{0842C0D8-F2D3-4B5B-AA46-CEF83CE1AD12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.Helpers.EMails", "6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\Telmexla.Servicios.DIME.Helpers.EMails.csproj", "{88FBEF67-32EE-4694-A940-BB729E37B044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.Helpers.ReverseEngineer", "6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.csproj", "{E9C2E579-A044-428D-8C28-BDD199B1DB02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.Ejecutor", "1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\Telmexla.Servicios.DIME.Ejecutor.csproj", "{71FC0605-EDC7-476D-AE2C-0B6D38F66B5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.Helpers.ExtenMethods", "6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\Telmexla.Servicios.DIME.Helpers.ExtenMethods.csproj", "{74D3F1F8-7EF2-4506-96AC-1D839BC39943}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telmexla.Servicios.DIME.Helpers.Encription", "6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\Telmexla.Servicios.DIME.Helpers.Encription.csproj", "{3F5CB654-998C-409D-B00F-4479EF005389}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Telmexla.Servicios.DIME.EjecutorIISHost", "1. Ejecucion de WebService\Telmexla.Servicios.DIME.EjecutorIISHost\", "{DCAF336B-E545-4044-B0EB-E710111F4721}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{c0e28f0d-d7f6-4cff-8dfe-40bde2aab62b}|Telmexla.Servicios.DIME.Business.dll;{36a723d0-ed8f-4172-bd2c-b26899ce8039}|Telmexla.Servicios.DIME.IWebServices.dll;{dbbf4f0d-60e4-4772-a239-6a81583ef89d}|Telmexla.Servicios.DIME.WebServices.dll;{A012A255-31D0-4A67-918B-4D7B6EB3AFC8}|Telmexla.Servicios.DIME.Data.dll;{0842C0D8-F2D3-4B5B-AA46-CEF83CE1AD12}|Telmexla.Servicios.DIME.IData.dll;{3F5CB654-998C-409D-B00F-4479EF005389}|Telmexla.Servicios.DIME.Helpers.Encription.dll;{74D3F1F8-7EF2-4506-96AC-1D839BC39943}|Telmexla.Servicios.DIME.Helpers.ExtenMethods.dll;{88fbef67-32ee-4694-a940-bb729e37b044}|Telmexla.Servicios.DIME.Helpers.EMails.dll;{e9c2e579-a044-428d-8c28-bdd199b1db02}|Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll;{395d1809-be70-4b2a-9413-46708edfb957}|Telmexla.Servicios.DIME.Entity.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_49400"
+		Debug.AspNetCompiler.PhysicalPath = "1. Ejecucion de WebService\Telmexla.Servicios.DIME.EjecutorIISHost\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49400\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_49400"
+		Release.AspNetCompiler.PhysicalPath = "1. Ejecucion de WebService\Telmexla.Servicios.DIME.EjecutorIISHost\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49400\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49400"
+		SlnRelativePath = "1. Ejecucion de WebService\Telmexla.Servicios.DIME.EjecutorIISHost\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36A723D0-ED8F-4172-BD2C-B26899CE8039}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A723D0-ED8F-4172-BD2C-B26899CE8039}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A723D0-ED8F-4172-BD2C-B26899CE8039}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A723D0-ED8F-4172-BD2C-B26899CE8039}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBBF4F0D-60E4-4772-A239-6A81583EF89D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBBF4F0D-60E4-4772-A239-6A81583EF89D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBBF4F0D-60E4-4772-A239-6A81583EF89D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBBF4F0D-60E4-4772-A239-6A81583EF89D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0E28F0D-D7F6-4CFF-8DFE-40BDE2AAB62B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0E28F0D-D7F6-4CFF-8DFE-40BDE2AAB62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0E28F0D-D7F6-4CFF-8DFE-40BDE2AAB62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0E28F0D-D7F6-4CFF-8DFE-40BDE2AAB62B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{395D1809-BE70-4B2A-9413-46708EDFB957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{395D1809-BE70-4B2A-9413-46708EDFB957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{395D1809-BE70-4B2A-9413-46708EDFB957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{395D1809-BE70-4B2A-9413-46708EDFB957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A012A255-31D0-4A67-918B-4D7B6EB3AFC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A012A255-31D0-4A67-918B-4D7B6EB3AFC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A012A255-31D0-4A67-918B-4D7B6EB3AFC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A012A255-31D0-4A67-918B-4D7B6EB3AFC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0842C0D8-F2D3-4B5B-AA46-CEF83CE1AD12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0842C0D8-F2D3-4B5B-AA46-CEF83CE1AD12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0842C0D8-F2D3-4B5B-AA46-CEF83CE1AD12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0842C0D8-F2D3-4B5B-AA46-CEF83CE1AD12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88FBEF67-32EE-4694-A940-BB729E37B044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88FBEF67-32EE-4694-A940-BB729E37B044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88FBEF67-32EE-4694-A940-BB729E37B044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88FBEF67-32EE-4694-A940-BB729E37B044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9C2E579-A044-428D-8C28-BDD199B1DB02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C2E579-A044-428D-8C28-BDD199B1DB02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C2E579-A044-428D-8C28-BDD199B1DB02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C2E579-A044-428D-8C28-BDD199B1DB02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71FC0605-EDC7-476D-AE2C-0B6D38F66B5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71FC0605-EDC7-476D-AE2C-0B6D38F66B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71FC0605-EDC7-476D-AE2C-0B6D38F66B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71FC0605-EDC7-476D-AE2C-0B6D38F66B5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D3F1F8-7EF2-4506-96AC-1D839BC39943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D3F1F8-7EF2-4506-96AC-1D839BC39943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D3F1F8-7EF2-4506-96AC-1D839BC39943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D3F1F8-7EF2-4506-96AC-1D839BC39943}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F5CB654-998C-409D-B00F-4479EF005389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F5CB654-998C-409D-B00F-4479EF005389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F5CB654-998C-409D-B00F-4479EF005389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F5CB654-998C-409D-B00F-4479EF005389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCAF336B-E545-4044-B0EB-E710111F4721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCAF336B-E545-4044-B0EB-E710111F4721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCAF336B-E545-4044-B0EB-E710111F4721}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCAF336B-E545-4044-B0EB-E710111F4721}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{59F978F7-AC33-4E76-AFBF-8C6FF7013B20} = {8EBD70BF-9FA4-4C35-80FE-E58E94CA766C}
+		{653A9BAF-893F-43FA-AF0B-B60F49A5C8C5} = {59F978F7-AC33-4E76-AFBF-8C6FF7013B20}
+		{7C036785-2E9F-4E1C-8526-A1A7D0983F07} = {59F978F7-AC33-4E76-AFBF-8C6FF7013B20}
+		{7BA4E969-7664-4F19-92F9-EAFB678F2E20} = {59F978F7-AC33-4E76-AFBF-8C6FF7013B20}
+		{3FBC2D9C-AA2C-4785-87B2-9717E5F5F4BF} = {59F978F7-AC33-4E76-AFBF-8C6FF7013B20}
+		{51C39553-5627-4DFC-867E-303D664723FB} = {59F978F7-AC33-4E76-AFBF-8C6FF7013B20}
+		{087B9CE3-AA0D-4098-897D-3460DA4883D5} = {59F978F7-AC33-4E76-AFBF-8C6FF7013B20}
+		{36A723D0-ED8F-4172-BD2C-B26899CE8039} = {087B9CE3-AA0D-4098-897D-3460DA4883D5}
+		{DBBF4F0D-60E4-4772-A239-6A81583EF89D} = {087B9CE3-AA0D-4098-897D-3460DA4883D5}
+		{C0E28F0D-D7F6-4CFF-8DFE-40BDE2AAB62B} = {3FBC2D9C-AA2C-4785-87B2-9717E5F5F4BF}
+		{395D1809-BE70-4B2A-9413-46708EDFB957} = {7BA4E969-7664-4F19-92F9-EAFB678F2E20}
+		{A012A255-31D0-4A67-918B-4D7B6EB3AFC8} = {653A9BAF-893F-43FA-AF0B-B60F49A5C8C5}
+		{0842C0D8-F2D3-4B5B-AA46-CEF83CE1AD12} = {653A9BAF-893F-43FA-AF0B-B60F49A5C8C5}
+		{88FBEF67-32EE-4694-A940-BB729E37B044} = {51C39553-5627-4DFC-867E-303D664723FB}
+		{E9C2E579-A044-428D-8C28-BDD199B1DB02} = {51C39553-5627-4DFC-867E-303D664723FB}
+		{71FC0605-EDC7-476D-AE2C-0B6D38F66B5E} = {7C036785-2E9F-4E1C-8526-A1A7D0983F07}
+		{74D3F1F8-7EF2-4506-96AC-1D839BC39943} = {51C39553-5627-4DFC-867E-303D664723FB}
+		{3F5CB654-998C-409D-B00F-4479EF005389} = {51C39553-5627-4DFC-867E-303D664723FB}
+		{DCAF336B-E545-4044-B0EB-E710111F4721} = {7C036785-2E9F-4E1C-8526-A1A7D0983F07}
+	EndGlobalSection
+EndGlobal

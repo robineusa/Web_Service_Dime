@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{395D1809-BE70-4B2A-9413-46708EDFB957}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Telmexla.Servicios.DIME.Entity</RootNamespace>
+    <AssemblyName>Telmexla.Servicios.DIME.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acceso.cs" />
+    <Compile Include="CierreCiclo.cs" />
+    <Compile Include="CierreCicloCollection.cs" />
+    <Compile Include="ClaroVideo.cs" />
+    <Compile Include="ClaroVideoCollection.cs" />
+    <Compile Include="ClientesTodo.cs" />
+    <Compile Include="ClientesTodoCollection.cs" />
+    <Compile Include="ConvenioElectronico.cs" />
+    <Compile Include="ConvenioElectronicoCollection.cs" />
+    <Compile Include="DatosAdicionalesCliente.cs" />
+    <Compile Include="DatosAdicionalesClienteCollection.cs" />
+    <Compile Include="DocsisOverlap.cs" />
+    <Compile Include="DocsisOverlapCollection.cs" />
+    <Compile Include="GestionOutbound.cs" />
+    <Compile Include="GestionOutboundCollection.cs" />
+    <Compile Include="Ingreso.cs" />
+    <Compile Include="Linea.cs" />
+    <Compile Include="MaestroMarcacione.cs" />
+    <Compile Include="MaestroOutboundCausa.cs" />
+    <Compile Include="MaestroOutboundCausaCollection.cs" />
+    <Compile Include="MaestroOutboundCierre.cs" />
+    <Compile Include="MaestroOutboundCierreCollection.cs" />
+    <Compile Include="MaestroOutboundMotivo.cs" />
+    <Compile Include="MaestroOutboundMotivoCollection.cs" />
+    <Compile Include="MaestroOutboundRazon.cs" />
+    <Compile Include="MaestroOutboundRazonCollection.cs" />
+    <Compile Include="MaestroOutboundTipoContacto.cs" />
+    <Compile Include="MaestroOutboundTipoContactoCollection.cs" />
+    <Compile Include="MaestroOutboundTipoGestion.cs" />
+    <Compile Include="MaestroOutboundTipoGestionCollection.cs" />
+    <Compile Include="ModosLogin.cs" />
+    <Compile Include="NotasIngreso.cs" />
+    <Compile Include="PreguntasDesbloqueo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroSesion.cs" />
+    <Compile Include="TmpMaestroHobbiesCliente.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="UsuariosXAcceso.cs" />
+    <Compile Include="UsuariosXPreguntasDesb.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
