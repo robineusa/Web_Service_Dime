@@ -22,6 +22,7 @@ namespace Telmexla.Servicios.DIME.Business
             marcacion.QueHacer = nuevo;
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             unitOfWork.maestroMarcaciones.Add(marcacion);
+            unitOfWork.Complete();
         }
     }
 }

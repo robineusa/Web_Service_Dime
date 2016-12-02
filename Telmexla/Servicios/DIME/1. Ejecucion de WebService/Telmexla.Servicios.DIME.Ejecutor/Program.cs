@@ -19,6 +19,15 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             static void Main()
           {
 
+            UnitOfWork unidad1 = new UnitOfWork(new DimeContext());
+            MaestroMarcacione marcacion = new MaestroMarcacione();
+            marcacion.Razon = "CAN";
+            marcacion.Razon = "SCS";
+            marcacion.FechaActualizacion = DateTime.Now;
+            marcacion.FechaCreacion = DateTime.Now;
+            unidad1.maestroMarcaciones.Add(marcacion);
+            unidad1.Complete();
+
            ClientesTodo DatosCliente = new ClientesTodo();
             ConvenioElectronicoCollection HistoricoConvenioElectronico = new ConvenioElectronicoCollection();
             ConvenioElectronico ConvenioElecGestionado = new ConvenioElectronico();
