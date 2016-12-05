@@ -59,6 +59,7 @@
     <Compile Include="IMaestrosService.cs" />
     <Compile Include="IMainWebService\IWebService.cs" />
     <Compile Include="IMarcacionesService.cs" />
+    <Compile Include="INotificacionesBuenServicioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

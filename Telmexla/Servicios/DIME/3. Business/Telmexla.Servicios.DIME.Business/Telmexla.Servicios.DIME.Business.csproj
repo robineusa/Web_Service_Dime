@@ -53,6 +53,7 @@
     <Compile Include="BlendingBusiness.cs" />
     <Compile Include="ClientesBusiness.cs" />
     <Compile Include="MarcacionesBusiness.cs" />
+    <Compile Include="NotificacionesBuenServicioBusiness.cs" />
     <Compile Include="OutboundBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -83,6 +83,7 @@
     <Compile Include="MaestroOutboundTipoGestionCollection.cs" />
     <Compile Include="ModosLogin.cs" />
     <Compile Include="NotasIngreso.cs" />
+    <Compile Include="NotificacionesBuenServicio.cs" />
     <Compile Include="PreguntasDesbloqueo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroSesion.cs" />

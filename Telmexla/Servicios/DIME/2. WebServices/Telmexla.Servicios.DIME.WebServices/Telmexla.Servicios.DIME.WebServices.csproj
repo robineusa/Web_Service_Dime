@@ -63,6 +63,7 @@
     <Compile Include="MaestrosService.cs" />
     <Compile Include="MainWebService\WebService.cs" />
     <Compile Include="MarcacionesService.cs" />
+    <Compile Include="NotificaionesBuenServicioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

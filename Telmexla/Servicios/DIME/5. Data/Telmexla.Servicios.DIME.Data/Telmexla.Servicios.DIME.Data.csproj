@@ -72,6 +72,7 @@
     <Compile Include="Configuration\MaestroOutboundTipoGestionConfiguration.cs" />
     <Compile Include="Configuration\ModosLoginConfiguration.cs" />
     <Compile Include="Configuration\NotasIngresoConfiguration.cs" />
+    <Compile Include="Configuration\NotificacionesBuenServicioConfiguration.cs" />
     <Compile Include="Configuration\PreguntasDesbloqueoConfiguration.cs" />
     <Compile Include="Configuration\RegistroSesionConfiguration.cs" />
     <Compile Include="Configuration\TmpMaestroHobbiesClienteConfiguration.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="MaestroOutboundRazonRepository.cs" />
     <Compile Include="MaestroOutboundTipoContactoRepository.cs" />
     <Compile Include="ModosLoginRepository.cs" />
+    <Compile Include="NotificacionesBuenServicioRepository.cs" />
     <Compile Include="PreguntasDesbloqueoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroSesionRepository.cs" />

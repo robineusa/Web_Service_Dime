@@ -67,6 +67,7 @@
     <Compile Include="IMaestroOutboundRazonRepository.cs" />
     <Compile Include="IMaestroOutboundTipoContactoRepository.cs" />
     <Compile Include="IModosLoginRepository.cs" />
+    <Compile Include="INotificacionesBuenServicioRepository.cs" />
     <Compile Include="IPreguntasDesbloqueoRepository.cs" />
     <Compile Include="IRegistroSesionRepository.cs" />
     <Compile Include="IRepository.cs" />
