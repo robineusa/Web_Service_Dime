@@ -21,6 +21,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Submarcacion).HasColumnName(@"SUBMARCACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.EstadoMarcacion).HasColumnName(@"ESTADO_MARCACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Descripcion).HasColumnName(@"DESCRIPCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
+            Property(x => x.Posible_Causa).HasColumnName(@"POSIBLE_CAUSA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
             Property(x => x.Spc).HasColumnName(@"SPC").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Qmf).HasColumnName(@"QMF").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
             Property(x => x.Responsable).HasColumnName(@"RESPONSABLE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
