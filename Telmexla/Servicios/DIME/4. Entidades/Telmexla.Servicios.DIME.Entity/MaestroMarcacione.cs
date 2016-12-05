@@ -11,7 +11,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Submarcacion { get; set; } // MOTIVO (length: 100)
         public string EstadoMarcacion { get; set; } // MOTIVO (length: 100)
         public string Descripcion { get; set; } // MOTIVO (length: 100)
-        public string Posible_Causa { get; set; } // MOTIVO (length: 100)
+        public string PosibleCausa { get; set; } // MOTIVO (length: 100)
         public string Spc { get; set; } // MOTIVO (length: 100)
         public string Qmf { get; set; } // MOTIVO (length: 100)
         public string Responsable { get; set; } // MOTIVO (length: 100)
