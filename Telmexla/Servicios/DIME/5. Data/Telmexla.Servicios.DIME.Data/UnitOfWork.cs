@@ -24,6 +24,7 @@ namespace Telmexla.Servicios.DIME.Data
             claroVideos = new ClaroVideoRepository(this.dimeContext);
             cierreCiclos = new CierreCicloRepository(this.dimeContext);
             maestroMarcaciones = new MaestroMarcacioneRepository(this.dimeContext);
+            notificacionesBuenServicio = new NotificacionesBuenServicioRepository(this.dimeContext);
         }
            
 
@@ -64,6 +65,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IMaestroMarcacioneRepository maestroMarcaciones
+        {
+            get; private set;
+        }
+        public INotificacionesBuenServicioRepository notificacionesBuenServicio
         {
             get; private set;
         }

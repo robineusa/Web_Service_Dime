@@ -38,8 +38,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
-        public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; }
-
+        public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; }//  TMP_MAESTRO_MARCACIONES 
+        public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicio { get; set; }//  NOTIFICACIONES_BUEN_SERVICIO
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -108,6 +108,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration());
             modelBuilder.Configurations.Add(new MaestroMarcacionesConfiguration());
+            modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -131,6 +132,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroMarcacionesConfiguration(schema));
+            modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration(schema));
             return modelBuilder;
         }
 

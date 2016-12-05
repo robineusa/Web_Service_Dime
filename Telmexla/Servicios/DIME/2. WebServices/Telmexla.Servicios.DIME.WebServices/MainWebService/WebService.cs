@@ -304,5 +304,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             marcacionesService.RegistrarMarcacion(marcacion);
         }
         #endregion
+
+
+        #region NotificacionesBuenServicioService
+        public void RegistrarNotificado(NotificacionesBuenServicio notificado)
+        {
+            NotificaionesBuenServicioService notificacionesservice = new NotificaionesBuenServicioService();
+            notificacionesservice.RegistrarNotificado(notificado);
+        }
+        #endregion
     }
 }

@@ -17,6 +17,7 @@ namespace Telmexla.Servicios.DIME.IData
         IClaroVideoRepository claroVideos { get; }
         ICierreCicloRepository cierreCiclos { get; }
         IMaestroMarcacioneRepository maestroMarcaciones { get; }
+        INotificacionesBuenServicioRepository notificacionesBuenServicio { get; }
         int Complete();
     }
 }
