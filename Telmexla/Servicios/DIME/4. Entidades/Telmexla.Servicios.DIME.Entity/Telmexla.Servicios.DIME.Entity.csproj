@@ -68,6 +68,7 @@
     <Compile Include="Ingreso.cs" />
     <Compile Include="Linea.cs" />
     <Compile Include="MaestroMarcacione.cs" />
+    <Compile Include="MaestroMarcacioneCollection.cs" />
     <Compile Include="MaestroOutboundCausa.cs" />
     <Compile Include="MaestroOutboundCausaCollection.cs" />
     <Compile Include="MaestroOutboundCierre.cs" />

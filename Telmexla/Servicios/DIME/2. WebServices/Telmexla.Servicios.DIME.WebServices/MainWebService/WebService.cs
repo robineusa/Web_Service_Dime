@@ -303,6 +303,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MarcacionesService marcacionesService = new MarcacionesService();
             marcacionesService.RegistrarMarcacion(marcacion);
         }
+
+        public MaestroMarcacioneCollection ObtenerMarcacionesPorPalabra(string palabra)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+           return  marcacionesService.ObtenerMarcacionesPorPalabra(palabra);
+        }
         #endregion
 
 

@@ -14,5 +14,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
     {
         [OperationContract]
         void RegistrarMarcacion(MaestroMarcacione marcacion);
+
+
+        [OperationContract]
+        MaestroMarcacioneCollection ObtenerMarcacionesPorPalabra(string palabra);
+
+
     }
 }

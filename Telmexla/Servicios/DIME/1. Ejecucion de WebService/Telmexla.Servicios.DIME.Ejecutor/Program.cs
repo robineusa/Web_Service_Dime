@@ -19,7 +19,21 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             static void Main()
           {
 
-           ClientesTodo DatosCliente = new ClientesTodo();
+
+
+
+
+
+
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+
+
+            unitWork.maestroMarcaciones.EncontrarPosiblesMarcaciones("algo");
+
+
+
+
+            ClientesTodo DatosCliente = new ClientesTodo();
             ConvenioElectronicoCollection HistoricoConvenioElectronico = new ConvenioElectronicoCollection();
             ConvenioElectronico ConvenioElecGestionado = new ConvenioElectronico();
             BlendingService blendingServices = new BlendingService();
@@ -49,12 +63,6 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
 
 
-
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-
-            GestionOutbound gestion = unitWork.gestionesOutbound.Get(1);
-            gestion.UsuarioGestionando = 5;
-            unitWork.Complete();
 
 
             LoginService login = new LoginService();

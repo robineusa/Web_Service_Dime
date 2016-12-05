@@ -21,5 +21,19 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get { return Context as DimeContext; }
         }
+
+        public MaestroMarcacioneCollection EncontrarPosiblesMarcaciones(string key)
+        {
+
+           var result =( from m in dimeContext.MaestroMarcaciones
+                         where m.Descripcion.Contains(key)
+                         select   new { m.Id,m.Submarcacion, m.Descripcion }).ToList();
+            MaestroMarcacioneCollection transforma = new MaestroMarcacioneCollection();
+            foreach (var item in result)
+            {
+                transforma.Add(new MaestroMarcacione() {Id=item.Id, Submarcacion=item.Submarcacion , Descripcion= item.Descripcion     });
+            }
+            return transforma;
+        }
     }
 }

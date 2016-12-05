@@ -9,5 +9,12 @@ namespace Telmexla.Servicios.DIME.IData
 {
     public interface IMaestroMarcacioneRepository : IRepository<MaestroMarcacione>
     {
+
+
+        MaestroMarcacioneCollection EncontrarPosiblesMarcaciones(string key);
+    
+
+
+
     }
 }
