@@ -309,6 +309,15 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MarcacionesService marcacionesService = new MarcacionesService();
            return  marcacionesService.ObtenerMarcacionesPorPalabra(palabra);
         }
+
+
+        public MaestroMarcacione TraerMarcacionPorId(int id)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            return marcacionesService.TraerMarcacionPorId(id);
+        }
+
+
         #endregion
 
 

@@ -35,6 +35,12 @@ namespace Telmexla.Servicios.DIME.Business
         }
 
 
+         public MaestroMarcacione ObtenerMarcacionPorId(int id)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            return unitOfWork.maestroMarcaciones.Get(id);
+        }
+
 
     }
 }
