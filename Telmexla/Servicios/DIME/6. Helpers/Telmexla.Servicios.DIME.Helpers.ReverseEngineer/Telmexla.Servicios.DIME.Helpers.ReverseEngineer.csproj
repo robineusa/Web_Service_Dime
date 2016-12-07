@@ -180,6 +180,30 @@
     <Compile Include="LineaConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="LogCierreCiclo.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogCierreCicloConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogClaroVideo.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogClaroVideoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogConvenioElectronico.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogConvenioElectronicoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogDocsisOverlap.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogDocsisOverlapConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Macroproceso.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
@@ -313,6 +337,12 @@
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="NotasIngresoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificacionesBuenServicio.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificacionesBuenServicioConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="PreguntasDesbloqueo.cs">

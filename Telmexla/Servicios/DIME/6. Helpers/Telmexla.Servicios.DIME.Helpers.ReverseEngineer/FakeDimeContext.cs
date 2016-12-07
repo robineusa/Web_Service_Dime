@@ -28,8 +28,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; }
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; }
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; }
+        public System.Data.Entity.DbSet<LogCierreCiclo> LogCierreCicloes { get; set; }
+        public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; }
+        public System.Data.Entity.DbSet<LogConvenioElectronico> LogConvenioElectronicoes { get; set; }
+        public System.Data.Entity.DbSet<LogDocsisOverlap> LogDocsisOverlaps { get; set; }
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; }
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; }
+        public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicios { get; set; }
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; }
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; }
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; }
@@ -51,8 +56,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             GestionOutbounds = new FakeDbSet<GestionOutbound>("Id");
             Ingresoes = new FakeDbSet<Ingreso>("IdIngreso");
             Lineas = new FakeDbSet<Linea>("Id");
+            LogCierreCicloes = new FakeDbSet<LogCierreCiclo>("Id");
+            LogClaroVideos = new FakeDbSet<LogClaroVideo>("Id");
+            LogConvenioElectronicoes = new FakeDbSet<LogConvenioElectronico>("Id");
+            LogDocsisOverlaps = new FakeDbSet<LogDocsisOverlap>("Id");
             ModosLogins = new FakeDbSet<ModosLogin>("Id");
             NotasIngresoes = new FakeDbSet<NotasIngreso>("IdNota", "CuentaCliente", "NombreLineaNota");
+            NotificacionesBuenServicios = new FakeDbSet<NotificacionesBuenServicio>("IdNotificado");
             PreguntasDesbloqueos = new FakeDbSet<PreguntasDesbloqueo>("Id");
             RegistroSesions = new FakeDbSet<RegistroSesion>("Id");
             Sysdiagrams = new FakeDbSet<Sysdiagram>("DiagramId");

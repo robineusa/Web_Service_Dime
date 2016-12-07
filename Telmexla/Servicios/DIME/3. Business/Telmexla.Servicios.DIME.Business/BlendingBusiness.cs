@@ -51,7 +51,10 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             unitOfWork.conveniosElectronicos.Add(convElectGestionado);
             //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
-             unitOfWork.gestionesOutbound.Find(c=>c.UsuarioGestionando==idAsesor).SingleOrDefault().UsuarioGestionando=0;
+            GestionOutbound enGestiondeUsuario = new GestionOutbound();
+            enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault();
+            if (enGestiondeUsuario != null)
+                enGestiondeUsuario.UsuarioGestionando = 0;
             unitOfWork.Complete();
             return true;
         }
@@ -112,7 +115,10 @@ namespace Telmexla.Servicios.DIME.Business
             }
             unitOfWork.docsisOverlaps.Add(docsisGestionado);
             //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
-            unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault().UsuarioGestionando = 0;
+            GestionOutbound enGestiondeUsuario = new GestionOutbound();
+            enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault();
+            if (enGestiondeUsuario != null)
+                enGestiondeUsuario.UsuarioGestionando = 0;
             unitOfWork.Complete();
             return true;
 
@@ -165,7 +171,10 @@ namespace Telmexla.Servicios.DIME.Business
             }
             unitOfWork.claroVideos.Add(claroVideoGestionado);
             //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
-            unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault().UsuarioGestionando = 0;
+            GestionOutbound enGestiondeUsuario  = new GestionOutbound();
+            enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault();
+            if (enGestiondeUsuario!= null)
+                enGestiondeUsuario.UsuarioGestionando = 0;
             unitOfWork.Complete();
             return true;
 
@@ -231,7 +240,10 @@ namespace Telmexla.Servicios.DIME.Business
             }
             unitOfWork.cierreCiclos.Add(cierreCicloGestionado);
             //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
-            unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault().UsuarioGestionando = 0;
+            GestionOutbound enGestiondeUsuario = new GestionOutbound();
+            enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault();
+            if (enGestiondeUsuario != null)
+                enGestiondeUsuario.UsuarioGestionando = 0;
             unitOfWork.Complete();
             return true;
 

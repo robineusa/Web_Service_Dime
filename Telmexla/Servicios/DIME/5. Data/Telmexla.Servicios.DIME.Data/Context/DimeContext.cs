@@ -40,6 +40,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
         public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; }//  TMP_MAESTRO_MARCACIONES 
         public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicio { get; set; }//  NOTIFICACIONES_BUEN_SERVICIO
+        public System.Data.Entity.DbSet<LogCierreCiclo> LogCierreCicloes { get; set; } // TBL_LOG_CIERRE_CICLO
+        public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; } // TBL_LOG_CLARO_VIDEO
+        public System.Data.Entity.DbSet<LogConvenioElectronico> LogConvenioElectronicoes { get; set; } // TBL_LOG_CONVENIO_ELECTRONICO
+        public System.Data.Entity.DbSet<LogDocsisOverlap> LogDocsisOverlaps { get; set; } // TBL_LOG_DOCSIS_OVERLAP
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -48,8 +52,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public DimeContext()
             : base("Name=DimeContext")
         {
-            Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = true;
+           
         }
 
         public DimeContext(string connectionString)
@@ -109,6 +112,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration());
             modelBuilder.Configurations.Add(new MaestroMarcacionesConfiguration());
             modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration());
+            modelBuilder.Configurations.Add(new LogCierreCicloConfiguration());
+            modelBuilder.Configurations.Add(new LogClaroVideoConfiguration());
+            modelBuilder.Configurations.Add(new LogConvenioElectronicoConfiguration());
+            modelBuilder.Configurations.Add(new LogDocsisOverlapConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -133,6 +140,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroMarcacionesConfiguration(schema));
             modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration(schema));
+            modelBuilder.Configurations.Add(new LogCierreCicloConfiguration(schema));
+            modelBuilder.Configurations.Add(new LogClaroVideoConfiguration(schema));
+            modelBuilder.Configurations.Add(new LogConvenioElectronicoConfiguration(schema));
+            modelBuilder.Configurations.Add(new LogDocsisOverlapConfiguration(schema));
             return modelBuilder;
         }
 

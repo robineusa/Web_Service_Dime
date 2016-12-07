@@ -36,8 +36,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public MaestrosContext()
             : base("Name=MaestrosContext")
         {
-            Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = true;
+           
         }
 
         public MaestrosContext(string connectionString)

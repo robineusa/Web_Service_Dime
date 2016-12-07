@@ -28,8 +28,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; } // TBL_GESTION_OUTBOUND
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; } // TBL_LINEA
+        public System.Data.Entity.DbSet<LogCierreCiclo> LogCierreCicloes { get; set; } // TBL_LOG_CIERRE_CICLO
+        public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; } // TBL_LOG_CLARO_VIDEO
+        public System.Data.Entity.DbSet<LogConvenioElectronico> LogConvenioElectronicoes { get; set; } // TBL_LOG_CONVENIO_ELECTRONICO
+        public System.Data.Entity.DbSet<LogDocsisOverlap> LogDocsisOverlaps { get; set; } // TBL_LOG_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; } // TBL_MODOS_LOGINS
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
+        public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicios { get; set; } // NOTIFICACIONES_BUEN_SERVICIO
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; } // TBL_PREGUNTAS_DESBLOQUEO
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; } // sysdiagrams
@@ -97,8 +102,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new GestionOutboundConfiguration());
             modelBuilder.Configurations.Add(new IngresoConfiguration());
             modelBuilder.Configurations.Add(new LineaConfiguration());
+            modelBuilder.Configurations.Add(new LogCierreCicloConfiguration());
+            modelBuilder.Configurations.Add(new LogClaroVideoConfiguration());
+            modelBuilder.Configurations.Add(new LogConvenioElectronicoConfiguration());
+            modelBuilder.Configurations.Add(new LogDocsisOverlapConfiguration());
             modelBuilder.Configurations.Add(new ModosLoginConfiguration());
             modelBuilder.Configurations.Add(new NotasIngresoConfiguration());
+            modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration());
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration());
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration());
             modelBuilder.Configurations.Add(new SysdiagramConfiguration());
@@ -121,8 +131,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new GestionOutboundConfiguration(schema));
             modelBuilder.Configurations.Add(new IngresoConfiguration(schema));
             modelBuilder.Configurations.Add(new LineaConfiguration(schema));
+            modelBuilder.Configurations.Add(new LogCierreCicloConfiguration(schema));
+            modelBuilder.Configurations.Add(new LogClaroVideoConfiguration(schema));
+            modelBuilder.Configurations.Add(new LogConvenioElectronicoConfiguration(schema));
+            modelBuilder.Configurations.Add(new LogDocsisOverlapConfiguration(schema));
             modelBuilder.Configurations.Add(new ModosLoginConfiguration(schema));
             modelBuilder.Configurations.Add(new NotasIngresoConfiguration(schema));
+            modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration(schema));
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration(schema));
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration(schema));
             modelBuilder.Configurations.Add(new SysdiagramConfiguration(schema));

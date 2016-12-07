@@ -25,19 +25,28 @@ namespace Telmexla.Servicios.DIME.Data
             cierreCiclos = new CierreCicloRepository(this.dimeContext);
             maestroMarcaciones = new MaestroMarcacioneRepository(this.dimeContext);
             notificacionesBuenServicio = new NotificacionesBuenServicioRepository(this.dimeContext);
+            logConveniosElectronicos = new LogConvenioElectronicoRepository(this.dimeContext);
+            logDocsisOverlaps = new LogDocsisOverlapRepository(this.dimeContext);
+            logClaroVideos = new LogClaroVideoRepository(this.dimeContext);
+            logCierreCiclos = new LogCierreCicloRepository(this.dimeContext);
         }
-           
 
-        public IAccesoRepository accesos
+        public ILogConvenioElectronicoRepository logConveniosElectronicos
         {
             get; private set;
         }
 
-        public IClientesTodoRespository clientesTodo
+        public ILogDocsisOverlapRepository logDocsisOverlaps
         {
             get; private set;
         }
-        public IGestionOutboundRepository gestionesOutbound
+
+        public ILogClaroVideoRepository logClaroVideos
+        {
+            get; private set;
+        }
+
+        public ILogCierreCicloRepository logCierreCiclos
         {
             get; private set;
         }
@@ -72,6 +81,22 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
+
+        public IAccesoRepository accesos
+        {
+            get; private set;
+        }
+
+        public IClientesTodoRespository clientesTodo
+        {
+            get; private set;
+        }
+
+        public IGestionOutboundRepository gestionesOutbound
+        {
+            get; private set;
+        }
+
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

@@ -23,6 +23,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string Submarcacion { get; set; } // SUBMARCACION (length: 100)
         public string EstadoMarcacion { get; set; } // ESTADO_MARCACION (length: 100)
         public string Descripcion { get; set; } // DESCRIPCION (length: 1000)
+        public string PosibleCausa { get; set; } // POSIBLE_CAUSA (length: 1000)
         public string Spc { get; set; } // SPC (length: 100)
         public string Qmf { get; set; } // QMF (length: 1000)
         public string Responsable { get; set; } // RESPONSABLE (length: 100)
@@ -40,9 +41,9 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public int? CantidadDias { get; set; } // CANTIDAD_DIAS
         public string Canal { get; set; } // CANAL (length: 100)
         public string TipoMarcacion { get; set; } // TIPO_MARCACION (length: 100)
-        public System.DateTime FehcaCreacion { get; set; } // FEHCA_CREACION
+        public System.DateTime FechaCreacion { get; set; } // FECHA_CREACION
         public string UsuarioCreacion { get; set; } // USUARIO_CREACION (length: 100)
-        public System.DateTime FehcaActualizacion { get; set; } // FEHCA_ACTUALIZACION
+        public System.DateTime FechaActualizacion { get; set; } // FECHA_ACTUALIZACION
         public string UsuarioActualizacion { get; set; } // USUARIO_ACTUALIZACION (length: 100)
     }
 

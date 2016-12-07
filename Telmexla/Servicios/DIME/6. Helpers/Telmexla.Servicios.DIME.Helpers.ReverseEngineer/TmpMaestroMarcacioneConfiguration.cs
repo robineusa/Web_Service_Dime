@@ -27,12 +27,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             ToTable("TMP_MAESTRO_MARCACIONES", schema);
             HasKey(x => x.Id);
 
-            Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Razon).HasColumnName(@"RAZON").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Subrazon).HasColumnName(@"SUBRAZON").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Submarcacion).HasColumnName(@"SUBMARCACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.EstadoMarcacion).HasColumnName(@"ESTADO_MARCACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Descripcion).HasColumnName(@"DESCRIPCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
+            Property(x => x.PosibleCausa).HasColumnName(@"POSIBLE_CAUSA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
             Property(x => x.Spc).HasColumnName(@"SPC").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Qmf).HasColumnName(@"QMF").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
             Property(x => x.Responsable).HasColumnName(@"RESPONSABLE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
@@ -50,9 +51,9 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.CantidadDias).HasColumnName(@"CANTIDAD_DIAS").IsOptional().HasColumnType("int");
             Property(x => x.Canal).HasColumnName(@"CANAL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.TipoMarcacion).HasColumnName(@"TIPO_MARCACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.FehcaCreacion).HasColumnName(@"FEHCA_CREACION").IsRequired().HasColumnType("datetime");
+            Property(x => x.FechaCreacion).HasColumnName(@"FECHA_CREACION").IsRequired().HasColumnType("datetime");
             Property(x => x.UsuarioCreacion).HasColumnName(@"USUARIO_CREACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.FehcaActualizacion).HasColumnName(@"FEHCA_ACTUALIZACION").IsRequired().HasColumnType("datetime");
+            Property(x => x.FechaActualizacion).HasColumnName(@"FECHA_ACTUALIZACION").IsRequired().HasColumnType("datetime");
             Property(x => x.UsuarioActualizacion).HasColumnName(@"USUARIO_ACTUALIZACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
         }
     }

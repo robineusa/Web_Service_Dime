@@ -50,7 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoRepository.cs" />
+    <Compile Include="LogDocsisOverlapRepository.cs" />
+    <Compile Include="LogConvenioElectronicoRepository.cs" />
+    <Compile Include="LogCierreCicloRepository.cs" />
     <Compile Include="CierreCicloRepository.cs" />
+    <Compile Include="LogClaroVideoRepository.cs" />
     <Compile Include="ClaroVideoRepository.cs" />
     <Compile Include="ClientesTodoRepository.cs" />
     <Compile Include="Configuration\AccesoConfiguration.cs" />
@@ -63,6 +67,10 @@
     <Compile Include="Configuration\GestionOutboundConfiguration.cs" />
     <Compile Include="Configuration\IngresoConfiguration.cs" />
     <Compile Include="Configuration\LineaConfiguration.cs" />
+    <Compile Include="Configuration\LogCierreCicloConfiguration.cs" />
+    <Compile Include="Configuration\LogClaroVideoConfiguration.cs" />
+    <Compile Include="Configuration\LogConvenioElectronicoConfiguration.cs" />
+    <Compile Include="Configuration\LogDocsisOverlapConfiguration.cs" />
     <Compile Include="Configuration\MaestroMarcacionesConfiguration.cs" />
     <Compile Include="Configuration\MaestroOutboundCausaConfiguration.cs" />
     <Compile Include="Configuration\MaestroOutboundCierreConfiguration.cs" />

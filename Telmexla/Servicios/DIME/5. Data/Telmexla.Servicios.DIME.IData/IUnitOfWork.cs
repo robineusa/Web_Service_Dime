@@ -18,6 +18,10 @@ namespace Telmexla.Servicios.DIME.IData
         ICierreCicloRepository cierreCiclos { get; }
         IMaestroMarcacioneRepository maestroMarcaciones { get; }
         INotificacionesBuenServicioRepository notificacionesBuenServicio { get; }
+        ILogConvenioElectronicoRepository logConveniosElectronicos { get; }
+        ILogDocsisOverlapRepository logDocsisOverlaps { get; }
+        ILogClaroVideoRepository logClaroVideos { get; }
+        ILogCierreCicloRepository logCierreCiclos { get; }
         int Complete();
     }
 }

@@ -50,13 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAccesoRepository.cs" />
+    <Compile Include="ILogCierreCicloRepository.cs" />
     <Compile Include="ICierreCicloRepository.cs" />
+    <Compile Include="ILogClaroVideoRepository.cs" />
     <Compile Include="IClaroVideoRepository.cs" />
     <Compile Include="IClientesTodoRespository.cs" />
     <Compile Include="IContext\IDimeContext.cs" />
     <Compile Include="IContext\IMaestrosContext.cs" />
+    <Compile Include="ILogConvenioElectronicoRepository.cs" />
     <Compile Include="IConvenioElectronicoRepository.cs" />
     <Compile Include="IDatosAdicionalesClienteRepository.cs" />
+    <Compile Include="ILogDocsisOverlapRepository - Copia.cs" />
     <Compile Include="IDocsisOverlapRepository.cs" />
     <Compile Include="IGestionOutboundRepository.cs" />
     <Compile Include="ILineaRepository.cs" />
