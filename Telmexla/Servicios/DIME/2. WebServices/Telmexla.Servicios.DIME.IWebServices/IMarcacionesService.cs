@@ -23,5 +23,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         MaestroMarcacione TraerMarcacionPorId(int id);
 
+        [OperationContract]
+        MaestroMarcacioneCollection ListaMarcaciones();
+
     }
 }

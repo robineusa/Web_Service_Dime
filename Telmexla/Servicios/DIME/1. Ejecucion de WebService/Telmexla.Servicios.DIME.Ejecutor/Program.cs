@@ -20,14 +20,13 @@ namespace Telmexla.Servicios.DIME.Ejecutor
           {
 
 
-
-
-
-
-
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
 
+            MarcacionesService marca = new MarcacionesService();
+            marca.ListaMarcaciones();
+            Console.WriteLine(marca.ListaMarcaciones());
 
+            
             unitWork.maestroMarcaciones.EncontrarPosiblesMarcaciones("algo");
 
 

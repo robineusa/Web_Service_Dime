@@ -317,7 +317,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return marcacionesService.TraerMarcacionPorId(id);
         }
 
-
+        public MaestroMarcacioneCollection ListaMarcaciones()
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            return marcacionesService.ListaMarcaciones();
+        }
         #endregion
 
 
