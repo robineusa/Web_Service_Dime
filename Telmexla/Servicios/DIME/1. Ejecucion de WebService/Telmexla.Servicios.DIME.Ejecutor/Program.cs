@@ -16,12 +16,40 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 {
     class Program
     {
-            static void Main()
-          {
+        static void Main()
+        {
 
 
 
+            BlendingService blendingService = new BlendingService();
 
+
+            ClientesTodo DatosCliente = new ClientesTodo();
+
+            DatosCliente.Apellido = "CUARTAS";
+            DatosCliente.Cuenta = 430;
+            DatosCliente.DirInstalacion = "CR 5Este 14-87 casa 74";
+            DatosCliente.Estrato = "3";
+            DatosCliente.Nombre = "JEANETH";
+            DatosCliente.NombreComunidad = "VILLAVICENCIO";
+            DatosCliente.Telefono1 = "3115244589";
+            DatosCliente.Telefono2 = "0";
+            DatosCliente.Telefono3 = "0";
+
+            ClaroVideo claroVideoGestionado = new ClaroVideo();
+            claroVideoGestionado.AliadoGestion = "OUTSOURCING PEREIRA";
+            claroVideoGestionado.Attributo1 = 1;
+            claroVideoGestionado.Attributo2 = 1;
+            claroVideoGestionado.Cierre = "76";
+            claroVideoGestionado.Id = 0;
+            claroVideoGestionado.Observaciones = "marca pocas";
+            claroVideoGestionado.Razon = "20";
+            claroVideoGestionado.TipoDeContacto = "20";
+            claroVideoGestionado.TipoDeGestion = "21";
+
+
+
+            blendingService.GuardarGestionClaroVideo(1,DatosCliente, claroVideoGestionado );
 
 
 
@@ -33,7 +61,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
 
 
-            ClientesTodo DatosCliente = new ClientesTodo();
+     
             ConvenioElectronicoCollection HistoricoConvenioElectronico = new ConvenioElectronicoCollection();
             ConvenioElectronico ConvenioElecGestionado = new ConvenioElectronico();
             BlendingService blendingServices = new BlendingService();
