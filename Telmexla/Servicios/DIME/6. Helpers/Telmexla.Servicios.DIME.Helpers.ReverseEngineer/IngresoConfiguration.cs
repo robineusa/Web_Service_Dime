@@ -57,8 +57,6 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.UsuarioUltimaActualizacion).HasColumnName(@"USUARIO_ULTIMA_ACTUALIZACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.HoraUltimaActualizacion).HasColumnName(@"HORA_ULTIMA_ACTUALIZACION").IsOptional().HasColumnType("datetime");
             Property(x => x.Macroproceso).HasColumnName(@"MACROPROCESO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.Proceso).HasColumnName(@"PROCESO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.Subproceso).HasColumnName(@"SUBPROCESO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(500);
             Property(x => x.Marcacion).HasColumnName(@"MARCACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.IdEstado).HasColumnName(@"ID_ESTADO").IsOptional().HasColumnType("int");
             Property(x => x.Semaforo).HasColumnName(@"SEMAFORO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);

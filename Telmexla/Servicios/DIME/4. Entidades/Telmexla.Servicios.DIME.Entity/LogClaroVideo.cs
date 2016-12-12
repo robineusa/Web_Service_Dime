@@ -10,6 +10,8 @@
 // TargetFrameworkVersion = 4.51
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
+using System;
+
 namespace Telmexla.Servicios.DIME.Entity
 {
 
@@ -51,6 +53,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Observaciones { get; set; } // OBSERVACIONES (length: 1000)
         public string Seguimiento { get; set; } // SEGUIMIENTO (length: 2)
         public System.DateTime? FechaSeguimiento { get; set; } // FECHA_SEGUIMIENTO
+
     }
 
 }

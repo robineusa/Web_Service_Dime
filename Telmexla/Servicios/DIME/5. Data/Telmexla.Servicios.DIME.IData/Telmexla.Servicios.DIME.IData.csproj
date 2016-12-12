@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAccesoRepository.cs" />
+    <Compile Include="IIngresoRepository.cs" />
     <Compile Include="ILogCierreCicloRepository.cs" />
     <Compile Include="ICierreCicloRepository.cs" />
     <Compile Include="ILogClaroVideoRepository.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="IMaestroOutboundRazonRepository.cs" />
     <Compile Include="IMaestroOutboundTipoContactoRepository.cs" />
     <Compile Include="IModosLoginRepository.cs" />
+    <Compile Include="INotasIngresoRepository.cs" />
     <Compile Include="INotificacionesBuenServicioRepository.cs" />
     <Compile Include="IPreguntasDesbloqueoRepository.cs" />
     <Compile Include="IRegistroSesionRepository.cs" />

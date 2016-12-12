@@ -27,5 +27,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<string> ConsultarHobbiesOptions();
 
+
+        [OperationContract]
+        void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion);
+
     }
 }

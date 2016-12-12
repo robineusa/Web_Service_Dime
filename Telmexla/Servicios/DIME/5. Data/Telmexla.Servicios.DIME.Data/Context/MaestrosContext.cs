@@ -31,12 +31,15 @@ namespace Telmexla.Servicios.DIME.Data.Context
         static MaestrosContext()
         {
             System.Data.Entity.Database.SetInitializer<MaestrosContext>(null);
+
         }
 
         public MaestrosContext()
             : base("Name=MaestrosContext")
         {
-           
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = true;
+
         }
 
         public MaestrosContext(string connectionString)

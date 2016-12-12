@@ -47,8 +47,6 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string UsuarioUltimaActualizacion { get; set; } // USUARIO_ULTIMA_ACTUALIZACION (length: 100)
         public System.DateTime? HoraUltimaActualizacion { get; set; } // HORA_ULTIMA_ACTUALIZACION
         public string Macroproceso { get; set; } // MACROPROCESO (length: 100)
-        public string Proceso { get; set; } // PROCESO (length: 100)
-        public string Subproceso { get; set; } // SUBPROCESO (length: 500)
         public string Marcacion { get; set; } // MARCACION (length: 100)
         public int? IdEstado { get; set; } // ID_ESTADO
         public string Semaforo { get; set; } // SEMAFORO (length: 100)

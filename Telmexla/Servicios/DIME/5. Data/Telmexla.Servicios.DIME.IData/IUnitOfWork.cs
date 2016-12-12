@@ -22,6 +22,8 @@ namespace Telmexla.Servicios.DIME.IData
         ILogDocsisOverlapRepository logDocsisOverlaps { get; }
         ILogClaroVideoRepository logClaroVideos { get; }
         ILogCierreCicloRepository logCierreCiclos { get; }
+        IIngresoRepository ingresos { get; }
+        INotasIngresoRepository notasIngresos { get; }
         int Complete();
     }
 }

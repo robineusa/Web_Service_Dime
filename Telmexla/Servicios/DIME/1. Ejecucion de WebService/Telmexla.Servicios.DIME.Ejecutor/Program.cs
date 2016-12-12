@@ -11,6 +11,7 @@ using Telmexla.Servicios.DIME.Entity;
 using System.Diagnostics;
 using Telmexla.Servicios.DIME.Data;
 using Telmexla.Servicios.DIME.Data.Context;
+using Telmexla.Servicios.DIME.Business;
 
 namespace Telmexla.Servicios.DIME.Ejecutor
 {
@@ -19,8 +20,20 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
+            InboundService inbServ = new InboundService();
+        
+            Ingreso ingreso = new Ingreso();
+            ingreso.Cuenta = 430;
+            ClientesTodo clientes = new ClientesTodo();
+            clientes.Cuenta = 430;
+            clientes.Nombre = "Alejandro";
+            ingreso.UsuarioApertura = "1";
+            ingreso.NombreLineaIngreso = "BRM";
+
+            inbServ.RegistrarIngresoInbound(clientes, ingreso, "observacion prueba" );
 
 
+          
             BlendingService blendingService = new BlendingService();
 
 
@@ -46,15 +59,21 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             claroVideoGestionado.Razon = "20";
             claroVideoGestionado.TipoDeContacto = "20";
             claroVideoGestionado.TipoDeGestion = "21";
+            
 
 
-
-            blendingService.GuardarGestionClaroVideo(1,DatosCliente, claroVideoGestionado );
-
+         //   blendingService.GuardarGestionClaroVideo(1,DatosCliente, claroVideoGestionado );
 
 
+            
+            LogClaroVideo logclaro = new LogClaroVideo();
+            BlendingBusiness  busine = new BlendingBusiness();
+            logclaro = busine.ConvertALogClaroVideo(claroVideoGestionado);
+            logclaro.Id = 0;
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.logClaroVideos.Add(logclaro);
 
+            unitWork.Complete();
 
             unitWork.maestroMarcaciones.EncontrarPosiblesMarcaciones("algo");
 

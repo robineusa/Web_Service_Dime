@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Telmexla.Servicios.DIME.Business;
 using Telmexla.Servicios.DIME.Data.Context;
 using Telmexla.Servicios.DIME.Entity;
 using Telmexla.Servicios.DIME.IWebServices;
@@ -69,6 +70,14 @@ namespace Telmexla.Servicios.DIME.WebServices
             return context.TmpMaestroHobbiesClientes.Select(x => x.Hobby).ToList();
         }
 
+
+        public void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            ingreso = ingresoBusi.PonerDatosBasicosEnIngreso(infoCliente, ingreso);
+            ingresoBusi.InsertIngreso( ingreso, observacion);
+
+        }
 
     }
 }

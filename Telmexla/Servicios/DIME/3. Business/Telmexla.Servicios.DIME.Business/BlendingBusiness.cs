@@ -49,14 +49,54 @@ namespace Telmexla.Servicios.DIME.Business
             }
 
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            unitOfWork.conveniosElectronicos.Add(convElectGestionado);
+        
             //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
             GestionOutbound enGestiondeUsuario = new GestionOutbound();
             enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault();
             if (enGestiondeUsuario != null)
+            {   
                 enGestiondeUsuario.UsuarioGestionando = 0;
+                unitOfWork.conveniosElectronicos.Add(convElectGestionado);
+            }
+            else
+            {
+                ActualizarConvenioElectronico(unitOfWork, convElectGestionado);
+                convElectGestionado.Id = 0;
+            }
+            unitOfWork.logConveniosElectronicos.Add((LogConvenioElectronico)convElectGestionado);
             unitOfWork.Complete();
             return true;
+        }
+
+        public void ActualizarConvenioElectronico(UnitOfWork unitWork, ConvenioElectronico v)
+        {
+            ConvenioElectronico loggerConv = unitWork.conveniosElectronicos.Get(v.Id);
+            loggerConv.AliadoGestion = v.AliadoGestion;
+            loggerConv.ApellidoCliente = v.ApellidoCliente;
+            loggerConv.Cierre = v.Cierre;
+            loggerConv.CorreoActual = v.CorreoActual;
+            loggerConv.CuentaCliente = v.CuentaCliente;
+            loggerConv.DireccionCorrespondenciaActual = v.DireccionCorrespondenciaActual;
+            loggerConv.DireccionInstalacion = v.DireccionInstalacion;
+            loggerConv.FechaGestion = v.FechaGestion;
+            loggerConv.FechaSeguimiento = v.FechaSeguimiento;
+            loggerConv.HoraGestion = v.HoraGestion;
+            loggerConv.Id = v.Id;
+            loggerConv.LineaGestion = v.LineaGestion;
+            loggerConv.MovilActual = v.MovilActual;
+            loggerConv.MovilNuevo = v.MovilNuevo;
+            loggerConv.NombreCliente = v.NombreCliente;
+            loggerConv.NuevaDireccionCorrespondencia = v.NuevaDireccionCorrespondencia;
+            loggerConv.NuevoCorreo = v.NuevoCorreo;
+            loggerConv.Razon = v.Razon;
+            loggerConv.Seguimiento = v.Seguimiento;
+            loggerConv.Telefono1 = v.Telefono1;
+            loggerConv.Telefono2 = v.Telefono2;
+            loggerConv.Telefono3 = v.Telefono3;
+            loggerConv.TelefonoTelmex = v.TelefonoTelmex;
+            loggerConv.TipoContacto = v.TipoContacto;
+            loggerConv.UsuarioGestion = v.UsuarioGestion;
+
         }
 
         public ConvenioElectronico GetConvenioElectronicoPorId(int idGestionado)
@@ -89,8 +129,12 @@ namespace Telmexla.Servicios.DIME.Business
             var gestionOutboundDeGestion = unitOfWork.gestionesOutbound.Find(c => c.Cuenta == datosCliente.Cuenta && c.NombreBase.Equals("DOCSIS_OVERLAP")).Select(c => new { c.OperacionGestion, c.NombreBase, c.Aliado  }).FirstOrDefault();
             docsisGestionado.FechaGestion = DateTime.Now;
             docsisGestionado.UsuarioGestion = idAsesor.ToString();
+            if(gestionOutboundDeGestion != null )
+            { 
             docsisGestionado.OperacionGestion = gestionOutboundDeGestion.OperacionGestion;
             docsisGestionado.NombreBase = gestionOutboundDeGestion.NombreBase;
+            docsisGestionado.Aliado = gestionOutboundDeGestion.Aliado;
+            }
             docsisGestionado.CuentaCliente = datosCliente.Cuenta;
             docsisGestionado.NombreCliente = datosCliente.Nombre;
             docsisGestionado.ApellidoCliente = datosCliente.Apellido;
@@ -108,20 +152,64 @@ namespace Telmexla.Servicios.DIME.Business
             docsisGestionado.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(docsisGestionado.Cierre)).Razon;
             docsisGestionado.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(docsisGestionado.Razon)).Causa;
             docsisGestionado.NombreUsuarioGestion = unitOfWork.usuarios.Find(c => c.Id == idAsesor).Select(c => c.Nombre).SingleOrDefault();
-            docsisGestionado.Aliado = gestionOutboundDeGestion.Aliado;
+    
             if (docsisGestionado.FechaSeguimiento != null)
             {
                 docsisGestionado.Seguimiento = "SI";
             }
-            unitOfWork.docsisOverlaps.Add(docsisGestionado);
+         
             //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
             GestionOutbound enGestiondeUsuario = new GestionOutbound();
             enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault();
             if (enGestiondeUsuario != null)
+            {
                 enGestiondeUsuario.UsuarioGestionando = 0;
+                unitOfWork.docsisOverlaps.Add(docsisGestionado);
+            }
+            else
+            {
+                ActualizarDocsisOverlap(unitOfWork,  docsisGestionado);
+                docsisGestionado.Id = 0;
+            }
+            unitOfWork.logDocsisOverlaps.Add((LogDocsisOverlap)docsisGestionado);
             unitOfWork.Complete();
             return true;
 
+        }
+
+        public void ActualizarDocsisOverlap(UnitOfWork unitWork , DocsisOverlap v)
+        {
+
+
+            DocsisOverlap logger = unitWork.docsisOverlaps.Get(v.Id);
+            logger.Aliado = v.Aliado;
+            logger.AliadoGestion = v.AliadoGestion;
+            logger.ApellidoCliente = v.ApellidoCliente;
+            logger.Cierre = v.Cierre;
+            logger.CorreoElectronico = v.CorreoElectronico;
+            logger.CuentaCliente = v.CuentaCliente;
+            logger.DireccionCorrespondencia = v.DireccionCorrespondencia;
+            logger.DireccionInstalacion = v.DireccionInstalacion;
+            logger.FechaGestion = v.FechaGestion;
+            logger.FechaSeguimiento = v.FechaSeguimiento;
+            logger.Gestion = v.Gestion;
+            logger.Id = v.Id;
+            logger.Movil1 = v.Movil1;
+            logger.Movil2 = v.Movil2;
+            logger.NombreBase = v.NombreBase;
+            logger.NombreCliente = v.NombreCliente;
+            logger.NombreUsuarioGestion = v.NombreUsuarioGestion;
+            logger.Observaciones = v.Observaciones;
+            logger.OperacionGestion = v.OperacionGestion;
+            logger.PaqueteActual = v.PaqueteActual;
+            logger.Razon = v.Razon;
+            logger.Seguimiento = v.Seguimiento;
+            logger.Telefono1 = v.Telefono1;
+            logger.Telefono2 = v.Telefono2;
+            logger.Telefono3 = v.Telefono3;
+            logger.TipoDeContacto = v.TipoDeContacto;
+            logger.UsuarioGestion = v.UsuarioGestion;
+     
         }
 
         public ClaroVideoCollection GetHistorialClaroVideoAsesor(int idAsesor)
@@ -148,7 +236,7 @@ namespace Telmexla.Servicios.DIME.Business
             claroVideoGestionado.FechaGestion = DateTime.Now;
             claroVideoGestionado.UsuarioGestion = idAsesor.ToString();
             claroVideoGestionado.NombreUsuarioGestion = unitOfWork.usuarios.Find(c => c.Id == idAsesor).Select(c => c.Nombre).SingleOrDefault();
-            claroVideoGestionado.OperacionGestion = gestionOutboundDeGestion.OperacionGestion;
+            if(gestionOutboundDeGestion!= null)   claroVideoGestionado.OperacionGestion = gestionOutboundDeGestion.OperacionGestion;
             claroVideoGestionado.CuentaCliente = datosCliente.Cuenta;
             claroVideoGestionado.NombreCliente = datosCliente.Nombre;
             claroVideoGestionado.ApellidoCliente = datosCliente.Apellido;
@@ -169,16 +257,109 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 claroVideoGestionado.Seguimiento = "SI";
             }
-            unitOfWork.claroVideos.Add(claroVideoGestionado);
-            //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
+             //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
             GestionOutbound enGestiondeUsuario  = new GestionOutbound();
             enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault();
             if (enGestiondeUsuario!= null)
+            {
                 enGestiondeUsuario.UsuarioGestionando = 0;
+                unitOfWork.claroVideos.Add(claroVideoGestionado);
+            }
+            else
+            {
+                ActualizarClaroVideo(unitOfWork,claroVideoGestionado);
+                claroVideoGestionado.Id = 0;
+            }
+
+            unitOfWork.logClaroVideos.Add(ConvertALogClaroVideo(claroVideoGestionado));
             unitOfWork.Complete();
             return true;
 
         }
+        public  LogClaroVideo ConvertALogClaroVideo(ClaroVideo v)
+        {
+
+            LogClaroVideo logClaro = new LogClaroVideo();
+            logClaro.AliadoGestion = v.AliadoGestion;
+            logClaro.ApellidoCliente = v.ApellidoCliente;
+            logClaro.Attributo1 = v.Attributo1;
+            logClaro.Attributo10 = v.Attributo10;
+            logClaro.Attributo2 = v.Attributo2;
+            logClaro.Attributo3 = v.Attributo3;
+            logClaro.Attributo4 = v.Attributo4;
+            logClaro.Attributo5 = v.Attributo5;
+            logClaro.Attributo6 = v.Attributo6;
+            logClaro.Attributo7 = v.Attributo7;
+            logClaro.Attributo8 = v.Attributo8;
+            logClaro.Attributo9 = v.Attributo9;
+            logClaro.Cierre = v.Cierre;
+            logClaro.CorreoElectronico = v.CorreoElectronico;
+            logClaro.CuentaCliente = v.CuentaCliente;
+            logClaro.DireccionCorrespondencia = v.DireccionCorrespondencia;
+            logClaro.DireccionInstalacion = v.DireccionInstalacion;
+            logClaro.FechaGestion = v.FechaGestion;
+            logClaro.FechaSeguimiento = v.FechaSeguimiento;
+            logClaro.Id = v.Id;
+            logClaro.Movil1 = v.Movil1;
+            logClaro.Movil2 = v.Movil2;
+            logClaro.NombreCliente = v.NombreCliente;
+            logClaro.NombreUsuarioGestion = v.NombreUsuarioGestion;
+            logClaro.Observaciones = v.Observaciones;
+            logClaro.OperacionGestion = v.OperacionGestion;
+            logClaro.PaqueteActual = v.PaqueteActual;
+            logClaro.Razon = v.Razon;
+            logClaro.Seguimiento = v.Seguimiento;
+            logClaro.Telefono1 = v.Telefono1;
+            logClaro.Telefono2 = v.Telefono2;
+            logClaro.Telefono3 = v.Telefono3;
+            logClaro.TipoDeContacto = v.TipoDeContacto;
+            logClaro.TipoDeGestion = v.TipoDeGestion;
+            logClaro.UsuarioGestion = v.UsuarioGestion;
+            return logClaro;
+        }
+
+        public void ActualizarClaroVideo(UnitOfWork unitWork, ClaroVideo v)
+        {
+            ClaroVideo logClaro = unitWork.claroVideos.Get(v.Id);
+            logClaro.AliadoGestion = v.AliadoGestion;
+            logClaro.ApellidoCliente = v.ApellidoCliente;
+            logClaro.Attributo1 = v.Attributo1;
+            logClaro.Attributo10 = v.Attributo10;
+            logClaro.Attributo2 = v.Attributo2;
+            logClaro.Attributo3 = v.Attributo3;
+            logClaro.Attributo4 = v.Attributo4;
+            logClaro.Attributo5 = v.Attributo5;
+            logClaro.Attributo6 = v.Attributo6;
+            logClaro.Attributo7 = v.Attributo7;
+            logClaro.Attributo8 = v.Attributo8;
+            logClaro.Attributo9 = v.Attributo9;
+            logClaro.Cierre = v.Cierre;
+            logClaro.CorreoElectronico = v.CorreoElectronico;
+            logClaro.CuentaCliente = v.CuentaCliente;
+            logClaro.DireccionCorrespondencia = v.DireccionCorrespondencia;
+            logClaro.DireccionInstalacion = v.DireccionInstalacion;
+            logClaro.FechaGestion = v.FechaGestion;
+            logClaro.FechaSeguimiento = v.FechaSeguimiento;
+            logClaro.Id = v.Id;
+            logClaro.Movil1 = v.Movil1;
+            logClaro.Movil2 = v.Movil2;
+            logClaro.NombreCliente = v.NombreCliente;
+            logClaro.NombreUsuarioGestion = v.NombreUsuarioGestion;
+            logClaro.Observaciones = v.Observaciones;
+            logClaro.OperacionGestion = v.OperacionGestion;
+            logClaro.PaqueteActual = v.PaqueteActual;
+            logClaro.Razon = v.Razon;
+            logClaro.Seguimiento = v.Seguimiento;
+            logClaro.Telefono1 = v.Telefono1;
+            logClaro.Telefono2 = v.Telefono2;
+            logClaro.Telefono3 = v.Telefono3;
+            logClaro.TipoDeContacto = v.TipoDeContacto;
+            logClaro.TipoDeGestion = v.TipoDeGestion;
+            logClaro.UsuarioGestion = v.UsuarioGestion;
+        
+        }
+
+
 
 
         public CierreCicloCollection GetHistorialCierreCicloAsesor(int idAsesor)
@@ -223,31 +404,98 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             var gestionOutboundDeGestion = unitOfWork.gestionesOutbound.Find(c => c.Cuenta == datosCliente.Cuenta && c.NombreBase.Equals("CIERRE_CICLO")).Select(c => new { c.OperacionGestion, c.NombreBase, c.Aliado }).FirstOrDefault();
-
+            GestionOutbound enGestiondeUsuario = new GestionOutbound();
+            enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault();
             cierreCicloGestionado.FechaGestion = DateTime.Now;
             cierreCicloGestionado.UsuarioGestion = idAsesor.ToString();
             cierreCicloGestionado.Cuenta = datosCliente.Cuenta;
-            cierreCicloGestionado.Base = gestionOutboundDeGestion.NombreBase;
-            cierreCicloGestionado.OperacionGestion = gestionOutboundDeGestion.OperacionGestion;
+            if(gestionOutboundDeGestion!=null)
+            {   cierreCicloGestionado.Base = gestionOutboundDeGestion.NombreBase;
+                cierreCicloGestionado.OperacionGestion = gestionOutboundDeGestion.OperacionGestion;
+            }
             cierreCicloGestionado.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(cierreCicloGestionado.TipoContacto)).TipoContacto;
             cierreCicloGestionado.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(cierreCicloGestionado.Gestion)).Cierre;
             cierreCicloGestionado.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(cierreCicloGestionado.Cierre)).Razon;
             cierreCicloGestionado.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(cierreCicloGestionado.Razon)).Causa;
             cierreCicloGestionado.Motivo = unitWorkMaestros.maestrosOutboundMotivo.Get(Convert.ToInt32(cierreCicloGestionado.Motivo)).Motivo;
-            if (cierreCicloGestionado.FechaSeguimiento != null)
-            {
-                cierreCicloGestionado.Seguimiento = "SI";
-            }
-            unitOfWork.cierreCiclos.Add(cierreCicloGestionado);
-            //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
-            GestionOutbound enGestiondeUsuario = new GestionOutbound();
-            enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor).SingleOrDefault();
+            if (cierreCicloGestionado.FechaSeguimiento != null)  cierreCicloGestionado.Seguimiento = "SI";
             if (enGestiondeUsuario != null)
-                enGestiondeUsuario.UsuarioGestionando = 0;
+            {
+                                enGestiondeUsuario.UsuarioGestionando = 0;
+                unitOfWork.cierreCiclos.Add(cierreCicloGestionado);
+            }
+            else
+            {
+                CierreCiclo cierreActualizado = ActualizarCierreCiclo(unitOfWork, cierreCicloGestionado);
+                cierreCicloGestionado.Id = 0;
+            }
+            
+            unitOfWork.logCierreCiclos.Add((LogCierreCiclo)cierreCicloGestionado);
             unitOfWork.Complete();
             return true;
 
         }
+
+
+
+        public CierreCiclo ActualizarCierreCiclo(UnitOfWork unitWork, CierreCiclo v )
+        {
+            CierreCiclo actualizado = unitWork.cierreCiclos.Get(v.Id);
+            actualizado.AliadoGestion = v.AliadoGestion;
+            actualizado.Base = v.Base;
+            actualizado.Cierre = v.Cierre;
+            actualizado.Cuenta = v.Cuenta;
+            actualizado.FechaGestion = v.FechaGestion;
+            actualizado.FechaSeguimiento = v.FechaSeguimiento;
+            actualizado.Gestion = v.Gestion;
+            actualizado.Motivo = v.Motivo;
+            actualizado.Obervaciones = v.Obervaciones;
+            actualizado.Ofrecimiento1 = v.Ofrecimiento1;
+            actualizado.Ofrecimiento2 = v.Ofrecimiento2;
+            actualizado.Ofrecimiento3 = v.Ofrecimiento3;
+            actualizado.OperacionGestion = v.OperacionGestion;
+            actualizado.PServicio1 = v.PServicio1;
+            actualizado.PServicio10 = v.PServicio10;
+            actualizado.PServicio11 = v.PServicio11;
+            actualizado.PServicio12 = v.PServicio12;
+            actualizado.PServicio13 = v.PServicio13;
+            actualizado.PServicio14 = v.PServicio14;
+            actualizado.PServicio15 = v.PServicio15;
+            actualizado.PServicio16 = v.PServicio16;
+            actualizado.PServicio17 = v.PServicio17;
+            actualizado.PServicio18 = v.PServicio18;
+            actualizado.PServicio19 = v.PServicio19;
+            actualizado.PServicio20 = v.PServicio20;
+            actualizado.PServicio21 = v.PServicio21;
+            actualizado.PServicio22 = v.PServicio22;
+            actualizado.PServicio23 = v.PServicio23;
+            actualizado.PServicio24 = v.PServicio24;
+            actualizado.PServicio25 = v.PServicio25;
+            actualizado.PServicio26 = v.PServicio26;
+            actualizado.PServicio27 = v.PServicio27;
+            actualizado.PServicio28 = v.PServicio28;
+            actualizado.PServicio29 = v.PServicio29;
+            actualizado.PServicio3 = v.PServicio3;
+            actualizado.PServicio30 = v.PServicio30;
+            actualizado.PServicio31 = v.PServicio31;
+            actualizado.PServicio32 = v.PServicio32;
+            actualizado.PServicio33 = v.PServicio33;
+            actualizado.PServicio34 = v.PServicio34;
+            actualizado.PServicio35 = v.PServicio35;
+            actualizado.PServicio36 = v.PServicio36;
+            actualizado.PServicio4 = v.PServicio4;
+            actualizado.PServicio5 = v.PServicio5;
+            actualizado.PServicio6 = v.PServicio6;
+            actualizado.PServicio7 = v.PServicio7;
+            actualizado.PServicio8 = v.PServicio8;
+            actualizado.PServicio9 = v.PServicio9;
+            actualizado.Razon = v.Razon;
+            actualizado.Seguimiento = v.Seguimiento;
+            actualizado.TipoContacto = v.TipoContacto;
+            actualizado.UsuarioGestion = v.UsuarioGestion;
+            return actualizado;
+        } 
+
 
     }
 }

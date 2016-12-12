@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoRepository.cs" />
+    <Compile Include="Configuration\IngresoConfiguration.cs" />
+    <Compile Include="IngresoRepository.cs" />
     <Compile Include="LogDocsisOverlapRepository.cs" />
     <Compile Include="LogConvenioElectronicoRepository.cs" />
     <Compile Include="LogCierreCicloRepository.cs" />
@@ -65,7 +67,6 @@
     <Compile Include="Configuration\DatosAdicionalesClienteConfiguration.cs" />
     <Compile Include="Configuration\DocsisOverlapConfiguration.cs" />
     <Compile Include="Configuration\GestionOutboundConfiguration.cs" />
-    <Compile Include="Configuration\IngresoConfiguration.cs" />
     <Compile Include="Configuration\LineaConfiguration.cs" />
     <Compile Include="Configuration\LogCierreCicloConfiguration.cs" />
     <Compile Include="Configuration\LogClaroVideoConfiguration.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="MaestroOutboundRazonRepository.cs" />
     <Compile Include="MaestroOutboundTipoContactoRepository.cs" />
     <Compile Include="ModosLoginRepository.cs" />
+    <Compile Include="NotasIngresoRepository.cs" />
     <Compile Include="NotificacionesBuenServicioRepository.cs" />
     <Compile Include="PreguntasDesbloqueoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

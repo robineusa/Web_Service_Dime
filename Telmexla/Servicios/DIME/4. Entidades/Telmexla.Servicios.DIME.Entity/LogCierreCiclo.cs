@@ -10,6 +10,8 @@
 // TargetFrameworkVersion = 4.51
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
+using System;
+
 namespace Telmexla.Servicios.DIME.Entity
 {
 
@@ -70,6 +72,66 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Motivo { get; set; } // MOTIVO (length: 100)
         public string Seguimiento { get; set; } // SEGUIMIENTO (length: 2)
         public System.DateTime? FechaSeguimiento { get; set; } // FECHA_SEGUIMIENTO
+
+        public static explicit operator LogCierreCiclo(CierreCiclo v)
+        {
+            LogCierreCiclo logCierreCiclo = new LogCierreCiclo();
+            logCierreCiclo.AliadoGestion = v.AliadoGestion;
+            logCierreCiclo.Base = v.Base;
+            logCierreCiclo.Cierre = v.Cierre;
+            logCierreCiclo.Cuenta = v.Cuenta;
+            logCierreCiclo.FechaGestion = v.FechaGestion;
+            logCierreCiclo.FechaSeguimiento = v.FechaSeguimiento;
+            logCierreCiclo.Gestion = v.Gestion;
+            logCierreCiclo.Motivo = v.Motivo;
+            logCierreCiclo.Obervaciones = v.Obervaciones;
+            logCierreCiclo.Ofrecimiento1 = v.Ofrecimiento1;
+            logCierreCiclo.Ofrecimiento2 = v.Ofrecimiento2;
+            logCierreCiclo.Ofrecimiento3 = v.Ofrecimiento3;
+            logCierreCiclo.OperacionGestion = v.OperacionGestion;
+            logCierreCiclo.PServicio1 = v.PServicio1;
+            logCierreCiclo.PServicio10 = v.PServicio10;
+            logCierreCiclo.PServicio11 = v.PServicio11;
+            logCierreCiclo.PServicio12 = v.PServicio12;
+            logCierreCiclo.PServicio13 = v.PServicio13;
+            logCierreCiclo.PServicio14 = v.PServicio14;
+            logCierreCiclo.PServicio15 = v.PServicio15;
+            logCierreCiclo.PServicio16 = v.PServicio16;
+            logCierreCiclo.PServicio17 = v.PServicio17;
+            logCierreCiclo.PServicio18 = v.PServicio18;
+            logCierreCiclo.PServicio19 = v.PServicio19;
+            logCierreCiclo.PServicio20 = v.PServicio20;
+            logCierreCiclo.PServicio21 = v.PServicio21;
+            logCierreCiclo.PServicio22 = v.PServicio22;
+            logCierreCiclo.PServicio23 = v.PServicio23;
+            logCierreCiclo.PServicio24 = v.PServicio24;
+            logCierreCiclo.PServicio25 = v.PServicio25;
+            logCierreCiclo.PServicio26 = v.PServicio26;
+            logCierreCiclo.PServicio27 = v.PServicio27;
+            logCierreCiclo.PServicio28 = v.PServicio28;
+            logCierreCiclo.PServicio29 = v.PServicio29;
+            logCierreCiclo.PServicio3 = v.PServicio3;
+            logCierreCiclo.PServicio30 = v.PServicio30;
+            logCierreCiclo.PServicio31 = v.PServicio31;
+            logCierreCiclo.PServicio32 = v.PServicio32;
+            logCierreCiclo.PServicio33 = v.PServicio33;
+            logCierreCiclo.PServicio34 = v.PServicio34;
+            logCierreCiclo.PServicio35 = v.PServicio35;
+            logCierreCiclo.PServicio36 = v.PServicio36;
+            logCierreCiclo.PServicio4 = v.PServicio4;
+            logCierreCiclo.PServicio5 = v.PServicio5;
+            logCierreCiclo.PServicio6 = v.PServicio6;
+            logCierreCiclo.PServicio7 = v.PServicio7;
+            logCierreCiclo.PServicio8 = v.PServicio8;
+            logCierreCiclo.PServicio9 = v.PServicio9;
+            logCierreCiclo.Razon = v.Razon;
+            logCierreCiclo.Seguimiento = v.Seguimiento;
+            logCierreCiclo.TipoContacto = v.TipoContacto;
+            logCierreCiclo.UsuarioGestion = v.UsuarioGestion;
+
+            return logCierreCiclo;
+
+        }
     }
 
 }

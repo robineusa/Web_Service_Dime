@@ -47,12 +47,14 @@ namespace Telmexla.Servicios.DIME.Data.Context
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
+
         }
 
         public DimeContext()
             : base("Name=DimeContext")
         {
-           
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = true;
         }
 
         public DimeContext(string connectionString)

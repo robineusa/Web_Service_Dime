@@ -10,6 +10,8 @@
 // TargetFrameworkVersion = 4.51
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
+using System;
+
 namespace Telmexla.Servicios.DIME.Entity
 {
 
@@ -43,6 +45,40 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Aliado { get; set; } // ALIADO (length: 100)
         public string Seguimiento { get; set; } // SEGUIMIENTO (length: 2)
         public System.DateTime? FechaSeguimiento { get; set; } // FECHA_SEGUIMIENTO
+
+        public static explicit operator LogDocsisOverlap(DocsisOverlap v)
+        {
+            LogDocsisOverlap logger = new LogDocsisOverlap();
+            logger.Aliado = v.Aliado;
+            logger.AliadoGestion = v.AliadoGestion;
+            logger.ApellidoCliente = v.ApellidoCliente;
+            logger.Cierre = v.Cierre;
+            logger.CorreoElectronico = v.CorreoElectronico;
+            logger.CuentaCliente = v.CuentaCliente;
+            logger.DireccionCorrespondencia = v.DireccionCorrespondencia;
+            logger.DireccionInstalacion = v.DireccionInstalacion;
+            logger.FechaGestion = v.FechaGestion;
+            logger.FechaSeguimiento = v.FechaSeguimiento;
+            logger.Gestion = v.Gestion;
+            logger.Id = v.Id;
+            logger.Movil1 = v.Movil1;
+            logger.Movil2 = v.Movil2;
+            logger.NombreBase = v.NombreBase;
+            logger.NombreCliente = v.NombreCliente;
+            logger.NombreUsuarioGestion = v.NombreUsuarioGestion;
+            logger.Observaciones = v.Observaciones;
+            logger.OperacionGestion = v.OperacionGestion;
+            logger.PaqueteActual = v.PaqueteActual;
+            logger.Razon = v.Razon;
+            logger.Seguimiento = v.Seguimiento;
+            logger.Telefono1 = v.Telefono1;
+            logger.Telefono2 = v.Telefono2;
+            logger.Telefono3 = v.Telefono3;
+            logger.TipoDeContacto = v.TipoDeContacto;
+            logger.UsuarioGestion = v.UsuarioGestion;
+            return logger;
+
+        }
     }
 
 }

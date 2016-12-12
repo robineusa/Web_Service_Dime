@@ -10,6 +10,8 @@
 // TargetFrameworkVersion = 4.51
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
+using System;
+
 namespace Telmexla.Servicios.DIME.Entity
 {
     // TBL_LOG_CONVENIO_ELECTRONICO
@@ -40,6 +42,38 @@ namespace Telmexla.Servicios.DIME.Entity
         public string NuevaDireccionCorrespondencia { get; set; } // NUEVA_DIRECCION_CORRESPONDENCIA (length: 100)
         public string Seguimiento { get; set; } // SEGUIMIENTO (length: 2)
         public System.DateTime? FechaSeguimiento { get; set; } // FECHA_SEGUIMIENTO
+
+        public static explicit operator LogConvenioElectronico(ConvenioElectronico v)
+        {
+            LogConvenioElectronico loggerConv = new LogConvenioElectronico();
+            loggerConv.AliadoGestion = v.AliadoGestion;
+            loggerConv.ApellidoCliente = v.ApellidoCliente;
+            loggerConv.Cierre = v.Cierre;
+            loggerConv.CorreoActual = v.CorreoActual;
+            loggerConv.CuentaCliente = v.CuentaCliente;
+            loggerConv.DireccionCorrespondenciaActual = v.DireccionCorrespondenciaActual;
+            loggerConv.DireccionInstalacion = v.DireccionInstalacion;
+            loggerConv.FechaGestion = v.FechaGestion;
+            loggerConv.FechaSeguimiento = v.FechaSeguimiento;
+            loggerConv.HoraGestion = v.HoraGestion;
+            loggerConv.Id = v.Id;
+            loggerConv.LineaGestion = v.LineaGestion;
+            loggerConv.MovilActual = v.MovilActual;
+            loggerConv.MovilNuevo = v.MovilNuevo;
+            loggerConv.NombreCliente = v.NombreCliente;
+            loggerConv.NuevaDireccionCorrespondencia = v.NuevaDireccionCorrespondencia;
+            loggerConv.NuevoCorreo = v.NuevoCorreo;
+            loggerConv.Razon = v.Razon;
+            loggerConv.Seguimiento = v.Seguimiento;
+            loggerConv.Telefono1 = v.Telefono1;
+            loggerConv.Telefono2 = v.Telefono2;
+            loggerConv.Telefono3 = v.Telefono3;
+            loggerConv.TelefonoTelmex = v.TelefonoTelmex;
+            loggerConv.TipoContacto = v.TipoContacto;
+            loggerConv.UsuarioGestion = v.UsuarioGestion;
+            return loggerConv;
+            
+        }
     }
 
 }

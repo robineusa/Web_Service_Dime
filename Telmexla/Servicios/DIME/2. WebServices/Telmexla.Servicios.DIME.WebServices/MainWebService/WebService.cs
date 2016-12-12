@@ -158,6 +158,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
 
 
+        public void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion)
+        {
+            InboundService inboundService = new InboundService();
+             inboundService.RegistrarIngresoInbound(infoCliente, ingreso, observacion);
+        }
+
         #endregion
 
         #region MaestrosService 

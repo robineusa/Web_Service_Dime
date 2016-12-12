@@ -29,6 +29,18 @@ namespace Telmexla.Servicios.DIME.Data
             logDocsisOverlaps = new LogDocsisOverlapRepository(this.dimeContext);
             logClaroVideos = new LogClaroVideoRepository(this.dimeContext);
             logCierreCiclos = new LogCierreCicloRepository(this.dimeContext);
+            ingresos =  new  IngresoRepository(this.dimeContext);
+            notasIngresos = new NotasIngresoRepository(this.dimeContext);
+        }
+
+
+        public INotasIngresoRepository notasIngresos
+        {
+            get; private set;
+        }
+        public IIngresoRepository ingresos
+        {
+            get; private set;
         }
 
         public ILogConvenioElectronicoRepository logConveniosElectronicos
