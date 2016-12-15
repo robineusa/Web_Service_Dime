@@ -20,21 +20,8 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            InboundService inbServ = new InboundService();
-        
-            Ingreso ingreso = new Ingreso();
-            ingreso.Cuenta = 430;
-            ClientesTodo clientes = new ClientesTodo();
-            clientes.Cuenta = 430;
-            clientes.Nombre = "Alejandro";
-            ingreso.UsuarioApertura = "1";
-            ingreso.NombreLineaIngreso = "BRM";
+   
 
-            inbServ.RegistrarIngresoInbound(clientes, ingreso, "observacion prueba" );
-
-
-          
-            BlendingService blendingService = new BlendingService();
 
 
             ClientesTodo DatosCliente = new ClientesTodo();
@@ -67,9 +54,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
             
             LogClaroVideo logclaro = new LogClaroVideo();
-            BlendingBusiness  busine = new BlendingBusiness();
-            logclaro = busine.ConvertALogClaroVideo(claroVideoGestionado);
-            logclaro.Id = 0;
+            IngresoBusiness  busine = new IngresoBusiness();
+            List<TablaActualizarInbound> result4 = busine.GetTablaActualizarInbound(2025637);
+
+         
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             unitWork.logClaroVideos.Add(logclaro);
 

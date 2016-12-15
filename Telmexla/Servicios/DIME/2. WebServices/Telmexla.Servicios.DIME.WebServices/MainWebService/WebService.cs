@@ -7,6 +7,7 @@ using Telmexla.Servicios.DIME.Entity;
 using Telmexla.Servicios.DIME.IWebServices;
 using Telmexla.Servicios.DIME.IWebServices.IMainWebService;
 using Telmexla.Servicios.DIME.Helpers.ExtenMethods;
+using Telmexla.Servicios.DIME.Business;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
@@ -162,6 +163,25 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             InboundService inboundService = new InboundService();
              inboundService.RegistrarIngresoInbound(infoCliente, ingreso, observacion);
+        }
+
+
+        public IngresoCollection ListaIngresosDeCuenta(string cuenta)
+        {
+            InboundService inboundService = new InboundService();
+            return inboundService.ListaIngresosDeCuenta(cuenta);
+        }
+
+        public List<TablaActualizarInbound> ListaHistorialCaso(int idIngreso)
+        {
+            InboundService inboundService = new InboundService();
+            return inboundService.ListaHistorialCaso(idIngreso);
+        }
+
+        public void  ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente)
+        {
+            InboundService inboundService = new InboundService();
+            inboundService.ActualizarIngresoInbound(ingreso, observacion, llamadaCliente);
         }
 
         #endregion
@@ -327,6 +347,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             MarcacionesService marcacionesService = new MarcacionesService();
             return marcacionesService.ListaMarcaciones();
+        }
+
+        public int GetIdMarcacionPorNombre(string nombre)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            return marcacionesService.GetIdMarcacionPorNombre(nombre);
+
         }
         #endregion
 

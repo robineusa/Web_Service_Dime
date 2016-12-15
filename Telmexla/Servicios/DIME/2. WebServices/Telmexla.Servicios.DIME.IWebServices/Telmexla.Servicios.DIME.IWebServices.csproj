@@ -69,6 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\3. Business\Telmexla.Servicios.DIME.Business\Telmexla.Servicios.DIME.Business.csproj">
+      <Project>{C0E28F0D-D7F6-4CFF-8DFE-40BDE2AAB62B}</Project>
+      <Name>Telmexla.Servicios.DIME.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\4. Entidades\Telmexla.Servicios.DIME.Entity\Telmexla.Servicios.DIME.Entity.csproj">
       <Project>{395D1809-BE70-4B2A-9413-46708EDFB957}</Project>
       <Name>Telmexla.Servicios.DIME.Entity</Name>

@@ -79,5 +79,23 @@ namespace Telmexla.Servicios.DIME.WebServices
 
         }
 
+        public IngresoCollection ListaIngresosDeCuenta(string cuenta)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+           return  ingresoBusi.GetListaIngresos(cuenta);
+        }
+
+        public List<TablaActualizarInbound> ListaHistorialCaso(int idIngreso)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            return ingresoBusi.GetTablaActualizarInbound(idIngreso);
+        }
+
+        public void ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            ingresoBusi.ActualizarIngreso(ingreso, observacion, llamadaCliente);
+        }
+
     }
 }

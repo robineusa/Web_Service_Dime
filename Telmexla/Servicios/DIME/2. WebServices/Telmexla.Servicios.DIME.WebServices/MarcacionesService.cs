@@ -35,5 +35,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
             return marcabusiness.ObtenerListaMarcaciones();
         }
+
+        public int GetIdMarcacionPorNombre(string nombre)
+        {
+            MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
+            return marcabusiness.GetIdMarcacion(nombre);
+        }
     }
 }

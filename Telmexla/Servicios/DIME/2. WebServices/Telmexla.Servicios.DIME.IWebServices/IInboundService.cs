@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using Telmexla.Servicios.DIME.Business;
 using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IWebServices
@@ -31,5 +32,14 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion);
 
+
+        [OperationContract]
+        IngresoCollection ListaIngresosDeCuenta(string cuenta);
+
+        [OperationContract]
+        List<TablaActualizarInbound> ListaHistorialCaso(int idIngreso);
+
+        [OperationContract]
+        void ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente);
     }
 }

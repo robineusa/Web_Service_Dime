@@ -34,6 +34,7 @@ C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\3. Business\Telmexla.Servic
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\obj\Debug\Telmexla.Servicios.DIME.Business.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\obj\Debug\Telmexla.Servicios.DIME.Business.dll
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\obj\Debug\Telmexla.Servicios.DIME.Business.pdb
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\obj\Debug\Telmexla.Servicios.DIME.Business.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Debug\Telmexla.Servicios.DIME.Business.dll.config
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Debug\Telmexla.Servicios.DIME.Business.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Debug\Telmexla.Servicios.DIME.Business.pdb
@@ -47,6 +48,5 @@ C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. 
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Debug\Telmexla.Servicios.DIME.IData.pdb
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Debug\EntityFramework.xml
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\obj\Debug\Telmexla.Servicios.DIME.Business.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\obj\Debug\Telmexla.Servicios.DIME.Business.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\obj\Debug\Telmexla.Servicios.DIME.Business.pdb
