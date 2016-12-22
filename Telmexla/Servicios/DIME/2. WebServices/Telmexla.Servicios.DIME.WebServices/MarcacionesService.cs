@@ -41,5 +41,60 @@ namespace Telmexla.Servicios.DIME.WebServices
             MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
             return marcabusiness.GetIdMarcacion(nombre);
         }
+
+        public List<String> ListaNombreCodDeSubmarcacion(string submarcacion)
+        {
+
+            MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
+            return marcabusiness.GetListraNombreCodigo(submarcacion);
+        }
+
+        public void EliminarMarcacion(int id)
+        {
+            MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
+           marcabusiness.RemoverMarcacion(id);
+        }
+
+        public MaestroMarcacione GetMarcacionPorId(int id)
+        {
+            MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
+            return marcabusiness.GetMarcacionDeId( id);
+        }
+
+        public void ActualizarMarcacion(MaestroMarcacione marcacion)
+        {
+            MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
+            marcabusiness.ActualizarMarcacion(marcacion);
+        }
+
+        public PqrMaestroCodCierreCollection ListaCodigosDeCierre()
+        {
+            MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
+            return marcabusiness.GetCodigosCierreTotal();
+        }
+
+        public void EliminarCodigoCierre(int id)
+        {
+            MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
+            marcabusiness.EliminarCodigoCierre(id);
+        }
+
+        public void AgregarCodigoCierre(PqrMaestroCodCierre codigoCierre)
+        {
+            MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
+            marcabusiness.InsertCodigoCierre(codigoCierre);
+        }
+
+        public void ActualizarCodCierre(PqrMaestroCodCierre codigoCierre)
+        {
+            MarcacionesBusiness marcabusiness = new MarcacionesBusiness();
+            marcabusiness.UpdateCodigoCierre(codigoCierre);
+        }
+
+        public PqrMaestroCodCierre CodigoCierrePorId(int idCierre)
+        {
+            MarcacionesBusiness marcaBusiness = new MarcacionesBusiness();
+            return marcaBusiness.GetCodigoCierrePorId(idCierre);
+        }
     }
 }

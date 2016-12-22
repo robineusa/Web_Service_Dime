@@ -31,9 +31,17 @@ namespace Telmexla.Servicios.DIME.Data
             logCierreCiclos = new LogCierreCicloRepository(this.dimeContext);
             ingresos =  new  IngresoRepository(this.dimeContext);
             notasIngresos = new NotasIngresoRepository(this.dimeContext);
+            pqrMaestroCodigos = new PqrMaestroCodCierreRepository(this.dimeContext);
+            rechazos = new RechazoRepository(this.dimeContext);
         }
-
-
+        public IRechazoRepository rechazos
+        {
+            get; private set;
+        }
+        public IPqrMaestroCodCierreRepository pqrMaestroCodigos
+        {
+            get; private set;
+        }
         public INotasIngresoRepository notasIngresos
         {
             get; private set;

@@ -32,14 +32,16 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; }
         public System.Data.Entity.DbSet<LogConvenioElectronico> LogConvenioElectronicoes { get; set; }
         public System.Data.Entity.DbSet<LogDocsisOverlap> LogDocsisOverlaps { get; set; }
+        public System.Data.Entity.DbSet<MaestroHobbiesCliente> MaestroHobbiesClientes { get; set; }
+        public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; }
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; }
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; }
         public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicios { get; set; }
+        public System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; }
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; }
+        public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; }
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; }
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; }
-        public System.Data.Entity.DbSet<TmpMaestroHobbiesCliente> TmpMaestroHobbiesClientes { get; set; }
-        public System.Data.Entity.DbSet<TmpMaestroMarcacione> TmpMaestroMarcaciones { get; set; }
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; }
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; }
         public System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; }
@@ -60,14 +62,16 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             LogClaroVideos = new FakeDbSet<LogClaroVideo>("Id");
             LogConvenioElectronicoes = new FakeDbSet<LogConvenioElectronico>("Id");
             LogDocsisOverlaps = new FakeDbSet<LogDocsisOverlap>("Id");
+            MaestroHobbiesClientes = new FakeDbSet<MaestroHobbiesCliente>("IdHobby");
+            MaestroMarcaciones = new FakeDbSet<MaestroMarcacione>("Id");
             ModosLogins = new FakeDbSet<ModosLogin>("Id");
             NotasIngresoes = new FakeDbSet<NotasIngreso>("IdNota", "CuentaCliente", "NombreLineaNota");
             NotificacionesBuenServicios = new FakeDbSet<NotificacionesBuenServicio>("IdNotificado");
+            PqrMaestroCodCierres = new FakeDbSet<PqrMaestroCodCierre>("Id");
             PreguntasDesbloqueos = new FakeDbSet<PreguntasDesbloqueo>("Id");
+            Rechazoes = new FakeDbSet<Rechazo>("IdRechazo");
             RegistroSesions = new FakeDbSet<RegistroSesion>("Id");
             Sysdiagrams = new FakeDbSet<Sysdiagram>("DiagramId");
-            TmpMaestroHobbiesClientes = new FakeDbSet<TmpMaestroHobbiesCliente>("IdHobby");
-            TmpMaestroMarcaciones = new FakeDbSet<TmpMaestroMarcacione>("Id");
             Usuarios = new FakeDbSet<Usuario>("Id");
             UsuariosXAccesoes = new FakeDbSet<UsuariosXAcceso>("Id", "IdAcceso", "IdUsuario");
             UsuariosXPreguntasDesbs = new FakeDbSet<UsuariosXPreguntasDesb>("Id", "IdPregunta", "IdUsuario");

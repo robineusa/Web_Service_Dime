@@ -24,6 +24,8 @@ namespace Telmexla.Servicios.DIME.IData
         ILogCierreCicloRepository logCierreCiclos { get; }
         IIngresoRepository ingresos { get; }
         INotasIngresoRepository notasIngresos { get; }
+        IPqrMaestroCodCierreRepository pqrMaestroCodigos { get; }
+        IRechazoRepository rechazos { get; }
         int Complete();
     }
 }

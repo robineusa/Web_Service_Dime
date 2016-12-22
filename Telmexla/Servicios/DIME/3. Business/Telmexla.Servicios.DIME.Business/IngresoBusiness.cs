@@ -96,6 +96,98 @@ namespace Telmexla.Servicios.DIME.Business
         }
 
 
+        public List<DatoConsultaRechazo> TableRechazosInfo(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaRechazo> result = (from a in dimContext.Rechazoes
+                                                join b in dimContext.Usuarios on a.UsuarioCreacionCaso equals b.Id.ToString()
+                                                join c in dimContext.Usuarios on a.UsuarioRechaza equals c.Id.ToString()
+                                                join m in dimContext.Lineas on c.IdLinea equals m.Id
+                                                 where a.UsuarioCreacionCaso.Equals(idUsuario) && a.FechaRechazo >= fechaInicial && a.FechaRechazo <= fechaFinal
+                                                select new DatoConsultaRechazo { IdIngreso = a.IdIngreso, FechaCreacionCaso = a.FechaCreacionCaso, HoraCreacionCaso = a.HoraCreacionCaso,
+                                                    UsuarioCreacionCaso = b.Cedula.ToString(), NotasRechazo = a.NotasRechazo, UsuarioRechaza = c.Cedula.ToString(),
+                                                    FechaRechazo = a.FechaRechazo, HoraRechazo = a.HoraRechazo, NombreUsuarioCreacion = b.Nombre, NombreUsuarioRechaza = c.Nombre,
+                                                    NombreLineaUsuarioRechaza = m.Nombre, AliadoUsuarioRechaza = c.Aliado }).ToList();
+
+            return result;
+        }
+
+        public IngresoCollection SeguimientosInfo(string idUsuario)
+        {
+            UnitOfWork unitwork = new UnitOfWork(new DimeContext());
+            IngresoCollection result = new IngresoCollection();
+            result.AddRange(unitwork.ingresos.Find(c => c.UsuarioApertura.Equals(idUsuario) && c.UsuarioBackoffice== null && 
+                                                    c.IdEstado == 3 ).Select(x => new Ingreso
+            {
+                IdIngreso = x.IdIngreso,
+                Cuenta = x.Cuenta,
+                Ticket = x.Ticket,
+                FechaApertura = x.FechaApertura,
+                HoraApertura = x.HoraApertura,
+                FechaCierre = x.FechaCierre,
+                UsuarioApertura = x.UsuarioApertura,
+                UsuarioCierre = x.UsuarioCierre,
+                FechaUltimaActualizacion = x.FechaUltimaActualizacion,
+                UsuarioUltimaActualizacion = x.UsuarioUltimaActualizacion,
+                HoraUltimaActualizacion = x.HoraUltimaActualizacion,
+                Macroproceso = x.Macroproceso,
+                Marcacion = x.Marcacion,
+                IdEstado = x.IdEstado,
+                Semaforo = x.Semaforo
+            }).ToList());
+
+            return result;
+        }
+
+        public List<DatoConsultaGestion> TableGestionAsesor(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)
+        {
+            DimeContext dimContext = new DimeContext();
+            var datos = (from c in dimContext.Ingresoes
+                         join m in dimContext.NotasIngresoes on c.IdIngreso equals m.IdIngreso
+                         join n in dimContext.Usuarios on m.Usuario equals n.Id.ToString()
+                         join o in dimContext.Usuarios on c.UsuarioApertura equals o.Id.ToString()
+                         join p in dimContext.Usuarios on c.UsuarioCierre equals p.Id.ToString() into Details
+                         from p in Details.DefaultIfEmpty()
+                         where m.Usuario.Equals(idUsuario) && m.FechaNota >= fechaInicial && m.FechaNota <= fechaFinal
+                         select new { idIngreso = m.IdIngreso, cuentaClient = m.CuentaCliente, ticket = m.Ticket, nombLinea = c.NombreLineaIngreso,
+                             nombLinEscalado = c.NombreLineaEscalado, aliadoApertura = c.AliadoApertura, fechaInteraccion = m.FechaNota,
+                             fechaApertura = c.FechaApertura, horaApertura = c.HoraApertura, fechaCierre = c.FechaCierre, usuario = n.Cedula,
+                             usuarioApertura = o.Cedula, usuarioCierre = p.Cedula, fechaUltActualizacion = c.FechaUltimaActualizacion,
+                             usuarioUltimaActua = c.UsuarioUltimaActualizacion, horaUltActua = c.HoraUltimaActualizacion, macroproceso = c.Macroproceso,
+                             marcacion = c.Marcacion, nota = m.Nota, idEstado = c.IdEstado }).ToList();
+
+            List<DatoConsultaGestion> result = new List<DatoConsultaGestion>();
+            DatoConsultaGestion datoResult;
+            foreach (var item in datos)
+            {
+                datoResult = new DatoConsultaGestion();
+                datoResult.Ingreso.IdIngreso = item.idIngreso??0;
+                datoResult.Ingreso.Cuenta = item.cuentaClient;
+                datoResult.Ingreso.Ticket = item.ticket ?? 0;
+                datoResult.Ingreso.NombreLineaIngreso = item.nombLinea;
+                datoResult.Ingreso.NombreLineaEscalado = item.nombLinEscalado;
+                datoResult.Ingreso.AliadoApertura = item.aliadoApertura;
+                datoResult.Ingreso.FechaApertura = item.fechaApertura;
+                datoResult.Ingreso.HoraApertura = item.horaApertura;
+                datoResult.Ingreso.FechaCierre = item.fechaCierre;
+                datoResult.Ingreso.UsuarioApertura = item.usuarioApertura.ToString();
+                datoResult.Ingreso.UsuarioCierre = item.usuarioCierre.ToString();
+                datoResult.Ingreso.FechaUltimaActualizacion = item.fechaUltActualizacion;
+                datoResult.Ingreso.UsuarioUltimaActualizacion = item.usuarioUltimaActua;
+                datoResult.Ingreso.HoraUltimaActualizacion = item.horaUltActua;
+                datoResult.Ingreso.Macroproceso = item.macroproceso;
+                datoResult.Ingreso.Marcacion = item.marcacion;
+                datoResult.Ingreso.IdEstado = item.idEstado;
+                datoResult.NotaIngreso.FechaNota = item.fechaInteraccion;
+                datoResult.NotaIngreso.Nota = item.nota;
+                datoResult.NotaIngreso.Usuario = item.usuario.ToString();
+                result.Add(datoResult);
+            }
+
+            return result;
+         }
+
+  
 
         public Ingreso PonerDatosBasicosEnIngreso(ClientesTodo infoCliente, Ingreso ingreso)
         {
@@ -183,7 +275,7 @@ namespace Telmexla.Servicios.DIME.Business
                       
         }
 
-
+   
 
 
 

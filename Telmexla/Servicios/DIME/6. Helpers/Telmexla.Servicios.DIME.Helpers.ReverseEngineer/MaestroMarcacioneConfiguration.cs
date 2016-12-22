@@ -15,14 +15,14 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 
     // TMP_MAESTRO_MARCACIONES
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.24.0.0")]
-    public class TmpMaestroMarcacioneConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<TmpMaestroMarcacione>
+    public class MaestroMarcacioneConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<MaestroMarcacione>
     {
-        public TmpMaestroMarcacioneConfiguration()
+        public MaestroMarcacioneConfiguration()
             : this("dbo")
         {
         }
 
-        public TmpMaestroMarcacioneConfiguration(string schema)
+        public MaestroMarcacioneConfiguration(string schema)
         {
             ToTable("TMP_MAESTRO_MARCACIONES", schema);
             HasKey(x => x.Id);

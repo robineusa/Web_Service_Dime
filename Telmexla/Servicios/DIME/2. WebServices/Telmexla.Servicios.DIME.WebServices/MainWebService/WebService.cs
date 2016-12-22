@@ -184,6 +184,25 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             inboundService.ActualizarIngresoInbound(ingreso, observacion, llamadaCliente);
         }
 
+        public List<DatoConsultaGestion> ConsultaGestion(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)
+        {
+            InboundService inboundService = new InboundService();
+            return inboundService.ConsultaGestion(fechaInicial, fechaFinal, idUsuario);
+        }
+
+        public List<DatoConsultaRechazo> ConsultaRechazos(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)
+        {
+            InboundService inboundService = new InboundService();
+            return inboundService.ConsultaRechazos(fechaInicial, fechaFinal, idUsuario);
+        }
+
+        public IngresoCollection ConsultaSegumiento(string idUsuario)
+        {
+            InboundService inboundService = new InboundService();
+            return inboundService.ConsultaSegumiento(idUsuario);
+
+        }
+
         #endregion
 
         #region MaestrosService 
@@ -354,6 +373,62 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MarcacionesService marcacionesService = new MarcacionesService();
             return marcacionesService.GetIdMarcacionPorNombre(nombre);
 
+        }
+
+
+        public List<String> ListaNombreCodDeSubmarcacion(string submarcacion)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            return marcacionesService.ListaNombreCodDeSubmarcacion(submarcacion);
+
+        }
+
+        public void EliminarMarcacion(int id)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            marcacionesService.EliminarMarcacion(id);
+        }
+
+        public MaestroMarcacione GetMarcacionPorId(int id)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            return marcacionesService.GetMarcacionPorId(id);
+        }
+
+        public void ActualizarMarcacion(MaestroMarcacione marcacion)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            marcacionesService.ActualizarMarcacion(marcacion);
+        }
+
+        public PqrMaestroCodCierreCollection ListaCodigosDeCierre()
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            return marcacionesService.ListaCodigosDeCierre();
+        }
+
+        public void EliminarCodigoCierre(int id)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            marcacionesService.EliminarCodigoCierre(id);
+        }
+
+        public void AgregarCodigoCierre(PqrMaestroCodCierre codigoCierre)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            marcacionesService.AgregarCodigoCierre(codigoCierre);
+        }
+
+        public void ActualizarCodCierre(PqrMaestroCodCierre codigoCierre)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            marcacionesService.ActualizarCodCierre(codigoCierre);
+        }
+
+        public PqrMaestroCodCierre CodigoCierrePorId(int idCierre)
+        {
+            MarcacionesService marcacionesService = new MarcacionesService();
+            return marcacionesService.CodigoCierrePorId(idCierre);
         }
         #endregion
 

@@ -52,12 +52,14 @@
     <Compile Include="ArbolesDeTipificacion.cs" />
     <Compile Include="BlendingBusiness.cs" />
     <Compile Include="ClientesBusiness.cs" />
+    <Compile Include="DatoConsultaRechazo.cs" />
     <Compile Include="IngresoBusiness.cs" />
     <Compile Include="MarcacionesBusiness.cs" />
     <Compile Include="NotificacionesBuenServicioBusiness.cs" />
     <Compile Include="OutboundBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TablaActualizarInbound.cs" />
+    <Compile Include="DatoConsultaGestion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

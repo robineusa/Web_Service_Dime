@@ -158,7 +158,8 @@
         if (name.StartsWith("TBL"))
             name = name.Remove(0, 3);
         //name = name.Replace("_AB", "");
-
+		if (name.StartsWith("TMP"))
+            name = name.Remove(0, 3);
         // If you turn camel casing off (UseCamelCase = false), and use the pluralisation service, and some of your
         // tables names are all UPPERCASE, some words ending in IES such as CATEGORIES get singularised as CATEGORy.
         // Therefore you can make them lowercase by using the following

@@ -40,6 +40,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; } // TBL_LOG_CLARO_VIDEO
         System.Data.Entity.DbSet<LogConvenioElectronico> LogConvenioElectronicoes { get; set; } // TBL_LOG_CONVENIO_ELECTRONICO
         System.Data.Entity.DbSet<LogDocsisOverlap> LogDocsisOverlaps { get; set; } // TBL_LOG_DOCSIS_OVERLAP
+        System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; } // TMP_PQR_MAESTRO_COD_CIERRE
+        System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();
         System.Threading.Tasks.Task<int> SaveChangesAsync(System.Threading.CancellationToken cancellationToken);
@@ -51,6 +53,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         int Consultas(decimal? nombreCab, System.Data.DataTable detalles);
         // ConsultasAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
 
+      
     }
 
 }

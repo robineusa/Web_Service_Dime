@@ -75,7 +75,6 @@ C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\1. Ejecucion de WebService\
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\obj\Debug\Telmexla.Servicios.DIME.Ejecutor.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\obj\Debug\Telmexla.Servicios.DIME.Ejecutor.exe
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\obj\Debug\Telmexla.Servicios.DIME.Ejecutor.pdb
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\obj\Debug\Telmexla.Servicios.DIME.Ejecutor.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Ejecutor.exe.config
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Ejecutor.exe
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Ejecutor.pdb
@@ -99,5 +98,6 @@ C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. 
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.pdb
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\obj\Debug\Telmexla.Servicios.DIME.Ejecutor.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\obj\Debug\Telmexla.Servicios.DIME.Ejecutor.exe
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\obj\Debug\Telmexla.Servicios.DIME.Ejecutor.pdb

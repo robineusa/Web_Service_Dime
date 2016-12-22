@@ -15,7 +15,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 
     // TMP_MAESTRO_HOBBIES_CLIENTE
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.24.0.0")]
-    public class TmpMaestroHobbiesCliente
+    public class MaestroHobbiesCliente
     {
         public decimal IdHobby { get; set; } // ID_HOBBY (Primary key)
         public string Hobby { get; set; } // HOBBY (length: 50)

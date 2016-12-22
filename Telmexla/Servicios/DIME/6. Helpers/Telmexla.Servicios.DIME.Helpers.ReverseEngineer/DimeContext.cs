@@ -32,14 +32,16 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; } // TBL_LOG_CLARO_VIDEO
         public System.Data.Entity.DbSet<LogConvenioElectronico> LogConvenioElectronicoes { get; set; } // TBL_LOG_CONVENIO_ELECTRONICO
         public System.Data.Entity.DbSet<LogDocsisOverlap> LogDocsisOverlaps { get; set; } // TBL_LOG_DOCSIS_OVERLAP
+        public System.Data.Entity.DbSet<MaestroHobbiesCliente> MaestroHobbiesClientes { get; set; } // TMP_MAESTRO_HOBBIES_CLIENTE
+        public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; } // TMP_MAESTRO_MARCACIONES
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; } // TBL_MODOS_LOGINS
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
         public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicios { get; set; } // NOTIFICACIONES_BUEN_SERVICIO
+        public System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; } // TMP_PQR_MAESTRO_COD_CIERRE
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; } // TBL_PREGUNTAS_DESBLOQUEO
+        public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; } // sysdiagrams
-        public System.Data.Entity.DbSet<TmpMaestroHobbiesCliente> TmpMaestroHobbiesClientes { get; set; } // TMP_MAESTRO_HOBBIES_CLIENTE
-        public System.Data.Entity.DbSet<TmpMaestroMarcacione> TmpMaestroMarcaciones { get; set; } // TMP_MAESTRO_MARCACIONES
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; } // TBL_USUARIOS
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // TBL_USUARIOS_X_ACCESOS
         public System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; } // TBL_USUARIOS_X_PREGUNTAS_DESB
@@ -106,14 +108,16 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new LogClaroVideoConfiguration());
             modelBuilder.Configurations.Add(new LogConvenioElectronicoConfiguration());
             modelBuilder.Configurations.Add(new LogDocsisOverlapConfiguration());
+            modelBuilder.Configurations.Add(new MaestroHobbiesClienteConfiguration());
+            modelBuilder.Configurations.Add(new MaestroMarcacioneConfiguration());
             modelBuilder.Configurations.Add(new ModosLoginConfiguration());
             modelBuilder.Configurations.Add(new NotasIngresoConfiguration());
             modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration());
+            modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration());
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration());
+            modelBuilder.Configurations.Add(new RechazoConfiguration());
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration());
             modelBuilder.Configurations.Add(new SysdiagramConfiguration());
-            modelBuilder.Configurations.Add(new TmpMaestroHobbiesClienteConfiguration());
-            modelBuilder.Configurations.Add(new TmpMaestroMarcacioneConfiguration());
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration());
@@ -135,14 +139,16 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new LogClaroVideoConfiguration(schema));
             modelBuilder.Configurations.Add(new LogConvenioElectronicoConfiguration(schema));
             modelBuilder.Configurations.Add(new LogDocsisOverlapConfiguration(schema));
+            modelBuilder.Configurations.Add(new MaestroHobbiesClienteConfiguration(schema));
+            modelBuilder.Configurations.Add(new MaestroMarcacioneConfiguration(schema));
             modelBuilder.Configurations.Add(new ModosLoginConfiguration(schema));
             modelBuilder.Configurations.Add(new NotasIngresoConfiguration(schema));
             modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration(schema));
+            modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration(schema));
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration(schema));
+            modelBuilder.Configurations.Add(new RechazoConfiguration(schema));
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration(schema));
             modelBuilder.Configurations.Add(new SysdiagramConfiguration(schema));
-            modelBuilder.Configurations.Add(new TmpMaestroHobbiesClienteConfiguration(schema));
-            modelBuilder.Configurations.Add(new TmpMaestroMarcacioneConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuarioConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration(schema));

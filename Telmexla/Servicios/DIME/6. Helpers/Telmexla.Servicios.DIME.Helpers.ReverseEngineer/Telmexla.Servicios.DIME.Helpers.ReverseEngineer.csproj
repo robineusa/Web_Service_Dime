@@ -246,6 +246,18 @@
     <Compile Include="MaestroHipotesiConfiguration.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
+    <Compile Include="MaestroHobbiesCliente.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaestroHobbiesClienteConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaestroMarcacione.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaestroMarcacioneConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="MaestroOutboundCausa.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
@@ -345,6 +357,12 @@
     <Compile Include="NotificacionesBuenServicioConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="PqrMaestroCodCierre.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PqrMaestroCodCierreConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="PreguntasDesbloqueo.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -358,6 +376,12 @@
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rechazo.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RechazoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="RegistroSesion.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -399,18 +423,6 @@
     </Compile>
     <Compile Include="Tmp7PqrMaestroFestivo.cs">
       <DependentUpon>Database2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TmpMaestroHobbiesCliente.cs">
-      <DependentUpon>Database1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TmpMaestroHobbiesClienteConfiguration.cs">
-      <DependentUpon>Database1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TmpMaestroMarcacione.cs">
-      <DependentUpon>Database1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TmpMaestroMarcacioneConfiguration.cs">
-      <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
       <DependentUpon>Database1.tt</DependentUpon>

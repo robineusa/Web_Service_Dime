@@ -19,8 +19,15 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Nombre { get; set; } // NOMBRE (length: 50)
         public int? IdModoLogin { get; set; } // ID_MODO_LOGIN
 
+        public virtual System.Collections.Generic.ICollection<Usuario> Usuarios { get; set; } // TBL_USUARIOS.FK__TBL_USUAR__ID_LI__0E6E26BF
+
         // Foreign keys
-        public virtual ModosLogin ModosLogin { get; set; } // FK__TBL_LINEA__ID_MO__7755B73D
+        public virtual ModosLogin ModosLogin { get; set; } // FK__TBL_LINEA__ID_MO__1ED998B2
+
+        public Linea()
+        {
+            Usuarios = new System.Collections.Generic.List<Usuario>();
+        }
     }
 
 }

@@ -15,7 +15,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 
     // TMP_MAESTRO_MARCACIONES
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.24.0.0")]
-    public class TmpMaestroMarcacione
+    public class MaestroMarcacione
     {
         public int Id { get; set; } // ID (Primary key)
         public string Razon { get; set; } // RAZON (length: 100)

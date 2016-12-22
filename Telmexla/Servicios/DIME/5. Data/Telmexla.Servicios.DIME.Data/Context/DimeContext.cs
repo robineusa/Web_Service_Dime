@@ -44,6 +44,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; } // TBL_LOG_CLARO_VIDEO
         public System.Data.Entity.DbSet<LogConvenioElectronico> LogConvenioElectronicoes { get; set; } // TBL_LOG_CONVENIO_ELECTRONICO
         public System.Data.Entity.DbSet<LogDocsisOverlap> LogDocsisOverlaps { get; set; } // TBL_LOG_DOCSIS_OVERLAP
+        public System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; } // TMP_PQR_MAESTRO_COD_CIERRE
+         public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -118,6 +120,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new LogClaroVideoConfiguration());
             modelBuilder.Configurations.Add(new LogConvenioElectronicoConfiguration());
             modelBuilder.Configurations.Add(new LogDocsisOverlapConfiguration());
+            modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration());
+            modelBuilder.Configurations.Add(new RechazoConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -146,6 +150,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new LogClaroVideoConfiguration(schema));
             modelBuilder.Configurations.Add(new LogConvenioElectronicoConfiguration(schema));
             modelBuilder.Configurations.Add(new LogDocsisOverlapConfiguration(schema));
+            modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration(schema));
+            modelBuilder.Configurations.Add(new RechazoConfiguration(schema));
             return modelBuilder;
         }
 

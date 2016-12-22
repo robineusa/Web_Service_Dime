@@ -41,5 +41,16 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         void ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente);
+
+
+        [OperationContract]
+        List<DatoConsultaGestion> ConsultaGestion(DateTime fechaInicial, DateTime fechaFinal, string idUsuario);
+
+
+        [OperationContract]
+        List<DatoConsultaRechazo> ConsultaRechazos(DateTime fechaInicial, DateTime fechaFinal, string idUsuario);
+
+        [OperationContract]
+        IngresoCollection ConsultaSegumiento(string idUsuario);
     }
 }

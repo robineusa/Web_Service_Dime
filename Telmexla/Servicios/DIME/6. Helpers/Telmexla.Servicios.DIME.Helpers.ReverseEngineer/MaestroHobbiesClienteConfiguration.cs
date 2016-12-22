@@ -15,14 +15,14 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 
     // TMP_MAESTRO_HOBBIES_CLIENTE
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.24.0.0")]
-    public class TmpMaestroHobbiesClienteConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<TmpMaestroHobbiesCliente>
+    public class MaestroHobbiesClienteConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<MaestroHobbiesCliente>
     {
-        public TmpMaestroHobbiesClienteConfiguration()
+        public MaestroHobbiesClienteConfiguration()
             : this("dbo")
         {
         }
 
-        public TmpMaestroHobbiesClienteConfiguration(string schema)
+        public MaestroHobbiesClienteConfiguration(string schema)
         {
             ToTable("TMP_MAESTRO_HOBBIES_CLIENTE", schema);
             HasKey(x => x.IdHobby);

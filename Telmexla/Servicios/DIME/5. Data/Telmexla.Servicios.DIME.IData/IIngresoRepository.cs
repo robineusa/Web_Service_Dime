@@ -9,5 +9,10 @@ namespace Telmexla.Servicios.DIME.IData
 {
     public interface IIngresoRepository : IRepository<Ingreso>
     {
+
+
+
+
+
     }
 }

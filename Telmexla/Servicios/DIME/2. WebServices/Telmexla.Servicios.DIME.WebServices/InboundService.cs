@@ -97,5 +97,22 @@ namespace Telmexla.Servicios.DIME.WebServices
             ingresoBusi.ActualizarIngreso(ingreso, observacion, llamadaCliente);
         }
 
+        public List<DatoConsultaGestion> ConsultaGestion(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            return ingresoBusi.TableGestionAsesor(fechaInicial, fechaFinal, idUsuario);
+        }
+
+        public List<DatoConsultaRechazo> ConsultaRechazos(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            return ingresoBusi.TableRechazosInfo(fechaInicial, fechaFinal, idUsuario);
+        }
+
+
+        public  IngresoCollection ConsultaSegumiento(string idUsuario)
+        {   IngresoBusiness ingresoBusi = new IngresoBusiness();
+            return ingresoBusi.SeguimientosInfo(idUsuario);
+        }
     }
 }
