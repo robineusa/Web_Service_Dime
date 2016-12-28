@@ -53,6 +53,7 @@
     <Compile Include="BlendingBusiness.cs" />
     <Compile Include="ClientesBusiness.cs" />
     <Compile Include="DatoConsultaRechazo.cs" />
+    <Compile Include="GestionDeCelulaUsr.cs" />
     <Compile Include="IngresoBusiness.cs" />
     <Compile Include="MarcacionesBusiness.cs" />
     <Compile Include="NotificacionesBuenServicioBusiness.cs" />

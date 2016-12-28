@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBlendingService.cs" />
+    <Compile Include="ICasosAdminService.cs" />
+    <Compile Include="ICasosCelulaService.cs" />
     <Compile Include="IClientesService.cs" />
     <Compile Include="IInboundService.cs" />
     <Compile Include="ILoginService.cs" />

@@ -11,7 +11,7 @@ using Telmexla.Servicios.DIME.Business;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService
     {
 
         #region Login Service
@@ -203,6 +203,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
         }
 
+
         #endregion
 
         #region MaestrosService 
@@ -238,8 +239,6 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
         }
         #endregion
-
-
 
         #region BlendingService
 
@@ -341,7 +340,6 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
-
         #region MarcacionesService
         public void RegistrarMarcacion(MaestroMarcacione marcacion)
         {
@@ -432,7 +430,6 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
-
         #region NotificacionesBuenServicioService
         public void RegistrarNotificado(NotificacionesBuenServicio notificado)
         {
@@ -440,5 +437,59 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             notificacionesservice.RegistrarNotificado(notificado);
         }
         #endregion
+
+        #region CasosCellService
+
+        public IngresoCollection ListaCasosAbiertosDeCelulaUser(string lineaUser, string aliadoUser)
+        {
+            CasosCelulaService casosCelulaService = new CasosCelulaService();
+            return casosCelulaService.ListaCasosAbiertosDeCelulaUser(lineaUser, aliadoUser);
+
+        }
+
+        public IngresoCollection ListaCasosEnSeguimiento(string usuario)
+        {
+            CasosCelulaService casosCelulaService = new CasosCelulaService();
+            return casosCelulaService.ListaCasosEnSeguimiento(usuario);
+        }
+
+        public List<GestionDeCelulaUsr> ListaGestionCasos(DateTime inicial, DateTime final, string idUsr)
+        {
+            CasosCelulaService casosCelulaService = new CasosCelulaService();
+            return casosCelulaService.ListaGestionCasos(inicial, final, idUsr);
+        }
+
+
+        public IngresoCollection ListaIngresosPorCuenta(string cuenta)
+        {
+            CasosCelulaService casosCelulaService = new CasosCelulaService();
+            return casosCelulaService.ListaIngresosPorCuenta(cuenta);
+        }
+
+        public IngresoCollection ListaIngresosPorId(string id)
+        {
+            CasosCelulaService casosCelulaService = new CasosCelulaService();
+            return casosCelulaService.ListaIngresosPorId(id);
+        }
+
+        #endregion CasosCellService
+
+        #region CasosAdminService
+        public IngresoCollection ListaIngresosPorTicketRr(string noTicket)
+        {
+            CasosAdminService casosAdminService = new CasosAdminService();
+            return casosAdminService.ListaIngresosPorTicketRr(noTicket);
+        }
+
+        public IngresoCollection ListaIngresosPorUsuarioCreacion(string ccUsuario)
+        {
+            CasosAdminService casosAdminService = new CasosAdminService();
+            return casosAdminService.ListaIngresosPorUsuarioCreacion(ccUsuario);
+
+        }
+
+        #endregion CasosAdminService
+
+
     }
 }

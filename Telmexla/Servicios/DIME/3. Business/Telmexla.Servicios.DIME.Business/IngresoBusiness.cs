@@ -57,6 +57,156 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
+        public IngresoCollection ListaIngresosPorUsuarioCreacion(string ccUsuario)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoCollection result = new IngresoCollection();
+            decimal decimalCedula = Convert.ToDecimal(ccUsuario);
+            string idUsuario = unitWork.usuarios.Find(c => c.Cedula == decimalCedula).Select(x => x.Id).FirstOrDefault().ToString();
+            result.AddRange(unitWork.ingresos.Find(c => c.UsuarioApertura == idUsuario).Select( x => new Ingreso
+            {
+                IdIngreso = x.IdIngreso,
+                Cuenta = x.Cuenta,
+                Ticket = x.Ticket,
+                FechaApertura = x.FechaApertura,
+                UsuarioApertura = x.UsuarioApertura,
+                Macroproceso = x.Macroproceso,
+                Marcacion = x.Marcacion,
+                AliadoApertura = x.AliadoApertura,
+                NombreLineaIngreso = x.NombreLineaIngreso,
+                NombreLineaEscalado = x.NombreLineaEscalado,
+                IdEstado = x.IdEstado,
+                Semaforo = x.Semaforo
+            }).ToList());
+            return result;
+        }
+
+        public IngresoCollection GetIngresosPorCuentaPorTicket(string noTicket)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoCollection result = new IngresoCollection();
+            decimal ticketDecimal = Convert.ToDecimal(noTicket);
+            result.AddRange(unitWork.ingresos.Find(c => c.Ticket == ticketDecimal).Select(x => new Ingreso
+            {
+                IdIngreso = x.IdIngreso,
+                Cuenta = x.Cuenta,
+                Ticket = x.Ticket,
+                FechaApertura = x.FechaApertura,
+                UsuarioApertura = x.UsuarioApertura,
+                Macroproceso = x.Macroproceso,
+                Marcacion = x.Marcacion,
+                AliadoApertura = x.AliadoApertura,
+                NombreLineaIngreso = x.NombreLineaIngreso,
+                NombreLineaEscalado = x.NombreLineaEscalado,
+                IdEstado = x.IdEstado,
+                Semaforo = x.Semaforo
+            }).ToList());
+            return result;
+        }
+
+        public IngresoCollection GetIngresoDeId(string id)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoCollection result = new IngresoCollection();
+            decimal idDecimal = Convert.ToDecimal(id);
+            result.AddRange(unitWork.ingresos.Find(c => c.IdIngreso== idDecimal).Select(x => new Ingreso
+            {
+                IdIngreso = x.IdIngreso,
+                Cuenta = x.Cuenta,
+                Ticket = x.Ticket,
+                FechaApertura = x.FechaApertura,
+                UsuarioApertura = x.UsuarioApertura,
+                Macroproceso = x.Macroproceso,
+                Marcacion = x.Marcacion,
+                AliadoApertura = x.AliadoApertura,
+                NombreLineaIngreso = x.NombreLineaIngreso,
+                NombreLineaEscalado = x.NombreLineaEscalado,
+                IdEstado = x.IdEstado,
+                Semaforo = x.Semaforo
+            }).ToList());
+            return result;
+        }
+
+        public IngresoCollection GetIngresosPorCuenta(string cuenta)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoCollection result = new IngresoCollection();
+            decimal cuentaDecimal = Convert.ToDecimal(cuenta);
+            result.AddRange(unitWork.ingresos.Find(c => c.Cuenta == cuentaDecimal).Select(x => new Ingreso { IdIngreso = x.IdIngreso,
+                Cuenta = x.Cuenta, Ticket = x.Ticket, FechaApertura = x.FechaApertura, UsuarioApertura = x.UsuarioApertura, Macroproceso = x.Macroproceso,
+              Marcacion = x.Marcacion, AliadoApertura=x.AliadoApertura, NombreLineaIngreso = x.NombreLineaIngreso, NombreLineaEscalado = x.NombreLineaEscalado,
+            IdEstado = x.IdEstado, Semaforo = x.Semaforo} ).ToList());
+            return result;
+
+        }
+
+        public List<GestionDeCelulaUsr> GetGestionesDeCelula(DateTime inicial, DateTime final, string idUsr)
+        {
+
+            DimeContext dimContext = new DimeContext();
+            List<GestionDeCelulaUsr> result = new List<GestionDeCelulaUsr>();
+            
+            result = (from a in dimContext.NotasIngresoes
+                      join b in dimContext.Ingresoes on a.IdIngreso equals b.IdIngreso
+                      join c in dimContext.Usuarios on a.Usuario equals c.Id.ToString()
+                      join d in dimContext.Usuarios on b.UsuarioApertura equals d.Id.ToString()
+                      where a.FechaNota >= inicial && a.FechaNota <= final && a.Usuario.Equals(idUsr)
+                      select new GestionDeCelulaUsr { CuentaCliente = a.CuentaCliente, FechaApertura = b.FechaApertura, FechaNota = a.FechaNota,
+                                   HoraNota = a.HoraNota, IdEstado = b.IdEstado, IdIngreso = a.IdIngreso, IdNota= a.IdNota, Macroproceso = b.Macroproceso,
+                                    Marcacion = b.Marcacion, NombreLineaEscalado = b.NombreLineaEscalado, NombreLineaIngreso = b.NombreLineaIngreso,
+                                      Nota = a.Nota, Semaforo = b.Semaforo, Usuario = c.Cedula.ToString() , UsuarioApertura = d.Cedula.ToString() }).ToList();
+            return result;
+          }
+
+        public IngresoCollection GetCasosEnSeguimiento(string usuario)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoCollection result = new IngresoCollection();
+            result.AddRange(unitWork.ingresos.Find(c => 
+           c.UsuarioBackoffice.Equals(usuario) && (c.IdEstado == 1 || c.IdEstado ==3 ) ).Select(x => new Ingreso
+           {
+               IdIngreso = x.IdIngreso,
+               Cuenta = x.Cuenta,
+               Ticket = x.Ticket,
+               FechaApertura = x.FechaApertura,
+               HoraApertura = x.HoraApertura,
+               UsuarioApertura = x.UsuarioApertura,
+               Macroproceso = x.Macroproceso,
+               Marcacion = x.Marcacion,
+               IdEstado = x.IdEstado,
+               AliadoApertura = x.AliadoApertura,
+               NombreLineaIngreso = x.NombreLineaIngreso,
+               NombreLineaEscalado = x.NombreLineaEscalado,
+               Semaforo = x.Semaforo
+           }).ToList());
+            return result;
+        }
+ 
+
+        public IngresoCollection GetCasosAbiertosDeCelulaUser(string lineaUser, string aliadoUser)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoCollection result = new IngresoCollection();
+            result.AddRange(unitWork.ingresos.Find(c => c.AliadoApertura.Equals(aliadoUser) && c.NombreLineaEscalado.Equals(lineaUser) && 
+             c.UsuarioBackoffice.Equals(null) && c.IdEstado == 1 ).Select(x => new Ingreso
+            {
+                IdIngreso = x.IdIngreso,
+                Cuenta = x.Cuenta,
+                Ticket = x.Ticket,
+                FechaApertura = x.FechaApertura,
+                HoraApertura = x.HoraApertura,
+                UsuarioApertura = x.UsuarioApertura,
+                Macroproceso = x.Macroproceso,
+                Marcacion = x.Marcacion,
+                IdEstado = x.IdEstado,
+                AliadoApertura = x.AliadoApertura,
+                NombreLineaIngreso = x.NombreLineaIngreso,
+                NombreLineaEscalado = x.NombreLineaEscalado,
+                Semaforo = x.Semaforo
+            }).ToList());
+            return result;  
+        }
+
         public void ActualizarIngreso(Ingreso ingreso, string observacion, string llamadaCliente)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
