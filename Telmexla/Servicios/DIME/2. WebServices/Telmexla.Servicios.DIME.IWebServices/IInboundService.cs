@@ -48,7 +48,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
 
         [OperationContract]
-        List<DatoConsultaRechazo> ConsultaRechazos(DateTime fechaInicial, DateTime fechaFinal, string idUsuario);
+        List<DatoConsultaRechazo> ConsultaRechazos(DateTime fechaInicial, DateTime fechaFinal, string idUsuario, bool esPerfilAdmin);
 
         [OperationContract]
         IngresoCollection ConsultaSegumiento(string idUsuario);

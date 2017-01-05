@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -78,6 +82,10 @@
     <ProjectReference Include="..\..\4. Entidades\Telmexla.Servicios.DIME.Entity\Telmexla.Servicios.DIME.Entity.csproj">
       <Project>{395D1809-BE70-4B2A-9413-46708EDFB957}</Project>
       <Name>Telmexla.Servicios.DIME.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Telmexla.Servicios.DIME.Helpers.Mappers\Telmexla.Servicios.DIME.Helpers.Mappers.csproj">
+      <Project>{452be41c-ccad-4f74-b45c-07cc8e050c0d}</Project>
+      <Name>Telmexla.Servicios.DIME.Helpers.Mappers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

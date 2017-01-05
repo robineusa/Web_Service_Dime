@@ -26,6 +26,10 @@ namespace Telmexla.Servicios.DIME.Entity
         public string LlamadaCliente { get; set; } // LLAMADA_CLIENTE (length: 2)
         public string Nota { get; set; } // NOTA (length: 1073741823)
         public int? IdEstado { get; set; } // ID_ESTADO
+
+
+
+
     }
 
 }

@@ -8,11 +8,21 @@ using Telmexla.Servicios.DIME.IWebServices;
 using Telmexla.Servicios.DIME.IWebServices.IMainWebService;
 using Telmexla.Servicios.DIME.Helpers.ExtenMethods;
 using Telmexla.Servicios.DIME.Business;
+using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
     public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService
     {
+
+
+
+        public Usuario MuestraEntidades()
+        {
+            return new Usuario { Nombre = "Alejandro ", Cedula = 1033478952 };
+        }
+
+
 
         #region Login Service
         public int AutenticarUsuarioEnSesion(Usuario usuario)
@@ -22,10 +32,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
 
 
-        public Usuario MuestraEntidades()
-        {
-            return new Usuario { Nombre = "Alejandro ", Cedula=1033478952 };
-        }
+ 
 
         public List<PreguntasDesbloqueo> ObtenerPosiblesPreguntas()
         {
@@ -190,10 +197,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return inboundService.ConsultaGestion(fechaInicial, fechaFinal, idUsuario);
         }
 
-        public List<DatoConsultaRechazo> ConsultaRechazos(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)
+        public List<DatoConsultaRechazo> ConsultaRechazos(DateTime fechaInicial, DateTime fechaFinal, string idUsuario, bool esPerfilAdmin)
         {
             InboundService inboundService = new InboundService();
-            return inboundService.ConsultaRechazos(fechaInicial, fechaFinal, idUsuario);
+            return inboundService.ConsultaRechazos(fechaInicial, fechaFinal, idUsuario, esPerfilAdmin);
         }
 
         public IngresoCollection ConsultaSegumiento(string idUsuario)
@@ -268,6 +275,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return blendingService.TraerConvenioElectronicoGestionado(idGestionado);
         }
 
+        public ConvenioElectronicoCollection ListaConveniosElectronicosGestionados(DateTime fInicial, DateTime fFinal)
+        {
+            BlendingService blendingService = new BlendingService();
+            return blendingService.ListaConveniosElectronicosGestionados(fInicial, fFinal);
+
+        }
         public DocsisOverlapCollection TraerHistorialDocsisDeAsesor(int idAsesor)
         {
             BlendingService blendingService = new BlendingService();
@@ -285,6 +298,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             BlendingService blendingService = new BlendingService();
             return blendingService.GuardarGestionDocsis(idAsesor, datosCliente, docsisGestionado);
+        }
+
+        public LogDocsisOverlapCollection ListaDocsisOverlapGestionados(DateTime fInicial, DateTime fFinal)
+        {
+            BlendingService blendingService = new BlendingService();
+            return blendingService.ListaDocsisOverlapGestionados(fInicial, fFinal);
         }
 
         public ClaroVideoCollection TraerHistorialClaroVideoDeAsesor(int idAsesor)
@@ -305,6 +324,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BlendingService blendingService = new BlendingService();
             return blendingService.GuardarGestionClaroVideo(idAsesor, datosCliente, claroVideoGestionado);
 
+        }
+
+        public LogClaroVideoCollection ListaClaroVideosGestionados(DateTime fInicial, DateTime fFinal)
+        {
+            BlendingService blendingService = new BlendingService();
+            return blendingService.ListaClaroVideosGestionados(fInicial, fFinal);
         }
 
         public CierreCicloCollection TraerHistorialCierreCicloDeAsesor(int idAsesor)
@@ -488,6 +513,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
         }
 
+        public List<DatoConsultaPaloteo> ListaPaloteo(DateTime inicial, DateTime final)
+        {
+            CasosAdminService casosAdminService = new CasosAdminService();
+            return casosAdminService.ListaPaloteo(inicial, final);
+        }
         #endregion CasosAdminService
 
 

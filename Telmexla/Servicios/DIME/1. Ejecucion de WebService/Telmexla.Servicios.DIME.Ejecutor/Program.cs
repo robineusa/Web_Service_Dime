@@ -22,8 +22,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             DateTime fechaInicial = Convert.ToDateTime("2015-11-01");
                 DateTime fechaFinal = Convert.ToDateTime("2015-11-30");
             IngresoBusiness busi = new IngresoBusiness();
-            List<DatoConsultaRechazo> TablaRechazos = busi.TableRechazosInfo(fechaInicial, fechaFinal, "1");
-
+ 
 
             ClientesTodo DatosCliente = new ClientesTodo();
 

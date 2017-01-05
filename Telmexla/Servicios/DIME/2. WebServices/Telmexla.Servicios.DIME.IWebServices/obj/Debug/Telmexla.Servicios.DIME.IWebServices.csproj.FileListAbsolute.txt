@@ -52,3 +52,7 @@ C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. 
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\obj\Debug\Telmexla.Servicios.DIME.IWebServices.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\obj\Debug\Telmexla.Servicios.DIME.IWebServices.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\obj\Debug\Telmexla.Servicios.DIME.IWebServices.pdb
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.dll
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\AutoMapper.dll
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.pdb
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.IWebServices\bin\Debug\AutoMapper.xml

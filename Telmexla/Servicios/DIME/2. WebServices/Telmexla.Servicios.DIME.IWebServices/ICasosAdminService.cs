@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using Telmexla.Servicios.DIME.Business;
 using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IWebServices
@@ -17,5 +18,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         IngresoCollection ListaIngresosPorUsuarioCreacion(string ccUsuario);
+
+
+        [OperationContract]
+        List<DatoConsultaPaloteo> ListaPaloteo(DateTime inicial, DateTime final);
     }
 }

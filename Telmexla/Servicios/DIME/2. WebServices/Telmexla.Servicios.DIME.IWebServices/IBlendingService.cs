@@ -26,6 +26,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         ConvenioElectronico TraerConvenioElectronicoGestionado(int idGestionado);
 
         [OperationContract]
+        ConvenioElectronicoCollection ListaConveniosElectronicosGestionados(DateTime fInicial, DateTime fFinal);
+
+        [OperationContract]
         DocsisOverlapCollection TraerHistorialDocsisDeAsesor(int idAsesor);
 
         [OperationContract]
@@ -35,6 +38,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         bool GuardarGestionDocsis(int idAsesor, ClientesTodo datosCliente, DocsisOverlap docsisGestionado);
 
         [OperationContract]
+        LogDocsisOverlapCollection ListaDocsisOverlapGestionados(DateTime fInicial, DateTime fFinal);
+
+        [OperationContract]
         ClaroVideoCollection TraerHistorialClaroVideoDeAsesor(int idAsesor);
 
         [OperationContract]
@@ -42,6 +48,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         bool GuardarGestionClaroVideo(int idAsesor, ClientesTodo datosCliente, ClaroVideo claroVideoGestionado);
+
+        [OperationContract]
+        LogClaroVideoCollection ListaClaroVideosGestionados(DateTime fInicial, DateTime fFinal);
 
         [OperationContract]
         CierreCicloCollection TraerHistorialCierreCicloDeAsesor(int idAsesor);

@@ -23,5 +23,12 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoBusiness ingresoBusi = new IngresoBusiness();
             return ingresoBusi.ListaIngresosPorUsuarioCreacion(ccUsuario);
         }
+
+        public List<DatoConsultaPaloteo> ListaPaloteo(DateTime inicial, DateTime final)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            return ingresoBusi.GetNotasIngresosYUsuarioData(inicial, final);
+        }
+
     }
 }

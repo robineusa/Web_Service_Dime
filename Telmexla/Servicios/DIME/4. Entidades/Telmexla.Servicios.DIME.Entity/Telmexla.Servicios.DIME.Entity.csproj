@@ -70,8 +70,10 @@
     <Compile Include="Linea.cs" />
     <Compile Include="LogCierreCiclo.cs" />
     <Compile Include="LogClaroVideo.cs" />
+    <Compile Include="LogClaroVideoCollection.cs" />
     <Compile Include="LogConvenioElectronico.cs" />
     <Compile Include="LogDocsisOverlap.cs" />
+    <Compile Include="LogDocsisOverlapCollection.cs" />
     <Compile Include="MaestroMarcacione.cs" />
     <Compile Include="MaestroMarcacioneCollection.cs" />
     <Compile Include="MaestroOutboundCausa.cs" />

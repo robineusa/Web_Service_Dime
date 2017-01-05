@@ -103,10 +103,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             return ingresoBusi.TableGestionAsesor(fechaInicial, fechaFinal, idUsuario);
         }
 
-        public List<DatoConsultaRechazo> ConsultaRechazos(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)
+        public List<DatoConsultaRechazo> ConsultaRechazos(DateTime fechaInicial, DateTime fechaFinal, string idUsuario, bool esPerfilAdmin)
         {
             IngresoBusiness ingresoBusi = new IngresoBusiness();
-            return ingresoBusi.TableRechazosInfo(fechaInicial, fechaFinal, idUsuario);
+            return ingresoBusi.TableRechazosInfo(fechaInicial, fechaFinal, idUsuario, esPerfilAdmin);
         }
 
 

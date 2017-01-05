@@ -42,6 +42,13 @@ namespace Telmexla.Servicios.DIME.WebServices
             return blendingBusin.GetConvenioElectronicoPorId(idGestionado);
         }
 
+        public ConvenioElectronicoCollection ListaConveniosElectronicosGestionados(DateTime fInicial, DateTime fFinal)
+        {
+            BlendingBusiness blendingBusin = new BlendingBusiness();
+            return blendingBusin.ConveniosElectronicosGestionados(fInicial, fFinal);
+
+        }
+
         public DocsisOverlapCollection TraerHistorialDocsisDeAsesor(int idAsesor)
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();
@@ -63,6 +70,12 @@ namespace Telmexla.Servicios.DIME.WebServices
 
         }
 
+        public LogDocsisOverlapCollection ListaDocsisOverlapGestionados(DateTime fInicial, DateTime fFinal)
+        {
+            BlendingBusiness blendingBusine = new BlendingBusiness();
+            return blendingBusine.IteracionesDocsisOverlapsGestionados(fInicial, fFinal);
+         }
+
 
         public ClaroVideoCollection TraerHistorialClaroVideoDeAsesor(int idAsesor)
         {
@@ -80,6 +93,11 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();
             return blendingBusin.ProcesoGuardarClaroVideo(idAsesor,datosCliente,claroVideoGestionado);
+        }
+        public  LogClaroVideoCollection ListaClaroVideosGestionados(DateTime fInicial, DateTime fFinal)
+        {
+            BlendingBusiness blendingBusin = new BlendingBusiness();
+            return blendingBusin.IteracionesGestionesClaroVideo(fInicial, fFinal);
         }
 
         public CierreCicloCollection TraerHistorialCierreCicloDeAsesor(int idAsesor)
