@@ -132,7 +132,10 @@ namespace Telmexla.Servicios.DIME.Business
         public ConvenioElectronicoCollection ConveniosElectronicosGestionados(DateTime fInicial, DateTime fFinal)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            List<ConvenioElectronico> conveniosElectro =  unitWork.conveniosElectronicos.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).ToList();
+            List<ConvenioElectronico> conveniosElectro =  unitWork.conveniosElectronicos.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).Select(x=> 
+             new ConvenioElectronico {  FechaGestion= x.FechaGestion, HoraGestion = x.HoraGestion, UsuarioGestion = x.UsuarioGestion, AliadoGestion = x.AliadoGestion,
+             LineaGestion = x.LineaGestion , CuentaCliente = x.CuentaCliente, TipoContacto =x.TipoContacto , Cierre = x.Cierre, Razon = x.Razon, MovilNuevo = x.MovilNuevo,
+             NuevoCorreo = x.NuevoCorreo, NuevaDireccionCorrespondencia = x.NuevaDireccionCorrespondencia } ).ToList();
             ConvenioElectronicoCollection result = new ConvenioElectronicoCollection();
             result.AddRange(conveniosElectro);
             return result;

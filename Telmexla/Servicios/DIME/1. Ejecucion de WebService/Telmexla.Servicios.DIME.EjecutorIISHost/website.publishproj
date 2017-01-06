@@ -84,6 +84,10 @@ Copyright (C) Microsoft Corporation. Todos los derechos reservados.
       <Project>{E9C2E579-A044-428D-8C28-BDD199B1DB02}</Project>
       <Name>Telmexla.Servicios.DIME.Helpers.ReverseEngineer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Telmexla.Servicios.DIME.Helpers.Mappers\Telmexla.Servicios.DIME.Helpers.Mappers.csproj">
+      <Project>{452BE41C-CCAD-4F74-B45C-07CC8E050C0D}</Project>
+      <Name>Telmexla.Servicios.DIME.Helpers.Mappers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
 </Project>
