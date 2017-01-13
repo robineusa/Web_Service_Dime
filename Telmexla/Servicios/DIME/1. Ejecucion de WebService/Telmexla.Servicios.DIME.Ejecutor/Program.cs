@@ -12,6 +12,7 @@ using System.Diagnostics;
 using Telmexla.Servicios.DIME.Data;
 using Telmexla.Servicios.DIME.Data.Context;
 using Telmexla.Servicios.DIME.Business;
+using Telmexla.Servicios.DIME.Helpers.Encription;
 
 namespace Telmexla.Servicios.DIME.Ejecutor
 {
@@ -19,10 +20,12 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            DateTime fechaInicial = Convert.ToDateTime("2015-11-01");
-                DateTime fechaFinal = Convert.ToDateTime("2015-11-30");
+            DateTime fechaInicial = Convert.ToDateTime("2016-11-01");
+                DateTime fechaFinal = Convert.ToDateTime("2017-01-01");
             IngresoBusiness busi = new IngresoBusiness();
- 
+
+            Debug.Print(new GeneralEncriptor().GetEncriptedData("Clarop2017") )  ;
+            Console.WriteLine(new GeneralEncriptor().GetEncriptedData("Clarop2017"));
 
             ClientesTodo DatosCliente = new ClientesTodo();
 
@@ -46,33 +49,14 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             claroVideoGestionado.Razon = "20";
             claroVideoGestionado.TipoDeContacto = "20";
             claroVideoGestionado.TipoDeGestion = "21";
-            
-
 
          //   blendingService.GuardarGestionClaroVideo(1,DatosCliente, claroVideoGestionado );
-
-
-            
-            LogClaroVideo logclaro = new LogClaroVideo();
-            IngresoBusiness  busine = new IngresoBusiness();
-            List<TablaActualizarInbound> result4 = busine.GetTablaActualizarInbound(2025637);
-
-         
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            unitWork.logClaroVideos.Add(logclaro);
-
-            unitWork.Complete();
-
-            unitWork.maestroMarcaciones.EncontrarPosiblesMarcaciones("algo");
-
-
-
-
+  
      
             ConvenioElectronicoCollection HistoricoConvenioElectronico = new ConvenioElectronicoCollection();
             ConvenioElectronico ConvenioElecGestionado = new ConvenioElectronico();
             BlendingService blendingServices = new BlendingService();
-            DatosCliente = blendingServices.TraerMisDatosClienteAutomaticos(1, "CONVENIO_ELECTRONICO");
+            var resultado50 = blendingServices.ListaClaroVideosGestionados(fechaInicial, fechaFinal);
 
             ConvenioElecGestionado.AliadoGestion = "OUTSOURCING PEREIRA";
             ConvenioElecGestionado.LineaGestion = "OUTBOUND";

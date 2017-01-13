@@ -73,10 +73,15 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             LogDocsisOverlapCollection docsisResult = new LogDocsisOverlapCollection();
             docsisResult.AddRange(unitWork.logDocsisOverlaps.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).Select(x=>
-            new LogDocsisOverlap { FechaGestion = x.FechaGestion, UsuarioGestion = unitWork.usuarios.Get(Convert.ToInt32(x.UsuarioGestion)).Cedula.ToString(), NombreUsuarioGestion = x.NombreUsuarioGestion,
+            new LogDocsisOverlap { FechaGestion = x.FechaGestion, UsuarioGestion = x.UsuarioGestion, NombreUsuarioGestion = x.NombreUsuarioGestion,
                 AliadoGestion = x.AliadoGestion, OperacionGestion = x.OperacionGestion, NombreBase = x.NombreBase, CuentaCliente = x.CuentaCliente,
             TipoDeContacto = x.TipoDeContacto, Cierre = x.Cierre, Razon = x.Razon, Observaciones = x.Observaciones, FechaSeguimiento = x.FechaSeguimiento,
             Aliado = x.Aliado}).ToList());
+            foreach (var item in docsisResult)
+            {
+                item.UsuarioGestion = unitWork.usuarios.Get(Convert.ToInt32(item.UsuarioGestion)).Cedula.ToString();
+            }
+
             return docsisResult;
         }
 
@@ -85,10 +90,15 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             LogClaroVideoCollection result = new LogClaroVideoCollection();
             result.AddRange(unitWork.logClaroVideos.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).Select(x=> 
-            new LogClaroVideo {FechaGestion = x.FechaGestion, UsuarioGestion = unitWork.usuarios.Get(Convert.ToInt32(x.UsuarioGestion)).Cedula.ToString(),
+            new LogClaroVideo {FechaGestion = x.FechaGestion, UsuarioGestion = x.UsuarioGestion,
                 NombreUsuarioGestion = x.NombreUsuarioGestion, AliadoGestion = x.AliadoGestion,
             OperacionGestion = x.OperacionGestion, CuentaCliente = x.CuentaCliente, TipoDeContacto = x.TipoDeContacto, TipoDeGestion = x.TipoDeGestion, Cierre = x.Cierre,
             Razon = x.Razon, Attributo1 = x.Attributo1, Attributo2 = x.Attributo2, Observaciones = x.Observaciones}).ToList());
+            foreach(var item in result)
+            {
+                item.UsuarioGestion = unitWork.usuarios.Get(Convert.ToInt32(item.UsuarioGestion)).Cedula.ToString();
+            }
+
             return result;
         }
 
@@ -215,8 +225,6 @@ namespace Telmexla.Servicios.DIME.Business
 
         public void ActualizarDocsisOverlap(UnitOfWork unitWork , DocsisOverlap v)
         {
-
-
             DocsisOverlap logger = unitWork.docsisOverlaps.Get(v.Id);
             logger.Aliado = v.Aliado;
             logger.AliadoGestion = v.AliadoGestion;
@@ -469,7 +477,6 @@ namespace Telmexla.Servicios.DIME.Business
             unitOfWork.logCierreCiclos.Add((LogCierreCiclo)cierreCicloGestionado);
             unitOfWork.Complete();
             return true;
-
         }
 
 
