@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="IAccesoRepository.cs" />
     <Compile Include="IIngresoRepository.cs" />
+    <Compile Include="IIngresoTrasladoRepository.cs" />
     <Compile Include="ILogCierreCicloRepository.cs" />
     <Compile Include="ICierreCicloRepository.cs" />
     <Compile Include="ILogClaroVideoRepository.cs" />

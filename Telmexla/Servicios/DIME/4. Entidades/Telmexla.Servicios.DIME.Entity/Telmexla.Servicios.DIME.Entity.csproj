@@ -67,6 +67,8 @@
     <Compile Include="GestionOutboundCollection.cs" />
     <Compile Include="Ingreso.cs" />
     <Compile Include="IngresoCollection.cs" />
+    <Compile Include="IngresoTraslado.cs" />
+    <Compile Include="IngresoTrasladoCollection.cs" />
     <Compile Include="Linea.cs" />
     <Compile Include="LogCierreCiclo.cs" />
     <Compile Include="LogClaroVideo.cs" />

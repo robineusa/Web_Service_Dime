@@ -1,8 +1,10 @@
 ﻿
 
+
 using Telmexla.Servicios.DIME.Entity;
 
-namespace Telmexla.Servicios.DIME.Data
+
+namespace Telmexla.Servicios.DIME.Data.Configuration
 {
     //TBL_INGRESOS_TRASLADOS
     public class IngresoTrasladoConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<IngresoTraslado>

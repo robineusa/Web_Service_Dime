@@ -71,6 +71,7 @@
     <Compile Include="MarcacionesService.cs" />
     <Compile Include="NotificaionesBuenServicioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrasladosService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\3. Business\Telmexla.Servicios.DIME.Business\Telmexla.Servicios.DIME.Business.csproj">
