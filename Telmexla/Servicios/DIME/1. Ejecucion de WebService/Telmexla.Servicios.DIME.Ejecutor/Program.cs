@@ -20,6 +20,28 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+            IngresoTraslado ingresotraslado = new IngresoTraslado();
+            TrasladosService traslados = new TrasladosService();
+            ingresotraslado.CuentaCliente = 307;
+            ingresotraslado.Direccion = "ESTE CAMPO DE DIRECCION";
+            ingresotraslado.Estrato = "NR";
+            ingresotraslado.Nodo = "AAAADSA";
+            ingresotraslado.TelefonoCelular = "3228451001";
+            ingresotraslado.TelefonoFijo="9005668";
+            ingresotraslado.FechaApertura = DateTime.Now;
+            ingresotraslado.HoraApertura = DateTime.Now;
+            ingresotraslado.UsuarioApertura = "ROBINEUSA";
+            ingresotraslado.FechaUltimaActualizacion = DateTime.Now;
+            ingresotraslado.UsuarioUltimaActualizacion = "ROBINEUSA";
+            ingresotraslado.HoraUltimaActualizacion = DateTime.Now;
+            ingresotraslado.AliadoApertura = "BRM";
+            ingresotraslado.NombreLineaIngreso = "GESTION DE LA INFORMACION";
+            traslados.RegistrarIngresoTraslado(ingresotraslado);
+
+
+
+
+
             DateTime fechaInicial = Convert.ToDateTime("2016-11-01");
                 DateTime fechaFinal = Convert.ToDateTime("2017-01-01");
             IngresoBusiness busi = new IngresoBusiness();

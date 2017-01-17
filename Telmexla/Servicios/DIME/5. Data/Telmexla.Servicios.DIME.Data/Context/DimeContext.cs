@@ -46,6 +46,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<LogDocsisOverlap> LogDocsisOverlaps { get; set; } // TBL_LOG_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; } // TMP_PQR_MAESTRO_COD_CIERRE
          public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
+        public System.Data.Entity.DbSet<IngresoTraslado> IngresoTraslados { get; set; } // TBL_RECHAZOS
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -122,6 +123,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new LogDocsisOverlapConfiguration());
             modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration());
             modelBuilder.Configurations.Add(new RechazoConfiguration());
+            modelBuilder.Configurations.Add(new IngresoTrasladoConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -152,6 +154,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new LogDocsisOverlapConfiguration(schema));
             modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration(schema));
             modelBuilder.Configurations.Add(new RechazoConfiguration(schema));
+            modelBuilder.Configurations.Add(new IngresoTrasladoConfiguration(schema));
             return modelBuilder;
         }
 
