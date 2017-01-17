@@ -464,6 +464,13 @@ namespace Telmexla.Servicios.DIME.Business
                                                                                                             IdEstado = x.IdEstado,
                                                                                                             Semaforo = x.Semaforo
                                                                                                                 } ).ToList() );
+            foreach(var item in result)
+            {
+                item.UsuarioApertura = unitWork.usuarios.Get(Convert.ToInt32(item.UsuarioApertura)).Cedula.ToString();
+                item.UsuarioUltimaActualizacion = unitWork.usuarios.Get(Convert.ToInt32(item.UsuarioUltimaActualizacion)).Cedula.ToString();
+            }
+               
+
             return result;
         }
 
@@ -500,6 +507,11 @@ namespace Telmexla.Servicios.DIME.Business
                 row.Usuario = item.Usuario;
 
                 resultado.Add(row);
+            }
+
+            foreach(var item in resultado)
+            {
+                item.Usuario = unitWork.usuarios.Get(Convert.ToInt32(item.Usuario)).Cedula.ToString();
             }
 
 
