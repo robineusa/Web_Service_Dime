@@ -24,9 +24,14 @@ namespace Telmexla.Servicios.DIME.Business
             ingreso.Semaforo = "gris01.png";
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            unitWork.ingresos.Add(ingreso);
-            unitWork.Complete();
-        
+            if (ingreso.IdEstado == 2)
+                {
+                    ingreso.FechaCierre = DateTime.Now;
+                    ingreso.HoraCierre = DateTime.Now;
+                    ingreso.UsuarioCierre = ingreso.UsuarioApertura;
+                }
+             unitWork.ingresos.Add(ingreso);
+             unitWork.Complete();
 
             NotasIngreso logIngreso = new NotasIngreso();
             logIngreso.IdIngreso = ingreso.IdIngreso;
@@ -37,7 +42,7 @@ namespace Telmexla.Servicios.DIME.Business
             logIngreso.FechaNota = DateTime.Now;
             logIngreso.HoraNota = DateTime.Now;
             logIngreso.LlamadaCliente = "SI";
-            logIngreso.Nota = observacion;
+            logIngreso.Nota = observacion.ToUpper().Trim();
             logIngreso.IdEstado = ingreso.IdEstado;
             unitWork.notasIngresos.Add(logIngreso);
             unitWork.Complete();
@@ -256,17 +261,16 @@ namespace Telmexla.Servicios.DIME.Business
             { 
                 ingresoActualizable.FechaCierre = fechaActual;
                 ingresoActualizable.HoraCierre = fechaActual;
-                ingresoActualizable.UsuarioCierre = ingreso.UsuarioApertura;
+                ingresoActualizable.UsuarioCierre = ingreso.UsuarioUltimaActualizacion;
             }
+            ingresoActualizable.UsuarioUltimaActualizacion = ingreso.UsuarioUltimaActualizacion;
             ingresoActualizable.FechaUltimaActualizacion = fechaActual;
-            ingresoActualizable.UsuarioUltimaActualizacion = ingreso.UsuarioApertura;
-            ingresoActualizable.HoraUltimaActualizacion = ingreso.HoraUltimaActualizacion;
+            ingresoActualizable.HoraUltimaActualizacion = fechaActual;
             ingresoActualizable.Macroproceso = ingreso.Macroproceso;
             ingresoActualizable.Marcacion = ingreso.Marcacion;
             ingresoActualizable.IdEstado = ingreso.IdEstado;
             ingresoActualizable.Semaforo = "gris01.png";
             ingresoActualizable.TiempoRespuesta = ingreso.TiempoRespuesta;
-            ingresoActualizable.NombreLineaIngreso = ingreso.NombreLineaIngreso;
             ingresoActualizable.NombreLineaEscalado = ingreso.NombreLineaEscalado;
             ingresoActualizable.IdServicio = ingreso.IdServicio;
 
@@ -274,12 +278,12 @@ namespace Telmexla.Servicios.DIME.Business
             logIngreso.IdIngreso = ingresoActualizable.IdIngreso;
             logIngreso.CuentaCliente = ingresoActualizable.Cuenta;
             logIngreso.Ticket = ingresoActualizable.Ticket;
-            logIngreso.Usuario = ingreso.UsuarioApertura ;
+            logIngreso.Usuario = ingreso.UsuarioUltimaActualizacion ;
             logIngreso.NombreLineaNota = ingreso.NombreLineaIngreso;
             logIngreso.FechaNota = fechaActual;
             logIngreso.HoraNota = fechaActual;
             logIngreso.LlamadaCliente = llamadaCliente;
-            logIngreso.Nota = observacion;
+            logIngreso.Nota = observacion.ToUpper().Trim();
             logIngreso.IdEstado = ingreso.IdEstado;
             unitWork.notasIngresos.Add(logIngreso);
             unitWork.Complete();
@@ -380,12 +384,14 @@ namespace Telmexla.Servicios.DIME.Business
                          join o in dimContext.Usuarios on c.UsuarioApertura equals o.Id.ToString()
                          join p in dimContext.Usuarios on c.UsuarioCierre equals p.Id.ToString() into Details
                          from p in Details.DefaultIfEmpty()
+                         join q in dimContext.Usuarios on c.UsuarioUltimaActualizacion equals q.Id.ToString() into Details2
+                         from q in Details2.DefaultIfEmpty()
                          where m.Usuario.Equals(idUsuario) && m.FechaNota >= fechaInicial && m.FechaNota <= fechaFinal
                          select new { idIngreso = m.IdIngreso, cuentaClient = m.CuentaCliente, ticket = m.Ticket, nombLinea = c.NombreLineaIngreso,
                              nombLinEscalado = c.NombreLineaEscalado, aliadoApertura = c.AliadoApertura, fechaInteraccion = m.FechaNota,
                              fechaApertura = c.FechaApertura, horaApertura = c.HoraApertura, fechaCierre = c.FechaCierre, usuario = n.Cedula,
                              usuarioApertura = o.Cedula, usuarioCierre = p.Cedula, fechaUltActualizacion = c.FechaUltimaActualizacion,
-                             usuarioUltimaActua = c.UsuarioUltimaActualizacion, horaUltActua = c.HoraUltimaActualizacion, macroproceso = c.Macroproceso,
+                             usuarioUltimaActua = q.Cedula, horaUltActua = c.HoraUltimaActualizacion, macroproceso = c.Macroproceso,
                              marcacion = c.Marcacion, nota = m.Nota, idEstado = c.IdEstado }).ToList();
 
             List<DatoConsultaGestion> result = new List<DatoConsultaGestion>();
@@ -405,7 +411,7 @@ namespace Telmexla.Servicios.DIME.Business
                 datoResult.Ingreso.UsuarioApertura = item.usuarioApertura.ToString();
                 datoResult.Ingreso.UsuarioCierre = item.usuarioCierre.ToString();
                 datoResult.Ingreso.FechaUltimaActualizacion = item.fechaUltActualizacion;
-                datoResult.Ingreso.UsuarioUltimaActualizacion = item.usuarioUltimaActua;
+                datoResult.Ingreso.UsuarioUltimaActualizacion = item.usuarioUltimaActua.ToString();
                 datoResult.Ingreso.HoraUltimaActualizacion = item.horaUltActua;
                 datoResult.Ingreso.Macroproceso = item.macroproceso;
                 datoResult.Ingreso.Marcacion = item.marcacion;
@@ -496,8 +502,9 @@ namespace Telmexla.Servicios.DIME.Business
                 int usuario = Convert.ToInt32(item.Usuario);
                 DimeContext dimeContext = new DimeContext();
                 var resultPerfil = (from c in dimeContext.UsuariosXAccesoes
-                                    join m in dimeContext.Accesoes on c.IdUsuario equals m.Id
+                                    join m in dimeContext.Accesoes on c.IdAcceso equals m.Id
                                     join n in dimeContext.ModosLogins on m.IdModoLogin equals n.Id
+                                    orderby c.FechaCreacion descending
                                     where c.IdUsuario == usuario
                                     select new { perfil = n.Nombre }).FirstOrDefault();
 
