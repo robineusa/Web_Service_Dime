@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService
     {
 
 
@@ -520,6 +520,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion CasosAdminService
 
+        #region registrarTraslado
+        public void RegistrarIngresoTraslado(IngresoTraslado ingreso, string observacion)
+        {
+            TrasladosService trasladosService = new TrasladosService();
+            trasladosService.RegistrarIngresoTraslado(ingreso,observacion);
+        }
+            #endregion
 
-    }
+        }
 }
