@@ -92,6 +92,8 @@
     <Compile Include="MaestroOutboundTipoGestionCollection.cs" />
     <Compile Include="ModosLogin.cs" />
     <Compile Include="NotasIngreso.cs" />
+    <Compile Include="NotasTraslado.cs" />
+    <Compile Include="NotasTrasladoCollection.cs" />
     <Compile Include="NotificacionesBuenServicio.cs" />
     <Compile Include="PqrMaestroCodCierre.cs" />
     <Compile Include="PqrMaestroCodCierreCollection.cs" />

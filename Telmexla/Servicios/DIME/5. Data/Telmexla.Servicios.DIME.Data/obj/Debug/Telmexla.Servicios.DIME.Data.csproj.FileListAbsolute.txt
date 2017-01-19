@@ -40,17 +40,3 @@ C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Debug\Telmexla.Servicios.DIME.Data.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Debug\Telmexla.Servicios.DIME.Data.dll
 C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Debug\Telmexla.Servicios.DIME.Data.pdb
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\Telmexla.Servicios.DIME.Data.dll.config
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\Telmexla.Servicios.DIME.Data.dll
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\Telmexla.Servicios.DIME.Data.pdb
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\EntityFramework.dll
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\Telmexla.Servicios.DIME.Entity.dll
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\Telmexla.Servicios.DIME.IData.dll
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\Telmexla.Servicios.DIME.Entity.pdb
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\Telmexla.Servicios.DIME.IData.pdb
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\EntityFramework.xml
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Debug\Telmexla.Servicios.DIME.Data.csprojResolveAssemblyReference.cache
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Debug\Telmexla.Servicios.DIME.Data.dll
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\obj\Debug\Telmexla.Servicios.DIME.Data.pdb
