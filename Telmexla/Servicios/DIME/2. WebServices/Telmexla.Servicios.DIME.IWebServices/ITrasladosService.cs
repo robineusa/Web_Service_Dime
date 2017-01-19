@@ -13,6 +13,6 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface ITrasladosService
     {
         [OperationContract]
-        void RegistrarIngresoTraslado(IngresoTraslado ingreso);
+        void RegistrarIngresoTraslado(IngresoTraslado ingreso, string observacion);
     }
 }

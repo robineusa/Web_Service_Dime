@@ -14,7 +14,7 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class IngresoTrasladoBusiness
     {
-        public void InsertIngresoTraslado(IngresoTraslado ingreso/*, string observacion*/)
+        public void InsertIngresoTraslado(IngresoTraslado ingreso, string observacion)
         {
             try
             {
@@ -32,19 +32,19 @@ namespace Telmexla.Servicios.DIME.Business
                 unitWork.Complete();
 
 
-                //NotasIngreso logIngreso = new NotasIngreso();
-                //logIngreso.IdIngreso = ingreso.IdIngreso;
-                //logIngreso.CuentaCliente = ingreso.Cuenta;
-                //logIngreso.Ticket = ingreso.Ticket;
-                //logIngreso.Usuario = ingreso.UsuarioApertura;
-                //logIngreso.NombreLineaNota = ingreso.NombreLineaIngreso;
-                //logIngreso.FechaNota = DateTime.Now;
-                //logIngreso.HoraNota = DateTime.Now;
-                //logIngreso.LlamadaCliente = "SI";
-                //logIngreso.Nota = observacion;
-                //logIngreso.IdEstado = ingreso.IdEstado;
-                //unitWork.notasIngresos.Add(logIngreso);
-                //unitWork.Complete();
+                NotasTraslado logIngreso = new NotasTraslado();
+                logIngreso.IdTraslado = ingreso.IdTraslado;
+                logIngreso.CuentaCliente = ingreso.CuentaCliente;
+                logIngreso.Usuario = ingreso.UsuarioApertura;
+                logIngreso.NombreLineaNota = ingreso.NombreLineaIngreso;
+                logIngreso.FechaNota = DateTime.Now;
+                logIngreso.HoraNota = DateTime.Now;
+                logIngreso.Nota = observacion;
+                logIngreso.Razon = ingreso.Razon;
+                logIngreso.Subrazon = ingreso.Subrazon;
+                logIngreso.Estado = ingreso.EstadoCaso;
+                unitWork.notasTraslados.Add(logIngreso);
+                unitWork.Complete();
             }
             catch (DbEntityValidationException dbEx)
             {

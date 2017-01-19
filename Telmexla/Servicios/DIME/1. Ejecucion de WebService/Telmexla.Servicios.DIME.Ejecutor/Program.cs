@@ -36,7 +36,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             ingresotraslado.HoraUltimaActualizacion = DateTime.Now;
             ingresotraslado.AliadoApertura = "BRM";
             ingresotraslado.NombreLineaIngreso = "GESTION DE LA INFORMACION";
-            traslados.RegistrarIngresoTraslado(ingresotraslado);
+
+            var observacion = "SE GENERA LA CREACION DE UN CASO DE PRUEBA";
+            traslados.RegistrarIngresoTraslado(ingresotraslado, observacion);
 
 
 

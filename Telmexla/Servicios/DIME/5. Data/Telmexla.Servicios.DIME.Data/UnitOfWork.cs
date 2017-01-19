@@ -34,6 +34,7 @@ namespace Telmexla.Servicios.DIME.Data
             pqrMaestroCodigos = new PqrMaestroCodCierreRepository(this.dimeContext);
             rechazos = new RechazoRepository(this.dimeContext);
             ingresoTraslados = new IngresoTrasladoRepository(this.dimeContext);
+            notasTraslados = new NotasTrasladoRepository(this.dimeContext);
         }
         public IRechazoRepository rechazos
         {
@@ -118,6 +119,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IIngresoTrasladoRepository ingresoTraslados
+        {
+            get; private set;
+        }
+        public INotasTrasladoRepository notasTraslados
         {
             get; private set;
         }
