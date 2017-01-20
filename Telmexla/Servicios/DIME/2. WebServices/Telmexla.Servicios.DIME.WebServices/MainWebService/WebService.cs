@@ -534,6 +534,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             TrasladosService trasladosService = new TrasladosService();
             trasladosService.RegistrarIngresoTraslado(ingreso,observacion);
         }
+        public bool ExisteCuentaEscalada(decimal cuenta)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ExisteCuentaEscalada(cuenta);
+        }
         #endregion
 
         #region maestroNodos

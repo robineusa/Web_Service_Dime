@@ -16,7 +16,12 @@ namespace Telmexla.Servicios.DIME.WebServices
         public void RegistrarIngresoTraslado(IngresoTraslado ingreso, string observacion)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.InsertIngresoTraslado(ingreso,observacion);
+            ingresoBusi.InsertIngresoTraslado(ingreso, observacion);
+        }
+        public bool ExisteCuentaEscalada(decimal cuenta)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ExisteCuentaEscalada(cuenta);
         }
     }
 }

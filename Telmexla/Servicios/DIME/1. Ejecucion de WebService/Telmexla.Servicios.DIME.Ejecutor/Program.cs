@@ -20,8 +20,12 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            MaestroNodo nodo = new MaestroNodo();
-            MaestroNodoService servicenodo = new MaestroNodoService();
+            //MaestroNodo nodo = new MaestroNodo();
+            //MaestroNodoService servicenodo = new MaestroNodoService();
+            IngresoTraslado traslado = new IngresoTraslado();
+            traslado.CuentaCliente = 430;
+            TrasladosService trasladoservice = new TrasladosService();
+            Console.WriteLine(trasladoservice.ExisteCuentaEscalada(traslado.CuentaCliente));
 
  
             //nodo.NombreNodo = "ROBIN";

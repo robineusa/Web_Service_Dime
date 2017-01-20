@@ -61,5 +61,11 @@ namespace Telmexla.Servicios.DIME.Business
 
 
         }
+        public bool ExisteCuentaEscalada(decimal cuenta)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoCaso !="FINALIZADO").Count() >= 1;
+
+        }
     }
 }
