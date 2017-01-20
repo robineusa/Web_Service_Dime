@@ -1,0 +1,7 @@
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\bin\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.dll
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\bin\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.pdb
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\bin\Debug\AutoMapper.dll
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\bin\Debug\AutoMapper.xml
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.dll
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.pdb
+C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.csprojResolveAssemblyReference.cache

@@ -58,6 +58,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<String> TraerNombresDeClientesCierreCiclo(CierreCicloCollection cuentasATraer);
 
         [OperationContract]
+        LogCierreCicloCollection ListaCierresCicloGestionados(DateTime fInicial, DateTime fFinal);
+
+        [OperationContract]
         GestionOutbound TraerGestionOutboundInfoDeCuenta(int cuenta, string gestion);
 
         [OperationContract]

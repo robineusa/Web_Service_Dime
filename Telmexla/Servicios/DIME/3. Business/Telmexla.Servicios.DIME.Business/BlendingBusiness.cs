@@ -85,6 +85,19 @@ namespace Telmexla.Servicios.DIME.Business
             return docsisResult;
         }
 
+        public LogCierreCicloCollection IteracionesGestionesCierreCiclo(DateTime fInicial, DateTime fFinal)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            LogCierreCicloCollection cierreResult = new LogCierreCicloCollection();
+            cierreResult.AddRange(unitWork.logCierreCiclos.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).ToList());
+            foreach(var item in cierreResult)
+            {
+                item.UsuarioGestion = unitWork.usuarios.Get(Convert.ToInt32(item.UsuarioGestion)).Cedula.ToString();
+            }
+            return cierreResult;
+        }
+
+
         public LogClaroVideoCollection IteracionesGestionesClaroVideo(DateTime fInicial, DateTime fFinal)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());

@@ -71,6 +71,7 @@
     <Compile Include="IngresoTrasladoCollection.cs" />
     <Compile Include="Linea.cs" />
     <Compile Include="LogCierreCiclo.cs" />
+    <Compile Include="LogCierreCicloCollection.cs" />
     <Compile Include="LogClaroVideo.cs" />
     <Compile Include="LogClaroVideoCollection.cs" />
     <Compile Include="LogConvenioElectronico.cs" />

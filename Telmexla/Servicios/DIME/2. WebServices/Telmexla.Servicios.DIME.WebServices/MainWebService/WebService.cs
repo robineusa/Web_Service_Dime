@@ -363,6 +363,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BlendingService blendingService = new BlendingService();
             return blendingService.GuardarCierreCiclo(idAsesor, datosCliente, cierreCicloGestionado);
         }
+
+
+        public LogCierreCicloCollection ListaCierresCicloGestionados(DateTime fInicial, DateTime fFinal)
+        {
+            BlendingService blendingService = new BlendingService();
+            return blendingService.ListaCierresCicloGestionados(fInicial, fFinal);
+        }
+
         #endregion
 
         #region MarcacionesService

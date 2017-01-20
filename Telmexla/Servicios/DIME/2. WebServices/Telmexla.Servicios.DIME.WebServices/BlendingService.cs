@@ -112,6 +112,13 @@ namespace Telmexla.Servicios.DIME.WebServices
             return blendingBusin.GetNombresClientesCierreCiclo(cuentasATraer);
         }
 
+       public   LogCierreCicloCollection ListaCierresCicloGestionados(DateTime fInicial, DateTime fFinal)
+        {
+            BlendingBusiness blendingBusiness = new BlendingBusiness();
+            return blendingBusiness.IteracionesGestionesCierreCiclo(fInicial, fFinal);
+        }
+
+
         public GestionOutbound TraerGestionOutboundInfoDeCuenta(int idAsesor, string gestion)
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();

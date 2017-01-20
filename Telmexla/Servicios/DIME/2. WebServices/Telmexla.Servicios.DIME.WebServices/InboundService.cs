@@ -114,5 +114,10 @@ namespace Telmexla.Servicios.DIME.WebServices
         {   IngresoBusiness ingresoBusi = new IngresoBusiness();
             return ingresoBusi.SeguimientosInfo(idUsuario);
         }
+
+
+
+
+
     }
 }
