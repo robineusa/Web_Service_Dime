@@ -23,8 +23,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             MaestroNodo nodo = new MaestroNodo();
             MaestroNodoService servicenodo = new MaestroNodoService();
 
-           var dato = "AAA";
-            Console.WriteLine(servicenodo.ExisteNodo(dato));
+ 
             //nodo.NombreNodo = "ROBIN";
             //nodo.Div = "AAA";
             //nodo.Com = "AAA";
@@ -65,7 +64,12 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
             DateTime fechaInicial = Convert.ToDateTime("2016-11-01");
                 DateTime fechaFinal = Convert.ToDateTime("2017-01-01");
-            IngresoBusiness busi = new IngresoBusiness();
+            BlendingService blendService = new BlendingService();
+
+            var result783 = blendService.ListaCierresCicloGestionados(fechaInicial, fechaFinal);
+
+
+
 
             Debug.Print(new GeneralEncriptor().GetEncriptedData("Clarop2017") )  ;
             Console.WriteLine(new GeneralEncriptor().GetEncriptedData("Clarop2017"));

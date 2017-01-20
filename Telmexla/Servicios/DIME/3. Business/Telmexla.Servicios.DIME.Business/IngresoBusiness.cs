@@ -300,7 +300,8 @@ namespace Telmexla.Servicios.DIME.Business
                                                     join b in dimContext.Usuarios on a.UsuarioCreacionCaso equals b.Id.ToString()
                                                     join c in dimContext.Usuarios on a.UsuarioRechaza equals c.Id.ToString()
                                                     join m in dimContext.Lineas on c.IdLinea equals m.Id
-                                                    where a.UsuarioCreacionCaso.Equals(idUsuario) && a.FechaRechazo >= fechaInicial && a.FechaRechazo <= fechaFinal
+                                                    join n in dimContext.BasePersonalHoloes on c.Cedula equals n.Cedula into Details3  from n in Details3.DefaultIfEmpty()
+                                         where a.UsuarioCreacionCaso.Equals(idUsuario) && a.FechaRechazo >= fechaInicial && a.FechaRechazo <= fechaFinal
                                                     select new DatoConsultaRechazo
                                                     {
                                                         IdIngreso = a.IdIngreso,
@@ -314,7 +315,7 @@ namespace Telmexla.Servicios.DIME.Business
                                                         NombreUsuarioCreacion = b.Nombre,
                                                         NombreUsuarioRechaza = c.Nombre,
                                                         NombreLineaUsuarioRechaza = m.Nombre,
-                                                        AliadoUsuarioRechaza = c.Aliado
+                                                        AliadoUsuarioRechaza = n.Aliado
                                                     }).ToList();
             }else
             {
@@ -323,6 +324,7 @@ namespace Telmexla.Servicios.DIME.Business
                                                     join b in dimContext.Usuarios on a.UsuarioCreacionCaso equals b.Id.ToString() into Details   from b in Details.DefaultIfEmpty()
                                                     join c in dimContext.Usuarios on a.UsuarioRechaza equals c.Id.ToString() into Details2 from c in Details.DefaultIfEmpty()
                                                      join m in dimContext.Lineas on c.IdLinea equals m.Id into Details3 from m in Details.DefaultIfEmpty()
+                                                     join n in dimContext.BasePersonalHoloes on c.Cedula equals n.Cedula into Details4 from n in Details4.DefaultIfEmpty()
                                                    where  a.FechaRechazo >= fechaInicial && a.FechaRechazo <= fechaFinal
                                                     select new DatoConsultaRechazo
                                                     {
@@ -337,7 +339,7 @@ namespace Telmexla.Servicios.DIME.Business
                                                         NombreUsuarioCreacion = b.Nombre,
                                                         NombreUsuarioRechaza = c.Nombre,
                                                         NombreLineaUsuarioRechaza = m.Nombre,
-                                                        AliadoUsuarioRechaza = c.Aliado
+                                                        AliadoUsuarioRechaza = n.Aliado
                                                     }).ToList();
 
             }

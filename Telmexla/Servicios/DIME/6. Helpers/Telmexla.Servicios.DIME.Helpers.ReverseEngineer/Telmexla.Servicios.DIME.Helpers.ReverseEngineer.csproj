@@ -71,6 +71,12 @@
     <Compile Include="BaseOfrecimiento.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
+    <Compile Include="BasePersonalHolo.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BasePersonalHoloConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="BdCuentasGenerica.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
@@ -78,7 +84,7 @@
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="BdPersonalHolos2.cs">
-      <DependentUpon>Database2.tt</DependentUpon>
+      <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="CierreCiclo.cs">
       <DependentUpon>Database1.tt</DependentUpon>
@@ -168,10 +174,22 @@
     <Compile Include="IMaestrosContext.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
+    <Compile Include="InformacionNodo.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformacionNodoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ingreso.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="IngresoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IngresosTraslado.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IngresosTrasladoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="Linea.cs">
@@ -351,6 +369,12 @@
     <Compile Include="NotasIngresoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="NotasTraslado.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotasTrasladoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="NotificacionesBuenServicio.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -420,6 +444,9 @@
     </Compile>
     <Compile Include="T1Marcacione.cs">
       <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TemporalPersonal.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="Tmp7PqrMaestroFestivo.cs">
       <DependentUpon>Database2.tt</DependentUpon>

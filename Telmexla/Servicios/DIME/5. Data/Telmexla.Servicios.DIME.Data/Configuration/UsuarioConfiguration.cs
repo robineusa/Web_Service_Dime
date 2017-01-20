@@ -36,7 +36,6 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Telefono).HasColumnName(@"TELEFONO").IsOptional().HasColumnType("numeric");
             Property(x => x.FechaContrasena).HasColumnName(@"FECHA_CONTRASENA").IsOptional().HasColumnType("date");
             Property(x => x.Capacitado).HasColumnName(@"Capacitado").IsOptional().HasColumnType("bit");
-            Property(x => x.Aliado).HasColumnName(@"ALIADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.IdLinea).HasColumnName(@"ID_LINEA").IsOptional().HasColumnType("int");
 
             // Foreign keys

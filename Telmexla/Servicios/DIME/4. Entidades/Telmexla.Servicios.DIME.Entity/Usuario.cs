@@ -27,9 +27,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public decimal? Telefono { get; set; } // TELEFONO
         public System.DateTime? FechaContrasena { get; set; } // FECHA_CONTRASENA
         public bool? Capacitado { get; set; } // Capacitado
-        public string Aliado { get; set; } // ALIADO (length: 50)
         public int? IdLinea { get; set; } // ID_LINEA
-
         // Reverse navigation
         public virtual System.Collections.Generic.ICollection<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION.FK__TBL_REGIS__ID_US__50FB042B
         public virtual System.Collections.Generic.ICollection<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // Many to many mapping

@@ -19,6 +19,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     public class FakeDimeContext : IDimeContext
     {
         public System.Data.Entity.DbSet<Acceso> Accesoes { get; set; }
+        public System.Data.Entity.DbSet<BasePersonalHolo> BasePersonalHoloes { get; set; }
         public System.Data.Entity.DbSet<CierreCiclo> CierreCicloes { get; set; }
         public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; }
         public System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; }
@@ -26,7 +27,9 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; }
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; }
         public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; }
+        public System.Data.Entity.DbSet<InformacionNodo> InformacionNodoes { get; set; }
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; }
+        public System.Data.Entity.DbSet<IngresosTraslado> IngresosTrasladoes { get; set; }
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; }
         public System.Data.Entity.DbSet<LogCierreCiclo> LogCierreCicloes { get; set; }
         public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; }
@@ -36,6 +39,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; }
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; }
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; }
+        public System.Data.Entity.DbSet<NotasTraslado> NotasTrasladoes { get; set; }
         public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicios { get; set; }
         public System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; }
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; }
@@ -49,6 +53,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public FakeDimeContext()
         {
             Accesoes = new FakeDbSet<Acceso>("Id");
+            BasePersonalHoloes = new FakeDbSet<BasePersonalHolo>("Cedula");
             CierreCicloes = new FakeDbSet<CierreCiclo>("Id");
             ClaroVideos = new FakeDbSet<ClaroVideo>("Id");
             ClientesTodoes = new FakeDbSet<ClientesTodo>("Cuenta");
@@ -56,7 +61,9 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             DatosAdicionalesClientes = new FakeDbSet<DatosAdicionalesCliente>("Cuenta");
             DocsisOverlaps = new FakeDbSet<DocsisOverlap>("Id");
             GestionOutbounds = new FakeDbSet<GestionOutbound>("Id");
+            InformacionNodoes = new FakeDbSet<InformacionNodo>("IdNodo");
             Ingresoes = new FakeDbSet<Ingreso>("IdIngreso");
+            IngresosTrasladoes = new FakeDbSet<IngresosTraslado>("IdTraslado");
             Lineas = new FakeDbSet<Linea>("Id");
             LogCierreCicloes = new FakeDbSet<LogCierreCiclo>("Id");
             LogClaroVideos = new FakeDbSet<LogClaroVideo>("Id");
@@ -66,6 +73,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             MaestroMarcaciones = new FakeDbSet<MaestroMarcacione>("Id");
             ModosLogins = new FakeDbSet<ModosLogin>("Id");
             NotasIngresoes = new FakeDbSet<NotasIngreso>("IdNota", "CuentaCliente", "NombreLineaNota");
+            NotasTrasladoes = new FakeDbSet<NotasTraslado>("IdNota");
             NotificacionesBuenServicios = new FakeDbSet<NotificacionesBuenServicio>("IdNotificado");
             PqrMaestroCodCierres = new FakeDbSet<PqrMaestroCodCierre>("Id");
             PreguntasDesbloqueos = new FakeDbSet<PreguntasDesbloqueo>("Id");

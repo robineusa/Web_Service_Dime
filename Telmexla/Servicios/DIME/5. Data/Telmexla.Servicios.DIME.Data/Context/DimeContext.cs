@@ -21,6 +21,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
     public class DimeContext : System.Data.Entity.DbContext, IDimeContext
     {
         public System.Data.Entity.DbSet<Acceso> Accesoes { get; set; } // TBL_ACCESOS
+        public System.Data.Entity.DbSet<BasePersonalHolo> BasePersonalHoloes { get; set; } // TBL_BASE_PERSONAL_HOLOS
         public System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; } // TBL_CLIENTES_TODOS
         public System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; } // TBL_DATOS_ADICIONALES_CLIENTES
         public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; } // TBL_GESTION_OUTBOUND
@@ -128,11 +129,14 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new IngresoTrasladoConfiguration());
             modelBuilder.Configurations.Add(new NotasTrasladoConfiguration());
             modelBuilder.Configurations.Add(new MaestroNodoConfiguration());
+            modelBuilder.Configurations.Add(new BasePersonalHoloConfiguration());
+
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
         {
             modelBuilder.Configurations.Add(new AccesoConfiguration(schema));
+            modelBuilder.Configurations.Add(new BasePersonalHoloConfiguration(schema));
             modelBuilder.Configurations.Add(new CierreCicloConfiguration(schema));
             modelBuilder.Configurations.Add(new ClaroVideoConfiguration(schema));
             modelBuilder.Configurations.Add(new ClientesTodoConfiguration(schema));

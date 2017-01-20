@@ -19,6 +19,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     public class DimeContext : System.Data.Entity.DbContext, IDimeContext
     {
         public System.Data.Entity.DbSet<Acceso> Accesoes { get; set; } // TBL_ACCESOS
+        public System.Data.Entity.DbSet<BasePersonalHolo> BasePersonalHoloes { get; set; } // TBL_BASE_PERSONAL_HOLOS
         public System.Data.Entity.DbSet<CierreCiclo> CierreCicloes { get; set; } // TBL_CIERRE_CICLO
         public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; } // TBL_CLARO_VIDEO
         public System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; } // TBL_CLIENTES_TODOS
@@ -26,7 +27,9 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; } // TBL_DATOS_ADICIONALES_CLIENTES
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; } // TBL_GESTION_OUTBOUND
+        public System.Data.Entity.DbSet<InformacionNodo> InformacionNodoes { get; set; } // TBL_INFORMACION_NODOS
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
+        public System.Data.Entity.DbSet<IngresosTraslado> IngresosTrasladoes { get; set; } // TBL_INGRESOS_TRASLADOS
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; } // TBL_LINEA
         public System.Data.Entity.DbSet<LogCierreCiclo> LogCierreCicloes { get; set; } // TBL_LOG_CIERRE_CICLO
         public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; } // TBL_LOG_CLARO_VIDEO
@@ -36,6 +39,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; } // TMP_MAESTRO_MARCACIONES
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; } // TBL_MODOS_LOGINS
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
+        public System.Data.Entity.DbSet<NotasTraslado> NotasTrasladoes { get; set; } // TBL_NOTAS_TRASLADOS
         public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicios { get; set; } // NOTIFICACIONES_BUEN_SERVICIO
         public System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; } // TMP_PQR_MAESTRO_COD_CIERRE
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; } // TBL_PREGUNTAS_DESBLOQUEO
@@ -95,6 +99,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Configurations.Add(new AccesoConfiguration());
+            modelBuilder.Configurations.Add(new BasePersonalHoloConfiguration());
             modelBuilder.Configurations.Add(new CierreCicloConfiguration());
             modelBuilder.Configurations.Add(new ClaroVideoConfiguration());
             modelBuilder.Configurations.Add(new ClientesTodoConfiguration());
@@ -102,7 +107,9 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration());
             modelBuilder.Configurations.Add(new DocsisOverlapConfiguration());
             modelBuilder.Configurations.Add(new GestionOutboundConfiguration());
+            modelBuilder.Configurations.Add(new InformacionNodoConfiguration());
             modelBuilder.Configurations.Add(new IngresoConfiguration());
+            modelBuilder.Configurations.Add(new IngresosTrasladoConfiguration());
             modelBuilder.Configurations.Add(new LineaConfiguration());
             modelBuilder.Configurations.Add(new LogCierreCicloConfiguration());
             modelBuilder.Configurations.Add(new LogClaroVideoConfiguration());
@@ -112,6 +119,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new MaestroMarcacioneConfiguration());
             modelBuilder.Configurations.Add(new ModosLoginConfiguration());
             modelBuilder.Configurations.Add(new NotasIngresoConfiguration());
+            modelBuilder.Configurations.Add(new NotasTrasladoConfiguration());
             modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration());
             modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration());
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration());
@@ -126,6 +134,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
         {
             modelBuilder.Configurations.Add(new AccesoConfiguration(schema));
+            modelBuilder.Configurations.Add(new BasePersonalHoloConfiguration(schema));
             modelBuilder.Configurations.Add(new CierreCicloConfiguration(schema));
             modelBuilder.Configurations.Add(new ClaroVideoConfiguration(schema));
             modelBuilder.Configurations.Add(new ClientesTodoConfiguration(schema));
@@ -133,7 +142,9 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration(schema));
             modelBuilder.Configurations.Add(new DocsisOverlapConfiguration(schema));
             modelBuilder.Configurations.Add(new GestionOutboundConfiguration(schema));
+            modelBuilder.Configurations.Add(new InformacionNodoConfiguration(schema));
             modelBuilder.Configurations.Add(new IngresoConfiguration(schema));
+            modelBuilder.Configurations.Add(new IngresosTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new LineaConfiguration(schema));
             modelBuilder.Configurations.Add(new LogCierreCicloConfiguration(schema));
             modelBuilder.Configurations.Add(new LogClaroVideoConfiguration(schema));
@@ -143,6 +154,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new MaestroMarcacioneConfiguration(schema));
             modelBuilder.Configurations.Add(new ModosLoginConfiguration(schema));
             modelBuilder.Configurations.Add(new NotasIngresoConfiguration(schema));
+            modelBuilder.Configurations.Add(new NotasTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration(schema));
             modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration(schema));
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration(schema));

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoRepository.cs" />
+    <Compile Include="Configuration\BasePersonalHoloConfiguration.cs" />
     <Compile Include="Configuration\IngresoConfiguration.cs" />
     <Compile Include="Configuration\NotasTrasladoConfiguration.cs" />
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />

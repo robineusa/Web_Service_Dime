@@ -27,7 +27,6 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public decimal? Telefono { get; set; } // TELEFONO
         public System.DateTime? FechaContrasena { get; set; } // FECHA_CONTRASENA
         public bool? Capacitado { get; set; } // CAPACITADO
-        public string Aliado { get; set; } // ALIADO (length: 50)
         public int? IdLinea { get; set; } // ID_LINEA
 
         // Reverse navigation

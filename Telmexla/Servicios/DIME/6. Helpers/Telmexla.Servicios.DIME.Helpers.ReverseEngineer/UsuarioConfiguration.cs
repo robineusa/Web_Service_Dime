@@ -37,7 +37,6 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.Telefono).HasColumnName(@"TELEFONO").IsOptional().HasColumnType("numeric");
             Property(x => x.FechaContrasena).HasColumnName(@"FECHA_CONTRASENA").IsOptional().HasColumnType("date");
             Property(x => x.Capacitado).HasColumnName(@"CAPACITADO").IsOptional().HasColumnType("bit");
-            Property(x => x.Aliado).HasColumnName(@"ALIADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.IdLinea).HasColumnName(@"ID_LINEA").IsOptional().HasColumnType("int");
 
             // Foreign keys

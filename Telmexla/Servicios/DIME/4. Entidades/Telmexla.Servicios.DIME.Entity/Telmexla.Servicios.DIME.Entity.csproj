@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceso.cs" />
+    <Compile Include="BasePersonalHolo.cs" />
     <Compile Include="CierreCiclo.cs" />
     <Compile Include="CierreCicloCollection.cs" />
     <Compile Include="ClaroVideo.cs" />
