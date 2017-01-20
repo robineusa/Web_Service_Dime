@@ -48,6 +48,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
          public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
         public System.Data.Entity.DbSet<IngresoTraslado> IngresoTraslados { get; set; } // TBL_INGRESOS_TRASLADOS
         public System.Data.Entity.DbSet<NotasTraslado> NotasTraslados { get; set; } // TBL_NOTAS_TRASLADOS
+        public System.Data.Entity.DbSet<MaestroNodo> MaestroNodos { get; set; } // TBL_NOTAS_TRASLADOS
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -126,6 +127,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new RechazoConfiguration());
             modelBuilder.Configurations.Add(new IngresoTrasladoConfiguration());
             modelBuilder.Configurations.Add(new NotasTrasladoConfiguration());
+            modelBuilder.Configurations.Add(new MaestroNodoConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -157,7 +159,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration(schema));
             modelBuilder.Configurations.Add(new RechazoConfiguration(schema));
             modelBuilder.Configurations.Add(new IngresoTrasladoConfiguration(schema));
-            modelBuilder.Configurations.Add(new NotasTrasladoConfiguration());
+            modelBuilder.Configurations.Add(new NotasTrasladoConfiguration(schema));
+            modelBuilder.Configurations.Add(new MaestroNodoConfiguration(schema));
             return modelBuilder;
         }
 

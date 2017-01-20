@@ -28,6 +28,7 @@ namespace Telmexla.Servicios.DIME.IData
         IRechazoRepository rechazos { get; }
         IIngresoTrasladoRepository ingresoTraslados { get; }
         INotasTrasladoRepository notasTraslados { get; }
+        IMaestroNodoRepository maestroNodos { get; }
         int Complete();
     }
 }

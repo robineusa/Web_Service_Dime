@@ -101,6 +101,8 @@
     <Compile Include="GestionOutboundRepository.cs" />
     <Compile Include="LineaRepository.cs" />
     <Compile Include="MaestroMarcacioneRepository.cs" />
+    <Compile Include="Configuration\MaestroNodoConfiguration.cs" />
+    <Compile Include="MaestroNodoRepository.cs" />
     <Compile Include="MaestroOutboundCausaRepository.cs" />
     <Compile Include="MaestroOutboundCierreRepository.cs" />
     <Compile Include="MaestroOutboundMotivoRepository.cs" />

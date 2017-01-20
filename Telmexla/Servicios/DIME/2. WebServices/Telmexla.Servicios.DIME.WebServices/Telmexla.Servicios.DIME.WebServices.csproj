@@ -66,6 +66,7 @@
     <Compile Include="ClientesService.cs" />
     <Compile Include="InboundService.cs" />
     <Compile Include="LoginService.cs" />
+    <Compile Include="MaestroNodoService.cs" />
     <Compile Include="MaestrosService.cs" />
     <Compile Include="MainWebService\WebService.cs" />
     <Compile Include="MarcacionesService.cs" />

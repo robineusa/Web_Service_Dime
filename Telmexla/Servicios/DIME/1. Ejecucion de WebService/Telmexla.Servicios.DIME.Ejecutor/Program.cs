@@ -20,25 +20,44 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            IngresoTraslado ingresotraslado = new IngresoTraslado();
-            TrasladosService traslados = new TrasladosService();
-            ingresotraslado.CuentaCliente = 307;
-            ingresotraslado.Direccion = "ESTE CAMPO DE DIRECCION";
-            ingresotraslado.Estrato = "NR";
-            ingresotraslado.Nodo = "AAAADSA";
-            ingresotraslado.TelefonoCelular = "3228451001";
-            ingresotraslado.TelefonoFijo="9005668";
-            ingresotraslado.FechaApertura = DateTime.Now;
-            ingresotraslado.HoraApertura = DateTime.Now;
-            ingresotraslado.UsuarioApertura = "ROBINEUSA";
-            ingresotraslado.FechaUltimaActualizacion = DateTime.Now;
-            ingresotraslado.UsuarioUltimaActualizacion = "ROBINEUSA";
-            ingresotraslado.HoraUltimaActualizacion = DateTime.Now;
-            ingresotraslado.AliadoApertura = "BRM";
-            ingresotraslado.NombreLineaIngreso = "GESTION DE LA INFORMACION";
+            MaestroNodo nodo = new MaestroNodo();
+            MaestroNodoService servicenodo = new MaestroNodoService();
 
-            var observacion = "SE GENERA LA CREACION DE UN CASO DE PRUEBA";
-            traslados.RegistrarIngresoTraslado(ingresotraslado, observacion);
+           var dato = "AAA";
+            Console.WriteLine(servicenodo.ExisteNodo(dato));
+            //nodo.NombreNodo = "ROBIN";
+            //nodo.Div = "AAA";
+            //nodo.Com = "AAA";
+            //nodo.Divisional =11;
+            //nodo.Area = 11;
+            //nodo.Distrito = 11;
+            //nodo.Ugestion = 11;
+            //nodo.Usuario = "robineusa";
+            //nodo.Estado = "activo";
+            //nodo.Red = "dth";
+            //nodo.Aliado = "BRM";
+
+            //servicenodo.ExisteNodo(dato);
+
+            //IngresoTraslado ingresotraslado = new IngresoTraslado();
+            //TrasladosService traslados = new TrasladosService();
+            //ingresotraslado.CuentaCliente = 307;
+            //ingresotraslado.Direccion = "ESTE CAMPO DE DIRECCION";
+            //ingresotraslado.Estrato = "NR";
+            //ingresotraslado.Nodo = "AAAADSA";
+            //ingresotraslado.TelefonoCelular = "3228451001";
+            //ingresotraslado.TelefonoFijo="9005668";
+            //ingresotraslado.FechaApertura = DateTime.Now;
+            //ingresotraslado.HoraApertura = DateTime.Now;
+            //ingresotraslado.UsuarioApertura = "ROBINEUSA";
+            //ingresotraslado.FechaUltimaActualizacion = DateTime.Now;
+            //ingresotraslado.UsuarioUltimaActualizacion = "ROBINEUSA";
+            //ingresotraslado.HoraUltimaActualizacion = DateTime.Now;
+            //ingresotraslado.AliadoApertura = "BRM";
+            //ingresotraslado.NombreLineaIngreso = "GESTION DE LA INFORMACION";
+
+            //var observacion = "SE GENERA LA CREACION DE UN CASO DE PRUEBA";
+            //traslados.RegistrarIngresoTraslado(ingresotraslado, observacion);
 
 
 

@@ -61,6 +61,7 @@
     <Compile Include="GestionDeCelulaUsr.cs" />
     <Compile Include="IngresoBusiness.cs" />
     <Compile Include="IngresoTrasladoBusiness.cs" />
+    <Compile Include="MaestroNodoBusiness.cs" />
     <Compile Include="MarcacionesBusiness.cs" />
     <Compile Include="NotificacionesBuenServicioBusiness.cs" />
     <Compile Include="OutboundBusiness.cs" />
