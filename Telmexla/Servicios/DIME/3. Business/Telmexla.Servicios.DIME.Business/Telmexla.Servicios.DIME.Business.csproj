@@ -56,11 +56,13 @@
     <Compile Include="ArbolesDeTipificacion.cs" />
     <Compile Include="BlendingBusiness.cs" />
     <Compile Include="ClientesBusiness.cs" />
+    <Compile Include="DatoConsultaGestionAdmin.cs" />
     <Compile Include="DatoConsultaPaloteo.cs" />
     <Compile Include="DatoConsultaRechazo.cs" />
     <Compile Include="GestionDeCelulaUsr.cs" />
     <Compile Include="IngresoBusiness.cs" />
     <Compile Include="IngresoTrasladoBusiness.cs" />
+    <Compile Include="ListasSelectBusiness.cs" />
     <Compile Include="MaestroNodoBusiness.cs" />
     <Compile Include="MarcacionesBusiness.cs" />
     <Compile Include="NotificacionesBuenServicioBusiness.cs" />

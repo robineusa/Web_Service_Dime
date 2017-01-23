@@ -62,6 +62,49 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
+        public List<DatoConsultaGestionAdmin> ListaNotasIngresosYIngresosPorAliado(DateTime inicial, DateTime final, string aliado)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaGestionAdmin> result = new List<DatoConsultaGestionAdmin>();
+
+            result = (from a in dimContext.NotasIngresoes
+                      join b in dimContext.Ingresoes on a.IdIngreso equals b.IdIngreso
+                      join c in dimContext.Usuarios on a.Usuario equals c.Id.ToString()
+                      join d in dimContext.Usuarios on b.UsuarioApertura equals d.Id.ToString() into details from d in details.DefaultIfEmpty()
+                      join e in dimContext.Usuarios on b.UsuarioCierre equals e.Id.ToString() into details2 from e in details2.DefaultIfEmpty()
+                      join f in dimContext.Usuarios on b.UsuarioUltimaActualizacion equals f.Id.ToString() into details3 from f in details3.DefaultIfEmpty()
+                      where a.FechaNota >= inicial && a.FechaNota <= final && b.AliadoApertura.Equals(aliado)
+                      select new DatoConsultaGestionAdmin
+                      {
+                          IdIngreso = a.IdIngreso,
+                          CuentaCliente = a.CuentaCliente,
+                          Ticket = a.Ticket,
+                          NombreLineaIngreso = b.NombreLineaIngreso,
+                          NombreLineaEscalado = b.NombreLineaEscalado,
+                          AliadoApertura = b.AliadoApertura,
+                          FechaNota = a.FechaNota,
+                          FechaApertura = b.FechaApertura,
+                          HoraApertura = b.HoraApertura,
+                          FechaCierre = b.FechaCierre,
+                          Usuario = c.Cedula.ToString(),
+                          UsuarioApertura = d.Cedula.ToString(),
+                          UsuarioCierre = e.Cedula.ToString(),
+                          FechaUltimaActualizacion = b.FechaUltimaActualizacion,
+                          UsuarioUltimaActualizacion = f.Cedula.ToString(),
+                          HoraUltimaActualizacion = b.HoraUltimaActualizacion,
+                          Macroproceso = b.Macroproceso,
+                          Marcacion = b.Marcacion,
+                          Nota = a.Nota,
+                          IdEstado = b.IdEstado
+                          
+                      }
+
+                     ).ToList();
+
+            return result;
+            
+        }
+
         public List<DatoConsultaPaloteo> GetNotasIngresosYUsuarioData(DateTime inicial, DateTime final)
         {
             DimeContext dimContext = new DimeContext();

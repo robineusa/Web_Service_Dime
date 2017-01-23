@@ -55,6 +55,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public string NombreLineaIngreso { get; set; } // NOMBRE_LINEA_INGRESO (length: 50)
         public string NombreLineaEscalado { get; set; } // NOMBRE_LINEA_ESCALADO (length: 50)
         public int? IdServicio { get; set; } // ID_SERVICIO
+
     }
 
 }
