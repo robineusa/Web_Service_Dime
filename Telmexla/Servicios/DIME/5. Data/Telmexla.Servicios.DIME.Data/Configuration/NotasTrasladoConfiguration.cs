@@ -13,7 +13,7 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.Data.Configuration
 {
-    //TBL_NOTAS_TRASLADOS
+    //TBL_CREACION_DIRECCION
     public class NotasTrasladoConfiguration: System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<NotasTraslado>
     {
         public NotasTrasladoConfiguration()
@@ -23,20 +23,25 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
 
         public NotasTrasladoConfiguration(string schema)
         {
-            ToTable("TBL_NOTAS_TRASLADOS", schema);
-            HasKey(x => new { x.IdNota});
+            ToTable("TBL_CREACION_DIRECCION", schema);
+            HasKey(x => new { x.Id});
 
-            Property(x => x.IdNota).HasColumnName(@"ID_NOTA").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.IdTraslado).HasColumnName(@"ID_TRASLADO").IsOptional().HasColumnType("numeric");
+            Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.IdTransaccion).HasColumnName(@"ID_TRANSACCION").IsOptional().HasColumnType("numeric");
+            Property(x => x.UsuarioTransaccion).HasColumnName(@"USUARIO_TRANSACCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
+            Property(x => x.CanalTransaccion).HasColumnName(@"CANAL_TRANSACCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
+            Property(x => x.FechaTransaccion).HasColumnName(@"FECHA_TRANSACCION").IsOptional().HasColumnType("date");
+            Property(x => x.NombreLineaTransaccion).HasColumnName(@"NOMBRE_LINEA_TRANSACCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.CuentaCliente).HasColumnName(@"CUENTA_CLIENTE").IsRequired().HasColumnType("numeric");
-            Property(x => x.Usuario).HasColumnName(@"USUARIO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.NombreLineaNota).HasColumnName(@"NOMBRE_LINEA_NOTA").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
-            Property(x => x.FechaNota).HasColumnName(@"FECHA_NOTA").IsOptional().HasColumnType("date");
-            Property(x => x.HoraNota).HasColumnName(@"HORA_NOTA").IsOptional().HasColumnType("datetime");
-            Property(x => x.Nota).HasColumnName(@"NOTA").IsOptional().HasColumnType("ntext").IsMaxLength();
+            Property(x => x.DireccionACrear).HasColumnName(@"DIRECCION_A_CREAR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.Estrato).HasColumnName(@"ESTRATO").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
+            Property(x => x.Nodo).HasColumnName(@"NODO").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(15);
+            Property(x => x.TelefonoCelular).HasColumnName(@"TELEFONO_CELULAR").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(20);
+            Property(x => x.TelefonoFijo).HasColumnName(@"TELEFONO_FIJO").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(20);
             Property(x => x.Razon).HasColumnName(@"RAZON").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Subrazon).HasColumnName(@"SUBRAZON").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
+            Property(x => x.Observacion).HasColumnName(@"OBSERVACION").IsOptional().HasColumnType("ntext").IsMaxLength();
+            Property(x => x.EstadoTransaccion).HasColumnName(@"ESTADO_TRANSACCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
             
         }
     }

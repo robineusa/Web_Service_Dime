@@ -4,16 +4,21 @@ namespace Telmexla.Servicios.DIME.Entity
     //TBL_NOTAS_TRASLADOS
     public class NotasTraslado
     {
-        public decimal IdNota { get; set; } // ID_NOTA
-        public decimal? IdTraslado { get; set; } // ID_TRASLADO
-        public decimal CuentaCliente { get; set; } // CUENTA_CLIENTE
-        public string Usuario { get; set; } // USUARIO 
-        public string NombreLineaNota { get; set; } // NOMBRE_LINEA_NOTA 
-        public System.DateTime? FechaNota { get; set; } // FECHA_NOTA
-        public System.DateTime? HoraNota { get; set; } // HORA_NOTA
-        public string Nota { get; set; } // NOTA 
-        public string Razon { get; set; } // RAZON
-        public string Subrazon { get; set; } // SUBRAZON
-        public string Estado { get; set; } // ESTADO
+        public decimal Id { get; set; } // ID INCREMENTAL DE LA TABLA
+        public decimal? IdTransaccion { get; set; } // ID DE LA TRANSACCION GLOBAL
+        public string UsuarioTransaccion { get; set; } //USUARIO QUE GENERA LA TRANSACCION
+        public string CanalTransaccion { get; set; } //CANAL DONDE SE GENERA LA TRANSACCION
+        public System.DateTime? FechaTransaccion { get; set; } // FECHA DE LA TRANSACCION
+        public string NombreLineaTransaccion { get; set; } // NOMBRE DE LA LINEA DE LA TRANSACCION
+        public decimal CuentaCliente { get; set; } // CUENTA DEL CLIENTE
+        public string DireccionACrear { get; set; } //DIRECCION A CREAR
+        public string Estrato { get; set; }// ESTRATO DEL CLIENTE
+        public string Nodo { get; set; } // NODO
+        public string TelefonoCelular { get; set; } // TELEFONO CELULAR DEL CLIENTE
+        public string TelefonoFijo { get; set; }// TELEFONO FIJO DEL CLIENTE
+        public string Razon { get; set; }// RAZON
+        public string Subrazon { get; set; }//SUBRAZON
+        public string Observacion { get; set; }// OBSERVACION REALIZADA
+        public string EstadoTransaccion { get; set; } // ESTADO DE LA TRANSACCION
     }
 }

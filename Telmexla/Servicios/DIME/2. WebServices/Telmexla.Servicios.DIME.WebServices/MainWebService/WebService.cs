@@ -536,8 +536,8 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         public bool ExisteCuentaEscalada(decimal cuenta)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ExisteCuentaEscalada(cuenta);
+            TrasladosService trasladosService = new TrasladosService();
+            return   trasladosService.ExisteCuentaEscalada(cuenta);
         }
         #endregion
 

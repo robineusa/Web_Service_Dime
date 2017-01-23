@@ -18,32 +18,30 @@ namespace Telmexla.Servicios.DIME.Business
         {
             try
             {
+                ingreso.TipoGestion = "CREACION DE DIRECCION";
                 ingreso.FechaApertura = DateTime.Now;
                 ingreso.HoraApertura = DateTime.Now;
                 ingreso.FechaUltimaActualizacion = DateTime.Now;
                 ingreso.HoraUltimaActualizacion = DateTime.Now;
-                ingreso.Razon = "SOLICITUD INBOUND";
-                ingreso.Subrazon = "CREACION DE DIRECCION";
-                ingreso.EstadoCaso = "PENDIENTE POR CREAR";
-                ingreso.NombreLineaEscalado = "CELULA CREACION DIRECCION";
+                ingreso.EstadoTransaccion= "PENDIENTE POR CREAR";
+                ingreso.NombreLineaEscalado= "CELULA CREACION DIRECCION";
 
                 UnitOfWork unitWork = new UnitOfWork(new DimeContext());
                 unitWork.ingresoTraslados.Add(ingreso);
                 unitWork.Complete();
 
+                NotasTraslado CrearDireccion = new NotasTraslado();
 
-                NotasTraslado logIngreso = new NotasTraslado();
-                logIngreso.IdTraslado = ingreso.IdTraslado;
-                logIngreso.CuentaCliente = ingreso.CuentaCliente;
-                logIngreso.Usuario = ingreso.UsuarioApertura;
-                logIngreso.NombreLineaNota = ingreso.NombreLineaIngreso;
-                logIngreso.FechaNota = DateTime.Now;
-                logIngreso.HoraNota = DateTime.Now;
-                logIngreso.Nota = observacion;
-                logIngreso.Razon = ingreso.Razon;
-                logIngreso.Subrazon = ingreso.Subrazon;
-                logIngreso.Estado = ingreso.EstadoCaso;
-                unitWork.notasTraslados.Add(logIngreso);
+                CrearDireccion.IdTransaccion = ingreso.IdTransaccion;
+                CrearDireccion.UsuarioTransaccion = ingreso.UsuarioApertura;
+                CrearDireccion.CanalTransaccion = "INBOUND TRASLADOS";
+                CrearDireccion.FechaTransaccion = DateTime.Now;
+                CrearDireccion.NombreLineaTransaccion = ingreso.NombreLineaIngreso;
+                CrearDireccion.CuentaCliente = ingreso.CuentaCliente;
+                CrearDireccion.Razon = "SOLICITUD INBOUND";
+                CrearDireccion.Subrazon = "CREACION DE DIRECCION";
+                CrearDireccion.EstadoTransaccion = "PENDIENTE POR CREAR";
+                unitWork.notasTraslados.Add(CrearDireccion);
                 unitWork.Complete();
             }
             catch (DbEntityValidationException dbEx)
@@ -64,7 +62,7 @@ namespace Telmexla.Servicios.DIME.Business
         public bool ExisteCuentaEscalada(decimal cuenta)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoCaso !="FINALIZADO").Count() >= 1;
+            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoTransaccion != "FINALIZADO" && c.TipoGestion == "CREACION DE DIRECCION").Count() >= 1;
 
         }
     }
