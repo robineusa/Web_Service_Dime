@@ -14,7 +14,7 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class IngresoTrasladoBusiness
     {
-        public void InsertIngresoTraslado(IngresoTraslado ingreso, string observacion)
+        public void InsertIngresoTraslado(IngresoTraslado ingreso,NotasTraslado notaTraslado)
         {
             try
             {

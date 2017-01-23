@@ -13,7 +13,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface ITrasladosService
     {
         [OperationContract]
-        void RegistrarIngresoTraslado(IngresoTraslado ingreso, string observacion);
+        void RegistrarIngresoTraslado(IngresoTraslado ingreso, NotasTraslado notaTraslado);
         [OperationContract]
         bool ExisteCuentaEscalada(decimal cuenta);
     }

@@ -13,10 +13,10 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
     public class TrasladosService : ITrasladosService
     {
-        public void RegistrarIngresoTraslado(IngresoTraslado ingreso, string observacion)
+        public void RegistrarIngresoTraslado(IngresoTraslado ingreso, NotasTraslado notaTraslado)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.InsertIngresoTraslado(ingreso, observacion);
+            ingresoBusi.InsertIngresoTraslado(ingreso, notaTraslado);
         }
         public bool ExisteCuentaEscalada(decimal cuenta)
         {

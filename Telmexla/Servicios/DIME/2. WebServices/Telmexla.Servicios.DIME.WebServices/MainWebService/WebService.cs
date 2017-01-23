@@ -529,10 +529,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion CasosAdminService
 
         #region registrarTraslado
-        public void RegistrarIngresoTraslado(IngresoTraslado ingreso, string observacion)
+        public void RegistrarIngresoTraslado(IngresoTraslado ingreso, NotasTraslado notaTraslado)
         {
             TrasladosService trasladosService = new TrasladosService();
-            trasladosService.RegistrarIngresoTraslado(ingreso,observacion);
+            trasladosService.RegistrarIngresoTraslado(ingreso,notaTraslado);
         }
         public bool ExisteCuentaEscalada(decimal cuenta)
         {
