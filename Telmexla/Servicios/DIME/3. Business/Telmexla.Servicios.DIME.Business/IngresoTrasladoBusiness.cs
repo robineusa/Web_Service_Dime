@@ -30,18 +30,16 @@ namespace Telmexla.Servicios.DIME.Business
                 unitWork.ingresoTraslados.Add(ingreso);
                 unitWork.Complete();
 
-                NotasTraslado CrearDireccion = new NotasTraslado();
-
-                CrearDireccion.IdTransaccion = ingreso.IdTransaccion;
-                CrearDireccion.UsuarioTransaccion = ingreso.UsuarioApertura;
-                CrearDireccion.CanalTransaccion = "INBOUND TRASLADOS";
-                CrearDireccion.FechaTransaccion = DateTime.Now;
-                CrearDireccion.NombreLineaTransaccion = ingreso.NombreLineaIngreso;
-                CrearDireccion.CuentaCliente = ingreso.CuentaCliente;
-                CrearDireccion.Razon = "SOLICITUD INBOUND";
-                CrearDireccion.Subrazon = "CREACION DE DIRECCION";
-                CrearDireccion.EstadoTransaccion = "PENDIENTE POR CREAR";
-                unitWork.notasTraslados.Add(CrearDireccion);
+                notaTraslado.IdTransaccion = ingreso.IdTransaccion;
+                notaTraslado.UsuarioTransaccion = ingreso.UsuarioApertura;
+                notaTraslado.CanalTransaccion = "INBOUND TRASLADOS";
+                notaTraslado.FechaTransaccion = DateTime.Now;
+                notaTraslado.NombreLineaTransaccion = ingreso.NombreLineaIngreso;
+                notaTraslado.CuentaCliente = ingreso.CuentaCliente;
+                notaTraslado.Razon = "SOLICITUD INBOUND";
+                notaTraslado.Subrazon = "CREACION DE DIRECCION";
+                notaTraslado.EstadoTransaccion = "PENDIENTE POR CREAR";
+                unitWork.notasTraslados.Add(notaTraslado);
                 unitWork.Complete();
             }
             catch (DbEntityValidationException dbEx)
