@@ -14,5 +14,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
     {
         [OperationContract]
         void RegistrarIngresoTraslado(IngresoTraslado ingreso, string observacion);
+
+        [OperationContract]
+        bool ExisteCuentaEscalada(decimal cuenta);
+       
+
     }
 }
