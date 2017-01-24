@@ -18,5 +18,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         bool ExisteCuentaEscalada(decimal cuenta);
         [OperationContract]
         List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion();
-     }
+        [OperationContract]
+        List<NotasTraslado> ListaInteraccionesCrearDireccion(int id);
+        
+    }
 }
