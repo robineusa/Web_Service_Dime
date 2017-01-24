@@ -30,7 +30,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             IngresoTraslado traslado = new IngresoTraslado();
             traslado.CuentaCliente = 430;
             TrasladosService trasladoservice = new TrasladosService();
-            Console.WriteLine(trasladoservice.ExisteCuentaEscalada(traslado.CuentaCliente));
+            var result84841848 = trasladoservice.ListaSolicitudesCrearDireccion();
+
+            Console.WriteLine(result84841848);
 
  
             //nodo.NombreNodo = "ROBIN";

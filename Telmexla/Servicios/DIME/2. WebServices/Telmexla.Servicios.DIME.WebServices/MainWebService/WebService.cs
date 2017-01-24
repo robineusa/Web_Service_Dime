@@ -552,6 +552,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             TrasladosService trasladosService = new TrasladosService();
             return   trasladosService.ExisteCuentaEscalada(cuenta);
         }
+        public List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion()
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSolicitudesCrearDireccion();
+        }
         #endregion
 
         #region maestroNodos

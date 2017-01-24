@@ -23,5 +23,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ExisteCuentaEscalada(cuenta);
         }
+        public List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion()
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSolicitudesCrearDireccion();
+        }
+        }
     }
-}
