@@ -21,10 +21,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            NotasTraslado nota = new NotasTraslado();
-            nota.IdTransaccion = 3;
-            TrasladosService trasladoservice = new TrasladosService();
-            var result84841848 = trasladoservice.ListaInteraccionesCrearDireccion(3);
+            MaestroNodo nota = new MaestroNodo();
+            nota.Nodo = "AAE";
+            MaestroNodoService trasladoservice = new MaestroNodoService();
+            var result84841848 = trasladoservice.GetInformacionNodo(nota.Nodo);
 
             Console.WriteLine(result84841848);
 

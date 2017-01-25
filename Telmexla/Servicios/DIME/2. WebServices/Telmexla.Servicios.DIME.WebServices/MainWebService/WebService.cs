@@ -575,6 +575,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MaestroNodoBusiness nodobusines = new MaestroNodoBusiness();
             return nodobusines.ExisteNodo(nodo);
         }
+        public MaestroNodoCollection GetInformacionNodo(string nodo)
+        {
+            MaestroNodoBusiness nodobusines = new MaestroNodoBusiness();
+            return nodobusines.GetInformacionNodo(nodo);
+        }
         #endregion
 
     }
