@@ -20,5 +20,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Subrazon { get; set; }//SUBRAZON
         public string Observacion { get; set; }// OBSERVACION REALIZADA
         public string EstadoTransaccion { get; set; } // ESTADO DE LA TRANSACCION
+        public string UsuarioBackOffice { get; set; }//USUARIO DEL BACK
+        public string UsuarioBackOutbound { get; set; }//USUARIO OUTBOUND
     }
 }

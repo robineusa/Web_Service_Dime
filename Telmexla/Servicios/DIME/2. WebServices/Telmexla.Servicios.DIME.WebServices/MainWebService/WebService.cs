@@ -567,6 +567,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             ingresoBusi.ActualizarSolicitudCrearDireccion(ingreso, notaTraslado);
         }
+        public bool TransaccionEnGestion(int id)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.TransaccionEnGestion(id);
+        }
         #endregion
 
         #region maestroNodos

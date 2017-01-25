@@ -151,12 +151,18 @@ namespace Telmexla.Servicios.DIME.Business
             notaTransaccion.TelefonoCelular = notaTraslado.TelefonoCelular;
             notaTransaccion.TelefonoFijo = notaTraslado.TelefonoFijo;
             notaTransaccion.Razon = notaTraslado.Razon;
-            notaTraslado.Subrazon = notaTraslado.Subrazon;
+            notaTransaccion.Subrazon = notaTraslado.Subrazon;
             notaTransaccion.Observacion = notaTraslado.Observacion;
             notaTransaccion.EstadoTransaccion = notaTraslado.EstadoTransaccion;
             unitWork.notasTraslados.Add(notaTransaccion);
             unitWork.Complete();
             
+        }
+        public bool TransaccionEnGestion(int id)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.notasTraslados.Find(c => c.IdTransaccion == id && c.UsuarioBackOffice != null).Count() >= 1;
+
         }
     }
 }

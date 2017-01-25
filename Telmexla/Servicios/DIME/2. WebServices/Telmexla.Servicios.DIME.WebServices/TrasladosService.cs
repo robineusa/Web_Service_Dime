@@ -37,6 +37,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             ingresoBusi.ActualizarSolicitudCrearDireccion(ingreso, notaTraslado);
         }
+        public bool TransaccionEnGestion(int id)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.TransaccionEnGestion(id);
+        }
 
     }
     }
