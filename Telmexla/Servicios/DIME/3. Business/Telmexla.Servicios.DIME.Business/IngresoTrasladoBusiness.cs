@@ -96,34 +96,29 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
-        public List<NotasTraslado> ListaInteraccionesCrearDireccion(int id) {
+        public NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id) {
 
-            DimeContext dimContext = new DimeContext();
-            List<NotasTraslado> result = new List<NotasTraslado>();
-
-            result = (from a in dimContext.NotasTraslados
-                      where a.IdTransaccion == id
-                      select new NotasTraslado
-                      {
-                          Id = a.Id,
-                          IdTransaccion= a.IdTransaccion,
-                          UsuarioTransaccion= a.UsuarioTransaccion,
-                          CanalTransaccion= a.CanalTransaccion,
-                          FechaTransaccion=a.FechaTransaccion,
-                          NombreLineaTransaccion = a.NombreLineaTransaccion,
-                          CuentaCliente=a.CuentaCliente,
-                          DireccionACrear=a.DireccionACrear,
-                          Estrato=a.Estrato,
-                          Nodo=a.Nodo,
-                          TelefonoCelular=a.TelefonoCelular,
-                          TelefonoFijo=a.TelefonoFijo,
-                          Razon=a.Razon,
-                          Subrazon=a.Subrazon,
-                          Observacion=a.Observacion,
-                          EstadoTransaccion=a.EstadoTransaccion
-                      }
-
-                     ).ToList();
+            UnitOfWork unitwork = new UnitOfWork(new DimeContext());
+            NotasTrasladoCollection result = new NotasTrasladoCollection();
+            result.AddRange(unitwork.notasTraslados.Find(c => c.IdTransaccion == id).Select(a => new NotasTraslado
+            {
+                Id = a.Id,
+                IdTransaccion = a.IdTransaccion,
+                UsuarioTransaccion = a.UsuarioTransaccion,
+                CanalTransaccion = a.CanalTransaccion,
+                FechaTransaccion = a.FechaTransaccion,
+                NombreLineaTransaccion = a.NombreLineaTransaccion,
+                CuentaCliente = a.CuentaCliente,
+                DireccionACrear = a.DireccionACrear,
+                Estrato = a.Estrato,
+                Nodo = a.Nodo,
+                TelefonoCelular = a.TelefonoCelular,
+                TelefonoFijo = a.TelefonoFijo,
+                Razon = a.Razon,
+                Subrazon = a.Subrazon,
+                Observacion = a.Observacion,
+                EstadoTransaccion = a.EstadoTransaccion
+            }).ToList());           
 
             return result;
         }

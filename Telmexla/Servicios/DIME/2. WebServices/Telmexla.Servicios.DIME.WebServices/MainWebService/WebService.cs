@@ -557,7 +557,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaSolicitudesCrearDireccion();
         }
-        public List<NotasTraslado> ListaInteraccionesCrearDireccion(int id)
+        public NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaInteraccionesCrearDireccion(id);

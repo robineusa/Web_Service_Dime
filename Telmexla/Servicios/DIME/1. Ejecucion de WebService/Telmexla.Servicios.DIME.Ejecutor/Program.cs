@@ -21,16 +21,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            ListasSelectBusiness listaSelects = new ListasSelectBusiness();
-           var selectes33=  listaSelects.ListaDeAliadosHolos();
-
-
-            //MaestroNodo nodo = new MaestroNodo();
-            //MaestroNodoService servicenodo = new MaestroNodoService();
-            IngresoTraslado traslado = new IngresoTraslado();
-            traslado.CuentaCliente = 430;
+            NotasTraslado nota = new NotasTraslado();
+            nota.IdTransaccion = 3;
             TrasladosService trasladoservice = new TrasladosService();
-            var result84841848 = trasladoservice.ListaSolicitudesCrearDireccion();
+            var result84841848 = trasladoservice.ListaInteraccionesCrearDireccion(3);
 
             Console.WriteLine(result84841848);
 

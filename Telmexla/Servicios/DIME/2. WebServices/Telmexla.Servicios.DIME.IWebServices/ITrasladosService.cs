@@ -19,7 +19,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion();
         [OperationContract]
-        List<NotasTraslado> ListaInteraccionesCrearDireccion(int id);
-        
+        NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id);
+
+
     }
 }
