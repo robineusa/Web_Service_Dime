@@ -203,6 +203,7 @@ namespace Telmexla.Servicios.DIME.Business
                 Cuenta = x.Cuenta,
                 Ticket = x.Ticket,
                 FechaApertura = x.FechaApertura,
+                HoraApertura = x.HoraApertura,
                 UsuarioApertura = x.UsuarioApertura,
                 Macroproceso = x.Macroproceso,
                 Marcacion = x.Marcacion,
@@ -210,7 +211,11 @@ namespace Telmexla.Servicios.DIME.Business
                 NombreLineaIngreso = x.NombreLineaIngreso,
                 NombreLineaEscalado = x.NombreLineaEscalado,
                 IdEstado = x.IdEstado,
-                Semaforo = x.Semaforo
+                Semaforo = x.Semaforo,
+                FechaUltimaActualizacion = x.FechaUltimaActualizacion,
+                UsuarioUltimaActualizacion = x.UsuarioUltimaActualizacion,
+                HoraUltimaActualizacion = x.HoraUltimaActualizacion
+
             }).ToList());
             return result;
         }
