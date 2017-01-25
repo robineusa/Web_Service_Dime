@@ -28,9 +28,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaSolicitudesCrearDireccion();
         }
-        public NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id) { 
+        public NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id) {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaInteraccionesCrearDireccion(id);
         }
+        public void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            ingresoBusi.ActualizarSolicitudCrearDireccion(ingreso, notaTraslado);
         }
+
+    }
     }

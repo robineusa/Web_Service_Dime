@@ -122,5 +122,41 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
+        public void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
+            DateTime fechaActual = DateTime.Now;
+            if (ingreso.EstadoTransaccion == "FINALIZADO")
+            {
+                ingresoActualizable.FechaCierre = fechaActual;
+                ingresoActualizable.HoraCierre = fechaActual;
+                ingresoActualizable.UsuarioCierre = ingreso.UsuarioUltimaActualizacion;
+            }
+            ingresoActualizable.FechaUltimaActualizacion = fechaActual;
+            ingresoActualizable.HoraUltimaActualizacion = fechaActual;
+            ingresoActualizable.UsuarioUltimaActualizacion = ingreso.UsuarioUltimaActualizacion;
+            ingresoActualizable.EstadoTransaccion = ingreso.EstadoTransaccion;
+
+            NotasTraslado notaTransaccion = new NotasTraslado();
+            notaTransaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            notaTransaccion.UsuarioTransaccion = notaTraslado.UsuarioTransaccion;
+            notaTransaccion.CanalTransaccion = notaTraslado.CanalTransaccion;
+            notaTransaccion.FechaTransaccion = fechaActual;
+            notaTransaccion.NombreLineaTransaccion = notaTraslado.NombreLineaTransaccion;
+            notaTransaccion.CuentaCliente = ingresoActualizable.CuentaCliente;
+            notaTransaccion.DireccionACrear = notaTraslado.DireccionACrear;
+            notaTransaccion.Estrato = notaTraslado.Estrato;
+            notaTransaccion.Nodo = notaTraslado.Nodo;
+            notaTransaccion.TelefonoCelular = notaTraslado.TelefonoCelular;
+            notaTransaccion.TelefonoFijo = notaTraslado.TelefonoFijo;
+            notaTransaccion.Razon = notaTraslado.Razon;
+            notaTraslado.Subrazon = notaTraslado.Subrazon;
+            notaTransaccion.Observacion = notaTraslado.Observacion;
+            notaTransaccion.EstadoTransaccion = notaTraslado.EstadoTransaccion;
+            unitWork.notasTraslados.Add(notaTransaccion);
+            unitWork.Complete();
+            
+        }
     }
 }
