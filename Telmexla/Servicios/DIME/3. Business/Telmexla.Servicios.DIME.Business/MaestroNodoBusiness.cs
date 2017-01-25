@@ -28,26 +28,11 @@ namespace Telmexla.Servicios.DIME.Business
             return   unitWork.maestroNodos.Find(c => c.Nodo.Equals(nodo)).Count() >= 1 ;
             
         }
-        public MaestroNodoCollection GetInformacionNodo(string nodo)
+        public MaestroNodo GetInformacionNodo(string nodo)
         {
-            UnitOfWork unitwork = new UnitOfWork(new DimeContext());
-            MaestroNodoCollection result = new MaestroNodoCollection();
-            result.AddRange(unitwork.maestroNodos.Find(c => c.Nodo.Trim() == nodo.Trim()).Select(a => new MaestroNodo
-            {
-                Nodo= a.Nodo,
-                NombreNodo=a.NombreNodo,
-                Div=a.Div,
-                Com=a.Com,
-                Divisional=a.Divisional,
-                Area=a.Area,
-                Distrito=a.Distrito,
-                Ugestion=a.Ugestion,
-                Estado=a.Estado,
-                Red=a.Red
-            }).ToList());
-
-            return result;
-
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            return unitOfWork.maestroNodos.Find(c => c.Nodo.Trim() == nodo.Trim()).FirstOrDefault();
+           
         }
 
      }
