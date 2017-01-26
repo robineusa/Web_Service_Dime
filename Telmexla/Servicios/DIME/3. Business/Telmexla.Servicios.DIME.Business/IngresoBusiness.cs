@@ -214,8 +214,8 @@ namespace Telmexla.Servicios.DIME.Business
                 Semaforo = x.Semaforo,
                 FechaUltimaActualizacion = x.FechaUltimaActualizacion,
                 UsuarioUltimaActualizacion = x.UsuarioUltimaActualizacion,
-                HoraUltimaActualizacion = x.HoraUltimaActualizacion
-
+                HoraUltimaActualizacion = x.HoraUltimaActualizacion,
+                IdServicio = x.IdServicio
             }).ToList());
             return result;
         }
