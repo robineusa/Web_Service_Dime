@@ -22,9 +22,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
             NotasTraslado nota = new NotasTraslado();
-            int id = 2;
+            int id = 8;
+            string Usuario = "ROBINEUSA";
             TrasladosService trasladoservice = new TrasladosService();
-            var result84841848 = trasladoservice.TransaccionEnGestion(id);
+            var result84841848 = trasladoservice.TransaccionEnGestion(id,Usuario);
 
             Console.WriteLine(result84841848);
 

@@ -23,6 +23,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado);
         [OperationContract]
-        bool TransaccionEnGestion(int id);
-    }
+        bool TransaccionEnGestion(int id, String usrABackOffice);
+        
+
+   }
 }

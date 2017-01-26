@@ -67,7 +67,8 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
-                                 where a.EstadoTransaccion.Equals("PENDIENTE POR CREAR")
+                                 join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOffice }  ).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where a.EstadoTransaccion.Equals("PENDIENTE POR CREAR") && b.UsuarioBackOffice == null
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -158,11 +159,12 @@ namespace Telmexla.Servicios.DIME.Business
             unitWork.Complete();
             
         }
-        public bool TransaccionEnGestion(int id)
+        public bool TransaccionEnGestion(int id, String usrABackOffice)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return unitWork.notasTraslados.Find(c => c.IdTransaccion == id && c.UsuarioBackOffice != null).Count() >= 1;
-
+          string result =   unitWork.notasTraslados.ComprobarActualizarUsrBackoffice(id, usrABackOffice);
+            if (result == usrABackOffice) return false;
+            else return true;
         }
     }
 }
