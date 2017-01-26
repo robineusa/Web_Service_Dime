@@ -24,12 +24,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; }
         public System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; }
         public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; }
+        public System.Data.Entity.DbSet<CreacionDireccion> CreacionDireccions { get; set; }
         public System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; }
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; }
         public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; }
         public System.Data.Entity.DbSet<InformacionNodo> InformacionNodoes { get; set; }
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; }
-        public System.Data.Entity.DbSet<IngresosTraslado> IngresosTrasladoes { get; set; }
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; }
         public System.Data.Entity.DbSet<LogCierreCiclo> LogCierreCicloes { get; set; }
         public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; }
@@ -39,13 +39,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; }
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; }
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; }
-        public System.Data.Entity.DbSet<NotasTraslado> NotasTrasladoes { get; set; }
         public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicios { get; set; }
         public System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; }
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; }
         public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; }
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; }
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; }
+        public System.Data.Entity.DbSet<TransaccionesTraslado> TransaccionesTrasladoes { get; set; }
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; }
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; }
         public System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; }
@@ -58,12 +58,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             ClaroVideos = new FakeDbSet<ClaroVideo>("Id");
             ClientesTodoes = new FakeDbSet<ClientesTodo>("Cuenta");
             ConvenioElectronicoes = new FakeDbSet<ConvenioElectronico>("Id");
+            CreacionDireccions = new FakeDbSet<CreacionDireccion>("Id");
             DatosAdicionalesClientes = new FakeDbSet<DatosAdicionalesCliente>("Cuenta");
             DocsisOverlaps = new FakeDbSet<DocsisOverlap>("Id");
             GestionOutbounds = new FakeDbSet<GestionOutbound>("Id");
             InformacionNodoes = new FakeDbSet<InformacionNodo>("IdNodo");
             Ingresoes = new FakeDbSet<Ingreso>("IdIngreso");
-            IngresosTrasladoes = new FakeDbSet<IngresosTraslado>("IdTraslado");
             Lineas = new FakeDbSet<Linea>("Id");
             LogCierreCicloes = new FakeDbSet<LogCierreCiclo>("Id");
             LogClaroVideos = new FakeDbSet<LogClaroVideo>("Id");
@@ -73,13 +73,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             MaestroMarcaciones = new FakeDbSet<MaestroMarcacione>("Id");
             ModosLogins = new FakeDbSet<ModosLogin>("Id");
             NotasIngresoes = new FakeDbSet<NotasIngreso>("IdNota", "CuentaCliente", "NombreLineaNota");
-            NotasTrasladoes = new FakeDbSet<NotasTraslado>("IdNota");
             NotificacionesBuenServicios = new FakeDbSet<NotificacionesBuenServicio>("IdNotificado");
             PqrMaestroCodCierres = new FakeDbSet<PqrMaestroCodCierre>("Id");
             PreguntasDesbloqueos = new FakeDbSet<PreguntasDesbloqueo>("Id");
             Rechazoes = new FakeDbSet<Rechazo>("IdRechazo");
             RegistroSesions = new FakeDbSet<RegistroSesion>("Id");
             Sysdiagrams = new FakeDbSet<Sysdiagram>("DiagramId");
+            TransaccionesTrasladoes = new FakeDbSet<TransaccionesTraslado>("IdTransaccion");
             Usuarios = new FakeDbSet<Usuario>("Id");
             UsuariosXAccesoes = new FakeDbSet<UsuariosXAcceso>("Id", "IdAcceso", "IdUsuario");
             UsuariosXPreguntasDesbs = new FakeDbSet<UsuariosXPreguntasDesb>("Id", "IdPregunta", "IdUsuario");
@@ -114,6 +114,25 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         }
 
         // Stored Procedures
+        public System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return ActualizaUsuarioGestionBack(idTransaccion, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack, out int procResult)
+        {
+
+            procResult = 0;
+            return new System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel>();
+        }
+
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel>> ActualizaUsuarioGestionBackAsync(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return System.Threading.Tasks.Task.FromResult(ActualizaUsuarioGestionBack(idTransaccion, usuarioBack, out procResult));
+        }
+
         public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion)
         {
  

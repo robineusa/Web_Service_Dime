@@ -24,12 +24,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; } // TBL_CLARO_VIDEO
         public System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; } // TBL_CLIENTES_TODOS
         public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; } // TBL_CONVENIO_ELECTRONICO
+        public System.Data.Entity.DbSet<CreacionDireccion> CreacionDireccions { get; set; } // TBL_CREACION_DIRECCION
         public System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; } // TBL_DATOS_ADICIONALES_CLIENTES
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; } // TBL_GESTION_OUTBOUND
         public System.Data.Entity.DbSet<InformacionNodo> InformacionNodoes { get; set; } // TBL_INFORMACION_NODOS
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
-        public System.Data.Entity.DbSet<IngresosTraslado> IngresosTrasladoes { get; set; } // TBL_INGRESOS_TRASLADOS
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; } // TBL_LINEA
         public System.Data.Entity.DbSet<LogCierreCiclo> LogCierreCicloes { get; set; } // TBL_LOG_CIERRE_CICLO
         public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; } // TBL_LOG_CLARO_VIDEO
@@ -39,13 +39,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; } // TMP_MAESTRO_MARCACIONES
         public System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; } // TBL_MODOS_LOGINS
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
-        public System.Data.Entity.DbSet<NotasTraslado> NotasTrasladoes { get; set; } // TBL_NOTAS_TRASLADOS
         public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicios { get; set; } // NOTIFICACIONES_BUEN_SERVICIO
         public System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; } // TMP_PQR_MAESTRO_COD_CIERRE
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; } // TBL_PREGUNTAS_DESBLOQUEO
         public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; } // sysdiagrams
+        public System.Data.Entity.DbSet<TransaccionesTraslado> TransaccionesTrasladoes { get; set; } // TBL_TRANSACCIONES_TRASLADOS
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; } // TBL_USUARIOS
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // TBL_USUARIOS_X_ACCESOS
         public System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; } // TBL_USUARIOS_X_PREGUNTAS_DESB
@@ -104,12 +104,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new ClaroVideoConfiguration());
             modelBuilder.Configurations.Add(new ClientesTodoConfiguration());
             modelBuilder.Configurations.Add(new ConvenioElectronicoConfiguration());
+            modelBuilder.Configurations.Add(new CreacionDireccionConfiguration());
             modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration());
             modelBuilder.Configurations.Add(new DocsisOverlapConfiguration());
             modelBuilder.Configurations.Add(new GestionOutboundConfiguration());
             modelBuilder.Configurations.Add(new InformacionNodoConfiguration());
             modelBuilder.Configurations.Add(new IngresoConfiguration());
-            modelBuilder.Configurations.Add(new IngresosTrasladoConfiguration());
             modelBuilder.Configurations.Add(new LineaConfiguration());
             modelBuilder.Configurations.Add(new LogCierreCicloConfiguration());
             modelBuilder.Configurations.Add(new LogClaroVideoConfiguration());
@@ -119,13 +119,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new MaestroMarcacioneConfiguration());
             modelBuilder.Configurations.Add(new ModosLoginConfiguration());
             modelBuilder.Configurations.Add(new NotasIngresoConfiguration());
-            modelBuilder.Configurations.Add(new NotasTrasladoConfiguration());
             modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration());
             modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration());
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration());
             modelBuilder.Configurations.Add(new RechazoConfiguration());
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration());
             modelBuilder.Configurations.Add(new SysdiagramConfiguration());
+            modelBuilder.Configurations.Add(new TransaccionesTrasladoConfiguration());
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration());
@@ -139,12 +139,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new ClaroVideoConfiguration(schema));
             modelBuilder.Configurations.Add(new ClientesTodoConfiguration(schema));
             modelBuilder.Configurations.Add(new ConvenioElectronicoConfiguration(schema));
+            modelBuilder.Configurations.Add(new CreacionDireccionConfiguration(schema));
             modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration(schema));
             modelBuilder.Configurations.Add(new DocsisOverlapConfiguration(schema));
             modelBuilder.Configurations.Add(new GestionOutboundConfiguration(schema));
             modelBuilder.Configurations.Add(new InformacionNodoConfiguration(schema));
             modelBuilder.Configurations.Add(new IngresoConfiguration(schema));
-            modelBuilder.Configurations.Add(new IngresosTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new LineaConfiguration(schema));
             modelBuilder.Configurations.Add(new LogCierreCicloConfiguration(schema));
             modelBuilder.Configurations.Add(new LogClaroVideoConfiguration(schema));
@@ -154,13 +154,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new MaestroMarcacioneConfiguration(schema));
             modelBuilder.Configurations.Add(new ModosLoginConfiguration(schema));
             modelBuilder.Configurations.Add(new NotasIngresoConfiguration(schema));
-            modelBuilder.Configurations.Add(new NotasTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new NotificacionesBuenServicioConfiguration(schema));
             modelBuilder.Configurations.Add(new PqrMaestroCodCierreConfiguration(schema));
             modelBuilder.Configurations.Add(new PreguntasDesbloqueoConfiguration(schema));
             modelBuilder.Configurations.Add(new RechazoConfiguration(schema));
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration(schema));
             modelBuilder.Configurations.Add(new SysdiagramConfiguration(schema));
+            modelBuilder.Configurations.Add(new TransaccionesTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuarioConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration(schema));
@@ -168,6 +168,44 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         }
         
         // Stored Procedures
+        public System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return ActualizaUsuarioGestionBack(idTransaccion, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack, out int procResult)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ActualizaUsuarioGestionBackReturnModel>("EXEC @procResult = [dbo].[ActualizaUsuarioGestionBack] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam).ToList();
+
+            procResult = (int) procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel>> ActualizaUsuarioGestionBackAsync(decimal? idTransaccion, string usuarioBack)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ActualizaUsuarioGestionBackReturnModel>("EXEC [dbo].[ActualizaUsuarioGestionBack] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
+
+            return procResultData;
+        }
+
         public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion)
         {
             var idAsesorParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Asesor", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Input, Value = idAsesor.GetValueOrDefault(), Precision = 10, Scale = 0 };

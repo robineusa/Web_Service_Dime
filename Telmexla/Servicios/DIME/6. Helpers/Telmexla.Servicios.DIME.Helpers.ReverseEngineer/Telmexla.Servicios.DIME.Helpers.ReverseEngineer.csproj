@@ -56,6 +56,9 @@
     <Compile Include="AccesoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ActualizaUsuarioGestionBackReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="BaseCuenta.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
@@ -108,6 +111,12 @@
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="ConvenioElectronicoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreacionDireccion.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreacionDireccionConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="Database1.cs">
@@ -184,12 +193,6 @@
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="IngresoConfiguration.cs">
-      <DependentUpon>Database1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IngresosTraslado.cs">
-      <DependentUpon>Database1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IngresosTrasladoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="Linea.cs">
@@ -369,12 +372,6 @@
     <Compile Include="NotasIngresoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
-    <Compile Include="NotasTraslado.cs">
-      <DependentUpon>Database1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NotasTrasladoConfiguration.cs">
-      <DependentUpon>Database1.tt</DependentUpon>
-    </Compile>
     <Compile Include="NotificacionesBuenServicio.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -445,11 +442,14 @@
     <Compile Include="T1Marcacione.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
-    <Compile Include="TemporalPersonal.cs">
-      <DependentUpon>Database1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Tmp7PqrMaestroFestivo.cs">
       <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransaccionesTraslado.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransaccionesTrasladoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
       <DependentUpon>Database1.tt</DependentUpon>

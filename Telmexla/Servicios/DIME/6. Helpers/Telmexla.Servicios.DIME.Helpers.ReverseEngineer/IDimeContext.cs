@@ -21,12 +21,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; } // TBL_CLARO_VIDEO
         System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; } // TBL_CLIENTES_TODOS
         System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; } // TBL_CONVENIO_ELECTRONICO
+        System.Data.Entity.DbSet<CreacionDireccion> CreacionDireccions { get; set; } // TBL_CREACION_DIRECCION
         System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; } // TBL_DATOS_ADICIONALES_CLIENTES
         System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
         System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; } // TBL_GESTION_OUTBOUND
         System.Data.Entity.DbSet<InformacionNodo> InformacionNodoes { get; set; } // TBL_INFORMACION_NODOS
         System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
-        System.Data.Entity.DbSet<IngresosTraslado> IngresosTrasladoes { get; set; } // TBL_INGRESOS_TRASLADOS
         System.Data.Entity.DbSet<Linea> Lineas { get; set; } // TBL_LINEA
         System.Data.Entity.DbSet<LogCierreCiclo> LogCierreCicloes { get; set; } // TBL_LOG_CIERRE_CICLO
         System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; } // TBL_LOG_CLARO_VIDEO
@@ -36,13 +36,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; } // TMP_MAESTRO_MARCACIONES
         System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; } // TBL_MODOS_LOGINS
         System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
-        System.Data.Entity.DbSet<NotasTraslado> NotasTrasladoes { get; set; } // TBL_NOTAS_TRASLADOS
         System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicios { get; set; } // NOTIFICACIONES_BUEN_SERVICIO
         System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; } // TMP_PQR_MAESTRO_COD_CIERRE
         System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; } // TBL_PREGUNTAS_DESBLOQUEO
         System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
         System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION
         System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; } // sysdiagrams
+        System.Data.Entity.DbSet<TransaccionesTraslado> TransaccionesTrasladoes { get; set; } // TBL_TRANSACCIONES_TRASLADOS
         System.Data.Entity.DbSet<Usuario> Usuarios { get; set; } // TBL_USUARIOS
         System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // TBL_USUARIOS_X_ACCESOS
         System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; } // TBL_USUARIOS_X_PREGUNTAS_DESB
@@ -52,6 +52,10 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         System.Threading.Tasks.Task<int> SaveChangesAsync(System.Threading.CancellationToken cancellationToken);
 
         // Stored Procedures
+        System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack);
+        System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack, out int procResult);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel>> ActualizaUsuarioGestionBackAsync(decimal? idTransaccion, string usuarioBack);
+
         int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion);
         // ApartarCuentaGestionOutboundAsesorAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
 

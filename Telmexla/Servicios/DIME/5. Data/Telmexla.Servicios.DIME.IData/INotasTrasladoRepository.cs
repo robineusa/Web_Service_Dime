@@ -9,5 +9,11 @@ namespace Telmexla.Servicios.DIME.IData
 {
     public interface INotasTrasladoRepository : IRepository<NotasTraslado>
     {
+
+
+        string ComprobarActualizarUsrBackoffice(decimal idTransaccion, string usuarioBack);
+
+         
+
     }
 }
