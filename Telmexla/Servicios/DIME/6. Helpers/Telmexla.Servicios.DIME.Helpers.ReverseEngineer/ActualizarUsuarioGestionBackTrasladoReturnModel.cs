@@ -13,7 +13,8 @@
 namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 {
 
-    public class ActualizaUsuarioGestionBackReturnModel
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.24.0.0")]
+    public class ActualizarUsuarioGestionBackTrasladoReturnModel
     {
         public System.String USUARIO_BACKOFFICE { get; set; }
     }

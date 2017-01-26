@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Telmexla.Servicios.DIME.Entity
 {
-    public class ActualizaUsuarioGestionBackReturnModel
+    public class ActualizaUsuarioGestionBackTrasladoReturnModel
     {
         public System.String USUARIO_BACKOFFICE { get; set; }
     }

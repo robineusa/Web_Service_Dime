@@ -114,23 +114,23 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         }
 
         // Stored Procedures
-        public System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack)
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel> ActualizarUsuarioGestionBackTraslado(decimal? idTransaccion, string usuarioBack)
         {
             int procResult;
-            return ActualizaUsuarioGestionBack(idTransaccion, usuarioBack, out procResult);
+            return ActualizarUsuarioGestionBackTraslado(idTransaccion, usuarioBack, out procResult);
         }
 
-        public System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack, out int procResult)
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel> ActualizarUsuarioGestionBackTraslado(decimal? idTransaccion, string usuarioBack, out int procResult)
         {
 
             procResult = 0;
-            return new System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel>();
+            return new System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel>();
         }
 
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel>> ActualizaUsuarioGestionBackAsync(decimal? idTransaccion, string usuarioBack)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel>> ActualizarUsuarioGestionBackTrasladoAsync(decimal? idTransaccion, string usuarioBack)
         {
             int procResult;
-            return System.Threading.Tasks.Task.FromResult(ActualizaUsuarioGestionBack(idTransaccion, usuarioBack, out procResult));
+            return System.Threading.Tasks.Task.FromResult(ActualizarUsuarioGestionBackTraslado(idTransaccion, usuarioBack, out procResult));
         }
 
         public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion)

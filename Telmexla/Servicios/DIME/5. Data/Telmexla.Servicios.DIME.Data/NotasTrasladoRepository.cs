@@ -25,7 +25,7 @@ namespace Telmexla.Servicios.DIME.Data
 
         public string ComprobarActualizarUsrBackoffice(decimal idTransaccion, string usuarioBack)
         {
-           var result =  dimeContext.ActualizaUsuarioGestionBack(idTransaccion, usuarioBack);
+           var result =  dimeContext.ActualizaUsuarioGestionBackTraslado(idTransaccion, usuarioBack);
             if (result.Count > 0)
                 return result.First().USUARIO_BACKOFFICE;
             else

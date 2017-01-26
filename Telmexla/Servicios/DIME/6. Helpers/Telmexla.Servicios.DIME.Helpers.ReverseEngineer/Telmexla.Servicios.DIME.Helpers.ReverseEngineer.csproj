@@ -56,7 +56,7 @@
     <Compile Include="AccesoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ActualizaUsuarioGestionBackReturnModel.cs">
+    <Compile Include="ActualizarUsuarioGestionBackTrasladoReturnModel.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseCuenta.cs">

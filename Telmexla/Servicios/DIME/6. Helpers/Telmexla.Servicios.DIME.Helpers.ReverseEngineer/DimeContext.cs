@@ -168,13 +168,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         }
         
         // Stored Procedures
-        public System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack)
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel> ActualizarUsuarioGestionBackTraslado(decimal? idTransaccion, string usuarioBack)
         {
             int procResult;
-            return ActualizaUsuarioGestionBack(idTransaccion, usuarioBack, out procResult);
+            return ActualizarUsuarioGestionBackTraslado(idTransaccion, usuarioBack, out procResult);
         }
 
-        public System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack, out int procResult)
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel> ActualizarUsuarioGestionBackTraslado(decimal? idTransaccion, string usuarioBack, out int procResult)
         {
             var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
             if (!idTransaccion.HasValue)
@@ -185,13 +185,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
                 usuarioBackParam.Value = System.DBNull.Value;
 
             var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
-            var procResultData = Database.SqlQuery<ActualizaUsuarioGestionBackReturnModel>("EXEC @procResult = [dbo].[ActualizaUsuarioGestionBack] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam).ToList();
+            var procResultData = Database.SqlQuery<ActualizarUsuarioGestionBackTrasladoReturnModel>("EXEC @procResult = [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_TRASLADO] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam).ToList();
 
             procResult = (int) procResultParam.Value;
             return procResultData;
         }
 
-        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel>> ActualizaUsuarioGestionBackAsync(decimal? idTransaccion, string usuarioBack)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel>> ActualizarUsuarioGestionBackTrasladoAsync(decimal? idTransaccion, string usuarioBack)
         {
             var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
             if (!idTransaccion.HasValue)
@@ -201,7 +201,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             if (usuarioBackParam.Value == null)
                 usuarioBackParam.Value = System.DBNull.Value;
 
-            var procResultData = await Database.SqlQuery<ActualizaUsuarioGestionBackReturnModel>("EXEC [dbo].[ActualizaUsuarioGestionBack] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
+            var procResultData = await Database.SqlQuery<ActualizarUsuarioGestionBackTrasladoReturnModel>("EXEC [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_TRASLADO] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
 
             return procResultData;
         }

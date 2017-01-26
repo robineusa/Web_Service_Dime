@@ -52,9 +52,9 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         System.Threading.Tasks.Task<int> SaveChangesAsync(System.Threading.CancellationToken cancellationToken);
 
         // Stored Procedures
-        System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack);
-        System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel> ActualizaUsuarioGestionBack(decimal? idTransaccion, string usuarioBack, out int procResult);
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionBackReturnModel>> ActualizaUsuarioGestionBackAsync(decimal? idTransaccion, string usuarioBack);
+        System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel> ActualizarUsuarioGestionBackTraslado(decimal? idTransaccion, string usuarioBack);
+        System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel> ActualizarUsuarioGestionBackTraslado(decimal? idTransaccion, string usuarioBack, out int procResult);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel>> ActualizarUsuarioGestionBackTrasladoAsync(decimal? idTransaccion, string usuarioBack);
 
         int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion);
         // ApartarCuentaGestionOutboundAsesorAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
