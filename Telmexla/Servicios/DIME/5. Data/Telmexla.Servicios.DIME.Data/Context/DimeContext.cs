@@ -185,7 +185,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
                 usuarioBackParam.Value = System.DBNull.Value;
 
             var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
-            var procResultData = Database.SqlQuery<ActualizaUsuarioGestionBackTrasladoReturnModel>("EXEC @procResult = [dbo].[ActualizaUsuarioGestionBack] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam).ToList();
+            var procResultData = Database.SqlQuery<ActualizaUsuarioGestionBackTrasladoReturnModel>("EXEC @procResult = [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_TRASLADO] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam).ToList();
 
             procResult = (int)procResultParam.Value;
             return procResultData;
@@ -201,7 +201,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             if (usuarioBackParam.Value == null)
                 usuarioBackParam.Value = System.DBNull.Value;
 
-            var procResultData = await Database.SqlQuery<ActualizaUsuarioGestionBackTrasladoReturnModel>("EXEC [dbo].[ActualizaUsuarioGestionBack] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
+            var procResultData = await Database.SqlQuery<ActualizaUsuarioGestionBackTrasladoReturnModel>("EXEC [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_TRASLADO] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
 
             return procResultData;
         }
