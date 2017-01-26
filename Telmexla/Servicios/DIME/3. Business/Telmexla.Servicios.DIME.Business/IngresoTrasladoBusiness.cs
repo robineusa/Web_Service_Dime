@@ -172,7 +172,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("EN GESTION") && b.UsuarioBackOffice == usrABackOffice
+                                 where (a.EstadoTransaccion.Equals("EN GESTION") || a.EstadoTransaccion.Equals("PENDIENTE POR CREAR") ) && b.UsuarioBackOffice == usrABackOffice 
                                  select new
                                  {
                                      a.IdTransaccion,
