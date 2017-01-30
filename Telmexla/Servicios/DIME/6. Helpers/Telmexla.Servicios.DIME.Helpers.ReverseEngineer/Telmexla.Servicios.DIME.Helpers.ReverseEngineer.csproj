@@ -56,6 +56,9 @@
     <Compile Include="AccesoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ActualizarUsuarioGestionBackIngresoReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ActualizarUsuarioGestionBackTrasladoReturnModel.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>

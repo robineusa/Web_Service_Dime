@@ -505,6 +505,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return casosCelulaService.ListaIngresosPorId(id);
         }
 
+        public bool CasoTomadoPorUsrBackActualizar(int idIngreso, string usrBack)
+        {
+            CasosCelulaService casosCelulaService = new CasosCelulaService();
+            return casosCelulaService.CasoTomadoPorUsrBackActualizar(idIngreso, usrBack);
+        }
+
         #endregion CasosCellService
 
         #region CasosAdminService

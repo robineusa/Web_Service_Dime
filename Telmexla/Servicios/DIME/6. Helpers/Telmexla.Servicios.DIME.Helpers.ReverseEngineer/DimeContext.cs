@@ -168,6 +168,44 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         }
         
         // Stored Procedures
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackIngresoReturnModel> ActualizarUsuarioGestionBackIngreso(decimal? idIngreso, string usuarioBack)
+        {
+            int procResult;
+            return ActualizarUsuarioGestionBackIngreso(idIngreso, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackIngresoReturnModel> ActualizarUsuarioGestionBackIngreso(decimal? idIngreso, string usuarioBack, out int procResult)
+        {
+            var idIngresoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Ingreso", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idIngreso.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idIngreso.HasValue)
+                idIngresoParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ActualizarUsuarioGestionBackIngresoReturnModel>("EXEC @procResult = [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_INGRESO] @Id_Ingreso, @Usuario_Back", idIngresoParam, usuarioBackParam, procResultParam).ToList();
+
+            procResult = (int) procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackIngresoReturnModel>> ActualizarUsuarioGestionBackIngresoAsync(decimal? idIngreso, string usuarioBack)
+        {
+            var idIngresoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Ingreso", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idIngreso.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idIngreso.HasValue)
+                idIngresoParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ActualizarUsuarioGestionBackIngresoReturnModel>("EXEC [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_INGRESO] @Id_Ingreso, @Usuario_Back", idIngresoParam, usuarioBackParam).ToListAsync();
+
+            return procResultData;
+        }
+
         public System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel> ActualizarUsuarioGestionBackTraslado(decimal? idTransaccion, string usuarioBack)
         {
             int procResult;

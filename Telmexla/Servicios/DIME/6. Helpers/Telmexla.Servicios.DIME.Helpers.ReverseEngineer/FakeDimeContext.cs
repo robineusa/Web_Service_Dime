@@ -114,6 +114,25 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         }
 
         // Stored Procedures
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackIngresoReturnModel> ActualizarUsuarioGestionBackIngreso(decimal? idIngreso, string usuarioBack)
+        {
+            int procResult;
+            return ActualizarUsuarioGestionBackIngreso(idIngreso, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackIngresoReturnModel> ActualizarUsuarioGestionBackIngreso(decimal? idIngreso, string usuarioBack, out int procResult)
+        {
+
+            procResult = 0;
+            return new System.Collections.Generic.List<ActualizarUsuarioGestionBackIngresoReturnModel>();
+        }
+
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackIngresoReturnModel>> ActualizarUsuarioGestionBackIngresoAsync(decimal? idIngreso, string usuarioBack)
+        {
+            int procResult;
+            return System.Threading.Tasks.Task.FromResult(ActualizarUsuarioGestionBackIngreso(idIngreso, usuarioBack, out procResult));
+        }
+
         public System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel> ActualizarUsuarioGestionBackTraslado(decimal? idTransaccion, string usuarioBack)
         {
             int procResult;

@@ -577,6 +577,20 @@ namespace Telmexla.Servicios.DIME.Business
         }
 
    
+        public bool UsrBackOfficeIngresoSetActualizar(int idIngreso, string usrBack)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            string usuarioActual = unitWork.ingresos.ActualizarComprobarUsuarioBackOffice(idIngreso, usrBack);
+            if(usuarioActual.Equals(usrBack))
+            {
+                return false;
+            }else
+            {
+                return true;
+            }
+        }
+
+
 
 
 

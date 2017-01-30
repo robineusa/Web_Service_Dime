@@ -37,7 +37,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string UsuarioOutbound { get; set; } // USUARIO_OUTBOUND (length: 30)
 
         // Foreign keys
-        public virtual TransaccionesTraslado TransaccionesTraslado { get; set; } // FK__TBL_CREAC__ESTAD__3E1D39E1
+        public virtual TransaccionesTraslado TransaccionesTraslado { get; set; } // FK__TBL_CREAC__ID_TR__47A6A41B
     }
 
 }

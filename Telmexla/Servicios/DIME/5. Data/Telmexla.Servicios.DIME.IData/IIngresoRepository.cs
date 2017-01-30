@@ -11,7 +11,8 @@ namespace Telmexla.Servicios.DIME.IData
     {
 
 
-
+        string ActualizarComprobarUsuarioBackOffice(int idIngreso, string usrBackOffice);
+        
 
 
     }

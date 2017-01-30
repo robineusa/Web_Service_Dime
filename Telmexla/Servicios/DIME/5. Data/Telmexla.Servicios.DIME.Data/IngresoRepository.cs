@@ -21,6 +21,13 @@ namespace Telmexla.Servicios.DIME.Data
             get { return Context as DimeContext; }
         }
 
-
+        public string ActualizarComprobarUsuarioBackOffice(int idIngreso, string usrBackOffice)
+        {
+          var result=   dimeContext.ActualizarUsuarioGestionBackIngreso(idIngreso, usrBackOffice);
+            if (result.Count > 0)
+                return result.First().USUARIO_BACKOFFICE;
+            else
+                return "";
+        }
     }
 }

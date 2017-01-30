@@ -35,7 +35,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string NombreLineaEscalado { get; set; } // NOMBRE_LINEA_ESCALADO (length: 50)
 
         // Reverse navigation
-        public virtual System.Collections.Generic.ICollection<CreacionDireccion> CreacionDireccions { get; set; } // TBL_CREACION_DIRECCION.FK__TBL_CREAC__ESTAD__3E1D39E1
+        public virtual System.Collections.Generic.ICollection<CreacionDireccion> CreacionDireccions { get; set; } // TBL_CREACION_DIRECCION.FK__TBL_CREAC__ID_TR__47A6A41B
 
         public TransaccionesTraslado()
         {
