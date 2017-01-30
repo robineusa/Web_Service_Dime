@@ -47,6 +47,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaSeguimientosDireccionesCelula(usrABackOffice);
         }
-
+        public List<DatoConsultaDirecciones> ListaDireccionesCreadasOutbound()
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaDireccionesCreadasOutbound();
+        }
     }
     }

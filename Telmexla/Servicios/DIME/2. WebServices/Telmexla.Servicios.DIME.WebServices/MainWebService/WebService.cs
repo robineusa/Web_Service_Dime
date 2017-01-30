@@ -577,6 +577,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaSeguimientosDireccionesCelula(usrABackOffice);
         }
+        public List<DatoConsultaDirecciones> ListaDireccionesCreadasOutbound()
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaDireccionesCreadasOutbound();
+        }
         #endregion
 
         #region maestroNodos
