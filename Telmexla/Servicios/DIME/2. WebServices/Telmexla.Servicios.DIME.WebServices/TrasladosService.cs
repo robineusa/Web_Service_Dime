@@ -52,5 +52,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaDireccionesCreadasOutbound();
         }
+        public bool TransaccionEnGestionOut(int id, String usrOut)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.TransaccionEnGestionOut(id, usrOut);
+        }
     }
     }

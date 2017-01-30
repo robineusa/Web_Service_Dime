@@ -31,5 +31,13 @@ namespace Telmexla.Servicios.DIME.Data
             else
                 return "";
         }
+        public string ComprobarActualizarUsrOutbound(decimal idTransaccion, string usuarioOut)
+        {
+            var result = dimeContext.ActualizaUsuarioGestionOutTraslado(idTransaccion, usuarioOut);
+            if (result.Count > 0)
+                return result.First().USUARIO_OUTBOUND;
+            else
+                return "";
+        }
     }
 }

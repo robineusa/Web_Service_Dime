@@ -28,6 +28,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<DatoConsultaDirecciones> ListaSeguimientosDireccionesCelula(string usrABackOffice);
         [OperationContract]
         List<DatoConsultaDirecciones> ListaDireccionesCreadasOutbound();
-        
+        [OperationContract]
+        bool TransaccionEnGestionOut(int id, String usrOut);
+
+
  }
 }

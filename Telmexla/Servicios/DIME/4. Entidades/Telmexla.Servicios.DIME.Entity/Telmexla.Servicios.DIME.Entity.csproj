@@ -53,6 +53,7 @@
     <Compile Include="Acceso.cs" />
     <Compile Include="ActualizarUsuarioGestionBackIngresoReturnModel.cs" />
     <Compile Include="ActualizaUsuarioGestionBackTrasladoReturnModel.cs" />
+    <Compile Include="ActualizaUsuarioGestionOutTrasladoReturnModel.cs" />
     <Compile Include="BasePersonalHolo.cs" />
     <Compile Include="CierreCiclo.cs" />
     <Compile Include="CierreCicloCollection.cs" />

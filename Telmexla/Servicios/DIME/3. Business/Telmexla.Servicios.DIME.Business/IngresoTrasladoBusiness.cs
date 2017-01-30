@@ -236,5 +236,12 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
+        public bool TransaccionEnGestionOut(int id, String usrOut)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            string result = unitWork.notasTraslados.ComprobarActualizarUsrBackoffice(id, usrOut);
+            if (result == usrOut) return false;
+            else return true;
+        }
     }
 }
