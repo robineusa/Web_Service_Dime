@@ -12,8 +12,9 @@ namespace Telmexla.Servicios.DIME.IData
 
 
         string ComprobarActualizarUsrBackoffice(decimal idTransaccion, string usuarioBack);
+        string ComprobarActualizarUsrOutbound(decimal idTransaccion, string usuarioOut);
 
-         
+
 
     }
 }

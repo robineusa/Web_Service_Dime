@@ -25,7 +25,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             int id = 2;
             string Usuario = "ROBINEUSA";
             TrasladosService trasladoservice = new TrasladosService();
-            var result84841848 = trasladoservice.TransaccionEnGestion(id, Usuario);
+            var result84841848 = trasladoservice.ListaDireccionesCreadasOutbound();
 
             Console.WriteLine(result84841848);
 

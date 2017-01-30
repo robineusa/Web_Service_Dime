@@ -31,8 +31,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         bool CasoTomadoPorUsrBackActualizar(int idIngreso, string usrBack);
 
-        [OperationContract]
-        void ActualizarIngresoPorCelula(string estadoCaso, string areaAEscalar, string aplicaRechazo, string razonRechazo, string notas, int idIngreso);
+        //[OperationContract]
+        //void ActualizarIngresoPorCelula(string estadoCaso, string areaAEscalar, string aplicaRechazo, string razonRechazo, string notas, int idIngreso);
   
     }
 }

@@ -207,7 +207,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOutbound }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("INGRESADA") ||a.EstadoTransaccion.Equals("NO INGRESADA") && b.UsuarioBackOutbound == null
+                                 where a.EstadoTransaccion.Equals("INGRESADA") && b.UsuarioBackOutbound == null
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -239,7 +239,7 @@ namespace Telmexla.Servicios.DIME.Business
         public bool TransaccionEnGestionOut(int id, String usrOut)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            string result = unitWork.notasTraslados.ComprobarActualizarUsrBackoffice(id, usrOut);
+            string result = unitWork.notasTraslados.ComprobarActualizarUsrOutbound(id, usrOut);
             if (result == usrOut) return false;
             else return true;
         }
