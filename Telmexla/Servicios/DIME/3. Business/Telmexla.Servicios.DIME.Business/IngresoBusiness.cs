@@ -197,7 +197,7 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             IngresoCollection result = new IngresoCollection();
             decimal idDecimal = Convert.ToDecimal(id);
-            result.AddRange(unitWork.ingresos.Find(c => c.IdIngreso== idDecimal).Select(x => new Ingreso
+            result.AddRange(unitWork.ingresos.Find(c => c.IdIngreso == idDecimal).Select(x => new Ingreso
             {
                 IdIngreso = x.IdIngreso,
                 Cuenta = x.Cuenta,
@@ -215,7 +215,8 @@ namespace Telmexla.Servicios.DIME.Business
                 FechaUltimaActualizacion = x.FechaUltimaActualizacion,
                 UsuarioUltimaActualizacion = x.UsuarioUltimaActualizacion,
                 HoraUltimaActualizacion = x.HoraUltimaActualizacion,
-                IdServicio = x.IdServicio
+                IdServicio = x.IdServicio,
+                TiempoRespuesta = x.TiempoRespuesta
             }).ToList());
             return result;
         }
@@ -319,6 +320,7 @@ namespace Telmexla.Servicios.DIME.Business
             ingresoActualizable.IdEstado = ingreso.IdEstado;
             ingresoActualizable.Semaforo = "gris01.png";
             ingresoActualizable.TiempoRespuesta = ingreso.TiempoRespuesta;
+            if(ingreso.IdEstado==1)
             ingresoActualizable.NombreLineaEscalado = ingreso.NombreLineaEscalado;
             ingresoActualizable.IdServicio = ingreso.IdServicio;
 
@@ -396,6 +398,23 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
         }
 
+
+        public void IngresarRechazo(Ingreso ingreso, string razonRechazo)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            Rechazo nuevoRechazo = new Rechazo();
+            DateTime dateNow = DateTime.Now;
+            nuevoRechazo.FechaCreacionCaso = ingreso.FechaApertura;
+            nuevoRechazo.FechaRechazo = dateNow;
+            nuevoRechazo.HoraCreacionCaso = ingreso.HoraApertura.ToString();
+            nuevoRechazo.HoraRechazo = dateNow;
+            nuevoRechazo.IdIngreso = ingreso.IdIngreso;
+            nuevoRechazo.NotasRechazo = razonRechazo;
+            nuevoRechazo.UsuarioCreacionCaso = unitWork.ingresos.Get(Convert.ToInt32(ingreso.IdIngreso)).UsuarioApertura;
+            nuevoRechazo.UsuarioRechaza = ingreso.UsuarioApertura;
+            unitWork.rechazos.Add(nuevoRechazo);
+            unitWork.Complete();
+        }
 
 
         public IngresoCollection SeguimientosInfo(string idUsuario)

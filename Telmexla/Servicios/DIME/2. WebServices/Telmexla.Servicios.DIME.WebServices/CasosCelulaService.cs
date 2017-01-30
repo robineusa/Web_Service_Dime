@@ -51,23 +51,16 @@ namespace Telmexla.Servicios.DIME.WebServices
 
         }
 
-        //void ActualizarIngresoPorCelula(string estadoCaso, string areaAEscalar, string aplicaRechazo, string razonRechazo, string notas, int idIngreso)
-        //{
-        //    IngresoBusiness ingreBusi = new IngresoBusiness();
-        //    string llamadaCliente = "NO";
-        //    Ingreso ingreso = new Ingreso();
-        //    ingreso.IdEstado = Convert.ToInt32(estadoCaso);
-        //    ingreso.NombreLineaEscalado = areaAEscalar;
-        //    ingreso.IdIngreso = idIngreso;
-        //   // ingreBusi.ActualizarIngreso()
-        //    if(aplicaRechazo.Equals("SI"))
-        //    {
+        public void ActualizarIngresoPorCelula(Ingreso ingreso, string aplicaRechazo, string razonRechazo, string notas)
+        {
+            IngresoBusiness ingreBusi = new IngresoBusiness();
+            string llamadaCliente = "NO";
+            ingreBusi.ActualizarIngreso(ingreso, notas, llamadaCliente);
+            if (aplicaRechazo.Equals("SI"))
+            {
+                ingreBusi.IngresarRechazo(ingreso,razonRechazo);
+            }
 
-        //    }else
-        //    {
-                
-        //    }
-
-        //}
+        }
     }
 }
