@@ -50,6 +50,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<IngresoTraslado> IngresoTraslados { get; set; } // TBL_INGRESOS_TRASLADOS
         public System.Data.Entity.DbSet<NotasTraslado> NotasTraslados { get; set; } // TBL_NOTAS_TRASLADOS
         public System.Data.Entity.DbSet<MaestroNodo> MaestroNodos { get; set; } // TBL_NOTAS_TRASLADOS
+        public System.Data.Entity.DbSet<ActivacionClaroVideo> ActivacionesClaroVideo { get; set; } // TBL_ACTIVACION_CLARO_VIDEO
+
+
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -130,6 +133,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new NotasTrasladoConfiguration());
             modelBuilder.Configurations.Add(new MaestroNodoConfiguration());
             modelBuilder.Configurations.Add(new BasePersonalHoloConfiguration());
+            modelBuilder.Configurations.Add(new ActivacionClaroVideoConfiguration());
 
         }
 
@@ -165,6 +169,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new IngresoTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new NotasTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroNodoConfiguration(schema));
+            modelBuilder.Configurations.Add(new ActivacionClaroVideoConfiguration(schema));
+
             return modelBuilder;
         }
 

@@ -21,13 +21,23 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            NotasTraslado nota = new NotasTraslado();
-            int id = 2;
-            string Usuario = "ROBINEUSA";
-            TrasladosService trasladoservice = new TrasladosService();
-            var result84841848 = trasladoservice.ListaDireccionesCreadasOutbound();
+            ActivacionClaroVideo entidad = new ActivacionClaroVideo();
+            entidad.UsuarioGestion = "ROBINEUSA";
+            entidad.NombreUsuario = "ROBINSON NEUSA";
+            entidad.AliadoGestion = "BRM";
+            entidad.CuentaCliente = 307;
+            entidad.AceptacionClaroVideo = "SI";
+            ActivacionClaroVideoService actclarovideoservice = new ActivacionClaroVideoService();
+            actclarovideoservice.InsertarClaroVideoInbound(entidad);
 
-            Console.WriteLine(result84841848);
+
+            //NotasTraslado nota = new NotasTraslado();
+            //int id = 2;
+            //string Usuario = "ROBINEUSA";
+            //TrasladosService trasladoservice = new TrasladosService();
+            //var result84841848 = trasladoservice.ListaDireccionesCreadasOutbound();
+
+            
 
  
             //nodo.NombreNodo = "ROBIN";

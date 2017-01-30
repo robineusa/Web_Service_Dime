@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService
     {
 
 
@@ -617,6 +617,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             MaestroNodoBusiness nodobusines = new MaestroNodoBusiness();
             return nodobusines.GetInformacionNodo(nodo);
+        }
+        #endregion
+
+        #region ActivacionClaroVideo
+        public void InsertarClaroVideoInbound(ActivacionClaroVideo activacion)
+        {
+            ActivacionClaroVideoBusiness activacionBusi = new ActivacionClaroVideoBusiness();
+            activacionBusi.InsertarClaroVideoInbound(activacion);
         }
         #endregion
 

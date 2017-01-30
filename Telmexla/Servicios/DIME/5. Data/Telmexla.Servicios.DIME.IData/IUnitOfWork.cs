@@ -29,6 +29,7 @@ namespace Telmexla.Servicios.DIME.IData
         IIngresoTrasladoRepository ingresoTraslados { get; }
         INotasTrasladoRepository notasTraslados { get; }
         IMaestroNodoRepository maestroNodos { get; }
+        IActivacionClaroVideoRepository activacionClaroVideo { get; }
         int Complete();
     }
 }

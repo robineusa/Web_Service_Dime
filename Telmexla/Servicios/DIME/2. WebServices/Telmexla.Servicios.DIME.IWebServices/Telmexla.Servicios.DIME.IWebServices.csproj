@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IActivacionClaroVideoService.cs" />
     <Compile Include="IBlendingService.cs" />
     <Compile Include="ICasosAdminService.cs" />
     <Compile Include="ICasosCelulaService.cs" />

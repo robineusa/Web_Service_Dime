@@ -36,6 +36,7 @@ namespace Telmexla.Servicios.DIME.Data
             ingresoTraslados = new IngresoTrasladoRepository(this.dimeContext);
             notasTraslados = new NotasTrasladoRepository(this.dimeContext);
             maestroNodos = new MaestroNodoRepository(this.dimeContext);
+            activacionClaroVideo = new ActivacionClaroVideoRepository(this.dimeContext);
         }
         public IRechazoRepository rechazos
         {
@@ -128,6 +129,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IMaestroNodoRepository maestroNodos
+        {
+            get; private set;
+        }
+        public IActivacionClaroVideoRepository activacionClaroVideo
         {
             get; private set;
         }

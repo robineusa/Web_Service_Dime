@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAccesoRepository.cs" />
+    <Compile Include="IActivacionClaroVideoRepository.cs" />
     <Compile Include="IIngresoRepository.cs" />
     <Compile Include="IIngresoTrasladoRepository.cs" />
     <Compile Include="ILogCierreCicloRepository.cs" />
