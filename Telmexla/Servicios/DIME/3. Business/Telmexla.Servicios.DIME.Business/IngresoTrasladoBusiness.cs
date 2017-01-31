@@ -155,6 +155,8 @@ namespace Telmexla.Servicios.DIME.Business
             notaTransaccion.Subrazon = notaTraslado.Subrazon;
             notaTransaccion.Observacion = notaTraslado.Observacion;
             notaTransaccion.EstadoTransaccion = notaTraslado.EstadoTransaccion;
+            notaTransaccion.UsuarioBackOffice = notaTraslado.UsuarioBackOffice;
+            notaTransaccion.UsuarioBackOutbound = notaTraslado.UsuarioBackOutbound;
             unitWork.notasTraslados.Add(notaTransaccion);
             unitWork.Complete();
             
@@ -172,7 +174,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where (a.EstadoTransaccion.Equals("EN GESTION") || a.EstadoTransaccion.Equals("PENDIENTE POR CREAR") ) && b.UsuarioBackOffice == usrABackOffice 
+                                 where a.EstadoTransaccion.Equals("EN GESTION") && b.UsuarioBackOffice == usrABackOffice 
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -249,7 +251,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOutbound }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where (a.EstadoTransaccion.Equals("SEGUIMIENTO") || a.EstadoTransaccion.Equals("INGRESADA") || a.EstadoTransaccion.Equals("NO INGRESADA")) && b.UsuarioBackOutbound == UsuarioOut
+                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && b.UsuarioBackOutbound == UsuarioOut
                                  select new
                                  {
                                      a.IdTransaccion,

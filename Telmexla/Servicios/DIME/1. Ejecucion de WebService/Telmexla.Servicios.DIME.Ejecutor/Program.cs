@@ -21,25 +21,27 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            ActivacionClaroVideo entidad = new ActivacionClaroVideo();
-            entidad.UsuarioGestion = "ROBINEUSA";
-            entidad.NombreUsuario = "ROBINSON NEUSA";
-            entidad.AliadoGestion = "BRM";
-            entidad.CuentaCliente = 307;
-            entidad.AceptacionClaroVideo = "SI";
-            ActivacionClaroVideoService actclarovideoservice = new ActivacionClaroVideoService();
-            actclarovideoservice.InsertarClaroVideoInbound(entidad);
+            //ActivacionClaroVideo entidad = new ActivacionClaroVideo();
+            //entidad.UsuarioGestion = "ROBINEUSA";
+            //entidad.NombreUsuario = "ROBINSON NEUSA";
+            //entidad.AliadoGestion = "BRM";
+            //entidad.CuentaCliente = 307;
+            //entidad.AceptacionClaroVideo = "SI";
 
 
-            //NotasTraslado nota = new NotasTraslado();
-            //int id = 2;
-            //string Usuario = "ROBINEUSA";
-            //TrasladosService trasladoservice = new TrasladosService();
-            //var result84841848 = trasladoservice.ListaDireccionesCreadasOutbound();
+            //ActivacionClaroVideoService actclarovideoservice = new ActivacionClaroVideoService();
+            //actclarovideoservice.InsertarClaroVideoInbound(entidad);
 
-            
 
- 
+            NotasTraslado nota = new NotasTraslado();
+            int id = 2;
+            string Usuario = "ALEXOSPINA";
+            TrasladosService trasladoservice = new TrasladosService();
+            var result84841848 = trasladoservice.ListaSeguimientosDireccionesOutbound(Usuario);
+
+
+
+
             //nodo.NombreNodo = "ROBIN";
             //nodo.Div = "AAA";
             //nodo.Com = "AAA";
