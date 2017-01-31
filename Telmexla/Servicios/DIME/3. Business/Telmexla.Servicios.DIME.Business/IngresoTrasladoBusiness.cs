@@ -280,70 +280,41 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
-        public List<DatoConsultaDirecciones> ListGestionCelulaOut(string UsuarioOut)
+        public List<DatoConsultaDirecciones> ListGestionCrearDireccion(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
         {
             DimeContext dimContext = new DimeContext();
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
-            var objetosResult = (from a in dimContext.IngresoTraslados
-                                 join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOutbound }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where b.UsuarioBackOutbound == UsuarioOut
+            var objetosResult = (from a in dimContext.NotasTraslados
+                                 join b in dimContext.IngresoTraslados on a.IdTransaccion equals b.IdTransaccion
+                                 where a.FechaTransaccion>= FechaInicial && a.FechaTransaccion<= FechaFinal && a.UsuarioTransaccion== usrTransac
                                  select new
                                  {
                                      a.IdTransaccion,
                                      a.CuentaCliente,
-                                     a.FechaApertura,
-                                     a.UsuarioApertura,
+                                     a.UsuarioTransaccion,
+                                     a.CanalTransaccion,
+                                     a.FechaTransaccion,
+                                     a.NombreLineaTransaccion,
                                      a.EstadoTransaccion,
-                                     a.NombreLineaIngreso,
-                                     a.NombreLineaEscalado
+                                     a.Razon,
+                                     a.Subrazon,
+                                     a.Observacion
                                  }
                                  ).ToList();
 
             for (int i = 0; i < objetosResult.Count; i++)
             {
                 result.Add(new DatoConsultaDirecciones());
-                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
-                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
-                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
-                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
-                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
-                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
-                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
-
-            }
-
-
-            return result;
-        }
-        public List<DatoConsultaDirecciones> ListGestionCelula(string UsuarioBack)
-        {
-            DimeContext dimContext = new DimeContext();
-            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
-            var objetosResult = (from a in dimContext.IngresoTraslados
-                                 join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where b.UsuarioBackOffice == UsuarioBack
-                                 select new
-                                 {
-                                     a.IdTransaccion,
-                                     a.CuentaCliente,
-                                     a.FechaApertura,
-                                     a.UsuarioApertura,
-                                     a.EstadoTransaccion,
-                                     a.NombreLineaIngreso,
-                                     a.NombreLineaEscalado
-                                 }
-                                 ).ToList();
-
-            for (int i = 0; i < objetosResult.Count; i++)
-            {
-                result.Add(new DatoConsultaDirecciones());
-                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
-                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
-                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
-                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
-                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
-                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
-                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+                result[i].NotaTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].NotaTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].NotaTrasladoGetSet.UsuarioTransaccion = objetosResult[i].UsuarioTransaccion;
+                result[i].NotaTrasladoGetSet.CanalTransaccion = objetosResult[i].CanalTransaccion;
+                result[i].NotaTrasladoGetSet.FechaTransaccion = objetosResult[i].FechaTransaccion;
+                result[i].NotaTrasladoGetSet.NombreLineaTransaccion = objetosResult[i].NombreLineaTransaccion;
+                result[i].NotaTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].NotaTrasladoGetSet.Razon = objetosResult[i].Razon;
+                result[i].NotaTrasladoGetSet.Subrazon = objetosResult[i].Subrazon;
+                result[i].NotaTrasladoGetSet.Observacion = objetosResult[i].Observacion;
 
             }
 
