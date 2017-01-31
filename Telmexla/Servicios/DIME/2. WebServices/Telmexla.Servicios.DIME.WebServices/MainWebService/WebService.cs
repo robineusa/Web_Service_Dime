@@ -605,15 +605,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaSeguimientosDireccionesOutbound(UsuarioOut);
         }
-        public List<DatoConsultaDirecciones> ListGestionCelulaOut(string UsuarioOut)
+        public List<DatoConsultaDirecciones> ListGestionCrearDireccion(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListGestionCelulaOut(UsuarioOut);
-        }
-        public List<DatoConsultaDirecciones> ListGestionCelula(string UsuarioBack)
-        {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListGestionCelula(UsuarioBack);
+            return ingresoBusi.ListGestionCrearDireccion(FechaInicial, FechaFinal, usrTransac);
         }
         #endregion
 

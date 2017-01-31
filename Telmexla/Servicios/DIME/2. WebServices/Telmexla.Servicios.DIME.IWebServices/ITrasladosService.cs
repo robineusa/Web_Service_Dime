@@ -33,9 +33,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<DatoConsultaDirecciones> ListaSeguimientosDireccionesOutbound(string UsuarioOut);
         [OperationContract]
-        List<DatoConsultaDirecciones> ListGestionCelulaOut(string UsuarioOut);
-        [OperationContract]
-        List<DatoConsultaDirecciones> ListGestionCelula(string UsuarioBack);
+        List<DatoConsultaDirecciones> ListGestionCrearDireccion(DateTime FechaInicial, DateTime FechaFinal, string usrTransac);
+
+
 
  }
 }
