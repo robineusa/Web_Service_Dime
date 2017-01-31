@@ -280,5 +280,75 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
+        public List<DatoConsultaDirecciones> ListGestionCelulaOut(string UsuarioOut)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOutbound }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where b.UsuarioBackOutbound == UsuarioOut
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.FechaApertura,
+                                     a.UsuarioApertura,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
+        public List<DatoConsultaDirecciones> ListGestionCelula(string UsuarioBack)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where b.UsuarioBackOffice == UsuarioBack
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.FechaApertura,
+                                     a.UsuarioApertura,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
     }
 }

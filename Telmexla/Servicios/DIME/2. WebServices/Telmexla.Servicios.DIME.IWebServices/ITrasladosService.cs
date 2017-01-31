@@ -32,6 +32,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
         bool TransaccionEnGestionOut(int id, String usrOut);
         [OperationContract]
         List<DatoConsultaDirecciones> ListaSeguimientosDireccionesOutbound(string UsuarioOut);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListGestionCelulaOut(string UsuarioOut);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListGestionCelula(string UsuarioBack);
 
  }
 }
