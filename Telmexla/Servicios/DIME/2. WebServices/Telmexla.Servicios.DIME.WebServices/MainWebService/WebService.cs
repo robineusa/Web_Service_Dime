@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService
     {
 
 
@@ -635,6 +635,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             ActivacionClaroVideoBusiness activacionBusi = new ActivacionClaroVideoBusiness();
             activacionBusi.InsertarClaroVideoInbound(activacion);
+        }
+        #endregion
+
+        #region SiembraHD
+        public List<CuentasSiembraHD> BuscarCuentaSiembraHD(decimal cuentacliente)
+        {
+            CuentasSiembraHDBusiness cuentasbusines = new CuentasSiembraHDBusiness();
+            return cuentasbusines.BuscarCuentaSiembraHD(cuentacliente);
         }
         #endregion
 

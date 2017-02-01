@@ -65,6 +65,8 @@
     <Compile Include="ClientesTodoCollection.cs" />
     <Compile Include="ConvenioElectronico.cs" />
     <Compile Include="ConvenioElectronicoCollection.cs" />
+    <Compile Include="CuentasSiembraHD.cs" />
+    <Compile Include="CuentasSiembraHDCollection.cs" />
     <Compile Include="DatoConsultaDirecciones.cs" />
     <Compile Include="DatosAdicionalesCliente.cs" />
     <Compile Include="DatosAdicionalesClienteCollection.cs" />

@@ -51,6 +51,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<NotasTraslado> NotasTraslados { get; set; } // TBL_NOTAS_TRASLADOS
         public System.Data.Entity.DbSet<MaestroNodo> MaestroNodos { get; set; } // TBL_NOTAS_TRASLADOS
         public System.Data.Entity.DbSet<ActivacionClaroVideo> ActivacionesClaroVideo { get; set; } // TBL_ACTIVACION_CLARO_VIDEO
+        public System.Data.Entity.DbSet<CuentasSiembraHD> CuentasSiembra { get; set; } // TBL_ACTIVACION_CLARO_VIDEO
 
 
         static DimeContext()
@@ -134,6 +135,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new MaestroNodoConfiguration());
             modelBuilder.Configurations.Add(new BasePersonalHoloConfiguration());
             modelBuilder.Configurations.Add(new ActivacionClaroVideoConfiguration());
+            modelBuilder.Configurations.Add(new CuentasSiembraHDConfiguration());
 
         }
 
@@ -170,6 +172,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new NotasTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroNodoConfiguration(schema));
             modelBuilder.Configurations.Add(new ActivacionClaroVideoConfiguration(schema));
+            modelBuilder.Configurations.Add(new CuentasSiembraHDConfiguration(schema));
 
             return modelBuilder;
         }

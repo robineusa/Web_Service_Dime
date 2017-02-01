@@ -53,10 +53,12 @@
     <Compile Include="ActivacionClaroVideoRepository.cs" />
     <Compile Include="Configuration\ActivacionClaroVideoConfiguration.cs" />
     <Compile Include="Configuration\BasePersonalHoloConfiguration.cs" />
+    <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\IngresoConfiguration.cs" />
     <Compile Include="Configuration\NotasTrasladoConfiguration.cs" />
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />
     <Compile Include="Configuration\RechazoConfiguration.cs" />
+    <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="IngresoRepository.cs" />
     <Compile Include="Configuration\IngresoTrasladoConfiguration.cs" />
     <Compile Include="IngresoTrasladoRepository.cs" />

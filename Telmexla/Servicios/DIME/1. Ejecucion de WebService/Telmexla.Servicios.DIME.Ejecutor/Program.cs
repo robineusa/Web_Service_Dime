@@ -21,6 +21,13 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
+            CuentasSiembraHD shd = new CuentasSiembraHD();
+            shd.CuentaCliente =307;
+            ActivacionSiembraHDService activacionshdservice = new ActivacionSiembraHDService();
+            var result84841848 = activacionshdservice.BuscarCuentaSiembraHD(shd.CuentaCliente);
+
+
+
             //ActivacionClaroVideo entidad = new ActivacionClaroVideo();
             //entidad.UsuarioGestion = "ROBINEUSA";
             //entidad.NombreUsuario = "ROBINSON NEUSA";
@@ -33,11 +40,11 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //actclarovideoservice.InsertarClaroVideoInbound(entidad);
 
 
-            NotasTraslado nota = new NotasTraslado();
-            int id = 2;
-            string Usuario = "ALEXOSPINA";
-            TrasladosService trasladoservice = new TrasladosService();
-            var result84841848 = trasladoservice.ListaSeguimientosDireccionesOutbound(Usuario);
+            //NotasTraslado nota = new NotasTraslado();
+            //int id = 2;
+            //string Usuario = "ALEXOSPINA";
+            //TrasladosService trasladoservice = new TrasladosService();
+            //var result84841848 = trasladoservice.ListaSeguimientosDireccionesOutbound(Usuario);
 
 
 

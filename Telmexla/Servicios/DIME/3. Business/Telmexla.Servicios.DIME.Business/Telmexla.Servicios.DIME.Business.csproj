@@ -57,6 +57,7 @@
     <Compile Include="ArbolesDeTipificacion.cs" />
     <Compile Include="BlendingBusiness.cs" />
     <Compile Include="ClientesBusiness.cs" />
+    <Compile Include="CuentasSiembraHDBusiness.cs" />
     <Compile Include="DatoConsultaGestionAdmin.cs" />
     <Compile Include="DatoConsultaPaloteo.cs" />
     <Compile Include="DatoConsultaRechazo.cs" />
