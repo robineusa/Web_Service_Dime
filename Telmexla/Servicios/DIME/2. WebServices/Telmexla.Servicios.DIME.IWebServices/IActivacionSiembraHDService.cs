@@ -15,5 +15,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<CuentasSiembraHD> BuscarCuentaSiembraHD(decimal cuentacliente);
 
+        [OperationContract]
+        void InsertarSiembraHDInbound(SiembraHD siembra);
+
     }
 }

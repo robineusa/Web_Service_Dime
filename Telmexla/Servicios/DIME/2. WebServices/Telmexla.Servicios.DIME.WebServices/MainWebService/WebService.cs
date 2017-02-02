@@ -698,5 +698,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
+        #region ActivacionSiembraHD
+        public void InsertarSiembraHDInbound(SiembraHD siembra)
+        {
+            SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
+            activacionbusiness.InsertarSiembraHDInbound(siembra);
+        }
+        #endregion
+
     }
 }

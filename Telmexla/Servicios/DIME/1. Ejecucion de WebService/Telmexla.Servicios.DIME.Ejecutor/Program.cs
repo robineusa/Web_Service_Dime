@@ -21,12 +21,20 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            CuentasSiembraHD shd = new CuentasSiembraHD();
-            shd.CuentaCliente =307;
-            ActivacionSiembraHDService activacionshdservice = new ActivacionSiembraHDService();
-            var result84841848 = activacionshdservice.BuscarCuentaSiembraHD(shd.CuentaCliente);
+            //CuentasSiembraHD shd = new CuentasSiembraHD();
+            //shd.CuentaCliente =307;
+            //ActivacionSiembraHDService activacionshdservice = new ActivacionSiembraHDService();
+            //var result84841848 = activacionshdservice.BuscarCuentaSiembraHD(shd.CuentaCliente);
 
-
+            SiembraHD entidad = new SiembraHD();
+            entidad.UsuarioGestion = "ROBINEUSA";
+            entidad.NombreUsuarioGestion = "ROBINSON NEUSA";
+            entidad.AliadoGestion = "BRM";
+            entidad.CuentaCliente = 307;
+            entidad.Ofrecimiento = "Acepta todo el paquete HD";
+            entidad.AceptacionSiembraHD = "SI";
+            ActivacionSiembraHDService actHDservice = new ActivacionSiembraHDService();
+            actHDservice.InsertarSiembraHDInbound(entidad);
 
             //ActivacionClaroVideo entidad = new ActivacionClaroVideo();
             //entidad.UsuarioGestion = "ROBINEUSA";

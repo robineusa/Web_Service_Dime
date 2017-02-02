@@ -139,6 +139,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new ActivacionClaroVideoConfiguration());
             modelBuilder.Configurations.Add(new CuentasSiembraHDConfiguration());
             modelBuilder.Configurations.Add(new CambioEstratoConfiguration());
+            modelBuilder.Configurations.Add(new SiembraHDConfiguration());
 
         }
 
@@ -177,6 +178,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new ActivacionClaroVideoConfiguration(schema));
             modelBuilder.Configurations.Add(new CuentasSiembraHDConfiguration(schema));
             modelBuilder.Configurations.Add(new CambioEstratoConfiguration(schema));
+            modelBuilder.Configurations.Add(new SiembraHDConfiguration(schema));
 
             return modelBuilder;
         }
