@@ -428,7 +428,8 @@ namespace Telmexla.Servicios.DIME.Business
                 Razon = a.Razon,
                 Subrazon = a.Subrazon,
                 Observacion = a.Observacion,
-                EstadoTransaccion = a.EstadoTransaccion
+                EstadoTransaccion = a.EstadoTransaccion,
+                CorreoElectronico = a.CorreoElectronico
             }).ToList());
 
             return result;
