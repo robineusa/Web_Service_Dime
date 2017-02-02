@@ -47,7 +47,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato);
         [OperationContract]
         bool TransaccionEnGestionCambioEstrato(int id, String usrABackOffice);
-
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListaSeguimientosCambiodeEstratoCelula(string usrABackOffice);
 
     }
 }

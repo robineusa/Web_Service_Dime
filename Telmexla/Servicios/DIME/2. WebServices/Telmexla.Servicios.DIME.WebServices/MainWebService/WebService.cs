@@ -662,6 +662,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.TransaccionEnGestionCambioEstrato(id, usrABackOffice);
         }
+        public List<DatoConsultaDirecciones> ListaSeguimientosCambiodeEstratoCelula(string usrABackOffice)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSeguimientosCambiodeEstratoCelula(usrABackOffice);
+        }
         #endregion
 
         #region maestroNodos
