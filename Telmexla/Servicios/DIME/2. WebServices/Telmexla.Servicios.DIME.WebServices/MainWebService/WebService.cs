@@ -128,6 +128,27 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return lService.RegistrarSesionUsuario(registroSesion);
         }
 
+
+        public AccesoCollection ListaAccesosDePerfil(int idPerfil)
+        {
+            LoginService lService = new LoginService();
+            return lService.ListaAccesosDePerfil(idPerfil);
+
+        }
+
+        public LineaCollection ListaLineasDePerfil(int idPerfil)
+        {
+            LoginService lService = new LoginService();
+            return lService.ListaLineasDePerfil(idPerfil);
+        }
+
+        public BasePersonalHolo ConsultarUsuarioHolos(decimal cedula)
+        {
+            LoginService lService = new LoginService();
+            return lService.ConsultarUsuarioHolos(cedula);
+        }
+
+
         #endregion
 
         #region Inbound Service 
