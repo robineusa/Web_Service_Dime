@@ -34,8 +34,20 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<DatoConsultaDirecciones> ListaSeguimientosDireccionesOutbound(string UsuarioOut);
         [OperationContract]
         List<DatoConsultaDirecciones> ListGestionCrearDireccion(DateTime FechaInicial, DateTime FechaFinal, string usrTransac);
+        //PROCESOS CAMBIOS DE ESTRATO
+        [OperationContract]
+        void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato);
+        [OperationContract]
+        bool ExisteCuentaEscaladaCambioEstrato(decimal cuenta);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListaSolicitudesCambioEstrato();
+        [OperationContract]
+        CambioEstratoCollection ListaInteraccionesCambioEstrato(int id);
+        [OperationContract]
+        void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato);
+        [OperationContract]
+        bool TransaccionEnGestionCambioEstrato(int id, String usrABackOffice);
 
 
-
- }
+    }
 }

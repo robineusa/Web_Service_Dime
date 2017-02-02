@@ -11,13 +11,14 @@ namespace Telmexla.Servicios.DIME.Entity
         private IngresoTraslado ingresoTraslado;
         private NotasTraslado notaTraslado;
         private MaestroNodo maestroNodo;
-
+        private CambioEstrato cambioEstrato;
 
         public DatoConsultaDirecciones()
         {
             ingresoTraslado = new IngresoTraslado();
             notaTraslado = new NotasTraslado();
             maestroNodo = new MaestroNodo();
+            CambioEstrato = new CambioEstrato();
         }
 
         public IngresoTraslado IngresoTrasladoGetSet
@@ -56,6 +57,19 @@ namespace Telmexla.Servicios.DIME.Entity
             set
             {
                 maestroNodo = value;
+            }
+        }
+
+        public CambioEstrato CambioEstrato
+        {
+            get
+            {
+                return cambioEstrato;
+            }
+
+            set
+            {
+                cambioEstrato = value;
             }
         }
     }

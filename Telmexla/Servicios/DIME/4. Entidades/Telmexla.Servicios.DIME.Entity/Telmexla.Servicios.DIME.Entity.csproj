@@ -57,6 +57,8 @@
     <Compile Include="ActualizaUsuarioGestionBackTrasladoReturnModel.cs" />
     <Compile Include="ActualizaUsuarioGestionOutTrasladoReturnModel.cs" />
     <Compile Include="BasePersonalHolo.cs" />
+    <Compile Include="CambioEstrato.cs" />
+    <Compile Include="CambioEstratoCollection.cs" />
     <Compile Include="CierreCiclo.cs" />
     <Compile Include="CierreCicloCollection.cs" />
     <Compile Include="ClaroVideo.cs" />
