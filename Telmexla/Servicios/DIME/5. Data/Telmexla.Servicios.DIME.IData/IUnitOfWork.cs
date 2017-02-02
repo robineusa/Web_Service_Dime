@@ -31,6 +31,7 @@ namespace Telmexla.Servicios.DIME.IData
         IMaestroNodoRepository maestroNodos { get; }
         IActivacionClaroVideoRepository activacionClaroVideo { get; }
         ICuentasSiembraHDRepository CuentasSiembraHD { get; }
+        ISiembraHDRepository ActivacionSiembraHD { get; }
         int Complete();
     }
 }

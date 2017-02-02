@@ -38,6 +38,7 @@ namespace Telmexla.Servicios.DIME.Data
             maestroNodos = new MaestroNodoRepository(this.dimeContext);
             activacionClaroVideo = new ActivacionClaroVideoRepository(this.dimeContext);
             CuentasSiembraHD = new CuentasSiembraHDRepository(this.dimeContext);
+            ActivacionSiembraHD = new SiembraHDRepository(this.dimeContext);
         }
         public IRechazoRepository rechazos
         {
@@ -138,6 +139,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public ICuentasSiembraHDRepository CuentasSiembraHD
+        {
+            get; private set;
+        }
+        public ISiembraHDRepository ActivacionSiembraHD
         {
             get; private set;
         }

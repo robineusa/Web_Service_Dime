@@ -84,6 +84,7 @@
     <Compile Include="IRechazoRepository.cs" />
     <Compile Include="IRegistroSesionRepository.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="ISiembraHDRepository.cs" />
     <Compile Include="ITmpMaestroHobbiesClienteRepository.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="IUnitOfWorkMaestros.cs" />
