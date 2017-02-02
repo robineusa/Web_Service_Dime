@@ -67,6 +67,36 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListGestionCrearDireccion(FechaInicial,FechaFinal,usrTransac);
         }
-       
+        //PROCESO CAMBIO DE ESTRATO
+        public void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            ingresoBusi.InsertIngresoCambioEstrato(ingreso, cambioEstrato);
+        }
+        public bool ExisteCuentaEscaladaCambioEstrato(decimal cuenta)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ExisteCuentaEscaladaCambioEstrato(cuenta);
+        }
+        public List<DatoConsultaDirecciones> ListaSolicitudesCambioEstrato()
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSolicitudesCambioEstrato();
+        }
+        public CambioEstratoCollection ListaInteraccionesCambioEstrato(int id)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaInteraccionesCambioEstrato(id);
+        }
+        public void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            ingresoBusi.ActualizarSolicitudCambioEstrato(ingreso, CambioEstrato);
+        }
+        public bool TransaccionEnGestionCambioEstrato(int id, String usrABackOffice)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.TransaccionEnGestionCambioEstrato(id, usrABackOffice);
+        }
     }
     }

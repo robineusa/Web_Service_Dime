@@ -69,6 +69,14 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         bool RegistrarSesionUsuario(RegistroSesion registroSesion);
 
+        [OperationContract]
+        AccesoCollection ListaAccesosDePerfil(int idPerfil);
+
+        [OperationContract]
+        LineaCollection ListaLineasDePerfil(int idPerfil);
+
+        [OperationContract]
+        BasePersonalHolo ConsultarUsuarioHolos(decimal cedula);
 
     }
 

@@ -321,5 +321,162 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
+        //INICIA METODOS PARA PROCESO DE CAMBIO DE ESTRATO
+        public void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato)
+        {
+            try
+            {
+                ingreso.TipoGestion = "CAMBIO DE ESTRATO";
+                ingreso.FechaApertura = DateTime.Now;
+                ingreso.HoraApertura = DateTime.Now;
+                ingreso.FechaUltimaActualizacion = DateTime.Now;
+                ingreso.HoraUltimaActualizacion = DateTime.Now;
+                ingreso.EstadoTransaccion = "PENDIENTE POR CREAR";
+                ingreso.NombreLineaEscalado = "CELULA CAMBIO DE ESTRATO";
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.ingresoTraslados.Add(ingreso);
+                unitWork.Complete();
+
+                cambioEstrato.IdTransaccion = ingreso.IdTransaccion;
+                cambioEstrato.UsuarioTransaccion = ingreso.UsuarioApertura;
+                cambioEstrato.CanalTransaccion = "INBOUND TRASLADOS";
+                cambioEstrato.FechaTransaccion = DateTime.Now;
+                cambioEstrato.NombreLineaTransaccion = ingreso.NombreLineaIngreso;
+                cambioEstrato.CuentaCliente = ingreso.CuentaCliente;
+                cambioEstrato.Razon = "SOLICITUD INBOUND";
+                cambioEstrato.Subrazon = "CAMBIO DE ESTRATO";
+                cambioEstrato.EstadoTransaccion = "PENDIENTE POR CREAR";
+                unitWork.cambioEstratos.Add(cambioEstrato);
+                unitWork.Complete();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
+        public bool ExisteCuentaEscaladaCambioEstrato(decimal cuenta)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoTransaccion != "FINALIZADO" && c.TipoGestion == "CAMBIO DE ESTRATO").Count() >= 1;
+
+        }
+        public List<DatoConsultaDirecciones> ListaSolicitudesCambioEstrato()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.cambioEstratos select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where a.EstadoTransaccion.Equals("PENDIENTE POR CREAR") && b.UsuarioBackOffice == null
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.FechaApertura,
+                                     a.UsuarioApertura,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
+        public CambioEstratoCollection ListaInteraccionesCambioEstrato(int id)
+        {
+
+            UnitOfWork unitwork = new UnitOfWork(new DimeContext());
+            CambioEstratoCollection result = new CambioEstratoCollection();
+            result.AddRange(unitwork.cambioEstratos.Find(c => c.IdTransaccion == id).Select(a => new CambioEstrato
+            {
+                Id = a.Id,
+                IdTransaccion = a.IdTransaccion,
+                UsuarioTransaccion = a.UsuarioTransaccion,
+                CanalTransaccion = a.CanalTransaccion,
+                FechaTransaccion = a.FechaTransaccion,
+                NombreLineaTransaccion = a.NombreLineaTransaccion,
+                CuentaCliente = a.CuentaCliente,
+                Direccion = a.Direccion,
+                Estrato = a.Estrato,
+                Nodo = a.Nodo,
+                TelefonoCelular = a.TelefonoCelular,
+                TelefonoFijo = a.TelefonoFijo,
+                Razon = a.Razon,
+                Subrazon = a.Subrazon,
+                Observacion = a.Observacion,
+                EstadoTransaccion = a.EstadoTransaccion
+            }).ToList());
+
+            return result;
+        }
+        public void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
+            DateTime fechaActual = DateTime.Now;
+            if (ingreso.EstadoTransaccion == "FINALIZADO")
+            {
+                ingresoActualizable.FechaCierre = fechaActual;
+                ingresoActualizable.HoraCierre = fechaActual;
+                ingresoActualizable.UsuarioCierre = ingreso.UsuarioUltimaActualizacion;
+            }
+            ingresoActualizable.FechaUltimaActualizacion = fechaActual;
+            ingresoActualizable.HoraUltimaActualizacion = fechaActual;
+            ingresoActualizable.UsuarioUltimaActualizacion = ingreso.UsuarioUltimaActualizacion;
+            ingresoActualizable.EstadoTransaccion = ingreso.EstadoTransaccion;
+
+            CambioEstrato notaTransaccion = new CambioEstrato();
+            notaTransaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            notaTransaccion.UsuarioTransaccion = CambioEstrato.UsuarioTransaccion;
+            notaTransaccion.CanalTransaccion = CambioEstrato.CanalTransaccion;
+            notaTransaccion.FechaTransaccion = fechaActual;
+            notaTransaccion.NombreLineaTransaccion = CambioEstrato.NombreLineaTransaccion;
+            notaTransaccion.CuentaCliente = ingresoActualizable.CuentaCliente;
+            notaTransaccion.Direccion = CambioEstrato.Direccion;
+            notaTransaccion.Estrato = CambioEstrato.Estrato;
+            notaTransaccion.Nodo = CambioEstrato.Nodo;
+            notaTransaccion.TelefonoCelular = CambioEstrato.TelefonoCelular;
+            notaTransaccion.TelefonoFijo = CambioEstrato.TelefonoFijo;
+            notaTransaccion.Razon = CambioEstrato.Razon;
+            notaTransaccion.Subrazon = CambioEstrato.Subrazon;
+            notaTransaccion.Observacion = CambioEstrato.Observacion;
+            notaTransaccion.EstadoTransaccion = CambioEstrato.EstadoTransaccion;
+            notaTransaccion.UsuarioBackOffice = CambioEstrato.UsuarioBackOffice;
+            notaTransaccion.CorreoElectronico = CambioEstrato.CorreoElectronico;
+            unitWork.cambioEstratos.Add(notaTransaccion);
+            unitWork.Complete();
+
+        }
+        public bool TransaccionEnGestionCambioEstrato(int id, String usrABackOffice)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            string result = unitWork.cambioEstratos.ComprobarActualizarUsrBackoffice(id, usrABackOffice);
+            if (result == usrABackOffice) return false;
+            else return true;
+        }
     }
 }

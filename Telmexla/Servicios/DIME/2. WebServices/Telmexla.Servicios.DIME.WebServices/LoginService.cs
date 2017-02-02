@@ -264,5 +264,29 @@ namespace Telmexla.Servicios.DIME.WebServices
         }
 
 
+        public AccesoCollection ListaAccesosDePerfil(int idPerfil)
+        {
+            DimeContext context = new DimeContext();
+            AccesoCollection result = new AccesoCollection();
+            result.AddRange(context.Accesoes.Where(c => c.IdModoLogin == idPerfil).ToList());
+            return result;
+        }
+
+        public LineaCollection ListaLineasDePerfil(int idPerfil)
+        {
+            DimeContext context = new DimeContext();
+            LineaCollection result = new LineaCollection();
+            result.AddRange(context.Lineas.Where(c => c.IdModoLogin  == idPerfil).ToList());
+            return result;
+        }
+
+
+        public BasePersonalHolo ConsultarUsuarioHolos(decimal cedula)
+        {
+            DimeContext context = new DimeContext();
+            return context.BasePersonalHoloes.Where(c => c.Cedula == cedula).FirstOrDefault();
+        }
+
+
     }
 }
