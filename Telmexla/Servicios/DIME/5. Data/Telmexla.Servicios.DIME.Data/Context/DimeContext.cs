@@ -53,7 +53,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<ActivacionClaroVideo> ActivacionesClaroVideo { get; set; } // TBL_ACTIVACION_CLARO_VIDEO
         public System.Data.Entity.DbSet<CuentasSiembraHD> CuentasSiembra { get; set; } // TBL_CUENTAS_SIEMBRA_HD
         public System.Data.Entity.DbSet<SiembraHD> ActivacionSiembra { get; set; } // TBL_SIEMBRA_HD
-        
+        public System.Data.Entity.DbSet<CambioEstrato> cambioEstratos { get; set; } // TBL_CAMBIO_DE_ESTRATO
+
 
         static DimeContext()
         {
@@ -137,6 +138,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BasePersonalHoloConfiguration());
             modelBuilder.Configurations.Add(new ActivacionClaroVideoConfiguration());
             modelBuilder.Configurations.Add(new CuentasSiembraHDConfiguration());
+            modelBuilder.Configurations.Add(new CambioEstratoConfiguration());
 
         }
 
@@ -174,6 +176,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new MaestroNodoConfiguration(schema));
             modelBuilder.Configurations.Add(new ActivacionClaroVideoConfiguration(schema));
             modelBuilder.Configurations.Add(new CuentasSiembraHDConfiguration(schema));
+            modelBuilder.Configurations.Add(new CambioEstratoConfiguration(schema));
 
             return modelBuilder;
         }
@@ -322,6 +325,44 @@ namespace Telmexla.Servicios.DIME.Data.Context
                 usuarioOutParam.Value = System.DBNull.Value;
 
             var procResultData = await Database.SqlQuery<ActualizaUsuarioGestionOutTrasladoReturnModel>("EXEC [dbo].[ACTUALIZAR_USUARIO_GESTION_OUT_TRASLADO] @Id_Transaccion, @Usuario_Out", idTransaccionParam, usuarioOutParam).ToListAsync();
+
+            return procResultData;
+        }
+        //procedure Cambio Estrato
+        public System.Collections.Generic.List<ActualizaUsuarioGestionCambioEstratoReturnViewModel> ActualizaUsuarioGestionBackCambioEstrato(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return ActualizaUsuarioGestionBackCambioEstrato(idTransaccion, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizaUsuarioGestionCambioEstratoReturnViewModel> ActualizaUsuarioGestionBackCambioEstrato(decimal? idTransaccion, string usuarioBack, out int procResult)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ActualizaUsuarioGestionCambioEstratoReturnViewModel>("EXEC @procResult = [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_CAMBIO_ESTRATO] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam).ToList();
+
+            procResult = (int)procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionCambioEstratoReturnViewModel>> ActualizaUsuarioGestionBackCambioEstratoAsync(decimal? idTransaccion, string usuarioBack)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ActualizaUsuarioGestionCambioEstratoReturnViewModel>("EXEC [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_CAMBIO_ESTRATO] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
 
             return procResultData;
         }

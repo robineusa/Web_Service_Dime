@@ -49,6 +49,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<ActivacionClaroVideo> ActivacionesClaroVideo { get; set; } // TBL_ACTIVACION_CLARO_VIDEO
         System.Data.Entity.DbSet<CuentasSiembraHD> CuentasSiembra { get; set; } // TBL_CUENTAS_SIEMBRA_HD
         System.Data.Entity.DbSet<SiembraHD> ActivacionSiembra { get; set; } // TBL_SIEMBRA_HD
+        System.Data.Entity.DbSet<CambioEstrato> cambioEstratos { get; set; } // TBL_CAMBIO_DE_ESTRATO
 
 
         int SaveChanges();
@@ -77,6 +78,10 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         int Consultas(decimal? nombreCab, System.Data.DataTable detalles);
         // ConsultasAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
 
+        // Stored Procedures Cambio Estrato
+        System.Collections.Generic.List<ActualizaUsuarioGestionCambioEstratoReturnViewModel> ActualizaUsuarioGestionBackCambioEstrato(decimal? idIngreso, string usuarioBack);
+        System.Collections.Generic.List<ActualizaUsuarioGestionCambioEstratoReturnViewModel> ActualizaUsuarioGestionBackCambioEstrato(decimal? idIngreso, string usuarioBack, out int procResult);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionCambioEstratoReturnViewModel>> ActualizaUsuarioGestionBackCambioEstratoAsync(decimal? idIngreso, string usuarioBack);
 
     }
 

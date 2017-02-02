@@ -51,12 +51,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceso.cs" />
+    <Compile Include="AccesoCollection.cs" />
     <Compile Include="ActivacionClaroVideo.cs" />
     <Compile Include="ActivacionClaroVideoCollection.cs" />
     <Compile Include="ActualizarUsuarioGestionBackIngresoReturnModel.cs" />
     <Compile Include="ActualizaUsuarioGestionBackTrasladoReturnModel.cs" />
+    <Compile Include="ActualizaUsuarioGestionCambioEstratoReturnViewModel.cs" />
     <Compile Include="ActualizaUsuarioGestionOutTrasladoReturnModel.cs" />
     <Compile Include="BasePersonalHolo.cs" />
+    <Compile Include="CambioEstrato.cs" />
+    <Compile Include="CambioEstratoCollection.cs" />
     <Compile Include="CierreCiclo.cs" />
     <Compile Include="CierreCicloCollection.cs" />
     <Compile Include="ClaroVideo.cs" />
@@ -79,6 +83,7 @@
     <Compile Include="IngresoTraslado.cs" />
     <Compile Include="IngresoTrasladoCollection.cs" />
     <Compile Include="Linea.cs" />
+    <Compile Include="LineaCollection.cs" />
     <Compile Include="LogCierreCiclo.cs" />
     <Compile Include="LogCierreCicloCollection.cs" />
     <Compile Include="LogClaroVideo.cs" />
