@@ -20,5 +20,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         MaestroNodo GetInformacionNodo(string nodo);
         [OperationContract]
         void ActualizarInformacionNodo(MaestroNodo nodo);
-        }
+        [OperationContract]
+        MaestroNodoCollection ListaNodosCreados();
+    }
+    
 }

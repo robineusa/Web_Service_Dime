@@ -699,6 +699,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MaestroNodoBusiness nodobusines = new MaestroNodoBusiness();
             nodobusines.ActualizarInformacionNodo(nodo);
         }
+        public MaestroNodoCollection ListaNodosCreados()
+        {
+            MaestroNodoBusiness nodobusines = new MaestroNodoBusiness();
+            return nodobusines.ListaNodosCreados();
+        }
         #endregion
 
         #region ActivacionClaroVideo

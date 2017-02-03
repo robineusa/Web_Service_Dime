@@ -58,6 +58,32 @@ namespace Telmexla.Servicios.DIME.Business
             unitWork.Complete();
 
         }
+        public MaestroNodoCollection ListaNodosCreados()
+        {
+            UnitOfWork unitwork = new UnitOfWork(new DimeContext());
+            MaestroNodoCollection result = new MaestroNodoCollection();
+            result.AddRange(unitwork.maestroNodos.GetAll().Select(a => new MaestroNodo
+            {
+                IdNodo = a.IdNodo,
+                Nodo= a.Nodo,
+                NombreNodo= a.NombreNodo,
+                Div=a.Div,
+                Com=a.Com,
+                Divisional=a.Divisional,
+                Area=a.Area,
+                Distrito=a.Distrito,
+                Ugestion=a.Ugestion,
+                Usuario=a.Usuario,
+                FechaCreacion=a.FechaCreacion,
+                Estado=a.Estado,
+                Red=a.Red,
+                Aliado=a.Aliado,
+                NombreComunidad=a.NombreComunidad,
+                Departamento=a.Departamento
+                
+            }).ToList());
+            return result;
+        }
 
     }
 }

@@ -13,14 +13,14 @@ namespace Telmexla.Servicios.DIME.WebServices
     {
 
 
-       public  MaestroOutboundTipoContactoCollection ObtenerTiposDeContactoDeGestion(decimal gestionId)
+        public MaestroOutboundTipoContactoCollection ObtenerTiposDeContactoDeGestion(decimal gestionId)
         {
             ArbolesDeTipificacion arbolesTipi = new ArbolesDeTipificacion();
             return arbolesTipi.GetTipoContactosPorGestion(gestionId);
         }
 
 
-       public MaestroOutboundCierreCollection ObtenerTiposDeCierresDeContacto(decimal contactoId)
+        public MaestroOutboundCierreCollection ObtenerTiposDeCierresDeContacto(decimal contactoId)
         {
             ArbolesDeTipificacion arbolesTipi = new ArbolesDeTipificacion();
             return arbolesTipi.GetTipoCierrePorContacto(contactoId);
@@ -39,11 +39,11 @@ namespace Telmexla.Servicios.DIME.WebServices
 
         }
 
-       public MaestroOutboundMotivoCollection ObtenerTiposDeMotivoDeCausas(decimal causaId)
+        public MaestroOutboundMotivoCollection ObtenerTiposDeMotivoDeCausas(decimal causaId)
         {
             ArbolesDeTipificacion arbolesTipi = new ArbolesDeTipificacion();
             return arbolesTipi.GetTipoMotivoPorTipoCausa(causaId);
         }
-
+       
     }
 }
