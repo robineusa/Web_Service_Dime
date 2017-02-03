@@ -22,7 +22,9 @@ namespace Telmexla.Servicios.DIME.Entity
         public System.DateTime? FechaCreacion { get; set; } 
         public string Estado { get; set; } 
         public string Red { get; set; } 
-        public string Aliado { get; set; } 
-        
+        public string Aliado { get; set; }
+        public string NombreComunidad { get; set; }
+        public string Departamento { get; set; }
+
     }
 }
