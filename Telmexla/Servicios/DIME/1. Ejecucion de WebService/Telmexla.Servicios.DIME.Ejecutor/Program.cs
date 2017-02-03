@@ -27,15 +27,30 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //ActivacionSiembraHDService activacionshdservice = new ActivacionSiembraHDService();
             //var result84841848 = activacionshdservice.BuscarCuentaSiembraHD(shd.CuentaCliente);
 
-            SiembraHD entidad = new SiembraHD();
-            entidad.UsuarioGestion = "ROBINEUSA";
-            entidad.NombreUsuarioGestion = "ROBINSON NEUSA";
-            entidad.AliadoGestion = "BRM";
-            entidad.CuentaCliente = 307;
-            entidad.Ofrecimiento = "Acepta todo el paquete HD";
-            entidad.AceptacionSiembraHD = "SI";
-            ActivacionSiembraHDService actHDservice = new ActivacionSiembraHDService();
-            actHDservice.InsertarSiembraHDInbound(entidad);
+            NotificacionesBuenServicio entidad = new NotificacionesBuenServicio();
+            entidad.Usuario_Publicacion = "David";
+            entidad.Nombre_Imagen = "111.png";
+            entidad.Nombre_Imagen = "imagen1";
+            entidad.Link_Direccionamiento = "www";
+            entidad.Descripcion = "sdjkfhbskjdfnklsndf";
+            entidad.Aliado_Destino = "brm";
+            entidad.Perfil_Destino = "outsorcing";
+            entidad.Nombre_Linea_Destino = "alto valor";
+            NotificaionesBuenServicioService noti = new NotificaionesBuenServicioService();
+            noti.RegistrarNotificado(entidad);
+
+            //NotificacionesBuenServicioService noti = new NotificacionesBuenServicioService();
+            
+
+            //SiembraHD entidad = new SiembraHD();
+            //entidad.UsuarioGestion = "ROBINEUSA";
+            //entidad.NombreUsuarioGestion = "ROBINSON NEUSA";
+            //entidad.AliadoGestion = "BRM";
+            //entidad.CuentaCliente = 307;
+            //entidad.Ofrecimiento = "Acepta todo el paquete HD";
+            //entidad.AceptacionSiembraHD = "SI";
+            //ActivacionSiembraHDService actHDservice = new ActivacionSiembraHDService();
+            //actHDservice.InsertarSiembraHDInbound(entidad);
 
             //ActivacionClaroVideo entidad = new ActivacionClaroVideo();
             //entidad.UsuarioGestion = "ROBINEUSA";
