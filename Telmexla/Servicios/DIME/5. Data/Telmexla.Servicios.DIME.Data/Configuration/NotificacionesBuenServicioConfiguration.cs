@@ -10,7 +10,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
         }
         public NotificacionesBuenServicioConfiguration(string schema)
         {
-            ToTable("TBL_NOTIFICACIONES_BUEN_SERVICIO", schema);
+            ToTable("NOTIFICACIONES_BUEN_SERVICIO", schema);
             HasKey(x => x.Id);
             Property(x => x.Id).HasColumnName(@"ID_NOTIFICADO").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Fecha_Publicacion).HasColumnName(@"FECHA_PUBLICACION").IsOptional().HasColumnType("datetime");

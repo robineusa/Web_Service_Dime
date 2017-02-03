@@ -9,7 +9,7 @@ using Telmexla.Servicios.DIME.IWebServices;
 
 namespace Telmexla.Servicios.DIME.WebServices
 {
-    public class NotificaionesBuenServicioService : INotificacionesBuenServicioService
+    class NotificaionesBuenServicioService : INotificacionesBuenServicioService
     {
         public void RegistrarNotificado(NotificacionesBuenServicio notificacion)
         {
