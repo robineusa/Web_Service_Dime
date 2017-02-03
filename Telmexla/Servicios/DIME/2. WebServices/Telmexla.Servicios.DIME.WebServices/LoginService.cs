@@ -288,5 +288,32 @@ namespace Telmexla.Servicios.DIME.WebServices
         }
 
 
+        public BasePersonalHoloCollection ListaUsuariosDePerfilYAliado(int idPerfil, string aliado)
+        {
+            DimeContext context = new DimeContext();
+            BasePersonalHoloCollection result = new BasePersonalHoloCollection();
+
+          var resultado =   (from b in context.BasePersonalHoloes
+                            where b.Aliado.Equals(aliado)
+                            select new BasePersonalHolo
+                            {
+                                Cedula = b.Cedula,
+                                Nombre = b.Nombre1,
+                                Aliado = b.Aliado,
+                                NombreLinea = b.NombreLinea,
+                                UsuarioRr = b.UsuarioRr,
+                                UsuarioAgendamiento = b.UsuarioAgendamiento,
+                                UsuarioGerencia = b.UsuarioGerencia,
+                                Estado = b.Estado,
+                                Canal = b.Canal,
+                                Operacion = b.Operacion,
+                                Grupo = b.Grupo,
+                                Cargo = b.Cargo,
+                                Segmento = b.Segmento
+                            }).FirstOrDefault();
+        
+            return result;
+        }
+
     }
 }
