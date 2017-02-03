@@ -20,29 +20,45 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            //prueba julio
 
-            //CuentasSiembraHD shd = new CuentasSiembraHD();
-            //shd.CuentaCliente =307;
-            //ActivacionSiembraHDService activacionshdservice = new ActivacionSiembraHDService();
-            //var result84841848 = activacionshdservice.BuscarCuentaSiembraHD(shd.CuentaCliente);
+            MaestroNodo nodo = new MaestroNodo();
+            nodo.Nodo = "rnp";
+            nodo.Div = "BOG";
+            nodo.Com = "SOC";
+            nodo.Divisional = 3;
+            nodo.Area = 4;
+            nodo.Distrito = 5;
+            MaestroNodoService maestro = new MaestroNodoService();
+            maestro.InsertarNodo(nodo);
 
-            SiembraHD entidad = new SiembraHD();
-            entidad.UsuarioGestion = "ROBINEUSA";
-            entidad.NombreUsuarioGestion = "ROBINSON NEUSA";
-            entidad.AliadoGestion = "BRM";
-            entidad.CuentaCliente = 307;
-            entidad.Ofrecimiento = "Acepta todo el paquete HD";
-            entidad.AceptacionSiembraHD = "SI";
-            ActivacionSiembraHDService actHDservice = new ActivacionSiembraHDService();
-            actHDservice.InsertarSiembraHDInbound(entidad);
+            ////prueba julio
 
-            //ActivacionClaroVideo entidad = new ActivacionClaroVideo();
+            ////CuentasSiembraHD shd = new CuentasSiembraHD();
+            ////shd.CuentaCliente =307;
+            ////ActivacionSiembraHDService activacionshdservice = new ActivacionSiembraHDService();
+            ////var result84841848 = activacionshdservice.BuscarCuentaSiembraHD(shd.CuentaCliente);
+
+            //LoginService loginService = new LoginService();
+            //var result222222 =  loginService.ListaUsuariosDePerfilYAliado(2,"BRM");
+
+
+
+            //SiembraHD entidad = new SiembraHD();
             //entidad.UsuarioGestion = "ROBINEUSA";
-            //entidad.NombreUsuario = "ROBINSON NEUSA";
+            //entidad.NombreUsuarioGestion = "ROBINSON NEUSA";
             //entidad.AliadoGestion = "BRM";
             //entidad.CuentaCliente = 307;
-            //entidad.AceptacionClaroVideo = "SI";
+            //entidad.Ofrecimiento = "Acepta todo el paquete HD";
+            //entidad.AceptacionSiembraHD = "SI";
+            //ActivacionSiembraHDService actHDservice = new ActivacionSiembraHDService();
+            //actHDservice.InsertarSiembraHDInbound(entidad);
+
+            ////ActivacionClaroVideo entidad = new ActivacionClaroVideo();
+            ////entidad.UsuarioGestion = "ROBINEUSA";
+            ////entidad.NombreUsuario = "ROBINSON NEUSA";
+            ////entidad.AliadoGestion = "BRM";
+            ////entidad.CuentaCliente = 307;
+            ////entidad.AceptacionClaroVideo = "SI";
 
 
             //ActivacionClaroVideoService actclarovideoservice = new ActivacionClaroVideoService();

@@ -78,6 +78,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         BasePersonalHolo ConsultarUsuarioHolos(decimal cedula);
 
+        [OperationContract]
+        BasePersonalHoloCollection ListaUsuariosDePerfilYAliado(int idPerfil, string aliado);
+
     }
 
 

@@ -147,7 +147,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             LoginService lService = new LoginService();
             return lService.ConsultarUsuarioHolos(cedula);
         }
-
+        public BasePersonalHoloCollection ListaUsuariosDePerfilYAliado(int idPerfil, string aliado)
+        {
+            LoginService lService = new LoginService();
+            return lService.ListaUsuariosDePerfilYAliado(idPerfil, aliado);
+        }
 
         #endregion
 
