@@ -49,6 +49,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         bool TransaccionEnGestionCambioEstrato(int id, String usrABackOffice);
         [OperationContract]
         List<DatoConsultaDirecciones> ListaSeguimientosCambiodeEstratoCelula(string usrABackOffice);
-
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListGestionCambioDeEstrato(DateTime FechaInicial, DateTime FechaFinal, string usrTransac);
     }
 }

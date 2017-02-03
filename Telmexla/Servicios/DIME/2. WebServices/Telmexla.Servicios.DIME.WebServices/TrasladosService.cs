@@ -65,7 +65,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public List<DatoConsultaDirecciones> ListGestionCrearDireccion(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListGestionCrearDireccion(FechaInicial,FechaFinal,usrTransac);
+            return ingresoBusi.ListGestionCrearDireccion(FechaInicial, FechaFinal, usrTransac);
         }
         //PROCESO CAMBIO DE ESTRATO
         public void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato)
@@ -102,6 +102,11 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaSeguimientosCambiodeEstratoCelula(usrABackOffice);
+        }
+        public List<DatoConsultaDirecciones> ListGestionCambioDeEstrato(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListGestionCambioDeEstrato(FechaInicial, FechaFinal, usrTransac);
         }
 
         }
