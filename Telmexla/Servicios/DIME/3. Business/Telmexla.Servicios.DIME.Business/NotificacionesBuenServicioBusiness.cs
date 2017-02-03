@@ -13,6 +13,7 @@ namespace Telmexla.Servicios.DIME.Business
     public class NotificacionesBuenServicioBusiness
     {
         public void Registrarnotificado(NotificacionesBuenServicio notificacion) {
+            notificacion.Fecha_Publicacion = DateTime.Now;
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             unitOfWork.notificacionesBuenServicio.Add(notificacion);
             unitOfWork.Complete();

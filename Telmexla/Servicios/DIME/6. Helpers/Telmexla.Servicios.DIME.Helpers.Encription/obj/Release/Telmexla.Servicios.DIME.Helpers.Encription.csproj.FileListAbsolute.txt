@@ -8,3 +8,8 @@ C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Help
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\obj\Release\Telmexla.Servicios.DIME.Helpers.Encription.csprojResolveAssemblyReference.cache
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\obj\Release\Telmexla.Servicios.DIME.Helpers.Encription.dll
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\obj\Release\Telmexla.Servicios.DIME.Helpers.Encription.pdb
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\bin\Release\Telmexla.Servicios.DIME.Helpers.Encription.dll
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\bin\Release\Telmexla.Servicios.DIME.Helpers.Encription.pdb
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\obj\Release\Telmexla.Servicios.DIME.Helpers.Encription.csprojResolveAssemblyReference.cache
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\obj\Release\Telmexla.Servicios.DIME.Helpers.Encription.dll
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\obj\Release\Telmexla.Servicios.DIME.Helpers.Encription.pdb

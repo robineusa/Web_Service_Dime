@@ -35,3 +35,11 @@ C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Enti
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Release\Telmexla.Servicios.DIME.Entity.csprojResolveAssemblyReference.cache
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Release\Telmexla.Servicios.DIME.Entity.dll
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Release\Telmexla.Servicios.DIME.Entity.pdb
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Release\Telmexla.Servicios.DIME.Entity.dll.config
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Release\Telmexla.Servicios.DIME.Entity.dll
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Release\Telmexla.Servicios.DIME.Entity.pdb
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Release\EntityFramework.xml
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Release\Telmexla.Servicios.DIME.Entity.csprojResolveAssemblyReference.cache
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Release\Telmexla.Servicios.DIME.Entity.dll
+C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\4. Entidades\Telmexla.Servicios.DIME.Entity\obj\Release\Telmexla.Servicios.DIME.Entity.pdb
