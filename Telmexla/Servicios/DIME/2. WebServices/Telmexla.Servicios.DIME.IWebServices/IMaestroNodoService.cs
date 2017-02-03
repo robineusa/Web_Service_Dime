@@ -18,5 +18,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         bool ExisteNodo(string nodo);
         [OperationContract]
         MaestroNodo GetInformacionNodo(string nodo);
+        [OperationContract]
+        void ActualizarInformacionNodo(MaestroNodo nodo);
         }
 }
