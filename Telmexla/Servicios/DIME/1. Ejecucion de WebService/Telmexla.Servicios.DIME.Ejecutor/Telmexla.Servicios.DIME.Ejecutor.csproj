@@ -69,6 +69,8 @@
     <None Include="bin\Debug\Telmexla.Servicios.DIME.Ejecutor.exe.config" />
     <None Include="bin\Debug\Telmexla.Servicios.DIME.Ejecutor.vshost.exe.config" />
     <None Include="bin\Debug\Telmexla.Servicios.DIME.Ejecutor.vshost.exe.manifest" />
+    <None Include="bin\Release\Telmexla.Servicios.DIME.Ejecutor.exe.config" />
+    <None Include="bin\Release\Telmexla.Servicios.DIME.Ejecutor.vshost.exe.config" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\Telmexla.Servicios.DIME.Ejecutor.csprojResolveAssemblyReference.cache" />
     <None Include="obj\Release\build.force" />
@@ -106,21 +108,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\EntityFramework.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Business.dll" />
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Data.dll" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Ejecutor.vshost.exe" />
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Entity.dll" />
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.dll" />
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.dll" />
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.IData.dll" />
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.IWebServices.dll" />
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.WebServices.dll" />
     <Content Include="obj\Debug\Telmexla.Servicios.DIME.Ejecutor.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Telmexla.Servicios.DIME.Ejecutor.exe" />
+    <Content Include="obj\Debug\Telmexla.Servicios.DIME.Ejecutor.pdb" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Release\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>

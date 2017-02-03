@@ -21,3 +21,7 @@ C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. 
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\obj\Debug\Telmexla.Servicios.DIME.Helpers.Encription.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\obj\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\obj\Debug\Telmexla.Servicios.DIME.Helpers.Encription.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\obj\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb

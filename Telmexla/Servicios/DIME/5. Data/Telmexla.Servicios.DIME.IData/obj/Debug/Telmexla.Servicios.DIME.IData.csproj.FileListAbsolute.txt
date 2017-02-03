@@ -46,3 +46,15 @@ C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. 
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Debug\Telmexla.Servicios.DIME.IData.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Debug\Telmexla.Servicios.DIME.IData.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Debug\Telmexla.Servicios.DIME.IData.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Debug\Telmexla.Servicios.DIME.IData.dll.config
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Debug\Telmexla.Servicios.DIME.IData.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Debug\Telmexla.Servicios.DIME.IData.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Debug\EntityFramework.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Debug\Telmexla.Servicios.DIME.Entity.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Debug\Telmexla.Servicios.DIME.Entity.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Debug\EntityFramework.xml
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Debug\Telmexla.Servicios.DIME.IData.csprojResolveAssemblyReference.cache
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Debug\Telmexla.Servicios.DIME.IData.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.IData\obj\Debug\Telmexla.Servicios.DIME.IData.pdb

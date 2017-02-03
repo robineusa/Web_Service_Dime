@@ -133,17 +133,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="bin\Debug\Telmexla.Servicios.DIME.Entity.dll.config" />
     <None Include="bin\Release\Telmexla.Servicios.DIME.Entity.dll.config" />
     <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Release\Telmexla.Servicios.DIME.Entity.csprojResolveAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\EntityFramework.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\Debug\EntityFramework.xml" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Entity.dll" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Entity.pdb" />
     <Content Include="bin\Release\EntityFramework.dll" />

@@ -86,6 +86,7 @@
     <None Include="bin\Release\Telmexla.Servicios.DIME.IWebServices.dll.config" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\Telmexla.Servicios.DIME.IWebServices.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Release\build.force" />
     <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Release\Telmexla.Servicios.DIME.IWebServices.csprojResolveAssemblyReference.cache" />
     <None Include="packages.config" />
@@ -106,14 +107,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\AutoMapper.dll" />
+    <Content Include="bin\Debug\AutoMapper.xml" />
     <Content Include="bin\Debug\EntityFramework.dll" />
     <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Business.dll" />
+    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Business.pdb" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Data.dll" />
+    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Data.pdb" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Entity.dll" />
+    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Entity.pdb" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.dll" />
+    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.pdb" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.IData.dll" />
+    <Content Include="bin\Debug\Telmexla.Servicios.DIME.IData.pdb" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.IWebServices.dll" />
+    <Content Include="bin\Debug\Telmexla.Servicios.DIME.IWebServices.pdb" />
     <Content Include="bin\Release\AutoMapper.dll" />
     <Content Include="bin\Release\AutoMapper.xml" />
     <Content Include="bin\Release\EntityFramework.dll" />
@@ -134,6 +144,7 @@
     <Content Include="bin\Release\Telmexla.Servicios.DIME.IWebServices.pdb" />
     <Content Include="obj\Debug\Telmexla.Servicios.DIME.IWebServices.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Telmexla.Servicios.DIME.IWebServices.dll" />
+    <Content Include="obj\Debug\Telmexla.Servicios.DIME.IWebServices.pdb" />
     <Content Include="obj\Release\Telmexla.Servicios.DIME.IWebServices.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Release\Telmexla.Servicios.DIME.IWebServices.dll" />
     <Content Include="obj\Release\Telmexla.Servicios.DIME.IWebServices.pdb" />
