@@ -293,7 +293,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             DimeContext context = new DimeContext();
             BasePersonalHoloCollection result = new BasePersonalHoloCollection();
             List<BasePersonalHolo> holosResult = context.BasePersonalHoloes.Where(c => c.Aliado == aliado).ToList();
-            List<decimal> usuariosDime = context.Usuarios.Select(c=> c.Cedula??0).ToList();
+            List<decimal> usuariosDime = context.Usuarios.Where(x=>x.UsuariosXAccesoes.FirstOrDefault().Acceso.IdModoLogin==idPerfil).Select(c=> c.Cedula??0).ToList();
 
             holosResult = holosResult.Where(c=> usuariosDime.Contains(c.Cedula) ).ToList();
             result.AddRange(holosResult);  
