@@ -292,26 +292,11 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             DimeContext context = new DimeContext();
             BasePersonalHoloCollection result = new BasePersonalHoloCollection();
+            List<BasePersonalHolo> holosResult = context.BasePersonalHoloes.Where(c => c.Aliado == aliado).ToList();
+            List<decimal> usuariosDime = context.Usuarios.Select(c=> c.Cedula??0).ToList();
 
-          var resultado =   (from b in context.BasePersonalHoloes
-                            where b.Aliado.Equals(aliado)
-                            select new BasePersonalHolo
-                            {
-                                Cedula = b.Cedula,
-                                Nombre = b.Nombre1,
-                                Aliado = b.Aliado,
-                                NombreLinea = b.NombreLinea,
-                                UsuarioRr = b.UsuarioRr,
-                                UsuarioAgendamiento = b.UsuarioAgendamiento,
-                                UsuarioGerencia = b.UsuarioGerencia,
-                                Estado = b.Estado,
-                                Canal = b.Canal,
-                                Operacion = b.Operacion,
-                                Grupo = b.Grupo,
-                                Cargo = b.Cargo,
-                                Segmento = b.Segmento
-                            }).FirstOrDefault();
-        
+            holosResult = holosResult.Where(c=> usuariosDime.Contains(c.Cedula) ).ToList();
+            result.AddRange(holosResult);  
             return result;
         }
 
