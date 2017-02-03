@@ -33,8 +33,6 @@ C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. 
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\EntityFramework.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\EntityFramework.xml
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.csprojResolveAssemblyReference.cache

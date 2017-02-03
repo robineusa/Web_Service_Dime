@@ -20,6 +20,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+            //prueba julio
 
             //CuentasSiembraHD shd = new CuentasSiembraHD();
             //shd.CuentaCliente =307;
