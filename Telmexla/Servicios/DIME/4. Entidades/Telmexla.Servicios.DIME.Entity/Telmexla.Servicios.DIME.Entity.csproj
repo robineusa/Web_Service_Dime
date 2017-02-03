@@ -59,6 +59,7 @@
     <Compile Include="ActualizaUsuarioGestionCambioEstratoReturnViewModel.cs" />
     <Compile Include="ActualizaUsuarioGestionOutTrasladoReturnModel.cs" />
     <Compile Include="BasePersonalHolo.cs" />
+    <Compile Include="BasePersonalHoloCollection.cs" />
     <Compile Include="CambioEstrato.cs" />
     <Compile Include="CambioEstratoCollection.cs" />
     <Compile Include="CierreCiclo.cs" />

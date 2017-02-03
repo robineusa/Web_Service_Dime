@@ -27,6 +27,11 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //ActivacionSiembraHDService activacionshdservice = new ActivacionSiembraHDService();
             //var result84841848 = activacionshdservice.BuscarCuentaSiembraHD(shd.CuentaCliente);
 
+            LoginService loginService = new LoginService();
+            var result222222 =  loginService.ListaUsuariosDePerfilYAliado(2,"BRM");
+
+
+
             SiembraHD entidad = new SiembraHD();
             entidad.UsuarioGestion = "ROBINEUSA";
             entidad.NombreUsuarioGestion = "ROBINSON NEUSA";
