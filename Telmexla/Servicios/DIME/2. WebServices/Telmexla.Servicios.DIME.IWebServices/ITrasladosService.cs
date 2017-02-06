@@ -13,7 +13,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface ITrasladosService
     {
         [OperationContract]
-        void RegistrarIngresoTraslado(IngresoTraslado ingreso, NotasTraslado notaTraslado);
+        void RegistrarIngresoTraslado(IngresoTraslado ingreso, NotasTraslado notaTraslado,TraficoTraslado transaccion);
         [OperationContract]
         bool ExisteCuentaEscalada(decimal cuenta);
         [OperationContract]
@@ -21,7 +21,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id);
         [OperationContract]
-        void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado);
+        void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado,TraficoTraslado transaccion);
         [OperationContract]
         bool TransaccionEnGestion(int id, String usrABackOffice);
         [OperationContract]
@@ -36,7 +36,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<DatoConsultaDirecciones> ListGestionCrearDireccion(DateTime FechaInicial, DateTime FechaFinal, string usrTransac);
         //PROCESOS CAMBIOS DE ESTRATO
         [OperationContract]
-        void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato);
+        void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato, TraficoTraslado transaccion);
         [OperationContract]
         bool ExisteCuentaEscaladaCambioEstrato(decimal cuenta);
         [OperationContract]
@@ -44,7 +44,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         CambioEstratoCollection ListaInteraccionesCambioEstrato(int id);
         [OperationContract]
-        void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato);
+        void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato, TraficoTraslado transaccion);
         [OperationContract]
         bool TransaccionEnGestionCambioEstrato(int id, String usrABackOffice);
         [OperationContract]

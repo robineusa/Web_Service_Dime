@@ -21,15 +21,18 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            MaestroNodo nodo = new MaestroNodo();
-            nodo.Nodo = "rnp";
-            nodo.Div = "BOG";
-            nodo.Com = "SOC";
-            nodo.Divisional = 3;
-            nodo.Area = 4;
-            nodo.Distrito = 5;
-            MaestroNodoService maestro = new MaestroNodoService();
-            maestro.InsertarNodo(nodo);
+            TraficoTraslado trafico = new TraficoTraslado();
+            trafico.IdTransaccion = 1;
+            trafico.UsuarioTransaccion = "robineusa";
+            trafico.InicioTransaccion = DateTime.Now;
+            trafico.FinTransaccion = DateTime.Now;
+            trafico.TipoTransaccion = "solicitud inboud";
+            trafico.CanalTransaccion = "inbound";
+            trafico.EstadoTransaccion = "seguimiento";
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.traficoTraslados.Add(trafico);
+            unitWork.Complete();
+            
 
             ////prueba julio
 

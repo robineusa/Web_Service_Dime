@@ -128,6 +128,8 @@
     <Compile Include="SiembraHD.cs" />
     <Compile Include="SiembraHDCollection.cs" />
     <Compile Include="TmpMaestroHobbiesCliente.cs" />
+    <Compile Include="TraficoTrasladoCollection.cs" />
+    <Compile Include="TraficoTraslado.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="UsuariosXAcceso.cs" />
     <Compile Include="UsuariosXPreguntasDesb.cs" />

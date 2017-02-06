@@ -40,6 +40,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             MaestroNodoBusiness nodobusines = new MaestroNodoBusiness();
            return  nodobusines.ListaNodosCreados();
         }
+        public MaestroNodo GetInformacionNodoId(int id)
+        {
+            MaestroNodoBusiness nodobusines = new MaestroNodoBusiness();
+            return nodobusines.GetInformacionNodoId(id);
+        }
 
     }
 }

@@ -14,7 +14,7 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class IngresoTrasladoBusiness
     {
-        public void InsertIngresoTraslado(IngresoTraslado ingreso,NotasTraslado notaTraslado)
+        public void InsertIngresoTraslado(IngresoTraslado ingreso,NotasTraslado notaTraslado,TraficoTraslado transaccion)
         {
             try
             {
@@ -40,6 +40,11 @@ namespace Telmexla.Servicios.DIME.Business
                 notaTraslado.Subrazon = "CREACION DE DIRECCION";
                 notaTraslado.EstadoTransaccion = "PENDIENTE POR CREAR";
                 unitWork.notasTraslados.Add(notaTraslado);
+                unitWork.Complete();
+
+                //registro de tiempos y transaccion
+                transaccion.IdTransaccion = ingreso.IdTransaccion;
+                unitWork.traficoTraslados.Add(transaccion);
                 unitWork.Complete();
             }
             catch (DbEntityValidationException dbEx)
@@ -123,7 +128,7 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
-        public void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado)
+        public void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado,TraficoTraslado transaccion)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
@@ -159,7 +164,12 @@ namespace Telmexla.Servicios.DIME.Business
             notaTransaccion.UsuarioBackOutbound = notaTraslado.UsuarioBackOutbound;
             unitWork.notasTraslados.Add(notaTransaccion);
             unitWork.Complete();
-            
+
+            //registro de tiempos y transaccion
+            transaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            unitWork.traficoTraslados.Add(transaccion);
+            unitWork.Complete();
+
         }
         public bool TransaccionEnGestion(int id, String usrABackOffice)
         {
@@ -322,7 +332,7 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
         }
         //INICIA METODOS PARA PROCESO DE CAMBIO DE ESTRATO
-        public void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato)
+        public void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato,TraficoTraslado transaccion)
         {
             try
             {
@@ -348,6 +358,11 @@ namespace Telmexla.Servicios.DIME.Business
                 cambioEstrato.Subrazon = "CAMBIO DE ESTRATO";
                 cambioEstrato.EstadoTransaccion = "PENDIENTE POR CREAR";
                 unitWork.cambioEstratos.Add(cambioEstrato);
+                unitWork.Complete();
+
+                //registro de tiempos y transaccion
+                transaccion.IdTransaccion = ingreso.IdTransaccion;
+                unitWork.traficoTraslados.Add(transaccion);
                 unitWork.Complete();
             }
             catch (DbEntityValidationException dbEx)
@@ -434,7 +449,7 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
-        public void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato)
+        public void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato, TraficoTraslado transaccion)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
@@ -469,6 +484,11 @@ namespace Telmexla.Servicios.DIME.Business
             notaTransaccion.UsuarioBackOffice = CambioEstrato.UsuarioBackOffice;
             notaTransaccion.CorreoElectronico = CambioEstrato.CorreoElectronico;
             unitWork.cambioEstratos.Add(notaTransaccion);
+            unitWork.Complete();
+
+            //registro de tiempos y transaccion
+            transaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            unitWork.traficoTraslados.Add(transaccion);
             unitWork.Complete();
 
         }

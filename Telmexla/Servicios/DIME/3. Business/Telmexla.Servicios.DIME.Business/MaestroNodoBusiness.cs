@@ -37,7 +37,7 @@ namespace Telmexla.Servicios.DIME.Business
         public void ActualizarInformacionNodo(MaestroNodo nodo)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            MaestroNodo nodoActualizable = unitWork.maestroNodos.Get(Convert.ToInt32(nodo.Nodo.Trim()));
+            MaestroNodo nodoActualizable = unitWork.maestroNodos.Get(Convert.ToInt32(nodo.IdNodo));
             DateTime fechaActual = DateTime.Now;
 
             nodoActualizable.Nodo = nodo.Nodo;
@@ -83,6 +83,12 @@ namespace Telmexla.Servicios.DIME.Business
                 
             }).ToList());
             return result;
+        }
+        public MaestroNodo GetInformacionNodoId(int id)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            return unitOfWork.maestroNodos.Find(c => c.IdNodo == id).FirstOrDefault();
+
         }
 
     }

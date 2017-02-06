@@ -54,6 +54,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<CuentasSiembraHD> CuentasSiembra { get; set; } // TBL_CUENTAS_SIEMBRA_HD
         public System.Data.Entity.DbSet<SiembraHD> ActivacionSiembra { get; set; } // TBL_SIEMBRA_HD
         public System.Data.Entity.DbSet<CambioEstrato> cambioEstratos { get; set; } // TBL_CAMBIO_DE_ESTRATO
+        public System.Data.Entity.DbSet<TraficoTraslado> traficoTraslados { get; set; } // TBL_TRAFICO_TRASLADO
 
 
         static DimeContext()
@@ -140,6 +141,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CuentasSiembraHDConfiguration());
             modelBuilder.Configurations.Add(new CambioEstratoConfiguration());
             modelBuilder.Configurations.Add(new SiembraHDConfiguration());
+            modelBuilder.Configurations.Add(new TraficoTrasladoConfiguration());
 
         }
 
@@ -179,6 +181,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CuentasSiembraHDConfiguration(schema));
             modelBuilder.Configurations.Add(new CambioEstratoConfiguration(schema));
             modelBuilder.Configurations.Add(new SiembraHDConfiguration(schema));
+            modelBuilder.Configurations.Add(new TraficoTrasladoConfiguration(schema));
 
             return modelBuilder;
         }

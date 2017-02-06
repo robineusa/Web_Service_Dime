@@ -61,6 +61,7 @@
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />
     <Compile Include="Configuration\RechazoConfiguration.cs" />
     <Compile Include="Configuration\SiembraHDConfiguration.cs" />
+    <Compile Include="Configuration\TraficoTrasladoConfiguration.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="IngresoRepository.cs" />
     <Compile Include="Configuration\IngresoTrasladoConfiguration.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="Repository.cs" />
     <Compile Include="SiembraHDRepository.cs" />
     <Compile Include="TmpMaestroHobbiesClienteRepository.cs" />
+    <Compile Include="TraficoTrasladoRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="UnitOfWorkMaestros.cs" />
     <Compile Include="UsuarioRepository.cs" />

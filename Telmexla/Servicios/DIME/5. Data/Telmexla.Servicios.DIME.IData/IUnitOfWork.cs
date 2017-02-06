@@ -33,6 +33,7 @@ namespace Telmexla.Servicios.DIME.IData
         ICuentasSiembraHDRepository CuentasSiembraHD { get; }
         ISiembraHDRepository ActivacionSiembraHD { get; }
         ICambioEstratoRepository cambioEstratos { get; }
+        ITraficoTrasladoRepository traficoTraslados { get; }
         int Complete();
     }
 }
