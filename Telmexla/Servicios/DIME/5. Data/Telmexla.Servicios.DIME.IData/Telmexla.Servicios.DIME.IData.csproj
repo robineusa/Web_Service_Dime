@@ -55,6 +55,7 @@
     <Compile Include="ICuentasSiembraHDRepository.cs" />
     <Compile Include="IIngresoRepository.cs" />
     <Compile Include="IIngresoTrasladoRepository.cs" />
+    <Compile Include="ILiberacionHomePassRepository.cs" />
     <Compile Include="ILogCierreCicloRepository.cs" />
     <Compile Include="ICierreCicloRepository.cs" />
     <Compile Include="ILogClaroVideoRepository.cs" />

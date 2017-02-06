@@ -41,6 +41,7 @@ namespace Telmexla.Servicios.DIME.Data
             ActivacionSiembraHD = new SiembraHDRepository(this.dimeContext);
             cambioEstratos = new CambioEstratoRepository(this.dimeContext);
             traficoTraslados = new TraficoTrasladoRepository(this.dimeContext);
+            liberacionesHomePass = new LiberacionHomePassRepository(this.dimeContext);
         }
         public IRechazoRepository rechazos
         {
@@ -153,6 +154,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public ITraficoTrasladoRepository traficoTraslados
+        {
+            get; private set;
+        }
+        public ILiberacionHomePassRepository liberacionesHomePass
         {
             get; private set;
         }

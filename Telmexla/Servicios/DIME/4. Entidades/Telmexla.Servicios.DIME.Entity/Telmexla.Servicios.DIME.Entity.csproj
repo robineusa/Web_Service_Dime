@@ -55,6 +55,7 @@
     <Compile Include="ActivacionClaroVideo.cs" />
     <Compile Include="ActivacionClaroVideoCollection.cs" />
     <Compile Include="ActualizarUsuarioGestionBackIngresoReturnModel.cs" />
+    <Compile Include="ActualizarUsuarioGestionHHPPReturnViewModel.cs" />
     <Compile Include="ActualizaUsuarioGestionBackTrasladoReturnModel.cs" />
     <Compile Include="ActualizaUsuarioGestionCambioEstratoReturnViewModel.cs" />
     <Compile Include="ActualizaUsuarioGestionOutTrasladoReturnModel.cs" />
@@ -83,6 +84,8 @@
     <Compile Include="IngresoCollection.cs" />
     <Compile Include="IngresoTraslado.cs" />
     <Compile Include="IngresoTrasladoCollection.cs" />
+    <Compile Include="LiberacionHomePass.cs" />
+    <Compile Include="LiberacionHomePassCollection.cs" />
     <Compile Include="Linea.cs" />
     <Compile Include="LineaCollection.cs" />
     <Compile Include="LogCierreCiclo.cs" />

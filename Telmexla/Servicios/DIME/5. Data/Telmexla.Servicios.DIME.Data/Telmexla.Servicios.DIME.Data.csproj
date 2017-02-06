@@ -57,6 +57,7 @@
     <Compile Include="Configuration\CambioEstratoConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\IngresoConfiguration.cs" />
+    <Compile Include="Configuration\LiberacionHomePassConfiguration.cs" />
     <Compile Include="Configuration\NotasTrasladoConfiguration.cs" />
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />
     <Compile Include="Configuration\RechazoConfiguration.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="IngresoRepository.cs" />
     <Compile Include="Configuration\IngresoTrasladoConfiguration.cs" />
     <Compile Include="IngresoTrasladoRepository.cs" />
+    <Compile Include="LiberacionHomePassRepository.cs" />
     <Compile Include="LogDocsisOverlapRepository.cs" />
     <Compile Include="LogConvenioElectronicoRepository.cs" />
     <Compile Include="LogCierreCicloRepository.cs" />

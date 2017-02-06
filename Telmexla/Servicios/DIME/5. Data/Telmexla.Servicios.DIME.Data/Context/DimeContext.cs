@@ -55,6 +55,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<SiembraHD> ActivacionSiembra { get; set; } // TBL_SIEMBRA_HD
         public System.Data.Entity.DbSet<CambioEstrato> cambioEstratos { get; set; } // TBL_CAMBIO_DE_ESTRATO
         public System.Data.Entity.DbSet<TraficoTraslado> traficoTraslados { get; set; } // TBL_TRAFICO_TRASLADO
+        public System.Data.Entity.DbSet<LiberacionHomePass> liberacionesHomePass { get; set; } // TBL_LIBERACION_HOME_PASS
 
 
         static DimeContext()
@@ -142,6 +143,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CambioEstratoConfiguration());
             modelBuilder.Configurations.Add(new SiembraHDConfiguration());
             modelBuilder.Configurations.Add(new TraficoTrasladoConfiguration());
+            modelBuilder.Configurations.Add(new LiberacionHomePassConfiguration());
 
         }
 
@@ -182,6 +184,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CambioEstratoConfiguration(schema));
             modelBuilder.Configurations.Add(new SiembraHDConfiguration(schema));
             modelBuilder.Configurations.Add(new TraficoTrasladoConfiguration(schema));
+            modelBuilder.Configurations.Add(new LiberacionHomePassConfiguration(schema));
 
             return modelBuilder;
         }
@@ -371,5 +374,47 @@ namespace Telmexla.Servicios.DIME.Data.Context
 
             return procResultData;
         }
+
+        //procedure Liberaciones de Home Pass
+        public System.Collections.Generic.List<ActualizarUsuarioGestionHHPPReturnViewModel> ActualizaUsuarioGestionBackHomePass(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return ActualizaUsuarioGestionBackHomePass(idTransaccion, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionHHPPReturnViewModel> ActualizaUsuarioGestionBackHomePass(decimal? idTransaccion, string usuarioBack, out int procResult)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ActualizarUsuarioGestionHHPPReturnViewModel>("EXEC @procResult = [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_HHPP] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam).ToList();
+
+            procResult = (int)procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionHHPPReturnViewModel>> ActualizaUsuarioGestionBackHomePassAsync(decimal? idTransaccion, string usuarioBack)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ActualizarUsuarioGestionHHPPReturnViewModel>("EXEC [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_HHPP] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
+
+            return procResultData;
+        }
+
+
+
     }
 }

@@ -34,6 +34,7 @@ namespace Telmexla.Servicios.DIME.IData
         ISiembraHDRepository ActivacionSiembraHD { get; }
         ICambioEstratoRepository cambioEstratos { get; }
         ITraficoTrasladoRepository traficoTraslados { get; }
+        ILiberacionHomePassRepository liberacionesHomePass { get; }
         int Complete();
     }
 }
