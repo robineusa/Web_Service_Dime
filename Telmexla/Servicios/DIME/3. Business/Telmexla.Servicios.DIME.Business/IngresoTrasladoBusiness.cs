@@ -44,6 +44,8 @@ namespace Telmexla.Servicios.DIME.Business
 
                 //registro de tiempos y transaccion
                 transaccion.IdTransaccion = ingreso.IdTransaccion;
+                transaccion.UsuarioTransaccion = notaTraslado.UsuarioTransaccion;
+                transaccion.EstadoTransaccion = notaTraslado.EstadoTransaccion;
                 unitWork.traficoTraslados.Add(transaccion);
                 unitWork.Complete();
             }
@@ -167,6 +169,8 @@ namespace Telmexla.Servicios.DIME.Business
 
             //registro de tiempos y transaccion
             transaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            transaccion.UsuarioTransaccion = notaTransaccion.UsuarioTransaccion;
+            transaccion.EstadoTransaccion = notaTransaccion.EstadoTransaccion;
             unitWork.traficoTraslados.Add(transaccion);
             unitWork.Complete();
 
@@ -362,6 +366,8 @@ namespace Telmexla.Servicios.DIME.Business
 
                 //registro de tiempos y transaccion
                 transaccion.IdTransaccion = ingreso.IdTransaccion;
+                transaccion.UsuarioTransaccion = cambioEstrato.UsuarioTransaccion;
+                transaccion.EstadoTransaccion = cambioEstrato.EstadoTransaccion;
                 unitWork.traficoTraslados.Add(transaccion);
                 unitWork.Complete();
             }
@@ -488,6 +494,8 @@ namespace Telmexla.Servicios.DIME.Business
 
             //registro de tiempos y transaccion
             transaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            transaccion.UsuarioTransaccion = notaTransaccion.UsuarioTransaccion;
+            transaccion.EstadoTransaccion = notaTransaccion.EstadoTransaccion;
             unitWork.traficoTraslados.Add(transaccion);
             unitWork.Complete();
 
