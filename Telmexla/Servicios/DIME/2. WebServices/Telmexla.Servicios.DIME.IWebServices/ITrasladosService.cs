@@ -51,5 +51,23 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<DatoConsultaDirecciones> ListaSeguimientosCambiodeEstratoCelula(string usrABackOffice);
         [OperationContract]
         List<DatoConsultaDirecciones> ListGestionCambioDeEstrato(DateTime FechaInicial, DateTime FechaFinal, string usrTransac);
+
+        //PROCESOS LIBERACION DE HOME PASS
+        [OperationContract]
+        void InsertIngresoLiberacionHomePass(IngresoTraslado ingreso, LiberacionHomePass liberacion, TraficoTraslado transaccion);
+        [OperationContract]
+        bool ExisteCuentaEscaladaLiberacionHomePass(decimal cuenta);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListaSolicitudesLiberacionesHomePass();
+        [OperationContract]
+        LiberacionHomePassCollection ListaInteraccionesLiberacionHomePass(int id);
+        [OperationContract]
+        void ActualizarSolicitudLiberacionesHomePass(IngresoTraslado ingreso, LiberacionHomePass liberacion, TraficoTraslado transaccion);
+        [OperationContract]
+        bool TransaccionEnGestionLiberacionHomePass(int id, String usrABackOffice);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListaSeguimientosLiberacionHomePassCelula(string usrABackOffice);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListGestionLiberacionHomePass(DateTime FechaInicial, DateTime FechaFinal, string usrTransac);
     }
 }

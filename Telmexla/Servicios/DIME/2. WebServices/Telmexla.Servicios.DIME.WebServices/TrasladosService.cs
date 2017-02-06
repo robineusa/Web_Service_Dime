@@ -109,5 +109,46 @@ namespace Telmexla.Servicios.DIME.WebServices
             return ingresoBusi.ListGestionCambioDeEstrato(FechaInicial, FechaFinal, usrTransac);
         }
 
+        //PROCESO LIBERACIONES DE HOME PASS
+        public void InsertIngresoLiberacionHomePass(IngresoTraslado ingreso, LiberacionHomePass liberacion, TraficoTraslado transaccion)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            ingresoBusi.InsertIngresoLiberacionHomePass(ingreso, liberacion, transaccion);
         }
+        public bool ExisteCuentaEscaladaLiberacionHomePass(decimal cuenta)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ExisteCuentaEscaladaLiberacionHomePass(cuenta);
+        }
+        public List<DatoConsultaDirecciones> ListaSolicitudesLiberacionesHomePass()
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSolicitudesLiberacionesHomePass();
+        }
+        public LiberacionHomePassCollection ListaInteraccionesLiberacionHomePass(int id)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaInteraccionesLiberacionHomePass(id);
+        }
+        public void ActualizarSolicitudLiberacionesHomePass(IngresoTraslado ingreso, LiberacionHomePass liberacion, TraficoTraslado transaccion)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            ingresoBusi.ActualizarSolicitudLiberacionesHomePass(ingreso, liberacion, transaccion);
+        }
+        public bool TransaccionEnGestionLiberacionHomePass(int id, String usrABackOffice)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.TransaccionEnGestionLiberacionHomePass(id, usrABackOffice);
+        }
+        public List<DatoConsultaDirecciones> ListaSeguimientosLiberacionHomePassCelula(string usrABackOffice)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSeguimientosLiberacionHomePassCelula(usrABackOffice);
+        }
+        public List<DatoConsultaDirecciones> ListGestionLiberacionHomePass(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListGestionLiberacionHomePass(FechaInicial, FechaFinal, usrTransac);
+        }
+    }
     }

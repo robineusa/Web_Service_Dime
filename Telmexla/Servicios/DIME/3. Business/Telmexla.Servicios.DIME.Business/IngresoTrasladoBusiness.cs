@@ -583,5 +583,262 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
+        //INICIA METODOS PARA PROCESO DE LIBERACIONES DE HOME PASS
+        public void InsertIngresoLiberacionHomePass(IngresoTraslado ingreso, LiberacionHomePass liberacion, TraficoTraslado transaccion)
+        {
+            try
+            {
+                ingreso.TipoGestion = "LIBERACION DE HOME PASS";
+                ingreso.FechaApertura = DateTime.Now;
+                ingreso.HoraApertura = DateTime.Now;
+                ingreso.FechaUltimaActualizacion = DateTime.Now;
+                ingreso.HoraUltimaActualizacion = DateTime.Now;
+                ingreso.EstadoTransaccion = "PENDIENTE POR CREAR";
+                ingreso.NombreLineaEscalado = "CELULA LIBERACION DE HOME PASS";
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.ingresoTraslados.Add(ingreso);
+                unitWork.Complete();
+
+                liberacion.IdTransaccion = ingreso.IdTransaccion;
+                liberacion.UsuarioTransaccion = ingreso.UsuarioApertura;
+                liberacion.CanalTransaccion = "INBOUND TRASLADOS";
+                liberacion.FechaTransaccion = DateTime.Now;
+                liberacion.NombreLineaTransaccion = ingreso.NombreLineaIngreso;
+                liberacion.Razon = "SOLICITUD INBOUND";
+                liberacion.Subrazon = "LIBERACION DE HOME PASS";
+                liberacion.EstadoTransaccion = "PENDIENTE POR CREAR";
+                unitWork.liberacionesHomePass.Add(liberacion);
+                unitWork.Complete();
+
+                //registro de tiempos y transaccion
+                transaccion.IdTransaccion = ingreso.IdTransaccion;
+                transaccion.UsuarioTransaccion = liberacion.UsuarioTransaccion;
+                transaccion.EstadoTransaccion = liberacion.EstadoTransaccion;
+                unitWork.traficoTraslados.Add(transaccion);
+                unitWork.Complete();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
+        public bool ExisteCuentaEscaladaLiberacionHomePass(decimal cuenta)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoTransaccion != "FINALIZADO" && c.TipoGestion == "LIBERACION DE HOME PASS").Count() >= 1;
+
+        }
+        public List<DatoConsultaDirecciones> ListaSolicitudesLiberacionesHomePass()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.liberacionesHomePass select new { m.IdTransaccion, m.UsuarioBackOffice,m.CuentaTraslada,m.MotivoLiberacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where a.EstadoTransaccion.Equals("PENDIENTE POR CREAR") && b.UsuarioBackOffice == null
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     b.CuentaTraslada,
+                                     b.MotivoLiberacion,
+                                     a.FechaApertura,
+                                     a.UsuarioApertura,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].LiberacionHomePass.CuentaTraslada = objetosResult[i].CuentaTraslada;
+                result[i].LiberacionHomePass.MotivoLiberacion = objetosResult[i].MotivoLiberacion;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
+        public LiberacionHomePassCollection ListaInteraccionesLiberacionHomePass(int id)
+        {
+
+            UnitOfWork unitwork = new UnitOfWork(new DimeContext());
+            LiberacionHomePassCollection result = new LiberacionHomePassCollection();
+            result.AddRange(unitwork.liberacionesHomePass.Find(c => c.IdTransaccion == id).Select(a => new LiberacionHomePass
+            {
+                Id = a.Id,
+                IdTransaccion = a.IdTransaccion,
+                UsuarioTransaccion = a.UsuarioTransaccion,
+                CanalTransaccion = a.CanalTransaccion,
+                FechaTransaccion = a.FechaTransaccion,
+                NombreLineaTransaccion = a.NombreLineaTransaccion,
+                CuentaOcupa = a.CuentaOcupa,
+                CuentaTraslada = a.CuentaTraslada,
+                Direccion = a.Direccion,
+                Nodo = a.Nodo,
+                TelefonoCelular = a.TelefonoCelular,
+                TelefonoFijo = a.TelefonoFijo,
+                Razon = a.Razon,
+                Subrazon = a.Subrazon,
+                Observacion = a.Observacion,
+                EstadoTransaccion = a.EstadoTransaccion,
+                MotivoLiberacion = a.MotivoLiberacion
+            }).ToList());
+
+            return result;
+        }
+        public void ActualizarSolicitudLiberacionesHomePass(IngresoTraslado ingreso, LiberacionHomePass liberacion, TraficoTraslado transaccion)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
+            DateTime fechaActual = DateTime.Now;
+            if (ingreso.EstadoTransaccion == "FINALIZADO")
+            {
+                ingresoActualizable.FechaCierre = fechaActual;
+                ingresoActualizable.HoraCierre = fechaActual;
+                ingresoActualizable.UsuarioCierre = ingreso.UsuarioUltimaActualizacion;
+            }
+            ingresoActualizable.FechaUltimaActualizacion = fechaActual;
+            ingresoActualizable.HoraUltimaActualizacion = fechaActual;
+            ingresoActualizable.UsuarioUltimaActualizacion = ingreso.UsuarioUltimaActualizacion;
+            ingresoActualizable.EstadoTransaccion = ingreso.EstadoTransaccion;
+
+            LiberacionHomePass notaTransaccion = new LiberacionHomePass();
+            notaTransaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            notaTransaccion.UsuarioTransaccion = liberacion.UsuarioTransaccion;
+            notaTransaccion.CanalTransaccion = liberacion.CanalTransaccion;
+            notaTransaccion.FechaTransaccion = fechaActual;
+            notaTransaccion.NombreLineaTransaccion = liberacion.NombreLineaTransaccion;
+            notaTransaccion.CuentaOcupa = ingresoActualizable.CuentaCliente;
+            notaTransaccion.CuentaTraslada = liberacion.CuentaTraslada;
+            notaTransaccion.Direccion = liberacion.Direccion;
+            notaTransaccion.Nodo = liberacion.Nodo;
+            notaTransaccion.TelefonoCelular = liberacion.TelefonoCelular;
+            notaTransaccion.TelefonoFijo = liberacion.TelefonoFijo;
+            notaTransaccion.Razon = liberacion.Razon;
+            notaTransaccion.Subrazon = liberacion.Subrazon;
+            notaTransaccion.Observacion = liberacion.Observacion;
+            notaTransaccion.EstadoTransaccion = liberacion.EstadoTransaccion;
+            notaTransaccion.UsuarioBackOffice = liberacion.UsuarioBackOffice;
+            notaTransaccion.MotivoLiberacion = liberacion.MotivoLiberacion;
+            unitWork.liberacionesHomePass.Add(notaTransaccion);
+            unitWork.Complete();
+
+            //registro de tiempos y transaccion
+            transaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            transaccion.UsuarioTransaccion = notaTransaccion.UsuarioTransaccion;
+            transaccion.EstadoTransaccion = notaTransaccion.EstadoTransaccion;
+            unitWork.traficoTraslados.Add(transaccion);
+            unitWork.Complete();
+
+        }
+        public bool TransaccionEnGestionLiberacionHomePass(int id, String usrABackOffice)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            string result = unitWork.liberacionesHomePass.ComprobarActualizarUsrBackoffice(id, usrABackOffice);
+            if (result == usrABackOffice) return false;
+            else return true;
+        }
+        public List<DatoConsultaDirecciones> ListaSeguimientosLiberacionHomePassCelula(string usrABackOffice)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.liberacionesHomePass select new { m.IdTransaccion, m.UsuarioBackOffice,m.CuentaTraslada,m.MotivoLiberacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && b.UsuarioBackOffice == usrABackOffice
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     b.CuentaTraslada,
+                                     b.MotivoLiberacion,
+                                     a.FechaApertura,
+                                     a.UsuarioApertura,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].LiberacionHomePass.CuentaTraslada = objetosResult[i].CuentaTraslada;
+                result[i].LiberacionHomePass.MotivoLiberacion = objetosResult[i].MotivoLiberacion;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
+        public List<DatoConsultaDirecciones> ListGestionLiberacionHomePass(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.liberacionesHomePass
+                                 join b in dimContext.IngresoTraslados on a.IdTransaccion equals b.IdTransaccion
+                                 where a.FechaTransaccion >= FechaInicial && a.FechaTransaccion <= FechaFinal && a.UsuarioTransaccion == usrTransac
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaOcupa,
+                                     a.UsuarioTransaccion,
+                                     a.CanalTransaccion,
+                                     a.FechaTransaccion,
+                                     a.NombreLineaTransaccion,
+                                     a.EstadoTransaccion,
+                                     a.Razon,
+                                     a.Subrazon,
+                                     a.Observacion
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].NotaTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].NotaTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaOcupa;
+                result[i].NotaTrasladoGetSet.UsuarioTransaccion = objetosResult[i].UsuarioTransaccion;
+                result[i].NotaTrasladoGetSet.CanalTransaccion = objetosResult[i].CanalTransaccion;
+                result[i].NotaTrasladoGetSet.FechaTransaccion = objetosResult[i].FechaTransaccion;
+                result[i].NotaTrasladoGetSet.NombreLineaTransaccion = objetosResult[i].NombreLineaTransaccion;
+                result[i].NotaTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].NotaTrasladoGetSet.Razon = objetosResult[i].Razon;
+                result[i].NotaTrasladoGetSet.Subrazon = objetosResult[i].Subrazon;
+                result[i].NotaTrasladoGetSet.Observacion = objetosResult[i].Observacion;
+
+            }
+
+
+            return result;
+        }
+
+
     }
 }
