@@ -135,6 +135,7 @@
     <Compile Include="TraficoTrasladoCollection.cs" />
     <Compile Include="TraficoTraslado.cs" />
     <Compile Include="Usuario.cs" />
+    <Compile Include="UsuarioCollection.cs" />
     <Compile Include="UsuariosXAcceso.cs" />
     <Compile Include="UsuariosXPreguntasDesb.cs" />
   </ItemGroup>

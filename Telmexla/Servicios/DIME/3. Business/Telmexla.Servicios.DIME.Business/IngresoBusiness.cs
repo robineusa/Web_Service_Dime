@@ -62,6 +62,14 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
+        public UsuarioCollection GetUsuariosCelulaActual()
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            UsuarioCollection result = new UsuarioCollection();
+            result.AddRange(unitWork.usuarios.Find(c=>c.Linea.IdModoLogin ==3).Select(x=> new Usuario { Id = x.Id, Nombre= x.Nombre})     );
+            return result;
+        }
+
         public List<DatoConsultaGestionAdmin> ListaNotasIngresosYIngresosPorAliado(DateTime inicial, DateTime final, string aliado)
         {
             DimeContext dimContext = new DimeContext();

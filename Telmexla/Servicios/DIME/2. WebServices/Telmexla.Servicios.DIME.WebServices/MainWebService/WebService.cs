@@ -582,6 +582,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return casosAdminService.ListaGestionAdmin(inicial, final, aliado);
         }
 
+        public UsuarioCollection ListaUsuariosCelulaActual()
+        {
+            CasosAdminService casosAdminService = new CasosAdminService();
+            return casosAdminService.ListaUsuariosCelulaActual();
+        }
+
         #endregion CasosAdminService
 
         #region registrarTraslado

@@ -42,5 +42,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             return ingresoBusi.ListaNotasIngresosYIngresosPorAliado(inicial, final, aliado);
         }
 
+        public UsuarioCollection ListaUsuariosCelulaActual()
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            return ingresoBusi.GetUsuariosCelulaActual();
+        }
+
     }
 }

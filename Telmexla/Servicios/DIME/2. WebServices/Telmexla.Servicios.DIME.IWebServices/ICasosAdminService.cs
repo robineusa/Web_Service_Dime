@@ -27,7 +27,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<String> ListaAliadosActualesDeHolos();
 
         [OperationContract]
-        List<DatoConsultaGestionAdmin> ListaGestionAdmin(DateTime inicial, DateTime final, string aliado); 
+        List<DatoConsultaGestionAdmin> ListaGestionAdmin(DateTime inicial, DateTime final, string aliado);
+
+        [OperationContract]
+        UsuarioCollection ListaUsuariosCelulaActual();
+        
 
     }
 }
