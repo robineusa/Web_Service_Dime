@@ -32,7 +32,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             unitWork.traficoTraslados.Add(trafico);
             unitWork.Complete();
-            
+
+
+            //NotificaionesBuenServicioService NotiService = new NotificaionesBuenServicioService();
+            //var result454 = NotiService.ListaImagenesBuenServicio();
 
             ////prueba julio
 

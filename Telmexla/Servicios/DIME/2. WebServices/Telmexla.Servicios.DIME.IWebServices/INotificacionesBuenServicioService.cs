@@ -14,5 +14,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void RegistrarNotificado(NotificacionesBuenServicio notificacion);
 
+        [OperationContract]
+        NotificacionesBuenServicioCollection ListaImagenesBuenServicio();
+
     }
 }

@@ -494,6 +494,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             NotificaionesBuenServicioService notificacionesservice = new NotificaionesBuenServicioService();
             notificacionesservice.RegistrarNotificado(notificado);
         }
+        public NotificacionesBuenServicioCollection ListaImagenesBuenServicio()
+        {
+            NotificacionesBuenServicioBusiness ImgBusiness = new NotificacionesBuenServicioBusiness();
+            return ImgBusiness.ListaImagenesBuenServicio();
+        }
         #endregion
 
         #region CasosCellService
@@ -775,6 +780,6 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             activacionbusiness.InsertarSiembraHDInbound(siembra);
         }
         #endregion
-
+        
     }
 }

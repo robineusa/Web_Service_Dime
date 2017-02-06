@@ -9,12 +9,17 @@ using Telmexla.Servicios.DIME.IWebServices;
 
 namespace Telmexla.Servicios.DIME.WebServices
 {
-    class NotificaionesBuenServicioService : INotificacionesBuenServicioService
+    public class NotificaionesBuenServicioService : INotificacionesBuenServicioService
     {
         public void RegistrarNotificado(NotificacionesBuenServicio notificacion)
         {
             NotificacionesBuenServicioBusiness notificacionbusiness = new NotificacionesBuenServicioBusiness();
             notificacionbusiness.Registrarnotificado(notificacion);
+        }
+        public NotificacionesBuenServicioCollection ListaImagenesBuenServicio()
+        {
+            NotificacionesBuenServicioBusiness ImgBusiness = new NotificacionesBuenServicioBusiness();
+            return ImgBusiness.ListaImagenesBuenServicio();
         }
     }
 }

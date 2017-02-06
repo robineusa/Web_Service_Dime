@@ -18,6 +18,14 @@ namespace Telmexla.Servicios.DIME.Business
             unitOfWork.notificacionesBuenServicio.Add(notificacion);
             unitOfWork.Complete();
         }
+        public NotificacionesBuenServicioCollection ListaImagenesBuenServicio()
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            List<NotificacionesBuenServicio> listaNotificaciones = unitOfWork.notificacionesBuenServicio.GetAll().ToList();
+            NotificacionesBuenServicioCollection listaDatos = new NotificacionesBuenServicioCollection();
+            listaDatos.AddRange(listaNotificaciones);
+            return listaDatos;
 
+        }
     }
 }
