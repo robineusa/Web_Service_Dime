@@ -588,13 +588,13 @@ namespace Telmexla.Servicios.DIME.Business
         {
             try
             {
-                ingreso.TipoGestion = "LIBERACION DE HOME PASS";
+                ingreso.TipoGestion = "LIBERACION DE HOMEPASS";
                 ingreso.FechaApertura = DateTime.Now;
                 ingreso.HoraApertura = DateTime.Now;
                 ingreso.FechaUltimaActualizacion = DateTime.Now;
                 ingreso.HoraUltimaActualizacion = DateTime.Now;
                 ingreso.EstadoTransaccion = "PENDIENTE POR CREAR";
-                ingreso.NombreLineaEscalado = "CELULA LIBERACION DE HOME PASS";
+                ingreso.NombreLineaEscalado = "CELULA LIBERACION DE HOMEPASS";
 
                 UnitOfWork unitWork = new UnitOfWork(new DimeContext());
                 unitWork.ingresoTraslados.Add(ingreso);
@@ -606,7 +606,7 @@ namespace Telmexla.Servicios.DIME.Business
                 liberacion.FechaTransaccion = DateTime.Now;
                 liberacion.NombreLineaTransaccion = ingreso.NombreLineaIngreso;
                 liberacion.Razon = "SOLICITUD INBOUND";
-                liberacion.Subrazon = "LIBERACION DE HOME PASS";
+                liberacion.Subrazon = "LIBERACION DE HOMEPASS";
                 liberacion.EstadoTransaccion = "PENDIENTE POR CREAR";
                 unitWork.liberacionesHomePass.Add(liberacion);
                 unitWork.Complete();
@@ -636,7 +636,7 @@ namespace Telmexla.Servicios.DIME.Business
         public bool ExisteCuentaEscaladaLiberacionHomePass(decimal cuenta)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoTransaccion != "FINALIZADO" && c.TipoGestion == "LIBERACION DE HOME PASS").Count() >= 1;
+            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoTransaccion != "FINALIZADO" && c.TipoGestion == "LIBERACION DE HOMEPASS").Count() >= 1;
 
         }
         public List<DatoConsultaDirecciones> ListaSolicitudesLiberacionesHomePass()
