@@ -56,6 +56,7 @@
     <Compile Include="Configuration\BasePersonalHoloConfiguration.cs" />
     <Compile Include="Configuration\CambioEstratoConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
+    <Compile Include="Configuration\GestionMatrizConfiguration.cs" />
     <Compile Include="Configuration\IngresoConfiguration.cs" />
     <Compile Include="Configuration\LiberacionHomePassConfiguration.cs" />
     <Compile Include="Configuration\NotasTrasladoConfiguration.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Configuration\SiembraHDConfiguration.cs" />
     <Compile Include="Configuration\TraficoTrasladoConfiguration.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
+    <Compile Include="GestionMatrizRepository.cs" />
     <Compile Include="IngresoRepository.cs" />
     <Compile Include="Configuration\IngresoTrasladoConfiguration.cs" />
     <Compile Include="IngresoTrasladoRepository.cs" />
