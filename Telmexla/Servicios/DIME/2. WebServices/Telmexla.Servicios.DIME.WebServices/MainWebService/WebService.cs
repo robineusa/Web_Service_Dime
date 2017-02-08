@@ -728,6 +728,63 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListGestionLiberacionHomePass(FechaInicial, FechaFinal, usrTransac);
         }
+        //PROCESO GESTION DE MATRICES
+        public void InsertIngresoGestionMatriz(IngresoTraslado ingreso, GestionMatriz matriz, TraficoTraslado transaccion)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            ingresoBusi.InsertIngresoGestionMatriz(ingreso, matriz, transaccion);
+        }
+        public bool ExisteCuentaEscaladaMatriz(decimal cuenta)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ExisteCuentaEscaladaMatriz(cuenta);
+        }
+        public List<DatoConsultaDirecciones> ListaSolicitudesCreaciondeMatriz()
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSolicitudesCreaciondeMatriz();
+        }
+        public GestionMatrizColleciton ListaInteraccionesMatrices(int id)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaInteraccionesMatrices(id);
+        }
+        public void ActualizarSolicitudMatrices(IngresoTraslado ingreso, GestionMatriz matriz, TraficoTraslado transaccion)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            ingresoBusi.ActualizarSolicitudMatrices(ingreso, matriz, transaccion);
+        }
+        public bool TransaccionCrearMatrizEnGestion(int id, String usrABackOffice)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.TransaccionCrearMatrizEnGestion(id, usrABackOffice);
+        }
+        public List<DatoConsultaDirecciones> ListaSeguimientosCrearMatrizCelula(string usrABackOffice)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSeguimientosCrearMatrizCelula(usrABackOffice);
+        }
+        public List<DatoConsultaDirecciones> ListaSolicitudesGestionMatriz()
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSolicitudesGestionMatriz();
+        }
+        public bool TransaccionGestionMatrizEnGestion(int id, String usrOut)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.TransaccionGestionMatrizEnGestion(id, usrOut);
+        }
+        public List<DatoConsultaDirecciones> ListaSeguimientosGestionMatricesCelula(string UsuarioOut)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSeguimientosGestionMatricesCelula(UsuarioOut);
+        }
+        public List<DatoConsultaDirecciones> ListGestionMatrices(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListGestionMatrices(FechaInicial, FechaFinal, usrTransac);
+        }
+
         #endregion
 
         #region maestroNodos

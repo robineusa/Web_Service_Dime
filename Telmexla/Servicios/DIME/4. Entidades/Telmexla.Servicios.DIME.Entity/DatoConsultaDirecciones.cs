@@ -13,6 +13,7 @@ namespace Telmexla.Servicios.DIME.Entity
         private MaestroNodo maestroNodo;
         private CambioEstrato cambioEstrato;
         private LiberacionHomePass liberacionHomePass;
+        private GestionMatriz gestionMatriz;
 
         public DatoConsultaDirecciones()
         {
@@ -21,6 +22,7 @@ namespace Telmexla.Servicios.DIME.Entity
             maestroNodo = new MaestroNodo();
             CambioEstrato = new CambioEstrato();
             liberacionHomePass = new LiberacionHomePass();
+            gestionMatriz = new GestionMatriz();
         }
 
         public IngresoTraslado IngresoTrasladoGetSet
@@ -85,6 +87,19 @@ namespace Telmexla.Servicios.DIME.Entity
             set
             {
                 liberacionHomePass = value;
+            }
+        }
+
+        public GestionMatriz GestionMatriz
+        {
+            get
+            {
+                return gestionMatriz;
+            }
+
+            set
+            {
+                gestionMatriz = value;
             }
         }
     }

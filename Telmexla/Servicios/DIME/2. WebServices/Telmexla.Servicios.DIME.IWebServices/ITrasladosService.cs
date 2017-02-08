@@ -69,5 +69,29 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<DatoConsultaDirecciones> ListaSeguimientosLiberacionHomePassCelula(string usrABackOffice);
         [OperationContract]
         List<DatoConsultaDirecciones> ListGestionLiberacionHomePass(DateTime FechaInicial, DateTime FechaFinal, string usrTransac);
+        //PROCESO CREACION DE MATRICES
+        [OperationContract]
+        void InsertIngresoGestionMatriz(IngresoTraslado ingreso, GestionMatriz matriz, TraficoTraslado transaccion);
+        [OperationContract]
+        bool ExisteCuentaEscaladaMatriz(decimal cuenta);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListaSolicitudesCreaciondeMatriz();
+        [OperationContract]
+        GestionMatrizColleciton ListaInteraccionesMatrices(int id);
+        [OperationContract]
+        void ActualizarSolicitudMatrices(IngresoTraslado ingreso, GestionMatriz matriz, TraficoTraslado transaccion);
+        [OperationContract]
+        bool TransaccionCrearMatrizEnGestion(int id, String usrABackOffice);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListaSeguimientosCrearMatrizCelula(string usrABackOffice);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListaSolicitudesGestionMatriz();
+        [OperationContract]
+        bool TransaccionGestionMatrizEnGestion(int id, String usrOut);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListaSeguimientosGestionMatricesCelula(string UsuarioOut);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListGestionMatrices(DateTime FechaInicial, DateTime FechaFinal, string usrTransac);
+
     }
 }
