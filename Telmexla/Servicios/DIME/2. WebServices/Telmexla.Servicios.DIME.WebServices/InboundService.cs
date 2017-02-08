@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Telmexla.Servicios.DIME.Business;
+using Telmexla.Servicios.DIME.Data;
 using Telmexla.Servicios.DIME.Data.Context;
 using Telmexla.Servicios.DIME.Entity;
 using Telmexla.Servicios.DIME.IWebServices;
@@ -18,22 +19,29 @@ namespace Telmexla.Servicios.DIME.WebServices
             
             DimeContext context = new DimeContext();
 
-            if(context.DatosAdicionalesClientes.Where(c=>c.Cuenta==datosAdicionalesCliente.Cuenta).Any())
-            { 
-            context.DatosAdicionalesClientes.Attach(datosAdicionalesCliente);
-            var entry = context.Entry(datosAdicionalesCliente);
-            entry.Property(e => e.TelefonoPersonal).IsModified = true;
-            entry.Property(e => e.CorreoElectronico).IsModified = true;
-            entry.Property(e => e.FechaCumpleanos).IsModified = true;
-            entry.Property(e => e.RangoDeEdad).IsModified = true;
-            entry.Property(e => e.Hobbie).IsModified = true;
-            entry.Property(e => e.Twitter).IsModified = true;
-            entry.Property(e => e.Facebook).IsModified = true;
-            entry.Property(e => e.Instagram).IsModified = true;
-            entry.Property(e => e.Otro).IsModified = true;
-            entry.Property(e => e.NumeroHijos).IsModified = true;
-            entry.Property(e => e.EdadHijos).IsModified = true;
-            entry.Property(e => e.NivelEstudios).IsModified = true;
+            if (context.DatosAdicionalesClientes.Where(c => c.Cuenta == datosAdicionalesCliente.Cuenta).Any())
+            {
+                context.DatosAdicionalesClientes.Attach(datosAdicionalesCliente);
+                var entry = context.Entry(datosAdicionalesCliente);
+                entry.Property(e => e.TelefonoPersonal).IsModified = true;
+                entry.Property(e => e.CorreoElectronico).IsModified = true;
+                entry.Property(e => e.FechaCumpleanos).IsModified = true;
+                entry.Property(e => e.RangoDeEdad).IsModified = true;
+                entry.Property(e => e.Hobbie).IsModified = true;
+                entry.Property(e => e.Twitter).IsModified = true;
+                entry.Property(e => e.Facebook).IsModified = true;
+                entry.Property(e => e.Instagram).IsModified = true;
+                entry.Property(e => e.Otro).IsModified = true;
+                entry.Property(e => e.NumeroHijos).IsModified = true;
+                entry.Property(e => e.EdadHijos).IsModified = true;
+                entry.Property(e => e.NivelEstudios).IsModified = true;
+
+                ClientesTodo clientesTodo =    context.ClientesTodoes.Where(c => c.Cuenta == datosAdicionalesCliente.Cuenta).FirstOrDefault();
+                clientesTodo.TelefonoConv = datosAdicionalesCliente.TelefonoPersonal.ToString();
+                context.ClientesTodoes.Attach(clientesTodo);
+                var entry2 = context.Entry(clientesTodo);
+                entry2.Property(e => e.TelefonoConv).IsModified = true;
+
             }
             else
             {
@@ -71,12 +79,14 @@ namespace Telmexla.Servicios.DIME.WebServices
         }
 
 
-        public void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion)
+        public void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion, IngresosSoporte ingresoSoporte)
         {
-            IngresoBusiness ingresoBusi = new IngresoBusiness();
-            ingreso = ingresoBusi.PonerDatosBasicosEnIngreso(infoCliente, ingreso);
-            ingresoBusi.InsertIngreso( ingreso, observacion);
+            if (ingresoSoporte.TipoSegumiento.Equals("CELULA OUTBOUND SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO VISITAS"))
+                ingreso.NombreLineaEscalado = ingresoSoporte.TipoSegumiento;
 
+                IngresoBusiness ingresoBusi = new IngresoBusiness();
+            ingreso = ingresoBusi.PonerDatosBasicosEnIngreso(infoCliente, ingreso);
+            ingresoBusi.InsertIngreso( ingreso, observacion, ingresoSoporte);
         }
 
         public IngresoCollection ListaIngresosDeCuenta(string cuenta)

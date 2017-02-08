@@ -25,6 +25,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<MaestroAtributo> MaestroAtributoes { get; set; }
         public System.Data.Entity.DbSet<MaestroCausa> MaestroCausas { get; set; }
         public System.Data.Entity.DbSet<MaestroCierre> MaestroCierres { get; set; }
+        public System.Data.Entity.DbSet<MaestroDivisional> MaestroDivisionals { get; set; }
         public System.Data.Entity.DbSet<MaestroEstadoMarcacion> MaestroEstadoMarcacions { get; set; }
         public System.Data.Entity.DbSet<MaestroGestion> MaestroGestions { get; set; }
         public System.Data.Entity.DbSet<MaestroHipotesi> MaestroHipotesis { get; set; }
@@ -58,6 +59,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             MaestroAtributoes = new FakeDbSet<MaestroAtributo>("IdAtributo", "Servicio");
             MaestroCausas = new FakeDbSet<MaestroCausa>("IdCausa", "Causa");
             MaestroCierres = new FakeDbSet<MaestroCierre>("IdCierre", "Cierre");
+            MaestroDivisionals = new FakeDbSet<MaestroDivisional>("Id");
             MaestroEstadoMarcacions = new FakeDbSet<MaestroEstadoMarcacion>("IdEstado");
             MaestroGestions = new FakeDbSet<MaestroGestion>("IdTipoGestion");
             MaestroHipotesis = new FakeDbSet<MaestroHipotesi>("IdHipotesis", "Hipotesis");

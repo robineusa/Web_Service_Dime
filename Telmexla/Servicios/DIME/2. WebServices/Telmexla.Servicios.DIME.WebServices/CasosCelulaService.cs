@@ -62,5 +62,32 @@ namespace Telmexla.Servicios.DIME.WebServices
             }
 
         }
+
+        public List<RazonIngresoSoporte> ListaRazonesSoporteIngresos()
+        {
+            ArbolesDeTipificacion arbolTipificacion = new ArbolesDeTipificacion();
+          return   arbolTipificacion.GetRazonesDeSoporteIngreso();
+        }
+
+
+        public List<Subrazon1IngresoSoporte> ListaSubrazon1SoporteIngresos(int idRazon)
+        {
+            ArbolesDeTipificacion arbolTipificacion = new ArbolesDeTipificacion();
+            return arbolTipificacion.GetSubrazonDeRazonSoporteIngresos (idRazon);
+        }
+
+
+        public List<Subrazon2IngresoSoporte> ListaSubrazon2SoporteIngresos(int idSubrazon1)
+        {
+
+            ArbolesDeTipificacion arbolTipificacion = new ArbolesDeTipificacion();
+            return arbolTipificacion.GetSubrazones2DeSubrazon1SoporteIngresos(idSubrazon1);
+        }
+
+        public IngresosSoporte IngresoSoportePorId(int idIngreso)
+        {
+            IngresoBusiness ingreBusi = new IngresoBusiness();
+            return ingreBusi.GetIngresoSoportePorId(idIngreso);
+        }
     }
 }

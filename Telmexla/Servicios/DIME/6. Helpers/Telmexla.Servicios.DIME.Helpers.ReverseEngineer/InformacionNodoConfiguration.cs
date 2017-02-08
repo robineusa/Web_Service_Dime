@@ -28,19 +28,21 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             HasKey(x => x.IdNodo);
 
             Property(x => x.IdNodo).HasColumnName(@"ID_NODO").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.Nodo).HasColumnName(@"NODO").IsOptional().HasColumnType("nvarchar").HasMaxLength(255);
-            Property(x => x.NombreNodo).HasColumnName(@"NOMBRE_NODO").IsOptional().HasColumnType("nvarchar").HasMaxLength(255);
-            Property(x => x.Div).HasColumnName(@"DIV").IsOptional().HasColumnType("nvarchar").HasMaxLength(255);
-            Property(x => x.Com).HasColumnName(@"COM").IsOptional().HasColumnType("nvarchar").HasMaxLength(255);
+            Property(x => x.Nodo).HasColumnName(@"NODO").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
+            Property(x => x.NombreNodo).HasColumnName(@"NOMBRE_NODO").IsOptional().HasColumnType("nvarchar").HasMaxLength(100);
+            Property(x => x.Div).HasColumnName(@"DIV").IsOptional().HasColumnType("nvarchar").HasMaxLength(10);
+            Property(x => x.Com).HasColumnName(@"COM").IsOptional().HasColumnType("nvarchar").HasMaxLength(10);
             Property(x => x.Divisional).HasColumnName(@"DIVISIONAL").IsOptional().HasColumnType("numeric");
             Property(x => x.Area).HasColumnName(@"AREA").IsOptional().HasColumnType("numeric");
             Property(x => x.Distrito).HasColumnName(@"DISTRITO").IsOptional().HasColumnType("numeric");
             Property(x => x.Ugestion).HasColumnName(@"UGESTION").IsOptional().HasColumnType("numeric");
-            Property(x => x.Usuario).HasColumnName(@"USUARIO").IsOptional().HasColumnType("nvarchar").HasMaxLength(255);
+            Property(x => x.Usuario).HasColumnName(@"USUARIO").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
             Property(x => x.FechaCreacion).HasColumnName(@"FECHA_CREACION").IsOptional().HasColumnType("datetime");
-            Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().HasColumnType("nvarchar").HasMaxLength(255);
-            Property(x => x.Red).HasColumnName(@"RED").IsOptional().HasColumnType("nvarchar").HasMaxLength(255);
-            Property(x => x.Aliado).HasColumnName(@"ALIADO").IsOptional().HasColumnType("nvarchar").HasMaxLength(255);
+            Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
+            Property(x => x.Red).HasColumnName(@"RED").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
+            Property(x => x.Aliado).HasColumnName(@"ALIADO").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
+            Property(x => x.NombreComunidad).HasColumnName(@"NOMBRE_COMUNIDAD").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.Departamento).HasColumnName(@"DEPARTAMENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
         }
     }
 

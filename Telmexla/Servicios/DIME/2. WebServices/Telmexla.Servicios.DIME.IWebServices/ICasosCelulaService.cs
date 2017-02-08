@@ -34,5 +34,16 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void ActualizarIngresoPorCelula(Ingreso ingreso, string aplicaRechazo, string razonRechazo, string notas);
 
+        [OperationContract]
+        List<RazonIngresoSoporte> ListaRazonesSoporteIngresos();
+
+        [OperationContract]
+        List<Subrazon1IngresoSoporte> ListaSubrazon1SoporteIngresos(int idRazon);
+
+        [OperationContract]
+        List<Subrazon2IngresoSoporte> ListaSubrazon2SoporteIngresos(int idSubrazon1);
+
+        [OperationContract]
+        IngresosSoporte IngresoSoportePorId(int idIngreso);
     }
 }

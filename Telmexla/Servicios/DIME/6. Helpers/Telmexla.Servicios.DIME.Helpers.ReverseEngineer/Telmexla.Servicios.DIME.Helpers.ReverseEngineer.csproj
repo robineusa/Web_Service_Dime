@@ -56,10 +56,43 @@
     <Compile Include="AccesoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ActivacionClaroVideo.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivacionClaroVideoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivacionSiembraHd.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivacionSiembraHdConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarUsuarioGestionBackCambioEstratoReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarUsuarioGestionBackCreacionMatrizReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarUsuarioGestionBackGestionMatrizReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarUsuarioGestionBackHhppReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ActualizarUsuarioGestionBackIngresoReturnModel.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="ActualizarUsuarioGestionBackTrasladoReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarUsuarioGestionOutTrasladoReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BalanceScoreCard.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BalanceScoreCardH.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseCuenta.cs">
@@ -90,6 +123,12 @@
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="BdPersonalHolos2.cs">
+      <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CambioDeEstrato.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CambioDeEstratoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="CierreCiclo.cs">
@@ -120,6 +159,12 @@
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="CreacionDireccionConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasSiembraHd.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasSiembraHdConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="Database1.cs">
@@ -166,13 +211,19 @@
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="FakeDbSet.cs">
-      <DependentUpon>Database1.tt</DependentUpon>
+      <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="FakeDimeContext.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="FakeMaestrosContext.cs">
       <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMatrIx.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMatrIxConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="GestionOutbound.cs">
       <DependentUpon>Database1.tt</DependentUpon>
@@ -196,6 +247,18 @@
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="IngresoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IngresosSoporte.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IngresosSoporteConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LiberacionDeHomepass.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LiberacionDeHomepassConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="Linea.cs">
@@ -250,6 +313,12 @@
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="MaestroCierreConfiguration.cs">
+      <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaestroDivisional.cs">
+      <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaestroDivisionalConfiguration.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="MaestroEstadoMarcacion.cs">
@@ -406,6 +475,12 @@
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RazonIngresoSoporte.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RazonIngresoSoporteConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Rechazo.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -436,23 +511,47 @@
     <Compile Include="ServicioConfiguration.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
+    <Compile Include="SiembraHd.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SiembraHdConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="SubProceso.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="SubProcesoConfiguration.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Sysdiagram.cs">
+    <Compile Include="Subrazon1IngresoSoporte.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
-    <Compile Include="SysdiagramConfiguration.cs">
+    <Compile Include="Subrazon1IngresoSoporteConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subrazon2IngresoSoporte.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subrazon2IngresoSoporteConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sysdiagram.cs">
+      <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysdiagramConfiguration.cs">
+      <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="T1Marcacione.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="Tmp7PqrMaestroFestivo.cs">
       <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TraficoTraslado.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TraficoTrasladoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="TransaccionesTraslado.cs">
       <DependentUpon>Database1.tt</DependentUpon>

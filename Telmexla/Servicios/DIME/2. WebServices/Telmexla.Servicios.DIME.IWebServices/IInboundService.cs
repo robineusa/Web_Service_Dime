@@ -30,7 +30,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
 
         [OperationContract]
-        void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion);
+        void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion, IngresosSoporte ingresoSoporte);
 
 
         [OperationContract]

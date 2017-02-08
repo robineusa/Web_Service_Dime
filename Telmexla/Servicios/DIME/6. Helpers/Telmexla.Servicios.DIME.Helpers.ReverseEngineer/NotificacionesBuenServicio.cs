@@ -13,7 +13,7 @@
 namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 {
 
-    // NOTIFICACIONES_BUEN_SERVICIO
+    // TBL_NOTIFICACIONES_BUEN_SERVICIO
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.24.0.0")]
     public class NotificacionesBuenServicio
     {

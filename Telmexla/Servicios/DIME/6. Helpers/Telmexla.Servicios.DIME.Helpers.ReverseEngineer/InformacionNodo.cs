@@ -18,19 +18,21 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     public class InformacionNodo
     {
         public decimal IdNodo { get; set; } // ID_NODO (Primary key)
-        public string Nodo { get; set; } // NODO (length: 255)
-        public string NombreNodo { get; set; } // NOMBRE_NODO (length: 255)
-        public string Div { get; set; } // DIV (length: 255)
-        public string Com { get; set; } // COM (length: 255)
+        public string Nodo { get; set; } // NODO (length: 30)
+        public string NombreNodo { get; set; } // NOMBRE_NODO (length: 100)
+        public string Div { get; set; } // DIV (length: 10)
+        public string Com { get; set; } // COM (length: 10)
         public decimal? Divisional { get; set; } // DIVISIONAL
         public decimal? Area { get; set; } // AREA
         public decimal? Distrito { get; set; } // DISTRITO
         public decimal? Ugestion { get; set; } // UGESTION
-        public string Usuario { get; set; } // USUARIO (length: 255)
+        public string Usuario { get; set; } // USUARIO (length: 30)
         public System.DateTime? FechaCreacion { get; set; } // FECHA_CREACION
-        public string Estado { get; set; } // ESTADO (length: 255)
-        public string Red { get; set; } // RED (length: 255)
-        public string Aliado { get; set; } // ALIADO (length: 255)
+        public string Estado { get; set; } // ESTADO (length: 30)
+        public string Red { get; set; } // RED (length: 30)
+        public string Aliado { get; set; } // ALIADO (length: 30)
+        public string NombreComunidad { get; set; } // NOMBRE_COMUNIDAD (length: 100)
+        public string Departamento { get; set; } // DEPARTAMENTO (length: 100)
     }
 
 }

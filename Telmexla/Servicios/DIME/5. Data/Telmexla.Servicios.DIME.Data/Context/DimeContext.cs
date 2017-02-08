@@ -38,6 +38,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; } // TBL_CONVENIO_ELECTRONICO
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
+        public System.Data.Entity.DbSet<IngresosSoporte> IngresosSoportes { get; set; } // TBL_INGRESOS_SOPORTE
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
         public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; }//  TMP_MAESTRO_MARCACIONES 
         public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicio { get; set; }//  NOTIFICACIONES_BUEN_SERVICIO
@@ -56,7 +57,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<CambioEstrato> cambioEstratos { get; set; } // TBL_CAMBIO_DE_ESTRATO
         public System.Data.Entity.DbSet<TraficoTraslado> traficoTraslados { get; set; } // TBL_TRAFICO_TRASLADO
         public System.Data.Entity.DbSet<LiberacionHomePass> liberacionesHomePass { get; set; } // TBL_LIBERACION_HOME_PASS
-
+        public System.Data.Entity.DbSet<RazonIngresoSoporte> RazonIngresoSoportes { get; set; } // TBL_RAZON_INGRESO_SOPORTE
+        public System.Data.Entity.DbSet<Subrazon1IngresoSoporte> Subrazon1IngresoSoporte { get; set; } // TBL_SUBRAZON1_INGRESO_SOPORTE
+        public System.Data.Entity.DbSet<Subrazon2IngresoSoporte> Subrazon2IngresoSoporte { get; set; } // TBL_SUBRAZON2_INGRESO_SOPORTE
 
         static DimeContext()
         {
@@ -144,6 +147,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SiembraHDConfiguration());
             modelBuilder.Configurations.Add(new TraficoTrasladoConfiguration());
             modelBuilder.Configurations.Add(new LiberacionHomePassConfiguration());
+            modelBuilder.Configurations.Add(new IngresosSoporteConfiguration());
+            modelBuilder.Configurations.Add(new RazonIngresoSoporteConfiguration());
+            modelBuilder.Configurations.Add(new Subrazon1IngresoSoporteConfiguration());
+            modelBuilder.Configurations.Add(new Subrazon2IngresoSoporteConfiguration());
 
         }
 
@@ -185,6 +192,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SiembraHDConfiguration(schema));
             modelBuilder.Configurations.Add(new TraficoTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new LiberacionHomePassConfiguration(schema));
+            modelBuilder.Configurations.Add(new IngresosSoporteConfiguration(schema));
+            modelBuilder.Configurations.Add(new RazonIngresoSoporteConfiguration(schema));
+            modelBuilder.Configurations.Add(new Subrazon1IngresoSoporteConfiguration(schema));
+            modelBuilder.Configurations.Add(new Subrazon2IngresoSoporteConfiguration(schema));
 
             return modelBuilder;
         }

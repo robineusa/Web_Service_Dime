@@ -191,10 +191,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
 
 
-        public void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion)
+        public void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion, IngresosSoporte ingresoSoporte)
         {
             InboundService inboundService = new InboundService();
-             inboundService.RegistrarIngresoInbound(infoCliente, ingreso, observacion);
+             inboundService.RegistrarIngresoInbound(infoCliente, ingreso, observacion, ingresoSoporte);
         }
 
 
@@ -548,6 +548,32 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             casosCelulaService.ActualizarIngresoPorCelula(ingreso, aplicaRechazo, razonRechazo, notas);
         }
 
+
+       public  List<RazonIngresoSoporte> ListaRazonesSoporteIngresos()
+        {
+            CasosCelulaService casosCelulaService = new CasosCelulaService();
+           return  casosCelulaService.ListaRazonesSoporteIngresos();
+        }
+
+
+        public List<Subrazon1IngresoSoporte> ListaSubrazon1SoporteIngresos(int idRazon)
+        {
+            CasosCelulaService casosCelulaService = new CasosCelulaService();
+            return casosCelulaService.ListaSubrazon1SoporteIngresos(idRazon);
+        }
+
+
+        public List<Subrazon2IngresoSoporte> ListaSubrazon2SoporteIngresos(int idSubrazon1)
+        {
+            CasosCelulaService casosCelulaService = new CasosCelulaService();
+            return casosCelulaService.ListaSubrazon2SoporteIngresos(idSubrazon1);
+        }
+
+        public IngresosSoporte IngresoSoportePorId(int idIngreso)
+        {
+            CasosCelulaService casosCelulaService = new CasosCelulaService();
+            return casosCelulaService.IngresoSoportePorId(idIngreso);
+        }
         #endregion CasosCellService
 
         #region CasosAdminService

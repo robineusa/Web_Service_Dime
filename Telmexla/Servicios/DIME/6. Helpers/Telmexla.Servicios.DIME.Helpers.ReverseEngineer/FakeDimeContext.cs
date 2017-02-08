@@ -19,17 +19,24 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     public class FakeDimeContext : IDimeContext
     {
         public System.Data.Entity.DbSet<Acceso> Accesoes { get; set; }
+        public System.Data.Entity.DbSet<ActivacionClaroVideo> ActivacionClaroVideos { get; set; }
+        public System.Data.Entity.DbSet<ActivacionSiembraHd> ActivacionSiembraHds { get; set; }
         public System.Data.Entity.DbSet<BasePersonalHolo> BasePersonalHoloes { get; set; }
+        public System.Data.Entity.DbSet<CambioDeEstrato> CambioDeEstratoes { get; set; }
         public System.Data.Entity.DbSet<CierreCiclo> CierreCicloes { get; set; }
         public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; }
         public System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; }
         public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; }
         public System.Data.Entity.DbSet<CreacionDireccion> CreacionDireccions { get; set; }
+        public System.Data.Entity.DbSet<CuentasSiembraHd> CuentasSiembraHds { get; set; }
         public System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; }
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; }
+        public System.Data.Entity.DbSet<GestionMatrIx> GestionMatrIces { get; set; }
         public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; }
         public System.Data.Entity.DbSet<InformacionNodo> InformacionNodoes { get; set; }
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; }
+        public System.Data.Entity.DbSet<IngresosSoporte> IngresosSoportes { get; set; }
+        public System.Data.Entity.DbSet<LiberacionDeHomepass> LiberacionDeHomepasses { get; set; }
         public System.Data.Entity.DbSet<Linea> Lineas { get; set; }
         public System.Data.Entity.DbSet<LogCierreCiclo> LogCierreCicloes { get; set; }
         public System.Data.Entity.DbSet<LogClaroVideo> LogClaroVideos { get; set; }
@@ -42,9 +49,14 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicios { get; set; }
         public System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; }
         public System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; }
+        public System.Data.Entity.DbSet<RazonIngresoSoporte> RazonIngresoSoportes { get; set; }
         public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; }
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; }
+        public System.Data.Entity.DbSet<SiembraHd> SiembraHds { get; set; }
+        public System.Data.Entity.DbSet<Subrazon1IngresoSoporte> Subrazon1IngresoSoporte { get; set; }
+        public System.Data.Entity.DbSet<Subrazon2IngresoSoporte> Subrazon2IngresoSoporte { get; set; }
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; }
+        public System.Data.Entity.DbSet<TraficoTraslado> TraficoTrasladoes { get; set; }
         public System.Data.Entity.DbSet<TransaccionesTraslado> TransaccionesTrasladoes { get; set; }
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; }
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; }
@@ -53,17 +65,24 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public FakeDimeContext()
         {
             Accesoes = new FakeDbSet<Acceso>("Id");
+            ActivacionClaroVideos = new FakeDbSet<ActivacionClaroVideo>("IdActivacion");
+            ActivacionSiembraHds = new FakeDbSet<ActivacionSiembraHd>("Id");
             BasePersonalHoloes = new FakeDbSet<BasePersonalHolo>("Cedula");
+            CambioDeEstratoes = new FakeDbSet<CambioDeEstrato>("Id");
             CierreCicloes = new FakeDbSet<CierreCiclo>("Id");
             ClaroVideos = new FakeDbSet<ClaroVideo>("Id");
             ClientesTodoes = new FakeDbSet<ClientesTodo>("Cuenta");
             ConvenioElectronicoes = new FakeDbSet<ConvenioElectronico>("Id");
             CreacionDireccions = new FakeDbSet<CreacionDireccion>("Id");
+            CuentasSiembraHds = new FakeDbSet<CuentasSiembraHd>("Id");
             DatosAdicionalesClientes = new FakeDbSet<DatosAdicionalesCliente>("Cuenta");
             DocsisOverlaps = new FakeDbSet<DocsisOverlap>("Id");
+            GestionMatrIces = new FakeDbSet<GestionMatrIx>("Id");
             GestionOutbounds = new FakeDbSet<GestionOutbound>("Id");
             InformacionNodoes = new FakeDbSet<InformacionNodo>("IdNodo");
             Ingresoes = new FakeDbSet<Ingreso>("IdIngreso");
+            IngresosSoportes = new FakeDbSet<IngresosSoporte>("Id");
+            LiberacionDeHomepasses = new FakeDbSet<LiberacionDeHomepass>("Id");
             Lineas = new FakeDbSet<Linea>("Id");
             LogCierreCicloes = new FakeDbSet<LogCierreCiclo>("Id");
             LogClaroVideos = new FakeDbSet<LogClaroVideo>("Id");
@@ -76,9 +95,14 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             NotificacionesBuenServicios = new FakeDbSet<NotificacionesBuenServicio>("IdNotificado");
             PqrMaestroCodCierres = new FakeDbSet<PqrMaestroCodCierre>("Id");
             PreguntasDesbloqueos = new FakeDbSet<PreguntasDesbloqueo>("Id");
+            RazonIngresoSoportes = new FakeDbSet<RazonIngresoSoporte>("Id");
             Rechazoes = new FakeDbSet<Rechazo>("IdRechazo");
             RegistroSesions = new FakeDbSet<RegistroSesion>("Id");
+            SiembraHds = new FakeDbSet<SiembraHd>("Id");
+            Subrazon1IngresoSoporte = new FakeDbSet<Subrazon1IngresoSoporte>("Id");
+            Subrazon2IngresoSoporte = new FakeDbSet<Subrazon2IngresoSoporte>("Id");
             Sysdiagrams = new FakeDbSet<Sysdiagram>("DiagramId");
+            TraficoTrasladoes = new FakeDbSet<TraficoTraslado>("Id");
             TransaccionesTrasladoes = new FakeDbSet<TransaccionesTraslado>("IdTransaccion");
             Usuarios = new FakeDbSet<Usuario>("Id");
             UsuariosXAccesoes = new FakeDbSet<UsuariosXAcceso>("Id", "IdAcceso", "IdUsuario");
@@ -114,6 +138,82 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         }
 
         // Stored Procedures
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackCambioEstratoReturnModel> ActualizarUsuarioGestionBackCambioEstrato(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return ActualizarUsuarioGestionBackCambioEstrato(idTransaccion, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackCambioEstratoReturnModel> ActualizarUsuarioGestionBackCambioEstrato(decimal? idTransaccion, string usuarioBack, out int procResult)
+        {
+
+            procResult = 0;
+            return new System.Collections.Generic.List<ActualizarUsuarioGestionBackCambioEstratoReturnModel>();
+        }
+
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackCambioEstratoReturnModel>> ActualizarUsuarioGestionBackCambioEstratoAsync(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return System.Threading.Tasks.Task.FromResult(ActualizarUsuarioGestionBackCambioEstrato(idTransaccion, usuarioBack, out procResult));
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackCreacionMatrizReturnModel> ActualizarUsuarioGestionBackCreacionMatriz(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return ActualizarUsuarioGestionBackCreacionMatriz(idTransaccion, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackCreacionMatrizReturnModel> ActualizarUsuarioGestionBackCreacionMatriz(decimal? idTransaccion, string usuarioBack, out int procResult)
+        {
+
+            procResult = 0;
+            return new System.Collections.Generic.List<ActualizarUsuarioGestionBackCreacionMatrizReturnModel>();
+        }
+
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackCreacionMatrizReturnModel>> ActualizarUsuarioGestionBackCreacionMatrizAsync(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return System.Threading.Tasks.Task.FromResult(ActualizarUsuarioGestionBackCreacionMatriz(idTransaccion, usuarioBack, out procResult));
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackGestionMatrizReturnModel> ActualizarUsuarioGestionBackGestionMatriz(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return ActualizarUsuarioGestionBackGestionMatriz(idTransaccion, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackGestionMatrizReturnModel> ActualizarUsuarioGestionBackGestionMatriz(decimal? idTransaccion, string usuarioBack, out int procResult)
+        {
+
+            procResult = 0;
+            return new System.Collections.Generic.List<ActualizarUsuarioGestionBackGestionMatrizReturnModel>();
+        }
+
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackGestionMatrizReturnModel>> ActualizarUsuarioGestionBackGestionMatrizAsync(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return System.Threading.Tasks.Task.FromResult(ActualizarUsuarioGestionBackGestionMatriz(idTransaccion, usuarioBack, out procResult));
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackHhppReturnModel> ActualizarUsuarioGestionBackHhpp(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return ActualizarUsuarioGestionBackHhpp(idTransaccion, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackHhppReturnModel> ActualizarUsuarioGestionBackHhpp(decimal? idTransaccion, string usuarioBack, out int procResult)
+        {
+
+            procResult = 0;
+            return new System.Collections.Generic.List<ActualizarUsuarioGestionBackHhppReturnModel>();
+        }
+
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackHhppReturnModel>> ActualizarUsuarioGestionBackHhppAsync(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return System.Threading.Tasks.Task.FromResult(ActualizarUsuarioGestionBackHhpp(idTransaccion, usuarioBack, out procResult));
+        }
+
         public System.Collections.Generic.List<ActualizarUsuarioGestionBackIngresoReturnModel> ActualizarUsuarioGestionBackIngreso(decimal? idIngreso, string usuarioBack)
         {
             int procResult;
@@ -150,6 +250,25 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         {
             int procResult;
             return System.Threading.Tasks.Task.FromResult(ActualizarUsuarioGestionBackTraslado(idTransaccion, usuarioBack, out procResult));
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionOutTrasladoReturnModel> ActualizarUsuarioGestionOutTraslado(decimal? idTransaccion, string usuarioOut)
+        {
+            int procResult;
+            return ActualizarUsuarioGestionOutTraslado(idTransaccion, usuarioOut, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionOutTrasladoReturnModel> ActualizarUsuarioGestionOutTraslado(decimal? idTransaccion, string usuarioOut, out int procResult)
+        {
+
+            procResult = 0;
+            return new System.Collections.Generic.List<ActualizarUsuarioGestionOutTrasladoReturnModel>();
+        }
+
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionOutTrasladoReturnModel>> ActualizarUsuarioGestionOutTrasladoAsync(decimal? idTransaccion, string usuarioOut)
+        {
+            int procResult;
+            return System.Threading.Tasks.Task.FromResult(ActualizarUsuarioGestionOutTraslado(idTransaccion, usuarioOut, out procResult));
         }
 
         public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion)

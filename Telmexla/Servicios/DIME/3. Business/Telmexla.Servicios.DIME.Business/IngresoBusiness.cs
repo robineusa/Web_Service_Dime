@@ -13,9 +13,11 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class IngresoBusiness
     {
-        public void InsertIngreso(Ingreso ingreso, string observacion)
+        public void InsertIngreso(Ingreso ingreso, string observacion, IngresosSoporte ingresoSoporte)
         {
-            try { 
+            try
+            {
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             ingreso.FechaApertura = DateTime.Now;
             ingreso.HoraApertura = DateTime.Now;
             ingreso.FechaUltimaActualizacion = DateTime.Now;
@@ -23,7 +25,6 @@ namespace Telmexla.Servicios.DIME.Business
             ingreso.HoraUltimaActualizacion = DateTime.Now;
             ingreso.Semaforo = "gris01.png";
 
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             if (ingreso.IdEstado == 2)
                 {
                     ingreso.FechaCierre = DateTime.Now;
@@ -45,6 +46,14 @@ namespace Telmexla.Servicios.DIME.Business
             logIngreso.Nota = observacion.ToUpper().Trim();
             logIngreso.IdEstado = ingreso.IdEstado;
             unitWork.notasIngresos.Add(logIngreso);
+
+                if (ingresoSoporte.TipoSegumiento.Equals("CELULA OUTBOUND SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO VISITAS"))
+                {
+                    CompletarDatosIngresoSoporte(ingresoSoporte, ingreso);
+                    InsertIngresoSoporte(ingresoSoporte, unitWork);
+                }
+                    
+
             unitWork.Complete();
             }
             catch (DbEntityValidationException dbEx)
@@ -60,6 +69,27 @@ namespace Telmexla.Servicios.DIME.Business
                 }
             }
 
+        }
+
+        public void InsertIngresoSoporte(IngresosSoporte ingresoSoporte, UnitOfWork unitWork)
+        {
+            unitWork.ingresosSoporte.Add(ingresoSoporte);
+        }
+
+        public void CompletarDatosIngresoSoporte(IngresosSoporte ingresoSoporte, Ingreso ingreso)
+        {
+            ingresoSoporte.Cuenta = ingreso.Cuenta;
+            ingresoSoporte.Nombre = ingreso.Nombre;
+            ingresoSoporte.Apellido = ingreso.Apellido;
+            ingresoSoporte.IdIngreso = ingreso.IdIngreso;
+            ingresoSoporte.IdServicio = ingreso.IdServicio;
+
+        }
+
+        public IngresosSoporte GetIngresoSoportePorId(int idIngreso)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+         return    unitWork.ingresosSoporte.Find(c => c.IdIngreso == idIngreso).LastOrDefault();
         }
 
         public UsuarioCollection GetUsuariosCelulaActual()
@@ -104,9 +134,7 @@ namespace Telmexla.Servicios.DIME.Business
                           Marcacion = b.Marcacion,
                           Nota = a.Nota,
                           IdEstado = b.IdEstado
-                          
                       }
-
                      ).ToList();
 
             return result;

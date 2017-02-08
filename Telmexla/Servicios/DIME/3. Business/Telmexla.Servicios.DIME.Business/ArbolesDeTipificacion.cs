@@ -65,5 +65,22 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
+        public List<RazonIngresoSoporte> GetRazonesDeSoporteIngreso()
+        {
+            DimeContext dimContext = new DimeContext();
+            return dimContext.RazonIngresoSoportes.ToList();
+        }
+
+        public List<Subrazon1IngresoSoporte> GetSubrazonDeRazonSoporteIngresos(int idRazon)
+        {
+            DimeContext context = new DimeContext();
+           return  context.Subrazon1IngresoSoporte.Where(c => c.IdRazon == idRazon).ToList();
+        }
+
+        public List<Subrazon2IngresoSoporte> GetSubrazones2DeSubrazon1SoporteIngresos(int idSubrazon1)
+        {
+            DimeContext context = new DimeContext();
+            return context.Subrazon2IngresoSoporte.Where(c => c.IdSubrazon1== idSubrazon1).ToList();
+        }
     }
 }

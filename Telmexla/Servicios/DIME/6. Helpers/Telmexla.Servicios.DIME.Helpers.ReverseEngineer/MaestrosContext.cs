@@ -25,6 +25,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<MaestroAtributo> MaestroAtributoes { get; set; } // MAESTRO_ATRIBUTOS
         public System.Data.Entity.DbSet<MaestroCausa> MaestroCausas { get; set; } // MAESTRO_CAUSAS
         public System.Data.Entity.DbSet<MaestroCierre> MaestroCierres { get; set; } // MAESTRO_CIERRE
+        public System.Data.Entity.DbSet<MaestroDivisional> MaestroDivisionals { get; set; } // MAESTRO_DIVISIONAL
         public System.Data.Entity.DbSet<MaestroEstadoMarcacion> MaestroEstadoMarcacions { get; set; } // MAESTRO_ESTADO_MARCACION
         public System.Data.Entity.DbSet<MaestroGestion> MaestroGestions { get; set; } // MAESTRO_GESTION
         public System.Data.Entity.DbSet<MaestroHipotesi> MaestroHipotesis { get; set; } // MAESTRO_HIPOTESIS
@@ -104,6 +105,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new MaestroAtributoConfiguration());
             modelBuilder.Configurations.Add(new MaestroCausaConfiguration());
             modelBuilder.Configurations.Add(new MaestroCierreConfiguration());
+            modelBuilder.Configurations.Add(new MaestroDivisionalConfiguration());
             modelBuilder.Configurations.Add(new MaestroEstadoMarcacionConfiguration());
             modelBuilder.Configurations.Add(new MaestroGestionConfiguration());
             modelBuilder.Configurations.Add(new MaestroHipotesiConfiguration());
@@ -138,6 +140,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new MaestroAtributoConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroCausaConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroCierreConfiguration(schema));
+            modelBuilder.Configurations.Add(new MaestroDivisionalConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroEstadoMarcacionConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroGestionConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroHipotesiConfiguration(schema));

@@ -42,6 +42,12 @@ namespace Telmexla.Servicios.DIME.Data
             cambioEstratos = new CambioEstratoRepository(this.dimeContext);
             traficoTraslados = new TraficoTrasladoRepository(this.dimeContext);
             liberacionesHomePass = new LiberacionHomePassRepository(this.dimeContext);
+            ingresosSoporte = new IngresoSoporteRepository(this.dimeContext);
+        }
+
+        public IIngresoSoporteRepository ingresosSoporte
+        {
+            get; private set;
         }
         public IRechazoRepository rechazos
         {

@@ -13,7 +13,7 @@
 namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 {
 
-    // NOTIFICACIONES_BUEN_SERVICIO
+    // TBL_NOTIFICACIONES_BUEN_SERVICIO
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.24.0.0")]
     public class NotificacionesBuenServicioConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<NotificacionesBuenServicio>
     {
@@ -24,7 +24,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 
         public NotificacionesBuenServicioConfiguration(string schema)
         {
-            ToTable("NOTIFICACIONES_BUEN_SERVICIO", schema);
+            ToTable("TBL_NOTIFICACIONES_BUEN_SERVICIO", schema);
             HasKey(x => x.IdNotificado);
 
             Property(x => x.IdNotificado).HasColumnName(@"ID_NOTIFICADO").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
