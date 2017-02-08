@@ -1149,8 +1149,8 @@ namespace Telmexla.Servicios.DIME.Business
         {
             DimeContext dimContext = new DimeContext();
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
-            var objetosResult = (from a in dimContext.NotasTraslados
-                                 join b in dimContext.gestionMatrices on a.IdTransaccion equals b.IdTransaccion
+            var objetosResult = (from a in dimContext.gestionMatrices
+                                 join b in dimContext.IngresoTraslados on a.IdTransaccion equals b.IdTransaccion
                                  where a.FechaTransaccion >= FechaInicial && a.FechaTransaccion <= FechaFinal && a.UsuarioTransaccion == usrTransac
                                  select new
                                  {
