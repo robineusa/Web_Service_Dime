@@ -839,6 +839,352 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
         }
 
+        //PROCESO GESTION DE MATRICES
+        public void InsertIngresoGestionMatriz(IngresoTraslado ingreso, GestionMatriz matriz, TraficoTraslado transaccion)
+        {
+            try
+            {
+                ingreso.TipoGestion = "GESTION DE MATRICES";
+                ingreso.FechaApertura = DateTime.Now;
+                ingreso.HoraApertura = DateTime.Now;
+                ingreso.FechaUltimaActualizacion = DateTime.Now;
+                ingreso.HoraUltimaActualizacion = DateTime.Now;
+                if (matriz.TipoGestionMatriz == "CREAR MATRIZ") {
+                    ingreso.EstadoTransaccion = "PENDIENTE POR CREAR";
+                    ingreso.NombreLineaEscalado = "CELULA CREACION MATRICES";
+                    matriz.Subrazon = "CREACION DE MATRIZ";
+                    matriz.EstadoTransaccion = "PENDIENTE POR CREAR";
+                }
+                else if (matriz.TipoGestionMatriz=="GESTIONAR MATRIZ")
+                {
+                    ingreso.EstadoTransaccion = "PENDIENTE POR GESTIONAR";
+                    ingreso.NombreLineaEscalado = "CELULA GESTION MATRICES";
+                    matriz.Subrazon = "GESTION DE MATRIZ";
+                    matriz.EstadoTransaccion = "PENDIENTE POR GESTIONAR";
+                }
+                
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.ingresoTraslados.Add(ingreso);
+                unitWork.Complete();
 
+                matriz.IdTransaccion = ingreso.IdTransaccion;
+                matriz.UsuarioTransaccion = ingreso.UsuarioApertura;
+                matriz.CanalTransaccion = "INBOUND TRASLADOS";
+                matriz.FechaTransaccion = DateTime.Now;
+                matriz.NombreLineaTransaccion = ingreso.NombreLineaIngreso;
+                matriz.CuentaCliente = ingreso.CuentaCliente;
+                matriz.Razon = "SOLICITUD INBOUND";
+                
+                unitWork.gestionMatrices.Add(matriz);
+                unitWork.Complete();
+
+                //registro de tiempos y transaccion
+                transaccion.IdTransaccion = ingreso.IdTransaccion;
+                transaccion.UsuarioTransaccion = matriz.UsuarioTransaccion;
+                transaccion.EstadoTransaccion = matriz.EstadoTransaccion;
+                unitWork.traficoTraslados.Add(transaccion);
+                unitWork.Complete();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
+        public bool ExisteCuentaEscaladaMatriz(decimal cuenta)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoTransaccion != "FINALIZADO" && c.TipoGestion == "GESTION DE MATRICES").Count() >= 1;
+
+        }
+        public List<DatoConsultaDirecciones> ListaSolicitudesCreaciondeMatriz()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.gestionMatrices select new { m.IdTransaccion, m.UsuarioBackOfficeCreacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where a.EstadoTransaccion.Equals("PENDIENTE POR CREAR") && b.UsuarioBackOfficeCreacion == null
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.FechaApertura,
+                                     a.UsuarioApertura,
+                                     a.TipoGestion,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
+        public GestionMatrizColleciton ListaInteraccionesMatrices(int id)
+        {
+
+            UnitOfWork unitwork = new UnitOfWork(new DimeContext());
+            GestionMatrizColleciton result = new GestionMatrizColleciton();
+            result.AddRange(unitwork.gestionMatrices.Find(c => c.IdTransaccion == id).Select(a => new GestionMatriz
+            {
+                Id = a.Id,
+                IdTransaccion = a.IdTransaccion,
+                UsuarioTransaccion = a.UsuarioTransaccion,
+                CanalTransaccion = a.CanalTransaccion,
+                FechaTransaccion = a.FechaTransaccion,
+                NombreLineaTransaccion = a.NombreLineaTransaccion,
+                TipoGestionMatriz=a.TipoGestionMatriz,
+                TipoCliente=a.TipoCliente,
+                CuentaCliente = a.CuentaCliente,
+                CuentaMatriz=a.CuentaMatriz,
+                OrdenTrabajo=a.OrdenTrabajo,
+                Direccion = a.Direccion,
+                Nodo =a.Nodo,
+                NombreConjuntoEdificio= a.NombreConjuntoEdificio,
+                TelefonoCLiente=a.TelefonoCLiente,
+                TelefonoAdministrador=a.TelefonoAdministrador,
+                NombreAdministrador=a.NombreAdministrador,
+                Razon=a.Razon,
+                Subrazon=a.Subrazon,
+                Observacion = a.Observacion,
+                EstadoTransaccion = a.EstadoTransaccion,
+                UsuarioBackOfficeCreacion=a.UsuarioBackOfficeCreacion,
+                UsuarioBackOfficeGestion=a.UsuarioBackOfficeGestion
+            }).ToList());
+
+            return result;
+        }
+        public void ActualizarSolicitudMatrices(IngresoTraslado ingreso, GestionMatriz matriz, TraficoTraslado transaccion)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
+            DateTime fechaActual = DateTime.Now;
+            if (ingreso.EstadoTransaccion == "FINALIZADO")
+            {
+                ingresoActualizable.FechaCierre = fechaActual;
+                ingresoActualizable.HoraCierre = fechaActual;
+                ingresoActualizable.UsuarioCierre = ingreso.UsuarioUltimaActualizacion;
+            }
+            ingresoActualizable.FechaUltimaActualizacion = fechaActual;
+            ingresoActualizable.HoraUltimaActualizacion = fechaActual;
+            ingresoActualizable.UsuarioUltimaActualizacion = ingreso.UsuarioUltimaActualizacion;
+            ingresoActualizable.EstadoTransaccion = ingreso.EstadoTransaccion;
+
+            GestionMatriz notaTransaccion = new GestionMatriz();
+            notaTransaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            notaTransaccion.UsuarioTransaccion = matriz.UsuarioTransaccion;
+            notaTransaccion.CanalTransaccion = matriz.CanalTransaccion;
+            notaTransaccion.FechaTransaccion = fechaActual;
+            notaTransaccion.NombreLineaTransaccion = matriz.NombreLineaTransaccion;
+            notaTransaccion.TipoGestionMatriz = matriz.TipoGestionMatriz;
+            notaTransaccion.TipoCliente = matriz.TipoCliente;
+            notaTransaccion.CuentaCliente = ingresoActualizable.CuentaCliente;
+            notaTransaccion.CuentaMatriz = matriz.CuentaMatriz;
+            notaTransaccion.OrdenTrabajo = matriz.OrdenTrabajo;
+            notaTransaccion.Direccion = matriz.Direccion;
+            notaTransaccion.Nodo = matriz.Nodo;
+            notaTransaccion.NombreConjuntoEdificio = matriz.NombreConjuntoEdificio;
+            notaTransaccion.TelefonoCLiente = matriz.TelefonoCLiente;
+            notaTransaccion.TelefonoAdministrador = matriz.TelefonoAdministrador;
+            notaTransaccion.NombreAdministrador = matriz.NombreAdministrador;
+            notaTransaccion.Razon = matriz.Razon;
+            notaTransaccion.Subrazon = matriz.Subrazon;
+            notaTransaccion.Observacion = matriz.Observacion;
+            notaTransaccion.EstadoTransaccion = matriz.EstadoTransaccion;
+            notaTransaccion.UsuarioBackOfficeCreacion = matriz.UsuarioBackOfficeCreacion;
+            notaTransaccion.UsuarioBackOfficeGestion = matriz.UsuarioBackOfficeGestion;
+            unitWork.gestionMatrices.Add(matriz);
+            unitWork.Complete();
+
+            //registro de tiempos y transaccion
+            transaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            transaccion.UsuarioTransaccion = notaTransaccion.UsuarioTransaccion;
+            transaccion.EstadoTransaccion = notaTransaccion.EstadoTransaccion;
+            unitWork.traficoTraslados.Add(transaccion);
+            unitWork.Complete();
+
+        }
+        public bool TransaccionCrearMatrizEnGestion(int id, String usrABackOffice)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            string result = unitWork.gestionMatrices.ComprobarActualizarUsrBackofficeCreacion(id, usrABackOffice);
+            if (result == usrABackOffice) return false;
+            else return true;
+        }
+        public List<DatoConsultaDirecciones> ListaSeguimientosCrearMatrizCelula(string usrABackOffice)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.gestionMatrices select new { m.IdTransaccion, m.UsuarioBackOfficeCreacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && b.UsuarioBackOfficeCreacion == usrABackOffice
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.FechaApertura,
+                                     a.UsuarioApertura,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
+        public List<DatoConsultaDirecciones> ListaSolicitudesGestionMatriz()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.gestionMatrices select new { m.IdTransaccion, m.UsuarioBackOfficeGestion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where a.EstadoTransaccion.Equals("PENDIENTE POR GESTIONAR") && b.UsuarioBackOfficeGestion == null
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.FechaApertura,
+                                     a.UsuarioApertura,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
+        public bool TransaccionGestionMatrizEnGestion(int id, String usrOut)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            string result = unitWork.gestionMatrices.ComprobarActualizarUsrBackofficeGestion(id, usrOut);
+            if (result == usrOut) return false;
+            else return true;
+        }
+        public List<DatoConsultaDirecciones> ListaSeguimientosGestionMatricesCelula(string UsuarioOut)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.gestionMatrices select new { m.IdTransaccion, m.UsuarioBackOfficeGestion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && b.UsuarioBackOfficeGestion == UsuarioOut
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.FechaApertura,
+                                     a.UsuarioApertura,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
+        public List<DatoConsultaDirecciones> ListGestionMatrices(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.gestionMatrices
+                                 join b in dimContext.IngresoTraslados on a.IdTransaccion equals b.IdTransaccion
+                                 where a.FechaTransaccion >= FechaInicial && a.FechaTransaccion <= FechaFinal && a.UsuarioTransaccion == usrTransac
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.UsuarioTransaccion,
+                                     a.CanalTransaccion,
+                                     a.FechaTransaccion,
+                                     a.NombreLineaTransaccion,
+                                     a.EstadoTransaccion,
+                                     a.Razon,
+                                     a.Subrazon,
+                                     a.Observacion
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].NotaTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].NotaTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].NotaTrasladoGetSet.UsuarioTransaccion = objetosResult[i].UsuarioTransaccion;
+                result[i].NotaTrasladoGetSet.CanalTransaccion = objetosResult[i].CanalTransaccion;
+                result[i].NotaTrasladoGetSet.FechaTransaccion = objetosResult[i].FechaTransaccion;
+                result[i].NotaTrasladoGetSet.NombreLineaTransaccion = objetosResult[i].NombreLineaTransaccion;
+                result[i].NotaTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].NotaTrasladoGetSet.Razon = objetosResult[i].Razon;
+                result[i].NotaTrasladoGetSet.Subrazon = objetosResult[i].Subrazon;
+                result[i].NotaTrasladoGetSet.Observacion = objetosResult[i].Observacion;
+
+            }
+
+
+            return result;
+        }
     }
 }

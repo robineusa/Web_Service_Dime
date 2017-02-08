@@ -54,6 +54,8 @@
     <Compile Include="AccesoCollection.cs" />
     <Compile Include="ActivacionClaroVideo.cs" />
     <Compile Include="ActivacionClaroVideoCollection.cs" />
+    <Compile Include="ActualizarUsuarioGestionBackCreacionMatrizReturnModel.cs" />
+    <Compile Include="ActualizarUsuarioGestionBackGestionMatrizReturnModel.cs" />
     <Compile Include="ActualizarUsuarioGestionBackIngresoReturnModel.cs" />
     <Compile Include="ActualizarUsuarioGestionHHPPReturnViewModel.cs" />
     <Compile Include="ActualizaUsuarioGestionBackTrasladoReturnModel.cs" />
@@ -78,6 +80,8 @@
     <Compile Include="DatosAdicionalesClienteCollection.cs" />
     <Compile Include="DocsisOverlap.cs" />
     <Compile Include="DocsisOverlapCollection.cs" />
+    <Compile Include="GestionMatriz.cs" />
+    <Compile Include="GestionMatrizColleciton.cs" />
     <Compile Include="GestionOutbound.cs" />
     <Compile Include="GestionOutboundCollection.cs" />
     <Compile Include="Ingreso.cs" />
