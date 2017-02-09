@@ -47,7 +47,7 @@ namespace Telmexla.Servicios.DIME.Business
             logIngreso.IdEstado = ingreso.IdEstado;
             unitWork.notasIngresos.Add(logIngreso);
 
-                if (ingresoSoporte.TipoSegumiento.Equals("CELULA OUTBOUND SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO VISITAS"))
+                if (ingresoSoporte.TipoSegumiento.Equals("CELULA VISITA SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO SOPORTE"))
                 {
                     CompletarDatosIngresoSoporte(ingresoSoporte, ingreso);
                     InsertIngresoSoporte(ingresoSoporte, unitWork);
@@ -337,7 +337,7 @@ namespace Telmexla.Servicios.DIME.Business
             return result;  
         }
 
-        public void ActualizarIngreso(Ingreso ingreso, string observacion, string llamadaCliente)
+        public void ActualizarIngreso(Ingreso ingreso, string observacion, string llamadaCliente, IngresosSoporte ingresoSoporte)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             Ingreso ingresoActualizable = unitWork.ingresos.Get(Convert.ToInt32(ingreso.IdIngreso));
@@ -372,8 +372,13 @@ namespace Telmexla.Servicios.DIME.Business
             logIngreso.Nota = observacion.ToUpper().Trim();
             logIngreso.IdEstado = ingreso.IdEstado;
             unitWork.notasIngresos.Add(logIngreso);
+            if (ingresoSoporte!= null && ingresoSoporte.Id != 0)
+                InsertIngresoSoporte(ingresoSoporte, unitWork);
+
             unitWork.Complete();
         }
+
+
 
 
         public List<DatoConsultaRechazo> TableRechazosInfo(DateTime fechaInicial, DateTime fechaFinal, string idUsuario, bool esPerfilAdmin)

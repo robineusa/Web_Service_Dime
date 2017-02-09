@@ -32,7 +32,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         bool CasoTomadoPorUsrBackActualizar(int idIngreso, string usrBack);
 
         [OperationContract]
-        void ActualizarIngresoPorCelula(Ingreso ingreso, string aplicaRechazo, string razonRechazo, string notas);
+        void ActualizarIngresoPorCelula(Ingreso ingreso, string aplicaRechazo, string razonRechazo, string notas, IngresosSoporte ingresoSoporte);
 
         [OperationContract]
         List<RazonIngresoSoporte> ListaRazonesSoporteIngresos();

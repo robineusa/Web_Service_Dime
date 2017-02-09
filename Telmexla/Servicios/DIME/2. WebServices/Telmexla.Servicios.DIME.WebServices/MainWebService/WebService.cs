@@ -547,10 +547,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
 
 
-        public void ActualizarIngresoPorCelula(Ingreso ingreso, string aplicaRechazo, string razonRechazo, string notas)
+        public void ActualizarIngresoPorCelula(Ingreso ingreso, string aplicaRechazo, string razonRechazo, string notas, IngresosSoporte ingresoSoporte)
         {
             CasosCelulaService casosCelulaService = new CasosCelulaService();
-            casosCelulaService.ActualizarIngresoPorCelula(ingreso, aplicaRechazo, razonRechazo, notas);
+            casosCelulaService.ActualizarIngresoPorCelula(ingreso, aplicaRechazo, razonRechazo, notas, ingresoSoporte);
         }
 
 

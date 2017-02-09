@@ -81,8 +81,6 @@ namespace Telmexla.Servicios.DIME.WebServices
 
         public void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion, IngresosSoporte ingresoSoporte)
         {
-            if (ingresoSoporte.TipoSegumiento.Equals("CELULA OUTBOUND SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO VISITAS"))
-                ingreso.NombreLineaEscalado = ingresoSoporte.TipoSegumiento;
 
                 IngresoBusiness ingresoBusi = new IngresoBusiness();
             ingreso = ingresoBusi.PonerDatosBasicosEnIngreso(infoCliente, ingreso);
@@ -104,7 +102,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public void ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente)
         {
             IngresoBusiness ingresoBusi = new IngresoBusiness();
-            ingresoBusi.ActualizarIngreso(ingreso, observacion, llamadaCliente);
+            ingresoBusi.ActualizarIngreso(ingreso, observacion, llamadaCliente,null);
         }
 
         public List<DatoConsultaGestion> ConsultaGestion(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)

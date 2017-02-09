@@ -51,11 +51,11 @@ namespace Telmexla.Servicios.DIME.WebServices
 
         }
 
-        public void ActualizarIngresoPorCelula(Ingreso ingreso, string aplicaRechazo, string razonRechazo, string notas)
+        public void ActualizarIngresoPorCelula(Ingreso ingreso, string aplicaRechazo, string razonRechazo, string notas, IngresosSoporte ingresoSoporte)
         {
             IngresoBusiness ingreBusi = new IngresoBusiness();
             string llamadaCliente = "NO";
-            ingreBusi.ActualizarIngreso(ingreso, notas, llamadaCliente);
+            ingreBusi.ActualizarIngreso(ingreso, notas, llamadaCliente, ingresoSoporte);
             if (aplicaRechazo.Equals("SI"))
             {
                 ingreBusi.IngresarRechazo(ingreso,razonRechazo);
