@@ -27,5 +27,11 @@ namespace Telmexla.Servicios.DIME.Business
             return listaDatos;
 
         }
+        public NotificacionesBuenServicio ImagenporId(int id)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            return unitOfWork.notificacionesBuenServicio.Get(id);
+
+        }
     }
 }

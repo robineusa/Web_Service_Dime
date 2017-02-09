@@ -17,5 +17,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         NotificacionesBuenServicioCollection ListaImagenesBuenServicio();
 
+        [OperationContract]
+        NotificacionesBuenServicio ImagenporId(int id);
+
     }
 }

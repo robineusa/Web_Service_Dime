@@ -35,7 +35,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
 
             //NotificaionesBuenServicioService NotiService = new NotificaionesBuenServicioService();
-            //var result454 = NotiService.ListaImagenesBuenServicio();
+            //var result454 = NotiService.ImagenporId(6);
 
             ////prueba julio
 

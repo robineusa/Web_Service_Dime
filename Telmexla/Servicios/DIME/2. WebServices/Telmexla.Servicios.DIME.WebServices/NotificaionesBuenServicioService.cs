@@ -21,5 +21,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             NotificacionesBuenServicioBusiness ImgBusiness = new NotificacionesBuenServicioBusiness();
             return ImgBusiness.ListaImagenesBuenServicio();
         }
+        public NotificacionesBuenServicio ImagenporId(int id)
+        {
+            NotificacionesBuenServicioBusiness ImgBss = new NotificacionesBuenServicioBusiness();
+            return ImgBss.ImagenporId(id);
+        }
     }
 }
