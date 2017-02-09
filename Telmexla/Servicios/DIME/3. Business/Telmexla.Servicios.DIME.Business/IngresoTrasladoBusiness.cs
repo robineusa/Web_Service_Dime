@@ -14,7 +14,7 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class IngresoTrasladoBusiness
     {
-        public void InsertIngresoTraslado(IngresoTraslado ingreso,NotasTraslado notaTraslado,TraficoTraslado transaccion)
+        public void InsertIngresoTraslado(IngresoTraslado ingreso, NotasTraslado notaTraslado, TraficoTraslado transaccion)
         {
             try
             {
@@ -23,8 +23,8 @@ namespace Telmexla.Servicios.DIME.Business
                 ingreso.HoraApertura = DateTime.Now;
                 ingreso.FechaUltimaActualizacion = DateTime.Now;
                 ingreso.HoraUltimaActualizacion = DateTime.Now;
-                ingreso.EstadoTransaccion= "PENDIENTE POR CREAR";
-                ingreso.NombreLineaEscalado= "CELULA CREACION DIRECCION";
+                ingreso.EstadoTransaccion = "PENDIENTE POR CREAR";
+                ingreso.NombreLineaEscalado = "CELULA CREACION DIRECCION";
 
                 UnitOfWork unitWork = new UnitOfWork(new DimeContext());
                 unitWork.ingresoTraslados.Add(ingreso);
@@ -70,11 +70,12 @@ namespace Telmexla.Servicios.DIME.Business
             return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoTransaccion != "FINALIZADO" && c.TipoGestion == "CREACION DE DIRECCION").Count() >= 1;
 
         }
-        public List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion() {
+        public List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion()
+        {
             DimeContext dimContext = new DimeContext();
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
-                                 join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOffice }  ).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
                                  where a.EstadoTransaccion.Equals("PENDIENTE POR CREAR") && b.UsuarioBackOffice == null
                                  select new
                                  {
@@ -88,8 +89,8 @@ namespace Telmexla.Servicios.DIME.Business
                                  }
                                  ).ToList();
 
-            for(int i = 0; i< objetosResult.Count; i++)
-                {
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
                 result.Add(new DatoConsultaDirecciones());
                 result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
                 result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
@@ -100,11 +101,12 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
 
             }
-            
+
 
             return result;
         }
-        public NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id) {
+        public NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id)
+        {
 
             UnitOfWork unitwork = new UnitOfWork(new DimeContext());
             NotasTrasladoCollection result = new NotasTrasladoCollection();
@@ -126,11 +128,11 @@ namespace Telmexla.Servicios.DIME.Business
                 Subrazon = a.Subrazon,
                 Observacion = a.Observacion,
                 EstadoTransaccion = a.EstadoTransaccion
-            }).ToList());           
+            }).ToList());
 
             return result;
         }
-        public void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado,TraficoTraslado transaccion)
+        public void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado, TraficoTraslado transaccion)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
@@ -178,7 +180,7 @@ namespace Telmexla.Servicios.DIME.Business
         public bool TransaccionEnGestion(int id, String usrABackOffice)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-          string result =   unitWork.notasTraslados.ComprobarActualizarUsrBackoffice(id, usrABackOffice);
+            string result = unitWork.notasTraslados.ComprobarActualizarUsrBackoffice(id, usrABackOffice);
             if (result == usrABackOffice) return false;
             else return true;
         }
@@ -188,7 +190,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("EN GESTION") && b.UsuarioBackOffice == usrABackOffice 
+                                 where a.EstadoTransaccion.Equals("EN GESTION") && b.UsuarioBackOffice == usrABackOffice
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -300,7 +302,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.NotasTraslados
                                  join b in dimContext.IngresoTraslados on a.IdTransaccion equals b.IdTransaccion
-                                 where a.FechaTransaccion>= FechaInicial && a.FechaTransaccion<= FechaFinal && a.UsuarioTransaccion== usrTransac
+                                 where a.FechaTransaccion >= FechaInicial && a.FechaTransaccion <= FechaFinal && a.UsuarioTransaccion == usrTransac
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -336,7 +338,7 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
         }
         //INICIA METODOS PARA PROCESO DE CAMBIO DE ESTRATO
-        public void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato,TraficoTraslado transaccion)
+        public void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato, TraficoTraslado transaccion)
         {
             try
             {
@@ -644,7 +646,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
-                                 join b in (from m in dimContext.liberacionesHomePass select new { m.IdTransaccion, m.UsuarioBackOffice,m.CuentaTraslada,m.MotivoLiberacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 join b in (from m in dimContext.liberacionesHomePass select new { m.IdTransaccion, m.UsuarioBackOffice, m.CuentaTraslada, m.MotivoLiberacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
                                  where a.EstadoTransaccion.Equals("PENDIENTE POR CREAR") && b.UsuarioBackOffice == null
                                  select new
                                  {
@@ -763,7 +765,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
-                                 join b in (from m in dimContext.liberacionesHomePass select new { m.IdTransaccion, m.UsuarioBackOffice,m.CuentaTraslada,m.MotivoLiberacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 join b in (from m in dimContext.liberacionesHomePass select new { m.IdTransaccion, m.UsuarioBackOffice, m.CuentaTraslada, m.MotivoLiberacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
                                  where a.EstadoTransaccion.Equals("SEGUIMIENTO") && b.UsuarioBackOffice == usrABackOffice
                                  select new
                                  {
@@ -849,20 +851,21 @@ namespace Telmexla.Servicios.DIME.Business
                 ingreso.HoraApertura = DateTime.Now;
                 ingreso.FechaUltimaActualizacion = DateTime.Now;
                 ingreso.HoraUltimaActualizacion = DateTime.Now;
-                if (matriz.TipoGestionMatriz == "CREAR MATRIZ") {
+                if (matriz.TipoGestionMatriz == "CREAR MATRIZ")
+                {
                     ingreso.EstadoTransaccion = "PENDIENTE POR CREAR";
                     ingreso.NombreLineaEscalado = "CELULA CREACION MATRICES";
                     matriz.Subrazon = "CREACION DE MATRIZ";
                     matriz.EstadoTransaccion = "PENDIENTE POR CREAR";
                 }
-                else if (matriz.TipoGestionMatriz=="GESTIONAR MATRIZ")
+                else if (matriz.TipoGestionMatriz == "GESTIONAR MATRIZ")
                 {
                     ingreso.EstadoTransaccion = "PENDIENTE POR GESTIONAR";
                     ingreso.NombreLineaEscalado = "CELULA GESTION MATRICES";
                     matriz.Subrazon = "GESTION DE MATRIZ";
                     matriz.EstadoTransaccion = "PENDIENTE POR GESTIONAR";
                 }
-                
+
                 UnitOfWork unitWork = new UnitOfWork(new DimeContext());
                 unitWork.ingresoTraslados.Add(ingreso);
                 unitWork.Complete();
@@ -874,7 +877,7 @@ namespace Telmexla.Servicios.DIME.Business
                 matriz.NombreLineaTransaccion = ingreso.NombreLineaIngreso;
                 matriz.CuentaCliente = ingreso.CuentaCliente;
                 matriz.Razon = "SOLICITUD INBOUND";
-                
+
                 unitWork.gestionMatrices.Add(matriz);
                 unitWork.Complete();
 
@@ -955,23 +958,23 @@ namespace Telmexla.Servicios.DIME.Business
                 CanalTransaccion = a.CanalTransaccion,
                 FechaTransaccion = a.FechaTransaccion,
                 NombreLineaTransaccion = a.NombreLineaTransaccion,
-                TipoGestionMatriz=a.TipoGestionMatriz,
-                TipoCliente=a.TipoCliente,
+                TipoGestionMatriz = a.TipoGestionMatriz,
+                TipoCliente = a.TipoCliente,
                 CuentaCliente = a.CuentaCliente,
-                CuentaMatriz=a.CuentaMatriz,
-                OrdenTrabajo=a.OrdenTrabajo,
+                CuentaMatriz = a.CuentaMatriz,
+                OrdenTrabajo = a.OrdenTrabajo,
                 Direccion = a.Direccion,
-                Nodo =a.Nodo,
-                NombreConjuntoEdificio= a.NombreConjuntoEdificio,
-                TelefonoCLiente=a.TelefonoCLiente,
-                TelefonoAdministrador=a.TelefonoAdministrador,
-                NombreAdministrador=a.NombreAdministrador,
-                Razon=a.Razon,
-                Subrazon=a.Subrazon,
+                Nodo = a.Nodo,
+                NombreConjuntoEdificio = a.NombreConjuntoEdificio,
+                TelefonoCLiente = a.TelefonoCLiente,
+                TelefonoAdministrador = a.TelefonoAdministrador,
+                NombreAdministrador = a.NombreAdministrador,
+                Razon = a.Razon,
+                Subrazon = a.Subrazon,
                 Observacion = a.Observacion,
                 EstadoTransaccion = a.EstadoTransaccion,
-                UsuarioBackOfficeCreacion=a.UsuarioBackOfficeCreacion,
-                UsuarioBackOfficeGestion=a.UsuarioBackOfficeGestion
+                UsuarioBackOfficeCreacion = a.UsuarioBackOfficeCreacion,
+                UsuarioBackOfficeGestion = a.UsuarioBackOfficeGestion
             }).ToList());
 
             return result;

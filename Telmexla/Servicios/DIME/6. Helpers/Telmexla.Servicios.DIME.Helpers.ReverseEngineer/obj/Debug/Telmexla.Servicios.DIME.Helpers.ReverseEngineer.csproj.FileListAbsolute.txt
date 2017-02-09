@@ -36,14 +36,15 @@ C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. 
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.csprojResolveAssemblyReference.cache
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll.config
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll.config
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.csprojResolveAssemblyReference.cache
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll.config
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.csprojResolveAssemblyReference.cache
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb

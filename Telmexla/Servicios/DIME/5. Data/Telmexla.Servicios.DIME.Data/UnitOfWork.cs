@@ -19,7 +19,7 @@ namespace Telmexla.Servicios.DIME.Data
             clientesTodo = new ClientesTodoRepository(this.dimeContext);
             gestionesOutbound = new GestionOutboundRepository(this.dimeContext);
             conveniosElectronicos = new ConvenioElectronicoRepository(this.dimeContext);
-            docsisOverlaps =  new DocsisOverlapRepository(this.dimeContext);
+            docsisOverlaps = new DocsisOverlapRepository(this.dimeContext);
             usuarios = new UsuarioRepository(this.dimeContext);
             claroVideos = new ClaroVideoRepository(this.dimeContext);
             cierreCiclos = new CierreCicloRepository(this.dimeContext);
@@ -29,7 +29,7 @@ namespace Telmexla.Servicios.DIME.Data
             logDocsisOverlaps = new LogDocsisOverlapRepository(this.dimeContext);
             logClaroVideos = new LogClaroVideoRepository(this.dimeContext);
             logCierreCiclos = new LogCierreCicloRepository(this.dimeContext);
-            ingresos =  new  IngresoRepository(this.dimeContext);
+            ingresos = new IngresoRepository(this.dimeContext);
             notasIngresos = new NotasIngresoRepository(this.dimeContext);
             pqrMaestroCodigos = new PqrMaestroCodCierreRepository(this.dimeContext);
             rechazos = new RechazoRepository(this.dimeContext);
@@ -42,9 +42,9 @@ namespace Telmexla.Servicios.DIME.Data
             cambioEstratos = new CambioEstratoRepository(this.dimeContext);
             traficoTraslados = new TraficoTrasladoRepository(this.dimeContext);
             liberacionesHomePass = new LiberacionHomePassRepository(this.dimeContext);
+            gestionMatrices = new GestionMatrizRepository(this.dimeContext);
             ingresosSoporte = new IngresoSoporteRepository(this.dimeContext);
         }
-
         public IIngresoSoporteRepository ingresosSoporte
         {
             get; private set;
@@ -164,6 +164,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public ILiberacionHomePassRepository liberacionesHomePass
+        {
+            get; private set;
+        }
+        public IGestionMatrizRepository gestionMatrices
         {
             get; private set;
         }

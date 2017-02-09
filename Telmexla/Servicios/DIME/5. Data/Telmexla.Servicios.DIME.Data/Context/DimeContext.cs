@@ -1,4 +1,3 @@
-
 // ReSharper disable ConvertPropertyToExpressionBody
 // ReSharper disable DoNotCallOverridableMethodsInConstructor
 // ReSharper disable InconsistentNaming
@@ -38,7 +37,6 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; } // TBL_CONVENIO_ELECTRONICO
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
-        public System.Data.Entity.DbSet<IngresosSoporte> IngresosSoportes { get; set; } // TBL_INGRESOS_SOPORTE
         public System.Data.Entity.DbSet<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO
         public System.Data.Entity.DbSet<MaestroMarcacione> MaestroMarcaciones { get; set; }//  TMP_MAESTRO_MARCACIONES 
         public System.Data.Entity.DbSet<NotificacionesBuenServicio> NotificacionesBuenServicio { get; set; }//  NOTIFICACIONES_BUEN_SERVICIO
@@ -47,7 +45,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<LogConvenioElectronico> LogConvenioElectronicoes { get; set; } // TBL_LOG_CONVENIO_ELECTRONICO
         public System.Data.Entity.DbSet<LogDocsisOverlap> LogDocsisOverlaps { get; set; } // TBL_LOG_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<PqrMaestroCodCierre> PqrMaestroCodCierres { get; set; } // TMP_PQR_MAESTRO_COD_CIERRE
-         public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
+        public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
         public System.Data.Entity.DbSet<IngresoTraslado> IngresoTraslados { get; set; } // TBL_INGRESOS_TRASLADOS
         public System.Data.Entity.DbSet<NotasTraslado> NotasTraslados { get; set; } // TBL_NOTAS_TRASLADOS
         public System.Data.Entity.DbSet<MaestroNodo> MaestroNodos { get; set; } // TBL_NOTAS_TRASLADOS
@@ -57,9 +55,12 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<CambioEstrato> cambioEstratos { get; set; } // TBL_CAMBIO_DE_ESTRATO
         public System.Data.Entity.DbSet<TraficoTraslado> traficoTraslados { get; set; } // TBL_TRAFICO_TRASLADO
         public System.Data.Entity.DbSet<LiberacionHomePass> liberacionesHomePass { get; set; } // TBL_LIBERACION_HOME_PASS
+        public System.Data.Entity.DbSet<GestionMatriz> gestionMatrices { get; set; } // TBL_GESTION_MATRICES
+        public System.Data.Entity.DbSet<IngresosSoporte> IngresosSoportes { get; set; } // TBL_INGRESOS_SOPORTE
         public System.Data.Entity.DbSet<RazonIngresoSoporte> RazonIngresoSoportes { get; set; } // TBL_RAZON_INGRESO_SOPORTE
         public System.Data.Entity.DbSet<Subrazon1IngresoSoporte> Subrazon1IngresoSoporte { get; set; } // TBL_SUBRAZON1_INGRESO_SOPORTE
         public System.Data.Entity.DbSet<Subrazon2IngresoSoporte> Subrazon2IngresoSoporte { get; set; } // TBL_SUBRAZON2_INGRESO_SOPORTE
+
 
         static DimeContext()
         {
@@ -147,10 +148,12 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SiembraHDConfiguration());
             modelBuilder.Configurations.Add(new TraficoTrasladoConfiguration());
             modelBuilder.Configurations.Add(new LiberacionHomePassConfiguration());
+            modelBuilder.Configurations.Add(new GestionMatrizConfiguration());
             modelBuilder.Configurations.Add(new IngresosSoporteConfiguration());
             modelBuilder.Configurations.Add(new RazonIngresoSoporteConfiguration());
             modelBuilder.Configurations.Add(new Subrazon1IngresoSoporteConfiguration());
             modelBuilder.Configurations.Add(new Subrazon2IngresoSoporteConfiguration());
+            
 
         }
 
@@ -192,6 +195,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SiembraHDConfiguration(schema));
             modelBuilder.Configurations.Add(new TraficoTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new LiberacionHomePassConfiguration(schema));
+            modelBuilder.Configurations.Add(new GestionMatrizConfiguration(schema));
             modelBuilder.Configurations.Add(new IngresosSoporteConfiguration(schema));
             modelBuilder.Configurations.Add(new RazonIngresoSoporteConfiguration(schema));
             modelBuilder.Configurations.Add(new Subrazon1IngresoSoporteConfiguration(schema));
@@ -421,6 +425,84 @@ namespace Telmexla.Servicios.DIME.Data.Context
                 usuarioBackParam.Value = System.DBNull.Value;
 
             var procResultData = await Database.SqlQuery<ActualizarUsuarioGestionHHPPReturnViewModel>("EXEC [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_HHPP] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
+
+            return procResultData;
+        }
+
+        //STORE PROCEDURE MATRICES
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackCreacionMatrizReturnModel> ActualizaUsuarioGestionBackCreacionMatriz(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return ActualizaUsuarioGestionBackCreacionMatriz(idTransaccion, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackCreacionMatrizReturnModel> ActualizaUsuarioGestionBackCreacionMatriz(decimal? idTransaccion, string usuarioBack, out int procResult)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ActualizarUsuarioGestionBackCreacionMatrizReturnModel>("EXEC @procResult = [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_CREACION_MATRIZ] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam).ToList();
+
+            procResult = (int)procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackCreacionMatrizReturnModel>> ActualizaUsuarioGestionBackCreacionMatrizAsync(decimal? idTransaccion, string usuarioBack)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ActualizarUsuarioGestionBackCreacionMatrizReturnModel>("EXEC [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_CREACION_MATRIZ] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
+
+            return procResultData;
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackGestionMatrizReturnModel> ActualizaUsuarioGestionBackGestionMatriz(decimal? idTransaccion, string usuarioBack)
+        {
+            int procResult;
+            return ActualizaUsuarioGestionBackGestionMatriz(idTransaccion, usuarioBack, out procResult);
+        }
+
+        public System.Collections.Generic.List<ActualizarUsuarioGestionBackGestionMatrizReturnModel> ActualizaUsuarioGestionBackGestionMatriz(decimal? idTransaccion, string usuarioBack, out int procResult)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ActualizarUsuarioGestionBackGestionMatrizReturnModel>("EXEC @procResult = [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_GESTION_MATRIZ] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam).ToList();
+
+            procResult = (int)procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackGestionMatrizReturnModel>> ActualizaUsuarioGestionBackGestionMatrizAsync(decimal? idTransaccion, string usuarioBack)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ActualizarUsuarioGestionBackGestionMatrizReturnModel>("EXEC [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_GESTION_MATRIZ] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
 
             return procResultData;
         }

@@ -35,6 +35,7 @@ namespace Telmexla.Servicios.DIME.IData
         ICambioEstratoRepository cambioEstratos { get; }
         ITraficoTrasladoRepository traficoTraslados { get; }
         ILiberacionHomePassRepository liberacionesHomePass { get; }
+        IGestionMatrizRepository gestionMatrices { get; }
         IIngresoSoporteRepository ingresosSoporte { get; }
         int Complete();
     }

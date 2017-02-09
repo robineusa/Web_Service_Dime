@@ -53,7 +53,9 @@
     <Compile Include="IActivacionClaroVideoRepository.cs" />
     <Compile Include="ICambioEstratoRepository.cs" />
     <Compile Include="ICuentasSiembraHDRepository.cs" />
+    <Compile Include="IGestionMatrizRepository.cs" />
     <Compile Include="IIngresoRepository.cs" />
+    <Compile Include="IIngresoSoporteRepository.cs" />
     <Compile Include="IIngresoTrasladoRepository.cs" />
     <Compile Include="ILiberacionHomePassRepository.cs" />
     <Compile Include="ILogCierreCicloRepository.cs" />
