@@ -68,6 +68,7 @@
     <Compile Include="Configuration\Subrazon1IngresoSoporteConfiguration.cs" />
     <Compile Include="Configuration\Subrazon2IngresoSoporteConfiguration.cs" />
     <Compile Include="Configuration\TraficoTrasladoConfiguration.cs" />
+    <Compile Include="Configuration\UsuariosNotificadosConfiguration.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="GestionMatrizRepository.cs" />
     <Compile Include="IngresoRepository.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="UnitOfWorkMaestros.cs" />
     <Compile Include="UsuarioRepository.cs" />
+    <Compile Include="UsuariosNotificadosRepository.cs" />
     <Compile Include="UsuariosXAccesoRepository.cs" />
     <Compile Include="UsuariosXPreguntasDesbRepository.cs" />
   </ItemGroup>

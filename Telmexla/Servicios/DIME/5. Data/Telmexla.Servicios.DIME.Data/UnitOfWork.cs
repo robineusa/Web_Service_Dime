@@ -44,6 +44,7 @@ namespace Telmexla.Servicios.DIME.Data
             liberacionesHomePass = new LiberacionHomePassRepository(this.dimeContext);
             gestionMatrices = new GestionMatrizRepository(this.dimeContext);
             ingresosSoporte = new IngresoSoporteRepository(this.dimeContext);
+            usuariosNotificados = new UsuariosNotificadosRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -168,6 +169,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IGestionMatrizRepository gestionMatrices
+        {
+            get; private set;
+        }
+        public IUsuariosNotificadosRepository usuariosNotificados
         {
             get; private set;
         }

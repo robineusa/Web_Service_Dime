@@ -33,5 +33,12 @@ namespace Telmexla.Servicios.DIME.Business
             return unitOfWork.notificacionesBuenServicio.Get(id);
 
         }
+        public void RegistrarUsuarionotificado(UsuariosNotificados usunotificados)
+        {
+            usunotificados.Fecha_Visto = DateTime.Now;
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            unitOfWork.usuariosNotificados.Add(usunotificados);
+            unitOfWork.Complete();
+        }
     }
 }

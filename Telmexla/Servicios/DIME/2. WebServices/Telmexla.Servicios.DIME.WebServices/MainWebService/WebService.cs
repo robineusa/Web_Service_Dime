@@ -504,6 +504,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             NotificacionesBuenServicioBusiness ImgBss = new NotificacionesBuenServicioBusiness();
             return ImgBss.ImagenporId(id);
         }
+        public void RegistrarUsuarionotificado(UsuariosNotificados usuarnotificado)
+        {
+            NotificacionesBuenServicioBusiness usuariosnotifica = new NotificacionesBuenServicioBusiness();
+            usuariosnotifica.RegistrarUsuarionotificado(usuarnotificado);
+        }
         #endregion
 
         #region CasosCellService

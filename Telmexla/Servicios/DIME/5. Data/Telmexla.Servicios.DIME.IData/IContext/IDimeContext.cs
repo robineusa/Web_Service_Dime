@@ -57,6 +57,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<RazonIngresoSoporte> RazonIngresoSoportes { get; set; } // TBL_RAZON_INGRESO_SOPORTE
         System.Data.Entity.DbSet<Subrazon1IngresoSoporte> Subrazon1IngresoSoporte { get; set; } // TBL_SUBRAZON1_INGRESO_SOPORTE
         System.Data.Entity.DbSet<Subrazon2IngresoSoporte> Subrazon2IngresoSoporte { get; set; } // TBL_SUBRAZON2_INGRESO_SOPORTE
+        System.Data.Entity.DbSet<UsuariosNotificados> usuariosNotificados { get; set; } // TBL_USUARIOS_NOTIFICADOS
 
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();

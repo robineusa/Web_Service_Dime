@@ -37,6 +37,7 @@ namespace Telmexla.Servicios.DIME.IData
         ILiberacionHomePassRepository liberacionesHomePass { get; }
         IGestionMatrizRepository gestionMatrices { get; }
         IIngresoSoporteRepository ingresosSoporte { get; }
+        IUsuariosNotificadosRepository usuariosNotificados { get; }
         int Complete();
     }
 }
