@@ -99,10 +99,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             return ingresoBusi.GetTablaActualizarInbound(idIngreso);
         }
 
-        public void ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente)
+        public void ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente, IngresosSoporte ingresoSoporte)
         {
             IngresoBusiness ingresoBusi = new IngresoBusiness();
-            ingresoBusi.ActualizarIngreso(ingreso, observacion, llamadaCliente,null);
+            ingresoBusi.ActualizarIngreso(ingreso, observacion, llamadaCliente, ingresoSoporte);
         }
 
         public List<DatoConsultaGestion> ConsultaGestion(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)

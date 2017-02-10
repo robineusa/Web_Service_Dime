@@ -210,10 +210,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return inboundService.ListaHistorialCaso(idIngreso);
         }
 
-        public void  ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente)
+        public void  ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente, IngresosSoporte ingresoSoporte)
         {
             InboundService inboundService = new InboundService();
-            inboundService.ActualizarIngresoInbound(ingreso, observacion, llamadaCliente);
+            inboundService.ActualizarIngresoInbound(ingreso, observacion, llamadaCliente, ingresoSoporte);
         }
 
         public List<DatoConsultaGestion> ConsultaGestion(DateTime fechaInicial, DateTime fechaFinal, string idUsuario)

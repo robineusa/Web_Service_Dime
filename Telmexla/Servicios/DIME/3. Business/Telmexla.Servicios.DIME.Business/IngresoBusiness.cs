@@ -47,7 +47,7 @@ namespace Telmexla.Servicios.DIME.Business
             logIngreso.IdEstado = ingreso.IdEstado;
             unitWork.notasIngresos.Add(logIngreso);
 
-                if (ingresoSoporte.TipoSegumiento.Equals("CELULA VISITA SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO SOPORTE"))
+                if (ingresoSoporte != null && (ingresoSoporte.TipoSegumiento.Equals("CELULA VISITA SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO SOPORTE")))
                 {
                     CompletarDatosIngresoSoporte(ingresoSoporte, ingreso);
                     InsertIngresoSoporte(ingresoSoporte, unitWork);
@@ -78,6 +78,7 @@ namespace Telmexla.Servicios.DIME.Business
 
         public void CompletarDatosIngresoSoporte(IngresosSoporte ingresoSoporte, Ingreso ingreso)
         {
+            ingresoSoporte.IdIngreso = ingreso.IdIngreso;
             ingresoSoporte.Cuenta = ingreso.Cuenta;
             ingresoSoporte.Nombre = ingreso.Nombre;
             ingresoSoporte.Apellido = ingreso.Apellido;
@@ -372,9 +373,12 @@ namespace Telmexla.Servicios.DIME.Business
             logIngreso.Nota = observacion.ToUpper().Trim();
             logIngreso.IdEstado = ingreso.IdEstado;
             unitWork.notasIngresos.Add(logIngreso);
-            if (ingresoSoporte!= null && ingresoSoporte.Id != 0)
-                InsertIngresoSoporte(ingresoSoporte, unitWork);
 
+            if (ingresoSoporte != null && (ingresoSoporte.TipoSegumiento.Equals("CELULA VISITA SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO SOPORTE")))
+            {
+                CompletarDatosIngresoSoporte(ingresoSoporte, ingresoActualizable);
+                InsertIngresoSoporte(ingresoSoporte, unitWork);
+            }
             unitWork.Complete();
         }
 

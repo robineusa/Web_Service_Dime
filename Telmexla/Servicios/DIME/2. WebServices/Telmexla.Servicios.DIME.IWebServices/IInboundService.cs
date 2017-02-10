@@ -40,7 +40,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<TablaActualizarInbound> ListaHistorialCaso(int idIngreso);
 
         [OperationContract]
-        void ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente);
+        void ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente, IngresosSoporte ingresoSoporte);
 
 
         [OperationContract]
