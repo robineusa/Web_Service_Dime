@@ -810,6 +810,7 @@ namespace Telmexla.Servicios.DIME.Business
                                  {
                                      a.IdTransaccion,
                                      a.CuentaOcupa,
+                                     a.CuentaTraslada,
                                      a.UsuarioTransaccion,
                                      a.CanalTransaccion,
                                      a.FechaTransaccion,
@@ -817,23 +818,26 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.EstadoTransaccion,
                                      a.Razon,
                                      a.Subrazon,
-                                     a.Observacion
+                                     a.Observacion,
+                                     a.MotivoLiberacion
                                  }
                                  ).ToList();
 
             for (int i = 0; i < objetosResult.Count; i++)
             {
                 result.Add(new DatoConsultaDirecciones());
-                result[i].NotaTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
-                result[i].NotaTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaOcupa;
-                result[i].NotaTrasladoGetSet.UsuarioTransaccion = objetosResult[i].UsuarioTransaccion;
-                result[i].NotaTrasladoGetSet.CanalTransaccion = objetosResult[i].CanalTransaccion;
-                result[i].NotaTrasladoGetSet.FechaTransaccion = objetosResult[i].FechaTransaccion;
-                result[i].NotaTrasladoGetSet.NombreLineaTransaccion = objetosResult[i].NombreLineaTransaccion;
-                result[i].NotaTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
-                result[i].NotaTrasladoGetSet.Razon = objetosResult[i].Razon;
-                result[i].NotaTrasladoGetSet.Subrazon = objetosResult[i].Subrazon;
-                result[i].NotaTrasladoGetSet.Observacion = objetosResult[i].Observacion;
+                result[i].LiberacionHomePass.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].LiberacionHomePass.CuentaOcupa = objetosResult[i].CuentaOcupa;
+                result[i].LiberacionHomePass.CuentaTraslada = objetosResult[i].CuentaTraslada;
+                result[i].LiberacionHomePass.UsuarioTransaccion = objetosResult[i].UsuarioTransaccion;
+                result[i].LiberacionHomePass.CanalTransaccion = objetosResult[i].CanalTransaccion;
+                result[i].LiberacionHomePass.FechaTransaccion = objetosResult[i].FechaTransaccion;
+                result[i].LiberacionHomePass.NombreLineaTransaccion = objetosResult[i].NombreLineaTransaccion;
+                result[i].LiberacionHomePass.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].LiberacionHomePass.Razon = objetosResult[i].Razon;
+                result[i].LiberacionHomePass.Subrazon = objetosResult[i].Subrazon;
+                result[i].LiberacionHomePass.Observacion = objetosResult[i].Observacion;
+                result[i].LiberacionHomePass.MotivoLiberacion = objetosResult[i].MotivoLiberacion;
 
             }
 
