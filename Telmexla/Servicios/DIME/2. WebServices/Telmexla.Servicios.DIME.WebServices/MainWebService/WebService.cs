@@ -153,6 +153,44 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return lService.ListaUsuariosDePerfilYAliado(idPerfil, aliado);
         }
 
+        public void CrearUsuario(int idLinea, int idPerfil, BasePersonalHolo usuarioHolos, string[] permisosOtorgados, string contraseña, string usuarioCambio)
+        {
+            LoginService lService = new LoginService();
+            lService.CrearUsuario(idLinea, idPerfil, usuarioHolos, permisosOtorgados, contraseña, usuarioCambio);
+        }
+
+
+        public string LineaDeUsuario(int idUsuario)
+        {
+            LoginService lService = new LoginService();
+           return  lService.LineaDeUsuario(idUsuario);
+        }
+
+
+        public string PerfilDeUsuario(int idUsuario)
+        {
+            LoginService lService = new LoginService();
+           return  lService.PerfilDeUsuario(idUsuario);
+        }
+
+        public int IdPerfilDeUsuario(int idUsuario)
+        {
+            LoginService lService = new LoginService();
+            return lService.IdPerfilDeUsuario(idUsuario);
+        }
+
+
+        public List<string> ListaAccesosDeUsuario(int cedUsuario)
+        {
+            LoginService lService = new LoginService();
+            return lService.ListaAccesosDeUsuario(cedUsuario);
+        }
+
+        public void ActualizarAccesosUsuario(int idUsuario, int idPerfil, int idLinea, string[] permisosOtorgados, string contraseña, string usuarioCambioo)
+        {
+            LoginService lService = new LoginService();
+            lService.ActualizarAccesosUsuario( idUsuario,  idPerfil,  idLinea,  permisosOtorgados,  contraseña,  usuarioCambioo);
+        }
         #endregion
 
         #region Inbound Service 

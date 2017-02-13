@@ -300,5 +300,86 @@ namespace Telmexla.Servicios.DIME.WebServices
             return result;
         }
 
+        public void CrearUsuario(int idLinea, int idPerfil, BasePersonalHolo usuarioHolos, string[] permisosOtorgados, string contraseña, string usuarioCambio)
+        {
+            DimeContext dimContext = new DimeContext();
+            Usuario usuario = new Usuario();
+            usuario.Cedula = usuarioHolos.Cedula;
+            usuario.Nombre = usuarioHolos.Nombre;
+            usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(contraseña);
+            usuario.FechaContrasena = Convert.ToDateTime("2015-05-28");
+            usuario.Capacitado = false;
+            usuario.IdLinea = idLinea;
+            dimContext.Usuarios.Add(usuario);
+            dimContext.SaveChanges();
+
+            DateTime fechaActual = DateTime.Now;
+            for(int i = 0; i< permisosOtorgados.Length; i++)
+            {
+                UsuariosXAcceso accesosUsuario = new UsuariosXAcceso();
+                accesosUsuario.IdUsuario = usuario.Id;
+                accesosUsuario.IdAcceso = Convert.ToInt32(permisosOtorgados[i]);
+                accesosUsuario.IdUserCambioo = Convert.ToInt32(usuarioCambio);
+                accesosUsuario.FechaCreacion = fechaActual;
+                accesosUsuario.HoraCreacion = fechaActual.TimeOfDay;
+                dimContext.UsuariosXAccesoes.Add(accesosUsuario);
+            }
+            dimContext.SaveChanges();
+        }
+
+        public string LineaDeUsuario(int idUsuario)
+        {
+            DimeContext context = new DimeContext();
+           return context.Usuarios.Where(c=>c.Id == idUsuario).Select(x=>x.Linea.Nombre).FirstOrDefault();
+        }
+
+
+        public string PerfilDeUsuario(int idUsuario)
+        {
+            DimeContext context = new DimeContext();
+            return context.Usuarios.Where(c => c.Id == idUsuario).Select(x => x.Linea.ModosLogin.Nombre).FirstOrDefault();
+        }
+
+        public int IdPerfilDeUsuario(int idUsuario)
+        {
+            DimeContext context = new DimeContext();
+            return context.Usuarios.Where(c => c.Id == idUsuario).Select(x => x.Linea.ModosLogin.Id).FirstOrDefault();
+        }
+
+
+        public List<string> ListaAccesosDeUsuario(int cedUsuario)
+        {
+            DimeContext context = new DimeContext();
+            int idUsuario = context.Usuarios.Where(c => c.Cedula == cedUsuario).Select(x => x.Id).FirstOrDefault();
+            List<UsuariosXAcceso> userAcces = context.UsuariosXAccesoes.Where(c => c.IdUsuario == idUsuario).ToList();
+            List<string> result = new List<string>();
+            foreach(var item in userAcces)
+            {
+                result.Add( context.Accesoes.Where(c=>c.Id== item.IdAcceso).SingleOrDefault().Nombre );
+            }
+            return result;
+        }
+
+        public void ActualizarAccesosUsuario(int idUsuario, int idPerfil, int idLinea, string[] permisosOtorgados, string contraseña, string usuarioCambioo)
+        {
+
+            DimeContext dimContext = new DimeContext();
+            Usuario usuario = dimContext.Set<Usuario>().Find(idUsuario);
+            usuario.IdLinea = idLinea;
+            usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(contraseña);
+            usuario.FechaContrasena = Convert.ToDateTime("2015-05-28");
+            DateTime fechaActual = DateTime.Now;
+            for (int i = 0; i < permisosOtorgados.Length; i++)
+            {
+                UsuariosXAcceso accesosUsuario = new UsuariosXAcceso();
+                accesosUsuario.IdUsuario = usuario.Id;
+                accesosUsuario.IdAcceso = Convert.ToInt32(permisosOtorgados[i]);
+                accesosUsuario.IdUserCambioo = Convert.ToInt32(usuarioCambioo);
+                accesosUsuario.FechaCreacion = fechaActual;
+                accesosUsuario.HoraCreacion = fechaActual.TimeOfDay;
+                dimContext.UsuariosXAccesoes.Add(accesosUsuario);
+            }
+            dimContext.SaveChanges();
+        }
     }
 }

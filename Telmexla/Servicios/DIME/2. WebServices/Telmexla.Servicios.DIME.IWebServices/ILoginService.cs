@@ -81,6 +81,25 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         BasePersonalHoloCollection ListaUsuariosDePerfilYAliado(int idPerfil, string aliado);
 
+
+        [OperationContract]
+        void CrearUsuario(int idLinea, int idPerfil, BasePersonalHolo usuarioHolos, string[] permisosOtorgados, string contraseña, string usuarioCambio);
+
+
+        [OperationContract]
+        string LineaDeUsuario(int idUsuario);
+
+        [OperationContract]
+        string PerfilDeUsuario(int idUsuario);
+        [OperationContract]
+        int IdPerfilDeUsuario(int idUsuario);
+
+        [OperationContract]
+        List<string> ListaAccesosDeUsuario(int cedUsuario);
+
+
+        [OperationContract]
+        void  ActualizarAccesosUsuario(int idUsuario,int idPerfil, int idLinea, string [] permisosOtorgados, string contraseña, string usuarioCambioo);
     }
 
 
