@@ -100,6 +100,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         void  ActualizarAccesosUsuario(int idUsuario,int idPerfil, int idLinea, string [] permisosOtorgados, string contraseña, string usuarioCambioo);
+
+        [OperationContract]
+        void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo);
+
     }
 
 

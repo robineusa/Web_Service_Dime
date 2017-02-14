@@ -293,7 +293,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             DimeContext context = new DimeContext();
             BasePersonalHoloCollection result = new BasePersonalHoloCollection();
             List<BasePersonalHolo> holosResult = context.BasePersonalHoloes.Where(c => c.Aliado == aliado).ToList();
-            List<decimal> usuariosDime = context.Usuarios.Where(x=>x.UsuariosXAccesoes.FirstOrDefault().Acceso.IdModoLogin==idPerfil).Select(c=> c.Cedula??0).ToList();
+            List<decimal> usuariosDime = context.Usuarios.Where(x=>x.Linea.IdModoLogin==idPerfil).Select(c=> c.Cedula??0).ToList();
 
             holosResult = holosResult.Where(c=> usuariosDime.Contains(c.Cedula) ).ToList();
             result.AddRange(holosResult);  
@@ -380,6 +380,31 @@ namespace Telmexla.Servicios.DIME.WebServices
                 dimContext.UsuariosXAccesoes.Add(accesosUsuario);
             }
             dimContext.SaveChanges();
+        }
+
+        public void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo)
+        {
+            DimeContext dimContext = new DimeContext();
+
+            foreach(string cedUsuario in listaUsuariosCambiados)
+            {
+                decimal cedulaUsuario = Convert.ToDecimal(cedUsuario);
+                Usuario usuario = dimContext.Set<Usuario>().Where(c => c.Cedula == cedulaUsuario).FirstOrDefault();
+                usuario.IdLinea = idLinea;
+                DateTime fechaActual = DateTime.Now;
+                for (int i = 0; i < listaPermisos.Count; i++)
+                {
+                    UsuariosXAcceso accesosUsuario = new UsuariosXAcceso();
+                    accesosUsuario.IdUsuario = usuario.Id;
+                    accesosUsuario.IdAcceso = Convert.ToInt32(listaPermisos[i]);
+                    accesosUsuario.IdUserCambioo = Convert.ToInt32(idUsuarioCambioo);
+                    accesosUsuario.FechaCreacion = fechaActual;
+                    accesosUsuario.HoraCreacion = fechaActual.TimeOfDay;
+                    dimContext.UsuariosXAccesoes.Add(accesosUsuario);
+                }
+                dimContext.SaveChanges();
+            }
+
         }
     }
 }
