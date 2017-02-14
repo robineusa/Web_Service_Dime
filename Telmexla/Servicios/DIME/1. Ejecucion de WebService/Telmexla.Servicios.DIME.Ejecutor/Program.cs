@@ -20,13 +20,17 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            BalanceScoreCard blscd = new BalanceScoreCard();
-            blscd.Cedula = 1012388701;
-            BalanceScoreCardService BLSERVICE = new BalanceScoreCardService();
-            BLSERVICE.IndicadoresUsuario(blscd.Cedula);
-            var resultado = BLSERVICE.IndicadoresUsuario(blscd.Cedula);
 
-            //UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IngresoTrasladoBusiness busi = new IngresoTrasladoBusiness();
+            busi.GraficoTrasladosGeneralAsesor("TLEAL");
+
+            //BalanceScoreCard blscd = new BalanceScoreCard();
+            //blscd.Cedula = 1012388701;
+            //BalanceScoreCardService BLSERVICE = new BalanceScoreCardService();
+            //BLSERVICE.IndicadoresUsuario(blscd.Cedula);
+            //var resultado = BLSERVICE.IndicadoresUsuario(blscd.Cedula);
+
+            ////UnitOfWork unitWork = new UnitOfWork(new DimeContext());
 
 
             //TraficoTraslado trafico = new TraficoTraslado();

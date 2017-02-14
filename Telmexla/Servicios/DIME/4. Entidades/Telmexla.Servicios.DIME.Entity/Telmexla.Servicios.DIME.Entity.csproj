@@ -86,6 +86,7 @@
     <Compile Include="GestionMatrizColleciton.cs" />
     <Compile Include="GestionOutbound.cs" />
     <Compile Include="GestionOutboundCollection.cs" />
+    <Compile Include="Graficos.cs" />
     <Compile Include="Ingreso.cs" />
     <Compile Include="IngresoCollection.cs" />
     <Compile Include="IngresosSoporte.cs" />
