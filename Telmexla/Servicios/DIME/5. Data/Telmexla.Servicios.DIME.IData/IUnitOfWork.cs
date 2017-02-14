@@ -38,6 +38,7 @@ namespace Telmexla.Servicios.DIME.IData
         IGestionMatrizRepository gestionMatrices { get; }
         IIngresoSoporteRepository ingresosSoporte { get; }
         IUsuariosNotificadosRepository usuariosNotificados { get; }
+        IBalanceScoreCardRepository balanceScoreCards { get; }
         int Complete();
     }
 }

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="IAccesoRepository.cs" />
     <Compile Include="IActivacionClaroVideoRepository.cs" />
+    <Compile Include="IBalanceScoreCardRepository.cs" />
     <Compile Include="ICambioEstratoRepository.cs" />
     <Compile Include="ICuentasSiembraHDRepository.cs" />
     <Compile Include="IGestionMatrizRepository.cs" />

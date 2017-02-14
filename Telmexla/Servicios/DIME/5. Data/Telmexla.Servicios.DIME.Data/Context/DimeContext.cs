@@ -61,6 +61,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<Subrazon1IngresoSoporte> Subrazon1IngresoSoporte { get; set; } // TBL_SUBRAZON1_INGRESO_SOPORTE
         public System.Data.Entity.DbSet<Subrazon2IngresoSoporte> Subrazon2IngresoSoporte { get; set; } // TBL_SUBRAZON2_INGRESO_SOPORTE
         public System.Data.Entity.DbSet<UsuariosNotificados> usuariosNotificados{ get; set; } // TBL_USUARIOS_NOTIFICADOS
+        public System.Data.Entity.DbSet<BalanceScoreCard> balanceScoreCards { get; set; } // TBL_BALANCE_SCORE_CARD
 
 
         static DimeContext()
@@ -154,8 +155,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new RazonIngresoSoporteConfiguration());
             modelBuilder.Configurations.Add(new Subrazon1IngresoSoporteConfiguration());
             modelBuilder.Configurations.Add(new Subrazon2IngresoSoporteConfiguration());
-   
             modelBuilder.Configurations.Add(new UsuariosNotificadosConfiguration());
+            modelBuilder.Configurations.Add(new BalanceScoreCardConfiguration());
 
 
         }
@@ -204,6 +205,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new Subrazon1IngresoSoporteConfiguration(schema));
             modelBuilder.Configurations.Add(new Subrazon2IngresoSoporteConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosNotificadosConfiguration(schema));
+            modelBuilder.Configurations.Add(new BalanceScoreCardConfiguration(schema));
 
             return modelBuilder;
         }

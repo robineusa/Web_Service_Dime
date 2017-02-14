@@ -45,6 +45,7 @@ namespace Telmexla.Servicios.DIME.Data
             gestionMatrices = new GestionMatrizRepository(this.dimeContext);
             ingresosSoporte = new IngresoSoporteRepository(this.dimeContext);
             usuariosNotificados = new UsuariosNotificadosRepository(this.dimeContext);
+            balanceScoreCards = new BalaceScoreCardRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -173,6 +174,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IUsuariosNotificadosRepository usuariosNotificados
+        {
+            get; private set;
+        }
+        public IBalanceScoreCardRepository balanceScoreCards
         {
             get; private set;
         }

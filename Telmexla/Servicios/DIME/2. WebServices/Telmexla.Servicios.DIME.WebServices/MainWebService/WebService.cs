@@ -942,6 +942,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             activacionbusiness.InsertarSiembraHDInbound(siembra);
         }
         #endregion
-        
+
+        #region BalanceScoreCard
+        public BalanceScoreCard IndicadoresUsuario(decimal cedula)
+        {
+            BalanceScoreCardBusiness balancebusi = new BalanceScoreCardBusiness();
+            return balancebusi.IndicadoresUsuario(cedula);
+        }
+        #endregion
+
     }
 }
