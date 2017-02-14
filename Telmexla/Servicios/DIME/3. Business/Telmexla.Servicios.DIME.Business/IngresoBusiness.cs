@@ -71,6 +71,54 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
+        public void ActualizarIngresoPorAdmin(Ingreso ingreso, string notas, string cambioHecho)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            Ingreso ingresoActualizable = unitWork.ingresos.Get(Convert.ToInt32(ingreso.IdIngreso));
+            DateTime fechaActual = DateTime.Now;
+            if (cambioHecho.Equals("ESTADO"))
+            {
+                if (ingreso.IdEstado==2)
+                {
+                    ingresoActualizable.FechaCierre = fechaActual;
+                    ingresoActualizable.HoraCierre = fechaActual;
+                    ingresoActualizable.UsuarioCierre = ingreso.UsuarioUltimaActualizacion;
+                }
+
+                ingresoActualizable.IdEstado = ingreso.IdEstado;
+
+
+            }
+            if (cambioHecho.Equals("USUARIO"))
+            {
+                ingresoActualizable.UsuarioBackoffice = ingreso.UsuarioBackoffice;
+    
+            }
+            if (cambioHecho.Equals("ESCALAR"))
+            {
+                ingresoActualizable.NombreLineaEscalado = ingreso.NombreLineaEscalado;
+            }
+
+            ingresoActualizable.UsuarioUltimaActualizacion = ingreso.UsuarioUltimaActualizacion;
+            ingresoActualizable.FechaUltimaActualizacion = fechaActual;
+            ingresoActualizable.HoraUltimaActualizacion = fechaActual;
+
+            NotasIngreso logIngreso = new NotasIngreso();
+            logIngreso.IdIngreso = ingresoActualizable.IdIngreso;
+            logIngreso.CuentaCliente = ingresoActualizable.Cuenta;
+            logIngreso.Ticket = ingresoActualizable.Ticket;
+            logIngreso.Usuario = ingreso.UsuarioUltimaActualizacion;
+            logIngreso.NombreLineaNota = ingreso.NombreLineaIngreso;
+            logIngreso.FechaNota = fechaActual;
+            logIngreso.HoraNota = fechaActual;
+            logIngreso.LlamadaCliente = "NO";
+            logIngreso.Nota = notas.ToUpper().Trim();
+            logIngreso.IdEstado = ingresoActualizable.IdEstado;
+            unitWork.notasIngresos.Add(logIngreso);
+
+            unitWork.Complete();
+        }
+
         public void InsertIngresoSoporte(IngresosSoporte ingresoSoporte, UnitOfWork unitWork)
         {
             unitWork.ingresosSoporte.Add(ingresoSoporte);

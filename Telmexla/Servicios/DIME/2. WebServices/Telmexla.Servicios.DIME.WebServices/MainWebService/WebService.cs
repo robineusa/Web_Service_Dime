@@ -668,6 +668,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return casosAdminService.ListaUsuariosCelulaActual();
         }
 
+        public void ActualizarIngresoPorAdmin(Ingreso ingreso, string notas, string cambioHecho)
+        {
+            CasosAdminService casosAdminService = new CasosAdminService();
+             casosAdminService.ActualizarIngresoPorAdmin(ingreso,notas, cambioHecho);
+        }
         #endregion CasosAdminService
 
         #region registrarTraslado

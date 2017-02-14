@@ -48,5 +48,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             return ingresoBusi.GetUsuariosCelulaActual();
         }
 
+        public void ActualizarIngresoPorAdmin(Ingreso ingreso, string notas, string cambioHecho)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            ingresoBusi.ActualizarIngresoPorAdmin(ingreso, notas, cambioHecho);
+        }
+
     }
 }

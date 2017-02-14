@@ -31,7 +31,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         UsuarioCollection ListaUsuariosCelulaActual();
-        
 
+        [OperationContract]
+        void ActualizarIngresoPorAdmin(Ingreso ingreso, string notas, string cambioHecho);
     }
 }
