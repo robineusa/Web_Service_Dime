@@ -23,8 +23,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //GraficosBusiness BUSI = new GraficosBusiness();
             //BUSI.GraficoTrasladosGeneralAsesor("TLEAL");
 
-            GraficosService servicegrafi = new GraficosService();
-            servicegrafi.GraficoTrasladosGeneralAsesor("TLEAL");
+
 
             //BalanceScoreCard blscd = new BalanceScoreCard();
             //blscd.Cedula = 1012388701;
@@ -60,11 +59,12 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             ////ActivacionSiembraHDService activacionshdservice = new ActivacionSiembraHDService();
             ////var result84841848 = activacionshdservice.BuscarCuentaSiembraHD(shd.CuentaCliente);
 
-            //LoginService loginService = new LoginService();
-            //var result222222 =  loginService.ListaUsuariosDePerfilYAliado(2,"BRM");
-
-
-
+            LoginService loginService = new LoginService();
+            List<string> cedulas = new List<string>();
+            cedulas.Add("1032381244");
+            cedulas.Add("1032450759");
+            var result222222 = loginService.ListaDatosUsuariosHolosPorCedulas(cedulas);
+            string nada = "";
             //SiembraHD entidad = new SiembraHD();
             //entidad.UsuarioGestion = "ROBINEUSA";
             //entidad.NombreUsuarioGestion = "ROBINSON NEUSA";

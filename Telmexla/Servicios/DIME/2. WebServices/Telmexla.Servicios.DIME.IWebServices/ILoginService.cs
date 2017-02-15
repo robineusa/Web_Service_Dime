@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Telmexla.Servicios.DIME.Business;
 using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IWebServices
@@ -104,6 +105,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo);
 
+        [OperationContract]
+        List<UsuariosMasivoData> ListaDatosUsuariosHolosPorCedulas(List<string> cedulas);
     }
 
 
