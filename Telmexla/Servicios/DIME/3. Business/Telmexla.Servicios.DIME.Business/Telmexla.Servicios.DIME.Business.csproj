@@ -63,6 +63,7 @@
     <Compile Include="DatoConsultaPaloteo.cs" />
     <Compile Include="DatoConsultaRechazo.cs" />
     <Compile Include="GestionDeCelulaUsr.cs" />
+    <Compile Include="GraficosBusiness.cs" />
     <Compile Include="IngresoBusiness.cs" />
     <Compile Include="IngresoTrasladoBusiness.cs" />
     <Compile Include="ListasSelectBusiness.cs" />

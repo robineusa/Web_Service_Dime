@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService
     {
 
 
@@ -959,6 +959,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             BalanceScoreCardBusiness balancebusi = new BalanceScoreCardBusiness();
             return balancebusi.IndicadoresUsuario(cedula);
+        }
+        #endregion
+
+        #region Graficos
+        public List<Graficos> GraficoTrasladosGeneralAsesor(string UsuarioOut)
+        {
+            GraficosBusiness graficosbusi = new GraficosBusiness();
+            return graficosbusi.GraficoTrasladosGeneralAsesor(UsuarioOut);
         }
         #endregion
 

@@ -20,9 +20,11 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+            //GraficosBusiness BUSI = new GraficosBusiness();
+            //BUSI.GraficoTrasladosGeneralAsesor("TLEAL");
 
-            IngresoTrasladoBusiness busi = new IngresoTrasladoBusiness();
-            busi.GraficoTrasladosGeneralAsesor("TLEAL");
+            GraficosService servicegrafi = new GraficosService();
+            servicegrafi.GraficoTrasladosGeneralAsesor("TLEAL");
 
             //BalanceScoreCard blscd = new BalanceScoreCard();
             //blscd.Cedula = 1012388701;

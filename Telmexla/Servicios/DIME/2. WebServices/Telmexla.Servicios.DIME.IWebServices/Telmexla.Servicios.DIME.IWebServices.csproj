@@ -63,6 +63,7 @@
     <Compile Include="ICasosAdminService.cs" />
     <Compile Include="ICasosCelulaService.cs" />
     <Compile Include="IClientesService.cs" />
+    <Compile Include="IGraficosService.cs" />
     <Compile Include="IInboundService.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="IMaestroNodoService.cs" />

@@ -1472,27 +1472,6 @@ namespace Telmexla.Servicios.DIME.Business
                 }
             return result;
         }
-        public List<Graficos> GraficoTrasladosGeneralAsesor(string UsuarioOut)
-        {
-            DimeContext dimContext = new DimeContext();
-            List<Graficos> result = new List<Graficos>();
-            var objetosResult = (from a in dimContext.IngresoTraslados
-                                 where a.UsuarioApertura.Equals(UsuarioOut)
-                                 group a by new { a.UsuarioApertura, a.TipoGestion } into grupo1
-                                 select grupo1
-                                 );
-
-            foreach (var grupo1 in objetosResult)
-            {
-                Graficos grafico = new Graficos();
-                grafico.Usuario = grupo1.Key.UsuarioApertura;
-                grafico.TipoGestion = grupo1.Key.TipoGestion;
-                grafico.Total = grupo1.Count();
-                result.Add(grafico);
-                
-            }
-            return result;
-            
-        }
+        
     }
 }
