@@ -107,6 +107,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<UsuariosMasivoData> ListaDatosUsuariosHolosPorCedulas(List<string> cedulas);
+
+        [OperationContract]
+        void GuardarUsuariosMasivosConAccesos(List<string> cedulas,List<string> accesosCrear,int perfilCrear,int lineaCrear, string contraMasiva, int idUsuario);
+
+
     }
 
 

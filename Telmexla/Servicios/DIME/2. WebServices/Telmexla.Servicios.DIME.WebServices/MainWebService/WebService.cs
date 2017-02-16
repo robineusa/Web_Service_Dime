@@ -204,6 +204,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             LoginService lService = new LoginService();
            return  lService.ListaDatosUsuariosHolosPorCedulas(cedulas);
         }
+
+        public void GuardarUsuariosMasivosConAccesos(List<string> cedulas, List<string> accesosCrear, int perfilCrear, int lineaCrear, string contraMasiva, int idUsuario)
+        {
+            LoginService lService = new LoginService();
+            lService.GuardarUsuariosMasivosConAccesos(cedulas,  accesosCrear,  perfilCrear,  lineaCrear,  contraMasiva,  idUsuario);
+        }
         #endregion
 
         #region Inbound Service 

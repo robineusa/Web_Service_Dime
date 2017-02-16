@@ -477,5 +477,44 @@ namespace Telmexla.Servicios.DIME.WebServices
 
             return result;
         }
+
+
+
+        public void GuardarUsuariosMasivosConAccesos(List<string> cedulas, List<string> accesosCrear, int perfilCrear, int lineaCrear, string contraMasiva, int idUsuario)
+        {
+
+            DimeContext context = new DimeContext();
+            List<decimal> cedulasDecimal = cedulas.ConvertAll(s => Convert.ToDecimal(s));
+            List<int> accesosInt = accesosCrear.ConvertAll(s => Convert.ToInt32(s));
+
+            foreach (decimal cedula in cedulasDecimal)
+            {
+                BasePersonalHolo usuarioHolos = context.BasePersonalHoloes.First(c => c.Cedula == cedula);
+                Usuario usuario = new Usuario();
+                usuario.Cedula = usuarioHolos.Cedula;
+                usuario.Nombre = usuarioHolos.Nombre;
+                usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(contraMasiva);
+                usuario.FechaContrasena = Convert.ToDateTime("2015-05-28");
+                usuario.Capacitado = false;
+                usuario.IdLinea = lineaCrear;
+                context.Usuarios.Add(usuario);
+                context.SaveChanges();
+
+                DateTime fechaActual = DateTime.Now;
+                for (int i = 0; i < accesosCrear.Count; i++)
+                {
+                    UsuariosXAcceso accesosUsuario = new UsuariosXAcceso();
+                    accesosUsuario.IdUsuario = usuario.Id;
+                    accesosUsuario.IdAcceso = Convert.ToInt32(accesosCrear[i]);
+                    accesosUsuario.IdUserCambioo = Convert.ToInt32(idUsuario);
+                    accesosUsuario.FechaCreacion = fechaActual;
+                    accesosUsuario.HoraCreacion = fechaActual.TimeOfDay;
+                    context.UsuariosXAccesoes.Add(accesosUsuario);
+                }
+                context.SaveChanges();
+            }
+  
+        }
+
     }
 }
