@@ -77,6 +77,8 @@
     <Compile Include="ConvenioElectronicoCollection.cs" />
     <Compile Include="CuentasSiembraHD.cs" />
     <Compile Include="CuentasSiembraHDCollection.cs" />
+    <Compile Include="CuentasSiguienteMejorOferta.cs" />
+    <Compile Include="CuentasSiguienteMejorOfertaCollection.cs" />
     <Compile Include="DatoConsultaDirecciones.cs" />
     <Compile Include="DatosAdicionalesCliente.cs" />
     <Compile Include="DatosAdicionalesClienteCollection.cs" />
