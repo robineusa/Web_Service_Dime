@@ -54,6 +54,7 @@
     <Compile Include="IBalanceScoreCardRepository.cs" />
     <Compile Include="ICambioEstratoRepository.cs" />
     <Compile Include="ICuentasSiembraHDRepository.cs" />
+    <Compile Include="ICuentasSiguienteMejorOfertaRepository.cs" />
     <Compile Include="IGestionMatrizRepository.cs" />
     <Compile Include="IIngresoRepository.cs" />
     <Compile Include="IIngresoSoporteRepository.cs" />
