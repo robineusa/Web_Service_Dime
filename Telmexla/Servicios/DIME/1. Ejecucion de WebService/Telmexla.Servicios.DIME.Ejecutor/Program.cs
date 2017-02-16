@@ -47,7 +47,8 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //unitWork.Complete();
 
 
-
+            //ActivacionSiembraHDService CuentasService = new ActivacionSiembraHDService();
+            //var result454 = CuentasService.BuscarCuentaSMO(141);
 
             //NotificaionesBuenServicioService NotiService = new NotificaionesBuenServicioService();
             //var result454 = NotiService.ImagenporId(6);

@@ -987,5 +987,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
+        #region SiguienteMejorOferta
+        public List<CuentasSiguienteMejorOferta> BuscarCuentaSMO(decimal cuentacliente)
+        {
+            CuentasSiembraHDBusiness cuentasbusines = new CuentasSiembraHDBusiness();
+            return cuentasbusines.BuscarCuentaSMO(cuentacliente);
+        }
+        #endregion
+
+
     }
 }

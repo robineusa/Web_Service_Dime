@@ -27,5 +27,21 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
 
         }
+        public List<CuentasSiguienteMejorOferta> BuscarCuentaSMO(decimal cuentacliente)
+        {
+            UnitOfWork unitwork = new UnitOfWork(new DimeContext());
+            CuentasSiguienteMejorOfertaCollection result = new CuentasSiguienteMejorOfertaCollection();
+            result.AddRange(unitwork.CuentaSMO.Find(c => c.CuentaCliente == cuentacliente).Select(a => new CuentasSiguienteMejorOferta
+            {
+                Id = a.Id,
+                CuentaCliente = a.CuentaCliente,
+                Ofrecimiento1 = a.Ofrecimiento1,
+                Ofrecimiento2 = a.Ofrecimiento2,
+                Ofrecimiento3 = a.Ofrecimiento3,
+            }).ToList());
+
+            return result;
+
+        }
     }
 }

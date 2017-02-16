@@ -9,9 +9,9 @@ using Telmexla.Servicios.DIME.IData;
 
 namespace Telmexla.Servicios.DIME.Data
 {
-    public class CuentasSiembraHDRepository: Repository<CuentasSiembraHD>, ICuentasSiembraHDRepository
+    public class CuentasSiguienteMejorOfertaRepository : Repository<CuentasSiguienteMejorOferta>, ICuentasSiguienteMejorOfertaRepository
     {
-        public CuentasSiembraHDRepository(DimeContext context) : base(context)
+        public CuentasSiguienteMejorOfertaRepository(DimeContext context) : base(context)
         {
 
         }
