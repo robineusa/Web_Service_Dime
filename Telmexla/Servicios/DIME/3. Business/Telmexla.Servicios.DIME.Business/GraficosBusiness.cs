@@ -18,8 +18,10 @@ namespace Telmexla.Servicios.DIME.Business
         {
             DimeContext dimContext = new DimeContext();
             List<Graficos> result = new List<Graficos>();
+            DateTime FechaActual = DateTime.Now;
+            
             var objetosResult = (from a in dimContext.IngresoTraslados
-                                 where a.UsuarioApertura.Equals(UsuarioOut)
+                                 where a.UsuarioApertura.Equals(UsuarioOut) && (  a.FechaApertura >=DateTime.Now ) 
                                  group a by new { a.UsuarioApertura, a.TipoGestion } into grupo1
                                  select grupo1
                                  );
