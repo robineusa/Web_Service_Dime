@@ -975,6 +975,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             GraficosBusiness graficosbusi = new GraficosBusiness();
             return graficosbusi.GraficoTrasladosGeneralAsesor(UsuarioOut);
         }
+        public List<Graficos> GraficoAsesorIngresosSac(string UsuarioOut)
+        {
+            GraficosBusiness graficosbusi = new GraficosBusiness();
+            return graficosbusi.GraficoAsesorIngresosSac(UsuarioOut);
+        }
+        public List<Graficos> GraficoAsesorNotasIngresosSac(string UsuarioOut)
+        {
+            GraficosBusiness graficosbusi = new GraficosBusiness();
+            return graficosbusi.GraficoAsesorNotasIngresosSac(UsuarioOut);
+        }
         #endregion
 
     }

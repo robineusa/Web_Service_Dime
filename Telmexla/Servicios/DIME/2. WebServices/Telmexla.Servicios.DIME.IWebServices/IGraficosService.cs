@@ -14,5 +14,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
     {
         [OperationContract]
         List<Graficos> GraficoTrasladosGeneralAsesor(string UsuarioOut);
+        [OperationContract]
+        List<Graficos> GraficoAsesorIngresosSac(string UsuarioOut);
+        [OperationContract]
+        List<Graficos> GraficoAsesorNotasIngresosSac(string UsuarioOut);
     }
 }
