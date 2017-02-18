@@ -46,6 +46,21 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //unitWork.traficoTraslados.Add(trafico);
             //unitWork.Complete();
 
+            //SiguienteMejorOferta model = new SiguienteMejorOferta();
+            //model.UsuarioGestion = "robineusa";
+            //model.AliadoGestion = "BRM";
+            //model.CuentaCliente = 141;
+            //model.Ofrecimiento1 = 1;
+            //model.Ofrecimiento2 = 0;
+            //model.Ofrecimiento3 = 0;
+            //model.TipoContacto = "1234";
+            //model.Gestion = "1234";
+            //model.Cierre = "1234";
+            //model.Razon = "1234";
+            //model.Observaciones = "sdfsdfwwwwww";
+            //ActivacionSiembraHDService SS = new ActivacionSiembraHDService();
+            //SS.InsertarSMOInbound(model);
+
 
             //ActivacionSiembraHDService CuentasService = new ActivacionSiembraHDService();
             //var result454 = CuentasService.BuscarCuentaSMO(141);

@@ -148,6 +148,8 @@
     <Compile Include="RegistroSesionRepository.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="SiembraHDRepository.cs" />
+    <Compile Include="Configuration\SiguienteMejorOfertaConfiguration.cs" />
+    <Compile Include="SiguienteMejorOfertaRepository.cs" />
     <Compile Include="TmpMaestroHobbiesClienteRepository.cs" />
     <Compile Include="TraficoTrasladoRepository.cs" />
     <Compile Include="UnitOfWork.cs" />

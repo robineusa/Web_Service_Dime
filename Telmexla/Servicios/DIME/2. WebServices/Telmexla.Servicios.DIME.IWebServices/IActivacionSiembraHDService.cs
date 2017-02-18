@@ -20,5 +20,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<CuentasSiguienteMejorOferta> BuscarCuentaSMO(decimal cuentacliente);
+
+        [OperationContract]
+        void InsertarSMOInbound(SiguienteMejorOferta smo);
     }
 }

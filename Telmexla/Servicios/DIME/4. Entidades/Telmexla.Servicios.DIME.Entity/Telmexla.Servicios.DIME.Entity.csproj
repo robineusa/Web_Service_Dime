@@ -142,6 +142,8 @@
     <Compile Include="RegistroSesion.cs" />
     <Compile Include="SiembraHD.cs" />
     <Compile Include="SiembraHDCollection.cs" />
+    <Compile Include="SiguienteMejorOferta.cs" />
+    <Compile Include="SiguienteMejorOfertaCollection.cs" />
     <Compile Include="Subrazon1IngresoSoporte.cs" />
     <Compile Include="Subrazon2IngresoSoporte.cs" />
     <Compile Include="TmpMaestroHobbiesCliente.cs" />

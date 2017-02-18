@@ -999,6 +999,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CuentasSiembraHDBusiness cuentasbusines = new CuentasSiembraHDBusiness();
             return cuentasbusines.BuscarCuentaSMO(cuentacliente);
         }
+        public void InsertarSMOInbound(SiguienteMejorOferta smo)
+        {
+            SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
+            activacionbusiness.InsertarSMOInbound(smo);
+        }
         #endregion
 
 

@@ -63,6 +63,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<UsuariosNotificados> usuariosNotificados{ get; set; } // TBL_USUARIOS_NOTIFICADOS
         public System.Data.Entity.DbSet<BalanceScoreCard> balanceScoreCards { get; set; } // TBL_BALANCE_SCORE_CARD
         public System.Data.Entity.DbSet<CuentasSiguienteMejorOferta> CuentaSMO { get; set; } // TBL_CUENTAS_SIGUENTE_MEJOR_OFERTA
+        public System.Data.Entity.DbSet<SiguienteMejorOferta> SMO { get; set; } // TBL_VENTAS_SMO_INBOUND
 
         static DimeContext()
         {
@@ -158,7 +159,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new UsuariosNotificadosConfiguration());
             modelBuilder.Configurations.Add(new BalanceScoreCardConfiguration());
             modelBuilder.Configurations.Add(new CuentasSiguienteMejorOfertaConfiguration());
-
+            modelBuilder.Configurations.Add(new SiguienteMejorOfertaConfiguration());
 
         }
 
@@ -208,6 +209,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new UsuariosNotificadosConfiguration(schema));
             modelBuilder.Configurations.Add(new BalanceScoreCardConfiguration(schema));
             modelBuilder.Configurations.Add(new CuentasSiguienteMejorOfertaConfiguration(schema));
+            modelBuilder.Configurations.Add(new SiguienteMejorOfertaConfiguration(schema));
 
             return modelBuilder;
         }

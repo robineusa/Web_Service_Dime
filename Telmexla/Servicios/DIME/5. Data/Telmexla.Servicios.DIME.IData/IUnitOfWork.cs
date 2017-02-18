@@ -40,6 +40,7 @@ namespace Telmexla.Servicios.DIME.IData
         IUsuariosNotificadosRepository usuariosNotificados { get; }
         IBalanceScoreCardRepository balanceScoreCards { get; }
         ICuentasSiguienteMejorOfertaRepository CuentaSMO { get; }
+        ISiguienteMejorOfertaRepository SMO { get; }
 
 
         int Complete();
