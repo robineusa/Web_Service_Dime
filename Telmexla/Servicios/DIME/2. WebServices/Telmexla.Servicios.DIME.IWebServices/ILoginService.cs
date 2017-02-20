@@ -23,6 +23,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         Usuario RecibirUsuario();
 
         [OperationContract]
+        Usuario RecibirUsuarioConId(int idUsuario);
+        
+        [OperationContract]
         bool RegistrarActualizarPreguntas(List<PreguntasDesbloqueo> preguntas, List<String> respuestas, Usuario usuario, int noPreguntas);
 
 
@@ -111,6 +114,14 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void GuardarUsuariosMasivosConAccesos(List<string> cedulas,List<string> accesosCrear,int perfilCrear,int lineaCrear, string contraMasiva, int idUsuario);
 
+        [OperationContract]
+        string AliadoDeUsuario(decimal? cedula);
+
+        [OperationContract]
+        string LineaDeUsuarioPorId(int idUsuario);
+
+        [OperationContract]
+        string ModoLoginPorId(int idUsuario);
 
     }
 

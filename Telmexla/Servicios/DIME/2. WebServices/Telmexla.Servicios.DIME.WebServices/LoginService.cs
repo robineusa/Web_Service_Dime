@@ -516,5 +516,31 @@ namespace Telmexla.Servicios.DIME.WebServices
   
         }
 
+        public Usuario RecibirUsuarioConId(int idUsuario)
+        {
+            DimeContext dimeContext = new DimeContext();
+           return  dimeContext.Usuarios.Find(idUsuario);
+        }
+
+  
+        public string AliadoDeUsuario(decimal? cedula)
+        {
+            DimeContext dimeContext = new DimeContext();
+            return dimeContext.BasePersonalHoloes.Where(c => c.Cedula == cedula).First().Aliado;
+
+        }
+
+        public string LineaDeUsuarioPorId(int idUsuario)
+        {
+            DimeContext dimeContext = new DimeContext();
+            return dimeContext.Usuarios.Find(idUsuario).Linea.Nombre;
+        }
+
+        public string ModoLoginPorId(int idUsuario)
+        {
+            DimeContext dimeContext = new DimeContext();
+            return dimeContext.Usuarios.Find(idUsuario).Linea.IdModoLogin.ToString();
+        }
+
     }
 }
