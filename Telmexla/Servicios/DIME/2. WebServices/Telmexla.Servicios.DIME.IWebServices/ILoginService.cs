@@ -123,6 +123,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         string ModoLoginPorId(int idUsuario);
 
+
+
     }
 
 

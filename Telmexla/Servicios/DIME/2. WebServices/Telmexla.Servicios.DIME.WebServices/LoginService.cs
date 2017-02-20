@@ -530,16 +530,17 @@ namespace Telmexla.Servicios.DIME.WebServices
 
         }
 
-        public string LineaDeUsuarioPorId(int idUsuario)
+        public string LineaDeUsuarioPorId(int idLinea)
         {
             DimeContext dimeContext = new DimeContext();
-            return dimeContext.Usuarios.Find(idUsuario).Linea.Nombre;
+            return dimeContext.Lineas.Find(idLinea).Nombre;
+         
         }
 
-        public string ModoLoginPorId(int idUsuario)
+        public string ModoLoginPorId(int idLinea)
         {
             DimeContext dimeContext = new DimeContext();
-            return dimeContext.Usuarios.Find(idUsuario).Linea.IdModoLogin.ToString();
+            return dimeContext.Lineas.Find(idLinea).IdModoLogin.ToString();  
         }
 
     }

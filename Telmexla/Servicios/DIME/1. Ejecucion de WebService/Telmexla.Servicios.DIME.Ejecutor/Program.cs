@@ -76,11 +76,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             ////var result84841848 = activacionshdservice.BuscarCuentaSiembraHD(shd.CuentaCliente);
 
             LoginService loginService = new LoginService();
-            List<string> cedulas = new List<string>();
-            cedulas.Add("1032381244");
-            cedulas.Add("1032450759");
-            var result222222 = loginService.ListaDatosUsuariosHolosPorCedulas(cedulas);
-            string nada = "";
+
+            var result789456=  loginService.LineaDeUsuarioPorId(3);
+            string vacio = "";
             //SiembraHD entidad = new SiembraHD();
             //entidad.UsuarioGestion = "ROBINEUSA";
             //entidad.NombreUsuarioGestion = "ROBINSON NEUSA";
