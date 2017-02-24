@@ -1,3 +1,9 @@
 *.dll
 *.config
 *.pdb
+*.pdb
+*.manifest
+*.cache
+*.txt
+*.cache
+*.pdb

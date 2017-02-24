@@ -123,7 +123,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         string ModoLoginPorId(int idUsuario);
 
-
+        [OperationContract]
+        bool ExisteUsuarioHolos(decimal cedula);
 
     }
 

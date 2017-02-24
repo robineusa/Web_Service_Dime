@@ -238,6 +238,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             LoginService lService = new LoginService();
             return lService.ModoLoginPorId(idUsuario);
         }
+
+
+        public bool ExisteUsuarioHolos(decimal cedula)
+        {
+            LoginService lService = new LoginService();
+            return lService.ExisteUsuarioHolos(cedula);
+        }
         #endregion
 
         #region Inbound Service 

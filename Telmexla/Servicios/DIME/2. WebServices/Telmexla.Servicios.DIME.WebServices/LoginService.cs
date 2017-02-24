@@ -543,5 +543,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             return dimeContext.Lineas.Find(idLinea).IdModoLogin.ToString();  
         }
 
+        public bool ExisteUsuarioHolos(decimal cedula)
+        {
+            DimeContext dimeContext = new DimeContext();
+            return dimeContext.BasePersonalHoloes.Any(c=>c.Cedula== cedula);
+        }
+
     }
 }
