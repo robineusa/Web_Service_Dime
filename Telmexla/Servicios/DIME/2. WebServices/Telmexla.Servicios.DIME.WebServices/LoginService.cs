@@ -372,8 +372,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             DimeContext dimContext = new DimeContext();
             Usuario usuario = dimContext.Set<Usuario>().Find(idUsuario);
             usuario.IdLinea = idLinea;
+            if(contraseña != null && contraseña != "" )
+            { 
             usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(contraseña);
             usuario.FechaContrasena = Convert.ToDateTime("2015-05-28");
+            }
             DateTime fechaActual = DateTime.Now;
             for (int i = 0; i < permisosOtorgados.Length; i++)
             {
