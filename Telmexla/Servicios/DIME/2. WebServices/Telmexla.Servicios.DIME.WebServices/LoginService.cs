@@ -352,11 +352,16 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             DimeContext context = new DimeContext();
             int idUsuario = context.Usuarios.Where(c => c.Cedula == cedUsuario).Select(x => x.Id).FirstOrDefault();
-            List<UsuariosXAcceso> userAcces = context.UsuariosXAccesoes.Where(c => c.IdUsuario == idUsuario).ToList();
-            List<string> result = new List<string>();
+
+
+            List<UsuariosXAcceso> userAcces = context.UsuariosXAccesoes.Where(c => c.IdUsuario == idUsuario).OrderBy(d => d.FechaCreacion).ThenBy(e => e.HoraCreacion).ToList();
+            DateTime? ultimaFecha = userAcces.Last().FechaCreacion;
+            TimeSpan? ultimaHora = userAcces.Last().HoraCreacion;
+            List <string> result = new List<string>();
             foreach(var item in userAcces)
             {
-                result.Add( context.Accesoes.Where(c=>c.Id== item.IdAcceso).SingleOrDefault().Nombre );
+                if(item.HoraCreacion == ultimaHora && item.FechaCreacion == ultimaFecha)
+                  result.Add( context.Accesoes.Where(c=>c.Id== item.IdAcceso).SingleOrDefault().Nombre );
             }
             return result;
         }
