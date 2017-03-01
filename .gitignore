@@ -7,3 +7,5 @@
 *.txt
 *.cache
 *.pdb
+*.config
+*.pdb
