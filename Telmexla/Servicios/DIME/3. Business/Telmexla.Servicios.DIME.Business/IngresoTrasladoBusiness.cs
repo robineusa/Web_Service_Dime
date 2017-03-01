@@ -1472,6 +1472,57 @@ namespace Telmexla.Servicios.DIME.Business
                 }
             return result;
         }
-        
+        public List<DatoConsultaDirecciones> ConsultaIngresosTrasladosAsesor(decimal CuentaCliente)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 where a.CuentaCliente == CuentaCliente
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.TipoGestion,
+                                     a.FechaApertura,
+                                     a.HoraApertura,
+                                     a.FechaCierre,
+                                     a.HoraCierre,
+                                     a.FechaUltimaActualizacion,
+                                     a.HoraUltimaActualizacion,
+                                     a.UsuarioUltimaActualizacion,
+                                     a.UsuarioApertura,
+                                     a.UsuarioCierre,
+                                     a.EstadoTransaccion,
+                                     a.AliadoApertura,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IngresoTrasladoGetSet.TipoGestion = objetosResult[i].TipoGestion;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.HoraApertura = objetosResult[i].HoraApertura;
+                result[i].IngresoTrasladoGetSet.FechaUltimaActualizacion = objetosResult[i].FechaUltimaActualizacion;
+                result[i].IngresoTrasladoGetSet.HoraUltimaActualizacion = objetosResult[i].HoraUltimaActualizacion;
+                result[i].IngresoTrasladoGetSet.FechaCierre = objetosResult[i].FechaCierre;
+                result[i].IngresoTrasladoGetSet.HoraCierre = objetosResult[i].HoraCierre;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioCierre = objetosResult[i].UsuarioCierre;
+                result[i].IngresoTrasladoGetSet.UsuarioUltimaActualizacion = objetosResult[i].UsuarioUltimaActualizacion;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.AliadoApertura = objetosResult[i].AliadoApertura;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+            return result;
+        }
+
     }
 }

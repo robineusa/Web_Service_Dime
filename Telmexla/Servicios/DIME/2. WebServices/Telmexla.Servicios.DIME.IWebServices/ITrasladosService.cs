@@ -103,5 +103,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<DatoConsultaDirecciones> ListaGeneralIngresosLiberaciones(DateTime FechaInicial, DateTime FechaFinal);
         [OperationContract]
         List<DatoConsultaDirecciones> ListaGeneralIngresosmatrices(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ConsultaIngresosTrasladosAsesor(decimal CuentaCliente);
     }
 }

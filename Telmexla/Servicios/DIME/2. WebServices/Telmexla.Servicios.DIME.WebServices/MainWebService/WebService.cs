@@ -943,6 +943,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaGeneralIngresosmatrices(FechaInicial, FechaFinal);
         }
+        public List<DatoConsultaDirecciones> ConsultaIngresosTrasladosAsesor(decimal CuentaCliente)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ConsultaIngresosTrasladosAsesor(CuentaCliente);
+        }
+
         #endregion
 
         #region maestroNodos

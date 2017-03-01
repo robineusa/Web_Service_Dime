@@ -16,7 +16,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public void RegistrarIngresoTraslado(IngresoTraslado ingreso, NotasTraslado notaTraslado, TraficoTraslado transaccion)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.InsertIngresoTraslado(ingreso, notaTraslado,transaccion);
+            ingresoBusi.InsertIngresoTraslado(ingreso, notaTraslado, transaccion);
         }
         public bool ExisteCuentaEscalada(decimal cuenta)
         {
@@ -35,7 +35,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado, TraficoTraslado transaccion)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.ActualizarSolicitudCrearDireccion(ingreso, notaTraslado,transaccion);
+            ingresoBusi.ActualizarSolicitudCrearDireccion(ingreso, notaTraslado, transaccion);
         }
         public bool TransaccionEnGestion(int id, String usrABackOffice)
         {
@@ -71,7 +71,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato, TraficoTraslado transaccion)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.InsertIngresoCambioEstrato(ingreso, cambioEstrato,transaccion);
+            ingresoBusi.InsertIngresoCambioEstrato(ingreso, cambioEstrato, transaccion);
         }
         public bool ExisteCuentaEscaladaCambioEstrato(decimal cuenta)
         {
@@ -91,7 +91,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato, TraficoTraslado transaccion)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.ActualizarSolicitudCambioEstrato(ingreso, CambioEstrato,transaccion);
+            ingresoBusi.ActualizarSolicitudCambioEstrato(ingreso, CambioEstrato, transaccion);
         }
         public bool TransaccionEnGestionCambioEstrato(int id, String usrABackOffice)
         {
@@ -230,6 +230,11 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaGeneralIngresosmatrices(FechaInicial, FechaFinal);
+        }
+        public List<DatoConsultaDirecciones> ConsultaIngresosTrasladosAsesor(decimal CuentaCliente)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ConsultaIngresosTrasladosAsesor(CuentaCliente);
         }
     }
     }
