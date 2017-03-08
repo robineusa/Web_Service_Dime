@@ -236,5 +236,26 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ConsultaIngresosTrasladosAsesor(CuentaCliente);
         }
+        public List<DatoConsultaDirecciones> ListaGeneralIngresosCrearDireccionAsesor(decimal CuentaCliente)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaGeneralIngresosCrearDireccionAsesor(CuentaCliente);
+        }
+        public List<DatoConsultaDirecciones> ListaGeneralIngresosCambiEstratoAsesor(decimal CuentaCliente)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaGeneralIngresosCambiEstratoAsesor(CuentaCliente);
+        }
+        public List<DatoConsultaDirecciones> ListaGeneralIngresosLiberacionesAsesor(decimal CuentaCliente)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaGeneralIngresosLiberacionesAsesor(CuentaCliente);
+        }
+        public List<DatoConsultaDirecciones> ListaGeneralIngresosmatricesAsesor(decimal CuentaCliente)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaGeneralIngresosmatricesAsesor(CuentaCliente);
+        }
+
     }
     }
