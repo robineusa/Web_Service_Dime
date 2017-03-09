@@ -127,7 +127,6 @@ C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\obj\Debug\Telmexla.Servicios.DIME.Ejecutor.csprojResolveAssemblyReference.cache
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\obj\Debug\Telmexla.Servicios.DIME.Ejecutor.exe
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\obj\Debug\Telmexla.Servicios.DIME.Ejecutor.pdb
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Data.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Ejecutor.exe.config
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Ejecutor.exe
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Ejecutor.pdb
@@ -145,6 +144,7 @@ C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejec
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.WebServices.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Business.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Entity.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Data.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.IData.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\bin\Debug\EntityFramework.xml

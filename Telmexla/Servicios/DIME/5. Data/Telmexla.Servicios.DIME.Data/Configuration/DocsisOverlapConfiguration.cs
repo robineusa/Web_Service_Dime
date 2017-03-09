@@ -34,11 +34,11 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.OperacionGestion).HasColumnName(@"OPERACION_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.NombreBase).HasColumnName(@"NOMBRE_BASE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.CuentaCliente).HasColumnName(@"CUENTA_CLIENTE").IsOptional().HasColumnType("float");
-            Property(x => x.NombreCliente).HasColumnName(@"NOMBRE_CLIENTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
-            Property(x => x.ApellidoCliente).HasColumnName(@"APELLIDO_CLIENTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
-            Property(x => x.DireccionInstalacion).HasColumnName(@"DIRECCION_INSTALACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.DireccionCorrespondencia).HasColumnName(@"DIRECCION_CORRESPONDENCIA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.CorreoElectronico).HasColumnName(@"CORREO_ELECTRONICO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.NombreCliente).HasColumnName(@"NOMBRE_CLIENTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.ApellidoCliente).HasColumnName(@"APELLIDO_CLIENTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.DireccionInstalacion).HasColumnName(@"DIRECCION_INSTALACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
+            Property(x => x.DireccionCorrespondencia).HasColumnName(@"DIRECCION_CORRESPONDENCIA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
+            Property(x => x.CorreoElectronico).HasColumnName(@"CORREO_ELECTRONICO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.Telefono1).HasColumnName(@"TELEFONO_1").IsOptional().HasColumnType("numeric");
             Property(x => x.Telefono2).HasColumnName(@"TELEFONO_2").IsOptional().HasColumnType("numeric");
             Property(x => x.Telefono3).HasColumnName(@"TELEFONO_3").IsOptional().HasColumnType("numeric");
