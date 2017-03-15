@@ -26,7 +26,7 @@ namespace Telmexla.Servicios.DIME.Data
         {
 
            var result =( from m in dimeContext.MaestroMarcaciones
-                         where m.Descripcion.Contains(key)
+                         where m.Descripcion.Contains(key) && m.EstadoMarcacion.Equals("ACTIVA")
                          select   new { m.Id,m.Submarcacion, m.Descripcion }).ToList();
             MaestroMarcacioneCollection transforma = new MaestroMarcacioneCollection();
             foreach (var item in result)

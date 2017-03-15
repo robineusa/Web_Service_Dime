@@ -155,6 +155,12 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             List<string> result = unitOfWork.pqrMaestroCodigos.Find(c => c.SubRazon.Equals(submarcacion)).Select(x=>x.CodigoCierre).ToList();
+            List<double?> resultCodigos  = unitOfWork.pqrMaestroCodigos.Find(c => c.SubRazon.Equals(submarcacion)).Select(x => x.CodigoRr).ToList();
+
+            for(int i = 0; i< result.Count;i++)
+            {
+                result[i] = "Codigo RR: " + resultCodigos[i] + ". Descripción: " + result[i]+".";
+            }
             return result;
         }
 
