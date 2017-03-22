@@ -33,7 +33,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Com).HasColumnName(@"COM").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
             Property(x => x.Divisional).HasColumnName(@"DIVISIONAL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
             Property(x => x.Area).HasColumnName(@"AREA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
-            Property(x => x.Area).HasColumnName(@"ZONA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
+            Property(x => x.Zona).HasColumnName(@"ZONA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
             Property(x => x.Distrito).HasColumnName(@"DISTRITO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
             Property(x => x.Ugestion).HasColumnName(@"UGESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
             Property(x => x.Usuario).HasColumnName(@"USUARIO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
