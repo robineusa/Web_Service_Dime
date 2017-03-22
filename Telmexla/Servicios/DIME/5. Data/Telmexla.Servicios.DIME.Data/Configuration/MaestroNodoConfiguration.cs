@@ -31,10 +31,11 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.NombreNodo).HasColumnName(@"NOMBRE_NODO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Div).HasColumnName(@"DIV").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
             Property(x => x.Com).HasColumnName(@"COM").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
-            Property(x => x.Divisional).HasColumnName(@"DIVISIONAL").IsOptional().HasColumnType("numeric");
-            Property(x => x.Area).HasColumnName(@"AREA").IsOptional().HasColumnType("numeric");
-            Property(x => x.Distrito).HasColumnName(@"DISTRITO").IsOptional().HasColumnType("numeric");
-            Property(x => x.Ugestion).HasColumnName(@"UGESTION").IsOptional().HasColumnType("numeric");
+            Property(x => x.Divisional).HasColumnName(@"DIVISIONAL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
+            Property(x => x.Area).HasColumnName(@"AREA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
+            Property(x => x.Area).HasColumnName(@"ZONA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
+            Property(x => x.Distrito).HasColumnName(@"DISTRITO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
+            Property(x => x.Ugestion).HasColumnName(@"UGESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
             Property(x => x.Usuario).HasColumnName(@"USUARIO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
             Property(x => x.FechaCreacion).HasColumnName(@"FECHA_CREACION").IsOptional().HasColumnType("date");
             Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);

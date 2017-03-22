@@ -46,6 +46,7 @@ namespace Telmexla.Servicios.DIME.Business
             nodoActualizable.Com = nodo.Com;
             nodoActualizable.Divisional = nodo.Divisional;
             nodoActualizable.Area = nodo.Area;
+            nodoActualizable.Zona = nodo.Zona;
             nodoActualizable.Distrito = nodo.Distrito;
             nodoActualizable.Ugestion = nodo.Ugestion;
             nodoActualizable.Usuario = nodo.Usuario;
@@ -71,6 +72,7 @@ namespace Telmexla.Servicios.DIME.Business
                 Com=a.Com,
                 Divisional=a.Divisional,
                 Area=a.Area,
+                Zona=a.Zona,
                 Distrito=a.Distrito,
                 Ugestion=a.Ugestion,
                 Usuario=a.Usuario,
