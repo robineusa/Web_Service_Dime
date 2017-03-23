@@ -25,7 +25,7 @@ namespace Telmexla.Servicios.DIME.Business
         public bool ExisteNodo(string nodo)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return   unitWork.maestroNodos.Find(c => c.Nodo.Equals(nodo)).Count() >= 1 ;
+            return unitWork.maestroNodos.Find(c => c.Nodo.Equals(nodo) && c.Estado == "ACT").Count() >= 1;
             
         }
         public MaestroNodo GetInformacionNodo(string nodo)
