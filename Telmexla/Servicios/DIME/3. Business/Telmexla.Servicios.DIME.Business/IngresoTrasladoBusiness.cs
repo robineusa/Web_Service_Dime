@@ -190,7 +190,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("EN GESTION") && b.UsuarioBackOffice == usrABackOffice
+                                 where (a.EstadoTransaccion.Equals("EN GESTION")|| a.EstadoTransaccion.Equals("PENDIENTE POR CREAR")) && b.UsuarioBackOffice == usrABackOffice
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -267,7 +267,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOutbound }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && b.UsuarioBackOutbound == UsuarioOut
+                                 where (a.EstadoTransaccion.Equals("SEGUIMIENTO")|| a.EstadoTransaccion.Equals("INGRESADA")) && b.UsuarioBackOutbound == UsuarioOut
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -515,7 +515,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.cambioEstratos select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && b.UsuarioBackOffice == usrABackOffice
+                                 where (a.EstadoTransaccion.Equals("SEGUIMIENTO")|| a.EstadoTransaccion.Equals("PENDIENTE POR CREAR")) && b.UsuarioBackOffice == usrABackOffice
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -766,7 +766,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.liberacionesHomePass select new { m.IdTransaccion, m.UsuarioBackOffice, m.CuentaTraslada, m.MotivoLiberacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && b.UsuarioBackOffice == usrABackOffice
+                                 where (a.EstadoTransaccion.Equals("SEGUIMIENTO")|| a.EstadoTransaccion.Equals("PENDIENTE POR CREAR")) && b.UsuarioBackOffice == usrABackOffice
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -1046,7 +1046,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.gestionMatrices select new { m.IdTransaccion, m.UsuarioBackOfficeCreacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && b.UsuarioBackOfficeCreacion == usrABackOffice
+                                 where (a.EstadoTransaccion.Equals("SEGUIMIENTO")|| a.EstadoTransaccion.Equals("PENDIENTE POR CREAR")) && b.UsuarioBackOfficeCreacion == usrABackOffice
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -1123,7 +1123,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.gestionMatrices select new { m.IdTransaccion, m.UsuarioBackOfficeGestion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && b.UsuarioBackOfficeGestion == UsuarioOut
+                                 where (a.EstadoTransaccion.Equals("SEGUIMIENTO")|| a.EstadoTransaccion.Equals("PENDIENTE POR GESTIONAR")) && b.UsuarioBackOfficeGestion == UsuarioOut
                                  select new
                                  {
                                      a.IdTransaccion,
