@@ -20,24 +20,31 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+
+
+            TrasladosService ts = new TrasladosService();
+            List<IngresoTraslado> model = new List<IngresoTraslado>();
+            var list  = ts.ListaSeguimientosDireccionesCelula("1018413303");
+
+
             MaestroNodo nodo = new MaestroNodo();
 
-            nodo.NombreNodo = "ROBIN";
-            nodo.Div = "AAA";
-            nodo.Com = "AAA";
-            nodo.Divisional = "112";
-            nodo.Area = "11";
-            nodo.Zona = "11";
-            nodo.Distrito = "11";
-            nodo.Ugestion = "11";
-            nodo.Usuario = "robineusa";
-            nodo.Estado = "activo";
-            nodo.Red = "dth";
-            nodo.Aliado = "BRM";
-            MaestroNodoService servi = new MaestroNodoService();
-            servi.InsertarNodo(nodo);
+            //nodo.NombreNodo = "ROBIN";
+            //nodo.Div = "AAA";
+            //nodo.Com = "AAA";
+            //nodo.Divisional = "112";
+            //nodo.Area = "11";
+            //nodo.Zona = "11";
+            //nodo.Distrito = "11";
+            //nodo.Ugestion = "11";
+            //nodo.Usuario = "robineusa";
+            //nodo.Estado = "activo";
+            //nodo.Red = "dth";
+            //nodo.Aliado = "BRM";
+            //MaestroNodoService servi = new MaestroNodoService();
+            //servi.InsertarNodo(nodo);
 
-            
+
 
             //GraficosBusiness BUSI = new GraficosBusiness();
             //BUSI.GraficoTrasladosGeneralAsesor("TLEAL");

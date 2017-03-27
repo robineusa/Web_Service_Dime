@@ -23,10 +23,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ExisteCuentaEscalada(cuenta);
         }
-        public List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion()
+        public List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion(string Usuario)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSolicitudesCrearDireccion();
+            return ingresoBusi.ListaSolicitudesCrearDireccion(Usuario);
         }
         public NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id) {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
@@ -47,10 +47,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaSeguimientosDireccionesCelula(usrABackOffice);
         }
-        public List<DatoConsultaDirecciones> ListaDireccionesCreadasOutbound()
+        public List<DatoConsultaDirecciones> ListaDireccionesCreadasOutbound(string Usuario)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaDireccionesCreadasOutbound();
+            return ingresoBusi.ListaDireccionesCreadasOutbound(Usuario);
         }
         public bool TransaccionEnGestionOut(int id, String usrOut)
         {

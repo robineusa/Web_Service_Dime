@@ -17,7 +17,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         bool ExisteCuentaEscalada(decimal cuenta);
         [OperationContract]
-        List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion();
+        List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion(string Usuario);
         [OperationContract]
         NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id);
         [OperationContract]
@@ -27,7 +27,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<DatoConsultaDirecciones> ListaSeguimientosDireccionesCelula(string usrABackOffice);
         [OperationContract]
-        List<DatoConsultaDirecciones> ListaDireccionesCreadasOutbound();
+        List<DatoConsultaDirecciones> ListaDireccionesCreadasOutbound(string Usuario);
         [OperationContract]
         bool TransaccionEnGestionOut(int id, String usrOut);
         [OperationContract]
