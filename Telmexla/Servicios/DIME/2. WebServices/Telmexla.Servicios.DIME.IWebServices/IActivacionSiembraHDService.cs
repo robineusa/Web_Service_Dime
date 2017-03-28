@@ -23,5 +23,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         void InsertarSMOInbound(SiguienteMejorOferta smo);
+
+        [OperationContract]
+        SmoRentaActual RentaActualPorCuentaCalRentas(string cuenta);
+
     }
 }

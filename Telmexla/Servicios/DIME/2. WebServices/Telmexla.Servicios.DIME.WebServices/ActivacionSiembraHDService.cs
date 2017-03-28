@@ -33,5 +33,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
             activacionbusiness.InsertarSMOInbound(smo);
         }
+
+        public SmoRentaActual RentaActualPorCuentaCalRentas(string cuenta)
+        {
+            SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
+            return activacionbusiness.ConsultaRentaActualDeCuenta(cuenta);
+        }
     }
 }

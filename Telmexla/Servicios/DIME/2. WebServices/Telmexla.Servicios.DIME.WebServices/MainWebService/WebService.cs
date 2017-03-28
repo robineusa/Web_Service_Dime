@@ -1027,6 +1027,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
             activacionbusiness.InsertarSiembraHDInbound(siembra);
         }
+
+        public SmoRentaActual RentaActualPorCuentaCalRentas(string cuenta)
+        {
+            ActivacionSiembraHDService activacionService = new ActivacionSiembraHDService();
+           return  activacionService.RentaActualPorCuentaCalRentas(cuenta);
+
+        }
         #endregion
 
         #region BalanceScoreCard

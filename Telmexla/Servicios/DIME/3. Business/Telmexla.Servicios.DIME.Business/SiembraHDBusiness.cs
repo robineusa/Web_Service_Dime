@@ -67,5 +67,11 @@ namespace Telmexla.Servicios.DIME.Business
 
 
         }
+
+        public SmoRentaActual ConsultaRentaActualDeCuenta(string cuenta)
+        { int cuentaFloat = Convert.ToInt32(cuenta);
+            DimeContext dimeContext = new DimeContext();
+           return  dimeContext.SmoRentaActuals.Where(c => c.Cuenta == cuentaFloat).FirstOrDefault();
+        }
     }
 }
