@@ -790,10 +790,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ExisteCuentaEscaladaCambioEstrato(cuenta);
         }
-        public List<DatoConsultaDirecciones> ListaSolicitudesCambioEstrato()
+        public List<DatoConsultaDirecciones> ListaSolicitudesCambioEstrato(string Usuario)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSolicitudesCambioEstrato();
+            return ingresoBusi.ListaSolicitudesCambioEstrato(Usuario);
         }
         public CambioEstratoCollection ListaInteraccionesCambioEstrato(int id)
         {
@@ -831,10 +831,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ExisteCuentaEscaladaLiberacionHomePass(cuenta);
         }
-        public List<DatoConsultaDirecciones> ListaSolicitudesLiberacionesHomePass()
+        public List<DatoConsultaDirecciones> ListaSolicitudesLiberacionesHomePass(string Usuario)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSolicitudesLiberacionesHomePass();
+            return ingresoBusi.ListaSolicitudesLiberacionesHomePass(Usuario);
         }
         public LiberacionHomePassCollection ListaInteraccionesLiberacionHomePass(int id)
         {
@@ -872,10 +872,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ExisteCuentaEscaladaMatriz(cuenta);
         }
-        public List<DatoConsultaDirecciones> ListaSolicitudesCreaciondeMatriz()
+        public List<DatoConsultaDirecciones> ListaSolicitudesCreaciondeMatriz(string Usuario)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSolicitudesCreaciondeMatriz();
+            return ingresoBusi.ListaSolicitudesCreaciondeMatriz(Usuario);
         }
         public GestionMatrizColleciton ListaInteraccionesMatrices(int id)
         {
@@ -897,10 +897,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaSeguimientosCrearMatrizCelula(usrABackOffice);
         }
-        public List<DatoConsultaDirecciones> ListaSolicitudesGestionMatriz()
+        public List<DatoConsultaDirecciones> ListaSolicitudesGestionMatriz(string Usuario)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSolicitudesGestionMatriz();
+            return ingresoBusi.ListaSolicitudesGestionMatriz(Usuario);
         }
         public bool TransaccionGestionMatrizEnGestion(int id, String usrOut)
         {

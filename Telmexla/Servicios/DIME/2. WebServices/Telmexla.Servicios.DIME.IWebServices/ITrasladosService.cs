@@ -40,7 +40,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         bool ExisteCuentaEscaladaCambioEstrato(decimal cuenta);
         [OperationContract]
-        List<DatoConsultaDirecciones> ListaSolicitudesCambioEstrato();
+        List<DatoConsultaDirecciones> ListaSolicitudesCambioEstrato(string Usuario);
         [OperationContract]
         CambioEstratoCollection ListaInteraccionesCambioEstrato(int id);
         [OperationContract]
@@ -58,7 +58,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         bool ExisteCuentaEscaladaLiberacionHomePass(decimal cuenta);
         [OperationContract]
-        List<DatoConsultaDirecciones> ListaSolicitudesLiberacionesHomePass();
+        List<DatoConsultaDirecciones> ListaSolicitudesLiberacionesHomePass(string Usuario);
         [OperationContract]
         LiberacionHomePassCollection ListaInteraccionesLiberacionHomePass(int id);
         [OperationContract]
@@ -75,7 +75,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         bool ExisteCuentaEscaladaMatriz(decimal cuenta);
         [OperationContract]
-        List<DatoConsultaDirecciones> ListaSolicitudesCreaciondeMatriz();
+        List<DatoConsultaDirecciones> ListaSolicitudesCreaciondeMatriz(string Usuario);
         [OperationContract]
         GestionMatrizColleciton ListaInteraccionesMatrices(int id);
         [OperationContract]
@@ -85,7 +85,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<DatoConsultaDirecciones> ListaSeguimientosCrearMatrizCelula(string usrABackOffice);
         [OperationContract]
-        List<DatoConsultaDirecciones> ListaSolicitudesGestionMatriz();
+        List<DatoConsultaDirecciones> ListaSolicitudesGestionMatriz(string Usuario);
         [OperationContract]
         bool TransaccionGestionMatrizEnGestion(int id, String usrOut);
         [OperationContract]

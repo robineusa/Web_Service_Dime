@@ -21,8 +21,3 @@ C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\bin\Debug\Telmexla.Servicios.DIME.Helpers.EMails.pdb
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\obj\Debug\Telmexla.Servicios.DIME.Helpers.EMails.dll
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\obj\Debug\Telmexla.Servicios.DIME.Helpers.EMails.pdb
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\bin\Debug\Telmexla.Servicios.DIME.Helpers.EMails.dll
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\bin\Debug\Telmexla.Servicios.DIME.Helpers.EMails.pdb
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\obj\Debug\Telmexla.Servicios.DIME.Helpers.EMails.csprojResolveAssemblyReference.cache
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\obj\Debug\Telmexla.Servicios.DIME.Helpers.EMails.dll
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\obj\Debug\Telmexla.Servicios.DIME.Helpers.EMails.pdb
