@@ -48,6 +48,7 @@ namespace Telmexla.Servicios.DIME.Data
             balanceScoreCards = new BalaceScoreCardRepository(this.dimeContext);
             CuentaSMO = new CuentasSiguienteMejorOfertaRepository(this.dimeContext);
             SMO = new SiguienteMejorOfertaRepository(this.dimeContext);
+            trasladosNoCobertura = new TrasladoNoCoberturaRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -188,6 +189,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public ISiguienteMejorOfertaRepository SMO
+        {
+            get; private set;
+        }
+        public ITrasladoNoCoberturaRepository trasladosNoCobertura
         {
             get; private set;
         }

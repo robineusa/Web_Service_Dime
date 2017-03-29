@@ -62,6 +62,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<CuentasSiguienteMejorOferta> CuentaSMO { get; set; } // TBL_CUENTAS_SIGUENTE_MEJOR_OFERTA
         System.Data.Entity.DbSet<SiguienteMejorOferta> SMO { get; set; } // TBL_VENTAS_SMO_INBOUND
         System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; } // TBL_SMO_RENTA_ACTUAL
+        System.Data.Entity.DbSet<TrasladoNoCobertura> trasladosNoCobertura { get; set; } // TBL_TRASLADO_NO_COBERTURA
 
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();
@@ -105,6 +106,14 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Collections.Generic.List<ActualizarUsuarioGestionBackGestionMatrizReturnModel> ActualizaUsuarioGestionBackGestionMatriz(decimal? idIngreso, string usuarioBack);
         System.Collections.Generic.List<ActualizarUsuarioGestionBackGestionMatrizReturnModel> ActualizaUsuarioGestionBackGestionMatriz(decimal? idIngreso, string usuarioBack, out int procResult);
         System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackGestionMatrizReturnModel>> ActualizaUsuarioGestionBackGestionMatrizAsync(decimal? idIngreso, string usuarioBack);
+
+        // Stored Procedures Traslado no cobertura
+        System.Collections.Generic.List<ActualizaUsuarioGestionTrasladoNoCoberturaReturnViewModel> ActualizaUsuarioGestionBackTrasladoNoCobertura(decimal? idTransaccion, string usuarioBack);
+        System.Collections.Generic.List<ActualizaUsuarioGestionTrasladoNoCoberturaReturnViewModel> ActualizaUsuarioGestionBackTrasladoNoCobertura(decimal? idTransaccion, string usuarioBack, out int procResult);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionTrasladoNoCoberturaReturnViewModel>> ActualizaUsuarioGestionBackTrasladoNoCoberturaAsync(decimal? idTransaccion, string usuarioBack);
+
     }
+
+
 
 }

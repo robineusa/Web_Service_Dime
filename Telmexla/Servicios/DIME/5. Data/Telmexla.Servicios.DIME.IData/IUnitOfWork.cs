@@ -41,8 +41,8 @@ namespace Telmexla.Servicios.DIME.IData
         IBalanceScoreCardRepository balanceScoreCards { get; }
         ICuentasSiguienteMejorOfertaRepository CuentaSMO { get; }
         ISiguienteMejorOfertaRepository SMO { get; }
-
-
+        ITrasladoNoCoberturaRepository trasladosNoCobertura { get; }
+        
         int Complete();
     }
 }

@@ -1804,6 +1804,266 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
-        
+
+        //PROCESO DE TRASLADO NO COBERTURA
+        public void InsertIngresoTrasladoNoCobertura(IngresoTraslado ingreso, TrasladoNoCobertura traslado, TraficoTraslado transaccion)
+        {
+            try
+            {
+                ingreso.TipoGestion = "TRASLADO NO COBERTURA";
+                ingreso.FechaApertura = DateTime.Now;
+                ingreso.HoraApertura = DateTime.Now;
+                ingreso.FechaUltimaActualizacion = DateTime.Now;
+                ingreso.HoraUltimaActualizacion = DateTime.Now;
+                ingreso.EstadoTransaccion = "PENDIENTE POR GESTIONAR";
+                ingreso.NombreLineaEscalado = "CELULA TRASLADO NO COBERTURA";
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.ingresoTraslados.Add(ingreso);
+                unitWork.Complete();
+
+                traslado.IdTransaccion = ingreso.IdTransaccion;
+                traslado.UsuarioTransaccion = ingreso.UsuarioApertura;
+                traslado.CanalTransaccion = "INBOUND TRASLADOS";
+                traslado.FechaTransaccion = DateTime.Now;
+                traslado.NombreLineaTransaccion = ingreso.NombreLineaIngreso;
+                traslado.CuentaCliente = ingreso.CuentaCliente;
+                traslado.Razon = "SOLICITUD INBOUND";
+                traslado.Subrazon = "TRASLADO NO COBERTURA";
+                traslado.EstadoTransaccion = "PENDIENTE POR GESTIONAR";
+                unitWork.trasladosNoCobertura.Add(traslado);
+                unitWork.Complete();
+
+                //registro de tiempos y transaccion
+                transaccion.IdTransaccion = ingreso.IdTransaccion;
+                transaccion.UsuarioTransaccion = traslado.UsuarioTransaccion;
+                transaccion.EstadoTransaccion = traslado.EstadoTransaccion;
+                unitWork.traficoTraslados.Add(transaccion);
+                unitWork.Complete();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
+        public bool ExisteCuentaEscaladaTrasladoNoCobertura(decimal cuenta)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoTransaccion != "FINALIZADO" && c.TipoGestion == "TRASLADO NO COBERTURA").Count() >= 1;
+
+        }
+        public List<DatoConsultaDirecciones> ListaSolicitudesTrasladoNoCobertura(string Usuario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.trasladosNoCobertura select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where a.EstadoTransaccion.Equals("PENDIENTE POR GESTIONAR") && (b.UsuarioBackOffice == null || b.UsuarioBackOffice == Usuario)
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.FechaApertura,
+                                     a.UsuarioApertura,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
+        public TrasladoNoCoberturaCollection ListaInteraccionesTrasladosNoCobertura(int id)
+        {
+
+            UnitOfWork unitwork = new UnitOfWork(new DimeContext());
+            TrasladoNoCoberturaCollection result = new TrasladoNoCoberturaCollection();
+            result.AddRange(unitwork.notasTraslados.Find(c => c.IdTransaccion == id).Select(a => new TrasladoNoCobertura
+            {
+                Id = a.Id,
+                IdTransaccion = a.IdTransaccion,
+                UsuarioTransaccion = a.UsuarioTransaccion,
+                CanalTransaccion = a.CanalTransaccion,
+                FechaTransaccion = a.FechaTransaccion,
+                NombreLineaTransaccion = a.NombreLineaTransaccion,
+                CuentaCliente = a.CuentaCliente,
+                DireccionTraslado = a.DireccionACrear,
+                Estrato = a.Estrato,
+                Nodo = a.Nodo,
+                TelefonoCelular = a.TelefonoCelular,
+                TelefonoFijo = a.TelefonoFijo,
+                Razon = a.Razon,
+                Subrazon = a.Subrazon,
+                Observacion = a.Observacion,
+                EstadoTransaccion = a.EstadoTransaccion
+            }).ToList());
+
+            return result;
+        }
+        public void ActualizarSolicitudTrasladosNoCobertura(IngresoTraslado ingreso, TrasladoNoCobertura traslado, TraficoTraslado transaccion)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+
+            IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
+            List<TrasladoNoCobertura> trasladoactualizable = unitWork.trasladosNoCobertura.Find(c => c.IdTransaccion == ingreso.IdTransaccion).ToList();
+
+            DateTime fechaActual = DateTime.Now;
+            if (ingreso.EstadoTransaccion == "FINALIZADO")
+            {
+                ingresoActualizable.FechaCierre = fechaActual;
+                ingresoActualizable.HoraCierre = fechaActual;
+                ingresoActualizable.UsuarioCierre = ingreso.UsuarioUltimaActualizacion;
+            }
+            ingresoActualizable.FechaUltimaActualizacion = fechaActual;
+            ingresoActualizable.HoraUltimaActualizacion = fechaActual;
+            ingresoActualizable.UsuarioUltimaActualizacion = ingreso.UsuarioUltimaActualizacion;
+            ingresoActualizable.EstadoTransaccion = ingreso.EstadoTransaccion;
+
+            TrasladoNoCobertura registroTraslasdo = new TrasladoNoCobertura();
+            registroTraslasdo.IdTransaccion = ingresoActualizable.IdTransaccion;
+            registroTraslasdo.UsuarioTransaccion = traslado.UsuarioTransaccion;
+            registroTraslasdo.CanalTransaccion = traslado.CanalTransaccion;
+            registroTraslasdo.FechaTransaccion = fechaActual;
+            registroTraslasdo.NombreLineaTransaccion = traslado.NombreLineaTransaccion;
+            registroTraslasdo.CuentaCliente = ingresoActualizable.CuentaCliente;
+            registroTraslasdo.DireccionTraslado = traslado.DireccionTraslado;
+            registroTraslasdo.Estrato = traslado.Estrato;
+            registroTraslasdo.Nodo = traslado.Nodo;
+            registroTraslasdo.TelefonoCelular = traslado.TelefonoCelular;
+            registroTraslasdo.TelefonoFijo = traslado.TelefonoFijo;
+            registroTraslasdo.Razon = traslado.Razon;
+            registroTraslasdo.Subrazon = traslado.Subrazon;
+            registroTraslasdo.Observacion = traslado.Observacion;
+            registroTraslasdo.EstadoTransaccion = traslado.EstadoTransaccion;
+            registroTraslasdo.UsuarioBackOffice = null;
+            unitWork.trasladosNoCobertura.Add(registroTraslasdo);
+            unitWork.Complete();
+
+            //actualizar la lista de usuarios del back a nulos
+            foreach (var item in trasladoactualizable)
+            {
+                item.UsuarioBackOffice = null;
+            };
+
+
+            //registro de tiempos y transaccion
+            transaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
+            transaccion.UsuarioTransaccion = registroTraslasdo.UsuarioTransaccion;
+            transaccion.EstadoTransaccion = registroTraslasdo.EstadoTransaccion;
+            unitWork.traficoTraslados.Add(transaccion);
+            unitWork.Complete();
+
+        }
+        public bool TransaccionEnGestionTrasladoNoCobertura(int id, String usrABackOffice)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            string result = unitWork.trasladosNoCobertura.ComprobarActualizarUsrBackoffice(id, usrABackOffice);
+            if (result == usrABackOffice) return false;
+            else return true;
+        }
+        public List<DatoConsultaDirecciones> ListaSeguimientosTrasladoNoCoberturaCelula(string usrABackOffice)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.IngresoTraslados
+                                 join b in (from m in dimContext.trasladosNoCobertura select new { m.IdTransaccion, m.UsuarioBackOffice }).Distinct() on a.IdTransaccion equals b.IdTransaccion
+                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && (b.UsuarioBackOffice == usrABackOffice || b.UsuarioBackOffice == null)
+                                 orderby a.HoraUltimaActualizacion ascending
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.FechaApertura,
+                                     a.HoraUltimaActualizacion,
+                                     a.UsuarioApertura,
+                                     a.EstadoTransaccion,
+                                     a.NombreLineaIngreso,
+                                     a.NombreLineaEscalado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].IngresoTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].IngresoTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IngresoTrasladoGetSet.FechaApertura = objetosResult[i].FechaApertura;
+                result[i].IngresoTrasladoGetSet.HoraUltimaActualizacion = objetosResult[i].HoraUltimaActualizacion;
+                result[i].IngresoTrasladoGetSet.UsuarioApertura = objetosResult[i].UsuarioApertura;
+                result[i].IngresoTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].IngresoTrasladoGetSet.NombreLineaIngreso = objetosResult[i].NombreLineaIngreso;
+                result[i].IngresoTrasladoGetSet.NombreLineaEscalado = objetosResult[i].NombreLineaEscalado;
+
+            }
+
+
+            return result;
+        }
+        public List<DatoConsultaDirecciones> ListGestionTrasladoNoCobertura(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.trasladosNoCobertura
+                                 join b in dimContext.IngresoTraslados on a.IdTransaccion equals b.IdTransaccion
+                                 where a.FechaTransaccion >= FechaInicial && a.FechaTransaccion <= FechaFinal && a.UsuarioTransaccion == usrTransac
+                                 select new
+                                 {
+                                     a.IdTransaccion,
+                                     a.CuentaCliente,
+                                     a.UsuarioTransaccion,
+                                     a.CanalTransaccion,
+                                     a.FechaTransaccion,
+                                     a.NombreLineaTransaccion,
+                                     a.EstadoTransaccion,
+                                     a.Razon,
+                                     a.Subrazon,
+                                     a.Observacion
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].NotaTrasladoGetSet.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].NotaTrasladoGetSet.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].NotaTrasladoGetSet.UsuarioTransaccion = objetosResult[i].UsuarioTransaccion;
+                result[i].NotaTrasladoGetSet.CanalTransaccion = objetosResult[i].CanalTransaccion;
+                result[i].NotaTrasladoGetSet.FechaTransaccion = objetosResult[i].FechaTransaccion;
+                result[i].NotaTrasladoGetSet.NombreLineaTransaccion = objetosResult[i].NombreLineaTransaccion;
+                result[i].NotaTrasladoGetSet.EstadoTransaccion = objetosResult[i].EstadoTransaccion;
+                result[i].NotaTrasladoGetSet.Razon = objetosResult[i].Razon;
+                result[i].NotaTrasladoGetSet.Subrazon = objetosResult[i].Subrazon;
+                result[i].NotaTrasladoGetSet.Observacion = objetosResult[i].Observacion;
+
+            }
+
+
+            return result;
+        }
+
     }
 }

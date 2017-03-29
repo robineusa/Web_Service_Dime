@@ -256,6 +256,46 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaGeneralIngresosmatricesAsesor(CuentaCliente);
         }
-
+        //TRASLADOS NO COBERTURA
+        public void InsertIngresoTrasladoNoCobertura(IngresoTraslado ingreso, TrasladoNoCobertura traslado, TraficoTraslado transaccion)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            ingresoBusi.InsertIngresoTrasladoNoCobertura(ingreso, traslado, transaccion);
+        }
+        public bool ExisteCuentaEscaladaTrasladoNoCobertura(decimal cuenta)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ExisteCuentaEscaladaTrasladoNoCobertura(cuenta);
+        }
+        public List<DatoConsultaDirecciones> ListaSolicitudesTrasladoNoCobertura(string Usuario)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSolicitudesTrasladoNoCobertura(Usuario);
+        }
+        public TrasladoNoCoberturaCollection ListaInteraccionesTrasladosNoCobertura(int id)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaInteraccionesTrasladosNoCobertura(id);
+        }
+        public void ActualizarSolicitudTrasladosNoCobertura(IngresoTraslado ingreso, TrasladoNoCobertura traslado, TraficoTraslado transaccion)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            ingresoBusi.ActualizarSolicitudTrasladosNoCobertura(ingreso, traslado, transaccion);
+        }
+        public bool TransaccionEnGestionTrasladoNoCobertura(int id, String usrABackOffice)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.TransaccionEnGestionTrasladoNoCobertura(id, usrABackOffice);
+        }
+        public List<DatoConsultaDirecciones> ListaSeguimientosTrasladoNoCoberturaCelula(string usrABackOffice)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaSeguimientosTrasladoNoCoberturaCelula(usrABackOffice);
+        }
+        public List<DatoConsultaDirecciones> ListGestionTrasladoNoCobertura(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListGestionTrasladoNoCobertura(FechaInicial, FechaFinal, usrTransac);
+        }
     }
     }
