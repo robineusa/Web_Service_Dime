@@ -297,5 +297,16 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListGestionTrasladoNoCobertura(FechaInicial, FechaFinal, usrTransac);
         }
-    }
+        public List<DatoConsultaDirecciones> ListaGeneralIngresosTrasladoNoCoberturaAsesor(decimal CuentaCliente) {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaGeneralIngresosTrasladoNoCoberturaAsesor(CuentaCliente);
+        }
+        public List<DatoConsultaDirecciones> ListaGeneralIngresosTrasladoNoCobertura(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ListaGeneralIngresosTrasladoNoCobertura(FechaInicial,FechaFinal);
+        }
+
+
+        }
     }

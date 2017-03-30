@@ -130,5 +130,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<DatoConsultaDirecciones> ListaSeguimientosTrasladoNoCoberturaCelula(string usrABackOffice);
         [OperationContract]
         List<DatoConsultaDirecciones> ListGestionTrasladoNoCobertura(DateTime FechaInicial, DateTime FechaFinal, string usrTransac);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListaGeneralIngresosTrasladoNoCoberturaAsesor(decimal CuentaCliente);
+        [OperationContract]
+        List<DatoConsultaDirecciones> ListaGeneralIngresosTrasladoNoCobertura(DateTime FechaInicial, DateTime FechaFinal);
     }
 }
