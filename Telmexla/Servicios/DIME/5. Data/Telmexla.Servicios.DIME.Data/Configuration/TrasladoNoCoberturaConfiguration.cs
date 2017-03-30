@@ -33,7 +33,7 @@ namespace Telmexla.Servicios.DIME.Data
             Property(x => x.FechaTransaccion).HasColumnName(@"FECHA_TRANSACCION").IsOptional().HasColumnType("date");
             Property(x => x.NombreLineaTransaccion).HasColumnName(@"NOMBRE_LINEA_TRANSACCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.CuentaCliente).HasColumnName(@"CUENTA_CLIENTE").IsRequired().HasColumnType("numeric");
-            Property(x => x.DireccionTraslado).HasColumnName(@"DIRECCION_A_CREAR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.DireccionTraslado).HasColumnName(@"DIRECCION_TRASLADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.Estrato).HasColumnName(@"ESTRATO").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.Nodo).HasColumnName(@"NODO").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(15);
             Property(x => x.TelefonoCelular).HasColumnName(@"TELEFONO_CELULAR").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(20);
