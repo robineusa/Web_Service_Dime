@@ -68,6 +68,32 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
+        public SmoTarifaActual ConsultaTarifaActualDeDatos(string estrato, string voz, string tv, string internet)
+        {
+            DimeContext dimeContext = new DimeContext();
+            SmoTarifaActual result;
+            result = dimeContext.Set<SmoTarifaActual>().Where(c => c.Tarifa.Equals("PLENA") && c.Estrato.Equals(estrato) && c.Voz.Equals(voz)
+             && c.TipoTv.Equals(tv) && c.TipoInternet.Equals(internet)).Select(x => new
+             {
+                 Id = x.Id,
+                 CodTarifaRes = x.CodTarifaRes,
+                 IncluyeHd = x.IncluyeHd,
+                 InclyeClarovideo = x.InclyeClarovideo,
+                 IncluyePvr = x.IncluyePvr,
+                 RentaTotal = x.RentaTotal
+             }).ToList().Select(y => new SmoTarifaActual
+             {
+                 Id = y.Id,
+                 CodTarifaRes = y.CodTarifaRes,
+                 IncluyeHd = y.IncluyeHd,
+                 InclyeClarovideo = y.InclyeClarovideo,
+                 IncluyePvr = y.IncluyePvr,
+                 RentaTotal = y.RentaTotal
+             }).FirstOrDefault();
+
+            return result;
+        }
+
         public SmoRentaActual ConsultaRentaActualDeCuenta(string cuenta)
         { int cuentaFloat = Convert.ToInt32(cuenta);
             DimeContext dimeContext = new DimeContext();

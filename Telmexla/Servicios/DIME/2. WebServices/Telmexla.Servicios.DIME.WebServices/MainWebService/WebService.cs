@@ -1083,6 +1083,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
            return  activacionService.RentaActualPorCuentaCalRentas(cuenta);
 
         }
+
+        public SmoTarifaActual TarifaActualDeDatos(string estrato, string voz, string tv, string internet)
+        {
+            ActivacionSiembraHDService activacionService = new ActivacionSiembraHDService();
+            return activacionService.TarifaActualDeDatos(estrato,voz,tv,internet);
+
+        }
         #endregion
 
         #region BalanceScoreCard

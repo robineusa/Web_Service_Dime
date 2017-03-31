@@ -66,6 +66,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<SiguienteMejorOferta> SMO { get; set; } // TBL_VENTAS_SMO_INBOUND
         public System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; } // TBL_SMO_RENTA_ACTUAL
         public System.Data.Entity.DbSet<TrasladoNoCobertura> trasladosNoCobertura { get; set; } // TBL_TRASLADO_NO_COBERTURA
+        public System.Data.Entity.DbSet<SmoTarifaActual> SmoTarifaActuals { get; set; } // TBL_SMO_TARIFA_ACTUAL
 
         static DimeContext()
         {
@@ -164,6 +165,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SiguienteMejorOfertaConfiguration());
             modelBuilder.Configurations.Add(new SmoRentaActualConfiguration());
             modelBuilder.Configurations.Add(new TrasladoNoCoberturaConfiguration());
+            modelBuilder.Configurations.Add(new SmoTarifaActualConfiguration());
 
         }
 
@@ -216,6 +218,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SiguienteMejorOfertaConfiguration(schema));
             modelBuilder.Configurations.Add(new SmoRentaActualConfiguration(schema));
             modelBuilder.Configurations.Add(new TrasladoNoCoberturaConfiguration(schema));
+            modelBuilder.Configurations.Add(new SmoTarifaActualConfiguration(schema));
             return modelBuilder;
         }
 

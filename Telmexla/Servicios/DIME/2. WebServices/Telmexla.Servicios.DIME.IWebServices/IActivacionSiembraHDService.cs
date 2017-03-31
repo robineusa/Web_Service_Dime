@@ -27,5 +27,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         SmoRentaActual RentaActualPorCuentaCalRentas(string cuenta);
 
+        [OperationContract]
+        SmoTarifaActual TarifaActualDeDatos(string estrato, string voz, string tv, string internet);
+
     }
 }

@@ -39,5 +39,12 @@ namespace Telmexla.Servicios.DIME.WebServices
             SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
             return activacionbusiness.ConsultaRentaActualDeCuenta(cuenta);
         }
+
+        public SmoTarifaActual TarifaActualDeDatos(string estrato, string voz, string tv, string internet)
+        {
+            SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
+            return activacionbusiness.ConsultaTarifaActualDeDatos(estrato, voz, tv, internet);
+        }
+
     }
 }

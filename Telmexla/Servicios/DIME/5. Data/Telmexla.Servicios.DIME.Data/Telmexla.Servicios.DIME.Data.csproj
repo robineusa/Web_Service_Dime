@@ -69,6 +69,7 @@
     <Compile Include="Configuration\RechazoConfiguration.cs" />
     <Compile Include="Configuration\SiembraHDConfiguration.cs" />
     <Compile Include="Configuration\SmoRentaActualConfiguration.cs" />
+    <Compile Include="Configuration\SmoTarifaActualConfiguration.cs" />
     <Compile Include="Configuration\Subrazon1IngresoSoporteConfiguration.cs" />
     <Compile Include="Configuration\Subrazon2IngresoSoporteConfiguration.cs" />
     <Compile Include="Configuration\TraficoTrasladoConfiguration.cs" />
