@@ -23,10 +23,10 @@ namespace Telmexla.Servicios.DIME.Data
         }
 
 
-        public bool ApartarCuentaAGestionarAsesor(string gestionBlending, int idAsesor)
+        public bool ApartarCuentaAGestionarAsesor(string gestionBlending, int idAsesor, string aliado, string linea)
         {
      
-            dimeContext.ApartarCuentaGestionOutboundAsesor(idAsesor, gestionBlending);
+            dimeContext.ApartarCuentaGestionOutboundAsesor(idAsesor, gestionBlending, aliado, linea);
             return true;
         }
     }

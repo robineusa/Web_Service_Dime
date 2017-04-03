@@ -299,7 +299,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             return procResultData;
         }
 
-        public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion)
+        public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion, string aliado, string linea)
         {
             var idAsesorParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Asesor", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Input, Value = idAsesor.GetValueOrDefault(), Precision = 10, Scale = 0 };
             if (!idAsesor.HasValue)
@@ -309,13 +309,20 @@ namespace Telmexla.Servicios.DIME.Data.Context
             if (gestionParam.Value == null)
                 gestionParam.Value = System.DBNull.Value;
 
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var lineaParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Linea", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = linea, Size = 200 };
+            if (lineaParam.Value == null)
+                lineaParam.Value = System.DBNull.Value;
+
             var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
 
-            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[APARTAR_CUENTA_GESTION_OUTBOUND_ASESOR] @Id_Asesor, @Gestion", idAsesorParam, gestionParam, procResultParam);
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[APARTAR_CUENTA_GESTION_OUTBOUND_ASESOR] @Id_Asesor, @Gestion, @Aliado, @Linea", idAsesorParam, gestionParam, aliadoParam, lineaParam, procResultParam);
 
             return (int)procResultParam.Value;
         }
-
         public int Consultas(decimal? nombreCab, System.Data.DataTable detalles)
         {
             var nombreCabParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Nombre_Cab", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = nombreCab.GetValueOrDefault(), Precision = 18, Scale = 0 };

@@ -14,7 +14,7 @@ namespace Telmexla.Servicios.DIME.Business
 
 
 
-        public ClientesTodo DatosClienteAutomaticos(int idAsesor, string gestionBlendingActual, int noRecursividad)
+        public ClientesTodo DatosClienteAutomaticos(int idAsesor, string gestionBlendingActual, int noRecursividad, string aliado, string linea)
         {
 
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
@@ -26,10 +26,10 @@ namespace Telmexla.Servicios.DIME.Business
             }
             else
             {
-                unitOfWork.gestionesOutbound.ApartarCuentaAGestionarAsesor(gestionBlendingActual, idAsesor);
+                unitOfWork.gestionesOutbound.ApartarCuentaAGestionarAsesor(gestionBlendingActual, idAsesor, aliado,linea);
                 noRecursividad++;
                 if (noRecursividad > 1) return null;
-                return DatosClienteAutomaticos(idAsesor, gestionBlendingActual, noRecursividad);               
+                return DatosClienteAutomaticos(idAsesor, gestionBlendingActual, noRecursividad, aliado, linea);               
             }
 
         }

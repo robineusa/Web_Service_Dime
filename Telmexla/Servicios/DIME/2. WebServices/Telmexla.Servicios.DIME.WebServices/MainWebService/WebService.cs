@@ -366,10 +366,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
         #region BlendingService
 
-        public ClientesTodo TraerMisDatosClienteAutomaticos(int idAsesor, string gestionBlendingActual)
+        public ClientesTodo TraerMisDatosClienteAutomaticos(int idAsesor, string gestionBlendingActual, string aliado, string linea)
         {
             BlendingService blendingService = new BlendingService();
-            return blendingService.TraerMisDatosClienteAutomaticos(idAsesor, gestionBlendingActual);
+            return blendingService.TraerMisDatosClienteAutomaticos(idAsesor, gestionBlendingActual, aliado, linea);
         }
 
         public ConvenioElectronicoCollection TraerHistorialConvenioElectroDeAsesor(int idAsesor)
@@ -462,10 +462,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return blendingService.TraerNombresDeClientesCierreCiclo(cuentasATraer);
         }
 
-        public GestionOutbound TraerGestionOutboundInfoDeCuenta(int cuenta, string gestion)
+        public GestionOutbound TraerGestionOutboundInfoDeCuenta(int cuenta, string gestion, string aliado, string linea)
         {
             BlendingService blendingService = new BlendingService();
-            return blendingService.TraerGestionOutboundInfoDeCuenta(cuenta, gestion);
+            return blendingService.TraerGestionOutboundInfoDeCuenta(cuenta, gestion, aliado, linea);
         }
 
         public CierreCiclo TraerCierreCicloGestionado(int idGestionado)

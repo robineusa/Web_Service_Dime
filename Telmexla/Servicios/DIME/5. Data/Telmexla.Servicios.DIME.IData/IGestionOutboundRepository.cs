@@ -10,7 +10,7 @@ namespace Telmexla.Servicios.DIME.IData
     public interface IGestionOutboundRepository : IRepository<GestionOutbound>
     {
 
-        bool ApartarCuentaAGestionarAsesor(string gestionBlending, int idAsesor);
+        bool ApartarCuentaAGestionarAsesor(string gestionBlending, int idAsesor, string aliado, string linea);
 
 
 

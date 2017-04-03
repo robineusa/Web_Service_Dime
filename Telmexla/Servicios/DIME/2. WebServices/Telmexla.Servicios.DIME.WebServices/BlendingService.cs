@@ -13,11 +13,10 @@ namespace Telmexla.Servicios.DIME.WebServices
     {
 
 
-       public ClientesTodo TraerMisDatosClienteAutomaticos(int idAsesor, string gestionBlendingActual)
+       public ClientesTodo TraerMisDatosClienteAutomaticos(int idAsesor, string gestionBlendingActual, string aliado, string linea)
         {
             OutboundBusiness outboundBusiness = new OutboundBusiness();
-            return outboundBusiness.DatosClienteAutomaticos(idAsesor, gestionBlendingActual,0);
-
+            return outboundBusiness.DatosClienteAutomaticos(idAsesor, gestionBlendingActual,0, aliado, linea);
         }
 
 
@@ -119,10 +118,10 @@ namespace Telmexla.Servicios.DIME.WebServices
         }
 
 
-        public GestionOutbound TraerGestionOutboundInfoDeCuenta(int idAsesor, string gestion)
+        public GestionOutbound TraerGestionOutboundInfoDeCuenta(int idAsesor, string gestion, string aliado, string linea)
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();
-            return blendingBusin.GetGestionOutboundPorAsesor(idAsesor, gestion);
+            return blendingBusin.GetGestionOutboundPorAsesor(idAsesor, gestion, aliado, linea);
         }
         public CierreCiclo TraerCierreCicloGestionado(int idGestionado)
         {

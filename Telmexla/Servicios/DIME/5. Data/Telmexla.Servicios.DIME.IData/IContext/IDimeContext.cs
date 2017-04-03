@@ -85,7 +85,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionOutTrasladoReturnModel>> ActualizaUsuarioGestionOutTrasladoAsync(decimal? idTransaccion, string usuarioOut);
 
 
-        int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion);
+        int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion, string aliado, string linea);
         // ApartarCuentaGestionOutboundAsesorAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
 
         int Consultas(decimal? nombreCab, System.Data.DataTable detalles);

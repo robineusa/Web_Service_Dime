@@ -443,10 +443,10 @@ namespace Telmexla.Servicios.DIME.Business
             return resultado;
         }
 
-        public GestionOutbound GetGestionOutboundPorAsesor(int cuenta, string gestion)
+        public GestionOutbound GetGestionOutboundPorAsesor(int cuenta, string gestion, string aliado, string linea)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            return unitOfWork.gestionesOutbound.Find(c => c.Cuenta  == cuenta && c.NombreBase.Equals(gestion)).SingleOrDefault();
+            return unitOfWork.gestionesOutbound.Find(c => c.Cuenta  == cuenta && c.NombreBase.Equals(gestion) && c.Aliado.Equals(aliado) && c.OperacionGestion.Equals(linea)).SingleOrDefault();
 
         }
 

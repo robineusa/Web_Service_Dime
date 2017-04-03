@@ -13,7 +13,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface IBlendingService
     {
         [OperationContract]
-        ClientesTodo TraerMisDatosClienteAutomaticos(int idAsesor, string gestionBlendingActual);
+        ClientesTodo TraerMisDatosClienteAutomaticos(int idAsesor, string gestionBlendingActual, string aliado, string linea);
 
         [OperationContract]
         ConvenioElectronicoCollection TraerHistorialConvenioElectroDeAsesor(int idAsesor);
@@ -61,7 +61,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         LogCierreCicloCollection ListaCierresCicloGestionados(DateTime fInicial, DateTime fFinal);
 
         [OperationContract]
-        GestionOutbound TraerGestionOutboundInfoDeCuenta(int cuenta, string gestion);
+        GestionOutbound TraerGestionOutboundInfoDeCuenta(int cuenta, string gestion, string aliado, string linea);
 
         [OperationContract]
         CierreCiclo TraerCierreCicloGestionado(int idGestionado);
