@@ -227,9 +227,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
 
 
-            var result2 =  blendingServices.TraerMisDatosClienteAutomaticos(1, "CONVENIO_ELECTRONICO");
+            //var result2 =  blendingServices.TraerMisDatosClienteAutomaticos(1, "CONVENIO_ELECTRONICO");
 
-            var result3 = blendingServices.TraerHistorialConvenioElectroDeAsesor(1);
+            //var result3 = blendingServices.TraerHistorialConvenioElectroDeAsesor(1);
 
 
 
