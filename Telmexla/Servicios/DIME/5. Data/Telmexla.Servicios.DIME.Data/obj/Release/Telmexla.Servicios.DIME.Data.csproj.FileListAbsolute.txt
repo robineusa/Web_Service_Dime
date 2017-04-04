@@ -29,8 +29,6 @@ C:\Users\Alejandro\Documents\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\Telmexla.Servicios.DIME.Data.dll.config
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\Telmexla.Servicios.DIME.Data.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\Telmexla.Servicios.DIME.Data.pdb
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\EntityFramework.dll
-C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\EntityFramework.SqlServer.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\Telmexla.Servicios.DIME.Entity.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\Telmexla.Servicios.DIME.IData.dll
 C:\Users\Alejandro\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\Telmexla.Servicios.DIME.Entity.pdb
