@@ -65,7 +65,6 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<CuentasSiguienteMejorOferta> CuentaSMO { get; set; } // TBL_CUENTAS_SIGUENTE_MEJOR_OFERTA
         public System.Data.Entity.DbSet<SiguienteMejorOferta> SMO { get; set; } // TBL_VENTAS_SMO_INBOUND
         public System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; } // TBL_SMO_RENTA_ACTUAL
-        public System.Data.Entity.DbSet<TrasladoNoCobertura> trasladosNoCobertura { get; set; } // TBL_TRASLADO_NO_COBERTURA
         public System.Data.Entity.DbSet<SmoTarifaActual> SmoTarifaActuals { get; set; } // TBL_SMO_TARIFA_ACTUAL
 
         static DimeContext()
@@ -164,7 +163,6 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CuentasSiguienteMejorOfertaConfiguration());
             modelBuilder.Configurations.Add(new SiguienteMejorOfertaConfiguration());
             modelBuilder.Configurations.Add(new SmoRentaActualConfiguration());
-            modelBuilder.Configurations.Add(new TrasladoNoCoberturaConfiguration());
             modelBuilder.Configurations.Add(new SmoTarifaActualConfiguration());
 
         }
@@ -217,7 +215,6 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CuentasSiguienteMejorOfertaConfiguration(schema));
             modelBuilder.Configurations.Add(new SiguienteMejorOfertaConfiguration(schema));
             modelBuilder.Configurations.Add(new SmoRentaActualConfiguration(schema));
-            modelBuilder.Configurations.Add(new TrasladoNoCoberturaConfiguration(schema));
             modelBuilder.Configurations.Add(new SmoTarifaActualConfiguration(schema));
             return modelBuilder;
         }
@@ -532,45 +529,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             return procResultData;
         }
 
-        //procedure Traslado No Cobertura
-        public System.Collections.Generic.List<ActualizaUsuarioGestionTrasladoNoCoberturaReturnViewModel> ActualizaUsuarioGestionBackTrasladoNoCobertura(decimal? idTransaccion, string usuarioBack)
-        {
-            int procResult;
-            return ActualizaUsuarioGestionBackTrasladoNoCobertura(idTransaccion, usuarioBack, out procResult);
-        }
-
-        public System.Collections.Generic.List<ActualizaUsuarioGestionTrasladoNoCoberturaReturnViewModel> ActualizaUsuarioGestionBackTrasladoNoCobertura(decimal? idTransaccion, string usuarioBack, out int procResult)
-        {
-            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
-            if (!idTransaccion.HasValue)
-                idTransaccionParam.Value = System.DBNull.Value;
-
-            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
-            if (usuarioBackParam.Value == null)
-                usuarioBackParam.Value = System.DBNull.Value;
-
-            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
-            var procResultData = Database.SqlQuery<ActualizaUsuarioGestionTrasladoNoCoberturaReturnViewModel>("EXEC @procResult = [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_TRASLADO_NO_COBERTURA] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam).ToList();
-
-            procResult = (int)procResultParam.Value;
-            return procResultData;
-        }
-
-        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizaUsuarioGestionTrasladoNoCoberturaReturnViewModel>> ActualizaUsuarioGestionBackTrasladoNoCoberturaAsync(decimal? idTransaccion, string usuarioBack)
-        {
-            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
-            if (!idTransaccion.HasValue)
-                idTransaccionParam.Value = System.DBNull.Value;
-
-            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
-            if (usuarioBackParam.Value == null)
-                usuarioBackParam.Value = System.DBNull.Value;
-
-            var procResultData = await Database.SqlQuery<ActualizaUsuarioGestionTrasladoNoCoberturaReturnViewModel>("EXEC [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_TRASLADO_NO_COBERTURA] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam).ToListAsync();
-
-            return procResultData;
-        }
-
+       
 
     }
 }

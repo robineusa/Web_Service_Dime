@@ -94,7 +94,6 @@
     <Compile Include="ISiguienteMejorOfertaRepository.cs" />
     <Compile Include="ITmpMaestroHobbiesClienteRepository.cs" />
     <Compile Include="ITraficoTrasladoRepository.cs" />
-    <Compile Include="ITrasladoNoCoberturaRepository.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="IUnitOfWorkMaestros.cs" />
     <Compile Include="IUsuarioRepository.cs" />

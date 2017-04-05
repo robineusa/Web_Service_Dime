@@ -154,8 +154,6 @@
     <Compile Include="SiguienteMejorOfertaRepository.cs" />
     <Compile Include="TmpMaestroHobbiesClienteRepository.cs" />
     <Compile Include="TraficoTrasladoRepository.cs" />
-    <Compile Include="Configuration\TrasladoNoCoberturaConfiguration.cs" />
-    <Compile Include="TrasladoNoCoberturaRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="UnitOfWorkMaestros.cs" />
     <Compile Include="UsuarioRepository.cs" />

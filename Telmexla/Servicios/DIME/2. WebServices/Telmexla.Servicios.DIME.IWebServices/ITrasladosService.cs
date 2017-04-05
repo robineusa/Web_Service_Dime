@@ -113,26 +113,6 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<DatoConsultaDirecciones> ListaGeneralIngresosLiberacionesAsesor(decimal CuentaCliente);
         [OperationContract]
         List<DatoConsultaDirecciones> ListaGeneralIngresosmatricesAsesor(decimal CuentaCliente);
-        //TRASLADO NO COBERTURA
-        [OperationContract]
-        void InsertIngresoTrasladoNoCobertura(IngresoTraslado ingreso, TrasladoNoCobertura traslado, TraficoTraslado transaccion);
-        [OperationContract]
-        bool ExisteCuentaEscaladaTrasladoNoCobertura(decimal cuenta);
-        [OperationContract]
-        List<DatoConsultaDirecciones> ListaSolicitudesTrasladoNoCobertura(string Usuario);
-        [OperationContract]
-        TrasladoNoCoberturaCollection ListaInteraccionesTrasladosNoCobertura(int id);
-        [OperationContract]
-        void ActualizarSolicitudTrasladosNoCobertura(IngresoTraslado ingreso, TrasladoNoCobertura traslado, TraficoTraslado transaccion);
-        [OperationContract]
-        bool TransaccionEnGestionTrasladoNoCobertura(int id, String usrABackOffice);
-        [OperationContract]
-        List<DatoConsultaDirecciones> ListaSeguimientosTrasladoNoCoberturaCelula(string usrABackOffice);
-        [OperationContract]
-        List<DatoConsultaDirecciones> ListGestionTrasladoNoCobertura(DateTime FechaInicial, DateTime FechaFinal, string usrTransac);
-        [OperationContract]
-        List<DatoConsultaDirecciones> ListaGeneralIngresosTrasladoNoCoberturaAsesor(decimal CuentaCliente);
-        [OperationContract]
-        List<DatoConsultaDirecciones> ListaGeneralIngresosTrasladoNoCobertura(DateTime FechaInicial, DateTime FechaFinal);
+        
     }
 }

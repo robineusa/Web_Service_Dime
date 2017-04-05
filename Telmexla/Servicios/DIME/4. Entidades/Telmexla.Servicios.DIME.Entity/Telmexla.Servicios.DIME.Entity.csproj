@@ -61,7 +61,6 @@
     <Compile Include="ActualizaUsuarioGestionBackTrasladoReturnModel.cs" />
     <Compile Include="ActualizaUsuarioGestionCambioEstratoReturnViewModel.cs" />
     <Compile Include="ActualizaUsuarioGestionOutTrasladoReturnModel.cs" />
-    <Compile Include="ActualizaUsuarioGestionTrasladoNoCoberturaReturnViewModel.cs" />
     <Compile Include="BalanceScoreCard.cs" />
     <Compile Include="BalanceScoreCardCollection.cs" />
     <Compile Include="BasePersonalHolo.cs" />
@@ -152,8 +151,6 @@
     <Compile Include="TmpMaestroHobbiesCliente.cs" />
     <Compile Include="TraficoTrasladoCollection.cs" />
     <Compile Include="TraficoTraslado.cs" />
-    <Compile Include="TrasladoNoCobertura.cs" />
-    <Compile Include="TrasladoNoCoberturaCollection.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="UsuarioCollection.cs" />
     <Compile Include="UsuariosNotificados.cs" />
