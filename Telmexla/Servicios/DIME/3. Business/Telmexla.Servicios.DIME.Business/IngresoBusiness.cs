@@ -422,7 +422,7 @@ namespace Telmexla.Servicios.DIME.Business
             logIngreso.IdEstado = ingreso.IdEstado;
             unitWork.notasIngresos.Add(logIngreso);
 
-            if (ingresoSoporte != null && (ingresoSoporte.TipoSegumiento.Equals("CELULA VISITA SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO SOPORTE")))
+            if (ingresoSoporte != null && ingresoSoporte.TipoSegumiento!= null && (ingresoSoporte.TipoSegumiento.Equals("CELULA VISITA SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO SOPORTE")))
             {
                 CompletarDatosIngresoSoporte(ingresoSoporte, ingresoActualizable);
                 InsertIngresoSoporte(ingresoSoporte, unitWork);
