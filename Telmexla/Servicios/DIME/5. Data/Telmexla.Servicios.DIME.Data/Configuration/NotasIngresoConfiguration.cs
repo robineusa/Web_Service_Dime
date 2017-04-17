@@ -25,7 +25,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
         public NotasIngresoConfiguration(string schema)
         {
             ToTable("TBL_NOTAS_INGRESO", schema);
-            HasKey(x => new { x.IdNota, x.CuentaCliente, x.NombreLineaNota });
+            HasKey(x => new { x.IdNota});
 
             Property(x => x.IdNota).HasColumnName(@"ID_NOTA").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.IdIngreso).HasColumnName(@"ID_INGRESO").IsOptional().HasColumnType("numeric");

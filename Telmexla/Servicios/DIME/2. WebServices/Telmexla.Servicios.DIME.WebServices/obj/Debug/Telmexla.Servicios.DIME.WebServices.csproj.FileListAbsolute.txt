@@ -135,7 +135,6 @@ C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebS
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\bin\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\bin\Debug\Telmexla.Servicios.DIME.IWebServices.pdb
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\bin\Debug\AutoMapper.xml
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\bin\Debug\EntityFramework.xml
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\2. WebServices\Telmexla.Servicios.DIME.WebServices\bin\Debug\Telmexla.Servicios.DIME.IData.pdb

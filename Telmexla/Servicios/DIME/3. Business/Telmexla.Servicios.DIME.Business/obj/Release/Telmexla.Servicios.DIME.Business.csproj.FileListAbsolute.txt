@@ -41,7 +41,6 @@ C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Busi
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Release\Telmexla.Servicios.DIME.Entity.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Release\Telmexla.Servicios.DIME.Data.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Release\Telmexla.Servicios.DIME.IData.pdb
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Release\AutoMapper.xml
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Release\EntityFramework.xml
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Release\EntityFramework.SqlServer.xml
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Release\Telmexla.Servicios.DIME.Business.dll.config
