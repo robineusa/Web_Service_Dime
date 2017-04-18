@@ -15,7 +15,7 @@ namespace Telmexla.Servicios.DIME.Entity
     // TBL_NOTAS_INGRESO
     public class NotasIngreso
     {
-        public decimal IdNota { get; set; } // ID_NOTA
+        public decimal IdNota { get; set; } // ID_NOTA (Primary key)
         public decimal? IdIngreso { get; set; } // ID_INGRESO
         public decimal CuentaCliente { get; set; } // CUENTA_CLIENTE
         public decimal? Ticket { get; set; } // TICKET
@@ -27,9 +27,9 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Nota { get; set; } // NOTA (length: 1073741823)
         public int? IdEstado { get; set; } // ID_ESTADO
 
-
-
-
+        // Foreign keys
+        public virtual Ingreso Ingreso { get; set; } // FK_Id_Ingreso
     }
 
 }
+// </auto-generated>
