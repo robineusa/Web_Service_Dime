@@ -67,7 +67,7 @@ namespace Telmexla.Servicios.DIME.Business
         public bool ExisteCuentaEscalada(decimal cuenta)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.EstadoTransaccion != "FINALIZADO" && c.TipoGestion == "CREACION DE DIRECCION").Count() >= 1;
+            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && (c.EstadoTransaccion != "FINALIZADO"|| c.EstadoTransaccion != "NO INGRESADA") && c.TipoGestion == "CREACION DE DIRECCION").Count() >= 1;
 
         }
         public List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion(string Usuario)
@@ -239,7 +239,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.NotasTraslados select new { m.IdTransaccion, m.UsuarioBackOutbound }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("INGRESADA") && (b.UsuarioBackOutbound == null|| b.UsuarioBackOutbound == Usuario)
+                                 where (a.EstadoTransaccion.Equals("INGRESADA")|| a.EstadoTransaccion.Equals("NO INGRESADA")) && (b.UsuarioBackOutbound == null|| b.UsuarioBackOutbound == Usuario)
                                  select new
                                  {
                                      a.IdTransaccion,
@@ -1804,8 +1804,58 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        //traslados fallidos
+        public void InsertIngresoTrasladoFallido(IngresoTraslado ingreso, TrasladoFallido notaTraslado, TraficoTraslado transaccion)
+        {
+            try
+            {
+                ingreso.TipoGestion = "TRASLADO FALLIDO";
+                ingreso.FechaApertura = DateTime.Now;
+                ingreso.HoraApertura = DateTime.Now;
+                ingreso.FechaUltimaActualizacion = DateTime.Now;
+                ingreso.HoraUltimaActualizacion = DateTime.Now;
+                ingreso.FechaCierre= DateTime.Now;
+                ingreso.UsuarioCierre = ingreso.UsuarioApertura;
+                ingreso.HoraCierre= DateTime.Now;
+                ingreso.EstadoTransaccion = "FINALIZADO";
+                
 
-        
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.ingresoTraslados.Add(ingreso);
+                unitWork.Complete();
+
+                notaTraslado.IdTransaccion = ingreso.IdTransaccion;
+                notaTraslado.UsuarioTransaccion = ingreso.UsuarioApertura;
+                notaTraslado.CanalTransaccion = "INBOUND TRASLADOS";
+                notaTraslado.FechaTransaccion = DateTime.Now;
+                notaTraslado.NombreLineaTransaccion = ingreso.NombreLineaIngreso;
+                notaTraslado.CuentaCliente = ingreso.CuentaCliente;
+                unitWork.trasladosFallidos.Add(notaTraslado);
+                unitWork.Complete();
+
+                //registro de tiempos y transaccion
+                transaccion.IdTransaccion = ingreso.IdTransaccion;
+                transaccion.UsuarioTransaccion = ingreso.UsuarioApertura;
+                transaccion.EstadoTransaccion = ingreso.EstadoTransaccion;
+                unitWork.traficoTraslados.Add(transaccion);
+                unitWork.Complete();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
+
 
     }
 }

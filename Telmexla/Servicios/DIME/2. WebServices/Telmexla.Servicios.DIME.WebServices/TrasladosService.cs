@@ -256,5 +256,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ListaGeneralIngresosmatricesAsesor(CuentaCliente);
         }
-     }
+        //traslados fallidos
+        public void InsertIngresoTrasladoFallido(IngresoTraslado ingreso, TrasladoFallido notaTraslado, TraficoTraslado transaccion)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            ingresoBusi.InsertIngresoTrasladoFallido(ingreso, notaTraslado, transaccion);
+        }
+    }
     }

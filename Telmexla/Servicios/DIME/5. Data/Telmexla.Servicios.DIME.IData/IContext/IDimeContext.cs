@@ -63,6 +63,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<SiguienteMejorOferta> SMO { get; set; } // TBL_VENTAS_SMO_INBOUND
         System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; } // TBL_SMO_RENTA_ACTUAL
         System.Data.Entity.DbSet<SmoTarifaActual> SmoTarifaActuals { get; set; } // TBL_SMO_TARIFA_ACTUAL
+        System.Data.Entity.DbSet<TrasladoFallido> trasladosFallidos { get; set; } // TBL_TRASLADOS_FALLIDOS
 
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();

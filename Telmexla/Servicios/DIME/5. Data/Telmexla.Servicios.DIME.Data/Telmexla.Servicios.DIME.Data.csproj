@@ -73,6 +73,7 @@
     <Compile Include="Configuration\Subrazon1IngresoSoporteConfiguration.cs" />
     <Compile Include="Configuration\Subrazon2IngresoSoporteConfiguration.cs" />
     <Compile Include="Configuration\TraficoTrasladoConfiguration.cs" />
+    <Compile Include="Configuration\TrasladoFallidoConfiguration.cs" />
     <Compile Include="Configuration\UsuariosNotificadosConfiguration.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaRepository.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="SiguienteMejorOfertaRepository.cs" />
     <Compile Include="TmpMaestroHobbiesClienteRepository.cs" />
     <Compile Include="TraficoTrasladoRepository.cs" />
+    <Compile Include="TrasladoFallidoRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="UnitOfWorkMaestros.cs" />
     <Compile Include="UsuarioRepository.cs" />
