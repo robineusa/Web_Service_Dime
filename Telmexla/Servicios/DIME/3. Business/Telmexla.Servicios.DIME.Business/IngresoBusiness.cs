@@ -32,7 +32,9 @@ namespace Telmexla.Servicios.DIME.Business
                 }
              unitWork.ingresos.Add(ingreso);
              unitWork.Complete();
+            unitWork.Dispose();
 
+            UnitOfWork unitWorkNotas = new UnitOfWork(new DimeContext());
             NotasIngreso logIngreso = new NotasIngreso();
             logIngreso.IdIngreso = ingreso.IdIngreso;
             logIngreso.CuentaCliente = ingreso.Cuenta;
@@ -44,16 +46,16 @@ namespace Telmexla.Servicios.DIME.Business
             logIngreso.LlamadaCliente = "SI";
             logIngreso.Nota = observacion.ToUpper().Trim();
             logIngreso.IdEstado = ingreso.IdEstado;
-            unitWork.notasIngresos.Add(logIngreso);
+            unitWorkNotas.notasIngresos.Add(logIngreso);
 
                 if (ingresoSoporte != null && (ingresoSoporte.TipoSegumiento.Equals("CELULA VISITA SOPORTE") || ingresoSoporte.TipoSegumiento.Equals("CELULA SEGUIMIENTO SOPORTE")))
                 {
                     CompletarDatosIngresoSoporte(ingresoSoporte, ingreso);
-                    InsertIngresoSoporte(ingresoSoporte, unitWork);
+                    InsertIngresoSoporte(ingresoSoporte, unitWorkNotas);
                 }
-                    
 
-            unitWork.Complete();
+
+            unitWorkNotas.Complete();
 
 
         }
