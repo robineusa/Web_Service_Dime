@@ -145,10 +145,6 @@ namespace Telmexla.Servicios.DIME.Business
 
             result = (from a in dimContext.NotasIngresoes
                       join b in dimContext.Ingresoes on a.IdIngreso equals b.IdIngreso
-                      join c in dimContext.Usuarios on a.Usuario equals c.Id.ToString()
-                      join d in dimContext.Usuarios on b.UsuarioApertura equals d.Id.ToString() into details from d in details.DefaultIfEmpty()
-                      join e in dimContext.Usuarios on b.UsuarioCierre equals e.Id.ToString() into details2 from e in details2.DefaultIfEmpty()
-                      join f in dimContext.Usuarios on b.UsuarioUltimaActualizacion equals f.Id.ToString() into details3 from f in details3.DefaultIfEmpty()
                       where a.FechaNota >= inicial && a.FechaNota <= final && b.AliadoApertura.Equals(aliado)
                       select new DatoConsultaGestionAdmin
                       {
@@ -162,11 +158,11 @@ namespace Telmexla.Servicios.DIME.Business
                           FechaApertura = b.FechaApertura,
                           HoraApertura = b.HoraApertura,
                           FechaCierre = b.FechaCierre,
-                          Usuario = c.Cedula.ToString(),
-                          UsuarioApertura = d.Cedula.ToString(),
-                          UsuarioCierre = e.Cedula.ToString(),
+                          Usuario = a.Usuario,
+                          UsuarioApertura = b.UsuarioApertura,
+                          UsuarioCierre = b.UsuarioCierre,
                           FechaUltimaActualizacion = b.FechaUltimaActualizacion,
-                          UsuarioUltimaActualizacion = f.Cedula.ToString(),
+                          UsuarioUltimaActualizacion = b.UsuarioUltimaActualizacion,
                           HoraUltimaActualizacion = b.HoraUltimaActualizacion,
                           Macroproceso = b.Macroproceso,
                           Marcacion = b.Marcacion,
