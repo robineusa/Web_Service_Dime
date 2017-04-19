@@ -50,15 +50,15 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //    //MaestroNodoService servi = new MaestroNodoService();
             //    //servi.InsertarNodo(nodo);
 
-            //UsabilidadConvenioInbound model = new UsabilidadConvenioInbound();
-            //model.Id = 0;
-            //model.IdUsuarioRevision = 78;
-            //model.NombreUsuarioRevision = "Robin la perra";
-            //model.CuentaRevisoTabla = 307;
+            UsabilidadConvenioInbound model = new UsabilidadConvenioInbound();
+            model.Id = 0;
+            model.IdUsuarioRevision = 78;
+            model.NombreUsuarioRevision = "David la perra";
+            model.CuentaRevisoTabla = 307;
 
-            //UsabilidadService U = new UsabilidadService();
-            //U.InsertarUsabilidadInboundConvenio(model);
-            //var z = "";
+            UsabilidadService U = new UsabilidadService();
+            U.InsertarUsabilidadInboundConvenio(model);
+            var z = "";
 
 
             //    //GraficosBusiness BUSI = new GraficosBusiness();

@@ -114,11 +114,7 @@
     <None Include="App.config" />
     <None Include="bin\Debug\Telmexla.Servicios.DIME.IData.dll.config" />
     <None Include="bin\Release\Telmexla.Servicios.DIME.IData.dll.config" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\Telmexla.Servicios.DIME.IData.csprojResolveAssemblyReference.cache" />
-    <None Include="obj\Release\build.force" />
-    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Release\Telmexla.Servicios.DIME.IData.csprojResolveAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -138,8 +134,6 @@
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.IData.pdb" />
     <Content Include="bin\Release\EntityFramework.dll" />
     <Content Include="bin\Release\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\Release\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\Release\EntityFramework.xml" />
     <Content Include="bin\Release\Telmexla.Servicios.DIME.Entity.dll" />
     <Content Include="bin\Release\Telmexla.Servicios.DIME.Entity.pdb" />
     <Content Include="bin\Release\Telmexla.Servicios.DIME.IData.dll" />
@@ -147,13 +141,6 @@
     <Content Include="obj\Debug\Telmexla.Servicios.DIME.IData.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Telmexla.Servicios.DIME.IData.dll" />
     <Content Include="obj\Debug\Telmexla.Servicios.DIME.IData.pdb" />
-    <Content Include="obj\Release\Telmexla.Servicios.DIME.IData.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Release\Telmexla.Servicios.DIME.IData.dll" />
-    <Content Include="obj\Release\Telmexla.Servicios.DIME.IData.pdb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
