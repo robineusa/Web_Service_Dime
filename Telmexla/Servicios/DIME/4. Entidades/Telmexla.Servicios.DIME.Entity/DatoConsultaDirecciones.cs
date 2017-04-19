@@ -15,6 +15,7 @@ namespace Telmexla.Servicios.DIME.Entity
         private LiberacionHomePass liberacionHomePass;
         private GestionMatriz gestionMatriz;
         private Graficos graficos;
+        private TrasladoFallido trasladoFallido;
        
 
         public DatoConsultaDirecciones()
@@ -26,6 +27,7 @@ namespace Telmexla.Servicios.DIME.Entity
             liberacionHomePass = new LiberacionHomePass();
             gestionMatriz = new GestionMatriz();
             graficos = new Graficos();
+            trasladoFallido = new TrasladoFallido();
             
         }
 
@@ -120,5 +122,17 @@ namespace Telmexla.Servicios.DIME.Entity
             }
         }
 
+        public TrasladoFallido TrasladoFallido
+        {
+            get
+            {
+                return trasladoFallido;
+            }
+
+            set
+            {
+                trasladoFallido = value;
+            }
+        }
     }
 }

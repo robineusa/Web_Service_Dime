@@ -974,6 +974,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             ingresoBusi.InsertIngresoTrasladoFallido(ingreso, notaTraslado, transaccion);
         }
+        public List<DatoConsultaDirecciones> ConsultaTrasladoFallidoCliente(decimal CuentaCliente)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ConsultaTrasladoFallidoCliente(CuentaCliente);
+        }
+        public List<DatoConsultaDirecciones> ConsultaGeneralTrasladosFallidos(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ConsultaGeneralTrasladosFallidos(FechaInicial, FechaFinal);
+        }
         #endregion
 
         #region maestroNodos

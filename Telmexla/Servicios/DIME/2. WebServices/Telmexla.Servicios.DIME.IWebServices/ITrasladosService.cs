@@ -116,5 +116,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         //traslados fallidos
         [OperationContract]
         void InsertIngresoTrasladoFallido(IngresoTraslado ingreso, TrasladoFallido notaTraslado, TraficoTraslado transaccion);
+
+        [OperationContract]
+        List<DatoConsultaDirecciones> ConsultaTrasladoFallidoCliente(decimal CuentaCliente);
+
+        [OperationContract]
+        List<DatoConsultaDirecciones> ConsultaGeneralTrasladosFallidos(DateTime FechaInicial, DateTime FechaFinal);
     }
 }

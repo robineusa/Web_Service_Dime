@@ -1843,6 +1843,136 @@ namespace Telmexla.Servicios.DIME.Business
 
 
         }
+        public List<DatoConsultaDirecciones> ConsultaTrasladoFallidoCliente(decimal CuentaCliente)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.TrasladoFallidos
+                                 where a.CuentaCliente == CuentaCliente
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.IdTransaccion,
+                                     a.UsuarioTransaccion,
+                                     a.CanalTransaccion,
+                                     a.FechaTransaccion,
+                                     a.NombreLineaTransaccion,
+                                     a.MotivoTrasladoFallido,
+                                     a.CuentaCliente,
+                                     a.CuentaOcupa,
+                                     a.CuentaTraslada,
+                                     a.CuentaMatriz,
+                                     a.NombreConjunto,
+                                     a.EstadoMatriz,
+                                     a.Direccion,
+                                     a.EstratoOrigen,
+                                     a.EstratoDestino,
+                                     a.TarifaActual,
+                                     a.TarifaNueva,
+                                     a.GestionPorTraslado,
+                                     a.Nodo,
+                                     a.TelefonoCelular,
+                                     a.TelefonoFijo,
+                                     a.CorreoElectronico,
+                                     a.Observacion
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].TrasladoFallido.Id = objetosResult[i].Id;
+                result[i].TrasladoFallido.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].TrasladoFallido.UsuarioTransaccion = objetosResult[i].UsuarioTransaccion;
+                result[i].TrasladoFallido.CanalTransaccion = objetosResult[i].CanalTransaccion;
+                result[i].TrasladoFallido.FechaTransaccion = objetosResult[i].FechaTransaccion;
+                result[i].TrasladoFallido.NombreLineaTransaccion = objetosResult[i].NombreLineaTransaccion;
+                result[i].TrasladoFallido.MotivoTrasladoFallido = objetosResult[i].MotivoTrasladoFallido;
+                result[i].TrasladoFallido.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TrasladoFallido.CuentaOcupa = objetosResult[i].CuentaOcupa;
+                result[i].TrasladoFallido.CuentaTraslada = objetosResult[i].CuentaTraslada;
+                result[i].TrasladoFallido.CuentaMatriz = objetosResult[i].CuentaMatriz;
+                result[i].TrasladoFallido.NombreConjunto = objetosResult[i].NombreConjunto;
+                result[i].TrasladoFallido.EstadoMatriz = objetosResult[i].EstadoMatriz;
+                result[i].TrasladoFallido.Direccion = objetosResult[i].Direccion;
+                result[i].TrasladoFallido.EstratoOrigen = objetosResult[i].EstratoOrigen;
+                result[i].TrasladoFallido.EstratoDestino = objetosResult[i].EstratoDestino;
+                result[i].TrasladoFallido.TarifaActual = objetosResult[i].TarifaActual;
+                result[i].TrasladoFallido.TarifaNueva = objetosResult[i].TarifaNueva;
+                result[i].TrasladoFallido.GestionPorTraslado = objetosResult[i].GestionPorTraslado;
+                result[i].TrasladoFallido.Nodo = objetosResult[i].Nodo;
+                result[i].TrasladoFallido.TelefonoCelular = objetosResult[i].TelefonoCelular;
+                result[i].TrasladoFallido.TelefonoFijo = objetosResult[i].TelefonoFijo;
+                result[i].TrasladoFallido.CorreoElectronico = objetosResult[i].CorreoElectronico;
+                result[i].TrasladoFallido.Observacion = objetosResult[i].Observacion;
+            }
+            return result;
+        }
+        public List<DatoConsultaDirecciones> ConsultaGeneralTrasladosFallidos(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
+            var objetosResult = (from a in dimContext.TrasladoFallidos
+                                 where a.FechaTransaccion >= FechaInicial && a.FechaTransaccion <= FechaFinal
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.IdTransaccion,
+                                     a.UsuarioTransaccion,
+                                     a.CanalTransaccion,
+                                     a.FechaTransaccion,
+                                     a.NombreLineaTransaccion,
+                                     a.MotivoTrasladoFallido,
+                                     a.CuentaCliente,
+                                     a.CuentaOcupa,
+                                     a.CuentaTraslada,
+                                     a.CuentaMatriz,
+                                     a.NombreConjunto,
+                                     a.EstadoMatriz,
+                                     a.Direccion,
+                                     a.EstratoOrigen,
+                                     a.EstratoDestino,
+                                     a.TarifaActual,
+                                     a.TarifaNueva,
+                                     a.GestionPorTraslado,
+                                     a.Nodo,
+                                     a.TelefonoCelular,
+                                     a.TelefonoFijo,
+                                     a.CorreoElectronico,
+                                     a.Observacion
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DatoConsultaDirecciones());
+                result[i].TrasladoFallido.Id = objetosResult[i].Id;
+                result[i].TrasladoFallido.IdTransaccion = objetosResult[i].IdTransaccion;
+                result[i].TrasladoFallido.UsuarioTransaccion = objetosResult[i].UsuarioTransaccion;
+                result[i].TrasladoFallido.CanalTransaccion = objetosResult[i].CanalTransaccion;
+                result[i].TrasladoFallido.FechaTransaccion = objetosResult[i].FechaTransaccion;
+                result[i].TrasladoFallido.NombreLineaTransaccion = objetosResult[i].NombreLineaTransaccion;
+                result[i].TrasladoFallido.MotivoTrasladoFallido = objetosResult[i].MotivoTrasladoFallido;
+                result[i].TrasladoFallido.CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TrasladoFallido.CuentaOcupa = objetosResult[i].CuentaOcupa;
+                result[i].TrasladoFallido.CuentaTraslada = objetosResult[i].CuentaTraslada;
+                result[i].TrasladoFallido.CuentaMatriz = objetosResult[i].CuentaMatriz;
+                result[i].TrasladoFallido.NombreConjunto = objetosResult[i].NombreConjunto;
+                result[i].TrasladoFallido.EstadoMatriz = objetosResult[i].EstadoMatriz;
+                result[i].TrasladoFallido.Direccion = objetosResult[i].Direccion;
+                result[i].TrasladoFallido.EstratoOrigen = objetosResult[i].EstratoOrigen;
+                result[i].TrasladoFallido.EstratoDestino = objetosResult[i].EstratoDestino;
+                result[i].TrasladoFallido.TarifaActual = objetosResult[i].TarifaActual;
+                result[i].TrasladoFallido.TarifaNueva = objetosResult[i].TarifaNueva;
+                result[i].TrasladoFallido.GestionPorTraslado = objetosResult[i].GestionPorTraslado;
+                result[i].TrasladoFallido.Nodo = objetosResult[i].Nodo;
+                result[i].TrasladoFallido.TelefonoCelular = objetosResult[i].TelefonoCelular;
+                result[i].TrasladoFallido.TelefonoFijo = objetosResult[i].TelefonoFijo;
+                result[i].TrasladoFallido.CorreoElectronico = objetosResult[i].CorreoElectronico;
+                result[i].TrasladoFallido.Observacion = objetosResult[i].Observacion;
+            }
+            return result;
+        }
 
 
     }
