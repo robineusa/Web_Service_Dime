@@ -49,6 +49,7 @@ namespace Telmexla.Servicios.DIME.Data
             CuentaSMO = new CuentasSiguienteMejorOfertaRepository(this.dimeContext);
             SMO = new SiguienteMejorOfertaRepository(this.dimeContext);
             trasladosFallidos = new TrasladoFallidoRepository(this.dimeContext);
+            UsabilidadConvenoInbound = new UsabilidadConvenoInboundRepository(this.dimeContext);
 
         }
         public IIngresoSoporteRepository ingresosSoporte
@@ -197,7 +198,10 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-
+        public IUsabilidadConvenoInboundRepository UsabilidadConvenoInbound
+        {
+            get; private set;
+        }
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

@@ -1096,6 +1096,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
+        #region Usabilidad
+        public void InsertarUsabilidadInboundConvenio(UsabilidadConvenioInbound convenio)
+        {
+            UsabilidadBusiness UsabilidaBusi = new UsabilidadBusiness();
+            UsabilidaBusi.InsertarUsabilidadInboundConvenio(convenio);
+        }
+        #endregion
 
     }
 }

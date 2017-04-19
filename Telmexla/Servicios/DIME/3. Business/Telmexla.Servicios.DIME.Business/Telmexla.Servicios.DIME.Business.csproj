@@ -81,6 +81,7 @@
     <Compile Include="SiembraHDBusiness.cs" />
     <Compile Include="TablaActualizarInbound.cs" />
     <Compile Include="DatoConsultaGestion.cs" />
+    <Compile Include="UsabilidadBusiness.cs" />
     <Compile Include="UsuariosMasivoData.cs" />
   </ItemGroup>
   <ItemGroup>

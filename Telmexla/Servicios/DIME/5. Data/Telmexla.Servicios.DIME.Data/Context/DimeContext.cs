@@ -67,6 +67,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; } // TBL_SMO_RENTA_ACTUAL
         public System.Data.Entity.DbSet<SmoTarifaActual> SmoTarifaActuals { get; set; } // TBL_SMO_TARIFA_ACTUAL
         public System.Data.Entity.DbSet<TrasladoFallido> TrasladoFallidos { get; set; } // TBL_TRASLADOS_FALLIDOS
+        public System.Data.Entity.DbSet<UsabilidadConvenioInbound> UsabilidadConvenioInbound { get; set; } // TBL_USABILIDAD_ACTIVACION_CONVENIO
 
         static DimeContext()
         {
@@ -166,7 +167,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SmoRentaActualConfiguration());
             modelBuilder.Configurations.Add(new SmoTarifaActualConfiguration());
             modelBuilder.Configurations.Add(new TrasladoFallidoConfiguration());
-
+            modelBuilder.Configurations.Add(new UsabilidadConvenioInboundConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -219,6 +220,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SmoRentaActualConfiguration(schema));
             modelBuilder.Configurations.Add(new SmoTarifaActualConfiguration(schema));
             modelBuilder.Configurations.Add(new TrasladoFallidoConfiguration(schema));
+            modelBuilder.Configurations.Add(new UsabilidadConvenioInboundConfiguration(schema));
             return modelBuilder;
         }
 
