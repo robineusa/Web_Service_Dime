@@ -22,6 +22,17 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
 
+            
+
+            IngresoTraslado INGT = new IngresoTraslado();
+            TrasladoFallido tf = new TrasladoFallido();
+            TraficoTraslado trf = new TraficoTraslado();
+            INGT.CuentaCliente = 111;
+            trf.InicioTransaccion = DateTime.Now;
+            trf.FinTransaccion = DateTime.Now;
+            IngresoTrasladoBusiness igtb = new IngresoTrasladoBusiness();
+            igtb.InsertIngresoTrasladoFallido(INGT, tf, trf);
+
             MaestroNodo nodo = new MaestroNodo();
 
             //    //nodo.NombreNodo = "ROBIN";

@@ -10,5 +10,3 @@ C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\Telmexla.Servicios.DIME.IData.dll
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\Telmexla.Servicios.DIME.Entity.pdb
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\Telmexla.Servicios.DIME.IData.pdb
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\EntityFramework.xml
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\5. Data\Telmexla.Servicios.DIME.Data\bin\Release\EntityFramework.SqlServer.xml

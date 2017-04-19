@@ -1807,8 +1807,7 @@ namespace Telmexla.Servicios.DIME.Business
         //traslados fallidos
         public void InsertIngresoTrasladoFallido(IngresoTraslado ingreso, TrasladoFallido notaTraslado, TraficoTraslado transaccion)
         {
-            try
-            {
+            
                 ingreso.TipoGestion = "TRASLADO FALLIDO";
                 ingreso.FechaApertura = DateTime.Now;
                 ingreso.HoraApertura = DateTime.Now;
@@ -1839,19 +1838,8 @@ namespace Telmexla.Servicios.DIME.Business
                 transaccion.EstadoTransaccion = ingreso.EstadoTransaccion;
                 unitWork.traficoTraslados.Add(transaccion);
                 unitWork.Complete();
-            }
-            catch (DbEntityValidationException dbEx)
-            {
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        Trace.TraceInformation("Property: {0} Error: {1}",
-                                                validationError.PropertyName,
-                                                validationError.ErrorMessage);
-                    }
-                }
-            }
+           
+           
 
 
         }

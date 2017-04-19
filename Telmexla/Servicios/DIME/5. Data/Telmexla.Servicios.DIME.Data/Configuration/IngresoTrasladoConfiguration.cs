@@ -19,7 +19,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             HasKey(x => x.IdTransaccion);
 
             Property(x => x.IdTransaccion).HasColumnName(@"ID_TRANSACCION").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.CuentaCliente).HasColumnName(@"CUENTA_CLIENTE").IsRequired().HasColumnType("numeric");
+            Property(x => x.CuentaCliente).HasColumnName(@"CUENTA_CLIENTE").IsOptional().HasColumnType("numeric");
             Property(x => x.TipoGestion).HasColumnName(@"TIPO_DE_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.FechaApertura).HasColumnName(@"FECHA_APERTURA").IsOptional().HasColumnType("date");
             Property(x => x.HoraApertura).HasColumnName(@"HORA_APERTURA").IsOptional().HasColumnType("date");

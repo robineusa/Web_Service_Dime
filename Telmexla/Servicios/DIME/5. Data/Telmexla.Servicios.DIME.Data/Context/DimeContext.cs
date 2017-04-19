@@ -66,7 +66,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<SiguienteMejorOferta> SMO { get; set; } // TBL_VENTAS_SMO_INBOUND
         public System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; } // TBL_SMO_RENTA_ACTUAL
         public System.Data.Entity.DbSet<SmoTarifaActual> SmoTarifaActuals { get; set; } // TBL_SMO_TARIFA_ACTUAL
-        public System.Data.Entity.DbSet<TrasladoFallido> trasladosFallidos { get; set; } // TBL_TRASLADOS_FALLIDOS
+        public System.Data.Entity.DbSet<TrasladoFallido> TrasladoFallidos { get; set; } // TBL_TRASLADOS_FALLIDOS
 
         static DimeContext()
         {
