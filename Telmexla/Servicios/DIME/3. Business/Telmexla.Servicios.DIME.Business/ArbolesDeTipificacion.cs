@@ -89,7 +89,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<Departamento> result = new List<Departamento>();
             var objetosResult = (from a in dimContext.Departamentos
                                  orderby a.NombreDepartamento ascending
-                                 select new { a.NombreDepartamento }                                 
+                                 select new{ a.NombreDepartamento } 
                                  ).Distinct().ToList();
             
             for (int i = 0; i < objetosResult.Count; i++)
@@ -97,6 +97,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result.Add(new Departamento());
                 result[i].NombreDepartamento = objetosResult[i].NombreDepartamento;
             }
+            result = result.OrderBy(m => m.NombreDepartamento).ToList();
             return result;
         }
         public List<Departamento> TraeListaCiudades(string Departamento) {
