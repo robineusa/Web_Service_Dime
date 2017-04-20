@@ -614,8 +614,6 @@
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb" />
     <Content Include="bin\Release\EntityFramework.dll" />
     <Content Include="bin\Release\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\Release\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\Release\EntityFramework.xml" />
     <Content Include="bin\Release\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll" />
     <Content Include="bin\Release\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb" />
     <Content Include="Database1.tt">

@@ -9,6 +9,7 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IWebServices
 {
+    [ServiceContract]
     public interface IUsabilidadService
     {
         [OperationContract]

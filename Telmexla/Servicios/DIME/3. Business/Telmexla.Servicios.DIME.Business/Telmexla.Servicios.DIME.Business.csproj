@@ -88,6 +88,11 @@
     <None Include="App.config" />
     <None Include="bin\Debug\Telmexla.Servicios.DIME.Business.dll.config" />
     <None Include="bin\Release\Telmexla.Servicios.DIME.Business.dll.config" />
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Telmexla.Servicios.DIME.Business.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Release\Telmexla.Servicios.DIME.Business.csprojResolveAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -131,8 +136,17 @@
     <Content Include="bin\Release\Telmexla.Servicios.DIME.Entity.pdb" />
     <Content Include="bin\Release\Telmexla.Servicios.DIME.IData.dll" />
     <Content Include="bin\Release\Telmexla.Servicios.DIME.IData.pdb" />
+    <Content Include="obj\Debug\Telmexla.Servicios.DIME.Business.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Telmexla.Servicios.DIME.Business.dll" />
+    <Content Include="obj\Debug\Telmexla.Servicios.DIME.Business.pdb" />
+    <Content Include="obj\Release\Telmexla.Servicios.DIME.Business.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\Telmexla.Servicios.DIME.Business.dll" />
+    <Content Include="obj\Release\Telmexla.Servicios.DIME.Business.pdb" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="obj\Release\TempPE\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

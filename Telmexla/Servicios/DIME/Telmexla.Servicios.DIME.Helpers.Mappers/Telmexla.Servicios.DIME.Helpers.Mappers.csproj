@@ -57,8 +57,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="obj\Debug\build.force" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.csprojResolveAssemblyReference.cache" />
     <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Release\Telmexla.Servicios.DIME.Helpers.Mappers.csprojResolveAssemblyReference.cache" />
     <None Include="packages.config" />
@@ -66,12 +66,13 @@
   <ItemGroup>
     <Content Include="bin\Debug\AutoMapper.dll" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.dll" />
+    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.pdb" />
     <Content Include="bin\Release\AutoMapper.dll" />
-    <Content Include="bin\Release\AutoMapper.xml" />
     <Content Include="bin\Release\Telmexla.Servicios.DIME.Helpers.Mappers.dll" />
     <Content Include="bin\Release\Telmexla.Servicios.DIME.Helpers.Mappers.pdb" />
     <Content Include="obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.dll" />
+    <Content Include="obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.pdb" />
     <Content Include="obj\Release\Telmexla.Servicios.DIME.Helpers.Mappers.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Release\Telmexla.Servicios.DIME.Helpers.Mappers.dll" />
     <Content Include="obj\Release\Telmexla.Servicios.DIME.Helpers.Mappers.pdb" />

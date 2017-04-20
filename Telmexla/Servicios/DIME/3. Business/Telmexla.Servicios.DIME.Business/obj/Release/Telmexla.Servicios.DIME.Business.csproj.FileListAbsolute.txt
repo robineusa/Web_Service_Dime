@@ -12,3 +12,4 @@ C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Busi
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\obj\Release\Telmexla.Servicios.DIME.Business.csprojResolveAssemblyReference.cache
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\obj\Release\Telmexla.Servicios.DIME.Business.dll
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\obj\Release\Telmexla.Servicios.DIME.Business.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\3. Business\Telmexla.Servicios.DIME.Business\bin\Release\AutoMapper.xml
