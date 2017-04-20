@@ -20,18 +20,22 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+            ArbolesDeTipificacion service = new ArbolesDeTipificacion();
+
+            var dato = service.TraeListaDepartamentos();
+            var dato2 = service.TraeListaCiudades("BOGOTA D.C.");
+            var dato3 = service.TraeListaComunidad("BOGOTA D.C.", "BOGOTA");
+            var dato4 = service.TraeListaRed("BOGOTA D.C.", "BOGOTA", "BOG");
 
 
-            
-
-            IngresoTraslado INGT = new IngresoTraslado();
-            TrasladoFallido tf = new TrasladoFallido();
-            TraficoTraslado trf = new TraficoTraslado();
-            INGT.CuentaCliente = 111;
-            trf.InicioTransaccion = DateTime.Now;
-            trf.FinTransaccion = DateTime.Now;
-            IngresoTrasladoBusiness igtb = new IngresoTrasladoBusiness();
-            igtb.InsertIngresoTrasladoFallido(INGT, tf, trf);
+            //IngresoTraslado INGT = new IngresoTraslado();
+            //TrasladoFallido tf = new TrasladoFallido();
+            //TraficoTraslado trf = new TraficoTraslado();
+            //INGT.CuentaCliente = 111;
+            //trf.InicioTransaccion = DateTime.Now;
+            //trf.FinTransaccion = DateTime.Now;
+            //IngresoTrasladoBusiness igtb = new IngresoTrasladoBusiness();
+            //igtb.InsertIngresoTrasladoFallido(INGT, tf, trf);
 
             MaestroNodo nodo = new MaestroNodo();
 

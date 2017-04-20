@@ -39,5 +39,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<Departamento> TraeListaComunidad(string Departamento, string NombreComunidad);
 
+        [OperationContract]
+        List<Departamento> TraeListaRed(string Departamento, string NombreComunidad, string Comunidad);
+
     }
 }
