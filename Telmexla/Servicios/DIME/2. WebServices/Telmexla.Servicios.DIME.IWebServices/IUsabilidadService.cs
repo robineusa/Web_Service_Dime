@@ -14,5 +14,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
     {
         [OperationContract]
         void InsertarUsabilidadInboundConvenio(UsabilidadConvenioInbound convenio);
+
+        [OperationContract]
+        void InsertarUsabilidadCuentaInbound(UsabilidadBusquedaCuentaInbound CuentaInbound);
     }
+
 }

@@ -155,6 +155,7 @@
     <Compile Include="TraficoTraslado.cs" />
     <Compile Include="TrasladoFallido.cs" />
     <Compile Include="TrasladoFallidoCollection.cs" />
+    <Compile Include="UsabilidadBusquedaCuentaInbound.cs" />
     <Compile Include="UsabilidadConvenioInbound.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="UsuarioCollection.cs" />

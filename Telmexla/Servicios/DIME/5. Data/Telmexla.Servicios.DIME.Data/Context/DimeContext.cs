@@ -69,6 +69,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<TrasladoFallido> TrasladoFallidos { get; set; } // TBL_TRASLADOS_FALLIDOS
         public System.Data.Entity.DbSet<UsabilidadConvenioInbound> UsabilidadConvenioInbound { get; set; } // TBL_USABILIDAD_ACTIVACION_CONVENIO
         public System.Data.Entity.DbSet<Departamento> Departamentos { get; set; } // TBL_DEPARTAMENTOS_CIUDADES
+        public System.Data.Entity.DbSet<UsabilidadBusquedaCuentaInbound> UsabilidadBusquedaClienteInbound { get; set; } // TBL_USABILIDAD_BUSQUEDA_CLIENTE
 
         static DimeContext()
         {
@@ -170,6 +171,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new TrasladoFallidoConfiguration());
             modelBuilder.Configurations.Add(new UsabilidadConvenioInboundConfiguration());
             modelBuilder.Configurations.Add(new DepartamentoConfiguration());
+            modelBuilder.Configurations.Add(new UsabilidadBusquedaCuentaInboundConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -224,6 +226,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new TrasladoFallidoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsabilidadConvenioInboundConfiguration(schema));
             modelBuilder.Configurations.Add(new DepartamentoConfiguration(schema));
+            modelBuilder.Configurations.Add(new UsabilidadBusquedaCuentaInboundConfiguration(schema));
             return modelBuilder;
         }
 

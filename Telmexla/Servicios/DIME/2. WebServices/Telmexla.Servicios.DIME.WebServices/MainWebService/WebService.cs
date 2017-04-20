@@ -1123,6 +1123,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             UsabilidadBusiness UsabilidaBusi = new UsabilidadBusiness();
             UsabilidaBusi.InsertarUsabilidadInboundConvenio(convenio);
         }
+        public void InsertarUsabilidadCuentaInbound(UsabilidadBusquedaCuentaInbound CuentaInbound)
+        {
+            UsabilidadBusiness UsabilidaBusi = new UsabilidadBusiness();
+            UsabilidaBusi.InsertarUsabilidadCuentaInbound(CuentaInbound);
+        }
         #endregion
 
     }

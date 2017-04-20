@@ -11,10 +11,10 @@
 
 namespace Telmexla.Servicios.DIME.Entity
 {
-    public class UsabilidadConvenioInbound
+    public class UsabilidadBusquedaCuentaInbound
     {
         public int? Id { get; set; } // ID (Primary key)
-        public System.DateTime? FechaRevision { get; set; } 
+        public System.DateTime? FechaRevision { get; set; }
         public int? IdUsuarioRevision { get; set; }
         public string NombreUsuarioRevision { get; set; }
         public int? CuentaRevisoTabla { get; set; }

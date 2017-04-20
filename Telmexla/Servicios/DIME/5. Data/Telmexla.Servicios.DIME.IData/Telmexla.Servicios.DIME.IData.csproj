@@ -98,6 +98,7 @@
     <Compile Include="ITrasladoFallidoRepository.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="IUnitOfWorkMaestros.cs" />
+    <Compile Include="IUsabilidadBusquedaCuentaInboundRepositiry.cs" />
     <Compile Include="IUsabilidadConvenoInboundRepository.cs" />
     <Compile Include="IUsuarioRepository.cs" />
     <Compile Include="IUsuariosNotificadosRepository.cs" />
