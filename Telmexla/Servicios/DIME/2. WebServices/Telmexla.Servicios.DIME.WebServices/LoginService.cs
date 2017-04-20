@@ -333,6 +333,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             DimeContext context = new DimeContext();
            return context.Usuarios.Where(c=>c.Id == idUsuario).Select(x=>x.Linea.Nombre).FirstOrDefault();
         }
+        public int IdLineaDeUsuario(int idUsuario)
+        {
+            DimeContext context = new DimeContext();
+            return context.Usuarios.Where(c => c.Id == idUsuario).Select(x => x.Linea.Id).FirstOrDefault();
+        }
 
 
         public string PerfilDeUsuario(int idUsuario)

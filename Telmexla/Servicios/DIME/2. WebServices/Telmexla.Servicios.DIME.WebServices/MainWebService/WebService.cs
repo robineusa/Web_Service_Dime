@@ -166,6 +166,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
            return  lService.LineaDeUsuario(idUsuario);
         }
 
+        public int IdLineaDeUsuario(int idUsuario)
+        {
+            LoginService lService = new LoginService();
+            return lService.IdLineaDeUsuario(idUsuario);
+        }
 
         public string PerfilDeUsuario(int idUsuario)
         {

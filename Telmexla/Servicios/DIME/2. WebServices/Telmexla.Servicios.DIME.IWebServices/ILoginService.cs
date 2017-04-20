@@ -93,6 +93,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         string LineaDeUsuario(int idUsuario);
 
+
+        [OperationContract]
+        int IdLineaDeUsuario(int idUsuario);
+
         [OperationContract]
         string PerfilDeUsuario(int idUsuario);
         [OperationContract]
