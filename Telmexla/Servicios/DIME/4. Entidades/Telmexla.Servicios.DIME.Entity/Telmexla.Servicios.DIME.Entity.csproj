@@ -82,6 +82,8 @@
     <Compile Include="DatoConsultaDirecciones.cs" />
     <Compile Include="DatosAdicionalesCliente.cs" />
     <Compile Include="DatosAdicionalesClienteCollection.cs" />
+    <Compile Include="Departamento.cs" />
+    <Compile Include="DepartamentoCollection.cs" />
     <Compile Include="DocsisOverlap.cs" />
     <Compile Include="DocsisOverlapCollection.cs" />
     <Compile Include="GestionMatriz.cs" />

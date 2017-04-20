@@ -59,6 +59,7 @@
     <Compile Include="Configuration\CambioEstratoConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiguienteMejorOfertaConfiguration.cs" />
+    <Compile Include="Configuration\DepartamentoConfiguration.cs" />
     <Compile Include="Configuration\GestionMatrizConfiguration.cs" />
     <Compile Include="Configuration\IngresoConfiguration.cs" />
     <Compile Include="Configuration\IngresosSoporteConfiguration.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Configuration\UsuariosNotificadosConfiguration.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaRepository.cs" />
+    <Compile Include="DepartamentoRepository.cs" />
     <Compile Include="GestionMatrizRepository.cs" />
     <Compile Include="IngresoRepository.cs" />
     <Compile Include="Configuration\IngresoTrasladoConfiguration.cs" />

@@ -43,6 +43,7 @@ namespace Telmexla.Servicios.DIME.IData
         ISiguienteMejorOfertaRepository SMO { get; }
         ITrasladoFallidoRepository trasladosFallidos { get; }
         IUsabilidadConvenoInboundRepository UsabilidadConvenoInbound { get; }
+        IDepartamentoRepository Departamentos { get; }
         int Complete();
     }
 }
