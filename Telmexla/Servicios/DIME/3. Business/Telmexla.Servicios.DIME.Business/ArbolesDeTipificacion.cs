@@ -82,5 +82,73 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext context = new DimeContext();
             return context.Subrazon2IngresoSoporte.Where(c => c.IdSubrazon1== idSubrazon1).ToList();
         }
+        //Departamentos
+        public List<Departamento> TraeListaDepartamentos()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<Departamento> result = new List<Departamento>();
+            var objetosResult = (from a in dimContext.Departamentos
+                                 orderby a.NombreDepartamento ascending
+                                 select new { a.NombreDepartamento }                                 
+                                 ).Distinct().ToList();
+            
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new Departamento());
+                result[i].NombreDepartamento = objetosResult[i].NombreDepartamento;
+            }
+            return result;
+        }
+        public List<Departamento> TraeListaCiudades(string Departamento) {
+
+            DimeContext dimContext = new DimeContext();
+            List<Departamento> result = new List<Departamento>();
+            var objetosResult = (from a in dimContext.Departamentos
+                                 where a.NombreDepartamento == Departamento
+                                 orderby a.NombreComunidad ascending
+                                 select new { a.NombreComunidad }
+                                 ).Distinct().ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new Departamento());
+                result[i].NombreComunidad = objetosResult[i].NombreComunidad;
+            }
+            return result;
+        }
+        public List<Departamento> TraeListaComunidad(string Departamento, string NombreComunidad)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<Departamento> result = new List<Departamento>();
+            var objetosResult = (from a in dimContext.Departamentos
+                                 where a.NombreDepartamento == Departamento && a.NombreComunidad== NombreComunidad
+                                 orderby a.Comunidad ascending
+                                 select new { a.Comunidad }
+                                 ).Distinct().ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new Departamento());
+                result[i].Comunidad = objetosResult[i].Comunidad;
+            }
+            return result;
+        }
+        public List<Departamento> TraeListaRed(string Departamento, string NombreComunidad, string Comunidad)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<Departamento> result = new List<Departamento>();
+            var objetosResult = (from a in dimContext.Departamentos
+                                 where a.NombreDepartamento == Departamento && a.NombreComunidad == NombreComunidad && a.Comunidad== Comunidad
+                                 orderby a.Red ascending
+                                 select new { a.Red }
+                                 ).Distinct().ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new Departamento());
+                result[i].Red = objetosResult[i].Red;
+            }
+            return result;
+        }
     }
 }

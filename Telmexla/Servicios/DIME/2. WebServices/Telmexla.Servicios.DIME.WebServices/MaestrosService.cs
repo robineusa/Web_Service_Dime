@@ -44,6 +44,27 @@ namespace Telmexla.Servicios.DIME.WebServices
             ArbolesDeTipificacion arbolesTipi = new ArbolesDeTipificacion();
             return arbolesTipi.GetTipoMotivoPorTipoCausa(causaId);
         }
-       
+
+        //proceos Departamentos
+        public List<Departamento> TraeListaDepartamentos()
+        {
+            ArbolesDeTipificacion busi = new ArbolesDeTipificacion();
+            return busi.TraeListaDepartamentos();
+        }
+        public List<Departamento> TraeListaCiudades(string Departamento)
+        {
+            ArbolesDeTipificacion busi = new ArbolesDeTipificacion();
+            return busi.TraeListaCiudades(Departamento);
+        }
+        public List<Departamento> TraeListaComunidad(string Departamento, string NombreComunidad)
+        {
+            ArbolesDeTipificacion busi = new ArbolesDeTipificacion();
+            return busi.TraeListaComunidad(Departamento,NombreComunidad);
+        }
+        public List<Departamento> TraeListaRed(string Departamento, string NombreComunidad, string Comunidad)
+        {
+            ArbolesDeTipificacion busi = new ArbolesDeTipificacion();
+            return busi.TraeListaRed(Departamento, NombreComunidad,Comunidad);
+        }
     }
 }

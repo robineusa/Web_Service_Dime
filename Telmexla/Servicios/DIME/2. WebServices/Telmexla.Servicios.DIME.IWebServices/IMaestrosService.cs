@@ -30,8 +30,14 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         MaestroOutboundMotivoCollection ObtenerTiposDeMotivoDeCausas(decimal causaId);
 
+        [OperationContract]
+        List<Departamento> TraeListaDepartamentos();
 
-    
+        [OperationContract]
+        List<Departamento> TraeListaCiudades(string Departamento);
+
+        [OperationContract]
+        List<Departamento> TraeListaComunidad(string Departamento, string NombreComunidad);
 
     }
 }
