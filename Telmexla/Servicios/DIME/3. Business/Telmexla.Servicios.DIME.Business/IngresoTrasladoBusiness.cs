@@ -1865,6 +1865,10 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.NombreConjunto,
                                      a.EstadoMatriz,
                                      a.Direccion,
+                                     a.NombreDepartamento,
+                                     a.NombreComunidad,
+                                     a.Comunidad,
+                                     a.Red,
                                      a.EstratoOrigen,
                                      a.EstratoDestino,
                                      a.TarifaActual,
@@ -1895,6 +1899,10 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].TrasladoFallido.NombreConjunto = objetosResult[i].NombreConjunto;
                 result[i].TrasladoFallido.EstadoMatriz = objetosResult[i].EstadoMatriz;
                 result[i].TrasladoFallido.Direccion = objetosResult[i].Direccion;
+                result[i].TrasladoFallido.NombreDepartamento = objetosResult[i].NombreDepartamento;
+                result[i].TrasladoFallido.NombreComunidad = objetosResult[i].NombreComunidad;
+                result[i].TrasladoFallido.Comunidad = objetosResult[i].Comunidad;
+                result[i].TrasladoFallido.Red = objetosResult[i].Red;
                 result[i].TrasladoFallido.EstratoOrigen = objetosResult[i].EstratoOrigen;
                 result[i].TrasladoFallido.EstratoDestino = objetosResult[i].EstratoDestino;
                 result[i].TrasladoFallido.TarifaActual = objetosResult[i].TarifaActual;
@@ -1930,6 +1938,10 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.NombreConjunto,
                                      a.EstadoMatriz,
                                      a.Direccion,
+                                     a.NombreDepartamento,
+                                     a.NombreComunidad,
+                                     a.Comunidad,
+                                     a.Red,
                                      a.EstratoOrigen,
                                      a.EstratoDestino,
                                      a.TarifaActual,
@@ -1960,6 +1972,10 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].TrasladoFallido.NombreConjunto = objetosResult[i].NombreConjunto;
                 result[i].TrasladoFallido.EstadoMatriz = objetosResult[i].EstadoMatriz;
                 result[i].TrasladoFallido.Direccion = objetosResult[i].Direccion;
+                result[i].TrasladoFallido.NombreDepartamento = objetosResult[i].NombreDepartamento;
+                result[i].TrasladoFallido.NombreComunidad = objetosResult[i].NombreComunidad;
+                result[i].TrasladoFallido.Comunidad = objetosResult[i].Comunidad;
+                result[i].TrasladoFallido.Red = objetosResult[i].Red;
                 result[i].TrasladoFallido.EstratoOrigen = objetosResult[i].EstratoOrigen;
                 result[i].TrasladoFallido.EstratoDestino = objetosResult[i].EstratoDestino;
                 result[i].TrasladoFallido.TarifaActual = objetosResult[i].TarifaActual;

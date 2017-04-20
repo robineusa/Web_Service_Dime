@@ -32,6 +32,10 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.NombreConjunto).HasColumnName(@"NOMBRE_CONJUNTO_EDIFICIO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.EstadoMatriz).HasColumnName(@"ESTADO_MATRIZ").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.Direccion).HasColumnName(@"DIRECCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.NombreDepartamento).HasColumnName(@"DEPARTAMENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.NombreComunidad).HasColumnName(@"NOMBRE_COMUNIDAD").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.Comunidad).HasColumnName(@"COMUNIDAD").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(20);
+            Property(x => x.Red).HasColumnName(@"RED").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.EstratoOrigen).HasColumnName(@"ESTRATO_ORIGEN").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.EstratoDestino).HasColumnName(@"ESTRATO_DESTINO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.TarifaActual).HasColumnName(@"TARIFA_ACTUAL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(20);
