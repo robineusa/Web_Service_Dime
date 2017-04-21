@@ -147,12 +147,8 @@ namespace Telmexla.Servicios.DIME.Business
         public void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado, TraficoTraslado transaccion)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorknotaTraslado = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorknota = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorktransaccion = new UnitOfWork(new DimeContext());
-
             IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
-            List<NotasTraslado> notasactualizables = unitWorknotaTraslado.notasTraslados.Find(c=>c.IdTransaccion ==  ingreso.IdTransaccion).ToList();
+            List<NotasTraslado> notasactualizables = unitWork.notasTraslados.Find(c=>c.IdTransaccion ==  ingreso.IdTransaccion).ToList();
 
             DateTime fechaActual = DateTime.Now;
             if (ingreso.EstadoTransaccion == "FINALIZADO")
@@ -185,8 +181,8 @@ namespace Telmexla.Servicios.DIME.Business
             notaTransaccion.UsuarioBackOffice = null;
             notaTransaccion.UsuarioBackOutbound = null;
 
-            unitWorknota.notasTraslados.Add(notaTransaccion);
-            unitWorknota.Complete();
+            unitWork.notasTraslados.Add(notaTransaccion);
+            unitWork.Complete();
 
             //actualizar la lista de usuarios del back a nulos
             foreach(var item in notasactualizables)
@@ -200,13 +196,11 @@ namespace Telmexla.Servicios.DIME.Business
             transaccion.IdTransaccion = ingresoActualizable.IdTransaccion;
             transaccion.UsuarioTransaccion = notaTransaccion.UsuarioTransaccion;
             transaccion.EstadoTransaccion = notaTransaccion.EstadoTransaccion;
-            unitWorktransaccion.traficoTraslados.Add(transaccion);
-            unitWorktransaccion.Complete();
+            unitWork.traficoTraslados.Add(transaccion);
+            unitWork.Complete();
 
-            unitWorktransaccion.Dispose();
-            unitWorknota.Dispose();
-            unitWorknotaTraslado.Dispose();
             unitWork.Dispose();
+            
         }
         public bool TransaccionEnGestion(int id, String usrABackOffice)
         {
@@ -505,12 +499,9 @@ namespace Telmexla.Servicios.DIME.Business
         public void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato, TraficoTraslado transaccion)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkCambioEstratoac = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkCambioEstrato = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorktransaccion = new UnitOfWork(new DimeContext());
-
+           
             IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
-            List<CambioEstrato> cambioestratoactualizable = unitWorkCambioEstratoac.cambioEstratos.Find(c => c.IdTransaccion == ingreso.IdTransaccion).ToList();
+            List<CambioEstrato> cambioestratoactualizable = unitWork.cambioEstratos.Find(c => c.IdTransaccion == ingreso.IdTransaccion).ToList();
 
             DateTime fechaActual = DateTime.Now;
             if (ingreso.EstadoTransaccion == "FINALIZADO")
@@ -543,8 +534,8 @@ namespace Telmexla.Servicios.DIME.Business
             notaTransaccion.UsuarioBackOffice = null;
             notaTransaccion.CorreoElectronico = CambioEstrato.CorreoElectronico;
 
-            unitWorkCambioEstrato.cambioEstratos.Add(notaTransaccion);
-            unitWorkCambioEstrato.Complete();
+            unitWork.cambioEstratos.Add(notaTransaccion);
+            unitWork.Complete();
 
             //actualiza la lista de cambio estrato a nulos
             foreach(var item in cambioestratoactualizable)
@@ -557,14 +548,11 @@ namespace Telmexla.Servicios.DIME.Business
             transaccion.UsuarioTransaccion = notaTransaccion.UsuarioTransaccion;
             transaccion.EstadoTransaccion = notaTransaccion.EstadoTransaccion;
 
-            unitWorktransaccion.traficoTraslados.Add(transaccion);
-            unitWorktransaccion.Complete();
+            unitWork.traficoTraslados.Add(transaccion);
+            unitWork.Complete();
 
-            unitWorkCambioEstrato.Dispose();
-            unitWorktransaccion.Dispose();
-            unitWorkCambioEstratoac.Dispose();
             unitWork.Dispose();
-
+            
         }
         public bool TransaccionEnGestionCambioEstrato(int id, String usrABackOffice)
         {
@@ -788,13 +776,9 @@ namespace Telmexla.Servicios.DIME.Business
         public void ActualizarSolicitudLiberacionesHomePass(IngresoTraslado ingreso, LiberacionHomePass liberacion, TraficoTraslado transaccion)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkliberacionac = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkliberacion = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorktransaccion = new UnitOfWork(new DimeContext());
-            
-
+           
             IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
-            List<LiberacionHomePass> liberacionactualizable = unitWorkliberacionac.liberacionesHomePass.Find(c => c.IdTransaccion == ingreso.IdTransaccion).ToList();
+            List<LiberacionHomePass> liberacionactualizable = unitWork.liberacionesHomePass.Find(c => c.IdTransaccion == ingreso.IdTransaccion).ToList();
             DateTime fechaActual = DateTime.Now;
             if (ingreso.EstadoTransaccion == "FINALIZADO")
             {
@@ -826,8 +810,8 @@ namespace Telmexla.Servicios.DIME.Business
             notaTransaccion.UsuarioBackOffice = null;
             notaTransaccion.MotivoLiberacion = liberacion.MotivoLiberacion;
 
-            unitWorkliberacion.liberacionesHomePass.Add(notaTransaccion);
-            unitWorkliberacion.Complete();
+            unitWork.liberacionesHomePass.Add(notaTransaccion);
+            unitWork.Complete();
 
             //actualiza la lista de la liberacion de home pass
             foreach(var item in liberacionactualizable)
@@ -840,14 +824,11 @@ namespace Telmexla.Servicios.DIME.Business
             transaccion.UsuarioTransaccion = notaTransaccion.UsuarioTransaccion;
             transaccion.EstadoTransaccion = notaTransaccion.EstadoTransaccion;
 
-            unitWorktransaccion.traficoTraslados.Add(transaccion);
-            unitWorktransaccion.Complete();
+            unitWork.traficoTraslados.Add(transaccion);
+            unitWork.Complete();
 
-            unitWorktransaccion.Dispose();
-            unitWorkliberacion.Dispose();
             unitWork.Dispose();
-            unitWorkliberacionac.Dispose();
-
+          
         }
         public bool TransaccionEnGestionLiberacionHomePass(int id, String usrABackOffice)
         {
@@ -1095,12 +1076,9 @@ namespace Telmexla.Servicios.DIME.Business
         public void ActualizarSolicitudMatrices(IngresoTraslado ingreso, GestionMatriz matriz, TraficoTraslado transaccion)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkmatrizac = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkmatriz = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorktransaccion = new UnitOfWork(new DimeContext());
-
+            
             IngresoTraslado ingresoActualizable = unitWork.ingresoTraslados.Get(Convert.ToInt32(ingreso.IdTransaccion));
-            List<GestionMatriz> matrizactualizable = unitWorkmatrizac.gestionMatrices.Find(c => c.IdTransaccion == ingreso.IdTransaccion).ToList();
+            List<GestionMatriz> matrizactualizable = unitWork.gestionMatrices.Find(c => c.IdTransaccion == ingreso.IdTransaccion).ToList();
             DateTime fechaActual = DateTime.Now;
             if (ingreso.EstadoTransaccion == "FINALIZADO")
             {
@@ -1137,8 +1115,8 @@ namespace Telmexla.Servicios.DIME.Business
             notaTransaccion.UsuarioBackOfficeCreacion = null;
             notaTransaccion.UsuarioBackOfficeGestion = null;
 
-            unitWorkmatriz.gestionMatrices.Add(matriz);
-            unitWorkmatriz.Complete();
+            unitWork.gestionMatrices.Add(notaTransaccion);
+            unitWork.Complete();
 
             //actualiza lista de gestion de matrices
             foreach(var item in matrizactualizable)
@@ -1152,13 +1130,11 @@ namespace Telmexla.Servicios.DIME.Business
             transaccion.UsuarioTransaccion = notaTransaccion.UsuarioTransaccion;
             transaccion.EstadoTransaccion = notaTransaccion.EstadoTransaccion;
 
-            unitWorktransaccion.traficoTraslados.Add(transaccion);
-            unitWorktransaccion.Complete();
+            unitWork.traficoTraslados.Add(transaccion);
+            unitWork.Complete();
 
-            unitWorkmatrizac.Dispose();
-            unitWorkmatriz.Dispose();
             unitWork.Dispose();
-            unitWorktransaccion.Dispose();
+           
         }
         public bool TransaccionCrearMatrizEnGestion(int id, String usrABackOffice)
         {
