@@ -1010,6 +1010,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
             return ingresoBusi.ConsultaGeneralTrasladosFallidos(FechaInicial, FechaFinal);
         }
+        public List<DatoConsultaDirecciones> ConsultaGestionTrasladoFallido(DateTime FechaInicial, DateTime FechaFinal, string Usuario)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ConsultaGestionTrasladoFallido(FechaInicial, FechaFinal, Usuario);
+        }
+
         #endregion
 
         #region maestroNodos

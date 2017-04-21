@@ -270,7 +270,12 @@ namespace Telmexla.Servicios.DIME.WebServices
         public List<DatoConsultaDirecciones> ConsultaGeneralTrasladosFallidos(DateTime FechaInicial, DateTime FechaFinal)
         {
             IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ConsultaGeneralTrasladosFallidos(FechaInicial,FechaFinal);
+            return ingresoBusi.ConsultaGeneralTrasladosFallidos(FechaInicial, FechaFinal);
+        }
+        public List<DatoConsultaDirecciones> ConsultaGestionTrasladoFallido(DateTime FechaInicial, DateTime FechaFinal, string Usuario)
+        {
+            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
+            return ingresoBusi.ConsultaGestionTrasladoFallido(FechaInicial, FechaFinal, Usuario);
         }
 
     }

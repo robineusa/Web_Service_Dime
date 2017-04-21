@@ -122,5 +122,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<DatoConsultaDirecciones> ConsultaGeneralTrasladosFallidos(DateTime FechaInicial, DateTime FechaFinal);
+
+        [OperationContract]
+        List<DatoConsultaDirecciones> ConsultaGestionTrasladoFallido(DateTime FechaInicial, DateTime FechaFinal, string Usuario);
     }
 }
