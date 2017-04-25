@@ -179,37 +179,37 @@ namespace Telmexla.Servicios.DIME.Business
         {
             DimeContext dimContext = new DimeContext();
             List<DatoConsultaPaloteo> result = new List<DatoConsultaPaloteo>();
+            string fechaInicial = inicial.Date.ToString();
+            string fechaFinal = final.Date.ToString();
+            var resultBefore =  dimContext.ConsultaPaloteoSql(fechaInicial, fechaFinal);
 
-            result = (from a in dimContext.NotasIngresoes
-                      join b in dimContext.Ingresoes on a.IdIngreso equals b.IdIngreso
-                      join c in dimContext.Usuarios on a.Usuario equals c.Id.ToString()
-                      join d in dimContext.ClientesTodoes on a.CuentaCliente equals d.Cuenta
-                      where a.FechaNota >= inicial && a.FechaNota <= final && a.LlamadaCliente.Equals("SI")
-                      select new DatoConsultaPaloteo
-                      {
-                       IdIngreso = a.IdIngreso,
-                       CuentaCliente = a.CuentaCliente,
-                       Ticket = a.Ticket,
-                       LlamadaCliente = a.LlamadaCliente,
-                       FechaInteraccion = a.FechaNota,
-                       HoraInteraccion = a.HoraNota,
-                       NombreLineaNota = a.NombreLineaNota,
-                       UsuarioNotaCC = c.Cedula.ToString(),
-                       NombreUsuarioNota = c.Nombre,
-                       RolUsuarioNota = c.UsuariosXAccesoes.FirstOrDefault().Acceso.ModosLogin.Nombre,
-                       AliadoApertura = b.AliadoApertura,
-                       Macroproceso = b.Macroproceso,
-                       Marcacion = b.Marcacion,
-                       Division = d.Division,
-                       Area = d.Area,
-                       Zona = d.Zona,
-                       Distrito = d.Distrito,
-                       NombreComunidad = d.NombreComunidad,
-                       Nodo = d.Nodo,
-                       Nota = a.Nota,
-                       Estado = b.IdEstado
+            foreach(var item in resultBefore)
+            {
+                DatoConsultaPaloteo nuevoDato = new DatoConsultaPaloteo();
+                nuevoDato.AliadoApertura = item.ALIADO_APERTURA;
+                nuevoDato.Area = item.AREA;
+                nuevoDato.CuentaCliente = item.CUENTA_CLIENTE;
+                nuevoDato.Distrito = item.DISTRITO;
+                nuevoDato.Division = item.DIVISION;
+                nuevoDato.Estado = item.ID_ESTADO;
+                nuevoDato.FechaInteraccion = item.FECHA_NOTA;
+                nuevoDato.HoraInteraccion = item.HORA_NOTA;
+                nuevoDato.IdIngreso = item.ID_INGRESO;
+                nuevoDato.LlamadaCliente = item.LLAMADA_CLIENTE;
+                nuevoDato.Macroproceso = item.MACROPROCESO;
+                nuevoDato.Marcacion = item.MARCACION;
+                nuevoDato.Nodo = item.NODO;
+                nuevoDato.NombreComunidad = item.NOMBRE_COMUNIDAD;
+                nuevoDato.NombreLineaNota = item.NOMBRE_LINEA_NOTA;
+                nuevoDato.NombreUsuarioNota = item.NOMBRE;
+                nuevoDato.Nota = item.NOTA;
+                nuevoDato.RolUsuarioNota = item.PERFILROL;
+                nuevoDato.Ticket = item.Ticket;
+                nuevoDato.UsuarioNotaCC = item.UsuarioNotaCC.ToString();
+                nuevoDato.Zona = item.ZONA;
+                result.Add(nuevoDato);
+            }
 
-                      }).ToList();
             return result;
         }
 

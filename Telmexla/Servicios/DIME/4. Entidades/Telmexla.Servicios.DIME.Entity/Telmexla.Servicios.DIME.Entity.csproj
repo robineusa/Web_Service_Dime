@@ -73,6 +73,7 @@
     <Compile Include="ClaroVideoCollection.cs" />
     <Compile Include="ClientesTodo.cs" />
     <Compile Include="ClientesTodoCollection.cs" />
+    <Compile Include="ConsultaPaloteoSqlReturnModel.cs" />
     <Compile Include="ConvenioElectronico.cs" />
     <Compile Include="ConvenioElectronicoCollection.cs" />
     <Compile Include="CuentasSiembraHD.cs" />

@@ -540,7 +540,46 @@ namespace Telmexla.Servicios.DIME.Data.Context
             return procResultData;
         }
 
-       
+        public System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel> ConsultaPaloteoSql(string fechaInicial, string fechaFinal)
+        {
+            int procResult;
+            return ConsultaPaloteoSql(fechaInicial, fechaFinal, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel> ConsultaPaloteoSql(string fechaInicial, string fechaFinal, out int procResult)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial, Size = 30 };
+            if (fechaInicialParam.Value == null)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal, Size = 30 };
+            if (fechaFinalParam.Value == null)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ConsultaPaloteoSqlReturnModel>("EXEC @procResult = [dbo].[CONSULTA_PALOTEO_SQL] @Fecha_Inicial, @Fecha_Final", fechaInicialParam, fechaFinalParam, procResultParam).ToList();
+
+            procResult = (int)procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel>> ConsultaPaloteoSqlAsync(string fechaInicial, string fechaFinal)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial, Size = 30 };
+            if (fechaInicialParam.Value == null)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal, Size = 30 };
+            if (fechaFinalParam.Value == null)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ConsultaPaloteoSqlReturnModel>("EXEC [dbo].[CONSULTA_PALOTEO_SQL] @Fecha_Inicial, @Fecha_Final", fechaInicialParam, fechaFinalParam).ToListAsync();
+
+            return procResultData;
+        }
+
+
+
 
     }
 }

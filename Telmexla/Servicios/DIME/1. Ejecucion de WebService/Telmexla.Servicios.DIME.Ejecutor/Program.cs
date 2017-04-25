@@ -22,7 +22,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
             CasosAdminService adminService = new CasosAdminService();
             DateTime inicial = Convert.ToDateTime("2017- 04-04");
-            DateTime final = Convert.ToDateTime("2017- 04-05");
+            DateTime final = Convert.ToDateTime("2017- 04-14");
             var resultPaloteo = adminService.ListaPaloteo(inicial,final);
 
             //IngresoTraslado INGT = new IngresoTraslado();
