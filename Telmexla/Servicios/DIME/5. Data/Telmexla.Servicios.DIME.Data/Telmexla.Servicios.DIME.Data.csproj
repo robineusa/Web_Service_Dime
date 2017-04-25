@@ -159,6 +159,8 @@
     <Compile Include="SiembraHDRepository.cs" />
     <Compile Include="Configuration\SiguienteMejorOfertaConfiguration.cs" />
     <Compile Include="SiguienteMejorOfertaRepository.cs" />
+    <Compile Include="SkillsUsuariosBlendingConfiguration.cs" />
+    <Compile Include="SkillsUsuariosBlendingRepository.cs" />
     <Compile Include="TmpMaestroHobbiesClienteRepository.cs" />
     <Compile Include="TraficoTrasladoRepository.cs" />
     <Compile Include="TrasladoFallidoRepository.cs" />

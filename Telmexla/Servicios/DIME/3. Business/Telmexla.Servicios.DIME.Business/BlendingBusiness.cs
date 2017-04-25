@@ -550,8 +550,16 @@ namespace Telmexla.Servicios.DIME.Business
             actualizado.TipoContacto = v.TipoContacto;
             actualizado.UsuarioGestion = v.UsuarioGestion;
             return actualizado;
-        } 
+        }
 
+        public SkillsUsuariosBlendingCollection ListaUsuariosAdminBlending(string Operacion)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            List<SkillsUsuariosBlending> listaUsers = unitOfWork.SkillsUsuariosBlending.Find(a =>a.Operacion == Operacion).ToList();
+            SkillsUsuariosBlendingCollection result = new SkillsUsuariosBlendingCollection();
+            result.AddRange(listaUsers);
+            return result;
+        }
 
     }
 }

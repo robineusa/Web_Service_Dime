@@ -20,10 +20,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            CasosAdminService adminService = new CasosAdminService();
-            DateTime inicial = Convert.ToDateTime("2017- 04-04");
-            DateTime final = Convert.ToDateTime("2017- 04-14");
-            var resultPaloteo = adminService.ListaPaloteo(inicial,final);
+            //CasosAdminService adminService = new CasosAdminService();
+            //DateTime inicial = Convert.ToDateTime("2017- 04-04");
+            //DateTime final = Convert.ToDateTime("2017- 04-14");
+            //var resultPaloteo = adminService.ListaPaloteo(inicial,final);
 
             //IngresoTraslado INGT = new IngresoTraslado();
             //TrasladoFallido tf = new TrasladoFallido();
@@ -39,6 +39,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //model.Aliado = "ATENTO";
             //var R = MS.TraerListaLineasBlending(model.Aliado);
 
+            BlendingService BS = new BlendingService();
+            var Operacion = "VENTAS INBOUND";
+            var r = BS.ListaUsuariosAdminBlending(Operacion);
+            var z = "";
             MaestroNodo nodo = new MaestroNodo();
 
             //    //nodo.NombreNodo = "ROBIN";

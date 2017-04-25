@@ -52,7 +52,7 @@ namespace Telmexla.Servicios.DIME.Data
             UsabilidadConvenoInbound = new UsabilidadConvenoInboundRepository(this.dimeContext);
             Departamentos = new DepartamentoRepository(this.dimeContext);
             UsabilidadCuentaInbound = new UsabilidadBusquedaCuentaInboundRepository(this.dimeContext);
-
+            SkillsUsuariosBlending = new SkillsUsuariosBlendingRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -209,6 +209,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IUsabilidadBusquedaCuentaInboundRepositiry UsabilidadCuentaInbound
+        {
+            get; private set;
+        }
+        public ISkillsUsuariosBlendingRepository SkillsUsuariosBlending
         {
             get; private set;
         }

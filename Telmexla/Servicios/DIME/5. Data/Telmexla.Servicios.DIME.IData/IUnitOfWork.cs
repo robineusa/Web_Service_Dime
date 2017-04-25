@@ -45,6 +45,7 @@ namespace Telmexla.Servicios.DIME.IData
         IUsabilidadConvenoInboundRepository UsabilidadConvenoInbound { get; }
         IDepartamentoRepository Departamentos { get; }
         IUsabilidadBusquedaCuentaInboundRepositiry UsabilidadCuentaInbound { get; }
+        ISkillsUsuariosBlendingRepository SkillsUsuariosBlending { get; }
         int Complete();
     }
 }

@@ -134,5 +134,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BlendingBusiness blendingBusin = new BlendingBusiness();
             return blendingBusin.ProcesoGuardarCierreCiclo(idAsesor, datosCliente, cierreCicloGestionado);
         }
+        public SkillsUsuariosBlendingCollection ListaUsuariosAdminBlending(string Operacion)
+        {
+            BlendingBusiness blendingBusiness = new BlendingBusiness();
+            return blendingBusiness.ListaUsuariosAdminBlending(Operacion);
+        }
     }
 }

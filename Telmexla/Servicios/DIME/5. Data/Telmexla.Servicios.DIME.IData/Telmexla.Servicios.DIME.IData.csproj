@@ -94,6 +94,7 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="ISiembraHDRepository.cs" />
     <Compile Include="ISiguienteMejorOfertaRepository.cs" />
+    <Compile Include="ISkillsUsuariosBlendingRepository.cs" />
     <Compile Include="ITmpMaestroHobbiesClienteRepository.cs" />
     <Compile Include="ITraficoTrasladoRepository.cs" />
     <Compile Include="ITrasladoFallidoRepository.cs" />

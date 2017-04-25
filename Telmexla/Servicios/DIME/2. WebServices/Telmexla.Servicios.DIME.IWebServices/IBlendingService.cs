@@ -69,5 +69,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         bool GuardarCierreCiclo(int idAsesor, ClientesTodo datosCliente, CierreCiclo cierreCicloGestionado);
 
+        [OperationContract]
+        SkillsUsuariosBlendingCollection ListaUsuariosAdminBlending(string Operacion);
+
     }
 }

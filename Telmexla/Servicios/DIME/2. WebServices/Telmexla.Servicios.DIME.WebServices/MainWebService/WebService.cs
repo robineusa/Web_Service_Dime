@@ -331,7 +331,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return inboundService.ConsultaSegumiento(idUsuario);
 
         }
-
+        public SkillsUsuariosBlendingCollection ListaUsuariosAdminBlending(string Operacion)
+        {
+            BlendingBusiness blendingBusiness = new BlendingBusiness();
+            return blendingBusiness.ListaUsuariosAdminBlending(Operacion);
+        }
 
         #endregion
 

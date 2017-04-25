@@ -148,6 +148,8 @@
     <Compile Include="SiembraHDCollection.cs" />
     <Compile Include="SiguienteMejorOferta.cs" />
     <Compile Include="SiguienteMejorOfertaCollection.cs" />
+    <Compile Include="SkillsUsuariosBlending.cs" />
+    <Compile Include="SkillsUsuariosBlendingCollection.cs" />
     <Compile Include="SmoRentaActual.cs" />
     <Compile Include="SmoTarifaActual.cs" />
     <Compile Include="Subrazon1IngresoSoporte.cs" />
