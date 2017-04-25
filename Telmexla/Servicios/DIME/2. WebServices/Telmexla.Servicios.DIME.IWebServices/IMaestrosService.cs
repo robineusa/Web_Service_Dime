@@ -42,5 +42,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<Departamento> TraeListaRed(string Departamento, string NombreComunidad, string Comunidad);
 
+        [OperationContract]
+        List<MaestroLineasBlending> TraerListaLineasBlending();
     }
 }

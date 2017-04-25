@@ -25,6 +25,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<MaestroOutboundRazon> MaestroOutboundRazons { get; set; } // MAESTRO_OUTBOUND_RAZON
         System.Data.Entity.DbSet<MaestroOutboundTipoContacto> MaestroOutboundTipoContactoes { get; set; } // MAESTRO_OUTBOUND_TIPO_CONTACTO
         System.Data.Entity.DbSet<MaestroOutboundTipoGestion> MaestroOutboundTipoGestions { get; set; } // MAESTRO_OUTBOUND_TIPO_GESTION
+        System.Data.Entity.DbSet<MaestroLineasBlending> MaestroLineasBlending { get; set; } // MAESTRO_LINEAS_BLENDING
 
 
         int SaveChanges();

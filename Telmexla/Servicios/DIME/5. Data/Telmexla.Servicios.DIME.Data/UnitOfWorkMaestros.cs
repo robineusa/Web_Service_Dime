@@ -21,6 +21,7 @@ namespace Telmexla.Servicios.DIME.Data
             maestrosOutboundRazon = new MaestroOutboundRazonRepository(this.maestrosContext);
             maestrosOutboundCausa = new MaestroOutboundCausaRepository(this.maestrosContext);
             maestrosOutboundMotivo = new MaestroOutboundMotivoRepository(this.maestrosContext);
+            maestrosLineasBlending = new MaestroLineasBlendingRepository(this.maestrosContext);
         }
 
         public IMaestroOutboundTipoContactoRepository maestrosOutboundTipoContactos
@@ -43,7 +44,10 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-
+        public IMaestroLineasBlendingRepository maestrosLineasBlending
+        {
+            get; private set;
+        }
         public int Complete()
         {
             return this.maestrosContext.SaveChanges();

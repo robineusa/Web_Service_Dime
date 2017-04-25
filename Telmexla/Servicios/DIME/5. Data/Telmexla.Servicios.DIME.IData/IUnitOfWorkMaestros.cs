@@ -13,6 +13,7 @@ namespace Telmexla.Servicios.DIME.IData
         IMaestroOutboundRazonRepository maestrosOutboundRazon {get;}
         IMaestroOutboundCausaRepository maestrosOutboundCausa { get; }
         IMaestroOutboundMotivoRepository maestrosOutboundMotivo { get; }
+        IMaestroLineasBlendingRepository maestrosLineasBlending { get; }
         int Complete();
     }
 }

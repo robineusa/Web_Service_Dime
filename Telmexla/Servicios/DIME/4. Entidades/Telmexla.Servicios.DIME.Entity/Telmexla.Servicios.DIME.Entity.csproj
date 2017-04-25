@@ -107,6 +107,7 @@
     <Compile Include="LogConvenioElectronico.cs" />
     <Compile Include="LogDocsisOverlap.cs" />
     <Compile Include="LogDocsisOverlapCollection.cs" />
+    <Compile Include="MaestroLineasBlending.cs" />
     <Compile Include="MaestroMarcacione.cs" />
     <Compile Include="MaestroMarcacioneCollection.cs" />
     <Compile Include="MaestroNodo.cs" />

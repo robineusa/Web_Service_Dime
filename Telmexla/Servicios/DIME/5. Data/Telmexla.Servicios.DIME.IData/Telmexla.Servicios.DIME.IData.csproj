@@ -75,6 +75,7 @@
     <Compile Include="IDocsisOverlapRepository.cs" />
     <Compile Include="IGestionOutboundRepository.cs" />
     <Compile Include="ILineaRepository.cs" />
+    <Compile Include="IMaestroLineasBlendingRepository.cs" />
     <Compile Include="IMaestroMarcacioneRepository.cs" />
     <Compile Include="IMaestroNodoRepository.cs" />
     <Compile Include="IMaestroOutboundCausaRepository.cs" />

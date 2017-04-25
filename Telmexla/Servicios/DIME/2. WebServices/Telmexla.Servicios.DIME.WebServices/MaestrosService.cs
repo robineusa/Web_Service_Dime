@@ -66,5 +66,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             ArbolesDeTipificacion busi = new ArbolesDeTipificacion();
             return busi.TraeListaRed(Departamento, NombreComunidad,Comunidad);
         }
+        public List<MaestroLineasBlending> TraerListaLineasBlending()
+        {
+            ArbolesDeTipificacion busi = new ArbolesDeTipificacion();
+            return busi.GetLineasBlending();
+        }
     }
 }

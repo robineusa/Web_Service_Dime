@@ -34,6 +34,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //IngresoTrasladoBusiness igtb = new IngresoTrasladoBusiness();
             //igtb.InsertIngresoTrasladoFallido(INGT, tf, trf);
 
+            //MaestrosService MS = new MaestrosService();
+            //var R = MS.TraerListaLineasBlending();
+
             MaestroNodo nodo = new MaestroNodo();
 
             //    //nodo.NombreNodo = "ROBIN";

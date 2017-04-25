@@ -64,6 +64,7 @@
     <Compile Include="Configuration\IngresoConfiguration.cs" />
     <Compile Include="Configuration\IngresosSoporteConfiguration.cs" />
     <Compile Include="Configuration\LiberacionHomePassConfiguration.cs" />
+    <Compile Include="Configuration\MaestroLineasBlendingConfiguration.cs" />
     <Compile Include="Configuration\NotasTrasladoConfiguration.cs" />
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />
     <Compile Include="Configuration\RazonIngresoSoporteConfiguration.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="DocsisOverlapRepository.cs" />
     <Compile Include="GestionOutboundRepository.cs" />
     <Compile Include="LineaRepository.cs" />
+    <Compile Include="MaestroLineasBlendingRepository.cs" />
     <Compile Include="MaestroMarcacioneRepository.cs" />
     <Compile Include="Configuration\MaestroNodoConfiguration.cs" />
     <Compile Include="MaestroNodoRepository.cs" />

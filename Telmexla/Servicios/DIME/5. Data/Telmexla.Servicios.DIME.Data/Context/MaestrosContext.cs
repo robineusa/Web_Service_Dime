@@ -26,6 +26,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<MaestroOutboundRazon> MaestroOutboundRazons { get; set; } // MAESTRO_OUTBOUND_RAZON
         public System.Data.Entity.DbSet<MaestroOutboundTipoContacto> MaestroOutboundTipoContactoes { get; set; } // MAESTRO_OUTBOUND_TIPO_CONTACTO
         public System.Data.Entity.DbSet<MaestroOutboundTipoGestion> MaestroOutboundTipoGestions { get; set; } // MAESTRO_OUTBOUND_TIPO_GESTION
+        public System.Data.Entity.DbSet<MaestroLineasBlending> MaestroLineasBlending { get; set; } // MAESTRO_LINEAS_BLENDING
 
 
         static MaestrosContext()
@@ -87,6 +88,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new MaestroOutboundRazonConfiguration());
             modelBuilder.Configurations.Add(new MaestroOutboundTipoContactoConfiguration());
             modelBuilder.Configurations.Add(new MaestroOutboundTipoGestionConfiguration());
+            modelBuilder.Configurations.Add(new MaestroLineasBlendingConfiguration());
 
         }
 
@@ -99,6 +101,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new MaestroOutboundRazonConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroOutboundTipoContactoConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroOutboundTipoGestionConfiguration(schema));
+            modelBuilder.Configurations.Add(new MaestroLineasBlendingConfiguration(schema));
             return modelBuilder;
         }
         

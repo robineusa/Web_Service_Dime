@@ -388,6 +388,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             ArbolesDeTipificacion busi = new ArbolesDeTipificacion();
             return busi.TraeListaRed(Departamento, NombreComunidad, Comunidad);
         }
+        public List<MaestroLineasBlending> TraerListaLineasBlending()
+        {
+            ArbolesDeTipificacion busi = new ArbolesDeTipificacion();
+            return busi.GetLineasBlending();
+        }
         #endregion
 
         #region BlendingService
