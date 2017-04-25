@@ -151,10 +151,10 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
-        public List<MaestroLineasBlending> GetLineasBlending()
+        public List<MaestroLineasBlending> GetLineasBlending(string Aliado)
         {
             MaestrosContext MaestContext = new MaestrosContext();
-            return MaestContext.MaestroLineasBlending.ToList();
+            return MaestContext.MaestroLineasBlending.Where(a=> a.Aliado == Aliado).ToList();
         }
     }
 }

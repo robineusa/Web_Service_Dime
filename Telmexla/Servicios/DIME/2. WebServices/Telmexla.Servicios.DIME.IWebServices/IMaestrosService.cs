@@ -43,6 +43,6 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<Departamento> TraeListaRed(string Departamento, string NombreComunidad, string Comunidad);
 
         [OperationContract]
-        List<MaestroLineasBlending> TraerListaLineasBlending();
+        List<MaestroLineasBlending> TraerListaLineasBlending(string Aliado);
     }
 }

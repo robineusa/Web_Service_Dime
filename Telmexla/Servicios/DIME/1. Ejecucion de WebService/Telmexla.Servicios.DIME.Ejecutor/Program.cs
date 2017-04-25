@@ -35,7 +35,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //igtb.InsertIngresoTrasladoFallido(INGT, tf, trf);
 
             //MaestrosService MS = new MaestrosService();
-            //var R = MS.TraerListaLineasBlending();
+            //MaestroLineasBlending model = new MaestroLineasBlending();
+            //model.Aliado = "ATENTO";
+            //var R = MS.TraerListaLineasBlending(model.Aliado);
 
             MaestroNodo nodo = new MaestroNodo();
 
