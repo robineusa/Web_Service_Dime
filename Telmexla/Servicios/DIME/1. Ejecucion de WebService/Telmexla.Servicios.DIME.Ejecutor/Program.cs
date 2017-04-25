@@ -20,13 +20,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            ArbolesDeTipificacion service = new ArbolesDeTipificacion();
-
-            var dato = service.TraeListaDepartamentos();
-            var dato2 = service.TraeListaCiudades("BOGOTA D.C.");
-            var dato3 = service.TraeListaComunidad("BOGOTA D.C.", "BOGOTA");
-            var dato4 = service.TraeListaRed("BOGOTA D.C.", "BOGOTA", "BOG");
-
+            CasosAdminService adminService = new CasosAdminService();
+            DateTime inicial = Convert.ToDateTime("2017- 04-04");
+            DateTime final = Convert.ToDateTime("2017- 04-05");
+            var resultPaloteo = adminService.ListaPaloteo(inicial,final);
 
             //IngresoTraslado INGT = new IngresoTraslado();
             //TrasladoFallido tf = new TrasladoFallido();
