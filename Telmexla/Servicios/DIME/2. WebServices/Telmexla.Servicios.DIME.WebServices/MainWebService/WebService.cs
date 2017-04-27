@@ -730,7 +730,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
         }
 
-        public List<DatoConsultaPaloteo> ListaPaloteo(DateTime inicial, DateTime final)
+        public List<DatoConsultaPaloteo> ListaPaloteo(string inicial, string final)
         {
             CasosAdminService casosAdminService = new CasosAdminService();
             return casosAdminService.ListaPaloteo(inicial, final);

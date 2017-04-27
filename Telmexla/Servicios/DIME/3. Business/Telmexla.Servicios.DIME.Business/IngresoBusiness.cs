@@ -175,13 +175,11 @@ namespace Telmexla.Servicios.DIME.Business
             
         }
 
-        public List<DatoConsultaPaloteo> GetNotasIngresosYUsuarioData(DateTime inicial, DateTime final)
+        public List<DatoConsultaPaloteo> GetNotasIngresosYUsuarioData(string inicial, string final)
         {
             DimeContext dimContext = new DimeContext();
             List<DatoConsultaPaloteo> result = new List<DatoConsultaPaloteo>();
-            string fechaInicial = inicial.Date.ToString();
-            string fechaFinal = final.Date.ToString();
-            var resultBefore =  dimContext.ConsultaPaloteoSql(fechaInicial, fechaFinal);
+            var resultBefore =  dimContext.ConsultaPaloteoSql(inicial, final);
 
             foreach(var item in resultBefore)
             {

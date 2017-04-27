@@ -21,7 +21,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
 
         [OperationContract]
-        List<DatoConsultaPaloteo> ListaPaloteo(DateTime inicial, DateTime final);
+        List<DatoConsultaPaloteo> ListaPaloteo(string inicial, string final);
 
         [OperationContract]
         List<String> ListaAliadosActualesDeHolos();
