@@ -566,5 +566,26 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimeContext = new DimeContext();
             return dimeContext.SkillsUsuariosBlending.Where(a => a.Cedula == Cedula).FirstOrDefault();
         }
+        public List<GestionOutbound> ObtenerCampaña()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GestionOutbound> result = new List<GestionOutbound>();
+            var objetosResult = (from a in dimContext.GestionOutbounds
+                                 select new
+                                 {
+                                     a.Campaña
+                                     
+                                 }
+                                 ).Distinct().ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GestionOutbound());
+                result[i].Campaña = objetosResult[i].Campaña;
+                
+            }
+            
+            return result;
+        }
     }
 }

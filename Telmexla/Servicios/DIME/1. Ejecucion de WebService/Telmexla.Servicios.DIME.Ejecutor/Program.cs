@@ -43,9 +43,12 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //var Operacion = "VENTAS INBOUND";
             //var r = BS.ListaUsuariosAdminBlending(Operacion);
 
+            //BlendingService BS = new BlendingService();
+            //string Cedula = "7889";
+            //var R = BS.ConsultaUsuarioenAdminBlending(Cedula);
+
             BlendingService BS = new BlendingService();
-            string Cedula = "7889";
-            var R = BS.ConsultaUsuarioenAdminBlending(Cedula);
+            var R = BS.ObtenerCampaña();
             var z = "";
 
             MaestroNodo nodo = new MaestroNodo();
