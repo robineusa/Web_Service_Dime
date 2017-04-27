@@ -49,6 +49,14 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
             //BlendingService BS = new BlendingService();
             //var R = BS.ObtenerCampaña("BRM");
+            
+            //SkillsUsuariosBlending S = new SkillsUsuariosBlending();
+            //S.Cedula = 4444;
+            //S.Campaña = "3peee";
+            //S.Operacion = "XXXX";
+            //S.Id_Usuario_Actualizacion = 1111;
+
+            //BS.InsertarSkillsUsuarioBlending(S);
 
             //var z = "";
 

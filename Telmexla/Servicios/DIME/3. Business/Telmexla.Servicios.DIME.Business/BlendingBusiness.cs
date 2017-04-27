@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -583,6 +585,31 @@ namespace Telmexla.Servicios.DIME.Business
             }
             
             return result;
+        }
+        public void InsertarSkillsUsuarioBlending(SkillsUsuariosBlending skills)
+        {
+            try
+            {
+                skills.Fecha_Actualizacion = DateTime.Now;
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.SkillsUsuariosBlending.Add(skills);
+                unitWork.Complete();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
         }
     }
 }
