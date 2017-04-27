@@ -72,5 +72,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         SkillsUsuariosBlendingCollection ListaUsuariosAdminBlending(string Operacion);
 
+        [OperationContract]
+        SkillsUsuariosBlending ConsultaUsuarioenAdminBlending(string cedula);
+
     }
 }

@@ -331,12 +331,6 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return inboundService.ConsultaSegumiento(idUsuario);
 
         }
-        public SkillsUsuariosBlendingCollection ListaUsuariosAdminBlending(string Operacion)
-        {
-            BlendingBusiness blendingBusiness = new BlendingBusiness();
-            return blendingBusiness.ListaUsuariosAdminBlending(Operacion);
-        }
-
         #endregion
 
         #region MaestrosService 
@@ -522,7 +516,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BlendingService blendingService = new BlendingService();
             return blendingService.ListaCierresCicloGestionados(fInicial, fFinal);
         }
-
+        public SkillsUsuariosBlendingCollection ListaUsuariosAdminBlending(string Operacion)
+        {
+            BlendingBusiness blendingBusiness = new BlendingBusiness();
+            return blendingBusiness.ListaUsuariosAdminBlending(Operacion);
+        }
+        public SkillsUsuariosBlending ConsultaUsuarioenAdminBlending(string cedula)
+        {
+            BlendingBusiness blendingBusiness = new BlendingBusiness();
+            return blendingBusiness.ConsultaUsuarioenAdminBlending(cedula);
+        }
         #endregion
 
         #region MarcacionesService

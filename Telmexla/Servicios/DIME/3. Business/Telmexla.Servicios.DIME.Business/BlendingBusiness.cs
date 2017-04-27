@@ -560,6 +560,11 @@ namespace Telmexla.Servicios.DIME.Business
             result.AddRange(listaUsers);
             return result;
         }
-
+        public SkillsUsuariosBlending ConsultaUsuarioenAdminBlending(string cedula)
+        {
+            int Cedula = Convert.ToInt32(cedula);
+            DimeContext dimeContext = new DimeContext();
+            return dimeContext.SkillsUsuariosBlending.Where(a => a.Cedula == Cedula).FirstOrDefault();
+        }
     }
 }

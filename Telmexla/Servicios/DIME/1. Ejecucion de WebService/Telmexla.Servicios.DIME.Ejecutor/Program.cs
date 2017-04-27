@@ -39,10 +39,15 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //model.Aliado = "ATENTO";
             //var R = MS.TraerListaLineasBlending(model.Aliado);
 
+            //BlendingService BS = new BlendingService();
+            //var Operacion = "VENTAS INBOUND";
+            //var r = BS.ListaUsuariosAdminBlending(Operacion);
+
             BlendingService BS = new BlendingService();
-            var Operacion = "VENTAS INBOUND";
-            var r = BS.ListaUsuariosAdminBlending(Operacion);
+            string Cedula = "7889";
+            var R = BS.ConsultaUsuarioenAdminBlending(Cedula);
             var z = "";
+
             MaestroNodo nodo = new MaestroNodo();
 
             //    //nodo.NombreNodo = "ROBIN";
