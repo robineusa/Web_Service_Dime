@@ -62,7 +62,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.RangoGeneracional).HasColumnName(@"RANGO_GENERACIONAL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.UsuarioGestionando).HasColumnName(@"USUARIO_GESTIONANDO").IsOptional().HasColumnType("int");
             Property(x => x.Aliado).HasColumnName(@"ALIADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
-            Property(x => x.Aliado).HasColumnName(@"CAMPAÑA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
+            Property(x => x.Campaña).HasColumnName(@"CAMPAÑA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
         }
     }
 

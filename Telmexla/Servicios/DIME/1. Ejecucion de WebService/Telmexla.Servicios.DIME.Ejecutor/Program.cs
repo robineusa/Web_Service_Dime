@@ -47,9 +47,11 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //string Cedula = "7889";
             //var R = BS.ConsultaUsuarioenAdminBlending(Cedula);
 
-            BlendingService BS = new BlendingService();
-            var R = BS.ObtenerCampaña();
-            var z = "";
+            //BlendingService BS = new BlendingService();
+            //var R = BS.ObtenerCampaña("BRM");
+
+            //var z = "";
+
 
             MaestroNodo nodo = new MaestroNodo();
 

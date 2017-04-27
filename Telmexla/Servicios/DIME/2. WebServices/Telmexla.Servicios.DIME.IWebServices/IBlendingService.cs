@@ -76,7 +76,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         SkillsUsuariosBlending ConsultaUsuarioenAdminBlending(string cedula);
 
         [OperationContract]
-        List<GestionOutbound> ObtenerCampaña();
+        List<GestionOutbound> ObtenerCampaña(string Aliado);
 
     }
 }

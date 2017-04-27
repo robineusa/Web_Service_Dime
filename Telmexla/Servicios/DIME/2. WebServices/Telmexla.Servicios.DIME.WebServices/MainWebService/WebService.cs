@@ -526,10 +526,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BlendingBusiness blendingBusiness = new BlendingBusiness();
             return blendingBusiness.ConsultaUsuarioenAdminBlending(cedula);
         }
-        public List<GestionOutbound> ObtenerCampaña()
+        public List<GestionOutbound> ObtenerCampaña(string Aliado)
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();
-            return blendingBusin.ObtenerCampaña();
+            return blendingBusin.ObtenerCampaña(Aliado);
         }
         #endregion
 
