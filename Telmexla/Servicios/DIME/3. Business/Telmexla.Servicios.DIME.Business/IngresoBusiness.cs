@@ -142,34 +142,32 @@ namespace Telmexla.Servicios.DIME.Business
         {
             DimeContext dimContext = new DimeContext();
             List<DatoConsultaGestionAdmin> result = new List<DatoConsultaGestionAdmin>();
-
-            result = (from a in dimContext.NotasIngresoes
-                      join b in dimContext.Ingresoes on a.IdIngreso equals b.IdIngreso
-                      where a.FechaNota >= inicial && a.FechaNota <= final && b.AliadoApertura.Equals(aliado)
-                      select new DatoConsultaGestionAdmin
-                      {
-                          IdIngreso = a.IdIngreso,
-                          CuentaCliente = a.CuentaCliente,
-                          Ticket = a.Ticket,
-                          NombreLineaIngreso = b.NombreLineaIngreso,
-                          NombreLineaEscalado = b.NombreLineaEscalado,
-                          AliadoApertura = b.AliadoApertura,
-                          FechaNota = a.FechaNota,
-                          FechaApertura = b.FechaApertura,
-                          HoraApertura = b.HoraApertura,
-                          FechaCierre = b.FechaCierre,
-                          Usuario = a.Usuario,
-                          UsuarioApertura = b.UsuarioApertura,
-                          UsuarioCierre = b.UsuarioCierre,
-                          FechaUltimaActualizacion = b.FechaUltimaActualizacion,
-                          UsuarioUltimaActualizacion = b.UsuarioUltimaActualizacion,
-                          HoraUltimaActualizacion = b.HoraUltimaActualizacion,
-                          Macroproceso = b.Macroproceso,
-                          Marcacion = b.Marcacion,
-                          Nota = a.Nota,
-                          IdEstado = b.IdEstado
-                      }
-                     ).ToList();
+            List<ConsultaGestionSqlReturnModel> resultBefore = new List<ConsultaGestionSqlReturnModel>();
+            resultBefore = dimContext.ConsultaGestionSql(inicial, final, aliado);
+            foreach (var item in resultBefore)
+            {
+                DatoConsultaGestionAdmin nuevoDato = new DatoConsultaGestionAdmin();
+                nuevoDato.AliadoApertura = item.ALIADO_APERTURA;
+                nuevoDato.CuentaCliente = item.Cuenta_cliente;
+                nuevoDato.FechaApertura = item.FECHA_APERTURA;
+                nuevoDato.FechaCierre = item.FECHA_CIERRE;
+                nuevoDato.FechaNota = item.Fecha_nota;
+                nuevoDato.FechaUltimaActualizacion = item.FECHA_ULTIMA_ACTUALIZACION;
+                nuevoDato.HoraApertura = item.HORA_APERTURA;
+                nuevoDato.HoraUltimaActualizacion = item.HORA_ULTIMA_ACTUALIZACION;
+                nuevoDato.IdEstado = item.ID_ESTADO;
+                nuevoDato.IdIngreso = item.Id_Ingreso;
+                nuevoDato.Macroproceso = item.MACROPROCESO;
+                nuevoDato.Marcacion = item.MARCACION;
+                nuevoDato.NombreLineaEscalado = item.NOMBRE_LINEA_ESCALADO;
+                nuevoDato.NombreLineaIngreso = item.NOMBRE_LINEA_INGRESO;
+                nuevoDato.Nota = item.NOTA;
+                nuevoDato.Usuario = item.Usuario.ToString();
+                nuevoDato.UsuarioApertura = item.Usuario_Apertura.ToString();
+                nuevoDato.UsuarioCierre = item.Usuario_Cierre.ToString();
+                nuevoDato.UsuarioUltimaActualizacion = item.Usuario_Ult_Actualizacion.ToString();
+                result.Add(nuevoDato);
+            }
 
             return result;
             

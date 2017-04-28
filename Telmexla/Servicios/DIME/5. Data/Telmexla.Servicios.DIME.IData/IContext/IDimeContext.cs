@@ -115,6 +115,9 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel> ConsultaPaloteoSql(string fechaInicial, string fechaFinal);
         System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel> ConsultaPaloteoSql(string fechaInicial, string fechaFinal, out int procResult);
         System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel>> ConsultaPaloteoSqlAsync(string fechaInicial, string fechaFinal);
+        System.Collections.Generic.List<ConsultaGestionSqlReturnModel> ConsultaGestionSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado);
+        System.Collections.Generic.List<ConsultaGestionSqlReturnModel> ConsultaGestionSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado, out int procResult);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaGestionSqlReturnModel>> ConsultaGestionSqlAsync(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado);
 
     }
 

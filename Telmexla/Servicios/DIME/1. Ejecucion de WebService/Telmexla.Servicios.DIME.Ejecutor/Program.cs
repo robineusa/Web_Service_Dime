@@ -20,10 +20,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            //CasosAdminService adminService = new CasosAdminService();
-            //DateTime inicial = Convert.ToDateTime("2017- 04-04");
-            //DateTime final = Convert.ToDateTime("2017- 04-14");
-            //var resultPaloteo = adminService.ListaPaloteo(inicial,final);
+            CasosAdminService adminService = new CasosAdminService();
+            DateTime inicial = Convert.ToDateTime("2017- 04-04");
+            DateTime final = Convert.ToDateTime("2017- 04-14");
+            var resultGestion = adminService.ListaGestionAdmin(inicial,final, "BRM");
 
             //IngresoTraslado INGT = new IngresoTraslado();
             //TrasladoFallido tf = new TrasladoFallido();

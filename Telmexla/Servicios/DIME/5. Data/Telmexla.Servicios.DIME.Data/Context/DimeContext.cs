@@ -580,6 +580,52 @@ namespace Telmexla.Servicios.DIME.Data.Context
             return procResultData;
         }
 
+        public System.Collections.Generic.List<ConsultaGestionSqlReturnModel> ConsultaGestionSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado)
+        {
+            int procResult;
+            return ConsultaGestionSql(fechaInicial, fechaFinal, aliado, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaGestionSqlReturnModel> ConsultaGestionSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado, out int procResult)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial.GetValueOrDefault() };
+            if (!fechaInicial.HasValue)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal.GetValueOrDefault() };
+            if (!fechaFinal.HasValue)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ConsultaGestionSqlReturnModel>("EXEC @procResult = [dbo].[CONSULTA_GESTION_SQL] @Fecha_Inicial, @Fecha_Final, @Aliado", fechaInicialParam, fechaFinalParam, aliadoParam, procResultParam).ToList();
+
+            procResult = (int)procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaGestionSqlReturnModel>> ConsultaGestionSqlAsync(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial.GetValueOrDefault() };
+            if (!fechaInicial.HasValue)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal.GetValueOrDefault() };
+            if (!fechaFinal.HasValue)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ConsultaGestionSqlReturnModel>("EXEC [dbo].[CONSULTA_GESTION_SQL] @Fecha_Inicial, @Fecha_Final, @Aliado", fechaInicialParam, fechaFinalParam, aliadoParam).ToListAsync();
+
+            return procResultData;
+        }
+
 
 
 
