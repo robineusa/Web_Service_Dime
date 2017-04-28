@@ -166,6 +166,8 @@ namespace Telmexla.Servicios.DIME.Business
                 nuevoDato.UsuarioApertura = item.Usuario_Apertura.ToString();
                 nuevoDato.UsuarioCierre = item.Usuario_Cierre.ToString();
                 nuevoDato.UsuarioUltimaActualizacion = item.Usuario_Ult_Actualizacion.ToString();
+                nuevoDato.Ticket = item.Ticket;
+
                 result.Add(nuevoDato);
             }
 
