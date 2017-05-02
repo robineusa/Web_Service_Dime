@@ -81,5 +81,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void InsertarSkillsUsuarioBlending(SkillsUsuariosBlending skills);
 
+        [OperationContract]
+        List<GestionOutbound> CountCuentasOperacionGestion(string operacion, string aliado);
+
+        [OperationContract]
+        List<GestionOutbound> CountCuentasOperacionCampaña(string operacion, string campaña, string aliado);
+        
     }
 }

@@ -608,8 +608,18 @@ namespace Telmexla.Servicios.DIME.Business
                     }
                 }
             }
-
-
+        }
+        public List<GestionOutbound> CountCuentasOperacionGestion(string operacion, string aliado)
+        {
+            //int Cedula = Convert.ToInt32(cedula);
+            DimeContext dimeContext = new DimeContext();
+            return dimeContext.GestionOutbounds.Where(a => a.OperacionGestion.Equals(operacion) &&a.Aliado==aliado && a.UsuarioGestionando == null).ToList();
+        }
+        public List<GestionOutbound> CountCuentasOperacionCampaña(string operacion, string campaña, string aliado)
+        {
+            //int Cedula = Convert.ToInt32(cedula);
+            DimeContext dimeContext = new DimeContext();
+            return dimeContext.GestionOutbounds.Where(a => a.OperacionGestion.Equals(operacion) && a.Campaña==campaña && a.Aliado == aliado && a.UsuarioGestionando == null).ToList();
         }
     }
 }

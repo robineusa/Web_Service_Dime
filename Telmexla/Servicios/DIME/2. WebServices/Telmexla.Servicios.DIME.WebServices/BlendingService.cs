@@ -154,5 +154,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             BlendingBusiness blendingBusin = new BlendingBusiness();
             blendingBusin.InsertarSkillsUsuarioBlending(skills);
         }
+        public List<GestionOutbound> CountCuentasOperacionGestion(string operacion, string aliado)
+        {
+            BlendingBusiness blendingBusin = new BlendingBusiness();
+            return blendingBusin.CountCuentasOperacionGestion(operacion, aliado);
+        }
+        public List<GestionOutbound> CountCuentasOperacionCampaña(string operacion, string campaña, string aliado)
+        {
+            BlendingBusiness blendingBusin = new BlendingBusiness();
+            return blendingBusin.CountCuentasOperacionCampaña(operacion, campaña,aliado);
+        }
     }
 }

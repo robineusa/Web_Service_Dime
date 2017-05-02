@@ -41,15 +41,20 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
             //BlendingService BS = new BlendingService();
             //var Operacion = "VENTAS INBOUND";
-            //var r = BS.ListaUsuariosAdminBlending(Operacion);
+            //var Campaña = "VOZ";
+            //var Aliado = "BRM";
+            //var r = BS.CountCuentasOperacionGestion(Operacion, Aliado);
+            //var rU = BS.CountCuentasOperacionCampaña(Operacion, Campaña, Aliado);
+            //var z = "";
 
             //BlendingService BS = new BlendingService();
-            //string Cedula = "7889";
-            //var R = BS.ConsultaUsuarioenAdminBlending(Cedula);
+            //string Opera = "VENTAS INBOUND";
+            //var R = BS.CountCuentasOperacionGestion(Opera).Count();
+            //var z = "";
 
             //BlendingService BS = new BlendingService();
             //var R = BS.ObtenerCampaña("BRM");
-            
+
             //SkillsUsuariosBlending S = new SkillsUsuariosBlending();
             //S.Cedula = 4444;
             //S.Campaña = "3peee";
