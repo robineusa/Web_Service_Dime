@@ -16,6 +16,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
         {
             ToTable("TMP_MAESTRO_MARCACIONES", schema);
             HasKey(x => x.Id);
+            Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Razon).HasColumnName(@"RAZON").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Subrazon).HasColumnName(@"SUBRAZON").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Submarcacion).HasColumnName(@"SUBMARCACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
