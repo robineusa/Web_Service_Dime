@@ -86,6 +86,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<GestionOutbound> CountCuentasOperacionCampaña(string operacion, string campaña, string aliado);
-        
+
+        [OperationContract]
+        void ActualizarUsuariosBasesBlending(List<string> listaUsuariosCambiados, string Campaña, int Id_Usuario_Actualizacion);
+
+
     }
 }

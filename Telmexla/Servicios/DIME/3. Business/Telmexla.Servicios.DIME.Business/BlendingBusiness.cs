@@ -621,5 +621,21 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimeContext = new DimeContext();
             return dimeContext.GestionOutbounds.Where(a => a.OperacionGestion.Equals(operacion) && a.Campaña==campaña && a.Aliado == aliado && a.UsuarioGestionando == null).ToList();
         }
+        public void ActualizarUsuariosBasesBlending(List<string> listaUsuariosCambiados, string Campaña, int Id_Usuario_Actualizacion)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+
+            foreach (string cedUsuarioB in listaUsuariosCambiados)
+            {
+                int cedulaUsuario = Convert.ToInt32(cedUsuarioB);
+                SkillsUsuariosBlending usuario = unitWork.SkillsUsuariosBlending.Find(c => c.Cedula == cedulaUsuario).FirstOrDefault();
+                DateTime fechaActual = DateTime.Now;
+                usuario.Campaña = Campaña;
+                usuario.Fecha_Actualizacion = fechaActual;
+                usuario.Id_Usuario_Actualizacion = Id_Usuario_Actualizacion;
+                unitWork.Complete();
+            }
+            
+        }
     }
 }

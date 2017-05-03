@@ -21,11 +21,17 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            IngresoTrasladoBusiness itb = new IngresoTrasladoBusiness();
-            var dato = itb.ExisteCuentaEscalada(14257896);
+            //IngresoTrasladoBusiness itb = new IngresoTrasladoBusiness();
+            //var dato = itb.ExisteCuentaEscalada(14257896);
 
-            IngresoTrasladoBusiness itb2 = new IngresoTrasladoBusiness();
+            //IngresoTrasladoBusiness itb2 = new IngresoTrasladoBusiness();
 
+            //BlendingBusiness BB = new BlendingBusiness();
+            //List<string> listaUsuariosCambiados = new List<string>();
+            //listaUsuariosCambiados.Add("1213");
+            //listaUsuariosCambiados.Add("456");
+            //BB.ActualizarUsuariosBasesBlending(listaUsuariosCambiados, "VOZ", 123);
+            //var R = "";
             //CasosAdminService adminService = new CasosAdminService();
             //DateTime inicial = Convert.ToDateTime("2017- 04-04");
             //DateTime final = Convert.ToDateTime("2017- 04-14");
