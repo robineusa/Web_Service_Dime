@@ -55,7 +55,8 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             IngresoBusiness ingreBusi = new IngresoBusiness();
             string llamadaCliente = "NO";
-            ingreBusi.ActualizarIngreso(ingreso, notas, llamadaCliente, ingresoSoporte);
+             ingreBusi.ActualizarIngreso(ingreso, notas, llamadaCliente, ingresoSoporte);
+          
             if (aplicaRechazo.Equals("SI"))
             {
                 ingreBusi.IngresarRechazo(ingreso,razonRechazo);

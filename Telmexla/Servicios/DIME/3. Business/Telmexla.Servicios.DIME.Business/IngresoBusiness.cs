@@ -380,6 +380,10 @@ namespace Telmexla.Servicios.DIME.Business
                 ingresoActualizable.HoraCierre = fechaActual;
                 ingresoActualizable.UsuarioCierre = ingreso.UsuarioUltimaActualizacion;
             }
+            if ( ingreso.IdEstado== 1 && !ingreso.NombreLineaEscalado.Equals(ingresoActualizable.NombreLineaEscalado))
+            {
+                ingresoActualizable.UsuarioBackoffice = null;
+            }
             ingresoActualizable.UsuarioUltimaActualizacion = ingreso.UsuarioUltimaActualizacion;
             ingresoActualizable.FechaUltimaActualizacion = fechaActual;
             ingresoActualizable.HoraUltimaActualizacion = fechaActual;
