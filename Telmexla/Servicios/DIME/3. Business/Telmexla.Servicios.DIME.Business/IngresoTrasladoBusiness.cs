@@ -79,7 +79,7 @@ namespace Telmexla.Servicios.DIME.Business
         public bool ExisteCuentaEscalada(decimal cuenta)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && (c.EstadoTransaccion != "FINALIZADO"|| c.EstadoTransaccion != "NO INGRESADA") && c.TipoGestion == "CREACION DE DIRECCION").Count() >= 1;
+            return unitWork.ingresoTraslados.Find(c => c.CuentaCliente.Equals(cuenta) && c.TipoGestion == "CREACION DE DIRECCION"&& (c.EstadoTransaccion== "PENDIENTE POR CREAR" || c.EstadoTransaccion== "SEGUIMIENTO" || c.EstadoTransaccion == "EN GESTION" || c.EstadoTransaccion == "INGRESADA")).Count() >= 1;
 
         }
         public List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion(string Usuario)
