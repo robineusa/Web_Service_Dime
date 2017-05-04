@@ -52,10 +52,12 @@
     <Compile Include="AccesoRepository.cs" />
     <Compile Include="ActivacionClaroVideoRepository.cs" />
     <Compile Include="BalaceScoreCardRepository.cs" />
+    <Compile Include="BlendingFueraNivelRepository.cs" />
     <Compile Include="CambioEstratoRepository.cs" />
     <Compile Include="Configuration\ActivacionClaroVideoConfiguration.cs" />
     <Compile Include="Configuration\BalanceScoreCardConfiguration.cs" />
     <Compile Include="Configuration\BasePersonalHoloConfiguration.cs" />
+    <Compile Include="Configuration\BlendingFueraNivelConfiguration.cs" />
     <Compile Include="Configuration\CambioEstratoConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiguienteMejorOfertaConfiguration.cs" />

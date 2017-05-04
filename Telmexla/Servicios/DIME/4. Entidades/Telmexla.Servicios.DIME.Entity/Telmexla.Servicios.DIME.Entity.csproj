@@ -65,6 +65,7 @@
     <Compile Include="BalanceScoreCardCollection.cs" />
     <Compile Include="BasePersonalHolo.cs" />
     <Compile Include="BasePersonalHoloCollection.cs" />
+    <Compile Include="BlendingFueraNivel.cs" />
     <Compile Include="CambioEstrato.cs" />
     <Compile Include="CambioEstratoCollection.cs" />
     <Compile Include="CierreCiclo.cs" />

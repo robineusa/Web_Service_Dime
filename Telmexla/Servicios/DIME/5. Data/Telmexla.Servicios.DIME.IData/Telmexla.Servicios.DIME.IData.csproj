@@ -52,6 +52,7 @@
     <Compile Include="IAccesoRepository.cs" />
     <Compile Include="IActivacionClaroVideoRepository.cs" />
     <Compile Include="IBalanceScoreCardRepository.cs" />
+    <Compile Include="IBlendingFueraNivelRepository.cs" />
     <Compile Include="ICambioEstratoRepository.cs" />
     <Compile Include="ICuentasSiembraHDRepository.cs" />
     <Compile Include="ICuentasSiguienteMejorOfertaRepository.cs" />
