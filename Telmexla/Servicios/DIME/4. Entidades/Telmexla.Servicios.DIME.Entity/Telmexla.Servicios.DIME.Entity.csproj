@@ -76,6 +76,7 @@
     <Compile Include="ClientesTodoCollection.cs" />
     <Compile Include="ConsultaGestionSqlReturnModel.cs" />
     <Compile Include="ConsultaPaloteoSqlReturnModel.cs" />
+    <Compile Include="ConsultaRechazosAdminSqlReturnModel.cs" />
     <Compile Include="ConvenioElectronico.cs" />
     <Compile Include="ConvenioElectronicoCollection.cs" />
     <Compile Include="CuentasSiembraHD.cs" />
