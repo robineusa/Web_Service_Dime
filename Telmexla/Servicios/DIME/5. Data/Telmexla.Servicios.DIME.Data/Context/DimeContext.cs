@@ -629,6 +629,44 @@ namespace Telmexla.Servicios.DIME.Data.Context
             return procResultData;
         }
 
+        public System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel> ConsultaRechazosAdminSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal)
+        {
+            int procResult;
+            return ConsultaRechazosAdminSql(fechaInicial, fechaFinal, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel> ConsultaRechazosAdminSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, out int procResult)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial.GetValueOrDefault() };
+            if (!fechaInicial.HasValue)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal.GetValueOrDefault() };
+            if (!fechaFinal.HasValue)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ConsultaRechazosAdminSqlReturnModel>("EXEC @procResult = [dbo].[CONSULTA_RECHAZOS_ADMIN_SQL] @Fecha_Inicial, @Fecha_Final", fechaInicialParam, fechaFinalParam, procResultParam).ToList();
+
+            procResult = (int)procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel>> ConsultaRechazosAdminSqlAsync(System.DateTime? fechaInicial, System.DateTime? fechaFinal)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial.GetValueOrDefault() };
+            if (!fechaInicial.HasValue)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal.GetValueOrDefault() };
+            if (!fechaFinal.HasValue)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ConsultaRechazosAdminSqlReturnModel>("EXEC [dbo].[CONSULTA_RECHAZOS_ADMIN_SQL] @Fecha_Inicial, @Fecha_Final", fechaInicialParam, fechaFinalParam).ToListAsync();
+
+            return procResultData;
+        }
+
 
 
 

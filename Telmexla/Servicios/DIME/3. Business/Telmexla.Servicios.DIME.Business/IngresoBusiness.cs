@@ -451,51 +451,52 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaRechazo> result;
             if (!esPerfilAdmin)
             {
-                 result = (from a in dimContext.Rechazoes
-                                                    join b in dimContext.Usuarios on a.UsuarioCreacionCaso equals b.Id.ToString()
-                                                    join c in dimContext.Usuarios on a.UsuarioRechaza equals c.Id.ToString()
-                                                    join m in dimContext.Lineas on c.IdLinea equals m.Id
-                                                    join n in dimContext.BasePersonalHoloes on c.Cedula equals n.Cedula into Details3  from n in Details3.DefaultIfEmpty()
-                                         where a.UsuarioCreacionCaso.Equals(idUsuario) && a.FechaRechazo >= fechaInicial && a.FechaRechazo <= fechaFinal
-                                                    select new DatoConsultaRechazo
-                                                    {
-                                                        IdIngreso = a.IdIngreso,
-                                                        FechaCreacionCaso = a.FechaCreacionCaso,
-                                                        HoraCreacionCaso = a.HoraCreacionCaso,
-                                                        UsuarioCreacionCaso = b.Cedula.ToString(),
-                                                        NotasRechazo = a.NotasRechazo,
-                                                        UsuarioRechaza = c.Cedula.ToString(),
-                                                        FechaRechazo = a.FechaRechazo,
-                                                        HoraRechazo = a.HoraRechazo,
-                                                        NombreUsuarioCreacion = b.Nombre,
-                                                        NombreUsuarioRechaza = c.Nombre,
-                                                        NombreLineaUsuarioRechaza = m.Nombre,
-                                                        AliadoUsuarioRechaza = n.Aliado
-                                                    }).ToList();
-            }else
+                result = (from a in dimContext.Rechazoes
+                          join b in dimContext.Usuarios on a.UsuarioCreacionCaso equals b.Id.ToString()
+                          join c in dimContext.Usuarios on a.UsuarioRechaza equals c.Id.ToString()
+                          join m in dimContext.Lineas on c.IdLinea equals m.Id
+                          join n in dimContext.BasePersonalHoloes on c.Cedula equals n.Cedula into Details3 from n in Details3.DefaultIfEmpty()
+                          where a.UsuarioCreacionCaso.Equals(idUsuario) && a.FechaRechazo >= fechaInicial && a.FechaRechazo <= fechaFinal
+                          select new DatoConsultaRechazo
+                          {
+                              IdIngreso = a.IdIngreso,
+                              FechaCreacionCaso = a.FechaCreacionCaso,
+                              HoraCreacionCaso = a.HoraCreacionCaso,
+                              UsuarioCreacionCaso = b.Cedula.ToString(),
+                              NotasRechazo = a.NotasRechazo,
+                              UsuarioRechaza = c.Cedula.ToString(),
+                              FechaRechazo = a.FechaRechazo,
+                              HoraRechazo = a.HoraRechazo,
+                              NombreUsuarioCreacion = b.Nombre,
+                              NombreUsuarioRechaza = c.Nombre,
+                              NombreLineaUsuarioRechaza = m.Nombre,
+                              AliadoUsuarioRechaza = n.Aliado
+                          }).ToList();
+            } else
             {
 
-                result = (from a in dimContext.Rechazoes
-                                                    join b in dimContext.Usuarios on a.UsuarioCreacionCaso equals b.Id.ToString() into Details   from b in Details.DefaultIfEmpty()
-                                                    join c in dimContext.Usuarios on a.UsuarioRechaza equals c.Id.ToString() into Details2 from c in Details.DefaultIfEmpty()
-                                                     join m in dimContext.Lineas on c.IdLinea equals m.Id into Details3 from m in Details.DefaultIfEmpty()
-                                                     join n in dimContext.BasePersonalHoloes on c.Cedula equals n.Cedula into Details4 from n in Details4.DefaultIfEmpty()
-                                                   where  a.FechaRechazo >= fechaInicial && a.FechaRechazo <= fechaFinal
-                                                    select new DatoConsultaRechazo
-                                                    {
-                                                        IdIngreso = a.IdIngreso,
-                                                        FechaCreacionCaso = a.FechaCreacionCaso,
-                                                        HoraCreacionCaso = a.HoraCreacionCaso,
-                                                        UsuarioCreacionCaso = b.Cedula.ToString(),
-                                                        NotasRechazo = a.NotasRechazo,
-                                                        UsuarioRechaza = c.Cedula.ToString(),
-                                                        FechaRechazo = a.FechaRechazo,
-                                                        HoraRechazo = a.HoraRechazo,
-                                                        NombreUsuarioCreacion = b.Nombre,
-                                                        NombreUsuarioRechaza = c.Nombre,
-                                                        NombreLineaUsuarioRechaza = m.Nombre,
-                                                        AliadoUsuarioRechaza = n.Aliado
-                                                    }).ToList();
+                result = new List<DatoConsultaRechazo>();
+               var resultBefore =  dimContext.ConsultaRechazosAdminSql(fechaInicial, fechaFinal);
+
+                foreach(var item in resultBefore)
+                {
+                    DatoConsultaRechazo nuevoDato = new DatoConsultaRechazo();
+                    nuevoDato.IdIngreso = item.ID_INGRESO;
+                    nuevoDato.FechaCreacionCaso = item.FECHA_CREACION_CASO;
+                    nuevoDato.HoraCreacionCaso = item.HORA_CREACION_CASO;
+                    nuevoDato.UsuarioCreacionCaso = item.Usuario_Creacion_Caso.ToString();
+                    nuevoDato.NotasRechazo = item.NOTAS_RECHAZO;
+                    nuevoDato.UsuarioRechaza = item.Usuario_Rechaza.ToString();
+                    nuevoDato.FechaRechazo = item.FECHA_RECHAZO;
+                    nuevoDato.HoraRechazo = item.HORA_RECHAZO;
+                    nuevoDato.NombreUsuarioCreacion = item.Nombre_Usuario_Creacion;
+                    nuevoDato.NombreUsuarioRechaza = item.Nombre_Usuario_Rechaza;
+                    nuevoDato.NombreLineaUsuarioRechaza = item.Nombre_Linea_Usuario_Rechaza;
+                    nuevoDato.AliadoUsuarioRechaza = item.Aliado_Usuario_Rechaza;
+                    result.Add(nuevoDato);
+                }
+
+  
 
             }
 
