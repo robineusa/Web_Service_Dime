@@ -347,25 +347,50 @@ namespace Telmexla.Servicios.DIME.Business
 
         public IngresoCollection GetCasosAbiertosDeCelulaUser(string lineaUser, string aliadoUser)
         {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            DimeContext dimeContext = new DimeContext();
             IngresoCollection result = new IngresoCollection();
-            result.AddRange(unitWork.ingresos.Find(c => c.AliadoApertura.Equals(aliadoUser) && c.NombreLineaEscalado.Equals(lineaUser) && 
-             c.UsuarioBackoffice.Equals(null) && c.IdEstado == 1 ).Select(x => new Ingreso
+            var resultBefore = (from a in dimeContext.Ingresoes
+                                join b in dimeContext.Usuarios on a.UsuarioApertura equals b.Id.ToString()
+                                where a.AliadoApertura.Equals(aliadoUser) && a.NombreLineaEscalado.Equals(lineaUser) &&
+                                 a.UsuarioBackoffice.Equals(null) && a.IdEstado== 1
+                                select new 
+                                {
+                                    IdIngreso = a.IdIngreso,
+                                    Cuenta = a.Cuenta,
+                                    Ticket = a.Ticket,
+                                    FechaApertura = a.FechaApertura,
+                                    HoraApertura = a.HoraApertura,
+                                    UsuarioApertura = b.Cedula.ToString(),
+                                    Macroproceso = a.Macroproceso,
+                                    Marcacion = a.Marcacion,
+                                    IdEstado = a.IdEstado,
+                                    AliadoApertura = a.AliadoApertura,
+                                    NombreLineaIngreso = a.NombreLineaIngreso,
+                                    NombreLineaEscalado = a.NombreLineaEscalado,
+                                    Semaforo = a.Semaforo
+                                }).ToList();
+
+
+            foreach (var item in resultBefore)
             {
-                IdIngreso = x.IdIngreso,
-                Cuenta = x.Cuenta,
-                Ticket = x.Ticket,
-                FechaApertura = x.FechaApertura,
-                HoraApertura = x.HoraApertura,
-                UsuarioApertura = x.UsuarioApertura,
-                Macroproceso = x.Macroproceso,
-                Marcacion = x.Marcacion,
-                IdEstado = x.IdEstado,
-                AliadoApertura = x.AliadoApertura,
-                NombreLineaIngreso = x.NombreLineaIngreso,
-                NombreLineaEscalado = x.NombreLineaEscalado,
-                Semaforo = x.Semaforo
-            }).ToList());
+                Ingreso nuevoIngreso = new Ingreso();
+                nuevoIngreso.IdIngreso = item.IdIngreso;
+                nuevoIngreso.Cuenta = item.Cuenta;
+                nuevoIngreso.Ticket = item.Ticket;
+                nuevoIngreso.FechaApertura = item.FechaApertura;
+                nuevoIngreso.HoraApertura = item.HoraApertura;
+                nuevoIngreso.UsuarioApertura = item.UsuarioApertura;
+                nuevoIngreso.Macroproceso = item.Macroproceso;
+                nuevoIngreso.Marcacion = item.Marcacion;
+                nuevoIngreso.IdEstado = item.IdEstado;
+                nuevoIngreso.AliadoApertura = item.AliadoApertura;
+                nuevoIngreso.NombreLineaIngreso = item.NombreLineaIngreso;
+                nuevoIngreso.NombreLineaEscalado = item.NombreLineaEscalado;
+                nuevoIngreso.Semaforo = item.Semaforo;
+                result.Add(nuevoIngreso);
+            }
+
+
             return result;  
         }
 
