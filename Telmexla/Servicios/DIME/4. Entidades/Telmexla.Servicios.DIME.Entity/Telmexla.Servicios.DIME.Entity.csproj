@@ -88,6 +88,7 @@
     <Compile Include="DatosAdicionalesClienteCollection.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="DepartamentoCollection.cs" />
+    <Compile Include="DistribucionBlending.cs" />
     <Compile Include="DocsisOverlap.cs" />
     <Compile Include="DocsisOverlapCollection.cs" />
     <Compile Include="GestionMatriz.cs" />

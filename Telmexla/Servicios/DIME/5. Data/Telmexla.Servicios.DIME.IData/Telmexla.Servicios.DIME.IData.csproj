@@ -57,6 +57,7 @@
     <Compile Include="ICuentasSiembraHDRepository.cs" />
     <Compile Include="ICuentasSiguienteMejorOfertaRepository.cs" />
     <Compile Include="IDepartamentoRepository.cs" />
+    <Compile Include="IDistribucionBlendingRepository.cs" />
     <Compile Include="IGestionMatrizRepository.cs" />
     <Compile Include="IIngresoRepository.cs" />
     <Compile Include="IIngresoSoporteRepository.cs" />

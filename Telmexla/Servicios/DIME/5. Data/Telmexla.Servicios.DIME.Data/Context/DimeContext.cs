@@ -72,6 +72,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<UsabilidadBusquedaCuentaInbound> UsabilidadBusquedaClienteInbound { get; set; } // TBL_USABILIDAD_BUSQUEDA_CLIENTE
         public System.Data.Entity.DbSet<SkillsUsuariosBlending> SkillsUsuariosBlending { get; set; } // TBL_SKILLS_USUARIOS_BLENDING
         public System.Data.Entity.DbSet<BlendingFueraNivel> blendingFueraNiveles { get; set; } // TMP_GBC_FUERA_NIVELES
+        public System.Data.Entity.DbSet<DistribucionBlending> distribucionesBlending { get; set; } // TBL_DISTRIBUCIONES_BLENDING
+
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -175,6 +177,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new UsabilidadBusquedaCuentaInboundConfiguration());
             modelBuilder.Configurations.Add(new SkillsUsuariosBlendingConfiguration());
             modelBuilder.Configurations.Add(new BlendingFueraNivelConfiguration());
+            modelBuilder.Configurations.Add(new DistribucionBlendingConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -232,6 +235,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new UsabilidadBusquedaCuentaInboundConfiguration(schema));
             modelBuilder.Configurations.Add(new SkillsUsuariosBlendingConfiguration(schema));
             modelBuilder.Configurations.Add(new BlendingFueraNivelConfiguration(schema));
+            modelBuilder.Configurations.Add(new DistribucionBlendingConfiguration(schema));
             return modelBuilder;
         }
 

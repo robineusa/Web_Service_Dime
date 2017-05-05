@@ -54,6 +54,7 @@ namespace Telmexla.Servicios.DIME.Data
             UsabilidadCuentaInbound = new UsabilidadBusquedaCuentaInboundRepository(this.dimeContext);
             SkillsUsuariosBlending = new SkillsUsuariosBlendingRepository(this.dimeContext);
             blendingFueraNiveles = new BlendingFueraNivelRepository(this.dimeContext);
+            distribucionesBlending = new DistribucionBlendingRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -218,6 +219,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IBlendingFueraNivelRepository blendingFueraNiveles
+        {
+            get; private set;
+        }
+        public IDistribucionBlendingRepository distribucionesBlending
         {
             get; private set;
         }
