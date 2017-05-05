@@ -21,6 +21,18 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
+
+            DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
+
+            int idasesor = 5301;
+            var formulario = "FUERANIVELES";
+            var Aliado = "BRM";
+            var Operacion = "FUERANIVELES";
+            var campana = "NIVELES";
+            ClientesTodo clientesS = new ClientesTodo();
+            clientesS = bsd.TraerInformacionCuentaBlending(idasesor,formulario,Aliado,Operacion,campana);
+            var dato = "";
+
             //IngresoTrasladoBusiness itb = new IngresoTrasladoBusiness();
             //var dato = itb.ExisteCuentaEscalada(14257896);
 

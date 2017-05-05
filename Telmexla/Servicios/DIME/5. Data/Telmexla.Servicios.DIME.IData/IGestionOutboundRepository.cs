@@ -12,8 +12,6 @@ namespace Telmexla.Servicios.DIME.IData
 
         bool ApartarCuentaAGestionarAsesor(string gestionBlending, int idAsesor, string aliado, string linea);
 
-
-
-
+        
     }
 }

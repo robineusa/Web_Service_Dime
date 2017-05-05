@@ -72,7 +72,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<UsabilidadBusquedaCuentaInbound> UsabilidadBusquedaClienteInbound { get; set; } // TBL_USABILIDAD_BUSQUEDA_CLIENTE
         public System.Data.Entity.DbSet<SkillsUsuariosBlending> SkillsUsuariosBlending { get; set; } // TBL_SKILLS_USUARIOS_BLENDING
         public System.Data.Entity.DbSet<BlendingFueraNivel> blendingFueraNiveles { get; set; } // TMP_GBC_FUERA_NIVELES
-        public System.Data.Entity.DbSet<DistribucionBlending> distribucionesBlending { get; set; } // TBL_DISTRIBUCIONES_BLENDING
+        public System.Data.Entity.DbSet<DistribucionBlending> DistribucionBlendings { get; set; } // TBL_DISTRIBUCIONES_BLENDING
 
         static DimeContext()
         {
@@ -340,6 +340,38 @@ namespace Telmexla.Servicios.DIME.Data.Context
 
             return (int)procResultParam.Value;
         }
+
+        //este procedimiento aparta una cuenta para la gestion outbound
+        public int ApartarCuentaGestionOutbound(int? idAsesor, string formulario, string aliado, string operacion, string campana)
+        {
+            var idAsesorParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Asesor", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Input, Value = idAsesor.GetValueOrDefault(), Precision = 10, Scale = 0 };
+            if (!idAsesor.HasValue)
+                idAsesorParam.Value = System.DBNull.Value;
+
+            var formularioParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Formulario", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = formulario, Size = 255 };
+            if (formularioParam.Value == null)
+                formularioParam.Value = System.DBNull.Value;
+
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 255 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var operacionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Operacion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = operacion, Size = 255 };
+            if (operacionParam.Value == null)
+                operacionParam.Value = System.DBNull.Value;
+
+            var campanaParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Campana", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = campana, Size = 255 };
+            if (campanaParam.Value == null)
+                campanaParam.Value = System.DBNull.Value;
+
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Apartar_Cuenta_Gestion_Blending] @Id_Asesor, @Formulario, @Aliado, @Operacion, @Campana", idAsesorParam, formularioParam, aliadoParam, operacionParam,campanaParam, procResultParam);
+
+            return (int)procResultParam.Value;
+        }
+
         public int Consultas(decimal? nombreCab, System.Data.DataTable detalles)
         {
             var nombreCabParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Nombre_Cab", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = nombreCab.GetValueOrDefault(), Precision = 18, Scale = 0 };

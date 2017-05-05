@@ -7,6 +7,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
    public class DistribucionBlendingConfiguration: System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<DistribucionBlending>
     {
         public DistribucionBlendingConfiguration()
+            : this("dbo")
         {
 
         }

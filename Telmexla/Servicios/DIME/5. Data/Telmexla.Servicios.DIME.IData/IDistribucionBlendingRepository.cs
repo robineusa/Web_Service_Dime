@@ -9,6 +9,6 @@ namespace Telmexla.Servicios.DIME.IData
 {
     public interface IDistribucionBlendingRepository: IRepository<DistribucionBlending>
     {
-
+        bool ApartarCuentaAGestionarBlendingAsesor(int idAsesor, string formulario, string aliado, string operacion, string campana);
     }
 }

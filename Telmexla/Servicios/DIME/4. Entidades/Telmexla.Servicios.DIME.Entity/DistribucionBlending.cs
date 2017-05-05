@@ -9,7 +9,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public string AliadoDestino { get; set; }
         public string OperacionDestino { get; set; }
         public string CampanaDestino { get; set; }
-        public string UsuarioGestionando { get; set; }
+        public int UsuarioGestionando { get; set; }
         public System.DateTime? FechaAsignacion { get; set; }
         public string UsuarioAsignacion { get; set; }
     }

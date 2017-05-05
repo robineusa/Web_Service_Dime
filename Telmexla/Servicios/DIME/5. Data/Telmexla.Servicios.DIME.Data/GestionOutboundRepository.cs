@@ -29,5 +29,7 @@ namespace Telmexla.Servicios.DIME.Data
             dimeContext.ApartarCuentaGestionOutboundAsesor(idAsesor, gestionBlending, aliado, linea);
             return true;
         }
+        
+
     }
 }

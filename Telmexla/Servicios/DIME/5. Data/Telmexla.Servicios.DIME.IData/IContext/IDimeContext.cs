@@ -69,7 +69,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<UsabilidadBusquedaCuentaInbound> UsabilidadBusquedaClienteInbound { get; set; } // TBL_USABILIDAD_BUSQUEDA_CLIENTE
         System.Data.Entity.DbSet<SkillsUsuariosBlending> SkillsUsuariosBlending { get; set; } // TBL_SKILLS_USUARIOS_BLENDING
         System.Data.Entity.DbSet<BlendingFueraNivel> blendingFueraNiveles { get; set; } // TMP_GBC_FUERA_NIVELES
-        System.Data.Entity.DbSet<DistribucionBlending> distribucionesBlending { get; set; } // TBL_DISTRIBUCIONES_BLENDING
+        System.Data.Entity.DbSet<DistribucionBlending> DistribucionBlendings { get; set; } // TBL_DISTRIBUCIONES_BLENDING
 
 
         int SaveChanges();
@@ -93,6 +93,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
 
 
         int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion, string aliado, string linea);
+        //este procedimiento seleciona una cuenta disponible para la gestion outbound
+        int ApartarCuentaGestionOutbound(int? idAsesor, string formulario, string aliado, string operacion, string campana);
         // ApartarCuentaGestionOutboundAsesorAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
 
         int Consultas(decimal? nombreCab, System.Data.DataTable detalles);

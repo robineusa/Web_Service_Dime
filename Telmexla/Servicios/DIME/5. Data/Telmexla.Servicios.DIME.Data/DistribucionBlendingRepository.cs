@@ -11,14 +11,21 @@ namespace Telmexla.Servicios.DIME.Data
 {
     public class DistribucionBlendingRepository: Repository<DistribucionBlending>, IDistribucionBlendingRepository
     {
-        public DistribucionBlendingRepository(DimeContext contex):base (contex)
+        public DistribucionBlendingRepository(DimeContext context) : base(context)
         {
 
         }
+
         public DimeContext dimeContext
         {
             get { return Context as DimeContext; }
         }
 
+        public bool ApartarCuentaAGestionarBlendingAsesor(int idAsesor, string formulario, string aliado, string operacion, string campana)
+        {
+
+            dimeContext.ApartarCuentaGestionOutbound(idAsesor, formulario, aliado, operacion, campana);
+            return true;
+        }
     }
 }
