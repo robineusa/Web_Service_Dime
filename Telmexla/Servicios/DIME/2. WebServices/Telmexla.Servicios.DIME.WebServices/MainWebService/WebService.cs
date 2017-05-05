@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService
     {
 
 
@@ -1178,5 +1178,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
-    }
+        #region DistribucionBlending
+        //aqui se ejecuta los procesos de outbound blending
+        public ClientesTodo TraerInformacionCuentaBlending(int idAsesor, string formulario, string aliado, string operacion, string campana)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraerInformacionCuentaBlending(idAsesor,formulario,aliado,operacion,campana);
+
+        }
+        public BlendingFueraNivel TraerInformacionCuentaFueraNiveles(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraerInformacionCuentaFueraNiveles(CuentaCliente);
+
+        }
+            #endregion
+
+        }
 }

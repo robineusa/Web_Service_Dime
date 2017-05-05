@@ -67,6 +67,7 @@
     <Compile Include="CasosAdminService.cs" />
     <Compile Include="CasosCelulaService.cs" />
     <Compile Include="ClientesService.cs" />
+    <Compile Include="DistribucionBlendingService.cs" />
     <Compile Include="GraficosService.cs" />
     <Compile Include="InboundService.cs" />
     <Compile Include="LoginService.cs" />

@@ -34,7 +34,7 @@ namespace Telmexla.Servicios.DIME.Business
 
         /////NUEVOS PROCESOS DE GESTION BLENDING
         // CABLE MODEM FUERA DE NIVELES
-        public BlendingFueraNivel TraerInformacionCuenta(decimal CuentaCliente)
+        public BlendingFueraNivel TraerInformacionCuentaFueraNiveles(decimal CuentaCliente)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             return unitWork.blendingFueraNiveles.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
