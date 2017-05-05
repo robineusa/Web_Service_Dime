@@ -30,7 +30,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             var Operacion = "FUERANIVELES";
             var campana = "NIVELES";
             ClientesTodo clientesS = new ClientesTodo();
+            BlendingFueraNivel fdn = new BlendingFueraNivel();
             clientesS = bsd.TraerInformacionCuentaBlending(idasesor,formulario,Aliado,Operacion,campana);
+            fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
             var dato = "";
 
             //IngresoTrasladoBusiness itb = new IngresoTrasladoBusiness();

@@ -7,6 +7,6 @@ namespace Telmexla.Servicios.DIME.Entity
         public decimal CuentaCliente { get; set; }
         public string Cmts { get; set; }
         public string TipoModem { get; set; }
-        public decimal Prioridad { get; set; }
+        public int Prioridad { get; set; }
     }
 }
