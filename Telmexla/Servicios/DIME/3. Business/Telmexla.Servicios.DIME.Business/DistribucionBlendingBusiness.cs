@@ -119,9 +119,6 @@ namespace Telmexla.Servicios.DIME.Business
 
             GBPFueraNiveles PFueraNivelActualizable = unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == PFueraNivel.CuentaCliente).FirstOrDefault();
 
-            if (PFueraNivelActualizable != null)
-            {
-
                 PFueraNivel.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(PFueraNivel.TipoContacto)).TipoContacto;
                 PFueraNivel.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(PFueraNivel.Gestion)).Cierre;
                 PFueraNivel.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(PFueraNivel.Cierre)).Razon;
@@ -195,8 +192,7 @@ namespace Telmexla.Servicios.DIME.Business
 
                 unitWorkLog.GBLFueradeNiveles.Add(LFueraNivel);
                 unitWorkLog.Complete();
-            }
-            else { }
+           
         }
         public bool ValidarCuentaEnFueraNiveles(decimal CuentaCliente)
         {

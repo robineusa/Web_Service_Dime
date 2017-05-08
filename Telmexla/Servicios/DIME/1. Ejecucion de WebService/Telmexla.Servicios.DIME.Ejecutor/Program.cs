@@ -22,39 +22,46 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
 
-            //DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
+            DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
 
 
-            //decimal cuenta = 307;
+            decimal cuenta = 73689564;
 
-            //int idasesor = 5301;
+            int idasesor = 5301;
 
-            //var formulario = "FUERANIVELES";
-            //var Aliado = "BRM";
-            //var Operacion = "FUERANIVELES";
-            //var campana = "NIVELES";
+            var formulario = "FUERANIVELES";
+            var Aliado = "BRM";
+            var Operacion = "FUERANIVELES";
+            var campana = "NIVELES";
+            
 
+            DistribucionBlending dis = new DistribucionBlending();
+            dis.CuentaCliente = cuenta;
+            dis.FormularioDestino = formulario;
+            dis.AliadoDestino = Aliado;
+            dis.OperacionDestino = Operacion;
+            dis.CampanaDestino = campana;
+            
+            GBPFueraNiveles GBP = new GBPFueraNiveles();
+            GBP.CuentaCliente = cuenta;
 
-            //DistribucionBlending dis = new DistribucionBlending();
-            //dis.CuentaCliente = cuenta;
-            //dis.FormularioDestino = formulario;
-            //dis.AliadoDestino = Aliado;
-            //dis.OperacionDestino = Operacion;
-            //dis.CampanaDestino = campana;
-            //GBPFueraNiveles GBP = new GBPFueraNiveles();
-            //GBP.CuentaCliente = cuenta;
-            //GBLFueraNiveles GBL = new GBLFueraNiveles();
+            GBP.TipoContacto = "36";
+            GBP.Gestion = "40";
+            GBP.Cierre = "130";
+            GBP.Razon = "151";
+            GBLFueraNiveles GBL = new GBLFueraNiveles();
 
-            //var resulado = bsd.ValidarCuentaEnFueraNiveles(cuenta);
+           
 
-            //bsd.ActualizarGestionFueraNiveles(GBP);
+            bsd.ActualizarGestionFueraNiveles(GBP);
+            var resulado = bsd.ValidarCuentaEnFueraNiveles(cuenta);
 
             ////bsd.InsertarCuentaColaDistribucionBlending(dis);
             //bsd.EliminaCuentaGestionadaDistribucion(dis);
 
             //ClientesTodo clientesS = new ClientesTodo();
             //BlendingFueraNivel fdn = new BlendingFueraNivel();
-            
+
             //fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
             //var dato = "";
 
