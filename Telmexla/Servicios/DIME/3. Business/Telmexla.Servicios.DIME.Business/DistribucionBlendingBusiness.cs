@@ -14,7 +14,7 @@ namespace Telmexla.Servicios.DIME.Business
     public class DistribucionBlendingBusiness
     {
         //este proceso aparta cuenta blending y trae la informacion de clientes todos
-        public ClientesTodo TraerInformacionCuentaBlending(int idAsesor, string formulario, string aliado,string operacion, string campana)
+        public ClientesTodo TraerInformacionCuentaBlending(int idAsesor, string formulario, string aliado, string operacion, string campana)
         {
 
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
@@ -26,8 +26,8 @@ namespace Telmexla.Servicios.DIME.Business
             }
             else
             {
-                unitOfWork.distribucionesBlending.ApartarCuentaAGestionarBlendingAsesor(idAsesor,formulario, aliado,operacion, campana);
-                return TraerInformacionCuentaBlending(idAsesor, formulario,aliado,operacion,campana);
+                unitOfWork.distribucionesBlending.ApartarCuentaAGestionarBlendingAsesor(idAsesor, formulario, aliado, operacion, campana);
+                return TraerInformacionCuentaBlending(idAsesor, formulario, aliado, operacion, campana);
             }
 
         }
@@ -41,18 +41,18 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public void EliminaCuentaGestionadaDistribucion(DistribucionBlending Registro)
         {
-           UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             DistribucionBlending CuentaEliminar = unitWork.distribucionesBlending.Find(c => c.CuentaCliente == Registro.CuentaCliente && c.FormularioDestino == Registro.FormularioDestino && c.AliadoDestino == Registro.AliadoDestino && c.OperacionDestino == Registro.OperacionDestino && c.CampanaDestino == Registro.CampanaDestino).FirstOrDefault();
             unitWork.distribucionesBlending.Remove(CuentaEliminar);
-           unitWork.Complete();
+            unitWork.Complete();
         }
         public void InsertarCuentaColaDistribucionBlending(DistribucionBlending Registro)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            DistribucionBlending CuentaEliminar = unitWork.distribucionesBlending.Find(c => c.CuentaCliente == Registro.CuentaCliente && c.FormularioDestino == Registro.FormularioDestino && c.AliadoDestino== Registro.AliadoDestino && c.OperacionDestino== Registro.OperacionDestino && c.CampanaDestino==Registro.CampanaDestino).FirstOrDefault();
+            DistribucionBlending CuentaEliminar = unitWork.distribucionesBlending.Find(c => c.CuentaCliente == Registro.CuentaCliente && c.FormularioDestino == Registro.FormularioDestino && c.AliadoDestino == Registro.AliadoDestino && c.OperacionDestino == Registro.OperacionDestino && c.CampanaDestino == Registro.CampanaDestino).FirstOrDefault();
             unitWork.distribucionesBlending.Remove(CuentaEliminar);
             unitWork.Complete();
-            Registro.UsuarioGestionando= 0;
+            Registro.UsuarioGestionando = 0;
             unitWork.distribucionesBlending.Add(Registro);
             unitWork.Complete();
         }
@@ -60,10 +60,19 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
+
+            PFueraNivel.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(PFueraNivel.TipoContacto)).TipoContacto;
+            PFueraNivel.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(PFueraNivel.Gestion)).Cierre;
+            PFueraNivel.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(PFueraNivel.Cierre)).Razon;
+            PFueraNivel.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(PFueraNivel.Razon)).Causa;
 
             PFueraNivel.FechaGestion = DateTime.Now;
             unitWork.GBPFueradeNiveles.Add(PFueraNivel);
             unitWork.Complete();
+
+
+
 
             GBLFueraNiveles LFueraNivel = new GBLFueraNiveles();
 
@@ -106,84 +115,93 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
+
             GBPFueraNiveles PFueraNivelActualizable = unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == PFueraNivel.CuentaCliente).FirstOrDefault();
 
-            if (PFueraNivelActualizable != null) { 
+            if (PFueraNivelActualizable != null)
+            {
 
-            GBLFueraNiveles LFueraNivel = new GBLFueraNiveles();
+                PFueraNivel.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(PFueraNivel.TipoContacto)).TipoContacto;
+                PFueraNivel.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(PFueraNivel.Gestion)).Cierre;
+                PFueraNivel.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(PFueraNivel.Cierre)).Razon;
+                PFueraNivel.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(PFueraNivel.Razon)).Causa;
 
-            PFueraNivel.FechaGestion = DateTime.Now;
+                GBLFueraNiveles LFueraNivel = new GBLFueraNiveles();
 
-            PFueraNivelActualizable.FechaGestion = PFueraNivel.FechaGestion;
-            PFueraNivelActualizable.UsuarioGestion = PFueraNivel.UsuarioGestion;
-            PFueraNivelActualizable.AliadoGestion = PFueraNivel.AliadoGestion;
-            PFueraNivelActualizable.NombreCliente = PFueraNivel.NombreCliente;
-            PFueraNivelActualizable.ApellidoCliente = PFueraNivel.ApellidoCliente;
-            PFueraNivelActualizable.DirInstalacion = PFueraNivel.DirCorrespondencia;
-            PFueraNivelActualizable.Telefono1 = PFueraNivel.Telefono1;
-            PFueraNivelActualizable.Telefono2 = PFueraNivel.Telefono2;
-            PFueraNivelActualizable.Telefono3 = PFueraNivel.Telefono3;
-            PFueraNivelActualizable.Movil1 = PFueraNivel.Movil1;
-            PFueraNivelActualizable.Movil2 = PFueraNivel.Movil2;
-            PFueraNivelActualizable.MovilPostpago = PFueraNivel.MovilPostpago;
-            PFueraNivelActualizable.CorreoActual = PFueraNivel.CorreoActual;
-            PFueraNivelActualizable.EstratoCliente = PFueraNivel.ServiciosActuales;
-            PFueraNivelActualizable.ServiciosActuales = PFueraNivel.ServiciosActuales;
-            PFueraNivelActualizable.Nodo = PFueraNivel.Nodo;
-            PFueraNivelActualizable.NombreComunidad = PFueraNivel.NombreComunidad;
-            PFueraNivelActualizable.Division = PFueraNivel.Division;
-            PFueraNivelActualizable.TipoCliente = PFueraNivel.TipoCliente;
-            PFueraNivelActualizable.DescripcionTPC = PFueraNivel.DescripcionTPC;
-            PFueraNivelActualizable.Cmts = PFueraNivel.Cmts;
-            PFueraNivelActualizable.TipoModem = PFueraNivel.TipoModem;
-            PFueraNivelActualizable.Prioridad = PFueraNivel.Prioridad;
-            PFueraNivelActualizable.TipoContacto = PFueraNivel.TipoContacto;
-            PFueraNivelActualizable.Gestion = PFueraNivel.Gestion;
-            PFueraNivelActualizable.Cierre = PFueraNivel.Cierre;
-            PFueraNivelActualizable.Razon = PFueraNivel.Razon;
-            PFueraNivelActualizable.FechaSeguimiento = PFueraNivel.FechaSeguimiento;
-            PFueraNivelActualizable.Observaciones = PFueraNivel.Observaciones;
-            unitWork.Complete();
+                PFueraNivel.FechaGestion = DateTime.Now;
 
-            LFueraNivel.FechaGestion = PFueraNivel.FechaGestion;
-            LFueraNivel.UsuarioGestion = PFueraNivel.UsuarioGestion;
-            LFueraNivel.AliadoGestion = PFueraNivel.AliadoGestion;
-            LFueraNivel.CuentaCliente = PFueraNivel.CuentaCliente;
-            LFueraNivel.NombreCliente = PFueraNivel.NombreCliente;
-            LFueraNivel.ApellidoCliente = PFueraNivel.ApellidoCliente;
-            LFueraNivel.DirInstalacion = PFueraNivel.DirCorrespondencia;
-            LFueraNivel.Telefono1 = PFueraNivel.Telefono1;
-            LFueraNivel.Telefono2 = PFueraNivel.Telefono2;
-            LFueraNivel.Telefono3 = PFueraNivel.Telefono3;
-            LFueraNivel.Movil1 = PFueraNivel.Movil1;
-            LFueraNivel.Movil2 = PFueraNivel.Movil2;
-            LFueraNivel.MovilPostpago = PFueraNivel.MovilPostpago;
-            LFueraNivel.CorreoActual = PFueraNivel.CorreoActual;
-            LFueraNivel.EstratoCliente = PFueraNivel.ServiciosActuales;
-            LFueraNivel.ServiciosActuales = PFueraNivel.ServiciosActuales;
-            LFueraNivel.Nodo = PFueraNivel.Nodo;
-            LFueraNivel.NombreComunidad = PFueraNivel.NombreComunidad;
-            LFueraNivel.Division = PFueraNivel.Division;
-            LFueraNivel.TipoCliente = PFueraNivel.TipoCliente;
-            LFueraNivel.DescripcionTPC = PFueraNivel.DescripcionTPC;
-            LFueraNivel.Cmts = PFueraNivel.Cmts;
-            LFueraNivel.TipoModem = PFueraNivel.TipoModem;
-            LFueraNivel.Prioridad = PFueraNivel.Prioridad;
-            LFueraNivel.TipoContacto = PFueraNivel.TipoContacto;
-            LFueraNivel.Gestion = PFueraNivel.Gestion;
-            LFueraNivel.Cierre = PFueraNivel.Cierre;
-            LFueraNivel.Razon = PFueraNivel.Razon;
-            LFueraNivel.FechaSeguimiento = PFueraNivel.FechaSeguimiento;
-            LFueraNivel.Observaciones = PFueraNivel.Observaciones;
+                PFueraNivelActualizable.FechaGestion = PFueraNivel.FechaGestion;
+                PFueraNivelActualizable.UsuarioGestion = PFueraNivel.UsuarioGestion;
+                PFueraNivelActualizable.AliadoGestion = PFueraNivel.AliadoGestion;
+                PFueraNivelActualizable.NombreCliente = PFueraNivel.NombreCliente;
+                PFueraNivelActualizable.ApellidoCliente = PFueraNivel.ApellidoCliente;
+                PFueraNivelActualizable.DirInstalacion = PFueraNivel.DirCorrespondencia;
+                PFueraNivelActualizable.Telefono1 = PFueraNivel.Telefono1;
+                PFueraNivelActualizable.Telefono2 = PFueraNivel.Telefono2;
+                PFueraNivelActualizable.Telefono3 = PFueraNivel.Telefono3;
+                PFueraNivelActualizable.Movil1 = PFueraNivel.Movil1;
+                PFueraNivelActualizable.Movil2 = PFueraNivel.Movil2;
+                PFueraNivelActualizable.MovilPostpago = PFueraNivel.MovilPostpago;
+                PFueraNivelActualizable.CorreoActual = PFueraNivel.CorreoActual;
+                PFueraNivelActualizable.EstratoCliente = PFueraNivel.ServiciosActuales;
+                PFueraNivelActualizable.ServiciosActuales = PFueraNivel.ServiciosActuales;
+                PFueraNivelActualizable.Nodo = PFueraNivel.Nodo;
+                PFueraNivelActualizable.NombreComunidad = PFueraNivel.NombreComunidad;
+                PFueraNivelActualizable.Division = PFueraNivel.Division;
+                PFueraNivelActualizable.TipoCliente = PFueraNivel.TipoCliente;
+                PFueraNivelActualizable.DescripcionTPC = PFueraNivel.DescripcionTPC;
+                PFueraNivelActualizable.Cmts = PFueraNivel.Cmts;
+                PFueraNivelActualizable.TipoModem = PFueraNivel.TipoModem;
+                PFueraNivelActualizable.Prioridad = PFueraNivel.Prioridad;
+                PFueraNivelActualizable.TipoContacto = PFueraNivel.TipoContacto;
+                PFueraNivelActualizable.Gestion = PFueraNivel.Gestion;
+                PFueraNivelActualizable.Cierre = PFueraNivel.Cierre;
+                PFueraNivelActualizable.Razon = PFueraNivel.Razon;
+                PFueraNivelActualizable.FechaSeguimiento = PFueraNivel.FechaSeguimiento;
+                PFueraNivelActualizable.Observaciones = PFueraNivel.Observaciones;
+                unitWork.Complete();
+
+                LFueraNivel.FechaGestion = PFueraNivel.FechaGestion;
+                LFueraNivel.UsuarioGestion = PFueraNivel.UsuarioGestion;
+                LFueraNivel.AliadoGestion = PFueraNivel.AliadoGestion;
+                LFueraNivel.CuentaCliente = PFueraNivel.CuentaCliente;
+                LFueraNivel.NombreCliente = PFueraNivel.NombreCliente;
+                LFueraNivel.ApellidoCliente = PFueraNivel.ApellidoCliente;
+                LFueraNivel.DirInstalacion = PFueraNivel.DirCorrespondencia;
+                LFueraNivel.Telefono1 = PFueraNivel.Telefono1;
+                LFueraNivel.Telefono2 = PFueraNivel.Telefono2;
+                LFueraNivel.Telefono3 = PFueraNivel.Telefono3;
+                LFueraNivel.Movil1 = PFueraNivel.Movil1;
+                LFueraNivel.Movil2 = PFueraNivel.Movil2;
+                LFueraNivel.MovilPostpago = PFueraNivel.MovilPostpago;
+                LFueraNivel.CorreoActual = PFueraNivel.CorreoActual;
+                LFueraNivel.EstratoCliente = PFueraNivel.ServiciosActuales;
+                LFueraNivel.ServiciosActuales = PFueraNivel.ServiciosActuales;
+                LFueraNivel.Nodo = PFueraNivel.Nodo;
+                LFueraNivel.NombreComunidad = PFueraNivel.NombreComunidad;
+                LFueraNivel.Division = PFueraNivel.Division;
+                LFueraNivel.TipoCliente = PFueraNivel.TipoCliente;
+                LFueraNivel.DescripcionTPC = PFueraNivel.DescripcionTPC;
+                LFueraNivel.Cmts = PFueraNivel.Cmts;
+                LFueraNivel.TipoModem = PFueraNivel.TipoModem;
+                LFueraNivel.Prioridad = PFueraNivel.Prioridad;
+                LFueraNivel.TipoContacto = PFueraNivel.TipoContacto;
+                LFueraNivel.Gestion = PFueraNivel.Gestion;
+                LFueraNivel.Cierre = PFueraNivel.Cierre;
+                LFueraNivel.Razon = PFueraNivel.Razon;
+                LFueraNivel.FechaSeguimiento = PFueraNivel.FechaSeguimiento;
+                LFueraNivel.Observaciones = PFueraNivel.Observaciones;
 
                 unitWorkLog.GBLFueradeNiveles.Add(LFueraNivel);
-            unitWorkLog.Complete();
-            }else { }
+                unitWorkLog.Complete();
+            }
+            else { }
         }
         public bool ValidarCuentaEnFueraNiveles(decimal CuentaCliente)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-           var  resultado = unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+            var resultado = unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).ToList();
 
             if (resultado.Count() > 0) { return true; }
             else { return false; }
