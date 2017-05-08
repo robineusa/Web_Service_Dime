@@ -130,6 +130,14 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         bool ExisteUsuarioHolos(decimal cedula);
 
+        [OperationContract]
+        string OperacionPorCedula(int Cedula);
+
+        [OperationContract]
+        string CampañaPorCedula(int Cedula);
+
+
+
     }
 
 

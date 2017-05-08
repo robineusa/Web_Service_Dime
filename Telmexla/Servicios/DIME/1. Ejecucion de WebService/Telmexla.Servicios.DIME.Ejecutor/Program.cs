@@ -24,11 +24,16 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
             //DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
 
+<<<<<<< HEAD
             //decimal cuenta = 307;
+=======
+            //int idasesor = 5301;
+>>>>>>> origin/master
             //var formulario = "FUERANIVELES";
             //var Aliado = "BRM";
             //var Operacion = "FUERANIVELES";
             //var campana = "NIVELES";
+<<<<<<< HEAD
 
             //DistribucionBlending dis = new DistribucionBlending();
             //dis.CuentaCliente = cuenta;
@@ -52,6 +57,19 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             
             //fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
             //var dato = "";
+=======
+            //ClientesTodo clientesS = new ClientesTodo();
+            //BlendingFueraNivel fdn = new BlendingFueraNivel();
+            //clientesS = bsd.TraerInformacionCuentaBlending(idasesor,formulario,Aliado,Operacion,campana);
+            //fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
+            //var dato = "";
+
+            //LoginService loginService = new LoginService();
+            //var r = loginService.OperacionPorCedula(4);
+            //var re = loginService.CampañaPorCedula(4);
+            //var z = "";
+
+>>>>>>> origin/master
 
             //IngresoTrasladoBusiness itb = new IngresoTrasladoBusiness();
             //var dato = itb.ExisteCuentaEscalada(14257896);
