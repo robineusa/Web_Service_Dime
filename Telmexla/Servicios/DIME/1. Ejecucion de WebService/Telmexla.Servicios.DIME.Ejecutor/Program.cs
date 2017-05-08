@@ -36,8 +36,8 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //var dato = "";
 
             //LoginService loginService = new LoginService();
-            //var r = loginService.OperacionPorCedula(1213);
-            //var re = loginService.CampañaPorCedula(1213);
+            //var r = loginService.OperacionPorCedula(4);
+            //var re = loginService.CampañaPorCedula(4);
             //var z = "";
 
 
