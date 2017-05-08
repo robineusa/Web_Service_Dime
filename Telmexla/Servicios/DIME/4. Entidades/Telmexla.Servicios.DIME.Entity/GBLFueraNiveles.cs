@@ -12,12 +12,12 @@ namespace Telmexla.Servicios.DIME.Entity
         public string ApellidoCliente { get; set; }
         public string DirInstalacion { get; set; }
         public string DirCorrespondencia { get; set; }
-        public decimal Telefono1 { get; set; }
-        public decimal Telefono2 { get; set; }
-        public decimal Telefono3 { get; set; }
-        public decimal Movil1 { get; set; }
-        public decimal Movil2 { get; set; }
-        public decimal MovilPostpago { get; set; }
+        public string Telefono1 { get; set; }
+        public string Telefono2 { get; set; }
+        public string Telefono3 { get; set; }
+        public string Movil1 { get; set; }
+        public string Movil2 { get; set; }
+        public string MovilPostpago { get; set; }
         public string CorreoActual { get; set; }
         public string EstratoCliente { get; set; }
         public string ServiciosActuales { get; set; }
