@@ -29,7 +29,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Telefono2).HasColumnName(@"TELEFONO_2").IsOptional().HasColumnType("numeric");
             Property(x => x.Telefono3).HasColumnName(@"TELEFONO_3").IsOptional().HasColumnType("numeric");
             Property(x => x.Movil1).HasColumnName(@"MOVIL_1").IsOptional().HasColumnType("numeric");
-            Property(x => x.Movil2).HasColumnName(@"MOVIL_1").IsOptional().HasColumnType("numeric");
+            Property(x => x.Movil2).HasColumnName(@"MOVIL_2").IsOptional().HasColumnType("numeric");
             Property(x => x.MovilPostpago).HasColumnName(@"MOVIL_POSTPAGO").IsOptional().HasColumnType("numeric");
             Property(x => x.CorreoActual).HasColumnName(@"CORREO_ACTUAL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.EstratoCliente).HasColumnName(@"ESTRATO_CLIENTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
