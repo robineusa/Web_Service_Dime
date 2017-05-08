@@ -250,6 +250,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             LoginService lService = new LoginService();
             return lService.ExisteUsuarioHolos(cedula);
         }
+        public string OperacionPorCedula(int Cedula)
+        {
+            LoginService lService = new LoginService();
+            return lService.OperacionPorCedula(Cedula);
+        }
+        public string CampañaPorCedula(int Cedula)
+        {
+            LoginService lService = new LoginService();
+            return lService.CampañaPorCedula(Cedula);
+        }
         #endregion
 
         #region Inbound Service 

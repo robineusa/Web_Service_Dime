@@ -22,18 +22,24 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
 
-            DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
+            //DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
 
-            int idasesor = 5301;
-            var formulario = "FUERANIVELES";
-            var Aliado = "BRM";
-            var Operacion = "FUERANIVELES";
-            var campana = "NIVELES";
-            ClientesTodo clientesS = new ClientesTodo();
-            BlendingFueraNivel fdn = new BlendingFueraNivel();
-            clientesS = bsd.TraerInformacionCuentaBlending(idasesor,formulario,Aliado,Operacion,campana);
-            fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
-            var dato = "";
+            //int idasesor = 5301;
+            //var formulario = "FUERANIVELES";
+            //var Aliado = "BRM";
+            //var Operacion = "FUERANIVELES";
+            //var campana = "NIVELES";
+            //ClientesTodo clientesS = new ClientesTodo();
+            //BlendingFueraNivel fdn = new BlendingFueraNivel();
+            //clientesS = bsd.TraerInformacionCuentaBlending(idasesor,formulario,Aliado,Operacion,campana);
+            //fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
+            //var dato = "";
+
+            //LoginService loginService = new LoginService();
+            //var r = loginService.OperacionPorCedula(1213);
+            //var re = loginService.CampañaPorCedula(1213);
+            //var z = "";
+
 
             //IngresoTrasladoBusiness itb = new IngresoTrasladoBusiness();
             //var dato = itb.ExisteCuentaEscalada(14257896);
