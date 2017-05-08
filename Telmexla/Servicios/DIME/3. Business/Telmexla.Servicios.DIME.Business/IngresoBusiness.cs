@@ -322,25 +322,53 @@ namespace Telmexla.Servicios.DIME.Business
 
         public IngresoCollection GetCasosEnSeguimiento(string usuario)
         {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+
+            DimeContext dimContext = new DimeContext();
             IngresoCollection result = new IngresoCollection();
-            result.AddRange(unitWork.ingresos.Find(c => 
-           c.UsuarioBackoffice.Equals(usuario) && (c.IdEstado == 1 || c.IdEstado ==3 ) ).Select(x => new Ingreso
-           {
-               IdIngreso = x.IdIngreso,
-               Cuenta = x.Cuenta,
-               Ticket = x.Ticket,
-               FechaApertura = x.FechaApertura,
-               HoraApertura = x.HoraApertura,
-               UsuarioApertura = x.UsuarioApertura,
-               Macroproceso = x.Macroproceso,
-               Marcacion = x.Marcacion,
-               IdEstado = x.IdEstado,
-               AliadoApertura = x.AliadoApertura,
-               NombreLineaIngreso = x.NombreLineaIngreso,
-               NombreLineaEscalado = x.NombreLineaEscalado,
-               Semaforo = x.Semaforo
-           }).ToList());
+
+            var resultBefore = (from x in dimContext.Ingresoes
+                                join y in dimContext.Usuarios on x.UsuarioApertura equals y.Id.ToString()
+                                where x.UsuarioBackoffice.Equals(usuario) && (x.IdEstado == 1 || x.IdEstado == 3)
+                                select new
+                                {
+                                    IdIngreso = x.IdIngreso,
+                                    Cuenta = x.Cuenta,
+                                    Ticket = x.Ticket,
+                                    FechaApertura = x.FechaApertura,
+                                    HoraApertura = x.HoraApertura,
+                                    UsuarioApertura = y.Cedula.ToString(),
+                                    Macroproceso = x.Macroproceso,
+                                    Marcacion = x.Marcacion,
+                                    IdEstado = x.IdEstado,
+                                    AliadoApertura = x.AliadoApertura,
+                                    NombreLineaIngreso = x.NombreLineaIngreso,
+                                    NombreLineaEscalado = x.NombreLineaEscalado,
+                                    Semaforo = x.Semaforo
+                                }).ToList();
+
+
+            foreach(var x in resultBefore)
+            {
+                Ingreso nuevoIngreso = new Ingreso();
+                nuevoIngreso.IdIngreso = x.IdIngreso;
+                nuevoIngreso.Cuenta = x.Cuenta;
+                nuevoIngreso.Ticket = x.Ticket;
+                nuevoIngreso.FechaApertura = x.FechaApertura;
+                nuevoIngreso.HoraApertura = x.HoraApertura;
+                nuevoIngreso.UsuarioApertura = x.UsuarioApertura;
+                nuevoIngreso.Macroproceso = x.Macroproceso;
+                nuevoIngreso.Marcacion = x.Marcacion;
+                nuevoIngreso.IdEstado = x.IdEstado;
+                nuevoIngreso.AliadoApertura = x.AliadoApertura;
+                nuevoIngreso.NombreLineaIngreso = x.NombreLineaIngreso;
+                nuevoIngreso.NombreLineaEscalado = x.NombreLineaEscalado;
+                nuevoIngreso.Semaforo = x.Semaforo;
+
+
+                result.Add(nuevoIngreso);
+
+            }
+
             return result;
         }
  
