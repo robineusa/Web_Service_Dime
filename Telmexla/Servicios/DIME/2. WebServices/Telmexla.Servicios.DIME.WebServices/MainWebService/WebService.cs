@@ -1192,7 +1192,50 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return distribucionesBlendingService.TraerInformacionCuentaFueraNiveles(CuentaCliente);
 
         }
-            #endregion
+        public void EliminaCuentaGestionadaDistribucion(DistribucionBlending Registro)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            distribucionesBlendingService.EliminaCuentaGestionadaDistribucion(Registro);
+        }
+        public void InsertarCuentaColaDistribucionBlending(DistribucionBlending Registro)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            distribucionesBlendingService.InsertarCuentaColaDistribucionBlending(Registro);
+        }
+        public void InsertarRegistroFueraNiveles(GBPFueraNiveles PFueraNivel)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            distribucionesBlendingService.InsertarRegistroFueraNiveles(PFueraNivel);
+        }
+        public void ActualizarGestionFueraNiveles(GBPFueraNiveles PFueraNivel)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            distribucionesBlendingService.ActualizarGestionFueraNiveles(PFueraNivel);
 
         }
+        public bool ValidarCuentaEnFueraNiveles(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ValidarCuentaEnFueraNiveles(CuentaCliente);
+        }
+
+        public GBPFueraNiveles TraeInformacionActualFueraNiveles(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeInformacionActualFueraNiveles(CuentaCliente);
+        }
+        public List<GBLFueraNiveles> TraeListaGestionUsuarioFueraNiveles(string Usuario)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeListaGestionUsuarioFueraNiveles(Usuario);
+        }
+        public List<GBPFueraNiveles> TraeListaSeguimientosUsuarioFueraNiveles(string Usuario)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeListaSeguimientosUsuarioFueraNiveles(Usuario);
+        }
+
+        #endregion
+
+    }
 }

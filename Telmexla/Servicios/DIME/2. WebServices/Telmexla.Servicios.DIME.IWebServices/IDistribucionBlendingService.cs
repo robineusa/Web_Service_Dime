@@ -17,5 +17,30 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         BlendingFueraNivel TraerInformacionCuentaFueraNiveles(decimal CuentaCliente);
+
+        [OperationContract]
+        void EliminaCuentaGestionadaDistribucion(DistribucionBlending Registro);
+
+        [OperationContract]
+        void InsertarCuentaColaDistribucionBlending(DistribucionBlending Registro);
+
+        [OperationContract]
+        void InsertarRegistroFueraNiveles(GBPFueraNiveles PFueraNivel);
+
+        [OperationContract]
+        void ActualizarGestionFueraNiveles(GBPFueraNiveles PFueraNivel);
+
+        [OperationContract]
+        bool ValidarCuentaEnFueraNiveles(decimal CuentaCliente);
+
+        [OperationContract]
+        GBPFueraNiveles TraeInformacionActualFueraNiveles(decimal CuentaCliente);
+
+        [OperationContract]
+        List<GBLFueraNiveles> TraeListaGestionUsuarioFueraNiveles(string Usuario);
+
+        [OperationContract]
+        List<GBPFueraNiveles> TraeListaSeguimientosUsuarioFueraNiveles(string Usuario);
+
     }
 }

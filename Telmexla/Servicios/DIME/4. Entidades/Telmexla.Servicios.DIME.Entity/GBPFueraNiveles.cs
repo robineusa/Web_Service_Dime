@@ -34,5 +34,6 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Cierre { get; set; }
         public string Razon { get; set; }
         public System.DateTime? FechaSeguimiento { get; set; }
+        public string Observaciones { get; set; }
     }
 }

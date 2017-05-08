@@ -10,7 +10,7 @@ using Telmexla.Servicios.DIME.IWebServices;
 using Telmexla.Servicios.DIME.WebServices;
 namespace Telmexla.Servicios.DIME.WebServices
 {
-    public class DistribucionBlendingService: IDistribucionBlendingService
+    public class DistribucionBlendingService : IDistribucionBlendingService
     {
         public BlendingFueraNivel TraerInformacionCuentaFueraNiveles(decimal CuentaCliente)
         {
@@ -21,8 +21,51 @@ namespace Telmexla.Servicios.DIME.WebServices
         public ClientesTodo TraerInformacionCuentaBlending(int idAsesor, string formulario, string aliado, string operacion, string campana)
         {
             DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
-            return distribucionesBlendingBusiness.TraerInformacionCuentaBlending(idAsesor,formulario,aliado,operacion,campana);
+            return distribucionesBlendingBusiness.TraerInformacionCuentaBlending(idAsesor, formulario, aliado, operacion, campana);
 
         }
+        public void EliminaCuentaGestionadaDistribucion(DistribucionBlending Registro)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            distribucionesBlendingBusiness.EliminaCuentaGestionadaDistribucion(Registro);
+        }
+        public void InsertarCuentaColaDistribucionBlending(DistribucionBlending Registro)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            distribucionesBlendingBusiness.InsertarCuentaColaDistribucionBlending(Registro);
+        }
+        public void InsertarRegistroFueraNiveles(GBPFueraNiveles PFueraNivel)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            distribucionesBlendingBusiness.InsertarRegistroFueraNiveles(PFueraNivel);
+        }
+        public void ActualizarGestionFueraNiveles(GBPFueraNiveles PFueraNivel)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            distribucionesBlendingBusiness.ActualizarGestionFueraNiveles(PFueraNivel);
+
+        }
+        public bool ValidarCuentaEnFueraNiveles(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.ValidarCuentaEnFueraNiveles(CuentaCliente);
+        }
+
+        public GBPFueraNiveles TraeInformacionActualFueraNiveles(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeInformacionActualFueraNiveles(CuentaCliente);
+        }
+        public List<GBLFueraNiveles> TraeListaGestionUsuarioFueraNiveles(string Usuario)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeListaGestionUsuarioFueraNiveles(Usuario);
+        }
+        public List<GBPFueraNiveles> TraeListaSeguimientosUsuarioFueraNiveles(string Usuario)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeListaSeguimientosUsuarioFueraNiveles(Usuario);
+        }
+
     }
 }

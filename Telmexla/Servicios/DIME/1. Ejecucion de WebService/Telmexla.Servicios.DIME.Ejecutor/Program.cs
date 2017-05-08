@@ -22,18 +22,36 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
 
-            DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
+            //DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
 
-            int idasesor = 5301;
-            var formulario = "FUERANIVELES";
-            var Aliado = "BRM";
-            var Operacion = "FUERANIVELES";
-            var campana = "NIVELES";
-            ClientesTodo clientesS = new ClientesTodo();
-            BlendingFueraNivel fdn = new BlendingFueraNivel();
-            clientesS = bsd.TraerInformacionCuentaBlending(idasesor,formulario,Aliado,Operacion,campana);
-            fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
-            var dato = "";
+            //decimal cuenta = 307;
+            //var formulario = "FUERANIVELES";
+            //var Aliado = "BRM";
+            //var Operacion = "FUERANIVELES";
+            //var campana = "NIVELES";
+
+            //DistribucionBlending dis = new DistribucionBlending();
+            //dis.CuentaCliente = cuenta;
+            //dis.FormularioDestino = formulario;
+            //dis.AliadoDestino = Aliado;
+            //dis.OperacionDestino = Operacion;
+            //dis.CampanaDestino = campana;
+            //GBPFueraNiveles GBP = new GBPFueraNiveles();
+            //GBP.CuentaCliente = cuenta;
+            //GBLFueraNiveles GBL = new GBLFueraNiveles();
+
+            //var resulado = bsd.ValidarCuentaEnFueraNiveles(cuenta);
+
+            //bsd.ActualizarGestionFueraNiveles(GBP);
+
+            ////bsd.InsertarCuentaColaDistribucionBlending(dis);
+            //bsd.EliminaCuentaGestionadaDistribucion(dis);
+
+            //ClientesTodo clientesS = new ClientesTodo();
+            //BlendingFueraNivel fdn = new BlendingFueraNivel();
+            
+            //fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
+            //var dato = "";
 
             //IngresoTrasladoBusiness itb = new IngresoTrasladoBusiness();
             //var dato = itb.ExisteCuentaEscalada(14257896);
