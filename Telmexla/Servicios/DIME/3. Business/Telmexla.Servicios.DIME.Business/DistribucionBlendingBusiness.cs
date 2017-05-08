@@ -124,7 +124,7 @@ namespace Telmexla.Servicios.DIME.Business
                 PFueraNivel.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(PFueraNivel.Cierre)).Razon;
                 PFueraNivel.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(PFueraNivel.Razon)).Causa;
 
-                GBLFueraNiveles LFueraNivel = new GBLFueraNiveles();
+                
 
                 PFueraNivel.FechaGestion = DateTime.Now;
 
@@ -158,6 +158,8 @@ namespace Telmexla.Servicios.DIME.Business
                 PFueraNivelActualizable.FechaSeguimiento = PFueraNivel.FechaSeguimiento;
                 PFueraNivelActualizable.Observaciones = PFueraNivel.Observaciones;
                 unitWork.Complete();
+
+                GBLFueraNiveles LFueraNivel = new GBLFueraNiveles();
 
                 LFueraNivel.FechaGestion = PFueraNivel.FechaGestion;
                 LFueraNivel.UsuarioGestion = PFueraNivel.UsuarioGestion;

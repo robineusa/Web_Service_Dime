@@ -44,7 +44,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             
             GBPFueraNiveles GBP = new GBPFueraNiveles();
             GBP.CuentaCliente = cuenta;
-
+            GBP
             GBP.TipoContacto = "36";
             GBP.Gestion = "40";
             GBP.Cierre = "130";
