@@ -70,6 +70,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<SkillsUsuariosBlending> SkillsUsuariosBlending { get; set; } // TBL_SKILLS_USUARIOS_BLENDING
         System.Data.Entity.DbSet<BlendingFueraNivel> blendingFueraNiveles { get; set; } // TMP_GBC_FUERA_NIVELES
         System.Data.Entity.DbSet<DistribucionBlending> DistribucionBlendings { get; set; } // TBL_DISTRIBUCIONES_BLENDING
+        System.Data.Entity.DbSet<GBPFueraNiveles> GBPFueradeNiveles { get; set; } // TBL_GBP_FUERA_NIVELES
+        System.Data.Entity.DbSet<GBLFueraNiveles> GBLFueradeNiveles { get; set; } // TBL_GBL_FUERA_NIVELES
 
 
         int SaveChanges();

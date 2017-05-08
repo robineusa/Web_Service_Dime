@@ -73,6 +73,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<SkillsUsuariosBlending> SkillsUsuariosBlending { get; set; } // TBL_SKILLS_USUARIOS_BLENDING
         public System.Data.Entity.DbSet<BlendingFueraNivel> blendingFueraNiveles { get; set; } // TMP_GBC_FUERA_NIVELES
         public System.Data.Entity.DbSet<DistribucionBlending> DistribucionBlendings { get; set; } // TBL_DISTRIBUCIONES_BLENDING
+        public System.Data.Entity.DbSet<GBPFueraNiveles> GBPFueradeNiveles { get; set; } // TBL_GBP_FUERA_NIVELES
+        public System.Data.Entity.DbSet<GBLFueraNiveles> GBLFueradeNiveles { get; set; } // TBL_GBL_FUERA_NIVELES
 
         static DimeContext()
         {
@@ -178,6 +180,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SkillsUsuariosBlendingConfiguration());
             modelBuilder.Configurations.Add(new BlendingFueraNivelConfiguration());
             modelBuilder.Configurations.Add(new DistribucionBlendingConfiguration());
+            modelBuilder.Configurations.Add(new GBPFueraNivelesConfiguration());
+            modelBuilder.Configurations.Add(new GBLFueraNivelesConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -236,6 +240,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SkillsUsuariosBlendingConfiguration(schema));
             modelBuilder.Configurations.Add(new BlendingFueraNivelConfiguration(schema));
             modelBuilder.Configurations.Add(new DistribucionBlendingConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBPFueraNivelesConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBLFueraNivelesConfiguration(schema));
             return modelBuilder;
         }
 

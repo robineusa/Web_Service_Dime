@@ -55,6 +55,8 @@ namespace Telmexla.Servicios.DIME.Data
             SkillsUsuariosBlending = new SkillsUsuariosBlendingRepository(this.dimeContext);
             blendingFueraNiveles = new BlendingFueraNivelRepository(this.dimeContext);
             distribucionesBlending = new DistribucionBlendingRepository(this.dimeContext);
+            GBPFueradeNiveles = new GBPFueraNivelesRepository(this.dimeContext);
+            GBLFueradeNiveles = new GBLFueraNivelesRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -223,6 +225,14 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IDistribucionBlendingRepository distribucionesBlending
+        {
+            get; private set;
+        }
+        public IGBPFueraNivelesRepository GBPFueradeNiveles
+        {
+            get; private set;
+        }
+        public IGBLFueraNivelesRepository GBLFueradeNiveles
         {
             get; private set;
         }

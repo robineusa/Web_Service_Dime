@@ -48,6 +48,8 @@ namespace Telmexla.Servicios.DIME.IData
         ISkillsUsuariosBlendingRepository SkillsUsuariosBlending { get; }
         IBlendingFueraNivelRepository blendingFueraNiveles { get; }
         IDistribucionBlendingRepository distribucionesBlending { get; }
+        IGBPFueraNivelesRepository GBPFueradeNiveles { get; }
+        IGBLFueraNivelesRepository GBLFueradeNiveles { get; }
         int Complete();
     }
 }

@@ -1,0 +1,39 @@
+﻿
+namespace Telmexla.Servicios.DIME.Entity
+{
+    public class GBLFueraNiveles
+    {
+        public decimal Id { get; set; }
+        public System.DateTime? FechaGestion { get; set; }
+        public string UsuarioGestion { get; set; }
+        public string AliadoGestion { get; set; }
+        public decimal CuentaCliente { get; set; }
+        public string NombreCliente { get; set; }
+        public string ApellidoCliente { get; set; }
+        public string DirInstalacion { get; set; }
+        public string DirCorrespondencia { get; set; }
+        public decimal Telefono1 { get; set; }
+        public decimal Telefono2 { get; set; }
+        public decimal Telefono3 { get; set; }
+        public decimal Movil1 { get; set; }
+        public decimal Movil2 { get; set; }
+        public decimal MovilPostpago { get; set; }
+        public string CorreoActual { get; set; }
+        public string EstratoCliente { get; set; }
+        public string ServiciosActuales { get; set; }
+        public string Nodo { get; set; }
+        public string NombreComunidad { get; set; }
+        public string Division { get; set; }
+        public string TipoCliente { get; set; }
+        public string DescripcionTPC { get; set; }
+        public string Cmts { get; set; }
+        public string TipoModem { get; set; }
+        public int Prioridad { get; set; }
+        public string TipoContacto { get; set; }
+        public string Gestion { get; set; }
+        public string Cierre { get; set; }
+        public string Razon { get; set; }
+        public System.DateTime? FechaSeguimiento { get; set; }
+
+    }
+}
