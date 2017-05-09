@@ -47,5 +47,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         GBPFueraNiveles TraerDatosCuentaSelectFueraNivel(decimal CuentaCliente);
+
+        [OperationContract]
+        int CantidadToquesCuentaFueraNiveles(decimal CuentaCliente);
+
+        [OperationContract]
+        GBLFueraNiveles TraeUltimaGestionCuenta(decimal CuentaCliente);
     }
 }

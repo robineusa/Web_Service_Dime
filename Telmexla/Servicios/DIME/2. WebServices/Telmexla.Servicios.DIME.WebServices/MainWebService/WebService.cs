@@ -1260,6 +1260,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return distribucionesBlendingService.TraerDatosCuentaSelectFueraNivel(CuentaCliente);
 
         }
+        public int CantidadToquesCuentaFueraNiveles(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.CantidadToquesCuentaFueraNiveles(CuentaCliente);
+        }
+        public GBLFueraNiveles TraeUltimaGestionCuenta(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeUltimaGestionCuenta(CuentaCliente);
+        }
         #endregion
 
     }
