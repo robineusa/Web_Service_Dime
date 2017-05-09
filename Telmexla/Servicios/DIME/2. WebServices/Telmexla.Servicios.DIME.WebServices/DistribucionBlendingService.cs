@@ -21,7 +21,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public ClientesTodo TraerInformacionCuentaBlending(int idAsesor, string formulario, string aliado, string operacion, string campana)
         {
             DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
-            return distribucionesBlendingBusiness.TraerInformacionCuentaBlending(idAsesor, formulario, aliado, operacion, campana);
+            return distribucionesBlendingBusiness.TraerInformacionCuentaBlending(idAsesor, formulario, aliado, operacion, campana,0);
 
         }
         public void EliminaCuentaGestionadaDistribucion(DistribucionBlending Registro)
@@ -65,6 +65,17 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
             return distribucionesBlendingBusiness.TraeListaSeguimientosUsuarioFueraNiveles(Usuario);
+        }
+        public ClientesTodo AsignarIdCuentaDistribucionBlending(decimal CuentaCliente, string Formulario, string Aliado, string Operacion, string Campana, int Id)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+           return distribucionesBlendingBusiness.AsignarIdCuentaDistribucionBlending(CuentaCliente, Formulario, Aliado, Operacion, Campana, Id);
+        }
+        public GBPFueraNiveles TraerDatosCuentaSelectFueraNivel(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraerDatosCuentaSelectFueraNivel(CuentaCliente);
+
         }
 
     }

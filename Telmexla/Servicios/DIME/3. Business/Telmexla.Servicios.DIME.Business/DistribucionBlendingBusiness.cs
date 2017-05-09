@@ -14,7 +14,7 @@ namespace Telmexla.Servicios.DIME.Business
     public class DistribucionBlendingBusiness
     {
         //este proceso aparta cuenta blending y trae la informacion de clientes todos
-        public ClientesTodo TraerInformacionCuentaBlending(int idAsesor, string formulario, string aliado, string operacion, string campana)
+        public ClientesTodo TraerInformacionCuentaBlending(int idAsesor, string formulario, string aliado, string operacion, string campana, int noRecursividad)
         {
 
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
@@ -27,7 +27,9 @@ namespace Telmexla.Servicios.DIME.Business
             else
             {
                 unitOfWork.distribucionesBlending.ApartarCuentaAGestionarBlendingAsesor(idAsesor, formulario, aliado, operacion, campana);
-                return TraerInformacionCuentaBlending(idAsesor, formulario, aliado, operacion, campana);
+                noRecursividad++;
+                if (noRecursividad > 1) return null;
+                return TraerInformacionCuentaBlending(idAsesor, formulario, aliado, operacion, campana, noRecursividad);
             }
 
         }
@@ -52,7 +54,11 @@ namespace Telmexla.Servicios.DIME.Business
             DistribucionBlending CuentaEliminar = unitWork.distribucionesBlending.Find(c => c.CuentaCliente == Registro.CuentaCliente && c.FormularioDestino == Registro.FormularioDestino && c.AliadoDestino == Registro.AliadoDestino && c.OperacionDestino == Registro.OperacionDestino && c.CampanaDestino == Registro.CampanaDestino).FirstOrDefault();
             unitWork.distribucionesBlending.Remove(CuentaEliminar);
             unitWork.Complete();
+
             Registro.UsuarioGestionando = 0;
+            Registro.FechaAsignacion = CuentaEliminar.FechaAsignacion;
+            Registro.UsuarioAsignacion = CuentaEliminar.UsuarioAsignacion;
+
             unitWork.distribucionesBlending.Add(Registro);
             unitWork.Complete();
         }
@@ -110,6 +116,7 @@ namespace Telmexla.Servicios.DIME.Business
 
             unitWorkLog.GBLFueradeNiveles.Add(LFueraNivel);
             unitWorkLog.Complete();
+            
         }
         public void ActualizarGestionFueraNiveles(GBPFueraNiveles PFueraNivel)
         {
@@ -167,7 +174,8 @@ namespace Telmexla.Servicios.DIME.Business
                 LFueraNivel.CuentaCliente = PFueraNivel.CuentaCliente;
                 LFueraNivel.NombreCliente = PFueraNivel.NombreCliente;
                 LFueraNivel.ApellidoCliente = PFueraNivel.ApellidoCliente;
-                LFueraNivel.DirInstalacion = PFueraNivel.DirCorrespondencia;
+                LFueraNivel.DirInstalacion = PFueraNivel.DirInstalacion;
+                LFueraNivel.DirCorrespondencia = PFueraNivel.DirCorrespondencia;
                 LFueraNivel.Telefono1 = PFueraNivel.Telefono1;
                 LFueraNivel.Telefono2 = PFueraNivel.Telefono2;
                 LFueraNivel.Telefono3 = PFueraNivel.Telefono3;
@@ -288,6 +296,23 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].Observaciones = objetosResult[i].Observaciones;
             }
             return result;
+
+        }
+        public ClientesTodo AsignarIdCuentaDistribucionBlending(decimal CuentaCliente, string Formulario,string Aliado, string Operacion, string Campana, int Id)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            DistribucionBlending RegistroActualizar = unitWork.distribucionesBlending.Find(c => c.CuentaCliente == CuentaCliente && c.FormularioDestino == Formulario && c.AliadoDestino == Aliado && c.OperacionDestino == Operacion && c.CampanaDestino == Campana).FirstOrDefault();
+            RegistroActualizar.UsuarioGestionando = Id;
+            unitWork.Complete();
+
+            ClientesBusiness clientesBusiness = new ClientesBusiness();
+            return clientesBusiness.ObtenerClienteCompleto(Convert.ToInt32(CuentaCliente));
+
+        }
+        public GBPFueraNiveles TraerDatosCuentaSelectFueraNivel(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
 
         }
     }

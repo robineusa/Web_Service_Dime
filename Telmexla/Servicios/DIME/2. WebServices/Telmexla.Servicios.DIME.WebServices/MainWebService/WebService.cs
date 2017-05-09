@@ -1244,7 +1244,17 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.TraeListaSeguimientosUsuarioFueraNiveles(Usuario);
         }
+        public ClientesTodo  AsignarIdCuentaDistribucionBlending(decimal CuentaCliente, string Formulario, string Aliado, string Operacion, string Campana, int Id)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.AsignarIdCuentaDistribucionBlending(CuentaCliente,Formulario,Aliado,Operacion,Campana,Id);
+        }
+        public GBPFueraNiveles TraerDatosCuentaSelectFueraNivel(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraerDatosCuentaSelectFueraNivel(CuentaCliente);
 
+        }
         #endregion
 
     }

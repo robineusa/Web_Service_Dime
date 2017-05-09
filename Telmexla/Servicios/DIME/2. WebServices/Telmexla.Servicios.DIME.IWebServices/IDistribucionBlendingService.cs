@@ -42,5 +42,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<GBPFueraNiveles> TraeListaSeguimientosUsuarioFueraNiveles(string Usuario);
 
+        [OperationContract]
+        ClientesTodo AsignarIdCuentaDistribucionBlending(decimal CuentaCliente, string Formulario, string Aliado, string Operacion, string Campana, int Id);
+
+        [OperationContract]
+        GBPFueraNiveles TraerDatosCuentaSelectFueraNivel(decimal CuentaCliente);
     }
 }
