@@ -24,8 +24,15 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
             //DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
 
+            //GBLFueraNiveles gbl = new GBLFueraNiveles();
 
-            //decimal cuenta = 73689564;
+
+            //decimal cuenta = 307;
+            //gbl = bsd.TraeUltimaGestionCuenta(cuenta);
+
+            //int cantidad = bsd.CantidadToquesCuentaFueraNiveles(cuenta);
+
+            ////decimal cuenta = 73689564;
 
             //int idasesor = 5301;
 
@@ -33,7 +40,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //var Aliado = "BRM";
             //var Operacion = "FUERANIVELES";
             //var campana = "NIVELES";
-            
+
 
             //DistribucionBlending dis = new DistribucionBlending();
             //dis.CuentaCliente = cuenta;
@@ -41,7 +48,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //dis.AliadoDestino = Aliado;
             //dis.OperacionDestino = Operacion;
             //dis.CampanaDestino = campana;
-            
+
             //GBPFueraNiveles GBP = new GBPFueraNiveles();
             //GBP.CuentaCliente = cuenta;
             //GBP
@@ -51,7 +58,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //GBP.Razon = "151";
             //GBLFueraNiveles GBL = new GBLFueraNiveles();
 
-           
+
 
             //bsd.ActualizarGestionFueraNiveles(GBP);
             //var resulado = bsd.ValidarCuentaEnFueraNiveles(cuenta);

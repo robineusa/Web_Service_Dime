@@ -330,5 +330,22 @@ namespace Telmexla.Servicios.DIME.Business
             return unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
 
         }
+        public int CantidadToquesCuentaFueraNiveles(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+           int Cantidad = unitWork.GBLFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).Count();
+            if (Cantidad > 0) {
+                return Cantidad;
+            }
+            else {
+                return 0; }
+        }
+        public GBLFueraNiveles TraeUltimaGestionCuenta(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            List<GBLFueraNiveles> Registros = unitWork.GBLFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+            decimal MaxId = Registros.Max(c => c.Id);
+            return unitWork.GBLFueradeNiveles.Get(Convert.ToInt32(MaxId));
+        }
     }
 }
