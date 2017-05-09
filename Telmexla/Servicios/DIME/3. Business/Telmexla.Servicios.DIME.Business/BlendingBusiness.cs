@@ -553,15 +553,31 @@ namespace Telmexla.Servicios.DIME.Business
             actualizado.UsuarioGestion = v.UsuarioGestion;
             return actualizado;
         }
-        public List<DistribucionBlending> GetLineasBlending(string Aliado)
+        public List<DistribucionBlending> GetFormulariosBlending(string Aliado)
         {
             DimeContext dimContext = new DimeContext();
             List<DistribucionBlending> result = new List<DistribucionBlending>();
             var objetosResult = (from a in dimContext.DistribucionBlendings
                                  where a.AliadoDestino == Aliado
                                  select new
-                                 { a.OperacionDestino }).Distinct().ToList();
+                                 { a.FormularioDestino }).Distinct().ToList();
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DistribucionBlending());
+                result[i].FormularioDestino = objetosResult[i].FormularioDestino;
 
+            }
+
+            return result;
+        }
+        public List<DistribucionBlending> GetOperacionBlending(string Aliado , string Formulario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DistribucionBlending> result = new List<DistribucionBlending>();
+            var objetosResult = (from a in dimContext.DistribucionBlendings
+                                 where a.AliadoDestino == Aliado && a.FormularioDestino == Formulario
+                                 select new
+                                 { a.OperacionDestino }).Distinct().ToList();
             for (int i = 0; i < objetosResult.Count; i++)
             {
                 result.Add(new DistribucionBlending());
@@ -585,15 +601,14 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimeContext = new DimeContext();
             return dimeContext.SkillsUsuariosBlending.Where(a => a.Cedula == Cedula).FirstOrDefault();
         }
-        public List<DistribucionBlending> ObtenerCampaña(string Aliado)
+        public List<DistribucionBlending> ObtenerCampaña(string Aliado, string Formulario, string Operacion)
         {
             DimeContext dimContext = new DimeContext();
             List<DistribucionBlending> result = new List<DistribucionBlending>();
             var objetosResult = (from a in dimContext.DistribucionBlendings
-                                 where a.AliadoDestino == Aliado
+                                 where a.AliadoDestino == Aliado && a.FormularioDestino == Formulario && a.OperacionDestino == Operacion
                                  select new
                                  {a.CampanaDestino}).Distinct().ToList();
-
             for (int i = 0; i < objetosResult.Count; i++)
             {
                 result.Add(new DistribucionBlending());
