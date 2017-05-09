@@ -76,7 +76,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         SkillsUsuariosBlending ConsultaUsuarioenAdminBlending(string cedula);
 
         [OperationContract]
-        List<DistribucionBlending> ObtenerCampaña(string Aliado);
+        List<DistribucionBlending> ObtenerCampaña(string Aliado, string Formulario, string Operacion);
 
         [OperationContract]
         void InsertarSkillsUsuarioBlending(SkillsUsuariosBlending skills);
@@ -91,6 +91,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void ActualizarUsuariosBasesBlending(List<string> listaUsuariosCambiados, string Campaña, int Id_Usuario_Actualizacion);
 
         [OperationContract]
-        List<DistribucionBlending> GetLineasBlending(string Aliado);
+        List<DistribucionBlending> GetOperacionBlending(string Aliado, string Formulario);
+
+        [OperationContract]
+        List<DistribucionBlending> GetFormulariosBlending(string Aliado);
     }
 }

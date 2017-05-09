@@ -144,10 +144,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BlendingBusiness blendingBusiness = new BlendingBusiness();
             return blendingBusiness.ConsultaUsuarioenAdminBlending(cedula);
         }
-        public List<DistribucionBlending> ObtenerCampaña(string Aliado )
+        public List<DistribucionBlending> ObtenerCampaña(string Aliado, string Formulario, string Operacion)
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();
-            return blendingBusin.ObtenerCampaña(Aliado);
+            return blendingBusin.ObtenerCampaña(Aliado, Formulario, Operacion);
         }
         public void InsertarSkillsUsuarioBlending(SkillsUsuariosBlending skills)
         {
@@ -169,10 +169,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             BlendingBusiness blendingBusin = new BlendingBusiness();
             blendingBusin.ActualizarUsuariosBasesBlending(listaUsuariosCambiados, Campaña, Id_Usuario_Actualizacion);
         }
-        public List<DistribucionBlending> GetLineasBlending(string Aliado)
+        public List<DistribucionBlending> GetOperacionBlending(string Aliado, string Formulario)
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();
-            return blendingBusin.GetLineasBlending(Aliado);
+            return blendingBusin.GetOperacionBlending(Aliado, Formulario);
+        }
+        public List<DistribucionBlending> GetFormulariosBlending(string Aliado)
+        {
+            BlendingBusiness blendingBusin = new BlendingBusiness();
+            return blendingBusin.GetFormulariosBlending(Aliado);
         }
     }
 }
