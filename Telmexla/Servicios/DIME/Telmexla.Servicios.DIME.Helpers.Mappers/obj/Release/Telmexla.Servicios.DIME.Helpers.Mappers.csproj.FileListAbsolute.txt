@@ -3,3 +3,4 @@ C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexl
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\bin\Release\AutoMapper.dll
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\obj\Release\Telmexla.Servicios.DIME.Helpers.Mappers.dll
 C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\obj\Release\Telmexla.Servicios.DIME.Helpers.Mappers.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\obj\Release\Telmexla.Servicios.DIME.Helpers.Mappers.csprojResolveAssemblyReference.cache
