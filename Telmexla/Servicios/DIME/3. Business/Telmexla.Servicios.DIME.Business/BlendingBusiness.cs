@@ -553,7 +553,24 @@ namespace Telmexla.Servicios.DIME.Business
             actualizado.UsuarioGestion = v.UsuarioGestion;
             return actualizado;
         }
+        public List<DistribucionBlending> GetLineasBlending(string Aliado)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<DistribucionBlending> result = new List<DistribucionBlending>();
+            var objetosResult = (from a in dimContext.DistribucionBlendings
+                                 where a.AliadoDestino == Aliado
+                                 select new
+                                 { a.OperacionDestino }).Distinct().ToList();
 
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new DistribucionBlending());
+                result[i].OperacionDestino = objetosResult[i].OperacionDestino;
+
+            }
+
+            return result;
+        }
         public SkillsUsuariosBlendingCollection ListaUsuariosAdminBlending(string Operacion)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
@@ -568,19 +585,19 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimeContext = new DimeContext();
             return dimeContext.SkillsUsuariosBlending.Where(a => a.Cedula == Cedula).FirstOrDefault();
         }
-        public List<GestionOutbound> ObtenerCampaña(string Aliado)
+        public List<DistribucionBlending> ObtenerCampaña(string Aliado)
         {
             DimeContext dimContext = new DimeContext();
-            List<GestionOutbound> result = new List<GestionOutbound>();
-            var objetosResult = (from a in dimContext.GestionOutbounds
-                                 where a.Aliado == Aliado
+            List<DistribucionBlending> result = new List<DistribucionBlending>();
+            var objetosResult = (from a in dimContext.DistribucionBlendings
+                                 where a.AliadoDestino == Aliado
                                  select new
-                                 {a.Campaña}).Distinct().ToList();
+                                 {a.CampanaDestino}).Distinct().ToList();
 
             for (int i = 0; i < objetosResult.Count; i++)
             {
-                result.Add(new GestionOutbound());
-                result[i].Campaña = objetosResult[i].Campaña;
+                result.Add(new DistribucionBlending());
+                result[i].CampanaDestino = objetosResult[i].CampanaDestino;
                 
             }
             

@@ -20,7 +20,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-
+            //BlendingBusiness Blend = new BlendingBusiness();
+            //var r = Blend.GetLineasBlending("BRM");
+            //var x = Blend.ObtenerCampaña("BRM");
+            //var z = "";
 
             //DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
 
