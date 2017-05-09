@@ -144,7 +144,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             BlendingBusiness blendingBusiness = new BlendingBusiness();
             return blendingBusiness.ConsultaUsuarioenAdminBlending(cedula);
         }
-        public List<GestionOutbound> ObtenerCampaña(string Aliado)
+        public List<DistribucionBlending> ObtenerCampaña(string Aliado )
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();
             return blendingBusin.ObtenerCampaña(Aliado);
@@ -168,6 +168,11 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();
             blendingBusin.ActualizarUsuariosBasesBlending(listaUsuariosCambiados, Campaña, Id_Usuario_Actualizacion);
+        }
+        public List<DistribucionBlending> GetLineasBlending(string Aliado)
+        {
+            BlendingBusiness blendingBusin = new BlendingBusiness();
+            return blendingBusin.GetLineasBlending(Aliado);
         }
     }
 }
