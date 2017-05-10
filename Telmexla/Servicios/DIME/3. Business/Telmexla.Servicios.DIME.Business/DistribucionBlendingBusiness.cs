@@ -442,7 +442,7 @@ namespace Telmexla.Servicios.DIME.Business
         {
             DimeContext dimContext = new DimeContext();
             List<GBLFueraNiveles> result = new List<GBLFueraNiveles>();
-            var objetosResult = (from a in dimContext.GBPFueradeNiveles
+            var objetosResult = (from a in dimContext.GBLFueradeNiveles
                                  where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
                                  orderby a.Id ascending
                                  select new
