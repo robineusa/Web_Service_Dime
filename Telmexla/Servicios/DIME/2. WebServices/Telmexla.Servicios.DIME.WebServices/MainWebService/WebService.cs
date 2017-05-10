@@ -546,15 +546,15 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BlendingBusiness blendingBusin = new BlendingBusiness();
             blendingBusin.InsertarSkillsUsuarioBlending(skills);
         }
-        public List<GestionOutbound> CountCuentasOperacionGestion(string operacion, string aliado)
+        public List<DistribucionBlending> CountCuentasOperacionGestion(string aliado, string formulario, string operacion)
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();
-            return blendingBusin.CountCuentasOperacionGestion(operacion, aliado);
+            return blendingBusin.CountCuentasOperacionGestion(aliado, formulario, operacion);
         }
-        public List<GestionOutbound> CountCuentasOperacionCampaña(string operacion, string campaña, string aliado)
+        public List<DistribucionBlending> CountCuentasOperacionCampaña(string aliado, string formulario, string operacion, string campaña)
         {
             BlendingBusiness blendingBusin = new BlendingBusiness();
-            return blendingBusin.CountCuentasOperacionCampaña(operacion, campaña, aliado);
+            return blendingBusin.CountCuentasOperacionCampaña(aliado, formulario, operacion, campaña);
         }
         public void ActualizarUsuariosBasesBlending(List<string> listaUsuariosCambiados, string Campaña, int Id_Usuario_Actualizacion)
         {

@@ -641,17 +641,17 @@ namespace Telmexla.Servicios.DIME.Business
                 }
             }
         }
-        public List<GestionOutbound> CountCuentasOperacionGestion(string operacion, string aliado)
+        public List<DistribucionBlending> CountCuentasOperacionGestion(string aliado, string formulario, string operacion)
         {
-            //int Cedula = Convert.ToInt32(cedula);
             DimeContext dimeContext = new DimeContext();
-            return dimeContext.GestionOutbounds.Where(a => a.OperacionGestion.Equals(operacion) &&a.Aliado==aliado && a.UsuarioGestionando == null).ToList();
+            return dimeContext.DistribucionBlendings.Where(a => a.AliadoDestino == aliado && a.FormularioDestino == formulario 
+            && a.OperacionDestino.Equals(operacion) && a.UsuarioGestionando == 0).ToList();
         }
-        public List<GestionOutbound> CountCuentasOperacionCampaña(string operacion, string campaña, string aliado)
+        public List<DistribucionBlending> CountCuentasOperacionCampaña(string aliado, string formulario, string operacion, string campaña)
         {
-            //int Cedula = Convert.ToInt32(cedula);
             DimeContext dimeContext = new DimeContext();
-            return dimeContext.GestionOutbounds.Where(a => a.OperacionGestion.Equals(operacion) && a.Campaña==campaña && a.Aliado == aliado && a.UsuarioGestionando == null).ToList();
+            return dimeContext.DistribucionBlendings.Where(a => a.AliadoDestino == aliado && a.FormularioDestino == formulario && 
+            a.OperacionDestino == operacion && a.CampanaDestino == campaña && a.UsuarioGestionando == 0).ToList();
         }
         public void ActualizarUsuariosBasesBlending(List<string> listaUsuariosCambiados, string Campaña, int Id_Usuario_Actualizacion)
         {
