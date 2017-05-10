@@ -669,6 +669,20 @@ namespace Telmexla.Servicios.DIME.Business
             }
             
         }
-        
-    }
+        public void ActualizarUsuarioBlending(SkillsUsuariosBlending m)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+
+                //int cedulaUsuario = Convert.ToInt32(CedulaUsuario);
+                SkillsUsuariosBlending usuario = unitWork.SkillsUsuariosBlending.Find(c => c.Cedula == m.Cedula).FirstOrDefault();
+                DateTime fechaActual = DateTime.Now;
+                usuario.Operacion = m.Operacion;
+                usuario.Campaña = m.Campaña;
+                usuario.Fecha_Actualizacion = fechaActual;
+                usuario.Id_Usuario_Actualizacion = m.Id_Usuario_Actualizacion;
+                unitWork.Complete();
+            }
+
+        }
+    
 }

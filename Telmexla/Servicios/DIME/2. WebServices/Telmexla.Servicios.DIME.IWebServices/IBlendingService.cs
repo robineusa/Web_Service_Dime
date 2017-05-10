@@ -96,5 +96,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<DistribucionBlending> GetFormulariosBlending(string Aliado);
 
+        [OperationContract]
+        void ActualizarUsuarioBlending(SkillsUsuariosBlending m);
+
     }
 }

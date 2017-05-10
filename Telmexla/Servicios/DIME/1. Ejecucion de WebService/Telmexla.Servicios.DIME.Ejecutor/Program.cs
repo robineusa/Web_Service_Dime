@@ -21,6 +21,15 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
             BlendingBusiness Blend = new BlendingBusiness();
+            //SkillsUsuariosBlending m = new SkillsUsuariosBlending();
+
+            //m.Cedula = 7777;
+            //m.Operacion = "si inserto";
+            //m.Campaña = "si inserto";
+            //m.Id_Usuario_Actualizacion = 0000;
+
+            //Blend.ActualizarUsuarioBlending(m);
+            //var z = "";
             //var r = Blend.GetFormulariosBlending("BRM");
             //var x = Blend.GetOperacionBlending("BRM", "FUERANIVELES");
             //var y = Blend.ObtenerCampaña("BRM", "FUERANIVELES", "FUERA NIVELES");

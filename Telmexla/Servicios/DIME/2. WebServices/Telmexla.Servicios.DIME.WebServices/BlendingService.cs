@@ -179,5 +179,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BlendingBusiness blendingBusin = new BlendingBusiness();
             return blendingBusin.GetFormulariosBlending(Aliado);
         }
+        public void ActualizarUsuarioBlending(SkillsUsuariosBlending m)
+        {
+            BlendingBusiness blendingBusin = new BlendingBusiness();
+            blendingBusin.ActualizarUsuarioBlending(m);
+        }
     }
 }
