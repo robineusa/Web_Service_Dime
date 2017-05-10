@@ -53,5 +53,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         GBLFueraNiveles TraeUltimaGestionCuenta(decimal CuentaCliente);
+
+        [OperationContract]
+        List<GBPFueraNiveles> ConsultaAdminFueraNivelesP(DateTime FechaInicial, DateTime FechaFinal);
+
+        [OperationContract]
+        List<GBLFueraNiveles> ConsultaAdminFueraNivelesL(DateTime FechaInicial, DateTime FechaFinal);
     }
 }
