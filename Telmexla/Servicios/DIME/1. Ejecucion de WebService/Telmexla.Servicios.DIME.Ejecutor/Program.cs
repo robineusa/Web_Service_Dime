@@ -26,32 +26,32 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //var y = Blend.ObtenerCampaña("BRM", "FUERANIVELES", "FUERA NIVELES");
             //var z = "";
 
-            //DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
+            DistribucionBlendingBusiness bsd = new DistribucionBlendingBusiness();
 
-            //GBLFueraNiveles gbl = new GBLFueraNiveles();
-
-
-            //decimal cuenta = 307;
-            //gbl = bsd.TraeUltimaGestionCuenta(cuenta);
-
-            //int cantidad = bsd.CantidadToquesCuentaFueraNiveles(cuenta);
-
-            ////decimal cuenta = 73689564;
-
-            //int idasesor = 5301;
-
-            //var formulario = "FUERANIVELES";
-            //var Aliado = "BRM";
-            //var Operacion = "FUERANIVELES";
-            //var campana = "NIVELES";
+            GBLFueraNiveles gbl = new GBLFueraNiveles();
 
 
-            //DistribucionBlending dis = new DistribucionBlending();
-            //dis.CuentaCliente = cuenta;
-            //dis.FormularioDestino = formulario;
-            //dis.AliadoDestino = Aliado;
-            //dis.OperacionDestino = Operacion;
-            //dis.CampanaDestino = campana;
+            decimal cuenta = 364;
+            gbl = bsd.TraeUltimaGestionCuenta(cuenta);
+
+            int cantidad = bsd.CantidadToquesCuentaFueraNiveles(cuenta);
+
+            //decimal cuenta = 73689564;
+
+            int idasesor = 5301;
+
+            var formulario = "FUERANIVELES";
+            var Aliado = "BRM";
+            var Operacion = "FUERANIVELES";
+            var campana = "NIVELES";
+
+
+            DistribucionBlending dis = new DistribucionBlending();
+            dis.CuentaCliente = cuenta;
+            dis.FormularioDestino = formulario;
+            dis.AliadoDestino = Aliado;
+            dis.OperacionDestino = Operacion;
+            dis.CampanaDestino = campana;
 
             //GBPFueraNiveles GBP = new GBPFueraNiveles();
             //GBP.CuentaCliente = cuenta;
@@ -76,11 +76,13 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
             //var dato = "";
 
-            //ClientesTodo clientesS = new ClientesTodo();
-            //BlendingFueraNivel fdn = new BlendingFueraNivel();
-            //clientesS = bsd.TraerInformacionCuentaBlending(idasesor,formulario,Aliado,Operacion,campana);
-            //fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
-            //var dato = "";
+            ClientesTodo clientesS = new ClientesTodo();
+            BlendingFueraNivel fdn = new BlendingFueraNivel();
+
+            gbl = bsd.TraeUltimaGestionCuenta(cuenta);
+            clientesS = bsd.TraerInformacionCuentaBlending(idasesor, formulario, Aliado, Operacion, campana,0);
+            fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
+            var dato = "";
 
             //LoginService loginService = new LoginService();
             //var r = loginService.OperacionPorCedula(4);

@@ -344,8 +344,15 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             List<GBLFueraNiveles> Registros = unitWork.GBLFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).ToList();
-            decimal MaxId = Registros.Max(c => c.Id);
-            return unitWork.GBLFueradeNiveles.Get(Convert.ToInt32(MaxId));
+            
+            if (Registros.Count()>0)
+            {
+                decimal MaxId = Registros.Max(c => c.Id);
+                return unitWork.GBLFueradeNiveles.Get(Convert.ToInt32(MaxId));
+            }else
+            {   
+            return null;}
+
         }
     }
 }
