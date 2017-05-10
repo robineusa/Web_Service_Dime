@@ -151,7 +151,8 @@ namespace Telmexla.Servicios.DIME.Business
             PFueraNivelActualizable.AliadoGestion = PFueraNivel.AliadoGestion;
             PFueraNivelActualizable.NombreCliente = PFueraNivel.NombreCliente;
             PFueraNivelActualizable.ApellidoCliente = PFueraNivel.ApellidoCliente;
-            PFueraNivelActualizable.DirInstalacion = PFueraNivel.DirCorrespondencia;
+            PFueraNivelActualizable.DirInstalacion = PFueraNivel.DirInstalacion;
+            PFueraNivelActualizable.DirCorrespondencia = PFueraNivel.DirCorrespondencia;
             PFueraNivelActualizable.Telefono1 = PFueraNivel.Telefono1;
             PFueraNivelActualizable.Telefono2 = PFueraNivel.Telefono2;
             PFueraNivelActualizable.Telefono3 = PFueraNivel.Telefono3;
@@ -159,7 +160,7 @@ namespace Telmexla.Servicios.DIME.Business
             PFueraNivelActualizable.Movil2 = PFueraNivel.Movil2;
             PFueraNivelActualizable.MovilPostpago = PFueraNivel.MovilPostpago;
             PFueraNivelActualizable.CorreoActual = PFueraNivel.CorreoActual;
-            PFueraNivelActualizable.EstratoCliente = PFueraNivel.ServiciosActuales;
+            PFueraNivelActualizable.EstratoCliente = PFueraNivel.EstratoCliente;
             PFueraNivelActualizable.ServiciosActuales = PFueraNivel.ServiciosActuales;
             PFueraNivelActualizable.Nodo = PFueraNivel.Nodo;
             PFueraNivelActualizable.NombreComunidad = PFueraNivel.NombreComunidad;
@@ -194,7 +195,7 @@ namespace Telmexla.Servicios.DIME.Business
             LFueraNivel.Movil2 = PFueraNivel.Movil2;
             LFueraNivel.MovilPostpago = PFueraNivel.MovilPostpago;
             LFueraNivel.CorreoActual = PFueraNivel.CorreoActual;
-            LFueraNivel.EstratoCliente = PFueraNivel.ServiciosActuales;
+            LFueraNivel.EstratoCliente = PFueraNivel.EstratoCliente;
             LFueraNivel.ServiciosActuales = PFueraNivel.ServiciosActuales;
             LFueraNivel.Nodo = PFueraNivel.Nodo;
             LFueraNivel.NombreComunidad = PFueraNivel.NombreComunidad;
