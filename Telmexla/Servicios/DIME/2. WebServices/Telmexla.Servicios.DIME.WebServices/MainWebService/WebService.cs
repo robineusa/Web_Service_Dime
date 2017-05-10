@@ -1275,7 +1275,18 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.TraeUltimaGestionCuenta(CuentaCliente);
         }
-        #endregion
+        public List<GBPFueraNiveles> ConsultaAdminFueraNivelesP(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ConsultaAdminFueraNivelesP(FechaInicial,FechaFinal);
+        }
+        public List<GBLFueraNiveles> ConsultaAdminFueraNivelesL(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ConsultaAdminFueraNivelesL(FechaInicial, FechaFinal);
+        }
 
-    }
+            #endregion
+
+        }
 }

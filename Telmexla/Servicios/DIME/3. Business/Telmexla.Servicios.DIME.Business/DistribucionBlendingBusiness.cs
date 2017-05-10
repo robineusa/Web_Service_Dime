@@ -151,7 +151,8 @@ namespace Telmexla.Servicios.DIME.Business
             PFueraNivelActualizable.AliadoGestion = PFueraNivel.AliadoGestion;
             PFueraNivelActualizable.NombreCliente = PFueraNivel.NombreCliente;
             PFueraNivelActualizable.ApellidoCliente = PFueraNivel.ApellidoCliente;
-            PFueraNivelActualizable.DirInstalacion = PFueraNivel.DirCorrespondencia;
+            PFueraNivelActualizable.DirInstalacion = PFueraNivel.DirInstalacion;
+            PFueraNivelActualizable.DirCorrespondencia = PFueraNivel.DirCorrespondencia;
             PFueraNivelActualizable.Telefono1 = PFueraNivel.Telefono1;
             PFueraNivelActualizable.Telefono2 = PFueraNivel.Telefono2;
             PFueraNivelActualizable.Telefono3 = PFueraNivel.Telefono3;
@@ -159,7 +160,7 @@ namespace Telmexla.Servicios.DIME.Business
             PFueraNivelActualizable.Movil2 = PFueraNivel.Movil2;
             PFueraNivelActualizable.MovilPostpago = PFueraNivel.MovilPostpago;
             PFueraNivelActualizable.CorreoActual = PFueraNivel.CorreoActual;
-            PFueraNivelActualizable.EstratoCliente = PFueraNivel.ServiciosActuales;
+            PFueraNivelActualizable.EstratoCliente = PFueraNivel.EstratoCliente;
             PFueraNivelActualizable.ServiciosActuales = PFueraNivel.ServiciosActuales;
             PFueraNivelActualizable.Nodo = PFueraNivel.Nodo;
             PFueraNivelActualizable.NombreComunidad = PFueraNivel.NombreComunidad;
@@ -194,7 +195,7 @@ namespace Telmexla.Servicios.DIME.Business
             LFueraNivel.Movil2 = PFueraNivel.Movil2;
             LFueraNivel.MovilPostpago = PFueraNivel.MovilPostpago;
             LFueraNivel.CorreoActual = PFueraNivel.CorreoActual;
-            LFueraNivel.EstratoCliente = PFueraNivel.ServiciosActuales;
+            LFueraNivel.EstratoCliente = PFueraNivel.EstratoCliente;
             LFueraNivel.ServiciosActuales = PFueraNivel.ServiciosActuales;
             LFueraNivel.Nodo = PFueraNivel.Nodo;
             LFueraNivel.NombreComunidad = PFueraNivel.NombreComunidad;
@@ -352,6 +353,172 @@ namespace Telmexla.Servicios.DIME.Business
             }else
             {   
             return null;}
+
+        }
+        public List<GBPFueraNiveles> ConsultaAdminFueraNivelesP(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBPFueraNiveles> result = new List<GBPFueraNiveles>();
+            var objetosResult = (from a in dimContext.GBPFueradeNiveles
+                                where a.FechaGestion>= FechaInicial && a.FechaGestion<= FechaFinal
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.CuentaCliente,
+                                     a.NombreCliente,
+                                     a.ApellidoCliente,
+                                     a.DirInstalacion,
+                                     a.DirCorrespondencia,
+                                     a.Telefono1,
+                                     a.Telefono2,
+                                     a.Telefono3,
+                                     a.Movil1,
+                                     a.Movil2,
+                                     a.MovilPostpago,
+                                     a.CorreoActual,
+                                     a.EstratoCliente,
+                                     a.ServiciosActuales,
+                                     a.Nodo,
+                                     a.NombreComunidad,
+                                     a.Division,
+                                     a.TipoCliente,
+                                     a.DescripcionTPC,
+                                     a.Cmts,
+                                     a.TipoModem,
+                                     a.Prioridad,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Razon,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBPFueraNiveles());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].NombreCliente = objetosResult[i].NombreCliente;
+                result[i].ApellidoCliente = objetosResult[i].ApellidoCliente;
+                result[i].DirInstalacion = objetosResult[i].DirInstalacion;
+                result[i].DirCorrespondencia = objetosResult[i].DirCorrespondencia;
+                result[i].Telefono1 = objetosResult[i].Telefono1;
+                result[i].Telefono2 = objetosResult[i].Telefono2;
+                result[i].Telefono3 = objetosResult[i].Telefono3;
+                result[i].Movil1 = objetosResult[i].Movil1;
+                result[i].Movil2 = objetosResult[i].Movil2;
+                result[i].MovilPostpago = objetosResult[i].MovilPostpago;
+                result[i].CorreoActual = objetosResult[i].CorreoActual;
+                result[i].EstratoCliente = objetosResult[i].EstratoCliente;
+                result[i].ServiciosActuales = objetosResult[i].ServiciosActuales;
+                result[i].Nodo = objetosResult[i].Nodo;
+                result[i].NombreComunidad = objetosResult[i].NombreComunidad;
+                result[i].Division = objetosResult[i].Division;
+                result[i].TipoCliente = objetosResult[i].TipoCliente;
+                result[i].DescripcionTPC = objetosResult[i].DescripcionTPC;
+                result[i].Cmts = objetosResult[i].Cmts;
+                result[i].TipoModem = objetosResult[i].TipoModem;
+                result[i].Prioridad = objetosResult[i].Prioridad;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Razon = objetosResult[i].Razon;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public List<GBLFueraNiveles> ConsultaAdminFueraNivelesL(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBLFueraNiveles> result = new List<GBLFueraNiveles>();
+            var objetosResult = (from a in dimContext.GBLFueradeNiveles
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.CuentaCliente,
+                                     a.NombreCliente,
+                                     a.ApellidoCliente,
+                                     a.DirInstalacion,
+                                     a.DirCorrespondencia,
+                                     a.Telefono1,
+                                     a.Telefono2,
+                                     a.Telefono3,
+                                     a.Movil1,
+                                     a.Movil2,
+                                     a.MovilPostpago,
+                                     a.CorreoActual,
+                                     a.EstratoCliente,
+                                     a.ServiciosActuales,
+                                     a.Nodo,
+                                     a.NombreComunidad,
+                                     a.Division,
+                                     a.TipoCliente,
+                                     a.DescripcionTPC,
+                                     a.Cmts,
+                                     a.TipoModem,
+                                     a.Prioridad,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Razon,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBLFueraNiveles());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].NombreCliente = objetosResult[i].NombreCliente;
+                result[i].ApellidoCliente = objetosResult[i].ApellidoCliente;
+                result[i].DirInstalacion = objetosResult[i].DirInstalacion;
+                result[i].DirCorrespondencia = objetosResult[i].DirCorrespondencia;
+                result[i].Telefono1 = objetosResult[i].Telefono1;
+                result[i].Telefono2 = objetosResult[i].Telefono2;
+                result[i].Telefono3 = objetosResult[i].Telefono3;
+                result[i].Movil1 = objetosResult[i].Movil1;
+                result[i].Movil2 = objetosResult[i].Movil2;
+                result[i].MovilPostpago = objetosResult[i].MovilPostpago;
+                result[i].CorreoActual = objetosResult[i].CorreoActual;
+                result[i].EstratoCliente = objetosResult[i].EstratoCliente;
+                result[i].ServiciosActuales = objetosResult[i].ServiciosActuales;
+                result[i].Nodo = objetosResult[i].Nodo;
+                result[i].NombreComunidad = objetosResult[i].NombreComunidad;
+                result[i].Division = objetosResult[i].Division;
+                result[i].TipoCliente = objetosResult[i].TipoCliente;
+                result[i].DescripcionTPC = objetosResult[i].DescripcionTPC;
+                result[i].Cmts = objetosResult[i].Cmts;
+                result[i].TipoModem = objetosResult[i].TipoModem;
+                result[i].Prioridad = objetosResult[i].Prioridad;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Razon = objetosResult[i].Razon;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
 
         }
     }
