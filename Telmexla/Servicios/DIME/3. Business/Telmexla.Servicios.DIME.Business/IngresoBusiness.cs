@@ -672,7 +672,7 @@ namespace Telmexla.Servicios.DIME.Business
                                                                                                             Marcacion = x.Marcacion,
                                                                                                             IdEstado = x.IdEstado,
                                                                                                             Semaforo = x.Semaforo
-                                                                                                                } ).Take(15).ToList() );
+                                                                                                                } ).OrderByDescending(c=>c.IdIngreso).Take(20).ToList() );
             foreach(var item in result)
             {
                 item.UsuarioApertura = unitWork.usuarios.Get(Convert.ToInt32(item.UsuarioApertura)).Cedula.ToString();
