@@ -1,10 +1,3 @@
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.dll
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.pdb
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.dll
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\obj\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.csprojResolveAssemblyReference.cache
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\obj\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.dll
-C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\obj\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.pdb
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.dll
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.pdb
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.dll
@@ -12,3 +5,10 @@ C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\obj\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.csprojResolveAssemblyReference.cache
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\obj\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.dll
 C:\Users\David Gomez\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\obj\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\obj\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.csprojResolveAssemblyReference.cache
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\obj\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.dll
+C:\Users\robin\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ExtenMethods\obj\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.pdb

@@ -1149,7 +1149,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.gestionMatrices select new { m.IdTransaccion, m.UsuarioBackOfficeCreacion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && (b.UsuarioBackOfficeCreacion == usrABackOffice|| b.UsuarioBackOfficeCreacion == null)
+                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && a.NombreLineaEscalado.Equals("CELULA CREACION MATRICES") &&(b.UsuarioBackOfficeCreacion == usrABackOffice|| b.UsuarioBackOfficeCreacion == null)
                                  orderby a.HoraUltimaActualizacion ascending
                                  select new
                                  {
@@ -1229,7 +1229,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.gestionMatrices select new { m.IdTransaccion, m.UsuarioBackOfficeGestion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && (b.UsuarioBackOfficeGestion == UsuarioOut|| b.UsuarioBackOfficeGestion == null)
+                                 where a.EstadoTransaccion.Equals("SEGUIMIENTO") && a.NombreLineaEscalado.Equals("CELULA GESTION MATRICES") && (b.UsuarioBackOfficeGestion == UsuarioOut|| b.UsuarioBackOfficeGestion == null)
                                  orderby a.HoraUltimaActualizacion ascending
                                  select new
                                  {
