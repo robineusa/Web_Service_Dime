@@ -92,6 +92,7 @@
     <Compile Include="DistribucionBlendingCollection.cs" />
     <Compile Include="DocsisOverlap.cs" />
     <Compile Include="DocsisOverlapCollection.cs" />
+    <Compile Include="GBC_Rentabilizacion.cs" />
     <Compile Include="GBLFueraNiveles.cs" />
     <Compile Include="GBLFueraNivelesCollection.cs" />
     <Compile Include="GBLRentabilizacion.cs" />
