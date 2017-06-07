@@ -48,8 +48,6 @@
   <ItemGroup>
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.EMails.dll" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.EMails.pdb" />
-    <Content Include="bin\Release\Telmexla.Servicios.DIME.Helpers.EMails.dll" />
-    <Content Include="bin\Release\Telmexla.Servicios.DIME.Helpers.EMails.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

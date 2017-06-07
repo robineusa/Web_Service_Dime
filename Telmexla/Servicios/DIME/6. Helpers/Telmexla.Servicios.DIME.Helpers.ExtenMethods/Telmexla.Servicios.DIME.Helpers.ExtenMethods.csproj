@@ -53,8 +53,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.dll" />
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.dll" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.ExtenMethods.pdb" />
   </ItemGroup>

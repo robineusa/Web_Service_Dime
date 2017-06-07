@@ -49,11 +49,6 @@
   <ItemGroup>
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.dll" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb" />
-    <Content Include="bin\Release\Telmexla.Servicios.DIME.Helpers.Encription.dll" />
-    <Content Include="bin\Release\Telmexla.Servicios.DIME.Helpers.Encription.pdb" />
-    <Content Include="obj\Debug\Telmexla.Servicios.DIME.Helpers.Encription.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\Telmexla.Servicios.DIME.Helpers.Encription.dll" />
-    <Content Include="obj\Debug\Telmexla.Servicios.DIME.Helpers.Encription.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
