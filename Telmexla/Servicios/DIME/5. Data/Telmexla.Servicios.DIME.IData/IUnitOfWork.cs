@@ -50,6 +50,9 @@ namespace Telmexla.Servicios.DIME.IData
         IDistribucionBlendingRepository distribucionesBlending { get; }
         IGBPFueraNivelesRepository GBPFueradeNiveles { get; }
         IGBLFueraNivelesRepository GBLFueradeNiveles { get; }
+        IGBPRentabilizacionRepository GBPRentabilizacion { get; }
+        IGBLRentabilizacionRepository GBLRentabilizacion { get; }
+        IGBCRentabilizacionRepository GBCRentabilizacion { get; }
         int Complete();
     }
 }
