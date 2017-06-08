@@ -64,7 +64,9 @@
     <Compile Include="Configuration\DepartamentoConfiguration.cs" />
     <Compile Include="Configuration\DistribucionBlendingConfiguration.cs" />
     <Compile Include="Configuration\GBLFueraNivelesConfiguration.cs" />
+    <Compile Include="Configuration\GBLRentabilizacionConfiguration.cs" />
     <Compile Include="Configuration\GBPFueraNivelesConfiguration.cs" />
+    <Compile Include="Configuration\GBPRentabilizacionConfiguration.cs" />
     <Compile Include="Configuration\GestionMatrizConfiguration.cs" />
     <Compile Include="Configuration\IngresoConfiguration.cs" />
     <Compile Include="Configuration\IngresosSoporteConfiguration.cs" />
