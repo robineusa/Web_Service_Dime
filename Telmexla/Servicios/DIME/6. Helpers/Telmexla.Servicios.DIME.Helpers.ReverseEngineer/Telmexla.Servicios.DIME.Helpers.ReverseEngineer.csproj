@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Telmexla.Servicios.DIME.Helpers.ReverseEngineer</RootNamespace>
     <AssemblyName>Telmexla.Servicios.DIME.Helpers.ReverseEngineer</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -92,6 +93,9 @@
     <Compile Include="BalanceScoreCard.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BalanceScoreCardConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="BalanceScoreCardH.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -149,6 +153,21 @@
     <Compile Include="ClientesTodoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ClientesTodosCargue.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientesTodosCargueConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaGestionSqlReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaPaloteoSqlReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaRechazosAdminSqlReturnModel.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ConvenioElectronico.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -159,6 +178,12 @@
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="CreacionDireccionConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasMejorOferta.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasMejorOfertaConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="CuentasSiembraHd.cs">
@@ -195,7 +220,19 @@
     <Compile Include="DepartamentoConfiguration.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
+    <Compile Include="DepartamentosCiudade.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepartamentosCiudadeConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DimeContext.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DistribucionesBlending.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DistribucionesBlendingConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="DocsisOverlap.cs">
@@ -219,6 +256,42 @@
     <Compile Include="FakeMaestrosContext.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
+    <Compile Include="GbcFueraNivele.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GbcFueraNiveleConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GbcRentabilizacion.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GbcRentabilizacionConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GblFueraNivele.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GblFueraNiveleConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GblRentabilizacion.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GblRentabilizacionConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GbpFueraNivele.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GbpFueraNiveleConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GbpRentabilizacion.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GbpRentabilizacionConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="GestionMatrIx.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -231,7 +304,16 @@
     <Compile Include="GestionOutboundConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="IdIdNotasIngreso.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="IDimeContext.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IdIngreso.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IdIngresoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="IMaestrosContext.cs">
@@ -267,6 +349,12 @@
     <Compile Include="LineaConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="LogCargueTabla.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogCargueTabla1.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="LogCierreCiclo.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -289,6 +377,9 @@
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="LogDocsisOverlapConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogTablaCargue.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="Macroproceso.cs">
@@ -314,6 +405,9 @@
     </Compile>
     <Compile Include="MaestroCierreConfiguration.cs">
       <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaestroDiv.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="MaestroDivisional.cs">
       <DependentUpon>Database2.tt</DependentUpon>
@@ -344,6 +438,12 @@
     </Compile>
     <Compile Include="MaestroHobbiesClienteConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaestroLineasBlending.cs">
+      <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaestroLineasBlendingConfiguration.cs">
+      <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
     <Compile Include="MaestroMarcacione.cs">
       <DependentUpon>Database1.tt</DependentUpon>
@@ -432,6 +532,9 @@
     <Compile Include="MunicipioConfiguration.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
+    <Compile Include="NodosActuale.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="NombreLinea.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
@@ -514,6 +617,24 @@
     <Compile Include="SiembraHdConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SkillsUsuariosBlending.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillsUsuariosBlendingConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmoRentaActual.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmoRentaActualConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmoTarifaActual.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmoTarifaActualConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="SubProceso.cs">
       <DependentUpon>Database2.tt</DependentUpon>
     </Compile>
@@ -556,6 +677,24 @@
     <Compile Include="TransaccionesTrasladoConfiguration.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
+    <Compile Include="TrasladoFallido.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrasladoFallidoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsabilidadActivacionConvenio.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsabilidadActivacionConvenioConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsabilidadBusquedaCliente.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsabilidadBusquedaClienteConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs">
       <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
@@ -567,6 +706,12 @@
     </Compile>
     <Compile Include="UsuariosGenericoConfiguration.cs">
       <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosNotificado.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosNotificadoConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
     <Compile Include="UsuariosXAcceso.cs">
       <DependentUpon>Database1.tt</DependentUpon>
@@ -585,6 +730,12 @@
     </Compile>
     <Compile Include="VActualizarSemaforoConfiguration.cs">
       <DependentUpon>Database2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VentasSmoInbound.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VentasSmoInboundConfiguration.cs">
+      <DependentUpon>Database1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

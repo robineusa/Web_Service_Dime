@@ -31,11 +31,11 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 
         // Reverse navigation
         public virtual System.Collections.Generic.ICollection<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION.FK__TBL_REGIS__ID_US__1FCDBCEB
-        public virtual System.Collections.Generic.ICollection<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // Many to many mapping
+        public virtual System.Collections.Generic.ICollection<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // TBL_USUARIOS_X_ACCESOS.FK__TBL_USUAR__ID_US__53D770D6
         public virtual System.Collections.Generic.ICollection<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; } // Many to many mapping
 
         // Foreign keys
-        public virtual Linea Linea { get; set; } // FK__TBL_USUAR__ID_LI__0E6E26BF
+        public virtual Linea Linea { get; set; } // FK__TBL_USUAR__ID_LI__68D28DBC
 
         public Usuario()
         {

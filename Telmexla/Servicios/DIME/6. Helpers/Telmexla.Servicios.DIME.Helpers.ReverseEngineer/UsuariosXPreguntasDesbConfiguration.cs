@@ -28,13 +28,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             HasKey(x => new { x.Id, x.IdPregunta, x.IdUsuario });
 
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.IdPregunta).HasColumnName(@"ID_PREGUNTA").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
-            Property(x => x.IdUsuario).HasColumnName(@"ID_USUARIO").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+            Property(x => x.IdPregunta).HasColumnName(@"ID_PREGUNTA").IsRequired().HasColumnType("int");
+            Property(x => x.IdUsuario).HasColumnName(@"ID_USUARIO").IsRequired().HasColumnType("int");
             Property(x => x.Respuesta).HasColumnName(@"RESPUESTA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(200);
 
             // Foreign keys
-            HasRequired(a => a.PreguntasDesbloqueo).WithMany(b => b.UsuariosXPreguntasDesbs).HasForeignKey(c => c.IdPregunta).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_PR__22AA2996
-            HasRequired(a => a.Usuario).WithMany(b => b.UsuariosXPreguntasDesbs).HasForeignKey(c => c.IdUsuario).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_US__239E4DCF
+            HasRequired(a => a.PreguntasDesbloqueo).WithMany(b => b.UsuariosXPreguntasDesbs).HasForeignKey(c => c.IdPregunta).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_PR__50FB042B
+            HasRequired(a => a.Usuario).WithMany(b => b.UsuariosXPreguntasDesbs).HasForeignKey(c => c.IdUsuario).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_US__51EF2864
         }
     }
 

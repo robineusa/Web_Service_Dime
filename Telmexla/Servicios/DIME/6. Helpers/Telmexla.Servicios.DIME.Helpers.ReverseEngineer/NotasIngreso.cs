@@ -17,7 +17,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.24.0.0")]
     public class NotasIngreso
     {
-        public decimal IdNota { get; set; } // ID_NOTA
+        public decimal IdNota { get; set; } // ID_NOTA (Primary key)
         public decimal? IdIngreso { get; set; } // ID_INGRESO
         public decimal CuentaCliente { get; set; } // CUENTA_CLIENTE
         public decimal? Ticket { get; set; } // TICKET
@@ -28,6 +28,9 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string LlamadaCliente { get; set; } // LLAMADA_CLIENTE (length: 2)
         public string Nota { get; set; } // NOTA (length: 1073741823)
         public int? IdEstado { get; set; } // ID_ESTADO
+
+        // Foreign keys
+        public virtual Ingreso Ingreso { get; set; } // FK_Id_Ingreso
     }
 
 }

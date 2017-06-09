@@ -29,6 +29,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<MaestroEstadoMarcacion> MaestroEstadoMarcacions { get; set; }
         public System.Data.Entity.DbSet<MaestroGestion> MaestroGestions { get; set; }
         public System.Data.Entity.DbSet<MaestroHipotesi> MaestroHipotesis { get; set; }
+        public System.Data.Entity.DbSet<MaestroLineasBlending> MaestroLineasBlendings { get; set; }
         public System.Data.Entity.DbSet<MaestroOutboundCausa> MaestroOutboundCausas { get; set; }
         public System.Data.Entity.DbSet<MaestroOutboundCierre> MaestroOutboundCierres { get; set; }
         public System.Data.Entity.DbSet<MaestroOutboundCierre2> MaestroOutboundCierre2 { get; set; }
@@ -63,6 +64,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             MaestroEstadoMarcacions = new FakeDbSet<MaestroEstadoMarcacion>("IdEstado");
             MaestroGestions = new FakeDbSet<MaestroGestion>("IdTipoGestion");
             MaestroHipotesis = new FakeDbSet<MaestroHipotesi>("IdHipotesis", "Hipotesis");
+            MaestroLineasBlendings = new FakeDbSet<MaestroLineasBlending>("Id");
             MaestroOutboundCausas = new FakeDbSet<MaestroOutboundCausa>("IdCausa");
             MaestroOutboundCierres = new FakeDbSet<MaestroOutboundCierre>("IdCierre");
             MaestroOutboundCierre2 = new FakeDbSet<MaestroOutboundCierre2>("IdCierre", "IdTipoContacto", "Cierre");

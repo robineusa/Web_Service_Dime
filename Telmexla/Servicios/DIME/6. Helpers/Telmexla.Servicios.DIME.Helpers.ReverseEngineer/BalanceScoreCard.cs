@@ -13,13 +13,11 @@
 namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 {
 
-    // The table 'TBL_BALANCE_SCORE_CARD' is not usable by entity framework because it
-    // does not have a primary key. It is listed here for completeness.
     // TBL_BALANCE_SCORE_CARD
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.24.0.0")]
     public class BalanceScoreCard
     {
-        public string Cedula { get; set; } // CEDULA (length: 100)
+        public decimal Cedula { get; set; } // CEDULA (Primary key)
         public string Nombre { get; set; } // NOMBRE (length: 100)
         public string Aliado { get; set; } // ALIADO (length: 100)
         public string Canal { get; set; } // CANAL (length: 100)
@@ -33,7 +31,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public decimal? Espera { get; set; } // ESPERA
         public decimal? Marcacion { get; set; } // MARCACION
         public decimal? AjustesCorrecto { get; set; } // AJUSTES_CORRECTO
-        public decimal? PqrCorrectos { get; set; } // PQR_CORRECTOS
+        public double? PqrCorrectos { get; set; } // PQR_CORRECTOS
         public decimal? MetaVentas { get; set; } // META_VENTAS
         public decimal? ReincidenciaAsesor { get; set; } // REINCIDENCIA_ASESOR
         public decimal? NpsSolucion { get; set; } // NPS_SOLUCION
@@ -45,6 +43,13 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public decimal? PuntajeTotal { get; set; } // PUNTAJE_TOTAL
         public System.DateTime? Fecha { get; set; } // FECHA
         public decimal? Periodo { get; set; } // PERIODO
+        public double? PqrEscalados { get; set; } // PQR_ESCALADOS
+        public double? Reincidencia { get; set; } // REINCIDENCIA
+        public double? NpsRecomendacion { get; set; } // NPS_RECOMENDACION
+        public double? ActivacionClarovideo { get; set; } // ACTIVACION_CLAROVIDEO
+        public double? ActivacionConvenioFactura { get; set; } // ACTIVACION_CONVENIO_FACTURA
+        public double? NotaBuenServicio { get; set; } // NOTA_BUEN_SERVICIO
+        public double? PorcentajeCcaa { get; set; } // PORCENTAJE_CCAA
     }
 
 }

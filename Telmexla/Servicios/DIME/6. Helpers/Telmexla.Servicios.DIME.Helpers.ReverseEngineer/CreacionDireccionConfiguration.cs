@@ -47,7 +47,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.UsuarioOutbound).HasColumnName(@"USUARIO_OUTBOUND").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
 
             // Foreign keys
-            HasRequired(a => a.TransaccionesTraslado).WithMany(b => b.CreacionDireccions).HasForeignKey(c => c.IdTransaccion).WillCascadeOnDelete(false); // FK__TBL_CREAC__ID_TR__56E8E7AB
+            HasRequired(a => a.TransaccionesTraslado).WithMany(b => b.CreacionDireccions).HasForeignKey(c => c.IdTransaccion).WillCascadeOnDelete(false); // FK__TBL_CREAC__ID_TR__4B0D20AB
         }
     }
 

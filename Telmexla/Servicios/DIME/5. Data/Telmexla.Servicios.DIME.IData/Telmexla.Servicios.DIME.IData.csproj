@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Telmexla.Servicios.DIME.IData</RootNamespace>
     <AssemblyName>Telmexla.Servicios.DIME.IData</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,11 +59,8 @@
     <Compile Include="ICuentasSiguienteMejorOfertaRepository.cs" />
     <Compile Include="IDepartamentoRepository.cs" />
     <Compile Include="IDistribucionBlendingRepository.cs" />
-    <Compile Include="IGBCRentabilizacionRepository.cs" />
     <Compile Include="IGBLFueraNivelesRepository.cs" />
-    <Compile Include="IGBLRentabilizacionRepository.cs" />
     <Compile Include="IGBPFueraNivelesRepository.cs" />
-    <Compile Include="IGBPRentabilizacionRepository.cs" />
     <Compile Include="IGestionMatrizRepository.cs" />
     <Compile Include="IIngresoRepository.cs" />
     <Compile Include="IIngresoSoporteRepository.cs" />

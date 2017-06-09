@@ -47,7 +47,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.MotivoLiberacion).HasColumnName(@"MOTIVO_LIBERACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
 
             // Foreign keys
-            HasRequired(a => a.TransaccionesTraslado).WithMany(b => b.LiberacionDeHomepasses).HasForeignKey(c => c.IdTransaccion).WillCascadeOnDelete(false); // FK__TBL_LIBER__ID_TR__76619304
+            HasRequired(a => a.TransaccionesTraslado).WithMany(b => b.LiberacionDeHomepasses).HasForeignKey(c => c.IdTransaccion).WillCascadeOnDelete(false); // FK__TBL_LIBER__ID_TR__4460231C
         }
     }
 

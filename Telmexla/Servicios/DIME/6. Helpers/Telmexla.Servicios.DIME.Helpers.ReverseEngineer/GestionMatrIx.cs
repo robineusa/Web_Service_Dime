@@ -42,8 +42,8 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string UsuarioBackofficeGestion { get; set; } // USUARIO_BACKOFFICE_GESTION (length: 30)
 
         // Foreign keys
-        public virtual TransaccionesTraslado TransaccionesTraslado_IdTransaccion { get; set; } // FK__TBL_GESTI__ID_TR__02C769E9
-        public virtual TransaccionesTraslado TransaccionesTraslado1 { get; set; } // FK__TBL_GESTI__ID_TR__7C1A6C5A
+        public virtual TransaccionesTraslado TransaccionesTraslado_IdTransaccion { get; set; } // FK__TBL_GESTI__ID_TR__473C8FC7
+        public virtual TransaccionesTraslado TransaccionesTraslado1 { get; set; } // FK__TBL_GESTI__ID_TR__4830B400
     }
 
 }

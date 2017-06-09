@@ -21,18 +21,30 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<Acceso> Accesoes { get; set; }
         public System.Data.Entity.DbSet<ActivacionClaroVideo> ActivacionClaroVideos { get; set; }
         public System.Data.Entity.DbSet<ActivacionSiembraHd> ActivacionSiembraHds { get; set; }
+        public System.Data.Entity.DbSet<BalanceScoreCard> BalanceScoreCards { get; set; }
         public System.Data.Entity.DbSet<BasePersonalHolo> BasePersonalHoloes { get; set; }
         public System.Data.Entity.DbSet<CambioDeEstrato> CambioDeEstratoes { get; set; }
         public System.Data.Entity.DbSet<CierreCiclo> CierreCicloes { get; set; }
         public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; }
         public System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; }
+        public System.Data.Entity.DbSet<ClientesTodosCargue> ClientesTodosCargues { get; set; }
         public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; }
         public System.Data.Entity.DbSet<CreacionDireccion> CreacionDireccions { get; set; }
+        public System.Data.Entity.DbSet<CuentasMejorOferta> CuentasMejorOfertas { get; set; }
         public System.Data.Entity.DbSet<CuentasSiembraHd> CuentasSiembraHds { get; set; }
         public System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; }
+        public System.Data.Entity.DbSet<DepartamentosCiudade> DepartamentosCiudades { get; set; }
+        public System.Data.Entity.DbSet<DistribucionesBlending> DistribucionesBlendings { get; set; }
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; }
+        public System.Data.Entity.DbSet<GbcFueraNivele> GbcFueraNiveles { get; set; }
+        public System.Data.Entity.DbSet<GbcRentabilizacion> GbcRentabilizacions { get; set; }
+        public System.Data.Entity.DbSet<GblFueraNivele> GblFueraNiveles { get; set; }
+        public System.Data.Entity.DbSet<GblRentabilizacion> GblRentabilizacions { get; set; }
+        public System.Data.Entity.DbSet<GbpFueraNivele> GbpFueraNiveles { get; set; }
+        public System.Data.Entity.DbSet<GbpRentabilizacion> GbpRentabilizacions { get; set; }
         public System.Data.Entity.DbSet<GestionMatrIx> GestionMatrIces { get; set; }
         public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; }
+        public System.Data.Entity.DbSet<IdIngreso> IdIngresoes { get; set; }
         public System.Data.Entity.DbSet<InformacionNodo> InformacionNodoes { get; set; }
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; }
         public System.Data.Entity.DbSet<IngresosSoporte> IngresosSoportes { get; set; }
@@ -53,32 +65,52 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; }
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; }
         public System.Data.Entity.DbSet<SiembraHd> SiembraHds { get; set; }
+        public System.Data.Entity.DbSet<SkillsUsuariosBlending> SkillsUsuariosBlendings { get; set; }
+        public System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; }
+        public System.Data.Entity.DbSet<SmoTarifaActual> SmoTarifaActuals { get; set; }
         public System.Data.Entity.DbSet<Subrazon1IngresoSoporte> Subrazon1IngresoSoporte { get; set; }
         public System.Data.Entity.DbSet<Subrazon2IngresoSoporte> Subrazon2IngresoSoporte { get; set; }
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; }
         public System.Data.Entity.DbSet<TraficoTraslado> TraficoTrasladoes { get; set; }
         public System.Data.Entity.DbSet<TransaccionesTraslado> TransaccionesTrasladoes { get; set; }
+        public System.Data.Entity.DbSet<TrasladoFallido> TrasladoFallidoes { get; set; }
+        public System.Data.Entity.DbSet<UsabilidadActivacionConvenio> UsabilidadActivacionConvenios { get; set; }
+        public System.Data.Entity.DbSet<UsabilidadBusquedaCliente> UsabilidadBusquedaClientes { get; set; }
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; }
+        public System.Data.Entity.DbSet<UsuariosNotificado> UsuariosNotificadoes { get; set; }
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; }
         public System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; }
+        public System.Data.Entity.DbSet<VentasSmoInbound> VentasSmoInbounds { get; set; }
 
         public FakeDimeContext()
         {
             Accesoes = new FakeDbSet<Acceso>("Id");
             ActivacionClaroVideos = new FakeDbSet<ActivacionClaroVideo>("IdActivacion");
             ActivacionSiembraHds = new FakeDbSet<ActivacionSiembraHd>("Id");
+            BalanceScoreCards = new FakeDbSet<BalanceScoreCard>("Cedula");
             BasePersonalHoloes = new FakeDbSet<BasePersonalHolo>("Cedula");
             CambioDeEstratoes = new FakeDbSet<CambioDeEstrato>("Id");
             CierreCicloes = new FakeDbSet<CierreCiclo>("Id");
             ClaroVideos = new FakeDbSet<ClaroVideo>("Id");
             ClientesTodoes = new FakeDbSet<ClientesTodo>("Cuenta");
+            ClientesTodosCargues = new FakeDbSet<ClientesTodosCargue>("Cuenta");
             ConvenioElectronicoes = new FakeDbSet<ConvenioElectronico>("Id");
             CreacionDireccions = new FakeDbSet<CreacionDireccion>("Id");
+            CuentasMejorOfertas = new FakeDbSet<CuentasMejorOferta>("Id");
             CuentasSiembraHds = new FakeDbSet<CuentasSiembraHd>("Id");
             DatosAdicionalesClientes = new FakeDbSet<DatosAdicionalesCliente>("Cuenta");
+            DepartamentosCiudades = new FakeDbSet<DepartamentosCiudade>("Id");
+            DistribucionesBlendings = new FakeDbSet<DistribucionesBlending>("Id");
             DocsisOverlaps = new FakeDbSet<DocsisOverlap>("Id");
+            GbcFueraNiveles = new FakeDbSet<GbcFueraNivele>("Id");
+            GbcRentabilizacions = new FakeDbSet<GbcRentabilizacion>("Id");
+            GblFueraNiveles = new FakeDbSet<GblFueraNivele>("Id");
+            GblRentabilizacions = new FakeDbSet<GblRentabilizacion>("Id");
+            GbpFueraNiveles = new FakeDbSet<GbpFueraNivele>("Id");
+            GbpRentabilizacions = new FakeDbSet<GbpRentabilizacion>("Id");
             GestionMatrIces = new FakeDbSet<GestionMatrIx>("Id");
             GestionOutbounds = new FakeDbSet<GestionOutbound>("Id");
+            IdIngresoes = new FakeDbSet<IdIngreso>("IdIngreso_", "Cuenta", "Ticket", "UsuarioApertura");
             InformacionNodoes = new FakeDbSet<InformacionNodo>("IdNodo");
             Ingresoes = new FakeDbSet<Ingreso>("IdIngreso");
             IngresosSoportes = new FakeDbSet<IngresosSoporte>("Id");
@@ -91,7 +123,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             MaestroHobbiesClientes = new FakeDbSet<MaestroHobbiesCliente>("IdHobby");
             MaestroMarcaciones = new FakeDbSet<MaestroMarcacione>("Id");
             ModosLogins = new FakeDbSet<ModosLogin>("Id");
-            NotasIngresoes = new FakeDbSet<NotasIngreso>("IdNota", "CuentaCliente", "NombreLineaNota");
+            NotasIngresoes = new FakeDbSet<NotasIngreso>("IdNota");
             NotificacionesBuenServicios = new FakeDbSet<NotificacionesBuenServicio>("IdNotificado");
             PqrMaestroCodCierres = new FakeDbSet<PqrMaestroCodCierre>("Id");
             PreguntasDesbloqueos = new FakeDbSet<PreguntasDesbloqueo>("Id");
@@ -99,14 +131,22 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Rechazoes = new FakeDbSet<Rechazo>("IdRechazo");
             RegistroSesions = new FakeDbSet<RegistroSesion>("Id");
             SiembraHds = new FakeDbSet<SiembraHd>("Id");
+            SkillsUsuariosBlendings = new FakeDbSet<SkillsUsuariosBlending>("Id");
+            SmoRentaActuals = new FakeDbSet<SmoRentaActual>("Cuenta");
+            SmoTarifaActuals = new FakeDbSet<SmoTarifaActual>("Id");
             Subrazon1IngresoSoporte = new FakeDbSet<Subrazon1IngresoSoporte>("Id");
             Subrazon2IngresoSoporte = new FakeDbSet<Subrazon2IngresoSoporte>("Id");
             Sysdiagrams = new FakeDbSet<Sysdiagram>("DiagramId");
             TraficoTrasladoes = new FakeDbSet<TraficoTraslado>("Id");
             TransaccionesTrasladoes = new FakeDbSet<TransaccionesTraslado>("IdTransaccion");
+            TrasladoFallidoes = new FakeDbSet<TrasladoFallido>("Id");
+            UsabilidadActivacionConvenios = new FakeDbSet<UsabilidadActivacionConvenio>("Id");
+            UsabilidadBusquedaClientes = new FakeDbSet<UsabilidadBusquedaCliente>("Id");
             Usuarios = new FakeDbSet<Usuario>("Id");
-            UsuariosXAccesoes = new FakeDbSet<UsuariosXAcceso>("Id", "IdAcceso", "IdUsuario");
+            UsuariosNotificadoes = new FakeDbSet<UsuariosNotificado>("IdVisto");
+            UsuariosXAccesoes = new FakeDbSet<UsuariosXAcceso>("Id");
             UsuariosXPreguntasDesbs = new FakeDbSet<UsuariosXPreguntasDesb>("Id", "IdPregunta", "IdUsuario");
+            VentasSmoInbounds = new FakeDbSet<VentasSmoInbound>("Id");
         }
 
         public int SaveChangesCount { get; private set; }
@@ -252,6 +292,12 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             return System.Threading.Tasks.Task.FromResult(ActualizarUsuarioGestionBackTraslado(idTransaccion, usuarioBack, out procResult));
         }
 
+        public int ActualizarUsuarioGestionBackTrasladoNoCobertura(decimal? idTransaccion, string usuarioBack)
+        {
+ 
+            return 0;
+        }
+
         public System.Collections.Generic.List<ActualizarUsuarioGestionOutTrasladoReturnModel> ActualizarUsuarioGestionOutTraslado(decimal? idTransaccion, string usuarioOut)
         {
             int procResult;
@@ -271,13 +317,82 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             return System.Threading.Tasks.Task.FromResult(ActualizarUsuarioGestionOutTraslado(idTransaccion, usuarioOut, out procResult));
         }
 
-        public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion)
+        public int ApartarCuentaGestionBlending(int? idAsesor, string formulario, string aliado, string operacion, string campana)
         {
  
             return 0;
         }
 
+        public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion, string aliado, string linea)
+        {
+ 
+            return 0;
+        }
+
+        public System.Collections.Generic.List<ConsultaGestionSqlReturnModel> ConsultaGestionSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado)
+        {
+            int procResult;
+            return ConsultaGestionSql(fechaInicial, fechaFinal, aliado, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaGestionSqlReturnModel> ConsultaGestionSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado, out int procResult)
+        {
+
+            procResult = 0;
+            return new System.Collections.Generic.List<ConsultaGestionSqlReturnModel>();
+        }
+
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaGestionSqlReturnModel>> ConsultaGestionSqlAsync(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado)
+        {
+            int procResult;
+            return System.Threading.Tasks.Task.FromResult(ConsultaGestionSql(fechaInicial, fechaFinal, aliado, out procResult));
+        }
+
+        public System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel> ConsultaPaloteoSql(string fechaInicial, string fechaFinal)
+        {
+            int procResult;
+            return ConsultaPaloteoSql(fechaInicial, fechaFinal, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel> ConsultaPaloteoSql(string fechaInicial, string fechaFinal, out int procResult)
+        {
+
+            procResult = 0;
+            return new System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel>();
+        }
+
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel>> ConsultaPaloteoSqlAsync(string fechaInicial, string fechaFinal)
+        {
+            int procResult;
+            return System.Threading.Tasks.Task.FromResult(ConsultaPaloteoSql(fechaInicial, fechaFinal, out procResult));
+        }
+
+        public System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel> ConsultaRechazosAdminSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal)
+        {
+            int procResult;
+            return ConsultaRechazosAdminSql(fechaInicial, fechaFinal, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel> ConsultaRechazosAdminSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, out int procResult)
+        {
+
+            procResult = 0;
+            return new System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel>();
+        }
+
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel>> ConsultaRechazosAdminSqlAsync(System.DateTime? fechaInicial, System.DateTime? fechaFinal)
+        {
+            int procResult;
+            return System.Threading.Tasks.Task.FromResult(ConsultaRechazosAdminSql(fechaInicial, fechaFinal, out procResult));
+        }
+
         public int Consultas(decimal? nombreCab, System.Data.DataTable detalles)
+        {
+ 
+            return 0;
+        }
+
+        public int ReiniciarGestionBlending()
         {
  
             return 0;
