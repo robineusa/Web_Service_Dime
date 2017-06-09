@@ -21,18 +21,30 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<Acceso> Accesoes { get; set; } // TBL_ACCESOS
         public System.Data.Entity.DbSet<ActivacionClaroVideo> ActivacionClaroVideos { get; set; } // TBL_ACTIVACION_CLARO_VIDEO
         public System.Data.Entity.DbSet<ActivacionSiembraHd> ActivacionSiembraHds { get; set; } // TBL_ACTIVACION_SIEMBRA_HD
+        public System.Data.Entity.DbSet<BalanceScoreCard> BalanceScoreCards { get; set; } // TBL_BALANCE_SCORE_CARD
         public System.Data.Entity.DbSet<BasePersonalHolo> BasePersonalHoloes { get; set; } // TBL_BASE_PERSONAL_HOLOS
         public System.Data.Entity.DbSet<CambioDeEstrato> CambioDeEstratoes { get; set; } // TBL_CAMBIO_DE_ESTRATO
         public System.Data.Entity.DbSet<CierreCiclo> CierreCicloes { get; set; } // TBL_CIERRE_CICLO
         public System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; } // TBL_CLARO_VIDEO
         public System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; } // TBL_CLIENTES_TODOS
+        public System.Data.Entity.DbSet<ClientesTodosCargue> ClientesTodosCargues { get; set; } // TBL_CLIENTES_TODOS_CARGUE
         public System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; } // TBL_CONVENIO_ELECTRONICO
         public System.Data.Entity.DbSet<CreacionDireccion> CreacionDireccions { get; set; } // TBL_CREACION_DIRECCION
+        public System.Data.Entity.DbSet<CuentasMejorOferta> CuentasMejorOfertas { get; set; } // TBL_CUENTAS_MEJOR_OFERTA
         public System.Data.Entity.DbSet<CuentasSiembraHd> CuentasSiembraHds { get; set; } // TBL_CUENTAS_SIEMBRA_HD
         public System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; } // TBL_DATOS_ADICIONALES_CLIENTES
+        public System.Data.Entity.DbSet<DepartamentosCiudade> DepartamentosCiudades { get; set; } // TMP_DEPARTAMENTOS_CIUDADES
+        public System.Data.Entity.DbSet<DistribucionesBlending> DistribucionesBlendings { get; set; } // TBL_DISTRIBUCIONES_BLENDING
         public System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
+        public System.Data.Entity.DbSet<GbcFueraNivele> GbcFueraNiveles { get; set; } // TMP_GBC_FUERA_NIVELES
+        public System.Data.Entity.DbSet<GbcRentabilizacion> GbcRentabilizacions { get; set; } // TMP_GBC_RENTABILIZACION
+        public System.Data.Entity.DbSet<GblFueraNivele> GblFueraNiveles { get; set; } // TBL_GBL_FUERA_NIVELES
+        public System.Data.Entity.DbSet<GblRentabilizacion> GblRentabilizacions { get; set; } // TBL_GBL_RENTABILIZACION
+        public System.Data.Entity.DbSet<GbpFueraNivele> GbpFueraNiveles { get; set; } // TBL_GBP_FUERA_NIVELES
+        public System.Data.Entity.DbSet<GbpRentabilizacion> GbpRentabilizacions { get; set; } // TBL_GBP_RENTABILIZACION
         public System.Data.Entity.DbSet<GestionMatrIx> GestionMatrIces { get; set; } // TBL_GESTION_MATRICES
         public System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; } // TBL_GESTION_OUTBOUND
+        public System.Data.Entity.DbSet<IdIngreso> IdIngresoes { get; set; } // TMP_ID_INGRESOS
         public System.Data.Entity.DbSet<InformacionNodo> InformacionNodoes { get; set; } // TBL_INFORMACION_NODOS
         public System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
         public System.Data.Entity.DbSet<IngresosSoporte> IngresosSoportes { get; set; } // TBL_INGRESOS_SOPORTE
@@ -53,14 +65,22 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
         public System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION
         public System.Data.Entity.DbSet<SiembraHd> SiembraHds { get; set; } // TBL_SIEMBRA_HD
+        public System.Data.Entity.DbSet<SkillsUsuariosBlending> SkillsUsuariosBlendings { get; set; } // TBL_SKILLS_USUARIOS_BLENDING
+        public System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; } // TBL_SMO_RENTA_ACTUAL
+        public System.Data.Entity.DbSet<SmoTarifaActual> SmoTarifaActuals { get; set; } // TBL_SMO_TARIFA_ACTUAL
         public System.Data.Entity.DbSet<Subrazon1IngresoSoporte> Subrazon1IngresoSoporte { get; set; } // TBL_SUBRAZON1_INGRESO_SOPORTE
         public System.Data.Entity.DbSet<Subrazon2IngresoSoporte> Subrazon2IngresoSoporte { get; set; } // TBL_SUBRAZON2_INGRESO_SOPORTE
         public System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; } // sysdiagrams
         public System.Data.Entity.DbSet<TraficoTraslado> TraficoTrasladoes { get; set; } // TBL_TRAFICO_TRASLADO
         public System.Data.Entity.DbSet<TransaccionesTraslado> TransaccionesTrasladoes { get; set; } // TBL_TRANSACCIONES_TRASLADOS
+        public System.Data.Entity.DbSet<TrasladoFallido> TrasladoFallidoes { get; set; } // TBL_TRASLADO_FALLIDO
+        public System.Data.Entity.DbSet<UsabilidadActivacionConvenio> UsabilidadActivacionConvenios { get; set; } // TBL_USABILIDAD_ACTIVACION_CONVENIO
+        public System.Data.Entity.DbSet<UsabilidadBusquedaCliente> UsabilidadBusquedaClientes { get; set; } // TBL_USABILIDAD_BUSQUEDA_CLIENTE
         public System.Data.Entity.DbSet<Usuario> Usuarios { get; set; } // TBL_USUARIOS
+        public System.Data.Entity.DbSet<UsuariosNotificado> UsuariosNotificadoes { get; set; } // TBL_USUARIOS_NOTIFICADOS
         public System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // TBL_USUARIOS_X_ACCESOS
         public System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; } // TBL_USUARIOS_X_PREGUNTAS_DESB
+        public System.Data.Entity.DbSet<VentasSmoInbound> VentasSmoInbounds { get; set; } // TBL_VENTAS_SMO_INBOUND
 
         static DimeContext()
         {
@@ -113,18 +133,30 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new AccesoConfiguration());
             modelBuilder.Configurations.Add(new ActivacionClaroVideoConfiguration());
             modelBuilder.Configurations.Add(new ActivacionSiembraHdConfiguration());
+            modelBuilder.Configurations.Add(new BalanceScoreCardConfiguration());
             modelBuilder.Configurations.Add(new BasePersonalHoloConfiguration());
             modelBuilder.Configurations.Add(new CambioDeEstratoConfiguration());
             modelBuilder.Configurations.Add(new CierreCicloConfiguration());
             modelBuilder.Configurations.Add(new ClaroVideoConfiguration());
             modelBuilder.Configurations.Add(new ClientesTodoConfiguration());
+            modelBuilder.Configurations.Add(new ClientesTodosCargueConfiguration());
             modelBuilder.Configurations.Add(new ConvenioElectronicoConfiguration());
             modelBuilder.Configurations.Add(new CreacionDireccionConfiguration());
+            modelBuilder.Configurations.Add(new CuentasMejorOfertaConfiguration());
             modelBuilder.Configurations.Add(new CuentasSiembraHdConfiguration());
             modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration());
+            modelBuilder.Configurations.Add(new DepartamentosCiudadeConfiguration());
+            modelBuilder.Configurations.Add(new DistribucionesBlendingConfiguration());
             modelBuilder.Configurations.Add(new DocsisOverlapConfiguration());
+            modelBuilder.Configurations.Add(new GbcFueraNiveleConfiguration());
+            modelBuilder.Configurations.Add(new GbcRentabilizacionConfiguration());
+            modelBuilder.Configurations.Add(new GblFueraNiveleConfiguration());
+            modelBuilder.Configurations.Add(new GblRentabilizacionConfiguration());
+            modelBuilder.Configurations.Add(new GbpFueraNiveleConfiguration());
+            modelBuilder.Configurations.Add(new GbpRentabilizacionConfiguration());
             modelBuilder.Configurations.Add(new GestionMatrIxConfiguration());
             modelBuilder.Configurations.Add(new GestionOutboundConfiguration());
+            modelBuilder.Configurations.Add(new IdIngresoConfiguration());
             modelBuilder.Configurations.Add(new InformacionNodoConfiguration());
             modelBuilder.Configurations.Add(new IngresoConfiguration());
             modelBuilder.Configurations.Add(new IngresosSoporteConfiguration());
@@ -145,14 +177,22 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new RechazoConfiguration());
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration());
             modelBuilder.Configurations.Add(new SiembraHdConfiguration());
+            modelBuilder.Configurations.Add(new SkillsUsuariosBlendingConfiguration());
+            modelBuilder.Configurations.Add(new SmoRentaActualConfiguration());
+            modelBuilder.Configurations.Add(new SmoTarifaActualConfiguration());
             modelBuilder.Configurations.Add(new Subrazon1IngresoSoporteConfiguration());
             modelBuilder.Configurations.Add(new Subrazon2IngresoSoporteConfiguration());
             modelBuilder.Configurations.Add(new SysdiagramConfiguration());
             modelBuilder.Configurations.Add(new TraficoTrasladoConfiguration());
             modelBuilder.Configurations.Add(new TransaccionesTrasladoConfiguration());
+            modelBuilder.Configurations.Add(new TrasladoFallidoConfiguration());
+            modelBuilder.Configurations.Add(new UsabilidadActivacionConvenioConfiguration());
+            modelBuilder.Configurations.Add(new UsabilidadBusquedaClienteConfiguration());
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
+            modelBuilder.Configurations.Add(new UsuariosNotificadoConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration());
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration());
+            modelBuilder.Configurations.Add(new VentasSmoInboundConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -160,18 +200,30 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new AccesoConfiguration(schema));
             modelBuilder.Configurations.Add(new ActivacionClaroVideoConfiguration(schema));
             modelBuilder.Configurations.Add(new ActivacionSiembraHdConfiguration(schema));
+            modelBuilder.Configurations.Add(new BalanceScoreCardConfiguration(schema));
             modelBuilder.Configurations.Add(new BasePersonalHoloConfiguration(schema));
             modelBuilder.Configurations.Add(new CambioDeEstratoConfiguration(schema));
             modelBuilder.Configurations.Add(new CierreCicloConfiguration(schema));
             modelBuilder.Configurations.Add(new ClaroVideoConfiguration(schema));
             modelBuilder.Configurations.Add(new ClientesTodoConfiguration(schema));
+            modelBuilder.Configurations.Add(new ClientesTodosCargueConfiguration(schema));
             modelBuilder.Configurations.Add(new ConvenioElectronicoConfiguration(schema));
             modelBuilder.Configurations.Add(new CreacionDireccionConfiguration(schema));
+            modelBuilder.Configurations.Add(new CuentasMejorOfertaConfiguration(schema));
             modelBuilder.Configurations.Add(new CuentasSiembraHdConfiguration(schema));
             modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration(schema));
+            modelBuilder.Configurations.Add(new DepartamentosCiudadeConfiguration(schema));
+            modelBuilder.Configurations.Add(new DistribucionesBlendingConfiguration(schema));
             modelBuilder.Configurations.Add(new DocsisOverlapConfiguration(schema));
+            modelBuilder.Configurations.Add(new GbcFueraNiveleConfiguration(schema));
+            modelBuilder.Configurations.Add(new GbcRentabilizacionConfiguration(schema));
+            modelBuilder.Configurations.Add(new GblFueraNiveleConfiguration(schema));
+            modelBuilder.Configurations.Add(new GblRentabilizacionConfiguration(schema));
+            modelBuilder.Configurations.Add(new GbpFueraNiveleConfiguration(schema));
+            modelBuilder.Configurations.Add(new GbpRentabilizacionConfiguration(schema));
             modelBuilder.Configurations.Add(new GestionMatrIxConfiguration(schema));
             modelBuilder.Configurations.Add(new GestionOutboundConfiguration(schema));
+            modelBuilder.Configurations.Add(new IdIngresoConfiguration(schema));
             modelBuilder.Configurations.Add(new InformacionNodoConfiguration(schema));
             modelBuilder.Configurations.Add(new IngresoConfiguration(schema));
             modelBuilder.Configurations.Add(new IngresosSoporteConfiguration(schema));
@@ -192,14 +244,22 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new RechazoConfiguration(schema));
             modelBuilder.Configurations.Add(new RegistroSesionConfiguration(schema));
             modelBuilder.Configurations.Add(new SiembraHdConfiguration(schema));
+            modelBuilder.Configurations.Add(new SkillsUsuariosBlendingConfiguration(schema));
+            modelBuilder.Configurations.Add(new SmoRentaActualConfiguration(schema));
+            modelBuilder.Configurations.Add(new SmoTarifaActualConfiguration(schema));
             modelBuilder.Configurations.Add(new Subrazon1IngresoSoporteConfiguration(schema));
             modelBuilder.Configurations.Add(new Subrazon2IngresoSoporteConfiguration(schema));
             modelBuilder.Configurations.Add(new SysdiagramConfiguration(schema));
             modelBuilder.Configurations.Add(new TraficoTrasladoConfiguration(schema));
             modelBuilder.Configurations.Add(new TransaccionesTrasladoConfiguration(schema));
+            modelBuilder.Configurations.Add(new TrasladoFallidoConfiguration(schema));
+            modelBuilder.Configurations.Add(new UsabilidadActivacionConvenioConfiguration(schema));
+            modelBuilder.Configurations.Add(new UsabilidadBusquedaClienteConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuarioConfiguration(schema));
+            modelBuilder.Configurations.Add(new UsuariosNotificadoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXAccesoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosXPreguntasDesbConfiguration(schema));
+            modelBuilder.Configurations.Add(new VentasSmoInboundConfiguration(schema));
             return modelBuilder;
         }
         
@@ -432,6 +492,23 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             return procResultData;
         }
 
+        public int ActualizarUsuarioGestionBackTrasladoNoCobertura(decimal? idTransaccion, string usuarioBack)
+        {
+            var idTransaccionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Transaccion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = idTransaccion.GetValueOrDefault(), Precision = 18, Scale = 0 };
+            if (!idTransaccion.HasValue)
+                idTransaccionParam.Value = System.DBNull.Value;
+
+            var usuarioBackParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario_Back", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = usuarioBack, Size = 30 };
+            if (usuarioBackParam.Value == null)
+                usuarioBackParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+ 
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[ACTUALIZAR_USUARIO_GESTION_BACK_TRASLADO_NO_COBERTURA] @Id_Transaccion, @Usuario_Back", idTransaccionParam, usuarioBackParam, procResultParam);
+ 
+            return (int) procResultParam.Value;
+        }
+
         public System.Collections.Generic.List<ActualizarUsuarioGestionOutTrasladoReturnModel> ActualizarUsuarioGestionOutTraslado(decimal? idTransaccion, string usuarioOut)
         {
             int procResult;
@@ -470,7 +547,36 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             return procResultData;
         }
 
-        public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion)
+        public int ApartarCuentaGestionBlending(int? idAsesor, string formulario, string aliado, string operacion, string campana)
+        {
+            var idAsesorParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Asesor", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Input, Value = idAsesor.GetValueOrDefault(), Precision = 10, Scale = 0 };
+            if (!idAsesor.HasValue)
+                idAsesorParam.Value = System.DBNull.Value;
+
+            var formularioParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Formulario", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = formulario, Size = 255 };
+            if (formularioParam.Value == null)
+                formularioParam.Value = System.DBNull.Value;
+
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 255 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var operacionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Operacion", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = operacion, Size = 2255 };
+            if (operacionParam.Value == null)
+                operacionParam.Value = System.DBNull.Value;
+
+            var campanaParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Campana", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = campana, Size = 2255 };
+            if (campanaParam.Value == null)
+                campanaParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+ 
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Apartar_Cuenta_Gestion_Blending] @Id_Asesor, @Formulario, @Aliado, @Operacion, @Campana", idAsesorParam, formularioParam, aliadoParam, operacionParam, campanaParam, procResultParam);
+ 
+            return (int) procResultParam.Value;
+        }
+
+        public int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion, string aliado, string linea)
         {
             var idAsesorParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Id_Asesor", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Input, Value = idAsesor.GetValueOrDefault(), Precision = 10, Scale = 0 };
             if (!idAsesor.HasValue)
@@ -480,11 +586,141 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             if (gestionParam.Value == null)
                 gestionParam.Value = System.DBNull.Value;
 
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var lineaParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Linea", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = linea, Size = 200 };
+            if (lineaParam.Value == null)
+                lineaParam.Value = System.DBNull.Value;
+
             var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
  
-            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[APARTAR_CUENTA_GESTION_OUTBOUND_ASESOR] @Id_Asesor, @Gestion", idAsesorParam, gestionParam, procResultParam);
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[APARTAR_CUENTA_GESTION_OUTBOUND_ASESOR] @Id_Asesor, @Gestion, @Aliado, @Linea", idAsesorParam, gestionParam, aliadoParam, lineaParam, procResultParam);
  
             return (int) procResultParam.Value;
+        }
+
+        public System.Collections.Generic.List<ConsultaGestionSqlReturnModel> ConsultaGestionSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado)
+        {
+            int procResult;
+            return ConsultaGestionSql(fechaInicial, fechaFinal, aliado, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaGestionSqlReturnModel> ConsultaGestionSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado, out int procResult)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial.GetValueOrDefault() };
+            if (!fechaInicial.HasValue)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal.GetValueOrDefault() };
+            if (!fechaFinal.HasValue)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ConsultaGestionSqlReturnModel>("EXEC @procResult = [dbo].[CONSULTA_GESTION_SQL] @Fecha_Inicial, @Fecha_Final, @Aliado", fechaInicialParam, fechaFinalParam, aliadoParam, procResultParam).ToList();
+
+            procResult = (int) procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaGestionSqlReturnModel>> ConsultaGestionSqlAsync(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial.GetValueOrDefault() };
+            if (!fechaInicial.HasValue)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal.GetValueOrDefault() };
+            if (!fechaFinal.HasValue)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ConsultaGestionSqlReturnModel>("EXEC [dbo].[CONSULTA_GESTION_SQL] @Fecha_Inicial, @Fecha_Final, @Aliado", fechaInicialParam, fechaFinalParam, aliadoParam).ToListAsync();
+
+            return procResultData;
+        }
+
+        public System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel> ConsultaPaloteoSql(string fechaInicial, string fechaFinal)
+        {
+            int procResult;
+            return ConsultaPaloteoSql(fechaInicial, fechaFinal, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel> ConsultaPaloteoSql(string fechaInicial, string fechaFinal, out int procResult)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial, Size = 30 };
+            if (fechaInicialParam.Value == null)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal, Size = 30 };
+            if (fechaFinalParam.Value == null)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ConsultaPaloteoSqlReturnModel>("EXEC @procResult = [dbo].[CONSULTA_PALOTEO_SQL] @Fecha_Inicial, @Fecha_Final", fechaInicialParam, fechaFinalParam, procResultParam).ToList();
+
+            procResult = (int) procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel>> ConsultaPaloteoSqlAsync(string fechaInicial, string fechaFinal)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial, Size = 30 };
+            if (fechaInicialParam.Value == null)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal, Size = 30 };
+            if (fechaFinalParam.Value == null)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ConsultaPaloteoSqlReturnModel>("EXEC [dbo].[CONSULTA_PALOTEO_SQL] @Fecha_Inicial, @Fecha_Final", fechaInicialParam, fechaFinalParam).ToListAsync();
+
+            return procResultData;
+        }
+
+        public System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel> ConsultaRechazosAdminSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal)
+        {
+            int procResult;
+            return ConsultaRechazosAdminSql(fechaInicial, fechaFinal, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel> ConsultaRechazosAdminSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, out int procResult)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial.GetValueOrDefault() };
+            if (!fechaInicial.HasValue)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal.GetValueOrDefault() };
+            if (!fechaFinal.HasValue)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ConsultaRechazosAdminSqlReturnModel>("EXEC @procResult = [dbo].[CONSULTA_RECHAZOS_ADMIN_SQL] @Fecha_Inicial, @Fecha_Final", fechaInicialParam, fechaFinalParam, procResultParam).ToList();
+
+            procResult = (int) procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel>> ConsultaRechazosAdminSqlAsync(System.DateTime? fechaInicial, System.DateTime? fechaFinal)
+        {
+            var fechaInicialParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Inicial", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaInicial.GetValueOrDefault() };
+            if (!fechaInicial.HasValue)
+                fechaInicialParam.Value = System.DBNull.Value;
+
+            var fechaFinalParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Fecha_Final", SqlDbType = System.Data.SqlDbType.Date, Direction = System.Data.ParameterDirection.Input, Value = fechaFinal.GetValueOrDefault() };
+            if (!fechaFinal.HasValue)
+                fechaFinalParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ConsultaRechazosAdminSqlReturnModel>("EXEC [dbo].[CONSULTA_RECHAZOS_ADMIN_SQL] @Fecha_Inicial, @Fecha_Final", fechaInicialParam, fechaFinalParam).ToListAsync();
+
+            return procResultData;
         }
 
         public int Consultas(decimal? nombreCab, System.Data.DataTable detalles)
@@ -500,6 +736,15 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
  
             Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Consultas] @Nombre_Cab, @Detalles", nombreCabParam, detallesParam, procResultParam);
+ 
+            return (int) procResultParam.Value;
+        }
+
+        public int ReiniciarGestionBlending()
+        {
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+ 
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[REINICIAR_GESTION_BLENDING] ", procResultParam);
  
             return (int) procResultParam.Value;
         }

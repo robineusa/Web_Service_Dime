@@ -37,7 +37,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string CorreoElectronico { get; set; } // CORREO_ELECTRONICO (length: 200)
 
         // Foreign keys
-        public virtual TransaccionesTraslado TransaccionesTraslado { get; set; } // FK__TBL_CAMBI__ID_TR__634EBE90
+        public virtual TransaccionesTraslado TransaccionesTraslado { get; set; } // FK__TBL_CAMBI__ID_TR__4DE98D56
     }
 
 }

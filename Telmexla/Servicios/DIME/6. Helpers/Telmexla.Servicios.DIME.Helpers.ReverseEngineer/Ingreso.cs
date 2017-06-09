@@ -20,22 +20,22 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public decimal IdIngreso { get; set; } // ID_INGRESO (Primary key)
         public decimal Cuenta { get; set; } // CUENTA
         public double? HomePass { get; set; } // HOME_PASS
-        public string Nombre { get; set; } // NOMBRE (length: 30)
-        public string Apellido { get; set; } // APELLIDO (length: 30)
-        public string Cedula { get; set; } // CEDULA (length: 30)
-        public string Nodo { get; set; } // NODO (length: 10)
-        public string Red { get; set; } // RED (length: 50)
-        public string Division { get; set; } // DIVISION (length: 50)
-        public string Area { get; set; } // AREA (length: 50)
-        public string Zona { get; set; } // ZONA (length: 50)
-        public string Distrito { get; set; } // DISTRITO (length: 50)
-        public string NombreComunidad { get; set; } // NOMBRE_COMUNIDAD (length: 50)
-        public string Departamento { get; set; } // DEPARTAMENTO (length: 50)
-        public string Estrato { get; set; } // ESTRATO (length: 15)
-        public string TipoCliente { get; set; } // TIPO_CLIENTE (length: 15)
-        public string Descripcion { get; set; } // DESCRIPCION (length: 30)
-        public string GrupoSeg { get; set; } // GRUPO_SEG (length: 30)
-        public string Productos { get; set; } // PRODUCTOS (length: 30)
+        public string Nombre { get; set; } // NOMBRE (length: 255)
+        public string Apellido { get; set; } // APELLIDO (length: 255)
+        public string Cedula { get; set; } // CEDULA (length: 255)
+        public string Nodo { get; set; } // NODO (length: 255)
+        public string Red { get; set; } // RED (length: 255)
+        public string Division { get; set; } // DIVISION (length: 255)
+        public string Area { get; set; } // AREA (length: 255)
+        public string Zona { get; set; } // ZONA (length: 255)
+        public string Distrito { get; set; } // DISTRITO (length: 255)
+        public string NombreComunidad { get; set; } // NOMBRE_COMUNIDAD (length: 255)
+        public string Departamento { get; set; } // DEPARTAMENTO (length: 255)
+        public string Estrato { get; set; } // ESTRATO (length: 255)
+        public string TipoCliente { get; set; } // TIPO_CLIENTE (length: 255)
+        public string Descripcion { get; set; } // DESCRIPCION (length: 255)
+        public string GrupoSeg { get; set; } // GRUPO_SEG (length: 255)
+        public string Productos { get; set; } // PRODUCTOS (length: 255)
         public decimal Ticket { get; set; } // TICKET
         public System.DateTime? FechaApertura { get; set; } // FECHA_APERTURA
         public System.DateTime? HoraApertura { get; set; } // HORA_APERTURA
@@ -56,6 +56,15 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string NombreLineaIngreso { get; set; } // NOMBRE_LINEA_INGRESO (length: 50)
         public string NombreLineaEscalado { get; set; } // NOMBRE_LINEA_ESCALADO (length: 50)
         public int? IdServicio { get; set; } // ID_SERVICIO
+        public int? IdIngresoSiriac { get; set; } // ID_INGRESO_SIRIAC
+
+        // Reverse navigation
+        public virtual System.Collections.Generic.ICollection<NotasIngreso> NotasIngresoes { get; set; } // TBL_NOTAS_INGRESO.FK_Id_Ingreso
+
+        public Ingreso()
+        {
+            NotasIngresoes = new System.Collections.Generic.List<NotasIngreso>();
+        }
     }
 
 }

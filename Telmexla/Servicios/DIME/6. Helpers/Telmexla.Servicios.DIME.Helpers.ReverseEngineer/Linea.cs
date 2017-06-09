@@ -22,10 +22,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public int? IdModoLogin { get; set; } // ID_MODO_LOGIN
 
         // Reverse navigation
-        public virtual System.Collections.Generic.ICollection<Usuario> Usuarios { get; set; } // TBL_USUARIOS.FK__TBL_USUAR__ID_LI__0E6E26BF
-
-        // Foreign keys
-        public virtual ModosLogin ModosLogin { get; set; } // FK__TBL_LINEA__ID_MO__1ED998B2
+        public virtual System.Collections.Generic.ICollection<Usuario> Usuarios { get; set; } // TBL_USUARIOS.FK__TBL_USUAR__ID_LI__68D28DBC
 
         public Linea()
         {

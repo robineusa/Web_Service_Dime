@@ -35,11 +35,11 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string NombreLineaEscalado { get; set; } // NOMBRE_LINEA_ESCALADO (length: 50)
 
         // Reverse navigation
-        public virtual System.Collections.Generic.ICollection<CambioDeEstrato> CambioDeEstratoes { get; set; } // TBL_CAMBIO_DE_ESTRATO.FK__TBL_CAMBI__ID_TR__634EBE90
-        public virtual System.Collections.Generic.ICollection<CreacionDireccion> CreacionDireccions { get; set; } // TBL_CREACION_DIRECCION.FK__TBL_CREAC__ID_TR__56E8E7AB
-        public virtual System.Collections.Generic.ICollection<GestionMatrIx> GestionMatrIces_IdTransaccion { get; set; } // TBL_GESTION_MATRICES.FK__TBL_GESTI__ID_TR__02C769E9
-        public virtual System.Collections.Generic.ICollection<GestionMatrIx> GestionMatrIces1 { get; set; } // TBL_GESTION_MATRICES.FK__TBL_GESTI__ID_TR__7C1A6C5A
-        public virtual System.Collections.Generic.ICollection<LiberacionDeHomepass> LiberacionDeHomepasses { get; set; } // TBL_LIBERACION_DE_HOMEPASS.FK__TBL_LIBER__ID_TR__76619304
+        public virtual System.Collections.Generic.ICollection<CambioDeEstrato> CambioDeEstratoes { get; set; } // TBL_CAMBIO_DE_ESTRATO.FK__TBL_CAMBI__ID_TR__4DE98D56
+        public virtual System.Collections.Generic.ICollection<CreacionDireccion> CreacionDireccions { get; set; } // TBL_CREACION_DIRECCION.FK__TBL_CREAC__ID_TR__4B0D20AB
+        public virtual System.Collections.Generic.ICollection<GestionMatrIx> GestionMatrIces_IdTransaccion { get; set; } // TBL_GESTION_MATRICES.FK__TBL_GESTI__ID_TR__473C8FC7
+        public virtual System.Collections.Generic.ICollection<GestionMatrIx> GestionMatrIces1 { get; set; } // TBL_GESTION_MATRICES.FK__TBL_GESTI__ID_TR__4830B400
+        public virtual System.Collections.Generic.ICollection<LiberacionDeHomepass> LiberacionDeHomepasses { get; set; } // TBL_LIBERACION_DE_HOMEPASS.FK__TBL_LIBER__ID_TR__4460231C
 
         public TransaccionesTraslado()
         {

@@ -40,7 +40,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.IdLinea).HasColumnName(@"ID_LINEA").IsOptional().HasColumnType("int");
 
             // Foreign keys
-            HasOptional(a => a.Linea).WithMany(b => b.Usuarios).HasForeignKey(c => c.IdLinea).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_LI__0E6E26BF
+            HasOptional(a => a.Linea).WithMany(b => b.Usuarios).HasForeignKey(c => c.IdLinea).WillCascadeOnDelete(false); // FK__TBL_USUAR__ID_LI__68D28DBC
         }
     }
 

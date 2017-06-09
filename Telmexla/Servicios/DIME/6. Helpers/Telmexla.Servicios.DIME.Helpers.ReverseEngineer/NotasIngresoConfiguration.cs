@@ -25,7 +25,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public NotasIngresoConfiguration(string schema)
         {
             ToTable("TBL_NOTAS_INGRESO", schema);
-            HasKey(x => new { x.IdNota, x.CuentaCliente, x.NombreLineaNota });
+            HasKey(x => x.IdNota);
 
             Property(x => x.IdNota).HasColumnName(@"ID_NOTA").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.IdIngreso).HasColumnName(@"ID_INGRESO").IsOptional().HasColumnType("numeric");
@@ -38,6 +38,9 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.LlamadaCliente).HasColumnName(@"LLAMADA_CLIENTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(2);
             Property(x => x.Nota).HasColumnName(@"NOTA").IsOptional().HasColumnType("ntext").IsMaxLength();
             Property(x => x.IdEstado).HasColumnName(@"ID_ESTADO").IsOptional().HasColumnType("int");
+
+            // Foreign keys
+            HasOptional(a => a.Ingreso).WithMany(b => b.NotasIngresoes).HasForeignKey(c => c.IdIngreso).WillCascadeOnDelete(false); // FK_Id_Ingreso
         }
     }
 

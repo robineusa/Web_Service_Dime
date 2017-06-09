@@ -7,7 +7,7 @@
 // Do not make changes directly to this file - edit the template instead.
 //
 // The following connection settings were used to generate this file:
-//     Configuration file:     "6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\App.config"
+//     Configuration file:     "1. Ejecucion de WebService\Telmexla.Servicios.DIME.Ejecutor\App.config"
 //     Connection String Name: "MaestrosContext"
 //     Connection String:      "Data Source=172.18.175.54;Initial Catalog=MAESTROS;User ID=JPESA;password=**zapped**;"J@ZGNZhc87 ""
 // ------------------------------------------------------------------------------------------------

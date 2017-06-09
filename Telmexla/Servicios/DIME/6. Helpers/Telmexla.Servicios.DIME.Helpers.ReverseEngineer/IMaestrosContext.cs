@@ -26,6 +26,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         System.Data.Entity.DbSet<MaestroEstadoMarcacion> MaestroEstadoMarcacions { get; set; } // MAESTRO_ESTADO_MARCACION
         System.Data.Entity.DbSet<MaestroGestion> MaestroGestions { get; set; } // MAESTRO_GESTION
         System.Data.Entity.DbSet<MaestroHipotesi> MaestroHipotesis { get; set; } // MAESTRO_HIPOTESIS
+        System.Data.Entity.DbSet<MaestroLineasBlending> MaestroLineasBlendings { get; set; } // MAESTRO_LINEAS_BLENDING
         System.Data.Entity.DbSet<MaestroOutboundCausa> MaestroOutboundCausas { get; set; } // MAESTRO_OUTBOUND_CAUSA
         System.Data.Entity.DbSet<MaestroOutboundCierre> MaestroOutboundCierres { get; set; } // MAESTRO_OUTBOUND_CIERRE
         System.Data.Entity.DbSet<MaestroOutboundCierre2> MaestroOutboundCierre2 { get; set; } // MAESTRO_OUTBOUND_CIERRE_2

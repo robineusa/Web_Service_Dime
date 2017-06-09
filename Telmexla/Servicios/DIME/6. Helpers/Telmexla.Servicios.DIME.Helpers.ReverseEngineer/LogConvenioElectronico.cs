@@ -24,22 +24,22 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string AliadoGestion { get; set; } // ALIADO_GESTION (length: 50)
         public string LineaGestion { get; set; } // LINEA_GESTION (length: 50)
         public decimal? CuentaCliente { get; set; } // CUENTA_CLIENTE
-        public string NombreCliente { get; set; } // NOMBRE_CLIENTE (length: 50)
-        public string ApellidoCliente { get; set; } // APELLIDO_CLIENTE (length: 50)
-        public string DireccionInstalacion { get; set; } // DIRECCION_INSTALACION (length: 100)
-        public string DireccionCorrespondenciaActual { get; set; } // DIRECCION_CORRESPONDENCIA_ACTUAL (length: 100)
+        public string NombreCliente { get; set; } // NOMBRE_CLIENTE (length: 255)
+        public string ApellidoCliente { get; set; } // APELLIDO_CLIENTE (length: 255)
+        public string DireccionInstalacion { get; set; } // DIRECCION_INSTALACION (length: 1000)
+        public string DireccionCorrespondenciaActual { get; set; } // DIRECCION_CORRESPONDENCIA_ACTUAL (length: 1000)
         public decimal? TelefonoTelmex { get; set; } // TELEFONO_TELMEX
         public decimal? Telefono1 { get; set; } // TELEFONO_1
         public decimal? Telefono2 { get; set; } // TELEFONO_2
         public decimal? Telefono3 { get; set; } // TELEFONO_3
         public decimal? MovilActual { get; set; } // MOVIL_ACTUAL
-        public string CorreoActual { get; set; } // CORREO_ACTUAL (length: 100)
+        public string CorreoActual { get; set; } // CORREO_ACTUAL (length: 255)
         public string TipoContacto { get; set; } // TIPO_CONTACTO (length: 50)
         public string Cierre { get; set; } // CIERRE (length: 100)
         public string Razon { get; set; } // RAZON (length: 100)
         public decimal? MovilNuevo { get; set; } // MOVIL_NUEVO
-        public string NuevoCorreo { get; set; } // NUEVO_CORREO (length: 100)
-        public string NuevaDireccionCorrespondencia { get; set; } // NUEVA_DIRECCION_CORRESPONDENCIA (length: 100)
+        public string NuevoCorreo { get; set; } // NUEVO_CORREO (length: 255)
+        public string NuevaDireccionCorrespondencia { get; set; } // NUEVA_DIRECCION_CORRESPONDENCIA (length: 1000)
         public string Seguimiento { get; set; } // SEGUIMIENTO (length: 2)
         public System.DateTime? FechaSeguimiento { get; set; } // FECHA_SEGUIMIENTO
     }

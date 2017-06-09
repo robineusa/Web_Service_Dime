@@ -32,10 +32,11 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.NombreNodo).HasColumnName(@"NOMBRE_NODO").IsOptional().HasColumnType("nvarchar").HasMaxLength(100);
             Property(x => x.Div).HasColumnName(@"DIV").IsOptional().HasColumnType("nvarchar").HasMaxLength(10);
             Property(x => x.Com).HasColumnName(@"COM").IsOptional().HasColumnType("nvarchar").HasMaxLength(10);
-            Property(x => x.Divisional).HasColumnName(@"DIVISIONAL").IsOptional().HasColumnType("numeric");
-            Property(x => x.Area).HasColumnName(@"AREA").IsOptional().HasColumnType("numeric");
-            Property(x => x.Distrito).HasColumnName(@"DISTRITO").IsOptional().HasColumnType("numeric");
-            Property(x => x.Ugestion).HasColumnName(@"UGESTION").IsOptional().HasColumnType("numeric");
+            Property(x => x.Divisional).HasColumnName(@"DIVISIONAL").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
+            Property(x => x.Area).HasColumnName(@"AREA").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
+            Property(x => x.Zona).HasColumnName(@"ZONA").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
+            Property(x => x.Distrito).HasColumnName(@"DISTRITO").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
+            Property(x => x.Ugestion).HasColumnName(@"UGESTION").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
             Property(x => x.Usuario).HasColumnName(@"USUARIO").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);
             Property(x => x.FechaCreacion).HasColumnName(@"FECHA_CREACION").IsOptional().HasColumnType("datetime");
             Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().HasColumnType("nvarchar").HasMaxLength(30);

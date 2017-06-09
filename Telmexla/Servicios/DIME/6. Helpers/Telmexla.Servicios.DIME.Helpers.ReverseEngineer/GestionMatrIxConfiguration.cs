@@ -52,8 +52,8 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.UsuarioBackofficeGestion).HasColumnName(@"USUARIO_BACKOFFICE_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
 
             // Foreign keys
-            HasRequired(a => a.TransaccionesTraslado_IdTransaccion).WithMany(b => b.GestionMatrIces_IdTransaccion).HasForeignKey(c => c.IdTransaccion).WillCascadeOnDelete(false); // FK__TBL_GESTI__ID_TR__02C769E9
-            HasRequired(a => a.TransaccionesTraslado1).WithMany(b => b.GestionMatrIces1).HasForeignKey(c => c.IdTransaccion).WillCascadeOnDelete(false); // FK__TBL_GESTI__ID_TR__7C1A6C5A
+            HasRequired(a => a.TransaccionesTraslado_IdTransaccion).WithMany(b => b.GestionMatrIces_IdTransaccion).HasForeignKey(c => c.IdTransaccion).WillCascadeOnDelete(false); // FK__TBL_GESTI__ID_TR__473C8FC7
+            HasRequired(a => a.TransaccionesTraslado1).WithMany(b => b.GestionMatrIces1).HasForeignKey(c => c.IdTransaccion).WillCascadeOnDelete(false); // FK__TBL_GESTI__ID_TR__4830B400
         }
     }
 

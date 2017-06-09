@@ -22,10 +22,11 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string NombreNodo { get; set; } // NOMBRE_NODO (length: 100)
         public string Div { get; set; } // DIV (length: 10)
         public string Com { get; set; } // COM (length: 10)
-        public decimal? Divisional { get; set; } // DIVISIONAL
-        public decimal? Area { get; set; } // AREA
-        public decimal? Distrito { get; set; } // DISTRITO
-        public decimal? Ugestion { get; set; } // UGESTION
+        public string Divisional { get; set; } // DIVISIONAL (length: 30)
+        public string Area { get; set; } // AREA (length: 30)
+        public string Zona { get; set; } // ZONA (length: 30)
+        public string Distrito { get; set; } // DISTRITO (length: 30)
+        public string Ugestion { get; set; } // UGESTION (length: 30)
         public string Usuario { get; set; } // USUARIO (length: 30)
         public System.DateTime? FechaCreacion { get; set; } // FECHA_CREACION
         public string Estado { get; set; } // ESTADO (length: 30)

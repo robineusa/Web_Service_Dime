@@ -29,6 +29,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public System.Data.Entity.DbSet<MaestroEstadoMarcacion> MaestroEstadoMarcacions { get; set; } // MAESTRO_ESTADO_MARCACION
         public System.Data.Entity.DbSet<MaestroGestion> MaestroGestions { get; set; } // MAESTRO_GESTION
         public System.Data.Entity.DbSet<MaestroHipotesi> MaestroHipotesis { get; set; } // MAESTRO_HIPOTESIS
+        public System.Data.Entity.DbSet<MaestroLineasBlending> MaestroLineasBlendings { get; set; } // MAESTRO_LINEAS_BLENDING
         public System.Data.Entity.DbSet<MaestroOutboundCausa> MaestroOutboundCausas { get; set; } // MAESTRO_OUTBOUND_CAUSA
         public System.Data.Entity.DbSet<MaestroOutboundCierre> MaestroOutboundCierres { get; set; } // MAESTRO_OUTBOUND_CIERRE
         public System.Data.Entity.DbSet<MaestroOutboundCierre2> MaestroOutboundCierre2 { get; set; } // MAESTRO_OUTBOUND_CIERRE_2
@@ -109,6 +110,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new MaestroEstadoMarcacionConfiguration());
             modelBuilder.Configurations.Add(new MaestroGestionConfiguration());
             modelBuilder.Configurations.Add(new MaestroHipotesiConfiguration());
+            modelBuilder.Configurations.Add(new MaestroLineasBlendingConfiguration());
             modelBuilder.Configurations.Add(new MaestroOutboundCausaConfiguration());
             modelBuilder.Configurations.Add(new MaestroOutboundCierreConfiguration());
             modelBuilder.Configurations.Add(new MaestroOutboundCierre2Configuration());
@@ -144,6 +146,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             modelBuilder.Configurations.Add(new MaestroEstadoMarcacionConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroGestionConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroHipotesiConfiguration(schema));
+            modelBuilder.Configurations.Add(new MaestroLineasBlendingConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroOutboundCausaConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroOutboundCierreConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroOutboundCierre2Configuration(schema));

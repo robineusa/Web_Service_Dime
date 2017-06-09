@@ -24,11 +24,11 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string AliadoGestion { get; set; } // ALIADO_GESTION (length: 50)
         public string OperacionGestion { get; set; } // OPERACION_GESTION (length: 100)
         public decimal? CuentaCliente { get; set; } // CUENTA_CLIENTE
-        public string NombreCliente { get; set; } // NOMBRE_CLIENTE (length: 1000)
-        public string ApellidoCliente { get; set; } // APELLIDO_CLIENTE (length: 100)
-        public string DireccionInstalacion { get; set; } // DIRECCION_INSTALACION (length: 100)
-        public string DireccionCorrespondencia { get; set; } // DIRECCION_CORRESPONDENCIA (length: 100)
-        public string CorreoElectronico { get; set; } // CORREO_ELECTRONICO (length: 100)
+        public string NombreCliente { get; set; } // NOMBRE_CLIENTE (length: 255)
+        public string ApellidoCliente { get; set; } // APELLIDO_CLIENTE (length: 255)
+        public string DireccionInstalacion { get; set; } // DIRECCION_INSTALACION (length: 1000)
+        public string DireccionCorrespondencia { get; set; } // DIRECCION_CORRESPONDENCIA (length: 1000)
+        public string CorreoElectronico { get; set; } // CORREO_ELECTRONICO (length: 255)
         public decimal? Telefono1 { get; set; } // TELEFONO_1
         public decimal? Telefono2 { get; set; } // TELEFONO_2
         public decimal? Telefono3 { get; set; } // TELEFONO_3

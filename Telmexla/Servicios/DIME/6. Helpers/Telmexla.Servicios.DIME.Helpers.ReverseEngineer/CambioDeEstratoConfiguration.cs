@@ -47,7 +47,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.CorreoElectronico).HasColumnName(@"CORREO_ELECTRONICO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(200);
 
             // Foreign keys
-            HasRequired(a => a.TransaccionesTraslado).WithMany(b => b.CambioDeEstratoes).HasForeignKey(c => c.IdTransaccion).WillCascadeOnDelete(false); // FK__TBL_CAMBI__ID_TR__634EBE90
+            HasRequired(a => a.TransaccionesTraslado).WithMany(b => b.CambioDeEstratoes).HasForeignKey(c => c.IdTransaccion).WillCascadeOnDelete(false); // FK__TBL_CAMBI__ID_TR__4DE98D56
         }
     }
 

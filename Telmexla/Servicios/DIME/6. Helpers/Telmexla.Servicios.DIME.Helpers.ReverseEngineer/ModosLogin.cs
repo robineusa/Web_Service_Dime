@@ -22,12 +22,10 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
 
         // Reverse navigation
         public virtual System.Collections.Generic.ICollection<Acceso> Accesoes { get; set; } // TBL_ACCESOS.FK__TBL_ACCES__ID_MO__1DE57479
-        public virtual System.Collections.Generic.ICollection<Linea> Lineas { get; set; } // TBL_LINEA.FK__TBL_LINEA__ID_MO__1ED998B2
 
         public ModosLogin()
         {
             Accesoes = new System.Collections.Generic.List<Acceso>();
-            Lineas = new System.Collections.Generic.List<Linea>();
         }
     }
 

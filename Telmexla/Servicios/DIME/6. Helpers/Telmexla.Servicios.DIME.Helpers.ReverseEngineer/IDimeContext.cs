@@ -18,18 +18,30 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         System.Data.Entity.DbSet<Acceso> Accesoes { get; set; } // TBL_ACCESOS
         System.Data.Entity.DbSet<ActivacionClaroVideo> ActivacionClaroVideos { get; set; } // TBL_ACTIVACION_CLARO_VIDEO
         System.Data.Entity.DbSet<ActivacionSiembraHd> ActivacionSiembraHds { get; set; } // TBL_ACTIVACION_SIEMBRA_HD
+        System.Data.Entity.DbSet<BalanceScoreCard> BalanceScoreCards { get; set; } // TBL_BALANCE_SCORE_CARD
         System.Data.Entity.DbSet<BasePersonalHolo> BasePersonalHoloes { get; set; } // TBL_BASE_PERSONAL_HOLOS
         System.Data.Entity.DbSet<CambioDeEstrato> CambioDeEstratoes { get; set; } // TBL_CAMBIO_DE_ESTRATO
         System.Data.Entity.DbSet<CierreCiclo> CierreCicloes { get; set; } // TBL_CIERRE_CICLO
         System.Data.Entity.DbSet<ClaroVideo> ClaroVideos { get; set; } // TBL_CLARO_VIDEO
         System.Data.Entity.DbSet<ClientesTodo> ClientesTodoes { get; set; } // TBL_CLIENTES_TODOS
+        System.Data.Entity.DbSet<ClientesTodosCargue> ClientesTodosCargues { get; set; } // TBL_CLIENTES_TODOS_CARGUE
         System.Data.Entity.DbSet<ConvenioElectronico> ConvenioElectronicoes { get; set; } // TBL_CONVENIO_ELECTRONICO
         System.Data.Entity.DbSet<CreacionDireccion> CreacionDireccions { get; set; } // TBL_CREACION_DIRECCION
+        System.Data.Entity.DbSet<CuentasMejorOferta> CuentasMejorOfertas { get; set; } // TBL_CUENTAS_MEJOR_OFERTA
         System.Data.Entity.DbSet<CuentasSiembraHd> CuentasSiembraHds { get; set; } // TBL_CUENTAS_SIEMBRA_HD
         System.Data.Entity.DbSet<DatosAdicionalesCliente> DatosAdicionalesClientes { get; set; } // TBL_DATOS_ADICIONALES_CLIENTES
+        System.Data.Entity.DbSet<DepartamentosCiudade> DepartamentosCiudades { get; set; } // TMP_DEPARTAMENTOS_CIUDADES
+        System.Data.Entity.DbSet<DistribucionesBlending> DistribucionesBlendings { get; set; } // TBL_DISTRIBUCIONES_BLENDING
         System.Data.Entity.DbSet<DocsisOverlap> DocsisOverlaps { get; set; } // TBL_DOCSIS_OVERLAP
+        System.Data.Entity.DbSet<GbcFueraNivele> GbcFueraNiveles { get; set; } // TMP_GBC_FUERA_NIVELES
+        System.Data.Entity.DbSet<GbcRentabilizacion> GbcRentabilizacions { get; set; } // TMP_GBC_RENTABILIZACION
+        System.Data.Entity.DbSet<GblFueraNivele> GblFueraNiveles { get; set; } // TBL_GBL_FUERA_NIVELES
+        System.Data.Entity.DbSet<GblRentabilizacion> GblRentabilizacions { get; set; } // TBL_GBL_RENTABILIZACION
+        System.Data.Entity.DbSet<GbpFueraNivele> GbpFueraNiveles { get; set; } // TBL_GBP_FUERA_NIVELES
+        System.Data.Entity.DbSet<GbpRentabilizacion> GbpRentabilizacions { get; set; } // TBL_GBP_RENTABILIZACION
         System.Data.Entity.DbSet<GestionMatrIx> GestionMatrIces { get; set; } // TBL_GESTION_MATRICES
         System.Data.Entity.DbSet<GestionOutbound> GestionOutbounds { get; set; } // TBL_GESTION_OUTBOUND
+        System.Data.Entity.DbSet<IdIngreso> IdIngresoes { get; set; } // TMP_ID_INGRESOS
         System.Data.Entity.DbSet<InformacionNodo> InformacionNodoes { get; set; } // TBL_INFORMACION_NODOS
         System.Data.Entity.DbSet<Ingreso> Ingresoes { get; set; } // TBL_INGRESOS
         System.Data.Entity.DbSet<IngresosSoporte> IngresosSoportes { get; set; } // TBL_INGRESOS_SOPORTE
@@ -50,14 +62,22 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         System.Data.Entity.DbSet<Rechazo> Rechazoes { get; set; } // TBL_RECHAZOS
         System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION
         System.Data.Entity.DbSet<SiembraHd> SiembraHds { get; set; } // TBL_SIEMBRA_HD
+        System.Data.Entity.DbSet<SkillsUsuariosBlending> SkillsUsuariosBlendings { get; set; } // TBL_SKILLS_USUARIOS_BLENDING
+        System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; } // TBL_SMO_RENTA_ACTUAL
+        System.Data.Entity.DbSet<SmoTarifaActual> SmoTarifaActuals { get; set; } // TBL_SMO_TARIFA_ACTUAL
         System.Data.Entity.DbSet<Subrazon1IngresoSoporte> Subrazon1IngresoSoporte { get; set; } // TBL_SUBRAZON1_INGRESO_SOPORTE
         System.Data.Entity.DbSet<Subrazon2IngresoSoporte> Subrazon2IngresoSoporte { get; set; } // TBL_SUBRAZON2_INGRESO_SOPORTE
         System.Data.Entity.DbSet<Sysdiagram> Sysdiagrams { get; set; } // sysdiagrams
         System.Data.Entity.DbSet<TraficoTraslado> TraficoTrasladoes { get; set; } // TBL_TRAFICO_TRASLADO
         System.Data.Entity.DbSet<TransaccionesTraslado> TransaccionesTrasladoes { get; set; } // TBL_TRANSACCIONES_TRASLADOS
+        System.Data.Entity.DbSet<TrasladoFallido> TrasladoFallidoes { get; set; } // TBL_TRASLADO_FALLIDO
+        System.Data.Entity.DbSet<UsabilidadActivacionConvenio> UsabilidadActivacionConvenios { get; set; } // TBL_USABILIDAD_ACTIVACION_CONVENIO
+        System.Data.Entity.DbSet<UsabilidadBusquedaCliente> UsabilidadBusquedaClientes { get; set; } // TBL_USABILIDAD_BUSQUEDA_CLIENTE
         System.Data.Entity.DbSet<Usuario> Usuarios { get; set; } // TBL_USUARIOS
+        System.Data.Entity.DbSet<UsuariosNotificado> UsuariosNotificadoes { get; set; } // TBL_USUARIOS_NOTIFICADOS
         System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // TBL_USUARIOS_X_ACCESOS
         System.Data.Entity.DbSet<UsuariosXPreguntasDesb> UsuariosXPreguntasDesbs { get; set; } // TBL_USUARIOS_X_PREGUNTAS_DESB
+        System.Data.Entity.DbSet<VentasSmoInbound> VentasSmoInbounds { get; set; } // TBL_VENTAS_SMO_INBOUND
 
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();
@@ -88,15 +108,36 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel> ActualizarUsuarioGestionBackTraslado(decimal? idTransaccion, string usuarioBack, out int procResult);
         System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionBackTrasladoReturnModel>> ActualizarUsuarioGestionBackTrasladoAsync(decimal? idTransaccion, string usuarioBack);
 
+        int ActualizarUsuarioGestionBackTrasladoNoCobertura(decimal? idTransaccion, string usuarioBack);
+        // ActualizarUsuarioGestionBackTrasladoNoCoberturaAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
+
         System.Collections.Generic.List<ActualizarUsuarioGestionOutTrasladoReturnModel> ActualizarUsuarioGestionOutTraslado(decimal? idTransaccion, string usuarioOut);
         System.Collections.Generic.List<ActualizarUsuarioGestionOutTrasladoReturnModel> ActualizarUsuarioGestionOutTraslado(decimal? idTransaccion, string usuarioOut, out int procResult);
         System.Threading.Tasks.Task<System.Collections.Generic.List<ActualizarUsuarioGestionOutTrasladoReturnModel>> ActualizarUsuarioGestionOutTrasladoAsync(decimal? idTransaccion, string usuarioOut);
 
-        int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion);
+        int ApartarCuentaGestionBlending(int? idAsesor, string formulario, string aliado, string operacion, string campana);
+        // ApartarCuentaGestionBlendingAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
+
+        int ApartarCuentaGestionOutboundAsesor(int? idAsesor, string gestion, string aliado, string linea);
         // ApartarCuentaGestionOutboundAsesorAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
+
+        System.Collections.Generic.List<ConsultaGestionSqlReturnModel> ConsultaGestionSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado);
+        System.Collections.Generic.List<ConsultaGestionSqlReturnModel> ConsultaGestionSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado, out int procResult);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaGestionSqlReturnModel>> ConsultaGestionSqlAsync(System.DateTime? fechaInicial, System.DateTime? fechaFinal, string aliado);
+
+        System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel> ConsultaPaloteoSql(string fechaInicial, string fechaFinal);
+        System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel> ConsultaPaloteoSql(string fechaInicial, string fechaFinal, out int procResult);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaPaloteoSqlReturnModel>> ConsultaPaloteoSqlAsync(string fechaInicial, string fechaFinal);
+
+        System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel> ConsultaRechazosAdminSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal);
+        System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel> ConsultaRechazosAdminSql(System.DateTime? fechaInicial, System.DateTime? fechaFinal, out int procResult);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaRechazosAdminSqlReturnModel>> ConsultaRechazosAdminSqlAsync(System.DateTime? fechaInicial, System.DateTime? fechaFinal);
 
         int Consultas(decimal? nombreCab, System.Data.DataTable detalles);
         // ConsultasAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
+
+        int ReiniciarGestionBlending();
+        // ReiniciarGestionBlendingAsync cannot be created due to having out parameters, or is relying on the procedure result (int)
 
     }
 

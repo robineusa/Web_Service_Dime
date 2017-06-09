@@ -30,9 +30,6 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Nombre).HasColumnName(@"NOMBRE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.IdModoLogin).HasColumnName(@"ID_MODO_LOGIN").IsOptional().HasColumnType("int");
-
-            // Foreign keys
-            HasOptional(a => a.ModosLogin).WithMany(b => b.Lineas).HasForeignKey(c => c.IdModoLogin).WillCascadeOnDelete(false); // FK__TBL_LINEA__ID_MO__1ED998B2
         }
     }
 

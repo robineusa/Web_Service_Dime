@@ -18,8 +18,8 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
     public class UsuariosXAcceso
     {
         public int Id { get; set; } // ID (Primary key)
-        public int IdUsuario { get; set; } // ID_USUARIO (Primary key)
-        public int IdAcceso { get; set; } // ID_ACCESO (Primary key)
+        public int IdUsuario { get; set; } // ID_USUARIO
+        public int IdAcceso { get; set; } // ID_ACCESO
         public int? IdUserCambioo { get; set; } // ID_USER_CAMBIOO
         public System.DateTime? FechaCreacion { get; set; } // FECHA_CREACION
         public System.TimeSpan? HoraCreacion { get; set; } // HORA_CREACION
@@ -27,8 +27,8 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string IpPrivadaCreacion { get; set; } // IP_PRIVADA_CREACION (length: 15)
 
         // Foreign keys
-        public virtual Acceso Acceso { get; set; } // FK__TBL_USUAR__ID_AC__20C1E124
-        public virtual Usuario Usuario { get; set; } // FK__TBL_USUAR__ID_US__21B6055D
+        public virtual Acceso Acceso { get; set; } // FK__TBL_USUAR__ID_AC__52E34C9D
+        public virtual Usuario Usuario { get; set; } // FK__TBL_USUAR__ID_US__53D770D6
     }
 
 }

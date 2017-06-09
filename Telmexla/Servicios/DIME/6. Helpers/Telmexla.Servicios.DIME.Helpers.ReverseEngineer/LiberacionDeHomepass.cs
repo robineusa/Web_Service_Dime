@@ -37,7 +37,7 @@ namespace Telmexla.Servicios.DIME.Helpers.ReverseEngineer
         public string MotivoLiberacion { get; set; } // MOTIVO_LIBERACION (length: 100)
 
         // Foreign keys
-        public virtual TransaccionesTraslado TransaccionesTraslado { get; set; } // FK__TBL_LIBER__ID_TR__76619304
+        public virtual TransaccionesTraslado TransaccionesTraslado { get; set; } // FK__TBL_LIBER__ID_TR__4460231C
     }
 
 }
