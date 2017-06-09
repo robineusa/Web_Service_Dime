@@ -57,6 +57,9 @@ namespace Telmexla.Servicios.DIME.Data
             distribucionesBlending = new DistribucionBlendingRepository(this.dimeContext);
             GBPFueradeNiveles = new GBPFueraNivelesRepository(this.dimeContext);
             GBLFueradeNiveles = new GBLFueraNivelesRepository(this.dimeContext);
+            GBLRentabilizacion = new GBLRentabilizacionRepository(this.dimeContext);
+            GBPRentabilizacion = new GBPRentabilizacionRepository(this.dimeContext);
+            GBCRentabilizacion = new GBCRentabilizacionRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -233,6 +236,18 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IGBLFueraNivelesRepository GBLFueradeNiveles
+        {
+            get; private set;
+        }
+        public IGBLRentabilizacionRepository GBLRentabilizacion
+        {
+            get; private set;
+        }
+        public IGBPRentabilizacionRepository GBPRentabilizacion
+        {
+            get; private set;
+        }
+        public IGBCRentabilizacionRepository GBCRentabilizacion
         {
             get; private set;
         }

@@ -75,6 +75,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<DistribucionBlending> DistribucionBlendings { get; set; } // TBL_DISTRIBUCIONES_BLENDING
         public System.Data.Entity.DbSet<GBPFueraNiveles> GBPFueradeNiveles { get; set; } // TBL_GBP_FUERA_NIVELES
         public System.Data.Entity.DbSet<GBLFueraNiveles> GBLFueradeNiveles { get; set; } // TBL_GBL_FUERA_NIVELES
+        public System.Data.Entity.DbSet<GBPRentabilizacion> GBPRentabilizacion { get; set; } // TBL_GBP_RENTABILIZACON
+        public System.Data.Entity.DbSet<GBLRentabilizacion> GBLRentabilizacion { get; set; } // TBL_GBL_RENTABILIZACON
+        public System.Data.Entity.DbSet<GBC_Rentabilizacion> GBCRentabilizacion { get; set; } // TMP_GBC_RENTABILIZACON
 
         static DimeContext()
         {
@@ -182,6 +185,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new DistribucionBlendingConfiguration());
             modelBuilder.Configurations.Add(new GBPFueraNivelesConfiguration());
             modelBuilder.Configurations.Add(new GBLFueraNivelesConfiguration());
+            modelBuilder.Configurations.Add(new GBLRentabilizacionConfiguration());
+            modelBuilder.Configurations.Add(new GBPRentabilizacionConfiguration());
+            modelBuilder.Configurations.Add(new GBCRentabilizacionConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -242,6 +248,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new DistribucionBlendingConfiguration(schema));
             modelBuilder.Configurations.Add(new GBPFueraNivelesConfiguration(schema));
             modelBuilder.Configurations.Add(new GBLFueraNivelesConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBLRentabilizacionConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBPRentabilizacionConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBCRentabilizacionConfiguration(schema));
             return modelBuilder;
         }
 
