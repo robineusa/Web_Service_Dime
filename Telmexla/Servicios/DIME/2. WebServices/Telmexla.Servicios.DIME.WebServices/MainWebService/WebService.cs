@@ -1291,7 +1291,68 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return distribucionesBlendingService.ConsultaAdminFueraNivelesL(FechaInicial, FechaFinal);
         }
 
-            #endregion
-
+        //GESTION BLENDING RENTABILIZACION
+        public GBC_Rentabilizacion TraerInformacionCuentaRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraerInformacionCuentaRentabilizacion(CuentaCliente);
         }
+        public void InsertarRegistroRentabilizacion(GBPRentabilizacion PRentabilizacion)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            distribucionesBlendingService.InsertarRegistroRentabilizacion(PRentabilizacion);
+        }
+        public void ActualizarGestionRentabilizacion(GBPRentabilizacion PRentabilizacion)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            distribucionesBlendingService.ActualizarGestionRentabilizacion(PRentabilizacion);
+        }
+        public bool ValidarCuentaEnRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ValidarCuentaEnRentabilizacion(CuentaCliente);
+        }
+        public GBPRentabilizacion TraeInformacionActualRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeInformacionActualRentabilizacion(CuentaCliente);
+        }
+        public List<GBLRentabilizacion> TraeListaGestionUsuarioRentabilizacion(string Usuario)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeListaGestionUsuarioRentabilizacion(Usuario);
+        }
+        public List<GBPRentabilizacion> TraeListaSeguimientosUsuarioRentabilizacion(string Usuario)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeListaSeguimientosUsuarioRentabilizacion(Usuario);
+        }
+        public GBPRentabilizacion TraerDatosCuentaSelectRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraerDatosCuentaSelectRentabilizacion(CuentaCliente);
+        }
+        public int CantidadToquesCuentaRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.CantidadToquesCuentaRentabilizacion(CuentaCliente);
+        }
+        public GBLRentabilizacion TraeUltimaGestionCuentaRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeUltimaGestionCuentaRentabilizacion(CuentaCliente);
+        }
+        public List<GBPRentabilizacion> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ConsultaAdminRentabilizacionP(FechaInicial,FechaFinal);
+        }
+        public List<GBLRentabilizacion> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ConsultaAdminRentabilizacionL(FechaInicial, FechaFinal);
+        }
+        #endregion
+
+    }
 }

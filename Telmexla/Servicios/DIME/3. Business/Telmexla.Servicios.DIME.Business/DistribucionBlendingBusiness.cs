@@ -33,14 +33,6 @@ namespace Telmexla.Servicios.DIME.Business
             }
 
         }
-
-        /////NUEVOS PROCESOS DE GESTION BLENDING
-        // CABLE MODEM FUERA DE NIVELES
-        public BlendingFueraNivel TraerInformacionCuentaFueraNiveles(decimal CuentaCliente)
-        {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return unitWork.blendingFueraNiveles.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
-        }
         public void EliminaCuentaGestionadaDistribucion(DistribucionBlending Registro)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
@@ -69,10 +61,33 @@ namespace Telmexla.Servicios.DIME.Business
                 unitWork.Complete();
             }
             else { }
+        }
+        public ClientesTodo AsignarIdCuentaDistribucionBlending(decimal CuentaCliente, string Formulario, string Aliado, string Operacion, string Campana, int Id)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            DistribucionBlending RegistroActualizar = unitWork.distribucionesBlending.Find(c => c.CuentaCliente == CuentaCliente && c.FormularioDestino == Formulario && c.AliadoDestino == Aliado && c.OperacionDestino == Operacion && c.CampanaDestino == Campana).FirstOrDefault();
 
-
+            if (RegistroActualizar != null)
+            {
+                RegistroActualizar.UsuarioGestionando = Id;
+                unitWork.Complete();
+            }
+            else { }
+            ClientesBusiness clientesBusiness = new ClientesBusiness();
+            return clientesBusiness.ObtenerClienteCompleto(Convert.ToInt32(CuentaCliente));
 
         }
+
+
+        /////NUEVOS PROCESOS DE GESTION BLENDING
+        // CABLE MODEM FUERA DE NIVELES
+        public BlendingFueraNivel TraerInformacionCuentaFueraNiveles(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.blendingFueraNiveles.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+        }
+       
+        
         public void InsertarRegistroFueraNiveles(GBPFueraNiveles PFueraNivel)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
@@ -310,21 +325,7 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
 
         }
-        public ClientesTodo AsignarIdCuentaDistribucionBlending(decimal CuentaCliente, string Formulario, string Aliado, string Operacion, string Campana, int Id)
-        {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            DistribucionBlending RegistroActualizar = unitWork.distribucionesBlending.Find(c => c.CuentaCliente == CuentaCliente && c.FormularioDestino == Formulario && c.AliadoDestino == Aliado && c.OperacionDestino == Operacion && c.CampanaDestino == Campana).FirstOrDefault();
-
-            if (RegistroActualizar != null)
-            {
-                RegistroActualizar.UsuarioGestionando = Id;
-                unitWork.Complete();
-            }
-            else { }
-            ClientesBusiness clientesBusiness = new ClientesBusiness();
-            return clientesBusiness.ObtenerClienteCompleto(Convert.ToInt32(CuentaCliente));
-
-        }
+      
         public GBPFueraNiveles TraerDatosCuentaSelectFueraNivel(decimal CuentaCliente)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
@@ -521,5 +522,364 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
 
         }
+
+        //GESTION BLENDING RENTABILIZACION
+        public GBC_Rentabilizacion TraerInformacionCuentaRentabilizacion(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.GBCRentabilizacion.Find(c => c.CuentaCiente == CuentaCliente).FirstOrDefault();
+        }
+        public void InsertarRegistroRentabilizacion(GBPRentabilizacion PRentabilizacion)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
+
+            PRentabilizacion.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(PRentabilizacion.TipoContacto)).TipoContacto;
+            PRentabilizacion.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(PRentabilizacion.Gestion)).Cierre;
+            PRentabilizacion.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(PRentabilizacion.Cierre)).Razon;
+            PRentabilizacion.Causa = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(PRentabilizacion.Causa)).Causa;
+            PRentabilizacion.Motivo = unitWorkMaestros.maestrosOutboundMotivo.Get(Convert.ToInt32(PRentabilizacion.Motivo)).Motivo;
+
+            PRentabilizacion.FechaGestion = DateTime.Now;
+            unitWork.GBPRentabilizacion.Add(PRentabilizacion);
+            unitWork.Complete();
+            
+            GBLRentabilizacion LRentabilizacion = new GBLRentabilizacion();
+
+            LRentabilizacion.FechaGestion = PRentabilizacion.FechaGestion;
+            LRentabilizacion.UsuarioGestion = PRentabilizacion.UsuarioGestion;
+            LRentabilizacion.AliadoGestion = PRentabilizacion.AliadoGestion;
+            LRentabilizacion.OperacionGestion = PRentabilizacion.OperacionGestion;
+            LRentabilizacion.CuentaCliente = PRentabilizacion.CuentaCliente;
+            LRentabilizacion.ConsumosPpv = PRentabilizacion.ConsumosPpv;
+            LRentabilizacion.UltimaPpv = PRentabilizacion.UltimaPpv;
+            LRentabilizacion.SiembraHd = PRentabilizacion.SiembraHd;
+            LRentabilizacion.SiembraVoz = PRentabilizacion.SiembraVoz;
+            LRentabilizacion.BlindajeInternet = PRentabilizacion.BlindajeInternet;
+            LRentabilizacion.UltimaMarcacion = PRentabilizacion.UltimaMarcacion;
+            LRentabilizacion.OfrecimientoAceptado = PRentabilizacion.OfrecimientoAceptado;
+            LRentabilizacion.TipoContacto = PRentabilizacion.TipoContacto;
+            LRentabilizacion.Gestion = PRentabilizacion.Gestion;
+            LRentabilizacion.Cierre = PRentabilizacion.Cierre;
+            LRentabilizacion.Causa = PRentabilizacion.Causa;
+            LRentabilizacion.Motivo = PRentabilizacion.Motivo;
+            LRentabilizacion.FechaSeguimiento = PRentabilizacion.FechaSeguimiento;
+            LRentabilizacion.Observaciones = PRentabilizacion.Observaciones;
+
+            unitWorkLog.GBLRentabilizacion.Add(LRentabilizacion);
+            unitWorkLog.Complete();
+
+        }
+        public void ActualizarGestionRentabilizacion(GBPRentabilizacion PRentabilizacion)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
+
+            GBPRentabilizacion PRentabilizacionActualizable = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == PRentabilizacion.CuentaCliente).FirstOrDefault();
+
+            PRentabilizacion.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(PRentabilizacion.TipoContacto)).TipoContacto;
+            PRentabilizacion.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(PRentabilizacion.Gestion)).Cierre;
+            PRentabilizacion.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(PRentabilizacion.Cierre)).Razon;
+            PRentabilizacion.Causa = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(PRentabilizacion.Causa)).Causa;
+            PRentabilizacion.Motivo = unitWorkMaestros.maestrosOutboundMotivo.Get(Convert.ToInt32(PRentabilizacion.Motivo)).Motivo;
+
+
+
+            PRentabilizacion.FechaGestion = DateTime.Now;
+
+            PRentabilizacionActualizable.FechaGestion = PRentabilizacion.FechaGestion;
+            PRentabilizacionActualizable.UsuarioGestion = PRentabilizacion.UsuarioGestion;
+            PRentabilizacionActualizable.AliadoGestion = PRentabilizacion.AliadoGestion;
+            PRentabilizacionActualizable.OperacionGestion = PRentabilizacion.OperacionGestion;
+            PRentabilizacionActualizable.CuentaCliente = PRentabilizacion.CuentaCliente;
+            PRentabilizacionActualizable.ConsumosPpv = PRentabilizacion.ConsumosPpv;
+            PRentabilizacionActualizable.UltimaPpv = PRentabilizacion.UltimaPpv;
+            PRentabilizacionActualizable.SiembraHd = PRentabilizacion.SiembraHd;
+            PRentabilizacionActualizable.SiembraVoz = PRentabilizacion.SiembraVoz;
+            PRentabilizacionActualizable.BlindajeInternet = PRentabilizacion.BlindajeInternet;
+            PRentabilizacionActualizable.UltimaMarcacion = PRentabilizacion.UltimaMarcacion;
+            PRentabilizacionActualizable.OfrecimientoAceptado = PRentabilizacion.OfrecimientoAceptado;
+            PRentabilizacionActualizable.TipoContacto = PRentabilizacion.TipoContacto;
+            PRentabilizacionActualizable.Gestion = PRentabilizacion.Gestion;
+            PRentabilizacionActualizable.Cierre = PRentabilizacion.Cierre;
+            PRentabilizacionActualizable.Causa = PRentabilizacion.Causa;
+            PRentabilizacionActualizable.Motivo = PRentabilizacion.Motivo;
+            PRentabilizacionActualizable.FechaSeguimiento = PRentabilizacion.FechaSeguimiento;
+            PRentabilizacionActualizable.Observaciones = PRentabilizacion.Observaciones;
+
+            unitWork.Complete();
+
+            GBLRentabilizacion LRentabilizacion = new GBLRentabilizacion();
+
+            LRentabilizacion.FechaGestion = PRentabilizacion.FechaGestion;
+            LRentabilizacion.UsuarioGestion = PRentabilizacion.UsuarioGestion;
+            LRentabilizacion.AliadoGestion = PRentabilizacion.AliadoGestion;
+            LRentabilizacion.OperacionGestion = PRentabilizacion.OperacionGestion;
+            LRentabilizacion.CuentaCliente = PRentabilizacion.CuentaCliente;
+            LRentabilizacion.ConsumosPpv = PRentabilizacion.ConsumosPpv;
+            LRentabilizacion.UltimaPpv = PRentabilizacion.UltimaPpv;
+            LRentabilizacion.SiembraHd = PRentabilizacion.SiembraHd;
+            LRentabilizacion.SiembraVoz = PRentabilizacion.SiembraVoz;
+            LRentabilizacion.BlindajeInternet = PRentabilizacion.BlindajeInternet;
+            LRentabilizacion.UltimaMarcacion = PRentabilizacion.UltimaMarcacion;
+            LRentabilizacion.OfrecimientoAceptado = PRentabilizacion.OfrecimientoAceptado;
+            LRentabilizacion.TipoContacto = PRentabilizacion.TipoContacto;
+            LRentabilizacion.Gestion = PRentabilizacion.Gestion;
+            LRentabilizacion.Cierre = PRentabilizacion.Cierre;
+            LRentabilizacion.Causa = PRentabilizacion.Causa;
+            LRentabilizacion.Motivo = PRentabilizacion.Motivo;
+            LRentabilizacion.FechaSeguimiento = PRentabilizacion.FechaSeguimiento;
+            LRentabilizacion.Observaciones = PRentabilizacion.Observaciones;
+
+            unitWorkLog.GBLRentabilizacion.Add(LRentabilizacion);
+            unitWorkLog.Complete();
+
+        }
+        public bool ValidarCuentaEnRentabilizacion(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            var resultado = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+
+            if (resultado.Count() > 0) { return true; }
+            else { return false; }
+        }
+        public GBPRentabilizacion TraeInformacionActualRentabilizacion(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            GBPRentabilizacion Resultado = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            return Resultado;
+        }
+        public List<GBLRentabilizacion> TraeListaGestionUsuarioRentabilizacion(string Usuario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBLRentabilizacion> result = new List<GBLRentabilizacion>();
+            var objetosResult = (from a in dimContext.GBLRentabilizacion
+                                 where a.UsuarioGestion.Equals(Usuario)
+                                 orderby a.Id descending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.CuentaCliente,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Causa,
+                                     a.Motivo,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBLRentabilizacion());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Causa = objetosResult[i].Causa;
+                result[i].Motivo = objetosResult[i].Motivo;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public List<GBPRentabilizacion> TraeListaSeguimientosUsuarioRentabilizacion(string Usuario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBPRentabilizacion> result = new List<GBPRentabilizacion>();
+            var objetosResult = (from a in dimContext.GBPRentabilizacion
+                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("SEGUIMIENTO")
+                                 orderby a.Id descending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.CuentaCliente,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Causa,
+                                     a.Motivo,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBPRentabilizacion());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Causa = objetosResult[i].Causa;
+                result[i].Motivo = objetosResult[i].Motivo;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public GBPRentabilizacion TraerDatosCuentaSelectRentabilizacion(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+
+        }
+        public int CantidadToquesCuentaRentabilizacion(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            int Cantidad = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).Count();
+            if (Cantidad > 0)
+            {
+                return Cantidad;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public GBLRentabilizacion TraeUltimaGestionCuentaRentabilizacion(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            List<GBLRentabilizacion> Registros = unitWork.GBLRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+
+            if (Registros.Count() > 0)
+            {
+                decimal MaxId = Registros.Max(c => c.Id);
+                return unitWork.GBLRentabilizacion.Get(Convert.ToInt32(MaxId));
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+        public List<GBPRentabilizacion> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBPRentabilizacion> result = new List<GBPRentabilizacion>();
+            var objetosResult = (from a in dimContext.GBPRentabilizacion
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.OperacionGestion,
+                                     a.CuentaCliente,
+                                     a.ConsumosPpv,
+                                     a.UltimaPpv,
+                                     a.SiembraHd,
+                                     a.SiembraVoz,
+                                     a.BlindajeInternet,
+                                     a.UltimaMarcacion,
+                                     a.OfrecimientoAceptado,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Causa,
+                                     a.Motivo,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBPRentabilizacion());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].OperacionGestion = objetosResult[i].OperacionGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].ConsumosPpv = objetosResult[i].ConsumosPpv;
+                result[i].UltimaPpv = objetosResult[i].UltimaPpv;
+                result[i].SiembraHd = objetosResult[i].SiembraHd;
+                result[i].SiembraVoz = objetosResult[i].SiembraVoz;
+                result[i].BlindajeInternet = objetosResult[i].BlindajeInternet;
+                result[i].UltimaMarcacion = objetosResult[i].UltimaMarcacion;
+                result[i].OfrecimientoAceptado = objetosResult[i].OfrecimientoAceptado;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Causa = objetosResult[i].Causa;
+                result[i].Motivo = objetosResult[i].Motivo;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public List<GBLRentabilizacion> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBLRentabilizacion> result = new List<GBLRentabilizacion>();
+            var objetosResult = (from a in dimContext.GBLRentabilizacion
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.OperacionGestion,
+                                     a.CuentaCliente,
+                                     a.ConsumosPpv,
+                                     a.UltimaPpv,
+                                     a.SiembraHd,
+                                     a.SiembraVoz,
+                                     a.BlindajeInternet,
+                                     a.UltimaMarcacion,
+                                     a.OfrecimientoAceptado,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Causa,
+                                     a.Motivo,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBLRentabilizacion());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].OperacionGestion = objetosResult[i].OperacionGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].ConsumosPpv = objetosResult[i].ConsumosPpv;
+                result[i].UltimaPpv = objetosResult[i].UltimaPpv;
+                result[i].SiembraHd = objetosResult[i].SiembraHd;
+                result[i].SiembraVoz = objetosResult[i].SiembraVoz;
+                result[i].BlindajeInternet = objetosResult[i].BlindajeInternet;
+                result[i].UltimaMarcacion = objetosResult[i].UltimaMarcacion;
+                result[i].OfrecimientoAceptado = objetosResult[i].OfrecimientoAceptado;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Causa = objetosResult[i].Causa;
+                result[i].Motivo = objetosResult[i].Motivo;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+
     }
 }

@@ -21,7 +21,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public ClientesTodo TraerInformacionCuentaBlending(int idAsesor, string formulario, string aliado, string operacion, string campana)
         {
             DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
-            return distribucionesBlendingBusiness.TraerInformacionCuentaBlending(idAsesor, formulario, aliado, operacion, campana,0);
+            return distribucionesBlendingBusiness.TraerInformacionCuentaBlending(idAsesor, formulario, aliado, operacion, campana, 0);
 
         }
         public void EliminaCuentaGestionadaDistribucion(DistribucionBlending Registro)
@@ -69,7 +69,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public ClientesTodo AsignarIdCuentaDistribucionBlending(decimal CuentaCliente, string Formulario, string Aliado, string Operacion, string Campana, int Id)
         {
             DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
-           return distribucionesBlendingBusiness.AsignarIdCuentaDistribucionBlending(CuentaCliente, Formulario, Aliado, Operacion, Campana, Id);
+            return distribucionesBlendingBusiness.AsignarIdCuentaDistribucionBlending(CuentaCliente, Formulario, Aliado, Operacion, Campana, Id);
         }
         public GBPFueraNiveles TraerDatosCuentaSelectFueraNivel(decimal CuentaCliente)
         {
@@ -91,12 +91,74 @@ namespace Telmexla.Servicios.DIME.WebServices
         public List<GBPFueraNiveles> ConsultaAdminFueraNivelesP(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
-            return distribucionesBlendingBusiness.ConsultaAdminFueraNivelesP(FechaInicial,FechaFinal);
+            return distribucionesBlendingBusiness.ConsultaAdminFueraNivelesP(FechaInicial, FechaFinal);
         }
         public List<GBLFueraNiveles> ConsultaAdminFueraNivelesL(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
             return distribucionesBlendingBusiness.ConsultaAdminFueraNivelesL(FechaInicial, FechaFinal);
+        }
+
+        //GESTION BLENDING RENTABILIZACION
+        public GBC_Rentabilizacion TraerInformacionCuentaRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraerInformacionCuentaRentabilizacion(CuentaCliente);
+        }
+        public void InsertarRegistroRentabilizacion(GBPRentabilizacion PRentabilizacion)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            distribucionesBlendingBusiness.InsertarRegistroRentabilizacion(PRentabilizacion);
+        }
+        public void ActualizarGestionRentabilizacion(GBPRentabilizacion PRentabilizacion)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            distribucionesBlendingBusiness.ActualizarGestionRentabilizacion(PRentabilizacion);
+        }
+        public bool ValidarCuentaEnRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.ValidarCuentaEnRentabilizacion(CuentaCliente);
+        }
+        public GBPRentabilizacion TraeInformacionActualRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeInformacionActualRentabilizacion(CuentaCliente);
+        }
+        public List<GBLRentabilizacion> TraeListaGestionUsuarioRentabilizacion(string Usuario)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeListaGestionUsuarioRentabilizacion(Usuario);
+        }
+        public List<GBPRentabilizacion> TraeListaSeguimientosUsuarioRentabilizacion(string Usuario)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeListaSeguimientosUsuarioRentabilizacion(Usuario);
+        }
+        public GBPRentabilizacion TraerDatosCuentaSelectRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraerDatosCuentaSelectRentabilizacion(CuentaCliente);
+        }
+        public int CantidadToquesCuentaRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.CantidadToquesCuentaRentabilizacion(CuentaCliente);
+        }
+        public GBLRentabilizacion TraeUltimaGestionCuentaRentabilizacion(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeUltimaGestionCuentaRentabilizacion(CuentaCliente);
+        }
+        public List<GBPRentabilizacion> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.ConsultaAdminRentabilizacionP(FechaInicial, FechaFinal);
+        }
+        public List<GBLRentabilizacion> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.ConsultaAdminRentabilizacionL(FechaInicial, FechaFinal);
         }
     }
 }

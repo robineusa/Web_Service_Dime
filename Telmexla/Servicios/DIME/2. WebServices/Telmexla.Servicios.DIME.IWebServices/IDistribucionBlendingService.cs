@@ -59,5 +59,43 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<GBLFueraNiveles> ConsultaAdminFueraNivelesL(DateTime FechaInicial, DateTime FechaFinal);
+
+        //GESTION BLENDING RENTABILIZACION
+
+        [OperationContract]
+        GBC_Rentabilizacion TraerInformacionCuentaRentabilizacion(decimal CuentaCliente);
+
+        [OperationContract]
+        void InsertarRegistroRentabilizacion(GBPRentabilizacion PRentabilizacion);
+
+        [OperationContract]
+        void ActualizarGestionRentabilizacion(GBPRentabilizacion PRentabilizacion);
+
+        [OperationContract]
+        bool ValidarCuentaEnRentabilizacion(decimal CuentaCliente);
+
+        [OperationContract]
+        GBPRentabilizacion TraeInformacionActualRentabilizacion(decimal CuentaCliente);
+
+        [OperationContract]
+        List<GBLRentabilizacion> TraeListaGestionUsuarioRentabilizacion(string Usuario);
+
+        [OperationContract]
+        List<GBPRentabilizacion> TraeListaSeguimientosUsuarioRentabilizacion(string Usuario);
+
+        [OperationContract]
+        GBPRentabilizacion TraerDatosCuentaSelectRentabilizacion(decimal CuentaCliente);
+
+        [OperationContract]
+        int CantidadToquesCuentaRentabilizacion(decimal CuentaCliente);
+
+        [OperationContract]
+        GBLRentabilizacion TraeUltimaGestionCuentaRentabilizacion(decimal CuentaCliente);
+
+        [OperationContract]
+        List<GBPRentabilizacion> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal);
+
+        [OperationContract]
+        List<GBLRentabilizacion> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal);
     }
 }
