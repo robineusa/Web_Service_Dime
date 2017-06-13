@@ -20,16 +20,16 @@ namespace Telmexla.Servicios.DIME.Entity
         public System.String NOMBRE_LINEA_INGRESO { get; set; }
         public System.String NOMBRE_LINEA_ESCALADO { get; set; }
         public System.String ALIADO_APERTURA { get; set; }
-        public System.DateTime? Fecha_nota { get; set; }
-        public System.DateTime? FECHA_APERTURA { get; set; }
-        public System.DateTime? HORA_APERTURA { get; set; }
-        public System.DateTime? FECHA_CIERRE { get; set; }
+        public System.String Fecha_nota { get; set; }
+        public System.String FECHA_APERTURA { get; set; }
+        public System.String HORA_APERTURA { get; set; }
+        public System.String FECHA_CIERRE { get; set; }
         public System.Decimal? Usuario { get; set; }
         public System.Decimal? Usuario_Apertura { get; set; }
         public System.Decimal? Usuario_Cierre { get; set; }
-        public System.DateTime? FECHA_ULTIMA_ACTUALIZACION { get; set; }
+        public System.String FECHA_ULTIMA_ACTUALIZACION { get; set; }
         public System.Decimal? Usuario_Ult_Actualizacion { get; set; }
-        public System.DateTime? HORA_ULTIMA_ACTUALIZACION { get; set; }
+        public System.String HORA_ULTIMA_ACTUALIZACION { get; set; }
         public System.String MACROPROCESO { get; set; }
         public System.String MARCACION { get; set; }
         public System.String NOTA { get; set; }
