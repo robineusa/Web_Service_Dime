@@ -45,6 +45,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
             return activacionbusiness.ConsultaTarifaActualDeDatos(estrato, voz, tv, internet);
         }
-
+        public List<CuentasMejorasTecnicas> BuscarCuentaMejorasTecnicas(decimal cuentacliente)
+        {
+            CuentasSiembraHDBusiness cuentasbusines = new CuentasSiembraHDBusiness();
+            return cuentasbusines.BuscarCuentaMejorasTecnicas(cuentacliente);
+        }
     }
 }

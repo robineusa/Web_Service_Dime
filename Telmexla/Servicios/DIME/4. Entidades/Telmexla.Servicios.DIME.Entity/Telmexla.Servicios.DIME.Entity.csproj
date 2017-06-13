@@ -80,6 +80,8 @@
     <Compile Include="ConsultaRechazosAdminSqlReturnModel.cs" />
     <Compile Include="ConvenioElectronico.cs" />
     <Compile Include="ConvenioElectronicoCollection.cs" />
+    <Compile Include="CuentasMejorasTecnicas.cs" />
+    <Compile Include="CuentasMejorasTecnicasCollection.cs" />
     <Compile Include="CuentasSiembraHD.cs" />
     <Compile Include="CuentasSiembraHDCollection.cs" />
     <Compile Include="CuentasSiguienteMejorOferta.cs" />

@@ -43,5 +43,19 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
 
         }
+        public List<CuentasMejorasTecnicas> BuscarCuentaMejorasTecnicas(decimal cuentacliente)
+        {
+            UnitOfWork unitwork = new UnitOfWork(new DimeContext());
+            CuentasMejorasTecnicasCollection result = new CuentasMejorasTecnicasCollection();
+            result.AddRange(unitwork.CuentasMejorasTecnicas.Find(c => c.Cuenta == cuentacliente).Select(a => new CuentasMejorasTecnicas
+            {
+                Id = a.Id,
+                Cuenta = a.Cuenta,
+                Accionable = a.Accionable
+            }).ToList());
+
+            return result;
+
+        }
     }
 }

@@ -1354,5 +1354,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
+        #region MejorasTecnicas
+        public List<CuentasMejorasTecnicas> BuscarCuentaMejorasTecnicas(decimal cuentacliente)
+        {
+            CuentasSiembraHDBusiness cuentasbusines = new CuentasSiembraHDBusiness();
+            return cuentasbusines.BuscarCuentaMejorasTecnicas(cuentacliente);
+        }
+        #endregion
+
     }
 }

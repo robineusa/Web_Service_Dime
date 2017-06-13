@@ -30,5 +30,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         SmoTarifaActual TarifaActualDeDatos(string estrato, string voz, string tv, string internet);
 
+        [OperationContract]
+        List<CuentasMejorasTecnicas> BuscarCuentaMejorasTecnicas(decimal cuentacliente);
+
     }
 }
