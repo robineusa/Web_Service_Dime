@@ -75,6 +75,7 @@
     <Compile Include="Configuration\IngresosSoporteConfiguration.cs" />
     <Compile Include="Configuration\LiberacionHomePassConfiguration.cs" />
     <Compile Include="Configuration\MaestroLineasBlendingConfiguration.cs" />
+    <Compile Include="Configuration\MejorasTecnicasConfiguration.cs" />
     <Compile Include="Configuration\NotasTrasladoConfiguration.cs" />
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />
     <Compile Include="Configuration\RazonIngresoSoporteConfiguration.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="MaestroOutboundMotivoRepository.cs" />
     <Compile Include="MaestroOutboundRazonRepository.cs" />
     <Compile Include="MaestroOutboundTipoContactoRepository.cs" />
+    <Compile Include="MejorasTecnicasRepository.cs" />
     <Compile Include="ModosLoginRepository.cs" />
     <Compile Include="NotasIngresoRepository.cs" />
     <Compile Include="NotasTrasladoRepository.cs" />

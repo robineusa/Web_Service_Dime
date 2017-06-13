@@ -33,5 +33,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<CuentasMejorasTecnicas> BuscarCuentaMejorasTecnicas(decimal cuentacliente);
 
+        [OperationContract]
+        void InsertarMejorasTecnicasInbound(MejorasTecnicas Mejoras);
+
     }
 }

@@ -54,6 +54,7 @@ namespace Telmexla.Servicios.DIME.IData
         IGBLRentabilizacionRepository GBLRentabilizacion { get; }
         IGBCRentabilizacionRepository GBCRentabilizacion { get; }
         ICuentasMejorasTecnicasRepository CuentasMejorasTecnicas { get; }
+        IMejorasTecnicasRepository MejorasTecnicas { get; }
         int Complete();
     }
 }

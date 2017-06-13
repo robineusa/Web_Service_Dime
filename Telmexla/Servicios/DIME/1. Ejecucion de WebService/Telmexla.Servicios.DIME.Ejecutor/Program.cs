@@ -20,7 +20,16 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            BlendingBusiness Blend = new BlendingBusiness();
+            //SiembraHDBusiness Insert = new SiembraHDBusiness();
+            //MejorasTecnicas m = new MejorasTecnicas();
+            //m.UsuarioGestion = "ttt";
+            //m.NombreUsuarioGestion = "tra";
+            //m.AliadoGestion = "Villas";
+            //m.CuentaCliente = 307;
+            //m.Accionable = "fdsdfsdf";
+            //m.AceptacionMejorasTecnicas = "si";
+            //Insert.InsertarMejorasTecnicasInbound(m);
+            //BlendingBusiness Blend = new BlendingBusiness();
 
             MaestroNodoBusiness mnb = new MaestroNodoBusiness();
             var nodo = "BLT";
@@ -44,7 +53,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             DistribucionBlendingBusiness dbb = new DistribucionBlendingBusiness();
             //dbb.TraerInformacionCuentaBlending(idusuario,formulario,Aliado,Operacion,campana,0);
             int cantidad = dbb.CantidadToquesCuentaRentabilizacion(cuenta);
-            SkillsUsuariosBlending m = new SkillsUsuariosBlending();
+            //SkillsUsuariosBlending m = new SkillsUsuariosBlending();
 
             //m.Cedula = 7777;
             //m.Operacion = "si inserto";

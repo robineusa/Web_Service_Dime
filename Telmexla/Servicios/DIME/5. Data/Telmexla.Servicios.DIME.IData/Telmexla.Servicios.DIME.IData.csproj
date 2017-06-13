@@ -92,6 +92,7 @@
     <Compile Include="IMaestroOutboundMotivoRepository.cs" />
     <Compile Include="IMaestroOutboundRazonRepository.cs" />
     <Compile Include="IMaestroOutboundTipoContactoRepository.cs" />
+    <Compile Include="IMejorasTecnicasRepository.cs" />
     <Compile Include="IModosLoginRepository.cs" />
     <Compile Include="INotasIngresoRepository.cs" />
     <Compile Include="INotasTrasladoRepository.cs" />

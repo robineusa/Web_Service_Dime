@@ -140,6 +140,7 @@
     <Compile Include="MaestroOutboundTipoContactoCollection.cs" />
     <Compile Include="MaestroOutboundTipoGestion.cs" />
     <Compile Include="MaestroOutboundTipoGestionCollection.cs" />
+    <Compile Include="MejorasTecnicas.cs" />
     <Compile Include="ModosLogin.cs" />
     <Compile Include="NotasIngreso.cs" />
     <Compile Include="NotasTraslado.cs" />

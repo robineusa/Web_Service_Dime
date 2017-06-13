@@ -50,5 +50,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             CuentasSiembraHDBusiness cuentasbusines = new CuentasSiembraHDBusiness();
             return cuentasbusines.BuscarCuentaMejorasTecnicas(cuentacliente);
         }
+        public void InsertarMejorasTecnicasInbound(MejorasTecnicas Mejoras)
+        {
+            SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
+            activacionbusiness.InsertarMejorasTecnicasInbound(Mejoras);
+        }
     }
 }

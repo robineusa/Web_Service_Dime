@@ -1149,6 +1149,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return activacionService.TarifaActualDeDatos(estrato,voz,tv,internet);
 
         }
+        public void InsertarMejorasTecnicasInbound(MejorasTecnicas Mejoras)
+        {
+            SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
+            activacionbusiness.InsertarMejorasTecnicasInbound(Mejoras);
+        }
         #endregion
 
         #region BalanceScoreCard
