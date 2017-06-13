@@ -78,6 +78,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<GBPRentabilizacion> GBPRentabilizacion { get; set; } // TBL_GBP_RENTABILIZACON
         public System.Data.Entity.DbSet<GBLRentabilizacion> GBLRentabilizacion { get; set; } // TBL_GBL_RENTABILIZACON
         public System.Data.Entity.DbSet<GBC_Rentabilizacion> GBCRentabilizacion { get; set; } // TMP_GBC_RENTABILIZACON
+        public System.Data.Entity.DbSet<CuentasMejorasTecnicas> CuentasMejorasTecnicas { get; set; } // TBL_CUENTAS_MEJORAS_TECNICAS
 
         static DimeContext()
         {
@@ -188,6 +189,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBLRentabilizacionConfiguration());
             modelBuilder.Configurations.Add(new GBPRentabilizacionConfiguration());
             modelBuilder.Configurations.Add(new GBCRentabilizacionConfiguration());
+            modelBuilder.Configurations.Add(new CuentasMejorasTecnicasConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -251,6 +253,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBLRentabilizacionConfiguration(schema));
             modelBuilder.Configurations.Add(new GBPRentabilizacionConfiguration(schema));
             modelBuilder.Configurations.Add(new GBCRentabilizacionConfiguration(schema));
+            modelBuilder.Configurations.Add(new CuentasMejorasTecnicasConfiguration(schema));
             return modelBuilder;
         }
 

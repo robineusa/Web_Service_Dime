@@ -60,6 +60,7 @@
     <Compile Include="Configuration\BasePersonalHoloConfiguration.cs" />
     <Compile Include="Configuration\BlendingFueraNivelConfiguration.cs" />
     <Compile Include="Configuration\CambioEstratoConfiguration.cs" />
+    <Compile Include="Configuration\CuentasMejorasTecnicasConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiguienteMejorOfertaConfiguration.cs" />
     <Compile Include="Configuration\DepartamentoConfiguration.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Configuration\UsabilidadBusquedaCuentaInboundConfiguration.cs" />
     <Compile Include="Configuration\UsabilidadConvenioInboundConfiguration.cs" />
     <Compile Include="Configuration\UsuariosNotificadosConfiguration.cs" />
+    <Compile Include="CuentasMejorasTecnicasRepository.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaRepository.cs" />
     <Compile Include="DepartamentoRepository.cs" />
