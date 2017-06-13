@@ -21,7 +21,30 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
             BlendingBusiness Blend = new BlendingBusiness();
-            //SkillsUsuariosBlending m = new SkillsUsuariosBlending();
+
+            MaestroNodoBusiness mnb = new MaestroNodoBusiness();
+            var nodo = "BLT";
+            var dato =mnb.GetInformacionNodo(nodo);
+
+            var formulario = "RENTABILIZACION";
+            var Aliado = "BRM";
+            var Operacion = "BRM - RENTABILIZACION";
+            var campana = "PRINCIPALES";
+
+            var cuenta = 307;
+            var idusuario = 18298;
+
+            DistribucionBlending dis = new DistribucionBlending();
+            dis.CuentaCliente = cuenta;
+            dis.FormularioDestino = formulario;
+            dis.AliadoDestino = Aliado;
+            dis.OperacionDestino = Operacion;
+            dis.CampanaDestino = campana;
+
+            DistribucionBlendingBusiness dbb = new DistribucionBlendingBusiness();
+            //dbb.TraerInformacionCuentaBlending(idusuario,formulario,Aliado,Operacion,campana,0);
+            int cantidad = dbb.CantidadToquesCuentaRentabilizacion(cuenta);
+            SkillsUsuariosBlending m = new SkillsUsuariosBlending();
 
             //m.Cedula = 7777;
             //m.Operacion = "si inserto";
@@ -42,27 +65,16 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             GBLFueraNiveles gbl = new GBLFueraNiveles();
 
 
-            decimal cuenta = 364;
+            //decimal cuenta = 364;
             gbl = bsd.TraeUltimaGestionCuenta(cuenta);
 
-            int cantidad = bsd.CantidadToquesCuentaFueraNiveles(cuenta);
+            //int cantidad = bsd.CantidadToquesCuentaFueraNiveles(cuenta);
 
             //decimal cuenta = 73689564;
 
             int idasesor = 5301;
 
-            var formulario = "FUERANIVELES";
-            var Aliado = "BRM";
-            var Operacion = "FUERANIVELES";
-            var campana = "NIVELES";
-
-
-            DistribucionBlending dis = new DistribucionBlending();
-            dis.CuentaCliente = cuenta;
-            dis.FormularioDestino = formulario;
-            dis.AliadoDestino = Aliado;
-            dis.OperacionDestino = Operacion;
-            dis.CampanaDestino = campana;
+           
 
             //GBPFueraNiveles GBP = new GBPFueraNiveles();
             //GBP.CuentaCliente = cuenta;
@@ -93,7 +105,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             gbl = bsd.TraeUltimaGestionCuenta(cuenta);
             clientesS = bsd.TraerInformacionCuentaBlending(idasesor, formulario, Aliado, Operacion, campana,0);
             fdn = bsd.TraerInformacionCuentaFueraNiveles(Convert.ToDecimal(clientesS.Cuenta));
-            var dato = "";
+            //var dato = "";
 
             //LoginService loginService = new LoginService();
             //var r = loginService.OperacionPorCedula(4);
@@ -159,7 +171,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //var z = "";
 
 
-            MaestroNodo nodo = new MaestroNodo();
+            //MaestroNodo nodo = new MaestroNodo();
 
             //    //nodo.NombreNodo = "ROBIN";
             //    //nodo.Div = "AAA";

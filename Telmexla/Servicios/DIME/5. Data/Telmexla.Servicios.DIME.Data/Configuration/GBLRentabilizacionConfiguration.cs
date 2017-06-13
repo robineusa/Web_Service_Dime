@@ -11,7 +11,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
         { }
         public GBLRentabilizacionConfiguration(string schema)
         {
-            ToTable("TBL_GBL_RENTABILIZACIO", schema);
+            ToTable("TBL_GBL_RENTABILIZACION", schema);
             HasKey(x => new { x.Id });
 
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
