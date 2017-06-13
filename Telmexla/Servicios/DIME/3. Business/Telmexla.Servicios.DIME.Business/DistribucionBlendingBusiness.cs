@@ -693,7 +693,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<GBPRentabilizacion> result = new List<GBPRentabilizacion>();
             var objetosResult = (from a in dimContext.GBPRentabilizacion
-                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("SEGUIMIENTO")
+                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("VENTA EN SEGUIMIENTO")
                                  orderby a.Id descending
                                  select new
                                  {
@@ -736,7 +736,7 @@ namespace Telmexla.Servicios.DIME.Business
         public int CantidadToquesCuentaRentabilizacion(decimal CuentaCliente)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            int Cantidad = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).Count();
+            int Cantidad = unitWork.GBLRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).Count();
             if (Cantidad > 0)
             {
                 return Cantidad;
