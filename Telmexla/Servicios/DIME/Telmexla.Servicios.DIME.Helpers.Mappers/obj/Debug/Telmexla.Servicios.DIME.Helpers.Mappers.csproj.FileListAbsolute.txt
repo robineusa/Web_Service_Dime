@@ -2,6 +2,6 @@ C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telm
 C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\bin\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.pdb
 C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\bin\Debug\AutoMapper.dll
 C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\bin\Debug\AutoMapper.xml
+C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.csprojResolveAssemblyReference.cache
 C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.dll
 C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.pdb
-C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\Telmexla.Servicios.DIME.Helpers.Mappers\obj\Debug\Telmexla.Servicios.DIME.Helpers.Mappers.csprojResolveAssemblyReference.cache

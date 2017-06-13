@@ -736,7 +736,7 @@ namespace Telmexla.Servicios.DIME.Business
         public int CantidadToquesCuentaRentabilizacion(decimal CuentaCliente)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            int Cantidad = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).Count();
+            int Cantidad = unitWork.GBLRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).Count();
             if (Cantidad > 0)
             {
                 return Cantidad;
