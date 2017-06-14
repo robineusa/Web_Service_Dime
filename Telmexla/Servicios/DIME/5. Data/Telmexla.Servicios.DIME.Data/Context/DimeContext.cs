@@ -80,6 +80,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<GBC_Rentabilizacion> GBCRentabilizacion { get; set; } // TMP_GBC_RENTABILIZACON
         public System.Data.Entity.DbSet<CuentasMejorasTecnicas> CuentasMejorasTecnicas { get; set; } // TBL_CUENTAS_MEJORAS_TECNICAS
         public System.Data.Entity.DbSet<MejorasTecnicas> MejorasTecnicas { get; set; } // TBL_MEJORAS_TECNICAS
+        public System.Data.Entity.DbSet<GBPProducto> GBPProducto { get; set; } // TBL_GBP_PRODUCTO
+        public System.Data.Entity.DbSet<GBLProducto> GBLProducto { get; set; } // TBL_GBL_PRODUCTO
+        public System.Data.Entity.DbSet<GBCProducto> GBCProducto { get; set; } // TMP_GBC_PRODUCTO
 
         static DimeContext()
         {
@@ -192,6 +195,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBCRentabilizacionConfiguration());
             modelBuilder.Configurations.Add(new CuentasMejorasTecnicasConfiguration());
             modelBuilder.Configurations.Add(new MejorasTecnicasConfiguration());
+            modelBuilder.Configurations.Add(new GBPProductoConfiguration());
+            modelBuilder.Configurations.Add(new GBLProductoConfiguration());
+            modelBuilder.Configurations.Add(new GBCProductoConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -257,6 +263,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBCRentabilizacionConfiguration(schema));
             modelBuilder.Configurations.Add(new CuentasMejorasTecnicasConfiguration(schema));
             modelBuilder.Configurations.Add(new MejorasTecnicasConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBPProductoConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBLProductoConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBCProductoConfiguration(schema));
             return modelBuilder;
         }
 

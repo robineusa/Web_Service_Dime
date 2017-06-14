@@ -7,4 +7,3 @@ C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. H
 C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll
 C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb
-C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.ReverseEngineer\obj\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.csprojResolveAssemblyReference.cache

@@ -1357,6 +1357,68 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.ConsultaAdminRentabilizacionL(FechaInicial, FechaFinal);
         }
+
+        //GESTION BLENDING PRODUCTO
+        public GBCProducto TraerInformacionCuentaProducto(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraerInformacionCuentaProducto(CuentaCliente);
+        }
+        public void InsertarRegistroProducto(GBPProducto GBPProducto)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            distribucionesBlendingService.InsertarRegistroProducto(GBPProducto);
+        }
+        public void ActualizarGestionProducto(GBPProducto GBPProducto)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            distribucionesBlendingService.ActualizarGestionProducto(GBPProducto);
+        }
+        public bool ValidarCuentaEnProducto(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ValidarCuentaEnProducto(CuentaCliente);
+        }
+        public GBPProducto TraeInformacionActualProducto(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeInformacionActualProducto(CuentaCliente);
+        }
+        public List<GBLProducto> TraeListaGestionUsuarioProucto(string Usuario)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeListaGestionUsuarioProucto(Usuario);
+        }
+        public List<GBPProducto> TraeListaSeguimientosUsuarioProducto(string Usuario)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeListaSeguimientosUsuarioProducto(Usuario);
+        }
+        public GBPProducto TraerDatosCuentaSelectProducto(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraerDatosCuentaSelectProducto(CuentaCliente);
+        }
+        public int CantidadToquesCuentaProducto(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.CantidadToquesCuentaProducto(CuentaCliente);
+        }
+        public GBLProducto TraeUltimaGestionCuentaProducto(decimal CuentaCliente)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.TraeUltimaGestionCuentaProducto(CuentaCliente);
+        }
+        public List<GBPProducto> ConsultaAdminProductoP(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ConsultaAdminProductoP(FechaInicial, FechaFinal);
+        }
+        public List<GBLProducto> ConsultaAdminProductoL(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ConsultaAdminProductoL(FechaInicial, FechaFinal);
+        }
         #endregion
 
         #region MejorasTecnicas

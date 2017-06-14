@@ -77,6 +77,9 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<GBC_Rentabilizacion> GBCRentabilizacion { get; set; } // TMP_GBC_RENTABILIZACION
         System.Data.Entity.DbSet<CuentasMejorasTecnicas> CuentasMejorasTecnicas { get; set; } // TBL_CUENTAS_MEJORAS_TECNICAS
         System.Data.Entity.DbSet<MejorasTecnicas> MejorasTecnicas { get; set; } // TBL_MEJORAS_TECNICAS
+        System.Data.Entity.DbSet<GBPProducto> GBPProducto { get; set; } // TBL_GBP_PRODUCTO
+        System.Data.Entity.DbSet<GBLProducto> GBLProducto { get; set; } // TBL_GBL_PRODUCTO
+        System.Data.Entity.DbSet<GBCProducto> GBCProducto { get; set; } // TMP_GBC_PRODUCTO
 
 
         int SaveChanges();

@@ -62,6 +62,9 @@ namespace Telmexla.Servicios.DIME.Data
             GBCRentabilizacion = new GBCRentabilizacionRepository(this.dimeContext);
             CuentasMejorasTecnicas = new CuentasMejorasTecnicasRepository(this.dimeContext);
             MejorasTecnicas = new MejorasTecnicasRepository(this.dimeContext);
+            GBPProducto = new GBPProductoRepository(this.dimeContext);
+            GBLProducto = new GBLProductoRepository(this.dimeContext);
+            GBCProducto = new GBCProductoRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -261,7 +264,20 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        
+
+        public IGBPProductoRepository GBPProducto
+        {
+            get; private set;
+        }
+        public IGBLProductoRepository GBLProducto
+        {
+            get; private set;
+        }
+        public IGBCProductoRepository GBCProducto
+        {
+            get; private set;
+        }
+
         public int Complete()
         {
             return this.dimeContext.SaveChanges();
