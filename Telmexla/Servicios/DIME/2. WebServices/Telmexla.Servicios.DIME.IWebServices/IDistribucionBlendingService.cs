@@ -97,5 +97,43 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<GBLRentabilizacion> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal);
+
+        //GESTION BLENDING RENTABILIZACION
+
+        [OperationContract]
+        GBCProducto TraerInformacionCuentaProducto(decimal CuentaCliente);
+
+        [OperationContract]
+        void InsertarRegistroProducto(GBPProducto GBPProducto);
+
+        [OperationContract]
+        void ActualizarGestionProducto(GBPProducto GBPProducto);
+
+        [OperationContract]
+        bool ValidarCuentaEnProducto(decimal CuentaCliente);
+
+        [OperationContract]
+        GBPProducto TraeInformacionActualProducto(decimal CuentaCliente);
+
+        [OperationContract]
+        List<GBLProducto> TraeListaGestionUsuarioProucto(string Usuario);
+
+        [OperationContract]
+        List<GBPProducto> TraeListaSeguimientosUsuarioProducto(string Usuario);
+
+        [OperationContract]
+        GBPProducto TraerDatosCuentaSelectProducto(decimal CuentaCliente);
+
+        [OperationContract]
+        int CantidadToquesCuentaProducto(decimal CuentaCliente);
+
+        [OperationContract]
+        GBLProducto TraeUltimaGestionCuentaProducto(decimal CuentaCliente);
+
+        [OperationContract]
+        List<GBPProducto> ConsultaAdminProductoP(DateTime FechaInicial, DateTime FechaFinal);
+
+        [OperationContract]
+        List<GBLProducto> ConsultaAdminProductoL(DateTime FechaInicial, DateTime FechaFinal);
     }
 }

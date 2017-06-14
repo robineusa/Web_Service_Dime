@@ -135,5 +135,32 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimeContext = new DimeContext();
             return  dimeContext.SmoRentaActuals.Where(c => c.Cuenta == cuentaFloat).FirstOrDefault();
         }
+        public void InsertarMejorasTecnicasInbound(MejorasTecnicas Mejoras)
+        {
+            try
+            {
+                Mejoras.FechaGestion = DateTime.Now;
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.MejorasTecnicas.Add(Mejoras);
+                unitWork.Complete();
+
+
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
     }
 }

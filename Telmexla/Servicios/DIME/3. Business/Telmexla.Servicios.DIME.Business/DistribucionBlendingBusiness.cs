@@ -693,7 +693,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<GBPRentabilizacion> result = new List<GBPRentabilizacion>();
             var objetosResult = (from a in dimContext.GBPRentabilizacion
-                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("SEGUIMIENTO")
+                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("VENTA EN SEGUIMIENTO")
                                  orderby a.Id descending
                                  select new
                                  {
@@ -736,7 +736,7 @@ namespace Telmexla.Servicios.DIME.Business
         public int CantidadToquesCuentaRentabilizacion(decimal CuentaCliente)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            int Cantidad = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).Count();
+            int Cantidad = unitWork.GBLRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).Count();
             if (Cantidad > 0)
             {
                 return Cantidad;
@@ -874,6 +874,315 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].Cierre = objetosResult[i].Cierre;
                 result[i].Causa = objetosResult[i].Causa;
                 result[i].Motivo = objetosResult[i].Motivo;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+
+        // //GESTION BLENDING PRODUCTO
+        public GBCProducto TraerInformacionCuentaProducto(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.GBCProducto.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+        }
+        public void InsertarRegistroProducto(GBPProducto GBPProducto)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
+
+            GBPProducto.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(GBPProducto.TipoContacto)).TipoContacto;
+            GBPProducto.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(GBPProducto.Gestion)).Cierre;
+            GBPProducto.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(GBPProducto.Cierre)).Razon;
+            GBPProducto.Causa = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(GBPProducto.Causa)).Causa;
+
+
+            GBPProducto.FechaGestion = DateTime.Now;
+            unitWork.GBPProducto.Add(GBPProducto);
+            unitWork.Complete();
+
+            GBLProducto GBLProducto = new GBLProducto();
+
+            GBLProducto.FechaGestion = GBPProducto.FechaGestion;
+            GBLProducto.UsuarioGestion = GBPProducto.UsuarioGestion;
+            GBLProducto.NombreUsuarioGestion = GBPProducto.NombreUsuarioGestion;
+            GBLProducto.AliadoGestion = GBPProducto.AliadoGestion;
+            GBLProducto.OperacionGestion = GBPProducto.OperacionGestion;
+            GBLProducto.CampanaGestion = GBPProducto.CampanaGestion;
+            GBLProducto.CuentaCliente = GBPProducto.CuentaCliente;
+            GBLProducto.TipoContacto = GBPProducto.TipoContacto;
+            GBLProducto.Gestion = GBPProducto.Gestion;
+            GBLProducto.Cierre = GBPProducto.Cierre;
+            GBLProducto.Causa = GBPProducto.Causa;
+            GBLProducto.FechaSeguimiento = GBPProducto.FechaSeguimiento;
+            GBLProducto.Observaciones = GBPProducto.Observaciones;
+
+            unitWorkLog.GBLProducto.Add(GBLProducto);
+            unitWorkLog.Complete();
+
+        }
+        public void ActualizarGestionProducto(GBPProducto GBPProducto)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
+
+            GBPProducto GBPProductoActualizable = unitWork.GBPProducto.Find(c => c.CuentaCliente == GBPProducto.CuentaCliente).FirstOrDefault();
+
+            GBPProducto.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(GBPProducto.TipoContacto)).TipoContacto;
+            GBPProducto.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(GBPProducto.Gestion)).Cierre;
+            GBPProducto.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(GBPProducto.Cierre)).Razon;
+            GBPProducto.Causa = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(GBPProducto.Causa)).Causa;
+
+            GBPProducto.FechaGestion = DateTime.Now;
+
+            GBPProductoActualizable.FechaGestion = GBPProducto.FechaGestion;
+            GBPProductoActualizable.UsuarioGestion = GBPProducto.UsuarioGestion;
+            GBPProductoActualizable.NombreUsuarioGestion = GBPProducto.NombreUsuarioGestion;
+            GBPProductoActualizable.AliadoGestion = GBPProducto.AliadoGestion;
+            GBPProductoActualizable.OperacionGestion = GBPProducto.OperacionGestion;
+            GBPProductoActualizable.CampanaGestion = GBPProducto.CampanaGestion;
+            GBPProductoActualizable.CuentaCliente = GBPProducto.CuentaCliente;
+            GBPProductoActualizable.TipoContacto = GBPProducto.TipoContacto;
+            GBPProductoActualizable.Gestion = GBPProducto.Gestion;
+            GBPProductoActualizable.Cierre = GBPProducto.Cierre;
+            GBPProductoActualizable.Causa = GBPProducto.Causa;
+            GBPProductoActualizable.FechaSeguimiento = GBPProducto.FechaSeguimiento;
+            GBPProductoActualizable.Observaciones = GBPProducto.Observaciones;
+
+            unitWork.Complete();
+
+            GBLProducto GBLProducto = new GBLProducto();
+
+            GBLProducto.FechaGestion = GBPProducto.FechaGestion;
+            GBLProducto.UsuarioGestion = GBPProducto.UsuarioGestion;
+            GBLProducto.NombreUsuarioGestion = GBPProducto.NombreUsuarioGestion;
+            GBLProducto.AliadoGestion = GBPProducto.AliadoGestion;
+            GBLProducto.OperacionGestion = GBPProducto.OperacionGestion;
+            GBLProducto.CampanaGestion = GBPProducto.CampanaGestion;
+            GBLProducto.CuentaCliente = GBPProducto.CuentaCliente;
+            GBLProducto.TipoContacto = GBPProducto.TipoContacto;
+            GBLProducto.Gestion = GBPProducto.Gestion;
+            GBLProducto.Cierre = GBPProducto.Cierre;
+            GBLProducto.Causa = GBPProducto.Causa;
+            GBLProducto.FechaSeguimiento = GBPProducto.FechaSeguimiento;
+            GBLProducto.Observaciones = GBPProducto.Observaciones;
+
+            unitWorkLog.GBLProducto.Add(GBLProducto);
+            unitWorkLog.Complete();
+
+        }
+        public bool ValidarCuentaEnProducto(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            var resultado = unitWork.GBPProducto.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+
+            if (resultado.Count() > 0) { return true; }
+            else { return false; }
+        }
+        public GBPProducto TraeInformacionActualProducto(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            GBPProducto Resultado = unitWork.GBPProducto.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            return Resultado;
+        }
+        public List<GBLProducto> TraeListaGestionUsuarioProucto(string Usuario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBLProducto> result = new List<GBLProducto>();
+            var objetosResult = (from a in dimContext.GBLProducto
+                                 where a.UsuarioGestion.Equals(Usuario)
+                                 orderby a.Id descending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.CuentaCliente,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Causa,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBLProducto());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Causa = objetosResult[i].Causa;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public List<GBPProducto> TraeListaSeguimientosUsuarioProducto(string Usuario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBPProducto> result = new List<GBPProducto>();
+            var objetosResult = (from a in dimContext.GBPProducto
+                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("GESTION EN SEGUIMIENTO")
+                                 orderby a.Id descending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.CuentaCliente,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Causa,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBPProducto());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Causa = objetosResult[i].Causa;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public GBPProducto TraerDatosCuentaSelectProducto(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.GBPProducto.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+
+        }
+        public int CantidadToquesCuentaProducto(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            int Cantidad = unitWork.GBLProducto.Find(c => c.CuentaCliente == CuentaCliente).Count();
+            if (Cantidad > 0)
+            {
+                return Cantidad;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public GBLProducto TraeUltimaGestionCuentaProducto(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            List<GBLProducto> Registros = unitWork.GBLProducto.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+
+            if (Registros.Count() > 0)
+            {
+                decimal MaxId = Registros.Max(c => c.Id);
+                return unitWork.GBLProducto.Get(Convert.ToInt32(MaxId));
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+        public List<GBPProducto> ConsultaAdminProductoP(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBPProducto> result = new List<GBPProducto>();
+            var objetosResult = (from a in dimContext.GBPProducto
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.NombreUsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.OperacionGestion,
+                                     a.CampanaGestion,
+                                     a.CuentaCliente,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Causa,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBPProducto());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].OperacionGestion = objetosResult[i].OperacionGestion;
+                result[i].CampanaGestion = objetosResult[i].CampanaGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Causa = objetosResult[i].Causa;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public List<GBLProducto> ConsultaAdminProductoL(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBLProducto> result = new List<GBLProducto>();
+            var objetosResult = (from a in dimContext.GBLProducto
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.NombreUsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.OperacionGestion,
+                                     a.CampanaGestion,
+                                     a.CuentaCliente,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Causa,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBLProducto());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].OperacionGestion = objetosResult[i].OperacionGestion;
+                result[i].CampanaGestion = objetosResult[i].CampanaGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Causa = objetosResult[i].Causa;
                 result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
             }
