@@ -90,6 +90,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.HomTotal).HasColumnName(@"HOM_TOTAL").IsOptional().HasColumnType("float");
             Property(x => x.DiferenciaRentas).HasColumnName(@"DIFERENCIA_RENTAS").IsOptional().HasColumnType("float");
             Property(x => x.Clasificacion).HasColumnName(@"CLASIFICACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(14);
+            Property(x => x.DecosNagra).HasColumnName(@"DECOS_NAGRA").IsOptional().HasColumnType("float");
         }
     }
 

@@ -12,8 +12,6 @@
 
 namespace Telmexla.Servicios.DIME.Entity
 {
-
-    // TBL_SMO_RENTA_ACTUAL
     public class SmoRentaActual
     {
         public double Cuenta { get; set; } // CUENTA (Primary key)
@@ -80,6 +78,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public double? HomTotal { get; set; } // HOM_TOTAL
         public double? DiferenciaRentas { get; set; } // DIFERENCIA_RENTAS
         public string Clasificacion { get; set; } // CLASIFICACION (length: 14)
+        public double? DecosNagra { get; set; } // DECOS_NAGRA
     }
 
 }
