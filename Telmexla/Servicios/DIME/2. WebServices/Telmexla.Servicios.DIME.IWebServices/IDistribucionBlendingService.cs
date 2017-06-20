@@ -135,5 +135,43 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<GBLProducto> ConsultaAdminProductoL(DateTime FechaInicial, DateTime FechaFinal);
+
+        //GESTION BLENDING DOCSIS Y OVERLAP
+
+        [OperationContract]
+        GBCDocsis TraerInformacionCuentaDocsis(decimal CuentaCliente);
+
+        [OperationContract]
+        void InsertarRegistroDocsis(GBPDocsis GBPDocsis);
+
+        [OperationContract]
+        void ActualizarGestionDocsis(GBPDocsis GBPDocsis);
+
+        [OperationContract]
+        bool ValidarCuentaEnDocsis(decimal CuentaCliente);
+
+        [OperationContract]
+        GBPDocsis TraeInformacionActualDocsis(decimal CuentaCliente);
+
+        [OperationContract]
+        List<GBLDocsis> TraeListaGestionUsuarioDocsis(string Usuario);
+
+        [OperationContract]
+        List<GBPDocsis> TraeListaSeguimientosUsuarioDocsis(string Usuario);
+
+        [OperationContract]
+        GBPDocsis TraerDatosCuentaSelectDocsis(decimal CuentaCliente);
+
+        [OperationContract]
+        int CantidadToquesCuentaDocsis(decimal CuentaCliente);
+
+        [OperationContract]
+        GBLDocsis TraeUltimaGestionCuentaDocsis(decimal CuentaCliente);
+
+        [OperationContract]
+        List<GBPDocsis> ConsultaAdminDocsisP(DateTime FechaInicial, DateTime FechaFinal);
+
+        [OperationContract]
+        List<GBLDocsis> ConsultaAdminDocsisL(DateTime FechaInicial, DateTime FechaFinal);
     }
 }

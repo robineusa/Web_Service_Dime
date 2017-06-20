@@ -223,5 +223,68 @@ namespace Telmexla.Servicios.DIME.WebServices
             return distribucionesBlendingBusiness.ConsultaAdminProductoL(FechaInicial, FechaFinal);
         }
 
+
+        //GESTION BLENDING DOCSIS Y OVERLAP
+        public GBCDocsis TraerInformacionCuentaDocsis(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraerInformacionCuentaDocsis(CuentaCliente);
+        }
+        public void InsertarRegistroDocsis(GBPDocsis GBPDocsis)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            distribucionesBlendingBusiness.InsertarRegistroDocsis(GBPDocsis);
+        }
+        public void ActualizarGestionDocsis(GBPDocsis GBPDocsis)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            distribucionesBlendingBusiness.ActualizarGestionDocsis(GBPDocsis);
+        }
+        public bool ValidarCuentaEnDocsis(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.ValidarCuentaEnDocsis(CuentaCliente);
+        }
+        public GBPDocsis TraeInformacionActualDocsis(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeInformacionActualDocsis(CuentaCliente);
+        }
+        public List<GBLDocsis> TraeListaGestionUsuarioDocsis(string Usuario)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeListaGestionUsuarioDocsis(Usuario);
+        }
+        public List<GBPDocsis> TraeListaSeguimientosUsuarioDocsis(string Usuario)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeListaSeguimientosUsuarioDocsis(Usuario);
+        }
+        public GBPDocsis TraerDatosCuentaSelectDocsis(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraerDatosCuentaSelectDocsis(CuentaCliente);
+        }
+        public int CantidadToquesCuentaDocsis(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.CantidadToquesCuentaDocsis(CuentaCliente);
+        }
+        public GBLDocsis TraeUltimaGestionCuentaDocsis(decimal CuentaCliente)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.TraeUltimaGestionCuentaDocsis(CuentaCliente);
+        }
+        public List<GBPDocsis> ConsultaAdminDocsisP(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.ConsultaAdminDocsisP(FechaInicial, FechaFinal);
+        }
+        public List<GBLDocsis> ConsultaAdminDocsisL(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.ConsultaAdminDocsisL(FechaInicial, FechaFinal);
+        }
+
     }
 }
