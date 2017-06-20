@@ -83,6 +83,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<GBPProducto> GBPProducto { get; set; } // TBL_GBP_PRODUCTO
         public System.Data.Entity.DbSet<GBLProducto> GBLProducto { get; set; } // TBL_GBL_PRODUCTO
         public System.Data.Entity.DbSet<GBCProducto> GBCProducto { get; set; } // TMP_GBC_PRODUCTO
+        public System.Data.Entity.DbSet<GBPDocsis> GBPDocsis { get; set; } // TBL_GBP_DOCSIS_OVERLAP
+        public System.Data.Entity.DbSet<GBLDocsis> GBLDocsis { get; set; } // TBL_GBL_DOCSIS_OVERLAP
+        public System.Data.Entity.DbSet<GBCDocsis> GBCDocsis { get; set; } // TMP_GBC_DOCSIS_OVERLAP
+
 
         static DimeContext()
         {
@@ -198,6 +202,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBPProductoConfiguration());
             modelBuilder.Configurations.Add(new GBLProductoConfiguration());
             modelBuilder.Configurations.Add(new GBCProductoConfiguration());
+            modelBuilder.Configurations.Add(new GBPDocsisConfiguration());
+            modelBuilder.Configurations.Add(new GBLDocsisConfiguration());
+            modelBuilder.Configurations.Add(new GBCDocsisConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -266,6 +273,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBPProductoConfiguration(schema));
             modelBuilder.Configurations.Add(new GBLProductoConfiguration(schema));
             modelBuilder.Configurations.Add(new GBCProductoConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBPDocsisConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBLDocsisConfiguration(schema));
+            modelBuilder.Configurations.Add(new GBCDocsisConfiguration(schema));
             return modelBuilder;
         }
 

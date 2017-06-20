@@ -65,6 +65,9 @@ namespace Telmexla.Servicios.DIME.Data
             GBPProducto = new GBPProductoRepository(this.dimeContext);
             GBLProducto = new GBLProductoRepository(this.dimeContext);
             GBCProducto = new GBCProductoRepository(this.dimeContext);
+            GBPDocsis = new GBPDocsisRepository(this.dimeContext);
+            GBLDocsis = new GBLDocsisRepository(this.dimeContext);
+            GBCDocsis = new GBCDocsisRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -274,6 +277,18 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IGBCProductoRepository GBCProducto
+        {
+            get; private set;
+        }
+        public IGBPDocsisRepository GBPDocsis
+        {
+            get; private set;
+        }
+        public IGBLDocsisRepository GBLDocsis
+        {
+            get; private set;
+        }
+        public IGBCDocsisRepository GBCDocsis
         {
             get; private set;
         }

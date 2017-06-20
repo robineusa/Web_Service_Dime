@@ -1190,5 +1190,322 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
+
+        // //GESTION BLENDING DOCSIS Y OVERLAP
+        public GBCDocsis TraerInformacionCuentaDocsis(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.GBCDocsis.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+        }
+        public void InsertarRegistroDocsis(GBPDocsis GBPDocsis)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
+
+            GBPDocsis.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(GBPDocsis.TipoContacto)).TipoContacto;
+            GBPDocsis.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(GBPDocsis.Gestion)).Cierre;
+            GBPDocsis.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(GBPDocsis.Cierre)).Razon;
+            GBPDocsis.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(GBPDocsis.Razon)).Causa;
+
+
+            GBPDocsis.FechaGestion = DateTime.Now;
+            unitWork.GBPDocsis.Add(GBPDocsis);
+            unitWork.Complete();
+
+            GBLDocsis GBLDocsis = new GBLDocsis();
+
+            GBLDocsis.FechaGestion = GBPDocsis.FechaGestion;
+            GBLDocsis.UsuarioGestion = GBPDocsis.UsuarioGestion;
+            GBLDocsis.NombreUsuarioGestion = GBPDocsis.NombreUsuarioGestion;
+            GBLDocsis.AliadoGestion = GBPDocsis.AliadoGestion;
+            GBLDocsis.OperacionGestion = GBPDocsis.OperacionGestion;
+            GBLDocsis.CampanaGestion = GBPDocsis.CampanaGestion;
+            GBLDocsis.CuentaCliente = GBPDocsis.CuentaCliente;
+            GBLDocsis.TipoContacto = GBPDocsis.TipoContacto;
+            GBLDocsis.Gestion = GBPDocsis.Gestion;
+            GBLDocsis.Cierre = GBPDocsis.Cierre;
+            GBLDocsis.Razon = GBPDocsis.Razon;
+            GBLDocsis.FechaSeguimiento = GBPDocsis.FechaSeguimiento;
+            GBLDocsis.Observaciones = GBPDocsis.Observaciones;
+            GBLDocsis.Aliado = GBPDocsis.Aliado;
+
+            unitWorkLog.GBLDocsis.Add(GBLDocsis);
+            unitWorkLog.Complete();
+
+        }
+        public void ActualizarGestionDocsis(GBPDocsis GBPDocsis)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
+
+            GBPDocsis GBPDocsisActualizable = unitWork.GBPDocsis.Find(c => c.CuentaCliente == GBPDocsis.CuentaCliente).FirstOrDefault();
+
+            GBPDocsis.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(GBPDocsis.TipoContacto)).TipoContacto;
+            GBPDocsis.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(GBPDocsis.Gestion)).Cierre;
+            GBPDocsis.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(GBPDocsis.Cierre)).Razon;
+            GBPDocsis.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(GBPDocsis.Razon)).Causa;
+
+            GBPDocsis.FechaGestion = DateTime.Now;
+
+            GBPDocsisActualizable.FechaGestion = GBPDocsis.FechaGestion;
+            GBPDocsisActualizable.UsuarioGestion = GBPDocsis.UsuarioGestion;
+            GBPDocsisActualizable.NombreUsuarioGestion = GBPDocsis.NombreUsuarioGestion;
+            GBPDocsisActualizable.AliadoGestion = GBPDocsis.AliadoGestion;
+            GBPDocsisActualizable.OperacionGestion = GBPDocsis.OperacionGestion;
+            GBPDocsisActualizable.CampanaGestion = GBPDocsis.CampanaGestion;
+            GBPDocsisActualizable.CuentaCliente = GBPDocsis.CuentaCliente;
+            GBPDocsisActualizable.TipoContacto = GBPDocsis.TipoContacto;
+            GBPDocsisActualizable.Gestion = GBPDocsis.Gestion;
+            GBPDocsisActualizable.Cierre = GBPDocsis.Cierre;
+            GBPDocsisActualizable.Razon = GBPDocsis.Razon;
+            GBPDocsisActualizable.FechaSeguimiento = GBPDocsis.FechaSeguimiento;
+            GBPDocsisActualizable.Observaciones = GBPDocsis.Observaciones;
+            GBPDocsisActualizable.Aliado = GBPDocsis.Aliado;
+
+            unitWork.Complete();
+
+            GBLDocsis GBLDocsis = new GBLDocsis();
+
+            GBLDocsis.FechaGestion = GBPDocsis.FechaGestion;
+            GBLDocsis.UsuarioGestion = GBPDocsis.UsuarioGestion;
+            GBLDocsis.NombreUsuarioGestion = GBPDocsis.NombreUsuarioGestion;
+            GBLDocsis.AliadoGestion = GBPDocsis.AliadoGestion;
+            GBLDocsis.OperacionGestion = GBPDocsis.OperacionGestion;
+            GBLDocsis.CampanaGestion = GBPDocsis.CampanaGestion;
+            GBLDocsis.CuentaCliente = GBPDocsis.CuentaCliente;
+            GBLDocsis.TipoContacto = GBPDocsis.TipoContacto;
+            GBLDocsis.Gestion = GBPDocsis.Gestion;
+            GBLDocsis.Cierre = GBPDocsis.Cierre;
+            GBLDocsis.Razon = GBPDocsis.Razon;
+            GBLDocsis.FechaSeguimiento = GBPDocsis.FechaSeguimiento;
+            GBLDocsis.Observaciones = GBPDocsis.Observaciones;
+            GBLDocsis.Aliado = GBPDocsis.Aliado;
+
+            unitWorkLog.GBLDocsis.Add(GBLDocsis);
+            unitWorkLog.Complete();
+
+        }
+        public bool ValidarCuentaEnDocsis(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            var resultado = unitWork.GBPDocsis.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+
+            if (resultado.Count() > 0) { return true; }
+            else { return false; }
+        }
+        public GBPDocsis TraeInformacionActualDocsis(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            GBPDocsis Resultado = unitWork.GBPDocsis.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            return Resultado;
+        }
+        public List<GBLDocsis> TraeListaGestionUsuarioDocsis(string Usuario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBLDocsis> result = new List<GBLDocsis>();
+            var objetosResult = (from a in dimContext.GBLDocsis
+                                 where a.UsuarioGestion.Equals(Usuario)
+                                 orderby a.Id descending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.CuentaCliente,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Razon,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBLDocsis());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Razon = objetosResult[i].Razon;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public List<GBPDocsis> TraeListaSeguimientosUsuarioDocsis(string Usuario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBPDocsis> result = new List<GBPDocsis>();
+            var objetosResult = (from a in dimContext.GBPDocsis
+                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("SEGUIMIENTO")
+                                 orderby a.Id descending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.CuentaCliente,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Razon,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBPDocsis());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Razon = objetosResult[i].Razon;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public GBPDocsis TraerDatosCuentaSelectDocsis(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.GBPDocsis.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+
+        }
+        public int CantidadToquesCuentaDocsis(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            int Cantidad = unitWork.GBLDocsis.Find(c => c.CuentaCliente == CuentaCliente).Count();
+            if (Cantidad > 0)
+            {
+                return Cantidad;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public GBLDocsis TraeUltimaGestionCuentaDocsis(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            List<GBLDocsis> Registros = unitWork.GBLDocsis.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+
+            if (Registros.Count() > 0)
+            {
+                decimal MaxId = Registros.Max(c => c.Id);
+                return unitWork.GBLDocsis.Get(Convert.ToInt32(MaxId));
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+        public List<GBPDocsis> ConsultaAdminDocsisP(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBPDocsis> result = new List<GBPDocsis>();
+            var objetosResult = (from a in dimContext.GBPDocsis
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.NombreUsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.OperacionGestion,
+                                     a.CampanaGestion,
+                                     a.CuentaCliente,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Razon,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones,
+                                     a.Aliado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBPDocsis());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].OperacionGestion = objetosResult[i].OperacionGestion;
+                result[i].CampanaGestion = objetosResult[i].CampanaGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Razon = objetosResult[i].Razon;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+                result[i].Aliado = objetosResult[i].Aliado;
+            }
+            return result;
+
+        }
+        public List<GBLDocsis> ConsultaAdminDocsisL(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GBLDocsis> result = new List<GBLDocsis>();
+            var objetosResult = (from a in dimContext.GBLDocsis
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.NombreUsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.OperacionGestion,
+                                     a.CampanaGestion,
+                                     a.CuentaCliente,
+                                     a.TipoContacto,
+                                     a.Gestion,
+                                     a.Cierre,
+                                     a.Razon,
+                                     a.FechaSeguimiento,
+                                     a.Observaciones,
+                                     a.Aliado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GBLDocsis());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].OperacionGestion = objetosResult[i].OperacionGestion;
+                result[i].CampanaGestion = objetosResult[i].CampanaGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoContacto = objetosResult[i].TipoContacto;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Cierre = objetosResult[i].Cierre;
+                result[i].Razon = objetosResult[i].Razon;
+                result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+                result[i].Aliado = objetosResult[i].Aliado;
+            }
+            return result;
+
+        }
+
     }
 }

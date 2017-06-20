@@ -58,6 +58,9 @@ namespace Telmexla.Servicios.DIME.IData
         IGBPProductoRepository GBPProducto { get; }
         IGBLProductoRepository GBLProducto { get; }
         IGBCProductoRepository GBCProducto { get; }
+        IGBPDocsisRepository GBPDocsis { get; }
+        IGBLDocsisRepository GBLDocsis { get; }
+        IGBCDocsisRepository GBCDocsis { get; }
         int Complete();
     }
 }
