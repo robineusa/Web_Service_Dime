@@ -1064,6 +1064,11 @@ namespace Telmexla.Servicios.DIME.Business
                 ingresoActualizable.HoraCierre = fechaActual;
                 ingresoActualizable.UsuarioCierre = ingreso.UsuarioUltimaActualizacion;
             }
+            if (matriz.Subrazon == "SE CREO MATRIZ CORRECTAMENTE")
+            {
+                ingresoActualizable.NombreLineaEscalado = "CELULA GESTION MATRICES";
+            }
+            
             ingresoActualizable.FechaUltimaActualizacion = fechaActual;
             ingresoActualizable.HoraUltimaActualizacion = fechaActual;
             ingresoActualizable.UsuarioUltimaActualizacion = ingreso.UsuarioUltimaActualizacion;
@@ -1177,7 +1182,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<DatoConsultaDirecciones> result = new List<DatoConsultaDirecciones>();
             var objetosResult = (from a in dimContext.IngresoTraslados
                                  join b in (from m in dimContext.gestionMatrices select new { m.IdTransaccion, m.UsuarioBackOfficeGestion }).Distinct() on a.IdTransaccion equals b.IdTransaccion
-                                 where a.EstadoTransaccion.Equals("PENDIENTE POR GESTIONAR") && (b.UsuarioBackOfficeGestion == null || b.UsuarioBackOfficeGestion == Usuario)
+                                 where a.EstadoTransaccion.Equals("PENDIENTE POR GESTIONAR") && a.NombreLineaEscalado.Equals("CELULA GESTION MATRICES") &&(b.UsuarioBackOfficeGestion == null || b.UsuarioBackOfficeGestion == Usuario)
                                  select new
                                  {
                                      a.IdTransaccion,
