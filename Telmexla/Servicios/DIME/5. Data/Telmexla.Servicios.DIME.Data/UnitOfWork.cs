@@ -68,6 +68,7 @@ namespace Telmexla.Servicios.DIME.Data
             GBPDocsis = new GBPDocsisRepository(this.dimeContext);
             GBLDocsis = new GBLDocsisRepository(this.dimeContext);
             GBCDocsis = new GBCDocsisRepository(this.dimeContext);
+            Retencion = new RetencionRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -292,7 +293,11 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-
+        public IRetencionRepository Retencion
+        {
+            get; private set;
+        }
+        
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

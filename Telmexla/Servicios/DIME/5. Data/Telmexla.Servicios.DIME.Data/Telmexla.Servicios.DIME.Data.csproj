@@ -86,6 +86,7 @@
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />
     <Compile Include="Configuration\RazonIngresoSoporteConfiguration.cs" />
     <Compile Include="Configuration\RechazoConfiguration.cs" />
+    <Compile Include="Configuration\RetencionConfiguration.cs" />
     <Compile Include="Configuration\SiembraHDConfiguration.cs" />
     <Compile Include="Configuration\SmoRentaActualConfiguration.cs" />
     <Compile Include="Configuration\SmoTarifaActualConfiguration.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="RechazoRepository.cs" />
     <Compile Include="RegistroSesionRepository.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="RetencionRepository.cs" />
     <Compile Include="SiembraHDRepository.cs" />
     <Compile Include="Configuration\SiguienteMejorOfertaConfiguration.cs" />
     <Compile Include="SiguienteMejorOfertaRepository.cs" />

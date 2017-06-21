@@ -61,6 +61,7 @@ namespace Telmexla.Servicios.DIME.IData
         IGBPDocsisRepository GBPDocsis { get; }
         IGBLDocsisRepository GBLDocsis { get; }
         IGBCDocsisRepository GBCDocsis { get; }
+        IRetencionRepository Retencion { get; }
         int Complete();
     }
 }

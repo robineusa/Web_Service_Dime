@@ -86,6 +86,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<GBPDocsis> GBPDocsis { get; set; } // TBL_GBP_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<GBLDocsis> GBLDocsis { get; set; } // TBL_GBL_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<GBCDocsis> GBCDocsis { get; set; } // TMP_GBC_DOCSIS_OVERLAP
+        public System.Data.Entity.DbSet<Retencion> Retencion { get; set; } // TBL_RETENCION
 
 
         static DimeContext()
@@ -205,6 +206,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBPDocsisConfiguration());
             modelBuilder.Configurations.Add(new GBLDocsisConfiguration());
             modelBuilder.Configurations.Add(new GBCDocsisConfiguration());
+            modelBuilder.Configurations.Add(new RetencionConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -276,6 +278,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBPDocsisConfiguration(schema));
             modelBuilder.Configurations.Add(new GBLDocsisConfiguration(schema));
             modelBuilder.Configurations.Add(new GBCDocsisConfiguration(schema));
+            modelBuilder.Configurations.Add(new RetencionConfiguration(schema));
             return modelBuilder;
         }
 

@@ -124,7 +124,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             return ingresoBusi.SeguimientosInfo(idUsuario);
         }
 
-
+        public void InsertarRetencionInbound(Retencion retencion)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            ingresoBusi.InsertarRetencionInbound(retencion);
+        }
 
 
 

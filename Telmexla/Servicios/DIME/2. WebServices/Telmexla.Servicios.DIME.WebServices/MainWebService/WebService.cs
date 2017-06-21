@@ -341,6 +341,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return inboundService.ConsultaSegumiento(idUsuario);
 
         }
+        public void InsertarRetencionInbound(Retencion retencion)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            ingresoBusi.InsertarRetencionInbound(retencion);
+        }
         #endregion
 
         #region MaestrosService 

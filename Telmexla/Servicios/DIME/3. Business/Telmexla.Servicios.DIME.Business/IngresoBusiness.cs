@@ -743,7 +743,33 @@ namespace Telmexla.Servicios.DIME.Business
             }
         }
 
+        public void InsertarRetencionInbound(Retencion retencion)
+        {
+            try
+            {
+                retencion.FechaGestion = DateTime.Now;
 
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.Retencion.Add(retencion);
+                unitWork.Complete();
+
+
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
 
 
 

@@ -52,5 +52,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         IngresoCollection ConsultaSegumiento(string idUsuario);
+
+        [OperationContract]
+        void InsertarRetencionInbound(Retencion retencion);
     }
 }

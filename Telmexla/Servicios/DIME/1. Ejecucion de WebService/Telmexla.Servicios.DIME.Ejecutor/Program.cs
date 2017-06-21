@@ -31,6 +31,19 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //Insert.InsertarMejorasTecnicasInbound(m);
             //BlendingBusiness Blend = new BlendingBusiness();
 
+            //IngresoBusiness ing = new IngresoBusiness();
+            //Retencion ret = new Retencion();
+
+            //ret.UsuarioGestion = "780";
+            //ret.NombreUsuarioGestion = "sdfsdf";
+            //ret.AliadoGestion = "";
+            //ret.Cuenta = 0;
+            //ret.Razon = "22";
+            //ret.SubRazon = "33";
+            //ret.Observaciones = "siiiiiiiii";
+
+            //ing.InsertarRetencionInbound(ret);
+
             MaestroNodoBusiness mnb = new MaestroNodoBusiness();
             var nodo = "BLT";
             var dato =mnb.GetInformacionNodo(nodo);
