@@ -136,8 +136,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         string CampañaPorCedula(int Cedula);
 
-
-
+        
+        
     }
 
 

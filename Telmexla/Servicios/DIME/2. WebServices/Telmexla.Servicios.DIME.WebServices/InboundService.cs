@@ -129,7 +129,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             IngresoBusiness ingresoBusi = new IngresoBusiness();
             ingresoBusi.InsertarRetencionInbound(retencion);
         }
-
+        public RetencionCollection ListaRetencionInbound(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            return ingresoBusi.ListaRetencionInbound(fechaInicial, fechaFinal);
+        }
 
 
     }

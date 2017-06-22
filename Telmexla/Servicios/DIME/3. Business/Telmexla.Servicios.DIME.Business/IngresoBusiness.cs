@@ -770,8 +770,28 @@ namespace Telmexla.Servicios.DIME.Business
 
 
         }
+        public RetencionCollection ListaRetencionInbound(DateTime inicial, DateTime final)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            RetencionCollection result = new RetencionCollection();
 
+            result.AddRange(unitWork.Retencion.Find(c => c.FechaGestion >= inicial && c.FechaGestion <= final)
+                .Select(x => new Retencion
+                {
+                    Id = x.Id,
+                    FechaGestion = x.FechaGestion,
+                    UsuarioGestion = x.UsuarioGestion,
+                    NombreUsuarioGestion = x.NombreUsuarioGestion,
+                    Cuenta = x.Cuenta,
+                    Razon = x.Razon,
+                    SubRazon = x.SubRazon,
+                    Observaciones = x.Observaciones
+                }));
 
+            
+            return result;
+
+        }
 
     }
 }

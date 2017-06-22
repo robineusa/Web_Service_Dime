@@ -164,6 +164,7 @@
     <Compile Include="Rechazo.cs" />
     <Compile Include="RegistroSesion.cs" />
     <Compile Include="Retencion.cs" />
+    <Compile Include="RetencionCollection.cs" />
     <Compile Include="SiembraHD.cs" />
     <Compile Include="SiembraHDCollection.cs" />
     <Compile Include="SiguienteMejorOferta.cs" />

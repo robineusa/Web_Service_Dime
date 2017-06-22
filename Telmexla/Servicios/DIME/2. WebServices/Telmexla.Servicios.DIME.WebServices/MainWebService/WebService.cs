@@ -346,6 +346,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             IngresoBusiness ingresoBusi = new IngresoBusiness();
             ingresoBusi.InsertarRetencionInbound(retencion);
         }
+        public RetencionCollection ListaRetencionInbound(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            IngresoBusiness ingresoBusi = new IngresoBusiness();
+            return ingresoBusi.ListaRetencionInbound(fechaInicial, fechaFinal);
+        }
         #endregion
 
         #region MaestrosService 

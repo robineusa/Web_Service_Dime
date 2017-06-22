@@ -55,5 +55,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         void InsertarRetencionInbound(Retencion retencion);
+
+        [OperationContract]
+        RetencionCollection ListaRetencionInbound(DateTime fechaInicial, DateTime fechaFinal);
     }
 }

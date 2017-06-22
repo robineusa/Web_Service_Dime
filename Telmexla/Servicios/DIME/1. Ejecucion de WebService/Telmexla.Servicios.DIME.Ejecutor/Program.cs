@@ -31,7 +31,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //Insert.InsertarMejorasTecnicasInbound(m);
             //BlendingBusiness Blend = new BlendingBusiness();
 
-            //IngresoBusiness ing = new IngresoBusiness();
+            IngresoBusiness ing = new IngresoBusiness();
             //Retencion ret = new Retencion();
 
             //ret.UsuarioGestion = "780";
@@ -43,6 +43,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //ret.Observaciones = "siiiiiiiii";
 
             //ing.InsertarRetencionInbound(ret);
+
+            DateTime inicial = Convert.ToDateTime("2017-06-20");
+            DateTime final = Convert.ToDateTime("2017-06-22");
+            var r = ing.ListaRetencionInbound(inicial, final);
 
             MaestroNodoBusiness mnb = new MaestroNodoBusiness();
             var nodo = "BLT";
