@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Telmexla.Servicios.DIME.Entity
 {
-    public class SkillsUsuariosBlendingCollection: List<SkillsUsuariosBlending>
+    public class SkillsUsuariosBlendingCollection: List<ViewModelSkillsUsuariosBlending>
     {
     }
 }

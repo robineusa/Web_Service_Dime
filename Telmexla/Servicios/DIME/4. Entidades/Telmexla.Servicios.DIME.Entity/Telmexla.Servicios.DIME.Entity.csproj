@@ -187,6 +187,7 @@
     <Compile Include="UsuariosNotificados.cs" />
     <Compile Include="UsuariosXAcceso.cs" />
     <Compile Include="UsuariosXPreguntasDesb.cs" />
+    <Compile Include="ViewModelSkillsUsuariosBlending.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

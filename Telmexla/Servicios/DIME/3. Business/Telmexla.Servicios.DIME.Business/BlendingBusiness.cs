@@ -589,10 +589,33 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public SkillsUsuariosBlendingCollection ListaUsuariosAdminBlending(string Operacion)
         {
-            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            List<SkillsUsuariosBlending> listaUsers = unitOfWork.SkillsUsuariosBlending.Find(a =>a.Operacion == Operacion).ToList();
             SkillsUsuariosBlendingCollection result = new SkillsUsuariosBlendingCollection();
-            result.AddRange(listaUsers);
+            DimeContext dimContext = new DimeContext();
+
+            var listaUsers = (from a in dimContext.SkillsUsuariosBlending
+                      join b in dimContext.Usuarios on a.Cedula equals b.Cedula
+                      where a.Operacion == Operacion
+                      select new 
+                      {
+                          Id = a.Id,
+                          Cedula = a.Cedula,
+                          Nombre = b.Nombre,
+                          Operacion = a.Operacion,
+                          Campaña = a.Campaña
+                          
+                      }).ToList();
+            foreach (var x in listaUsers)
+            {
+                ViewModelSkillsUsuariosBlending Skill = new ViewModelSkillsUsuariosBlending();
+                Skill.Id = x.Id;
+                Skill.Cedula = x.Cedula;
+                Skill.Nombre = x.Nombre;
+                Skill.Operacion = x.Operacion;
+                Skill.Campaña = x.Campaña;
+                
+                result.Add(Skill);
+
+            }
             return result;
         }
         public SkillsUsuariosBlending ConsultaUsuarioenAdminBlending(string cedula)

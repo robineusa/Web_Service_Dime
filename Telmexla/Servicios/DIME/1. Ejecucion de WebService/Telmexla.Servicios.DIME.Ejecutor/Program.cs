@@ -29,8 +29,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //m.Accionable = "fdsdfsdf";
             //m.AceptacionMejorasTecnicas = "si";
             //Insert.InsertarMejorasTecnicasInbound(m);
-            //BlendingBusiness Blend = new BlendingBusiness();
-
+            BlendingBusiness Blend = new BlendingBusiness();
+            SkillsUsuariosBlending sk = new SkillsUsuariosBlending();
+            //var z = Blend.ListaUsuariosAdminBlending("FUERANIVELES");
+            Blend.InsertarSkillsUsuarioBlending(sk);
             IngresoBusiness ing = new IngresoBusiness();
             //Retencion ret = new Retencion();
 
