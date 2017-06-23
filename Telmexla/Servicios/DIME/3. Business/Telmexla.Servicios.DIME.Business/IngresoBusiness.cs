@@ -782,6 +782,7 @@ namespace Telmexla.Servicios.DIME.Business
                     FechaGestion = x.FechaGestion,
                     UsuarioGestion = x.UsuarioGestion,
                     NombreUsuarioGestion = x.NombreUsuarioGestion,
+                    AliadoGestion = x.AliadoGestion,
                     Cuenta = x.Cuenta,
                     Razon = x.Razon,
                     SubRazon = x.SubRazon,
