@@ -20,6 +20,16 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+
+
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            var datosss = "";
+
             //SiembraHDBusiness Insert = new SiembraHDBusiness();
             //MejorasTecnicas m = new MejorasTecnicas();
             //m.UsuarioGestion = "ttt";
