@@ -13,6 +13,7 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class DistribucionBlendingBusiness
     {
+
         //este proceso aparta cuenta blending y trae la informacion de clientes todos
         public ClientesTodo TraerInformacionCuentaBlending(int idAsesor, string formulario, string aliado, string operacion, string campana, int noRecursividad)
         {
@@ -253,16 +254,30 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBPFueraNiveles TraeInformacionActualFueraNiveles(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            GBPFueraNiveles Resultado = unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            GBPFueraNiveles Resultado = unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).FirstOrDefault();
             return Resultado;
         }
         public List<GBLFueraNiveles> TraeListaGestionUsuarioFueraNiveles(string Usuario)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             DimeContext dimContext = new DimeContext();
             List<GBLFueraNiveles> result = new List<GBLFueraNiveles>();
             var objetosResult = (from a in dimContext.GBLFueradeNiveles
-                                 where a.UsuarioGestion.Equals(Usuario)
+                                 where a.UsuarioGestion.Equals(Usuario) && a.FechaGestion>= fecha1 && a.FechaGestion<= fecha2
                                  orderby a.Id descending
                                  select new
                                  {
@@ -298,10 +313,17 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public List<GBPFueraNiveles> TraeListaSeguimientosUsuarioFueraNiveles(string Usuario)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             DimeContext dimContext = new DimeContext();
             List<GBPFueraNiveles> result = new List<GBPFueraNiveles>();
             var objetosResult = (from a in dimContext.GBPFueradeNiveles
-                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("SEGUIMIENTO")
+                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("SEGUIMIENTO") && a.FechaGestion >= fecha1 && a.FechaGestion <= fecha2
                                  orderby a.Id descending
                                  select new
                                  {
@@ -340,14 +362,28 @@ namespace Telmexla.Servicios.DIME.Business
       
         public GBPFueraNiveles TraerDatosCuentaSelectFueraNivel(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            return unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).FirstOrDefault();
 
         }
         public int CantidadToquesCuentaFueraNiveles(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-           int Cantidad = unitWork.GBLFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).Count();
+           int Cantidad = unitWork.GBLFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).Count();
             if (Cantidad > 0) {
                 return Cantidad;
             }
@@ -356,8 +392,15 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBLFueraNiveles TraeUltimaGestionCuenta(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            List<GBLFueraNiveles> Registros = unitWork.GBLFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+            List<GBLFueraNiveles> Registros = unitWork.GBLFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).ToList();
             
             if (Registros.Count()>0)
             {
@@ -667,16 +710,30 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBPRentabilizacion TraeInformacionActualRentabilizacion(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            GBPRentabilizacion Resultado = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            GBPRentabilizacion Resultado = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).FirstOrDefault();
             return Resultado;
         }
         public List<GBLRentabilizacion> TraeListaGestionUsuarioRentabilizacion(string Usuario)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             DimeContext dimContext = new DimeContext();
             List<GBLRentabilizacion> result = new List<GBLRentabilizacion>();
             var objetosResult = (from a in dimContext.GBLRentabilizacion
-                                 where a.UsuarioGestion.Equals(Usuario)
+                                 where a.UsuarioGestion.Equals(Usuario) && a.FechaGestion>= fecha1 && a.FechaGestion<= fecha2
                                  orderby a.Id descending
                                  select new
                                  {
@@ -710,10 +767,17 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public List<GBPRentabilizacion> TraeListaSeguimientosUsuarioRentabilizacion(string Usuario)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             DimeContext dimContext = new DimeContext();
             List<GBPRentabilizacion> result = new List<GBPRentabilizacion>();
             var objetosResult = (from a in dimContext.GBPRentabilizacion
-                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("VENTA EN SEGUIMIENTO")
+                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("VENTA EN SEGUIMIENTO") && a.FechaGestion>= fecha1 && a.FechaGestion<= fecha2
                                  orderby a.Id descending
                                  select new
                                  {
@@ -749,14 +813,28 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBPRentabilizacion TraerDatosCuentaSelectRentabilizacion(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1); 
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            return unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).FirstOrDefault();
 
         }
         public int CantidadToquesCuentaRentabilizacion(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            int Cantidad = unitWork.GBLRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).Count();
+            int Cantidad = unitWork.GBLRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<=fecha2).Count();
             if (Cantidad > 0)
             {
                 return Cantidad;
@@ -768,8 +846,15 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBLRentabilizacion TraeUltimaGestionCuentaRentabilizacion(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            List<GBLRentabilizacion> Registros = unitWork.GBLRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+            List<GBLRentabilizacion> Registros = unitWork.GBLRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).ToList();
 
             if (Registros.Count() > 0)
             {
@@ -1016,16 +1101,30 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBPProducto TraeInformacionActualProducto(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            GBPProducto Resultado = unitWork.GBPProducto.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            GBPProducto Resultado = unitWork.GBPProducto.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion <= fecha2).FirstOrDefault();
             return Resultado;
         }
         public List<GBLProducto> TraeListaGestionUsuarioProucto(string Usuario)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             DimeContext dimContext = new DimeContext();
             List<GBLProducto> result = new List<GBLProducto>();
             var objetosResult = (from a in dimContext.GBLProducto
-                                 where a.UsuarioGestion.Equals(Usuario)
+                                 where a.UsuarioGestion.Equals(Usuario) && a.FechaGestion >= fecha1 && a.FechaGestion<= fecha2
                                  orderby a.Id descending
                                  select new
                                  {
@@ -1057,10 +1156,17 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public List<GBPProducto> TraeListaSeguimientosUsuarioProducto(string Usuario)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             DimeContext dimContext = new DimeContext();
             List<GBPProducto> result = new List<GBPProducto>();
             var objetosResult = (from a in dimContext.GBPProducto
-                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("GESTION EN SEGUIMIENTO")
+                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("GESTION EN SEGUIMIENTO") && a.FechaGestion>= fecha1 && a.FechaGestion <= fecha2
                                  orderby a.Id descending
                                  select new
                                  {
@@ -1094,14 +1200,28 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBPProducto TraerDatosCuentaSelectProducto(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1); 
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return unitWork.GBPProducto.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            return unitWork.GBPProducto.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).FirstOrDefault();
 
         }
         public int CantidadToquesCuentaProducto(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            int Cantidad = unitWork.GBLProducto.Find(c => c.CuentaCliente == CuentaCliente).Count();
+            int Cantidad = unitWork.GBLProducto.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).Count();
             if (Cantidad > 0)
             {
                 return Cantidad;
@@ -1113,8 +1233,15 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBLProducto TraeUltimaGestionCuentaProducto(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            List<GBLProducto> Registros = unitWork.GBLProducto.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+            List<GBLProducto> Registros = unitWork.GBLProducto.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).ToList();
 
             if (Registros.Count() > 0)
             {
@@ -1338,16 +1465,30 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBPDocsis TraeInformacionActualDocsis(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            GBPDocsis Resultado = unitWork.GBPDocsis.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            GBPDocsis Resultado = unitWork.GBPDocsis.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).FirstOrDefault();
             return Resultado;
         }
         public List<GBLDocsis> TraeListaGestionUsuarioDocsis(string Usuario)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             DimeContext dimContext = new DimeContext();
             List<GBLDocsis> result = new List<GBLDocsis>();
             var objetosResult = (from a in dimContext.GBLDocsis
-                                 where a.UsuarioGestion.Equals(Usuario)
+                                 where a.UsuarioGestion.Equals(Usuario) && a.FechaGestion >= fecha1 && a.FechaGestion <= fecha2
                                  orderby a.Id descending
                                  select new
                                  {
@@ -1379,10 +1520,17 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public List<GBPDocsis> TraeListaSeguimientosUsuarioDocsis(string Usuario)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             DimeContext dimContext = new DimeContext();
             List<GBPDocsis> result = new List<GBPDocsis>();
             var objetosResult = (from a in dimContext.GBPDocsis
-                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("SEGUIMIENTO")
+                                 where a.UsuarioGestion.Equals(Usuario) && a.Cierre.Equals("SEGUIMIENTO") && a.FechaGestion >= fecha1 && a.FechaGestion <= fecha2
                                  orderby a.Id descending
                                  select new
                                  {
@@ -1416,14 +1564,28 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBPDocsis TraerDatosCuentaSelectDocsis(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            return unitWork.GBPDocsis.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            return unitWork.GBPDocsis.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).FirstOrDefault();
 
         }
         public int CantidadToquesCuentaDocsis(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            int Cantidad = unitWork.GBLDocsis.Find(c => c.CuentaCliente == CuentaCliente).Count();
+            int Cantidad = unitWork.GBLDocsis.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).Count();
             if (Cantidad > 0)
             {
                 return Cantidad;
@@ -1435,8 +1597,15 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public GBLDocsis TraeUltimaGestionCuentaDocsis(decimal CuentaCliente)
         {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            List<GBLDocsis> Registros = unitWork.GBLDocsis.Find(c => c.CuentaCliente == CuentaCliente).ToList();
+            List<GBLDocsis> Registros = unitWork.GBLDocsis.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).ToList();
 
             if (Registros.Count() > 0)
             {
