@@ -30,7 +30,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.HomePass).HasColumnName(@"HOME_PASS").IsOptional().HasColumnType("float");
             Property(x => x.Estrato).HasColumnName(@"ESTRATO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(5);
             Property(x => x.Antiguedad).HasColumnName(@"ANTIGUEDAD").IsOptional().HasColumnType("float");
-            Property(x => x.Tarifa).HasColumnName(@"TARIFA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(3);
+            Property(x => x.Tarifa).HasColumnName(@"TARIFA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(4);
             Property(x => x.Productos).HasColumnName(@"PRODUCTOS").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(4000);
             Property(x => x.TipoTv).HasColumnName(@"TIPO_TV").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(16);
             Property(x => x.VelocidadInternet).HasColumnName(@"VELOCIDAD_INTERNET").IsOptional().HasColumnType("float");
