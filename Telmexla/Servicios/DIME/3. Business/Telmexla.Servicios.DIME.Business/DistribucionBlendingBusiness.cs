@@ -54,11 +54,17 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 unitWork.distribucionesBlending.Remove(CuentaEliminar);
                 unitWork.Complete();
+                unitWork.Dispose();
+
+                //insertar registro cola
+                UnitOfWork unitWorkinsert = new UnitOfWork(new DimeContext());
+
                 Registro.UsuarioGestionando = 0;
                 Registro.FechaAsignacion = CuentaEliminar.FechaAsignacion;
                 Registro.UsuarioAsignacion = CuentaEliminar.UsuarioAsignacion;
-                unitWork.distribucionesBlending.Add(Registro);
-                unitWork.Complete();
+                unitWorkinsert.distribucionesBlending.Add(Registro);
+                unitWorkinsert.Complete();
+                unitWorkinsert.Dispose();
             }
             else { }
         }
@@ -90,22 +96,26 @@ namespace Telmexla.Servicios.DIME.Business
         
         public void InsertarRegistroFueraNiveles(GBPFueraNiveles PFueraNivel)
         {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            //actualiza informacion de los maestros
             UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
 
             PFueraNivel.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(PFueraNivel.TipoContacto)).TipoContacto;
             PFueraNivel.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(PFueraNivel.Gestion)).Cierre;
             PFueraNivel.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(PFueraNivel.Cierre)).Razon;
             PFueraNivel.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(PFueraNivel.Razon)).Causa;
+            unitWorkMaestros.Complete();
+            unitWorkMaestros.Dispose();
 
+            //InsertarCuentaColaDistribucionBlending registro fuera de niveles
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            
             PFueraNivel.FechaGestion = DateTime.Now;
             unitWork.GBPFueradeNiveles.Add(PFueraNivel);
             unitWork.Complete();
+            unitWork.Dispose();
 
-
-
-
+            //inserta log de transaccion
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
             GBLFueraNiveles LFueraNivel = new GBLFueraNiveles();
 
             LFueraNivel.FechaGestion = PFueraNivel.FechaGestion;
@@ -142,25 +152,24 @@ namespace Telmexla.Servicios.DIME.Business
 
             unitWorkLog.GBLFueradeNiveles.Add(LFueraNivel);
             unitWorkLog.Complete();
+            unitWorkLog.Dispose();
 
         }
         public void ActualizarGestionFueraNiveles(GBPFueraNiveles PFueraNivel)
         {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+           //actualiza informacion de los maestros de tipificacion
             UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
-
-            GBPFueraNiveles PFueraNivelActualizable = unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == PFueraNivel.CuentaCliente).FirstOrDefault();
-
             PFueraNivel.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(PFueraNivel.TipoContacto)).TipoContacto;
             PFueraNivel.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(PFueraNivel.Gestion)).Cierre;
             PFueraNivel.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(PFueraNivel.Cierre)).Razon;
             PFueraNivel.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(PFueraNivel.Razon)).Causa;
+            unitWorkMaestros.Complete();
+            unitWorkMaestros.Dispose();
 
-
-
+            //actualiza informacion del registro existente
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            GBPFueraNiveles PFueraNivelActualizable = unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == PFueraNivel.CuentaCliente).FirstOrDefault();
             PFueraNivel.FechaGestion = DateTime.Now;
-
             PFueraNivelActualizable.FechaGestion = PFueraNivel.FechaGestion;
             PFueraNivelActualizable.UsuarioGestion = PFueraNivel.UsuarioGestion;
             PFueraNivelActualizable.AliadoGestion = PFueraNivel.AliadoGestion;
@@ -192,9 +201,11 @@ namespace Telmexla.Servicios.DIME.Business
             PFueraNivelActualizable.FechaSeguimiento = PFueraNivel.FechaSeguimiento;
             PFueraNivelActualizable.Observaciones = PFueraNivel.Observaciones;
             unitWork.Complete();
+            unitWork.Dispose();
 
+            //inserta el log de la transaccion
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
             GBLFueraNiveles LFueraNivel = new GBLFueraNiveles();
-
             LFueraNivel.FechaGestion = PFueraNivel.FechaGestion;
             LFueraNivel.UsuarioGestion = PFueraNivel.UsuarioGestion;
             LFueraNivel.AliadoGestion = PFueraNivel.AliadoGestion;
@@ -229,6 +240,7 @@ namespace Telmexla.Servicios.DIME.Business
 
             unitWorkLog.GBLFueradeNiveles.Add(LFueraNivel);
             unitWorkLog.Complete();
+            unitWorkLog.Dispose();
 
         }
         public bool ValidarCuentaEnFueraNiveles(decimal CuentaCliente)
@@ -531,22 +543,26 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public void InsertarRegistroRentabilizacion(GBPRentabilizacion PRentabilizacion)
         {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            //actualiza informacion de maestros de tipificacion
             UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
-
             PRentabilizacion.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(PRentabilizacion.TipoContacto)).TipoContacto;
             PRentabilizacion.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(PRentabilizacion.Gestion)).Cierre;
             PRentabilizacion.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(PRentabilizacion.Cierre)).Razon;
             PRentabilizacion.Causa = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(PRentabilizacion.Causa)).Causa;
             PRentabilizacion.Motivo = unitWorkMaestros.maestrosOutboundMotivo.Get(Convert.ToInt32(PRentabilizacion.Motivo)).Motivo;
+            unitWorkMaestros.Complete();
+            unitWorkMaestros.Dispose();
 
+            //inserta registro de rentabilizacion
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             PRentabilizacion.FechaGestion = DateTime.Now;
             unitWork.GBPRentabilizacion.Add(PRentabilizacion);
             unitWork.Complete();
-            
-            GBLRentabilizacion LRentabilizacion = new GBLRentabilizacion();
+            unitWork.Dispose();
 
+            //inserta log de la transaccion
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            GBLRentabilizacion LRentabilizacion = new GBLRentabilizacion();
             LRentabilizacion.FechaGestion = PRentabilizacion.FechaGestion;
             LRentabilizacion.UsuarioGestion = PRentabilizacion.UsuarioGestion;
             LRentabilizacion.AliadoGestion = PRentabilizacion.AliadoGestion;
@@ -569,25 +585,26 @@ namespace Telmexla.Servicios.DIME.Business
 
             unitWorkLog.GBLRentabilizacion.Add(LRentabilizacion);
             unitWorkLog.Complete();
+            unitWorkLog.Dispose();
 
         }
         public void ActualizarGestionRentabilizacion(GBPRentabilizacion PRentabilizacion)
         {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            //actualiza informacion de los maestros de tipificacion
             UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
-
-            GBPRentabilizacion PRentabilizacionActualizable = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == PRentabilizacion.CuentaCliente).FirstOrDefault();
-
             PRentabilizacion.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(PRentabilizacion.TipoContacto)).TipoContacto;
             PRentabilizacion.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(PRentabilizacion.Gestion)).Cierre;
             PRentabilizacion.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(PRentabilizacion.Cierre)).Razon;
             PRentabilizacion.Causa = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(PRentabilizacion.Causa)).Causa;
             PRentabilizacion.Motivo = unitWorkMaestros.maestrosOutboundMotivo.Get(Convert.ToInt32(PRentabilizacion.Motivo)).Motivo;
-
-
+            unitWorkMaestros.Complete();
+            unitWorkMaestros.Dispose();
 
             PRentabilizacion.FechaGestion = DateTime.Now;
+
+            //actualiza informacion del registro existente
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            GBPRentabilizacion PRentabilizacionActualizable = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == PRentabilizacion.CuentaCliente).FirstOrDefault();
 
             PRentabilizacionActualizable.FechaGestion = PRentabilizacion.FechaGestion;
             PRentabilizacionActualizable.UsuarioGestion = PRentabilizacion.UsuarioGestion;
@@ -610,9 +627,11 @@ namespace Telmexla.Servicios.DIME.Business
             PRentabilizacionActualizable.Observaciones = PRentabilizacion.Observaciones;
 
             unitWork.Complete();
+            unitWork.Dispose();
 
+            //inserta log de la transaccion
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
             GBLRentabilizacion LRentabilizacion = new GBLRentabilizacion();
-
             LRentabilizacion.FechaGestion = PRentabilizacion.FechaGestion;
             LRentabilizacion.UsuarioGestion = PRentabilizacion.UsuarioGestion;
             LRentabilizacion.AliadoGestion = PRentabilizacion.AliadoGestion;
@@ -635,6 +654,7 @@ namespace Telmexla.Servicios.DIME.Business
 
             unitWorkLog.GBLRentabilizacion.Add(LRentabilizacion);
             unitWorkLog.Complete();
+            unitWorkLog.Dispose();
 
         }
         public bool ValidarCuentaEnRentabilizacion(decimal CuentaCliente)
@@ -889,22 +909,27 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public void InsertarRegistroProducto(GBPProducto GBPProducto)
         {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            //actualiza informacion del maestro de tipificacion
             UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
-
             GBPProducto.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(GBPProducto.TipoContacto)).TipoContacto;
             GBPProducto.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(GBPProducto.Gestion)).Cierre;
             GBPProducto.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(GBPProducto.Cierre)).Razon;
             GBPProducto.Causa = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(GBPProducto.Causa)).Causa;
+            unitWorkMaestros.Complete();
+            unitWorkMaestros.Dispose();
 
 
+            //inserta registro de producto
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             GBPProducto.FechaGestion = DateTime.Now;
             unitWork.GBPProducto.Add(GBPProducto);
             unitWork.Complete();
+            unitWork.Dispose();
 
+
+            //inserta log de la transaccion
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
             GBLProducto GBLProducto = new GBLProducto();
-
             GBLProducto.FechaGestion = GBPProducto.FechaGestion;
             GBLProducto.UsuarioGestion = GBPProducto.UsuarioGestion;
             GBLProducto.NombreUsuarioGestion = GBPProducto.NombreUsuarioGestion;
@@ -921,22 +946,25 @@ namespace Telmexla.Servicios.DIME.Business
 
             unitWorkLog.GBLProducto.Add(GBLProducto);
             unitWorkLog.Complete();
+            unitWorkLog.Dispose();
 
         }
         public void ActualizarGestionProducto(GBPProducto GBPProducto)
         {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            //actualiza informacion de los maestros de tipificacion
             UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
-
-            GBPProducto GBPProductoActualizable = unitWork.GBPProducto.Find(c => c.CuentaCliente == GBPProducto.CuentaCliente).FirstOrDefault();
-
             GBPProducto.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(GBPProducto.TipoContacto)).TipoContacto;
             GBPProducto.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(GBPProducto.Gestion)).Cierre;
             GBPProducto.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(GBPProducto.Cierre)).Razon;
             GBPProducto.Causa = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(GBPProducto.Causa)).Causa;
+            unitWorkMaestros.Complete();
+            unitWorkMaestros.Dispose();
 
+
+            //actualiza informacion del registro existente
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             GBPProducto.FechaGestion = DateTime.Now;
+            GBPProducto GBPProductoActualizable = unitWork.GBPProducto.Find(c => c.CuentaCliente == GBPProducto.CuentaCliente).FirstOrDefault();
 
             GBPProductoActualizable.FechaGestion = GBPProducto.FechaGestion;
             GBPProductoActualizable.UsuarioGestion = GBPProducto.UsuarioGestion;
@@ -953,9 +981,12 @@ namespace Telmexla.Servicios.DIME.Business
             GBPProductoActualizable.Observaciones = GBPProducto.Observaciones;
 
             unitWork.Complete();
+            unitWork.Dispose();
 
+
+            //inserta log de la transaccion
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
             GBLProducto GBLProducto = new GBLProducto();
-
             GBLProducto.FechaGestion = GBPProducto.FechaGestion;
             GBLProducto.UsuarioGestion = GBPProducto.UsuarioGestion;
             GBLProducto.NombreUsuarioGestion = GBPProducto.NombreUsuarioGestion;
@@ -972,6 +1003,7 @@ namespace Telmexla.Servicios.DIME.Business
 
             unitWorkLog.GBLProducto.Add(GBLProducto);
             unitWorkLog.Complete();
+            unitWorkLog.Dispose();
 
         }
         public bool ValidarCuentaEnProducto(decimal CuentaCliente)
@@ -1199,22 +1231,25 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public void InsertarRegistroDocsis(GBPDocsis GBPDocsis)
         {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+            //aqctualiza informacion de los arboles de tipificacion
             UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
-
             GBPDocsis.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(GBPDocsis.TipoContacto)).TipoContacto;
             GBPDocsis.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(GBPDocsis.Gestion)).Cierre;
             GBPDocsis.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(GBPDocsis.Cierre)).Razon;
             GBPDocsis.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(GBPDocsis.Razon)).Causa;
+            unitWorkMaestros.Complete();
+            unitWorkMaestros.Dispose();
 
-
+            //inserta registro de docsis
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             GBPDocsis.FechaGestion = DateTime.Now;
             unitWork.GBPDocsis.Add(GBPDocsis);
             unitWork.Complete();
+            unitWork.Dispose();
 
+            //inserta log de la transaccion
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
             GBLDocsis GBLDocsis = new GBLDocsis();
-
             GBLDocsis.FechaGestion = GBPDocsis.FechaGestion;
             GBLDocsis.UsuarioGestion = GBPDocsis.UsuarioGestion;
             GBLDocsis.NombreUsuarioGestion = GBPDocsis.NombreUsuarioGestion;
@@ -1232,21 +1267,23 @@ namespace Telmexla.Servicios.DIME.Business
 
             unitWorkLog.GBLDocsis.Add(GBLDocsis);
             unitWorkLog.Complete();
+            unitWorkLog.Dispose();
 
         }
         public void ActualizarGestionDocsis(GBPDocsis GBPDocsis)
         {
-            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+           //actualiza informacion del arbol de tipificacion
             UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
-
-            GBPDocsis GBPDocsisActualizable = unitWork.GBPDocsis.Find(c => c.CuentaCliente == GBPDocsis.CuentaCliente).FirstOrDefault();
-
             GBPDocsis.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(GBPDocsis.TipoContacto)).TipoContacto;
             GBPDocsis.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(GBPDocsis.Gestion)).Cierre;
             GBPDocsis.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(GBPDocsis.Cierre)).Razon;
             GBPDocsis.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(GBPDocsis.Razon)).Causa;
+            unitWorkMaestros.Complete();
+            unitWorkMaestros.Dispose();
 
+            //actualiza informacion del registro existente
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            GBPDocsis GBPDocsisActualizable = unitWork.GBPDocsis.Find(c => c.CuentaCliente == GBPDocsis.CuentaCliente).FirstOrDefault();
             GBPDocsis.FechaGestion = DateTime.Now;
 
             GBPDocsisActualizable.FechaGestion = GBPDocsis.FechaGestion;
@@ -1265,9 +1302,12 @@ namespace Telmexla.Servicios.DIME.Business
             GBPDocsisActualizable.Aliado = GBPDocsis.Aliado;
 
             unitWork.Complete();
+            unitWork.Dispose();
 
+
+            //inserta log de la transaccion
+            UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
             GBLDocsis GBLDocsis = new GBLDocsis();
-
             GBLDocsis.FechaGestion = GBPDocsis.FechaGestion;
             GBLDocsis.UsuarioGestion = GBPDocsis.UsuarioGestion;
             GBLDocsis.NombreUsuarioGestion = GBPDocsis.NombreUsuarioGestion;
@@ -1285,6 +1325,7 @@ namespace Telmexla.Servicios.DIME.Business
 
             unitWorkLog.GBLDocsis.Add(GBLDocsis);
             unitWorkLog.Complete();
+            unitWorkLog.Dispose();
 
         }
         public bool ValidarCuentaEnDocsis(decimal CuentaCliente)
