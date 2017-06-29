@@ -87,7 +87,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<GBLDocsis> GBLDocsis { get; set; } // TBL_GBL_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<GBCDocsis> GBCDocsis { get; set; } // TMP_GBC_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<Retencion> Retencion { get; set; } // TBL_RETENCION
-
+        public System.Data.Entity.DbSet<DatosMultiplay> DatosMultiplay { get; set; } // TBL_DATOS_MULTIPLAY
 
         static DimeContext()
         {

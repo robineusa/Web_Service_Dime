@@ -63,6 +63,7 @@
     <Compile Include="Configuration\CuentasMejorasTecnicasConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiguienteMejorOfertaConfiguration.cs" />
+    <Compile Include="Configuration\DatosMultiplayConfiguration.cs" />
     <Compile Include="Configuration\DepartamentoConfiguration.cs" />
     <Compile Include="Configuration\DistribucionBlendingConfiguration.cs" />
     <Compile Include="Configuration\GBCDocsisConfiguration.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="CuentasMejorasTecnicasRepository.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaRepository.cs" />
+    <Compile Include="DatosMultiplayRepository.cs" />
     <Compile Include="DepartamentoRepository.cs" />
     <Compile Include="DistribucionBlendingRepository.cs" />
     <Compile Include="GBCDocsisRepository.cs" />
