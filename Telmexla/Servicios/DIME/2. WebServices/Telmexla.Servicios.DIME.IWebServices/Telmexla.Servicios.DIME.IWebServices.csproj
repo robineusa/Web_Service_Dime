@@ -72,6 +72,7 @@
     <Compile Include="IMaestrosService.cs" />
     <Compile Include="IMainWebService\IWebService.cs" />
     <Compile Include="IMarcacionesService.cs" />
+    <Compile Include="IMultiPlayService.cs" />
     <Compile Include="INotificacionesBuenServicioService.cs" />
     <Compile Include="ITrasladosService.cs" />
     <Compile Include="IUsabilidadService.cs" />

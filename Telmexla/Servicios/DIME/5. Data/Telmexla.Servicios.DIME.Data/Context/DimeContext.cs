@@ -207,6 +207,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBLDocsisConfiguration());
             modelBuilder.Configurations.Add(new GBCDocsisConfiguration());
             modelBuilder.Configurations.Add(new RetencionConfiguration());
+            modelBuilder.Configurations.Add(new DatosMultiplayConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -279,6 +280,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBLDocsisConfiguration(schema));
             modelBuilder.Configurations.Add(new GBCDocsisConfiguration(schema));
             modelBuilder.Configurations.Add(new RetencionConfiguration(schema));
+            modelBuilder.Configurations.Add(new DatosMultiplayConfiguration(schema));
             return modelBuilder;
         }
 
