@@ -13,7 +13,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface IMultiPlayService
     {
         [OperationContract]
-        List<DatosMultiplay> BuscarDatosMultiplay(int cuentacliente);
+        DatosMultiplay BuscarDatosMultiplay(int cuentacliente);
 
         [OperationContract]
         void InsertarMultiPlay(MultiPlay multiplay);

@@ -1502,7 +1502,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion
 
         #region MultiPlay
-        public List<DatosMultiplay> BuscarDatosMultiplay(int cuentacliente)
+        public DatosMultiplay BuscarDatosMultiplay(int cuentacliente)
         {
             MultiplayBusiness Multi = new MultiplayBusiness();
             return Multi.BuscarDatosMultiplay(cuentacliente);

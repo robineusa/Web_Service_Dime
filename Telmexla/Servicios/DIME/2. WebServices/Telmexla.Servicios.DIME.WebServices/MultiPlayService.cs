@@ -13,7 +13,7 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
     public class MultiPlayService : IMultiPlayService
     {
-        public List<DatosMultiplay> BuscarDatosMultiplay(int cuentacliente)
+        public DatosMultiplay BuscarDatosMultiplay(int cuentacliente)
         {
             MultiplayBusiness Multi = new MultiplayBusiness();
             return Multi.BuscarDatosMultiplay(cuentacliente);
