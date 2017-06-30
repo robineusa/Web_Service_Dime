@@ -30,12 +30,15 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
             var datosss = "";
 
-            MultiPlayService rr = new MultiPlayService();
-            MultiPlay model = new MultiPlay();
-            model.NombreUsuarioGestion = "tleal";
-            rr.InsertarMultiPlay(model);
-            var h = "";
+            //MultiPlayService rr = new MultiPlayService();
+            //MultiPlay model = new MultiPlay();
+            //model.NombreUsuarioGestion = "tleal";
+            //rr.InsertarMultiPlay(model);
+            //var h = "";
 
+            MultiPlayService rr = new MultiPlayService();
+            var z = rr.BuscarDatosMultiplay(307);
+            var h = "";
 
             //SiembraHDBusiness Insert = new SiembraHDBusiness();
             //MejorasTecnicas m = new MejorasTecnicas();
