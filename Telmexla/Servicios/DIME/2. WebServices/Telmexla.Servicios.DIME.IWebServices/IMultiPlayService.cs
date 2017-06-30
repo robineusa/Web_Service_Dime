@@ -15,6 +15,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<DatosMultiplay> BuscarDatosMultiplay(int cuentacliente);
 
-
+        [OperationContract]
+        void InsertarMultiPlay(MultiPlay multiplay);
+        
     }
 }

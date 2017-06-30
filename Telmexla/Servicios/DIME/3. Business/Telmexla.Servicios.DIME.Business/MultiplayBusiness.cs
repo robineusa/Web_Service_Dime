@@ -23,21 +23,21 @@ namespace Telmexla.Servicios.DIME.Business
                 SubRegistro = a.SubRegistro,
                 RegBaGen = a.RegBaGen,
                 Cuenta = a.Cuenta,
-                Custcode = a.Custcode, 
+                Custcode = a.Custcode,
                 TipoCuscode = a.TipoCuscode,
                 Min = a.Min,
                 CustomerId = a.CustomerId,
                 NombreCliente = a.NombreCliente,
                 Cedula = a.Cedula,
                 EstratoCliente = a.EstratoCliente,
-                EstadoAC = a.EstadoAC, 
+                EstadoAC = a.EstadoAC,
                 EstadoRR = a.EstadoRR,
                 SaldoActualAC = a.SaldoActualAC,
                 SaldoEquipoAC = a.SaldoEquipoAC,
                 SaldoEquipoAscard = a.SaldoEquipoAscard,
                 SaldoGrupo1 = a.SaldoGrupo1,
                 SaldoGrupo2 = a.SaldoGrupo2,
-                SaldoGrupo3 = a.SaldoGrupo3, 
+                SaldoGrupo3 = a.SaldoGrupo3,
                 SaldoTotalRR = a.SaldoTotalRR,
                 EscVentaCliente = a.EscVentaCliente,
                 AplicAjusteRR = a.AplicAjusteRR,
@@ -86,6 +86,30 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
 
+        }
+
+        public void InsertarMultiPlay(MultiPlay multiplay)
+        {
+            try
+            {
+                multiplay.FechaGestionUsuario = DateTime.Now;
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.MultiPlay.Add(multiplay);
+                unitWork.Complete();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
         }
     }
 }

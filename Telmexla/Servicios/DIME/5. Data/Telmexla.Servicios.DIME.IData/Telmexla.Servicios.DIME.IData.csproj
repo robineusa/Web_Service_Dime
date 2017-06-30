@@ -101,6 +101,7 @@
     <Compile Include="IMaestroOutboundTipoContactoRepository.cs" />
     <Compile Include="IMejorasTecnicasRepository.cs" />
     <Compile Include="IModosLoginRepository.cs" />
+    <Compile Include="IMultiPlayRepository.cs" />
     <Compile Include="INotasIngresoRepository.cs" />
     <Compile Include="INotasTrasladoRepository.cs" />
     <Compile Include="INotificacionesBuenServicioRepository.cs" />

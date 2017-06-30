@@ -31,7 +31,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             var datosss = "";
 
             MultiPlayService rr = new MultiPlayService();
-            var z = rr.BuscarDatosMultiplay(307);
+            MultiPlay model = new MultiPlay();
+            model.NombreUsuarioGestion = "tleal";
+            rr.InsertarMultiPlay(model);
             var h = "";
 
 

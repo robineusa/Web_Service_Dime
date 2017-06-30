@@ -70,6 +70,7 @@ namespace Telmexla.Servicios.DIME.Data
             GBCDocsis = new GBCDocsisRepository(this.dimeContext);
             Retencion = new RetencionRepository(this.dimeContext);
             DatosMultiplay = new DatosMultiplayRepository(this.dimeContext);
+            MultiPlay = new MultiPlayRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -299,6 +300,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IDatosMultiplayRepository DatosMultiplay
+        {
+            get; private set;
+        }
+        public IMultiPlayRepository MultiPlay
         {
             get; private set;
         }

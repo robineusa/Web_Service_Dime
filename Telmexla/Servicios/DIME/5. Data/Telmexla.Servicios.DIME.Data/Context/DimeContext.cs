@@ -88,6 +88,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<GBCDocsis> GBCDocsis { get; set; } // TMP_GBC_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<Retencion> Retencion { get; set; } // TBL_RETENCION
         public System.Data.Entity.DbSet<DatosMultiplay> DatosMultiplay { get; set; } // TBL_DATOS_MULTIPLAY
+        public System.Data.Entity.DbSet<MultiPlay> MultiPlay { get; set; } // TBL_MULTIPLAY
 
         static DimeContext()
         {
@@ -208,6 +209,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBCDocsisConfiguration());
             modelBuilder.Configurations.Add(new RetencionConfiguration());
             modelBuilder.Configurations.Add(new DatosMultiplayConfiguration());
+            modelBuilder.Configurations.Add(new MultiPlayConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -281,6 +283,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBCDocsisConfiguration(schema));
             modelBuilder.Configurations.Add(new RetencionConfiguration(schema));
             modelBuilder.Configurations.Add(new DatosMultiplayConfiguration(schema));
+            modelBuilder.Configurations.Add(new MultiPlayConfiguration(schema));
             return modelBuilder;
         }
 

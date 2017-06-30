@@ -18,5 +18,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             MultiplayBusiness Multi = new MultiplayBusiness();
             return Multi.BuscarDatosMultiplay(cuentacliente);
         }
+        public void InsertarMultiPlay(MultiPlay multiplay)
+        {
+            MultiplayBusiness Multi = new MultiplayBusiness();
+            Multi.InsertarMultiPlay(multiplay);
+        }
     }
 }

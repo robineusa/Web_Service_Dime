@@ -85,6 +85,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<GBCDocsis> GBCDocsis { get; set; } // TMP_GBC_DOCSIS_OVERLAP
         System.Data.Entity.DbSet<Retencion> Retencion { get; set; } // TBL_RETENCION
         System.Data.Entity.DbSet<DatosMultiplay> DatosMultiplay { get; set; } // TBL_DATOS_MULTIPLAY
+        System.Data.Entity.DbSet<MultiPlay> MultiPlay { get; set; } // TBL_MULTIPLAY
 
 
         int SaveChanges();

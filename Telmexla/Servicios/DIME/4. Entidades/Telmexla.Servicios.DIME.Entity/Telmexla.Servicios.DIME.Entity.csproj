@@ -150,6 +150,8 @@
     <Compile Include="MaestroOutboundTipoGestionCollection.cs" />
     <Compile Include="MejorasTecnicas.cs" />
     <Compile Include="ModosLogin.cs" />
+    <Compile Include="MultiPlay.cs" />
+    <Compile Include="MultiPlayCollection.cs" />
     <Compile Include="NotasIngreso.cs" />
     <Compile Include="NotasTraslado.cs" />
     <Compile Include="NotasTrasladoCollection.cs" />
