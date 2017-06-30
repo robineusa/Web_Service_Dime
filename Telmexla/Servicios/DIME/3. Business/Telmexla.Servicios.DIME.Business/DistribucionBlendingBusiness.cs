@@ -19,7 +19,7 @@ namespace Telmexla.Servicios.DIME.Business
         {
 
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            List<decimal> cuentasGestionandoAsesor = unitOfWork.distribucionesBlending.Find(c => c.UsuarioGestionando == idAsesor && c.FormularioDestino.Equals(formulario)).Select(x => x.CuentaCliente).ToList();
+            List<decimal> cuentasGestionandoAsesor = unitOfWork.distribucionesBlending.Find(c => c.UsuarioGestionando == idAsesor && c.FormularioDestino.Equals(formulario) && c.AliadoDestino.Equals(aliado) && c.OperacionDestino.Equals(operacion) && c.CampanaDestino.Equals(campana)).Select(x => x.CuentaCliente).ToList();
             if (cuentasGestionandoAsesor.Count > 0)
             {
                 ClientesBusiness clientesBusiness = new ClientesBusiness();
@@ -259,7 +259,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             GBPFueraNiveles Resultado = unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).FirstOrDefault();
@@ -272,7 +272,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             DimeContext dimContext = new DimeContext();
             List<GBLFueraNiveles> result = new List<GBLFueraNiveles>();
@@ -318,7 +318,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             DimeContext dimContext = new DimeContext();
             List<GBPFueraNiveles> result = new List<GBPFueraNiveles>();
@@ -367,7 +367,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             return unitWork.GBPFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).FirstOrDefault();
@@ -380,7 +380,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
            int Cantidad = unitWork.GBLFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).Count();
@@ -397,7 +397,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             List<GBLFueraNiveles> Registros = unitWork.GBLFueradeNiveles.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).ToList();
@@ -715,7 +715,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             GBPRentabilizacion Resultado = unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).FirstOrDefault();
@@ -728,7 +728,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             DimeContext dimContext = new DimeContext();
             List<GBLRentabilizacion> result = new List<GBLRentabilizacion>();
@@ -772,7 +772,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             DimeContext dimContext = new DimeContext();
             List<GBPRentabilizacion> result = new List<GBPRentabilizacion>();
@@ -818,7 +818,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1); 
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0); 
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             return unitWork.GBPRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).FirstOrDefault();
@@ -831,7 +831,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             int Cantidad = unitWork.GBLRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<=fecha2).Count();
@@ -851,7 +851,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             List<GBLRentabilizacion> Registros = unitWork.GBLRentabilizacion.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion<= fecha2).ToList();
@@ -1106,7 +1106,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             GBPProducto Resultado = unitWork.GBPProducto.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion>= fecha1 && c.FechaGestion <= fecha2).FirstOrDefault();
@@ -1119,7 +1119,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             DimeContext dimContext = new DimeContext();
             List<GBLProducto> result = new List<GBLProducto>();
@@ -1161,7 +1161,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             DimeContext dimContext = new DimeContext();
             List<GBPProducto> result = new List<GBPProducto>();
@@ -1205,7 +1205,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1); 
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0); 
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             return unitWork.GBPProducto.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).FirstOrDefault();
@@ -1218,7 +1218,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             int Cantidad = unitWork.GBLProducto.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).Count();
@@ -1238,7 +1238,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             List<GBLProducto> Registros = unitWork.GBLProducto.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).ToList();
@@ -1470,7 +1470,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             GBPDocsis Resultado = unitWork.GBPDocsis.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).FirstOrDefault();
@@ -1483,7 +1483,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             DimeContext dimContext = new DimeContext();
             List<GBLDocsis> result = new List<GBLDocsis>();
@@ -1525,7 +1525,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             DimeContext dimContext = new DimeContext();
             List<GBPDocsis> result = new List<GBPDocsis>();
@@ -1569,7 +1569,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             return unitWork.GBPDocsis.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).FirstOrDefault();
@@ -1582,7 +1582,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             int Cantidad = unitWork.GBLDocsis.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).Count();
@@ -1602,7 +1602,7 @@ namespace Telmexla.Servicios.DIME.Business
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             List<GBLDocsis> Registros = unitWork.GBLDocsis.Find(c => c.CuentaCliente == CuentaCliente && c.FechaGestion >= fecha1 && c.FechaGestion <= fecha2).ToList();

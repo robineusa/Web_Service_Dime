@@ -27,8 +27,18 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             DateTime fecha2;
             fechatemp = DateTime.Today;
             fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1);
+            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
             var datosss = "";
+
+            DistribucionBlending Registro = new DistribucionBlending();
+            Registro.CuentaCliente = 84256213;
+            Registro.FormularioDestino = "RENTABILIZACION";
+            Registro.AliadoDestino = "BRM";
+            Registro.OperacionDestino = "BRM BOGOTA ALTO VALOR";
+            Registro.CampanaDestino = "PRINCIPALES";
+
+            DistribucionBlendingBusiness DBS = new DistribucionBlendingBusiness();
+            DBS.EliminaCuentaGestionadaDistribucion(Registro);
 
             MultiPlayService rr = new MultiPlayService();
             MultiPlay model = new MultiPlay();
