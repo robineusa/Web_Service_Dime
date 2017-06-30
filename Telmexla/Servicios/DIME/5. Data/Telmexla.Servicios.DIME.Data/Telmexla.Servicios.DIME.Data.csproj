@@ -63,6 +63,7 @@
     <Compile Include="Configuration\CuentasMejorasTecnicasConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiguienteMejorOfertaConfiguration.cs" />
+    <Compile Include="Configuration\DatosMultiplayConfiguration.cs" />
     <Compile Include="Configuration\DepartamentoConfiguration.cs" />
     <Compile Include="Configuration\DistribucionBlendingConfiguration.cs" />
     <Compile Include="Configuration\GBCDocsisConfiguration.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Configuration\LiberacionHomePassConfiguration.cs" />
     <Compile Include="Configuration\MaestroLineasBlendingConfiguration.cs" />
     <Compile Include="Configuration\MejorasTecnicasConfiguration.cs" />
+    <Compile Include="Configuration\MultiPlayConfiguration.cs" />
     <Compile Include="Configuration\NotasTrasladoConfiguration.cs" />
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />
     <Compile Include="Configuration\RazonIngresoSoporteConfiguration.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="CuentasMejorasTecnicasRepository.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaRepository.cs" />
+    <Compile Include="DatosMultiplayRepository.cs" />
     <Compile Include="DepartamentoRepository.cs" />
     <Compile Include="DistribucionBlendingRepository.cs" />
     <Compile Include="GBCDocsisRepository.cs" />
@@ -173,6 +176,7 @@
     <Compile Include="MaestroOutboundTipoContactoRepository.cs" />
     <Compile Include="MejorasTecnicasRepository.cs" />
     <Compile Include="ModosLoginRepository.cs" />
+    <Compile Include="MultiPlayRepository.cs" />
     <Compile Include="NotasIngresoRepository.cs" />
     <Compile Include="NotasTrasladoRepository.cs" />
     <Compile Include="NotificacionesBuenServicioRepository.cs" />

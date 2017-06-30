@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService
     {
 
 
@@ -1501,5 +1501,17 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
+        #region MultiPlay
+        public DatosMultiplay BuscarDatosMultiplay(int cuentacliente)
+        {
+            MultiplayBusiness Multi = new MultiplayBusiness();
+            return Multi.BuscarDatosMultiplay(cuentacliente);
+        }
+        public void InsertarMultiPlay(MultiPlay multiplay)
+        {
+            MultiplayBusiness Multi = new MultiplayBusiness();
+            Multi.InsertarMultiPlay(multiplay);
+        }
+        #endregion
     }
 }

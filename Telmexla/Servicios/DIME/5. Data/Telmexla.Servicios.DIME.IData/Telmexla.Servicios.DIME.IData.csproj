@@ -58,6 +58,7 @@
     <Compile Include="ICuentasMejorasTecnicasRepository.cs" />
     <Compile Include="ICuentasSiembraHDRepository.cs" />
     <Compile Include="ICuentasSiguienteMejorOfertaRepository.cs" />
+    <Compile Include="IDatosMultiplayRepository.cs" />
     <Compile Include="IDepartamentoRepository.cs" />
     <Compile Include="IDistribucionBlendingRepository.cs" />
     <Compile Include="IGBCDocsisRepository.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="IMaestroOutboundTipoContactoRepository.cs" />
     <Compile Include="IMejorasTecnicasRepository.cs" />
     <Compile Include="IModosLoginRepository.cs" />
+    <Compile Include="IMultiPlayRepository.cs" />
     <Compile Include="INotasIngresoRepository.cs" />
     <Compile Include="INotasTrasladoRepository.cs" />
     <Compile Include="INotificacionesBuenServicioRepository.cs" />
