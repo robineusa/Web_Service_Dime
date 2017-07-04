@@ -40,12 +40,12 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //DistribucionBlendingBusiness DBS = new DistribucionBlendingBusiness();
             //DBS.EliminaCuentaGestionadaDistribucion(Registro);
 
-            //MultiPlayService rr = new MultiPlayService();
-            //MultiPlay model = new MultiPlay();
-            ////model.NombreUsuarioGestion = "tleal";
-            ////rr.InsertarMultiPlay(model);
-            //rr.EliminaCuentaDatosMultiplay(1,307);
-            //var h = "";
+            MultiPlayService rr = new MultiPlayService();
+            MultiPlay model = new MultiPlay();
+            //model.NombreUsuarioGestion = "tleal";
+            //rr.InsertarMultiPlay(model);
+            rr.EliminaCuentaDatosMultiplay(1, 307);
+            var h = "";
 
 
             //SiembraHDBusiness Insert = new SiembraHDBusiness();
