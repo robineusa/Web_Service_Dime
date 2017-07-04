@@ -17,6 +17,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         void InsertarMultiPlay(MultiPlay multiplay);
-        
+
+        [OperationContract]
+        void EliminaCuentaDatosMultiplay(int Id_Cuenta, int Cuenta);
     }
 }

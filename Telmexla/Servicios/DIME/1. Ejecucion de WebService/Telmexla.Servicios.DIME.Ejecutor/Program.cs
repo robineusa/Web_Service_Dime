@@ -22,29 +22,30 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
 
-            DateTime fechatemp;
-            DateTime fecha1;
-            DateTime fecha2;
-            fechatemp = DateTime.Today;
-            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
-            fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
-            var datosss = "";
+            //DateTime fechatemp;
+            //DateTime fecha1;
+            //DateTime fecha2;
+            //fechatemp = DateTime.Today;
+            //fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            //fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-0);
+            //var datosss = "";
 
-            DistribucionBlending Registro = new DistribucionBlending();
-            Registro.CuentaCliente = 84256213;
-            Registro.FormularioDestino = "RENTABILIZACION";
-            Registro.AliadoDestino = "BRM";
-            Registro.OperacionDestino = "BRM BOGOTA ALTO VALOR";
-            Registro.CampanaDestino = "PRINCIPALES";
+            //DistribucionBlending Registro = new DistribucionBlending();
+            //Registro.CuentaCliente = 84256213;
+            //Registro.FormularioDestino = "RENTABILIZACION";
+            //Registro.AliadoDestino = "BRM";
+            //Registro.OperacionDestino = "BRM BOGOTA ALTO VALOR";
+            //Registro.CampanaDestino = "PRINCIPALES";
 
-            DistribucionBlendingBusiness DBS = new DistribucionBlendingBusiness();
-            DBS.EliminaCuentaGestionadaDistribucion(Registro);
+            //DistribucionBlendingBusiness DBS = new DistribucionBlendingBusiness();
+            //DBS.EliminaCuentaGestionadaDistribucion(Registro);
 
-            MultiPlayService rr = new MultiPlayService();
-            MultiPlay model = new MultiPlay();
-            model.NombreUsuarioGestion = "tleal";
-            rr.InsertarMultiPlay(model);
-            var h = "";
+            //MultiPlayService rr = new MultiPlayService();
+            //MultiPlay model = new MultiPlay();
+            ////model.NombreUsuarioGestion = "tleal";
+            ////rr.InsertarMultiPlay(model);
+            //rr.EliminaCuentaDatosMultiplay(1,307);
+            //var h = "";
 
 
             //SiembraHDBusiness Insert = new SiembraHDBusiness();

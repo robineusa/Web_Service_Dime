@@ -1512,6 +1512,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MultiplayBusiness Multi = new MultiplayBusiness();
             Multi.InsertarMultiPlay(multiplay);
         }
+        public void EliminaCuentaDatosMultiplay(int Id_Cuenta, int Cuenta)
+        {
+            MultiplayBusiness Multi = new MultiplayBusiness();
+            Multi.EliminaCuentaDatosMultiplay(Id_Cuenta, Cuenta);
+        }
         #endregion
     }
 }
