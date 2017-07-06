@@ -28,5 +28,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             MultiplayBusiness Multi = new MultiplayBusiness();
             Multi.EliminaCuentaDatosMultiplay(Id_Cuenta, Cuenta);
         }
+
+        public MultiPlayCollection ConsultaAdminBasePresidencial(DateTime inicial, DateTime final)
+        {
+            MultiplayBusiness Multi = new MultiplayBusiness();
+            return Multi.ConsultaAdminBasePresidencial(inicial, final);
+        }
     }
 }

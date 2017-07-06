@@ -20,7 +20,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+            BlendingBusiness blen = new BlendingBusiness();
+            blen.EliminaUsuarioSkilles(1076622744);
 
+            var z = "";
 
             //DateTime fechatemp;
             //DateTime fecha1;
@@ -40,12 +43,14 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //DistribucionBlendingBusiness DBS = new DistribucionBlendingBusiness();
             //DBS.EliminaCuentaGestionadaDistribucion(Registro);
 
-            MultiPlayService rr = new MultiPlayService();
-            MultiPlay model = new MultiPlay();
-            //model.NombreUsuarioGestion = "tleal";
-            //rr.InsertarMultiPlay(model);
-            rr.EliminaCuentaDatosMultiplay(1, 307);
-            var h = "";
+            //MultiPlayService rr = new MultiPlayService();
+            //MultiPlay model = new MultiPlay();
+            ////model.NombreUsuarioGestion = "tleal";
+            ////rr.InsertarMultiPlay(model);
+            //DateTime inicial = Convert.ToDateTime("2017-07-04");
+            //DateTime final = Convert.ToDateTime("2017-07-07");
+            //var result = rr.ConsultaAdminBasePresidencial(inicial, final);
+            //var h = "";
 
 
             //SiembraHDBusiness Insert = new SiembraHDBusiness();
@@ -74,9 +79,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
             //ing.InsertarRetencionInbound(ret);
 
-            DateTime inicial = Convert.ToDateTime("2017-06-20");
-            DateTime final = Convert.ToDateTime("2017-06-23");
-            var r = ing.ListaRetencionInbound(inicial, final);
+            //DateTime inicial = Convert.ToDateTime("2017-06-20");
+            //DateTime final = Convert.ToDateTime("2017-06-23");
+            //var r = ing.ListaRetencionInbound(inicial, final);
 
             MaestroNodoBusiness mnb = new MaestroNodoBusiness();
             var nodo = "BLT";

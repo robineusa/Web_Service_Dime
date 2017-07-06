@@ -99,5 +99,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void ActualizarUsuarioBlending(SkillsUsuariosBlending m);
 
+        [OperationContract]
+        void EliminaUsuarioSkilles(int Cedula);
+
     }
 }

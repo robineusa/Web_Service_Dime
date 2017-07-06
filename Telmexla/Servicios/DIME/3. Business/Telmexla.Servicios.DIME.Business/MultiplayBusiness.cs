@@ -129,5 +129,86 @@ namespace Telmexla.Servicios.DIME.Business
             else { }
         }
 
+        public MultiPlayCollection ConsultaAdminBasePresidencial(DateTime inicial, DateTime final)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MultiPlayCollection result = new MultiPlayCollection();
+
+            result.AddRange(unitWork.MultiPlay.Find(a => a.FechaGestionUsuario >= inicial && a.FechaGestionUsuario <= final)
+                .Select(a => new MultiPlay
+                {   
+                    Id = a.Id,
+                    UsuarioGestion = a.UsuarioGestion,
+                    NombreUsuarioGestion = a.NombreUsuarioGestion,
+                    AliadoGestion = a.AliadoGestion,
+                    SubRegistro = a.SubRegistro,
+                    RegBaGen = a.RegBaGen,
+                    Cuenta = a.Cuenta,
+                    Custcode = a.Custcode,
+                    TipoCuscode = a.TipoCuscode,
+                    Min = a.Min,
+                    CustomerId = a.CustomerId,
+                    NombreCliente = a.NombreCliente,
+                    Cedula = a.Cedula,
+                    EstratoCliente = a.EstratoCliente,
+                    EstadoAC = a.EstadoAC,
+                    EstadoRR = a.EstadoRR,
+                    SaldoActualAC = a.SaldoActualAC,
+                    SaldoEquipoAC = a.SaldoEquipoAC,
+                    SaldoEquipoAscard = a.SaldoEquipoAscard,
+                    SaldoGrupo1 = a.SaldoGrupo1,
+                    SaldoGrupo2 = a.SaldoGrupo2,
+                    SaldoGrupo3 = a.SaldoGrupo3,
+                    SaldoTotalRR = a.SaldoTotalRR,
+                    EscVentaCliente = a.EscVentaCliente,
+                    AplicAjusteRR = a.AplicAjusteRR,
+                    CampañaCaida = a.CampañaCaida,
+                    ValoraAjustarInternet = a.ValoraAjustarInternet,
+                    ValoraAjustarTv = a.ValoraAjustarTv,
+                    ValoraAjustarTel = a.ValoraAjustarTel,
+                    ValAjuOtrosConcep = a.ValAjuOtrosConcep,
+                    ValTotAjuFijo = a.ValTotAjuFijo,
+                    PerCamNoApliRR = a.PerCamNoApliRR,
+                    ObservacionesAjustes = a.ObservacionesAjustes,
+                    AjusteAC = a.AjusteAC,
+                    CamOfComApliCliente = a.CamOfComApliCliente,
+                    CamAplACDiVenta = a.CamAplACDiVenta,
+                    CfmDatosAntesIva = a.CfmDatosAntesIva,
+                    CfmDatosAntesIva4Ipoc = a.CfmDatosAntesIva4Ipoc,
+                    CfmVozAntesIva4Ipoc = a.CfmVozAntesIva4Ipoc,
+                    FechaACTMultAC = a.FechaACTMultAC,
+                    TiempoCampañaCFMAAjustar = a.TiempoCampañaCFMAAjustar,
+                    PagosACNoRefleRR = a.PagosACNoRefleRR,
+                    FechaPago1 = a.FechaPago1,
+                    ValorPago1 = a.ValorPago1,
+                    PagosRRNoRefleAC = a.PagosRRNoRefleAC,
+                    FechaPago2 = a.FechaPago2,
+                    ValorPago2 = a.ValorPago2,
+                    PagoCambiarGrupo = a.PagoCambiarGrupo,
+                    Fecha1 = a.Fecha1,
+                    Valor1 = a.Valor1,
+                    GrupoActual = a.GrupoActual,
+                    GrupoDebeQuedar = a.GrupoDebeQuedar,
+                    PagAnuACNoApliACy_0RR = a.PagAnuACNoApliACy_0RR,
+                    Valor2 = a.Valor2,
+                    FechaIngresoPago = a.FechaIngresoPago,
+                    PlataformaRepPagoAnulado = a.PlataformaRepPagoAnulado,
+                    AnularPago = a.AnularPago,
+                    Fecha2 = a.Fecha2,
+                    Valor3 = a.Valor3,
+                    Plataforma = a.Plataforma,
+                    ArrPropClieRR = a.ArrPropClieRR,
+                    NotasAdicionales = a.NotasAdicionales,
+                    Escenario1 = a.Escenario1,
+                    AgenteGestiona = a.AgenteGestiona,
+                    FechaGestion = a.FechaGestion,
+                    Observaciones = a.Observaciones
+                }));
+
+
+            return result;
+
+        }
+
     }
 }

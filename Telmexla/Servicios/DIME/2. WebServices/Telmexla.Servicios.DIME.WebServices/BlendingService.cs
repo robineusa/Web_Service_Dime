@@ -184,5 +184,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BlendingBusiness blendingBusin = new BlendingBusiness();
             blendingBusin.ActualizarUsuarioBlending(m);
         }
+        public void EliminaUsuarioSkilles(int Cedula)
+        {
+            BlendingBusiness blendingBusin = new BlendingBusiness();
+            blendingBusin.EliminaUsuarioSkilles(Cedula);
+        }
     }
 }

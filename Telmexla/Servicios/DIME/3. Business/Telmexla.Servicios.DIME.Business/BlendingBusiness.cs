@@ -18,7 +18,7 @@ namespace Telmexla.Servicios.DIME.Business
         public ConvenioElectronicoCollection getHistorialConvenioElectroDeAsesor(int idAsesor)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            List <ConvenioElectronico> conveniosElectronicos = unitOfWork.conveniosElectronicos.Find(c => c.UsuarioGestion.Equals(idAsesor.ToString())).ToList();
+            List<ConvenioElectronico> conveniosElectronicos = unitOfWork.conveniosElectronicos.Find(c => c.UsuarioGestion.Equals(idAsesor.ToString())).ToList();
             ConvenioElectronicoCollection result = new ConvenioElectronicoCollection();
             result.AddRange(conveniosElectronicos);
             return result;
@@ -45,18 +45,18 @@ namespace Telmexla.Servicios.DIME.Business
             convElectGestionado.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(convElectGestionado.TipoContacto)).TipoContacto;
             convElectGestionado.Cierre = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(convElectGestionado.Cierre)).Cierre;
             convElectGestionado.Razon = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(convElectGestionado.Razon)).Razon;
-            if(convElectGestionado.FechaSeguimiento != null)
+            if (convElectGestionado.FechaSeguimiento != null)
             {
                 convElectGestionado.Seguimiento = "SI";
             }
 
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-        
+
             //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
             GestionOutbound enGestiondeUsuario = new GestionOutbound();
             enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor && c.NombreBase.Equals("CONVENIO_ELECTRONICO")).SingleOrDefault();
             if (enGestiondeUsuario != null)
-            {   
+            {
                 enGestiondeUsuario.UsuarioGestionando = 0;
                 unitOfWork.conveniosElectronicos.Add(convElectGestionado);
             }
@@ -74,11 +74,11 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             LogDocsisOverlapCollection docsisResult = new LogDocsisOverlapCollection();
-            docsisResult.AddRange(unitWork.logDocsisOverlaps.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).Select(x=>
+            docsisResult.AddRange(unitWork.logDocsisOverlaps.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).Select(x =>
             new LogDocsisOverlap { FechaGestion = x.FechaGestion, UsuarioGestion = x.UsuarioGestion, NombreUsuarioGestion = x.NombreUsuarioGestion,
                 AliadoGestion = x.AliadoGestion, OperacionGestion = x.OperacionGestion, NombreBase = x.NombreBase, CuentaCliente = x.CuentaCliente,
-            TipoDeContacto = x.TipoDeContacto, Cierre = x.Cierre, Razon = x.Razon, Observaciones = x.Observaciones, FechaSeguimiento = x.FechaSeguimiento,
-            Aliado = x.Aliado}).ToList());
+                TipoDeContacto = x.TipoDeContacto, Cierre = x.Cierre, Razon = x.Razon, Observaciones = x.Observaciones, FechaSeguimiento = x.FechaSeguimiento,
+                Aliado = x.Aliado }).ToList());
             foreach (var item in docsisResult)
             {
                 item.UsuarioGestion = unitWork.usuarios.Get(Convert.ToInt32(item.UsuarioGestion)).Cedula.ToString();
@@ -92,7 +92,7 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             LogCierreCicloCollection cierreResult = new LogCierreCicloCollection();
             cierreResult.AddRange(unitWork.logCierreCiclos.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).ToList());
-            foreach(var item in cierreResult)
+            foreach (var item in cierreResult)
             {
                 item.UsuarioGestion = unitWork.usuarios.Get(Convert.ToInt32(item.UsuarioGestion)).Cedula.ToString();
             }
@@ -104,12 +104,12 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             LogClaroVideoCollection result = new LogClaroVideoCollection();
-            result.AddRange(unitWork.logClaroVideos.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).Select(x=> 
-            new LogClaroVideo {FechaGestion = x.FechaGestion, UsuarioGestion = x.UsuarioGestion,
+            result.AddRange(unitWork.logClaroVideos.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).Select(x =>
+            new LogClaroVideo { FechaGestion = x.FechaGestion, UsuarioGestion = x.UsuarioGestion,
                 NombreUsuarioGestion = x.NombreUsuarioGestion, AliadoGestion = x.AliadoGestion,
-            OperacionGestion = x.OperacionGestion, CuentaCliente = x.CuentaCliente, TipoDeContacto = x.TipoDeContacto, TipoDeGestion = x.TipoDeGestion, Cierre = x.Cierre,
-            Razon = x.Razon, Attributo1 = x.Attributo1, Attributo2 = x.Attributo2, Observaciones = x.Observaciones}).ToList());
-            foreach(var item in result)
+                OperacionGestion = x.OperacionGestion, CuentaCliente = x.CuentaCliente, TipoDeContacto = x.TipoDeContacto, TipoDeGestion = x.TipoDeGestion, Cierre = x.Cierre,
+                Razon = x.Razon, Attributo1 = x.Attributo1, Attributo2 = x.Attributo2, Observaciones = x.Observaciones }).ToList());
+            foreach (var item in result)
             {
                 item.UsuarioGestion = unitWork.usuarios.Get(Convert.ToInt32(item.UsuarioGestion)).Cedula.ToString();
             }
@@ -151,16 +151,16 @@ namespace Telmexla.Servicios.DIME.Business
         public ConvenioElectronico GetConvenioElectronicoPorId(int idGestionado)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-           return  unitOfWork.conveniosElectronicos.Get(idGestionado);
+            return unitOfWork.conveniosElectronicos.Get(idGestionado);
         }
 
         public ConvenioElectronicoCollection ConveniosElectronicosGestionados(DateTime fInicial, DateTime fFinal)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            List<ConvenioElectronico> conveniosElectro =  unitWork.conveniosElectronicos.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).Select(x=> 
-             new ConvenioElectronico {  FechaGestion= x.FechaGestion, HoraGestion = x.HoraGestion, UsuarioGestion = x.UsuarioGestion, AliadoGestion = x.AliadoGestion,
-             LineaGestion = x.LineaGestion , CuentaCliente = x.CuentaCliente, TipoContacto =x.TipoContacto , Cierre = x.Cierre, Razon = x.Razon, MovilNuevo = x.MovilNuevo,
-             NuevoCorreo = x.NuevoCorreo, NuevaDireccionCorrespondencia = x.NuevaDireccionCorrespondencia } ).ToList();
+            List<ConvenioElectronico> conveniosElectro = unitWork.conveniosElectronicos.Find(c => c.FechaGestion >= fInicial && c.FechaGestion <= fFinal).Select(x =>
+            new ConvenioElectronico { FechaGestion = x.FechaGestion, HoraGestion = x.HoraGestion, UsuarioGestion = x.UsuarioGestion, AliadoGestion = x.AliadoGestion,
+                LineaGestion = x.LineaGestion, CuentaCliente = x.CuentaCliente, TipoContacto = x.TipoContacto, Cierre = x.Cierre, Razon = x.Razon, MovilNuevo = x.MovilNuevo,
+                NuevoCorreo = x.NuevoCorreo, NuevaDireccionCorrespondencia = x.NuevaDireccionCorrespondencia }).ToList();
             ConvenioElectronicoCollection result = new ConvenioElectronicoCollection();
             result.AddRange(conveniosElectro);
             return result;
@@ -187,14 +187,14 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            var gestionOutboundDeGestion = unitOfWork.gestionesOutbound.Find(c => c.Cuenta == datosCliente.Cuenta && c.NombreBase.Equals("DOCSIS_OVERLAP")).Select(c => new { c.OperacionGestion, c.NombreBase, c.Aliado  }).FirstOrDefault();
+            var gestionOutboundDeGestion = unitOfWork.gestionesOutbound.Find(c => c.Cuenta == datosCliente.Cuenta && c.NombreBase.Equals("DOCSIS_OVERLAP")).Select(c => new { c.OperacionGestion, c.NombreBase, c.Aliado }).FirstOrDefault();
             docsisGestionado.FechaGestion = DateTime.Now;
             docsisGestionado.UsuarioGestion = idAsesor.ToString();
-            if(gestionOutboundDeGestion != null )
-            { 
-            docsisGestionado.OperacionGestion = gestionOutboundDeGestion.OperacionGestion;
-            docsisGestionado.NombreBase = gestionOutboundDeGestion.NombreBase;
-            docsisGestionado.Aliado = gestionOutboundDeGestion.Aliado;
+            if (gestionOutboundDeGestion != null)
+            {
+                docsisGestionado.OperacionGestion = gestionOutboundDeGestion.OperacionGestion;
+                docsisGestionado.NombreBase = gestionOutboundDeGestion.NombreBase;
+                docsisGestionado.Aliado = gestionOutboundDeGestion.Aliado;
             }
             docsisGestionado.CuentaCliente = datosCliente.Cuenta;
             docsisGestionado.NombreCliente = datosCliente.Nombre;
@@ -212,16 +212,16 @@ namespace Telmexla.Servicios.DIME.Business
             docsisGestionado.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(docsisGestionado.Gestion)).Cierre;
             docsisGestionado.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(docsisGestionado.Cierre)).Razon;
             docsisGestionado.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(docsisGestionado.Razon)).Causa;
-            docsisGestionado.NombreUsuarioGestion = unitOfWork.usuarios.Find(c => c.Id == idAsesor ).Select(c => c.Nombre).SingleOrDefault();
-    
+            docsisGestionado.NombreUsuarioGestion = unitOfWork.usuarios.Find(c => c.Id == idAsesor).Select(c => c.Nombre).SingleOrDefault();
+
             if (docsisGestionado.FechaSeguimiento != null)
             {
                 docsisGestionado.Seguimiento = "SI";
             }
-         
+
             //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
             GestionOutbound enGestiondeUsuario = new GestionOutbound();
-            enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor  && c.NombreBase.Equals("DOCSIS_OVERLAP")).SingleOrDefault();
+            enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor && c.NombreBase.Equals("DOCSIS_OVERLAP")).SingleOrDefault();
             if (enGestiondeUsuario != null)
             {
                 enGestiondeUsuario.UsuarioGestionando = 0;
@@ -229,7 +229,7 @@ namespace Telmexla.Servicios.DIME.Business
             }
             else
             {
-                ActualizarDocsisOverlap(unitOfWork,  docsisGestionado);
+                ActualizarDocsisOverlap(unitOfWork, docsisGestionado);
                 docsisGestionado.Id = 0;
             }
             unitOfWork.logDocsisOverlaps.Add((LogDocsisOverlap)docsisGestionado);
@@ -238,7 +238,7 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
-        public void ActualizarDocsisOverlap(UnitOfWork unitWork , DocsisOverlap v)
+        public void ActualizarDocsisOverlap(UnitOfWork unitWork, DocsisOverlap v)
         {
             DocsisOverlap logger = unitWork.docsisOverlaps.Get(v.Id);
             logger.Aliado = v.Aliado;
@@ -268,7 +268,7 @@ namespace Telmexla.Servicios.DIME.Business
             logger.Telefono3 = v.Telefono3;
             logger.TipoDeContacto = v.TipoDeContacto;
             logger.UsuarioGestion = v.UsuarioGestion;
-     
+
         }
 
         public ClaroVideoCollection GetHistorialClaroVideoAsesor(int idAsesor)
@@ -295,7 +295,7 @@ namespace Telmexla.Servicios.DIME.Business
             claroVideoGestionado.FechaGestion = DateTime.Now;
             claroVideoGestionado.UsuarioGestion = idAsesor.ToString();
             claroVideoGestionado.NombreUsuarioGestion = unitOfWork.usuarios.Find(c => c.Id == idAsesor).Select(c => c.Nombre).SingleOrDefault();
-            if(gestionOutboundDeGestion!= null)   claroVideoGestionado.OperacionGestion = gestionOutboundDeGestion.OperacionGestion;
+            if (gestionOutboundDeGestion != null) claroVideoGestionado.OperacionGestion = gestionOutboundDeGestion.OperacionGestion;
             claroVideoGestionado.CuentaCliente = datosCliente.Cuenta;
             claroVideoGestionado.NombreCliente = datosCliente.Nombre;
             claroVideoGestionado.ApellidoCliente = datosCliente.Apellido;
@@ -316,17 +316,17 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 claroVideoGestionado.Seguimiento = "SI";
             }
-             //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
-            GestionOutbound enGestiondeUsuario  = new GestionOutbound();
+            //Sig linea actualiza gestiones outbound que usuario esta gestionando para liberar
+            GestionOutbound enGestiondeUsuario = new GestionOutbound();
             enGestiondeUsuario = unitOfWork.gestionesOutbound.Find(c => c.UsuarioGestionando == idAsesor && c.NombreBase.Equals("CLARO_VIDEO")).SingleOrDefault();
-            if (enGestiondeUsuario!= null)
+            if (enGestiondeUsuario != null)
             {
                 enGestiondeUsuario.UsuarioGestionando = 0;
                 unitOfWork.claroVideos.Add(claroVideoGestionado);
             }
             else
             {
-                ActualizarClaroVideo(unitOfWork,claroVideoGestionado);
+                ActualizarClaroVideo(unitOfWork, claroVideoGestionado);
                 claroVideoGestionado.Id = 0;
             }
 
@@ -335,7 +335,7 @@ namespace Telmexla.Servicios.DIME.Business
             return true;
 
         }
-        public  LogClaroVideo ConvertALogClaroVideo(ClaroVideo v)
+        public LogClaroVideo ConvertALogClaroVideo(ClaroVideo v)
         {
 
             LogClaroVideo logClaro = new LogClaroVideo();
@@ -415,7 +415,7 @@ namespace Telmexla.Servicios.DIME.Business
             logClaro.TipoDeContacto = v.TipoDeContacto;
             logClaro.TipoDeGestion = v.TipoDeGestion;
             logClaro.UsuarioGestion = v.UsuarioGestion;
-        
+
         }
 
 
@@ -431,15 +431,15 @@ namespace Telmexla.Servicios.DIME.Business
         }
 
         public List<String> GetNombresClientesCierreCiclo(CierreCicloCollection cuentasATraer)
-        {   List<string> resultado = new List<String>();
+        { List<string> resultado = new List<String>();
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             int cuenta;
             foreach (var item in cuentasATraer)
             {
                 cuenta = Convert.ToInt32(item.Cuenta);
                 var nombreYApellido = unitOfWork.clientesTodo.Find(c => c.Cuenta == cuenta).Select(x => new { x.Nombre, x.Apellido }).FirstOrDefault();
-                if (nombreYApellido != null) 
-                resultado.Add(nombreYApellido.Nombre + " " + nombreYApellido.Apellido);
+                if (nombreYApellido != null)
+                    resultado.Add(nombreYApellido.Nombre + " " + nombreYApellido.Apellido);
                 else resultado.Add("");
             }
             return resultado;
@@ -448,14 +448,14 @@ namespace Telmexla.Servicios.DIME.Business
         public GestionOutbound GetGestionOutboundPorAsesor(int cuenta, string gestion, string aliado, string linea)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            return unitOfWork.gestionesOutbound.Find(c => c.Cuenta  == cuenta && c.NombreBase.Equals(gestion) && c.Aliado.Equals(aliado) && c.OperacionGestion.Equals(linea)).SingleOrDefault();
+            return unitOfWork.gestionesOutbound.Find(c => c.Cuenta == cuenta && c.NombreBase.Equals(gestion) && c.Aliado.Equals(aliado) && c.OperacionGestion.Equals(linea)).SingleOrDefault();
 
         }
 
         public CierreCiclo GetCierreCicloGestionado(int id)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-           return unitOfWork.cierreCiclos.Get(id);
+            return unitOfWork.cierreCiclos.Get(id);
         }
 
         public bool ProcesoGuardarCierreCiclo(int idAsesor, ClientesTodo datosCliente, CierreCiclo cierreCicloGestionado)
@@ -468,8 +468,8 @@ namespace Telmexla.Servicios.DIME.Business
             cierreCicloGestionado.FechaGestion = DateTime.Now;
             cierreCicloGestionado.UsuarioGestion = idAsesor.ToString();
             cierreCicloGestionado.Cuenta = datosCliente.Cuenta;
-            if(gestionOutboundDeGestion!=null)
-            {   cierreCicloGestionado.Base = gestionOutboundDeGestion.NombreBase;
+            if (gestionOutboundDeGestion != null)
+            { cierreCicloGestionado.Base = gestionOutboundDeGestion.NombreBase;
                 cierreCicloGestionado.OperacionGestion = gestionOutboundDeGestion.OperacionGestion;
             }
             cierreCicloGestionado.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(cierreCicloGestionado.TipoContacto)).TipoContacto;
@@ -477,10 +477,10 @@ namespace Telmexla.Servicios.DIME.Business
             cierreCicloGestionado.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(cierreCicloGestionado.Cierre)).Razon;
             cierreCicloGestionado.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(cierreCicloGestionado.Razon)).Causa;
             cierreCicloGestionado.Motivo = unitWorkMaestros.maestrosOutboundMotivo.Get(Convert.ToInt32(cierreCicloGestionado.Motivo)).Motivo;
-            if (cierreCicloGestionado.FechaSeguimiento != null)  cierreCicloGestionado.Seguimiento = "SI";
+            if (cierreCicloGestionado.FechaSeguimiento != null) cierreCicloGestionado.Seguimiento = "SI";
             if (enGestiondeUsuario != null)
             {
-                                enGestiondeUsuario.UsuarioGestionando = 0;
+                enGestiondeUsuario.UsuarioGestionando = 0;
                 unitOfWork.cierreCiclos.Add(cierreCicloGestionado);
             }
             else
@@ -488,7 +488,7 @@ namespace Telmexla.Servicios.DIME.Business
                 CierreCiclo cierreActualizado = ActualizarCierreCiclo(unitOfWork, cierreCicloGestionado);
                 cierreCicloGestionado.Id = 0;
             }
-            
+
             unitOfWork.logCierreCiclos.Add((LogCierreCiclo)cierreCicloGestionado);
             unitOfWork.Complete();
             return true;
@@ -496,7 +496,7 @@ namespace Telmexla.Servicios.DIME.Business
 
 
 
-        public CierreCiclo ActualizarCierreCiclo(UnitOfWork unitWork, CierreCiclo v )
+        public CierreCiclo ActualizarCierreCiclo(UnitOfWork unitWork, CierreCiclo v)
         {
             CierreCiclo actualizado = unitWork.cierreCiclos.Get(v.Id);
             actualizado.AliadoGestion = v.AliadoGestion;
@@ -570,7 +570,7 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
-        public List<DistribucionBlending> GetOperacionBlending(string Aliado , string Formulario)
+        public List<DistribucionBlending> GetOperacionBlending(string Aliado, string Formulario)
         {
             DimeContext dimContext = new DimeContext();
             List<DistribucionBlending> result = new List<DistribucionBlending>();
@@ -593,17 +593,17 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
 
             var listaUsers = (from a in dimContext.SkillsUsuariosBlending
-                      join b in dimContext.Usuarios on a.Cedula equals b.Cedula
-                      where a.Operacion == Operacion
-                      select new 
-                      {
-                          Id = a.Id,
-                          Cedula = a.Cedula,
-                          Nombre = b.Nombre,
-                          Operacion = a.Operacion,
-                          Campaña = a.Campaña
-                          
-                      }).ToList();
+                              join b in dimContext.Usuarios on a.Cedula equals b.Cedula
+                              where a.Operacion == Operacion
+                              select new
+                              {
+                                  Id = a.Id,
+                                  Cedula = a.Cedula,
+                                  Nombre = b.Nombre,
+                                  Operacion = a.Operacion,
+                                  Campaña = a.Campaña
+
+                              }).ToList();
             foreach (var x in listaUsers)
             {
                 ViewModelSkillsUsuariosBlending Skill = new ViewModelSkillsUsuariosBlending();
@@ -612,7 +612,7 @@ namespace Telmexla.Servicios.DIME.Business
                 Skill.Nombre = x.Nombre;
                 Skill.Operacion = x.Operacion;
                 Skill.Campaña = x.Campaña;
-                
+
                 result.Add(Skill);
 
             }
@@ -631,14 +631,14 @@ namespace Telmexla.Servicios.DIME.Business
             var objetosResult = (from a in dimContext.DistribucionBlendings
                                  where a.AliadoDestino == Aliado && a.FormularioDestino == Formulario && a.OperacionDestino == Operacion
                                  select new
-                                 {a.CampanaDestino}).Distinct().ToList();
+                                 { a.CampanaDestino }).Distinct().ToList();
             for (int i = 0; i < objetosResult.Count; i++)
             {
                 result.Add(new DistribucionBlending());
                 result[i].CampanaDestino = objetosResult[i].CampanaDestino;
-                
+
             }
-            
+
             return result;
         }
         public void InsertarSkillsUsuarioBlending(SkillsUsuariosBlending skills)
@@ -667,13 +667,13 @@ namespace Telmexla.Servicios.DIME.Business
         public List<DistribucionBlending> CountCuentasOperacionGestion(string aliado, string formulario, string operacion)
         {
             DimeContext dimeContext = new DimeContext();
-            return dimeContext.DistribucionBlendings.Where(a => a.AliadoDestino == aliado && a.FormularioDestino == formulario 
+            return dimeContext.DistribucionBlendings.Where(a => a.AliadoDestino == aliado && a.FormularioDestino == formulario
             && a.OperacionDestino.Equals(operacion) && a.UsuarioGestionando == 0).ToList();
         }
         public List<DistribucionBlending> CountCuentasOperacionCampaña(string aliado, string formulario, string operacion, string campaña)
         {
             DimeContext dimeContext = new DimeContext();
-            return dimeContext.DistribucionBlendings.Where(a => a.AliadoDestino == aliado && a.FormularioDestino == formulario && 
+            return dimeContext.DistribucionBlendings.Where(a => a.AliadoDestino == aliado && a.FormularioDestino == formulario &&
             a.OperacionDestino == operacion && a.CampanaDestino == campaña && a.UsuarioGestionando == 0).ToList();
         }
         public void ActualizarUsuariosBasesBlending(List<string> listaUsuariosCambiados, string Campaña, int Id_Usuario_Actualizacion)
@@ -690,22 +690,33 @@ namespace Telmexla.Servicios.DIME.Business
                 usuario.Id_Usuario_Actualizacion = Id_Usuario_Actualizacion;
                 unitWork.Complete();
             }
-            
+
         }
         public void ActualizarUsuarioBlending(SkillsUsuariosBlending m)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
 
-                //int cedulaUsuario = Convert.ToInt32(CedulaUsuario);
-                SkillsUsuariosBlending usuario = unitWork.SkillsUsuariosBlending.Find(c => c.Cedula == m.Cedula).FirstOrDefault();
-                DateTime fechaActual = DateTime.Now;
-                usuario.Operacion = m.Operacion;
-                usuario.Campaña = m.Campaña;
-                usuario.Fecha_Actualizacion = fechaActual;
-                usuario.Id_Usuario_Actualizacion = m.Id_Usuario_Actualizacion;
+            //int cedulaUsuario = Convert.ToInt32(CedulaUsuario);
+            SkillsUsuariosBlending usuario = unitWork.SkillsUsuariosBlending.Find(c => c.Cedula == m.Cedula).FirstOrDefault();
+            DateTime fechaActual = DateTime.Now;
+            usuario.Operacion = m.Operacion;
+            usuario.Campaña = m.Campaña;
+            usuario.Fecha_Actualizacion = fechaActual;
+            usuario.Id_Usuario_Actualizacion = m.Id_Usuario_Actualizacion;
+            unitWork.Complete();
+        }
+
+        public void EliminaUsuarioSkilles(int Cedula)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            SkillsUsuariosBlending UsuarioEliminar = unitWork.SkillsUsuariosBlending.Find(c => c.Cedula == Cedula).FirstOrDefault();
+
+            if (UsuarioEliminar != null)
+            {
+                unitWork.SkillsUsuariosBlending.Remove(UsuarioEliminar);
                 unitWork.Complete();
             }
-
+            else { }
         }
-    
+    }
 }

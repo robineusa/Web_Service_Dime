@@ -586,6 +586,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BlendingBusiness blendingBusin = new BlendingBusiness();
             blendingBusin.ActualizarUsuarioBlending(m);
         }
+        public void EliminaUsuarioSkilles(int Cedula)
+        {
+            BlendingBusiness blendingBusin = new BlendingBusiness();
+            blendingBusin.EliminaUsuarioSkilles(Cedula);
+        }
         #endregion
 
         #region MarcacionesService
@@ -1517,6 +1522,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MultiplayBusiness Multi = new MultiplayBusiness();
             Multi.EliminaCuentaDatosMultiplay(Id_Cuenta, Cuenta);
         }
+        public MultiPlayCollection ConsultaAdminBasePresidencial(DateTime inicial, DateTime final)
+        {
+            MultiplayBusiness Multi = new MultiplayBusiness();
+            return Multi.ConsultaAdminBasePresidencial(inicial, final);
+        }
+        
         #endregion
     }
 }

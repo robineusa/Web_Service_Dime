@@ -20,5 +20,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         void EliminaCuentaDatosMultiplay(int Id_Cuenta, int Cuenta);
+
+        [OperationContract]
+        MultiPlayCollection ConsultaAdminBasePresidencial(DateTime inicial, DateTime final);
+
+        
     }
 }
