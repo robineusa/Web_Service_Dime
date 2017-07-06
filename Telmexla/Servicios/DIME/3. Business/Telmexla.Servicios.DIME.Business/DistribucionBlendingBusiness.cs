@@ -122,6 +122,8 @@ namespace Telmexla.Servicios.DIME.Business
             LFueraNivel.FechaGestion = PFueraNivel.FechaGestion;
             LFueraNivel.UsuarioGestion = PFueraNivel.UsuarioGestion;
             LFueraNivel.AliadoGestion = PFueraNivel.AliadoGestion;
+            LFueraNivel.OperacionGestion = PFueraNivel.OperacionGestion;
+            LFueraNivel.CampanaGestion = PFueraNivel.CampanaGestion;
             LFueraNivel.CuentaCliente = PFueraNivel.CuentaCliente;
             LFueraNivel.NombreCliente = PFueraNivel.NombreCliente;
             LFueraNivel.ApellidoCliente = PFueraNivel.ApellidoCliente;
@@ -174,6 +176,8 @@ namespace Telmexla.Servicios.DIME.Business
             PFueraNivelActualizable.FechaGestion = PFueraNivel.FechaGestion;
             PFueraNivelActualizable.UsuarioGestion = PFueraNivel.UsuarioGestion;
             PFueraNivelActualizable.AliadoGestion = PFueraNivel.AliadoGestion;
+            PFueraNivelActualizable.OperacionGestion = PFueraNivel.OperacionGestion;
+            PFueraNivelActualizable.CampanaGestion = PFueraNivel.CampanaGestion;
             PFueraNivelActualizable.NombreCliente = PFueraNivel.NombreCliente;
             PFueraNivelActualizable.ApellidoCliente = PFueraNivel.ApellidoCliente;
             PFueraNivelActualizable.DirInstalacion = PFueraNivel.DirInstalacion;
@@ -210,6 +214,8 @@ namespace Telmexla.Servicios.DIME.Business
             LFueraNivel.FechaGestion = PFueraNivel.FechaGestion;
             LFueraNivel.UsuarioGestion = PFueraNivel.UsuarioGestion;
             LFueraNivel.AliadoGestion = PFueraNivel.AliadoGestion;
+            LFueraNivel.OperacionGestion = PFueraNivel.OperacionGestion;
+            LFueraNivel.CampanaGestion = PFueraNivel.CampanaGestion;
             LFueraNivel.CuentaCliente = PFueraNivel.CuentaCliente;
             LFueraNivel.NombreCliente = PFueraNivel.NombreCliente;
             LFueraNivel.ApellidoCliente = PFueraNivel.ApellidoCliente;
@@ -424,6 +430,8 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.FechaGestion,
                                      a.UsuarioGestion,
                                      a.AliadoGestion,
+                                     a.OperacionGestion,
+                                     a.CampanaGestion,
                                      a.CuentaCliente,
                                      a.NombreCliente,
                                      a.ApellidoCliente,
@@ -462,6 +470,8 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
                 result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].OperacionGestion = objetosResult[i].OperacionGestion;
+                result[i].CampanaGestion = objetosResult[i].CampanaGestion;
                 result[i].CuentaCliente = objetosResult[i].CuentaCliente;
                 result[i].NombreCliente = objetosResult[i].NombreCliente;
                 result[i].ApellidoCliente = objetosResult[i].ApellidoCliente;
@@ -507,6 +517,8 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.FechaGestion,
                                      a.UsuarioGestion,
                                      a.AliadoGestion,
+                                     a.OperacionGestion,
+                                     a.CampanaGestion,
                                      a.CuentaCliente,
                                      a.NombreCliente,
                                      a.ApellidoCliente,
@@ -545,6 +557,8 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
                 result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].OperacionGestion = objetosResult[i].OperacionGestion;
+                result[i].CampanaGestion = objetosResult[i].CampanaGestion;
                 result[i].CuentaCliente = objetosResult[i].CuentaCliente;
                 result[i].NombreCliente = objetosResult[i].NombreCliente;
                 result[i].ApellidoCliente = objetosResult[i].ApellidoCliente;
@@ -610,6 +624,7 @@ namespace Telmexla.Servicios.DIME.Business
             LRentabilizacion.UsuarioGestion = PRentabilizacion.UsuarioGestion;
             LRentabilizacion.AliadoGestion = PRentabilizacion.AliadoGestion;
             LRentabilizacion.OperacionGestion = PRentabilizacion.OperacionGestion;
+            LRentabilizacion.CampanaDestino = PRentabilizacion.CampanaDestino;
             LRentabilizacion.CuentaCliente = PRentabilizacion.CuentaCliente;
             LRentabilizacion.ConsumosPpv = PRentabilizacion.ConsumosPpv;
             LRentabilizacion.UltimaPpv = PRentabilizacion.UltimaPpv;
@@ -653,6 +668,7 @@ namespace Telmexla.Servicios.DIME.Business
             PRentabilizacionActualizable.UsuarioGestion = PRentabilizacion.UsuarioGestion;
             PRentabilizacionActualizable.AliadoGestion = PRentabilizacion.AliadoGestion;
             PRentabilizacionActualizable.OperacionGestion = PRentabilizacion.OperacionGestion;
+            PRentabilizacionActualizable.CampanaDestino = PRentabilizacion.CampanaDestino;
             PRentabilizacionActualizable.CuentaCliente = PRentabilizacion.CuentaCliente;
             PRentabilizacionActualizable.ConsumosPpv = PRentabilizacion.ConsumosPpv;
             PRentabilizacionActualizable.UltimaPpv = PRentabilizacion.UltimaPpv;
@@ -679,6 +695,7 @@ namespace Telmexla.Servicios.DIME.Business
             LRentabilizacion.UsuarioGestion = PRentabilizacion.UsuarioGestion;
             LRentabilizacion.AliadoGestion = PRentabilizacion.AliadoGestion;
             LRentabilizacion.OperacionGestion = PRentabilizacion.OperacionGestion;
+            LRentabilizacion.CampanaDestino = PRentabilizacion.CampanaDestino;
             LRentabilizacion.CuentaCliente = PRentabilizacion.CuentaCliente;
             LRentabilizacion.ConsumosPpv = PRentabilizacion.ConsumosPpv;
             LRentabilizacion.UltimaPpv = PRentabilizacion.UltimaPpv;
@@ -881,6 +898,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.UsuarioGestion,
                                      a.AliadoGestion,
                                      a.OperacionGestion,
+                                     a.CampanaDestino,
                                      a.CuentaCliente,
                                      a.ConsumosPpv,
                                      a.UltimaPpv,
@@ -907,6 +925,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
                 result[i].AliadoGestion = objetosResult[i].AliadoGestion;
                 result[i].OperacionGestion = objetosResult[i].OperacionGestion;
+                result[i].CampanaDestino = objetosResult[i].CampanaDestino;
                 result[i].CuentaCliente = objetosResult[i].CuentaCliente;
                 result[i].ConsumosPpv = objetosResult[i].ConsumosPpv;
                 result[i].UltimaPpv = objetosResult[i].UltimaPpv;
@@ -940,6 +959,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.UsuarioGestion,
                                      a.AliadoGestion,
                                      a.OperacionGestion,
+                                     a.CampanaDestino,
                                      a.CuentaCliente,
                                      a.ConsumosPpv,
                                      a.UltimaPpv,
@@ -966,6 +986,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
                 result[i].AliadoGestion = objetosResult[i].AliadoGestion;
                 result[i].OperacionGestion = objetosResult[i].OperacionGestion;
+                result[i].CampanaDestino = objetosResult[i].CampanaDestino;
                 result[i].CuentaCliente = objetosResult[i].CuentaCliente;
                 result[i].ConsumosPpv = objetosResult[i].ConsumosPpv;
                 result[i].UltimaPpv = objetosResult[i].UltimaPpv;

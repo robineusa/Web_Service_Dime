@@ -19,6 +19,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.UsuarioGestion).HasColumnName(@"USUARIO_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.AliadoGestion).HasColumnName(@"ALIADO_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.OperacionGestion).HasColumnName(@"OPERACION_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.CampanaDestino).HasColumnName(@"CAMPANA_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.CuentaCliente).HasColumnName(@"CUENTA_CLIENTE").IsOptional().HasColumnType("numeric");
             Property(x => x.ConsumosPpv).HasColumnName(@"CONSUMOS_PPV").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.UltimaPpv).HasColumnName(@"ULTIMA_PPV").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
