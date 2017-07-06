@@ -47,8 +47,8 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.SaldoTotalRR).HasColumnName(@"SALDO_TOTAL_RR").IsRequired().HasColumnType("numeric");
             Property(x => x.EscVentaCliente).HasColumnName(@"ESC_VENTA_CLIENTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.AplicAjusteRR).HasColumnName(@"APLIC_AJUSTE_RR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.CampañaCaida).HasColumnName(@"CAMPAÑA_CAIDA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.ValoraAjustarInternet).HasColumnName(@"VALOR_A_AJUSTAR_@").IsRequired().HasColumnType("numeric");
+            Property(x => x.CampañaCaida).HasColumnName(@"CAMPANA_CAIDA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.ValoraAjustarInternet).HasColumnName(@"VALOR_A_AJUSTAR_INT").IsRequired().HasColumnType("numeric");
             Property(x => x.ValoraAjustarTv).HasColumnName(@"VALOR_A_AJUSTAR_TV").IsRequired().HasColumnType("numeric");
             Property(x => x.ValoraAjustarTel).HasColumnName(@"VALOR_A_AJUSTAR_TEL").IsRequired().HasColumnType("numeric");
             Property(x => x.ValAjuOtrosConcep).HasColumnName(@"VAL_AJU_OTROS_CONCEP").IsRequired().HasColumnType("numeric");
@@ -59,10 +59,10 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.CamOfComApliCliente).HasColumnName(@"CAM_OF_COM_APLI_CLIENTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.CamAplACDiVenta).HasColumnName(@"CAM_APL_AC_DI_VENTA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.CfmDatosAntesIva).HasColumnName(@"CFM_DATOS_ANTES_IVA").IsRequired().HasColumnType("numeric");
-            Property(x => x.CfmDatosAntesIva4Ipoc).HasColumnName(@"CFM_DATOS_ANTES_IVA_+4%_IPOC").IsRequired().HasColumnType("numeric");
-            Property(x => x.CfmVozAntesIva4Ipoc).HasColumnName(@"CFM_VOZ_ANTES_IVA_+4%_IPOC").IsRequired().HasColumnType("numeric");
+            Property(x => x.CfmDatosAntesIva4Ipoc).HasColumnName(@"CFM_DATOS_ANTES_IVA_IPOC").IsRequired().HasColumnType("numeric");
+            Property(x => x.CfmVozAntesIva4Ipoc).HasColumnName(@"CFM_VOZ_ANTES_IVA_IPOC").IsRequired().HasColumnType("numeric");
             Property(x => x.FechaACTMultAC).HasColumnName(@"FECHA_ACT_MULT_AC").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.TiempoCampañaCFMAAjustar).HasColumnName(@"TIEMPO_CAMPAÑA_CFM_A_AJUSTAR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.TiempoCampañaCFMAAjustar).HasColumnName(@"TIEMPO_CAMPANA_CFM_A_AJUSTAR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.PagosACNoRefleRR).HasColumnName(@"PAGOS_AC_NO_REFLE_RR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.FechaPago1).HasColumnName(@"FECHA_PAGO_1").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.ValorPago1).HasColumnName(@"VALOR_PAGO_1").IsRequired().HasColumnType("numeric");
@@ -74,7 +74,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Valor1).HasColumnName(@"VALOR_1").IsRequired().HasColumnType("numeric");
             Property(x => x.GrupoActual).HasColumnName(@"GRUPO_ACTUAL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.GrupoDebeQuedar).HasColumnName(@"GRUPO_DEBE_QUEDAR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.PagAnuACNoApliACy_0RR).HasColumnName(@"PAG_ANU_AC_NO_APLI_AC_Y/O_RR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.PagAnuACNoApliACy_0RR).HasColumnName(@"PAG_ANU_AC_NO_APLI_AC_Y_O_RR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Valor2).HasColumnName(@"VALOR_2").IsRequired().HasColumnType("numeric");
             Property(x => x.FechaIngresoPago).HasColumnName(@"FECHA_INGRESO_PAGO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.PlataformaRepPagoAnulado).HasColumnName(@"PLATAFORMA_REP_PAGO_ANULADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
@@ -87,7 +87,8 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Escenario1).HasColumnName(@"ESCENARIO_1").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(200);
             Property(x => x.AgenteGestiona).HasColumnName(@"AGENTE_GESTIONA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.FechaGestion).HasColumnName(@"FECHA_GESTION").IsOptional().HasColumnType("date");
-
+            Property(x => x.FechaCargueBase).HasColumnName(@"FECHA_CARGUE_BASE").IsOptional().HasColumnType("date");
+            Property(x => x.NombreBase).HasColumnName(@"NOMBRE_BASE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(200);
         }
     }
 }

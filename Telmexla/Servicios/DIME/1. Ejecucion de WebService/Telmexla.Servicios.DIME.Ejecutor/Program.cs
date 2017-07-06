@@ -20,8 +20,16 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            BlendingBusiness blen = new BlendingBusiness();
-            blen.EliminaUsuarioSkilles(1076622744);
+            //BlendingBusiness blen = new BlendingBusiness();
+            //blen.EliminaUsuarioSkilles(1076622744);
+
+            MultiplayBusiness m = new MultiplayBusiness();
+            MultiPlay mo = new MultiPlay();
+            mo.UsuarioGestion = "ret";
+            mo.NombreBase = "mierda";
+
+            m.InsertarMultiPlay(mo);
+            //var r = m.BuscarDatosMultiplay(307);
 
             var z = "";
 

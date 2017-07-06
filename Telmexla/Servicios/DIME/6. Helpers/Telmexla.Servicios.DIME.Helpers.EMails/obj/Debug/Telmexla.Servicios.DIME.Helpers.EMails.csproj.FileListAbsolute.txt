@@ -1,4 +1,0 @@
-C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\bin\Debug\Telmexla.Servicios.DIME.Helpers.EMails.dll
-C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\bin\Debug\Telmexla.Servicios.DIME.Helpers.EMails.pdb
-C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\obj\Debug\Telmexla.Servicios.DIME.Helpers.EMails.dll
-C:\Users\Robinson\Documents\GitHub\Web_Service_Dime\Telmexla\Servicios\DIME\6. Helpers\Telmexla.Servicios.DIME.Helpers.EMails\obj\Debug\Telmexla.Servicios.DIME.Helpers.EMails.pdb
