@@ -85,6 +85,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="bin\Release\Telmexla.Servicios.DIME.IWebServices.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +105,24 @@
   <ItemGroup>
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.IWebServices.dll" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.IWebServices.pdb" />
+    <Content Include="bin\Release\AutoMapper.dll" />
+    <Content Include="bin\Release\AutoMapper.xml" />
+    <Content Include="bin\Release\EntityFramework.dll" />
+    <Content Include="bin\Release\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Release\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Release\EntityFramework.xml" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.Business.dll" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.Business.pdb" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.Data.dll" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.Data.pdb" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.Entity.dll" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.Entity.pdb" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.Helpers.Mappers.dll" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.Helpers.Mappers.pdb" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.IData.dll" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.IData.pdb" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.IWebServices.dll" />
+    <Content Include="bin\Release\Telmexla.Servicios.DIME.IWebServices.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

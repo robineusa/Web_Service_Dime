@@ -173,5 +173,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<GBLDocsis> ConsultaAdminDocsisL(DateTime FechaInicial, DateTime FechaFinal);
+
+        [OperationContract]
+        List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino(string aliado);
+        
     }
 }

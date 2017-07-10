@@ -23,15 +23,18 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //BlendingBusiness blen = new BlendingBusiness();
             //blen.EliminaUsuarioSkilles(1076622744);
 
-            MultiplayBusiness m = new MultiplayBusiness();
-            MultiPlay mo = new MultiPlay();
-            mo.UsuarioGestion = "ret";
-            mo.NombreBase = "mierda";
+            //MultiplayBusiness m = new MultiplayBusiness();
+            //MultiPlay mo = new MultiPlay();
+            //mo.UsuarioGestion = "ret";
+            //mo.NombreBase = "mierda";
 
-            m.InsertarMultiPlay(mo);
+            //m.InsertarMultiPlay(mo);
             //var r = m.BuscarDatosMultiplay(307);
 
-            var z = "";
+            DistribucionBlendingBusiness DB = new DistribucionBlendingBusiness();
+            var R = DB.ConsultaBlendingFormularioDestino("INTERCONTAC T");
+
+            var zZ = "";
 
             //DateTime fechatemp;
             //DateTime fecha1;

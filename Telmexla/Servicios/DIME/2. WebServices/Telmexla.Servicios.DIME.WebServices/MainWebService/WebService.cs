@@ -1496,6 +1496,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.ConsultaAdminDocsisL(FechaInicial, FechaFinal);
         }
+        public List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino(string aliado)
+        {
+            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
+            return distribucionesBlendingBusiness.ConsultaBlendingFormularioDestino(aliado);
+        }
         #endregion
 
         #region MejorasTecnicas
