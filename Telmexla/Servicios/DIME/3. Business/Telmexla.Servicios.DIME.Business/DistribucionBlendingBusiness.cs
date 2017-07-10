@@ -422,7 +422,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<GBPFueraNivelesCA> result = new List<GBPFueraNivelesCA>();
             var objetosResult = (from a in dimContext.GBPFueradeNiveles
-                                 join b in (from m in dimContext.Usuarios select new { m.Id, m.Cedula ,m.Nombre }).Distinct() on Convert.ToInt32(a.UsuarioGestion) equals b.Id
+                                 join b in (from m in dimContext.Usuarios select new { m.Id, m.Cedula ,m.Nombre }).Distinct() on Convert.ToInt64(a.UsuarioGestion) equals b.Id
                                  where a.FechaGestion>= FechaInicial && a.FechaGestion<= FechaFinal
                                  orderby a.Id ascending
                                  select new
@@ -514,7 +514,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<GBLFueraNivelesCA> result = new List<GBLFueraNivelesCA>();
             var objetosResult = (from a in dimContext.GBLFueradeNiveles
-                                 join b in (from m in dimContext.Usuarios select new { m.Id, m.Cedula, m.Nombre }).Distinct() on Convert.ToInt32(a.UsuarioGestion) equals b.Id
+                                 join b in (from m in dimContext.Usuarios select new { m.Id, m.Cedula, m.Nombre }).Distinct() on Convert.ToInt64(a.UsuarioGestion) equals b.Id
                                  where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
                                  orderby a.Id ascending
                                  select new
@@ -894,11 +894,12 @@ namespace Telmexla.Servicios.DIME.Business
             }
 
         }
-        public List<GBPRentabilizacion> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBPRentabilizacionCA> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal)
         {
             DimeContext dimContext = new DimeContext();
-            List<GBPRentabilizacion> result = new List<GBPRentabilizacion>();
+            List<GBPRentabilizacionCA> result = new List<GBPRentabilizacionCA>();
             var objetosResult = (from a in dimContext.GBPRentabilizacion
+                                 join b in (from m in dimContext.Usuarios select new { m.Id, m.Cedula, m.Nombre }).Distinct() on a.UsuarioGestion equals  b.Id.ToString()
                                  where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
                                  orderby a.Id ascending
                                  select new
@@ -906,6 +907,8 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Id,
                                      a.FechaGestion,
                                      a.UsuarioGestion,
+                                     b.Cedula,
+                                     b.Nombre,
                                      a.AliadoGestion,
                                      a.OperacionGestion,
                                      a.CampanaDestino,
@@ -929,10 +932,12 @@ namespace Telmexla.Servicios.DIME.Business
 
             for (int i = 0; i < objetosResult.Count; i++)
             {
-                result.Add(new GBPRentabilizacion());
+                result.Add(new GBPRentabilizacionCA());
                 result[i].Id = objetosResult[i].Id;
                 result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].CedulaUsuario = Convert.ToDecimal(objetosResult[i].Cedula);
+                result[i].NombreUsuario = objetosResult[i].Nombre;
                 result[i].AliadoGestion = objetosResult[i].AliadoGestion;
                 result[i].OperacionGestion = objetosResult[i].OperacionGestion;
                 result[i].CampanaDestino = objetosResult[i].CampanaDestino;
@@ -955,11 +960,12 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
 
         }
-        public List<GBLRentabilizacion> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBLRentabilizacionCA> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal)
         {
             DimeContext dimContext = new DimeContext();
-            List<GBLRentabilizacion> result = new List<GBLRentabilizacion>();
+            List<GBLRentabilizacionCA> result = new List<GBLRentabilizacionCA>();
             var objetosResult = (from a in dimContext.GBLRentabilizacion
+                                 join b in (from m in dimContext.Usuarios select new { m.Id, m.Cedula, m.Nombre }).Distinct() on a.UsuarioGestion equals b.Id.ToString()
                                  where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
                                  orderby a.Id ascending
                                  select new
@@ -967,6 +973,8 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Id,
                                      a.FechaGestion,
                                      a.UsuarioGestion,
+                                     b.Cedula,
+                                     b.Nombre,
                                      a.AliadoGestion,
                                      a.OperacionGestion,
                                      a.CampanaDestino,
@@ -990,10 +998,12 @@ namespace Telmexla.Servicios.DIME.Business
 
             for (int i = 0; i < objetosResult.Count; i++)
             {
-                result.Add(new GBLRentabilizacion());
+                result.Add(new GBLRentabilizacionCA());
                 result[i].Id = objetosResult[i].Id;
                 result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].CedulaUsuario = Convert.ToDecimal(objetosResult[i].Cedula);
+                result[i].NombreUsuario = objetosResult[i].Nombre;
                 result[i].AliadoGestion = objetosResult[i].AliadoGestion;
                 result[i].OperacionGestion = objetosResult[i].OperacionGestion;
                 result[i].CampanaDestino = objetosResult[i].CampanaDestino;
@@ -1285,11 +1295,12 @@ namespace Telmexla.Servicios.DIME.Business
             }
 
         }
-        public List<GBPProducto> ConsultaAdminProductoP(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBPProductoCA> ConsultaAdminProductoP(DateTime FechaInicial, DateTime FechaFinal)
         {
             DimeContext dimContext = new DimeContext();
-            List<GBPProducto> result = new List<GBPProducto>();
+            List<GBPProductoCA> result = new List<GBPProductoCA>();
             var objetosResult = (from a in dimContext.GBPProducto
+                                 join b in (from m in dimContext.Usuarios select new { m.Id, m.Cedula, m.Nombre }).Distinct() on a.UsuarioGestion equals b.Id.ToString()
                                  where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
                                  orderby a.Id ascending
                                  select new
@@ -1297,6 +1308,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Id,
                                      a.FechaGestion,
                                      a.UsuarioGestion,
+                                     b.Cedula,                                     
                                      a.NombreUsuarioGestion,
                                      a.AliadoGestion,
                                      a.OperacionGestion,
@@ -1313,10 +1325,11 @@ namespace Telmexla.Servicios.DIME.Business
 
             for (int i = 0; i < objetosResult.Count; i++)
             {
-                result.Add(new GBPProducto());
+                result.Add(new GBPProductoCA());
                 result[i].Id = objetosResult[i].Id;
                 result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].CedulaUsuario = Convert.ToDecimal(objetosResult[i].Cedula);
                 result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
                 result[i].AliadoGestion = objetosResult[i].AliadoGestion;
                 result[i].OperacionGestion = objetosResult[i].OperacionGestion;
@@ -1332,11 +1345,12 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
 
         }
-        public List<GBLProducto> ConsultaAdminProductoL(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBLProductoCA> ConsultaAdminProductoL(DateTime FechaInicial, DateTime FechaFinal)
         {
             DimeContext dimContext = new DimeContext();
-            List<GBLProducto> result = new List<GBLProducto>();
+            List<GBLProductoCA> result = new List<GBLProductoCA>();
             var objetosResult = (from a in dimContext.GBLProducto
+                                 join b in (from m in dimContext.Usuarios select new { m.Id, m.Cedula, m.Nombre }).Distinct() on a.UsuarioGestion equals b.Id.ToString()
                                  where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
                                  orderby a.Id ascending
                                  select new
@@ -1344,6 +1358,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Id,
                                      a.FechaGestion,
                                      a.UsuarioGestion,
+                                     b.Cedula,
                                      a.NombreUsuarioGestion,
                                      a.AliadoGestion,
                                      a.OperacionGestion,
@@ -1360,10 +1375,11 @@ namespace Telmexla.Servicios.DIME.Business
 
             for (int i = 0; i < objetosResult.Count; i++)
             {
-                result.Add(new GBLProducto());
+                result.Add(new GBLProductoCA());
                 result[i].Id = objetosResult[i].Id;
                 result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].CedulaUsuario = Convert.ToDecimal(objetosResult[i].Cedula);
                 result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
                 result[i].AliadoGestion = objetosResult[i].AliadoGestion;
                 result[i].OperacionGestion = objetosResult[i].OperacionGestion;
@@ -1649,11 +1665,12 @@ namespace Telmexla.Servicios.DIME.Business
             }
 
         }
-        public List<GBPDocsis> ConsultaAdminDocsisP(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBPDocsisCA> ConsultaAdminDocsisP(DateTime FechaInicial, DateTime FechaFinal)
         {
             DimeContext dimContext = new DimeContext();
-            List<GBPDocsis> result = new List<GBPDocsis>();
+            List<GBPDocsisCA> result = new List<GBPDocsisCA>();
             var objetosResult = (from a in dimContext.GBPDocsis
+                                 join b in (from m in dimContext.Usuarios select new { m.Id, m.Cedula, m.Nombre }).Distinct() on a.UsuarioGestion equals b.Id.ToString()
                                  where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
                                  orderby a.Id ascending
                                  select new
@@ -1661,6 +1678,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Id,
                                      a.FechaGestion,
                                      a.UsuarioGestion,
+                                     b.Cedula,
                                      a.NombreUsuarioGestion,
                                      a.AliadoGestion,
                                      a.OperacionGestion,
@@ -1678,10 +1696,11 @@ namespace Telmexla.Servicios.DIME.Business
 
             for (int i = 0; i < objetosResult.Count; i++)
             {
-                result.Add(new GBPDocsis());
+                result.Add(new GBPDocsisCA());
                 result[i].Id = objetosResult[i].Id;
                 result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].CedulaUsuario =Convert.ToDecimal(objetosResult[i].Cedula);
                 result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
                 result[i].AliadoGestion = objetosResult[i].AliadoGestion;
                 result[i].OperacionGestion = objetosResult[i].OperacionGestion;
@@ -1698,11 +1717,12 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
 
         }
-        public List<GBLDocsis> ConsultaAdminDocsisL(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBLDocsisCA> ConsultaAdminDocsisL(DateTime FechaInicial, DateTime FechaFinal)
         {
             DimeContext dimContext = new DimeContext();
-            List<GBLDocsis> result = new List<GBLDocsis>();
+            List<GBLDocsisCA> result = new List<GBLDocsisCA>();
             var objetosResult = (from a in dimContext.GBLDocsis
+                                 join b in (from m in dimContext.Usuarios select new { m.Id, m.Cedula, m.Nombre }).Distinct() on a.UsuarioGestion equals b.Id.ToString()
                                  where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
                                  orderby a.Id ascending
                                  select new
@@ -1710,6 +1730,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Id,
                                      a.FechaGestion,
                                      a.UsuarioGestion,
+                                     b.Cedula,
                                      a.NombreUsuarioGestion,
                                      a.AliadoGestion,
                                      a.OperacionGestion,
@@ -1727,10 +1748,11 @@ namespace Telmexla.Servicios.DIME.Business
 
             for (int i = 0; i < objetosResult.Count; i++)
             {
-                result.Add(new GBLDocsis());
+                result.Add(new GBLDocsisCA());
                 result[i].Id = objetosResult[i].Id;
                 result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].CedulaUsuario = Convert.ToDecimal(objetosResult[i].Cedula);
                 result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
                 result[i].AliadoGestion = objetosResult[i].AliadoGestion;
                 result[i].OperacionGestion = objetosResult[i].OperacionGestion;

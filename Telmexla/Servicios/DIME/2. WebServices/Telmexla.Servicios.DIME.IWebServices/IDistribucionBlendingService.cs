@@ -55,10 +55,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
         GBLFueraNiveles TraeUltimaGestionCuenta(decimal CuentaCliente);
 
         [OperationContract]
-        List<GBPFueraNiveles> ConsultaAdminFueraNivelesP(DateTime FechaInicial, DateTime FechaFinal);
+        List<GBPFueraNivelesCA> ConsultaAdminFueraNivelesP(DateTime FechaInicial, DateTime FechaFinal);
 
         [OperationContract]
-        List<GBLFueraNiveles> ConsultaAdminFueraNivelesL(DateTime FechaInicial, DateTime FechaFinal);
+        List<GBLFueraNivelesCA> ConsultaAdminFueraNivelesL(DateTime FechaInicial, DateTime FechaFinal);
 
         //GESTION BLENDING RENTABILIZACION
 
@@ -93,12 +93,12 @@ namespace Telmexla.Servicios.DIME.IWebServices
         GBLRentabilizacion TraeUltimaGestionCuentaRentabilizacion(decimal CuentaCliente);
 
         [OperationContract]
-        List<GBPRentabilizacion> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal);
+        List<GBPRentabilizacionCA> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal);
 
         [OperationContract]
-        List<GBLRentabilizacion> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal);
+        List<GBLRentabilizacionCA> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal);
 
-        //GESTION BLENDING RENTABILIZACION
+        //GESTION BLENDING PRODUCTO
 
         [OperationContract]
         GBCProducto TraerInformacionCuentaProducto(decimal CuentaCliente);
@@ -131,10 +131,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
         GBLProducto TraeUltimaGestionCuentaProducto(decimal CuentaCliente);
 
         [OperationContract]
-        List<GBPProducto> ConsultaAdminProductoP(DateTime FechaInicial, DateTime FechaFinal);
+        List<GBPProductoCA> ConsultaAdminProductoP(DateTime FechaInicial, DateTime FechaFinal);
 
         [OperationContract]
-        List<GBLProducto> ConsultaAdminProductoL(DateTime FechaInicial, DateTime FechaFinal);
+        List<GBLProductoCA> ConsultaAdminProductoL(DateTime FechaInicial, DateTime FechaFinal);
 
         //GESTION BLENDING DOCSIS Y OVERLAP
 
@@ -169,10 +169,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
         GBLDocsis TraeUltimaGestionCuentaDocsis(decimal CuentaCliente);
 
         [OperationContract]
-        List<GBPDocsis> ConsultaAdminDocsisP(DateTime FechaInicial, DateTime FechaFinal);
+        List<GBPDocsisCA> ConsultaAdminDocsisP(DateTime FechaInicial, DateTime FechaFinal);
 
         [OperationContract]
-        List<GBLDocsis> ConsultaAdminDocsisL(DateTime FechaInicial, DateTime FechaFinal);
+        List<GBLDocsisCA> ConsultaAdminDocsisL(DateTime FechaInicial, DateTime FechaFinal);
 
         [OperationContract]
         List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino(string aliado);

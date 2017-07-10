@@ -1,10 +1,12 @@
 ﻿namespace Telmexla.Servicios.DIME.Entity
 {
-    public class GBPRentabilizacion
+    public class GBLRentabilizacionCA
     {
         public decimal Id { get; set; }
         public System.DateTime? FechaGestion { get; set; }
         public string UsuarioGestion { get; set; }
+        public decimal CedulaUsuario { get; set; }
+        public string NombreUsuario { get; set; }
         public string AliadoGestion { get; set; }
         public string OperacionGestion { get; set; }
         public string CampanaDestino { get; set; }

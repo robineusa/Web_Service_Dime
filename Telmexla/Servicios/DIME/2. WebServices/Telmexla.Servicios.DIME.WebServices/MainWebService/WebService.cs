@@ -1300,12 +1300,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.TraeUltimaGestionCuenta(CuentaCliente);
         }
-        public List<GBPFueraNiveles> ConsultaAdminFueraNivelesP(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBPFueraNivelesCA> ConsultaAdminFueraNivelesP(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.ConsultaAdminFueraNivelesP(FechaInicial,FechaFinal);
         }
-        public List<GBLFueraNiveles> ConsultaAdminFueraNivelesL(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBLFueraNivelesCA> ConsultaAdminFueraNivelesL(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.ConsultaAdminFueraNivelesL(FechaInicial, FechaFinal);
@@ -1362,12 +1362,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.TraeUltimaGestionCuentaRentabilizacion(CuentaCliente);
         }
-        public List<GBPRentabilizacion> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBPRentabilizacionCA> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.ConsultaAdminRentabilizacionP(FechaInicial,FechaFinal);
         }
-        public List<GBLRentabilizacion> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBLRentabilizacionCA> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.ConsultaAdminRentabilizacionL(FechaInicial, FechaFinal);
@@ -1424,12 +1424,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.TraeUltimaGestionCuentaProducto(CuentaCliente);
         }
-        public List<GBPProducto> ConsultaAdminProductoP(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBPProductoCA> ConsultaAdminProductoP(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.ConsultaAdminProductoP(FechaInicial, FechaFinal);
         }
-        public List<GBLProducto> ConsultaAdminProductoL(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBLProductoCA> ConsultaAdminProductoL(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.ConsultaAdminProductoL(FechaInicial, FechaFinal);
@@ -1486,12 +1486,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.TraeUltimaGestionCuentaDocsis(CuentaCliente);
         }
-        public List<GBPDocsis> ConsultaAdminDocsisP(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBPDocsisCA> ConsultaAdminDocsisP(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.ConsultaAdminDocsisP(FechaInicial, FechaFinal);
         }
-        public List<GBLDocsis> ConsultaAdminDocsisL(DateTime FechaInicial, DateTime FechaFinal)
+        public List<GBLDocsisCA> ConsultaAdminDocsisL(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.ConsultaAdminDocsisL(FechaInicial, FechaFinal);

@@ -32,7 +32,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //var r = m.BuscarDatosMultiplay(307);
 
             DistribucionBlendingBusiness DB = new DistribucionBlendingBusiness();
-            var R = DB.ConsultaBlendingFormularioDestino("INTERCONTAC T");
+            DateTime h1 = Convert.ToDateTime("2017-07-01");
+            DateTime h2 = Convert.ToDateTime("2017-07-11");
+            var R = DB.ConsultaAdminRentabilizacionP(h1,h2);
 
             var zZ = "";
 
