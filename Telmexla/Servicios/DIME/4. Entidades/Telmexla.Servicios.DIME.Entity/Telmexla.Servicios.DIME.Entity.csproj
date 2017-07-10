@@ -106,11 +106,13 @@
     <Compile Include="GBC_Rentabilizacion.cs" />
     <Compile Include="GBLDocsis.cs" />
     <Compile Include="GBLFueraNiveles.cs" />
+    <Compile Include="GBLFueraNivelesCA.cs" />
     <Compile Include="GBLFueraNivelesCollection.cs" />
     <Compile Include="GBLProducto.cs" />
     <Compile Include="GBLRentabilizacion.cs" />
     <Compile Include="GBPDocsis.cs" />
     <Compile Include="GBPFueraNiveles.cs" />
+    <Compile Include="GBPFueraNivelesCA.cs" />
     <Compile Include="GBPFueraNivelesCollection.cs" />
     <Compile Include="GBPProducto.cs" />
     <Compile Include="GBPRentabilizacion.cs" />
