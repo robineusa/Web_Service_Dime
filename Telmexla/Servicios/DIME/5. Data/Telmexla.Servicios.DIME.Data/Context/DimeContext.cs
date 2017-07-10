@@ -752,6 +752,41 @@ namespace Telmexla.Servicios.DIME.Data.Context
         }
 
 
+        public System.Collections.Generic.List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino(string aliado)
+        {
+            int procResult;
+            return ConsultaBlendingFormularioDestino(aliado, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino( string aliado, out int procResult)
+        {
+
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ConsultaBlendingFormularioDestinoReturnViewModel>("EXEC @procResult = [dbo].[CONSULTA_BLENDING_FORMULARIO_DESTINO]  @Aliado",  aliadoParam, procResultParam).ToList();
+
+            procResult = (int)procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaBlendingFormularioDestinoReturnViewModel>> ConsultaBlendingFormularioDestinoAsync( string aliado)
+        {
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ConsultaBlendingFormularioDestinoReturnViewModel>("EXEC [dbo].[CONSULTA_BLENDING_FORMULARIO_DESTINO] @Aliado",  aliadoParam).ToListAsync();
+
+            return procResultData;
+        }
+
+
+
+
+
 
 
     }
