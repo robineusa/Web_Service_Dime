@@ -16,6 +16,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.IdLinea).HasColumnName(@"ID_LINEA").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.IdProceso).HasColumnName(@"ID_PROCESO").IsOptional().HasColumnType("numeric");
             Property(x => x.NombreLinea).HasColumnName(@"NOMBRE_DE_LINEA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
         }
     }
 }
