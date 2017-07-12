@@ -38,7 +38,7 @@
         public string AnalisisDeGestion { get; set; }
         public string AccionEmprender { get; set; }
         public string EtiquetaDeLlamada { get; set; }
-        public string IdListaDistribucion { get; set; }
+        public int IdListaDistribucion { get; set; }
         public string EstadoMonitoreo { get; set; }
     }
 }
