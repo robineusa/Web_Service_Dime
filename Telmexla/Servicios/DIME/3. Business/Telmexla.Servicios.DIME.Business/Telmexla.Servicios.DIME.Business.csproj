@@ -72,6 +72,7 @@
     <Compile Include="ListasSelectBusiness.cs" />
     <Compile Include="MaestroNodoBusiness.cs" />
     <Compile Include="MarcacionesBusiness.cs" />
+    <Compile Include="MecBusiness.cs" />
     <Compile Include="MultiplayBusiness.cs" />
     <Compile Include="NotificacionesBuenServicioBusiness.cs" />
     <Compile Include="OutboundBusiness.cs" />

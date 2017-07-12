@@ -71,6 +71,12 @@ namespace Telmexla.Servicios.DIME.Data
             Retencion = new RetencionRepository(this.dimeContext);
             DatosMultiplay = new DatosMultiplayRepository(this.dimeContext);
             MultiPlay = new MultiPlayRepository(this.dimeContext);
+            MecMonitoreosP = new MecMonitoreosPRepository(this.dimeContext);
+            MecMonitoreosL = new MecMonitoreosLRepository(this.dimeContext);
+            MecProcesos = new MecProcesosRepository(this.dimeContext);
+            MecLineas = new MecLineasRepository(this.dimeContext);
+            MecListasDistribucion = new MecListasDistribucionRepository(this.dimeContext);
+            MecTipoAlarmas = new MecTipoAlarmasRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -307,8 +313,31 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        
 
+        public IMecMonitoreosPRepository MecMonitoreosP
+        {
+            get; private set;
+        }
+        public IMecMonitoreosLRepository MecMonitoreosL
+        {
+            get; private set;
+        }
+        public IMecProcesosRepository MecProcesos
+        {
+            get; private set;
+        }
+        public IMecLineasRepository MecLineas
+        {
+            get; private set;
+        }
+        public IMecListasDistribucionRepository MecListasDistribucion
+        {
+            get; private set;
+        }
+        public IMecTipoAlarmasRepository MecTipoAlarmas
+        {
+            get; private set;
+        }
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

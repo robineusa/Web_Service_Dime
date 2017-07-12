@@ -86,6 +86,12 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<Retencion> Retencion { get; set; } // TBL_RETENCION
         System.Data.Entity.DbSet<DatosMultiplay> DatosMultiplay { get; set; } // TBL_DATOS_MULTIPLAY
         System.Data.Entity.DbSet<MultiPlay> MultiPlay { get; set; } // TBL_MULTIPLAY
+        System.Data.Entity.DbSet<MecMonitoreosP> MecMonitoreosP { get; set; }
+        System.Data.Entity.DbSet<MecMonitoreosL> MecMonitoreosL { get; set; }
+        System.Data.Entity.DbSet<MecProcesos> MecProcesos { get; set; }
+        System.Data.Entity.DbSet<MecLineas> MecLineas { get; set; }
+        System.Data.Entity.DbSet<MecListasDistribucion> MecListasDistribucion { get; set; }
+        System.Data.Entity.DbSet<MecTipoAlarmas> MecTipoAlarmas { get; set; }
 
 
         int SaveChanges();

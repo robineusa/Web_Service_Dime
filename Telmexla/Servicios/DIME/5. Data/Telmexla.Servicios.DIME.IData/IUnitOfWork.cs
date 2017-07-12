@@ -64,7 +64,13 @@ namespace Telmexla.Servicios.DIME.IData
         IRetencionRepository Retencion { get; }
         IDatosMultiplayRepository DatosMultiplay { get; }
         IMultiPlayRepository MultiPlay { get; }
-
+        IMecMonitoreosPRepository MecMonitoreosP { get; }
+        IMecMonitoreosLRepository MecMonitoreosL { get; }
+        IMecProcesosRepository MecProcesos { get; }
+        IMecLineasRepository MecLineas { get; }
+        IMecListasDistribucionRepository MecListasDistribucion { get; }
+        IMecTipoAlarmasRepository MecTipoAlarmas { get; }
+        
         int Complete();
     }
 }

@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService
     {
 
 
@@ -1532,7 +1532,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MultiplayBusiness Multi = new MultiplayBusiness();
             return Multi.ConsultaAdminBasePresidencial(inicial, final);
         }
-        
+
+        #endregion
+
+        #region Mec
         #endregion
     }
 }

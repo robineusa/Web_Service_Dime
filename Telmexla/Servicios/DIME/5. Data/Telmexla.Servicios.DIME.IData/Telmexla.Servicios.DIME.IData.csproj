@@ -103,6 +103,12 @@
     <Compile Include="IMaestroOutboundMotivoRepository.cs" />
     <Compile Include="IMaestroOutboundRazonRepository.cs" />
     <Compile Include="IMaestroOutboundTipoContactoRepository.cs" />
+    <Compile Include="IMecLineasRepository.cs" />
+    <Compile Include="IMecListasDistribucionRepository.cs" />
+    <Compile Include="IMecMonitoreosLRepository.cs" />
+    <Compile Include="IMecMonitoreosPRepository.cs" />
+    <Compile Include="IMecProcesosRepository.cs" />
+    <Compile Include="IMecTipoAlarmasRepository.cs" />
     <Compile Include="IMejorasTecnicasRepository.cs" />
     <Compile Include="IModosLoginRepository.cs" />
     <Compile Include="IMultiPlayRepository.cs" />

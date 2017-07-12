@@ -89,6 +89,12 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<Retencion> Retencion { get; set; } // TBL_RETENCION
         public System.Data.Entity.DbSet<DatosMultiplay> DatosMultiplay { get; set; } // TBL_DATOS_MULTIPLAY
         public System.Data.Entity.DbSet<MultiPlay> MultiPlay { get; set; } // TBL_MULTIPLAY
+        public System.Data.Entity.DbSet<MecMonitoreosP> MecMonitoreosP { get; set; }
+        public System.Data.Entity.DbSet<MecMonitoreosL> MecMonitoreosL { get; set; }
+        public System.Data.Entity.DbSet<MecProcesos> MecProcesos { get; set; }
+        public System.Data.Entity.DbSet<MecLineas> MecLineas { get; set; }
+        public System.Data.Entity.DbSet<MecListasDistribucion> MecListasDistribucion { get; set; }
+        public System.Data.Entity.DbSet<MecTipoAlarmas> MecTipoAlarmas { get; set; }
 
         static DimeContext()
         {
@@ -210,6 +216,12 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new RetencionConfiguration());
             modelBuilder.Configurations.Add(new DatosMultiplayConfiguration());
             modelBuilder.Configurations.Add(new MultiPlayConfiguration());
+            modelBuilder.Configurations.Add(new MecMonitoreosPConfiguration());
+            modelBuilder.Configurations.Add(new MecMonitoreosLConfiguration());
+            modelBuilder.Configurations.Add(new MecProcesosConfiguration());
+            modelBuilder.Configurations.Add(new MecLineasConfiguration());
+            modelBuilder.Configurations.Add(new MecListasDistribucionConfiguration());
+            modelBuilder.Configurations.Add(new MecTipoAlarmasConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -284,6 +296,12 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new RetencionConfiguration(schema));
             modelBuilder.Configurations.Add(new DatosMultiplayConfiguration(schema));
             modelBuilder.Configurations.Add(new MultiPlayConfiguration(schema));
+            modelBuilder.Configurations.Add(new MecMonitoreosPConfiguration(schema));
+            modelBuilder.Configurations.Add(new MecMonitoreosLConfiguration(schema));
+            modelBuilder.Configurations.Add(new MecProcesosConfiguration(schema));
+            modelBuilder.Configurations.Add(new MecLineasConfiguration(schema));
+            modelBuilder.Configurations.Add(new MecListasDistribucionConfiguration(schema));
+            modelBuilder.Configurations.Add(new MecTipoAlarmasConfiguration(schema));
             return modelBuilder;
         }
 
