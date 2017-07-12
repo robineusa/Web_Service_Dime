@@ -14,8 +14,8 @@ namespace Telmexla.Servicios.DIME.Entity
 {
     public class DatosMultiplay
     {
-        public int Id { get; set; }
-        public int SubRegistro { get; set; }
+        public int IdSubReg { get; set; }
+        //public int SubRegistro { get; set; }
         public string RegBaGen { get; set; }
         public int Cuenta  { get; set; }
         public decimal? Custcode  { get; set; }
@@ -24,7 +24,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public int CustomerId { get; set; }
         public string NombreCliente { get; set; }
         public int Cedula { get; set; }
-        public int EstratoCliente { get; set; }
+        public string EstratoCliente { get; set; }
         public string EstadoAC { get; set; }
         public string EstadoRR { get; set; }
         public int SaldoActualAC { get; set; }
@@ -72,10 +72,10 @@ namespace Telmexla.Servicios.DIME.Entity
         public int Valor3 { get; set; }
         public string Plataforma { get; set; }
         public string ArrPropClieRR { get; set; }
-        public string NotasAdicionales { get; set; }
+        //public string NotasAdicionales { get; set; }
         public string Escenario1 { get; set; }
-        public string AgenteGestiona { get; set; }
-        public System.DateTime? FechaGestion { get; set; }
+        //public string AgenteGestiona { get; set; }
+        //public System.DateTime? FechaGestion { get; set; }
         public System.DateTime? FechaCargueBase { get; set; }
         public string NombreBase { get; set; }
     }

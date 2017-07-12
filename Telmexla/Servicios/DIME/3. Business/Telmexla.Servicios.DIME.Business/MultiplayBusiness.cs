@@ -119,7 +119,7 @@ namespace Telmexla.Servicios.DIME.Business
         public void EliminaCuentaDatosMultiplay(int Id_Cuenta, int Cuenta)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            DatosMultiplay CuentaEliminar = unitWork.DatosMultiplay.Find(c => c.Id == Id_Cuenta && c.Cuenta == Cuenta).FirstOrDefault();
+            DatosMultiplay CuentaEliminar = unitWork.DatosMultiplay.Find(c => c.IdSubReg == Id_Cuenta && c.Cuenta == Cuenta).FirstOrDefault();
 
             if (CuentaEliminar != null)
             {

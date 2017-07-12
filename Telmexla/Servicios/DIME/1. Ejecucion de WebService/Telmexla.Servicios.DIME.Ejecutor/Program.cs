@@ -23,18 +23,22 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //BlendingBusiness blen = new BlendingBusiness();
             //blen.EliminaUsuarioSkilles(1076622744);
 
-            //MultiplayBusiness m = new MultiplayBusiness();
+            MultiPlayService m = new MultiPlayService();
             //MultiPlay mo = new MultiPlay();
             //mo.UsuarioGestion = "ret";
             //mo.NombreBase = "mierda";
 
+            var r = m.BuscarDatosMultiplay(307);
+            var z = "";
+
+
             //m.InsertarMultiPlay(mo);
             //var r = m.BuscarDatosMultiplay(307);
 
-            DistribucionBlendingBusiness DB = new DistribucionBlendingBusiness();
-            DateTime h1 = Convert.ToDateTime("2017-07-01");
-            DateTime h2 = Convert.ToDateTime("2017-07-11");
-            var R = DB.ConsultaAdminRentabilizacionP(h1,h2);
+            //DistribucionBlendingBusiness DB = new DistribucionBlendingBusiness();
+            //DateTime h1 = Convert.ToDateTime("2017-07-01");
+            //DateTime h2 = Convert.ToDateTime("2017-07-11");
+            //var R = DB.ConsultaAdminRentabilizacionP(h1,h2);
 
             var zZ = "";
 
