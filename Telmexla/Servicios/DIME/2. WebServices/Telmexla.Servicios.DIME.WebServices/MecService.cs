@@ -13,5 +13,10 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
     public class MecService: IMecService
     {
-    }
+        public void IsertarMonitoreo(MecMonitoreosP Monitoreo)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            mecBusiness.IsertarMonitoreo(Monitoreo);
+        }
+        }
 }

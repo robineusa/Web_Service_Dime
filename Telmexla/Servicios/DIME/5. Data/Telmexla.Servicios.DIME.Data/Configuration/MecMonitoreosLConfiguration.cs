@@ -15,6 +15,7 @@ namespace Telmexla.Servicios.DIME.Data
             HasKey(x => new { x.Id });
 
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.IdMonitoreo).HasColumnName(@"ID_MONITOREO").IsOptional().HasColumnType("numeric");
             Property(x => x.FechaGestion).HasColumnName(@"FECHA_GESTION").IsOptional().HasColumnType("datetime");
             Property(x => x.UsuarioGestion).HasColumnName(@"USUARIO_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.CedulaUsuarioGestion).HasColumnName(@"CEDULA_USUARIO_GESTION").IsOptional().HasColumnType("numeric");

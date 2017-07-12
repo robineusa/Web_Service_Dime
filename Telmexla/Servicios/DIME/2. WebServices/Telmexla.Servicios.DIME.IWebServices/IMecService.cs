@@ -12,5 +12,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     [ServiceContract]
     public interface IMecService
     {
+        [OperationContract]
+        void IsertarMonitoreo(MecMonitoreosP Monitoreo);
     }
 }

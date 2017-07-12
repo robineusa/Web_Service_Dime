@@ -1514,28 +1514,34 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #region MultiPlay
         public DatosMultiplay BuscarDatosMultiplay(int cuentacliente)
         {
-            MultiplayBusiness Multi = new MultiplayBusiness();
+            MultiPlayService Multi = new MultiPlayService();
             return Multi.BuscarDatosMultiplay(cuentacliente);
         }
         public void InsertarMultiPlay(MultiPlay multiplay)
         {
-            MultiplayBusiness Multi = new MultiplayBusiness();
+            MultiPlayService Multi = new MultiPlayService();
             Multi.InsertarMultiPlay(multiplay);
         }
         public void EliminaCuentaDatosMultiplay(int Id_Cuenta, int Cuenta)
         {
-            MultiplayBusiness Multi = new MultiplayBusiness();
+            MultiPlayService Multi = new MultiPlayService();
             Multi.EliminaCuentaDatosMultiplay(Id_Cuenta, Cuenta);
         }
         public MultiPlayCollection ConsultaAdminBasePresidencial(DateTime inicial, DateTime final)
         {
-            MultiplayBusiness Multi = new MultiplayBusiness();
+            MultiPlayService Multi = new MultiPlayService();
             return Multi.ConsultaAdminBasePresidencial(inicial, final);
         }
 
         #endregion
 
         #region Mec
+        public void IsertarMonitoreo(MecMonitoreosP Monitoreo)
+        {
+            MecService mecService = new MecService();
+            mecService.IsertarMonitoreo(Monitoreo);
+
+        }
         #endregion
     }
 }

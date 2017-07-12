@@ -3,7 +3,7 @@ namespace Telmexla.Servicios.DIME.Entity
 {
     public class MecMonitoreosP
     {
-        public decimal Id { get; set; } 
+        public decimal IdMonitoreo { get; set; } 
         public System.DateTime? FechaGestion { get; set; } 
         public string UsuarioGestion { get; set; }
         public decimal CedulaUsuarioGestion { get; set; }
