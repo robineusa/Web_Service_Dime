@@ -18,5 +18,55 @@ namespace Telmexla.Servicios.DIME.WebServices
             MecBusiness mecBusiness = new MecBusiness();
             mecBusiness.IsertarMonitoreo(Monitoreo);
         }
+        public List<MecProcesos> ListaProcesosMec()
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ListaProcesosMec();
+        }
+        public List<MecLineas> ListaLineasMec(int IdProceso)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ListaLineasMec(IdProceso);
+        }
+        public List<MecListasDistribucion> ListasCorreosMec(int IdLinea)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ListasCorreosMec(IdLinea);
+        }
+        public List<MecTipoAlarmas> ListaTipoAlarmasMec()
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ListaTipoAlarmasMec();
+        }
+        public MecListasDistribucion DestinatariosMec(int IdLista)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.DestinatariosMec(IdLista);
+        }
+        public void ActualizarMonitoreo(MecMonitoreosP Monitoreo)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+             mecBusiness.ActualizarMonitoreo(Monitoreo);
+        }
+        public List<MecMonitoreosP> ConsultaAdminMonitoreosPrincipal(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ConsultaAdminMonitoreosPrincipal(FechaInicial,FechaFinal);
+        }
+        public List<MecMonitoreosL> ConsultaAdminMonitoreosLog(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ConsultaAdminMonitoreosLog(FechaInicial, FechaFinal);
+        }
+        public MecMonitoreosP ConsultarMonitoreoPorId(int IdMonitoreo)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ConsultarMonitoreoPorId(IdMonitoreo);
+        }
+        public List<MecMonitoreosP> ConsultaAgenteMonitoreosPrincipal(DateTime FechaInicial, DateTime FechaFinal, string UsuarioGestion)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ConsultaAgenteMonitoreosPrincipal(FechaInicial, FechaFinal,UsuarioGestion);
+        }
         }
 }

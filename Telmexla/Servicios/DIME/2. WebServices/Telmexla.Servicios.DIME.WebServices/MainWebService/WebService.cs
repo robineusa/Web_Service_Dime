@@ -1535,12 +1535,62 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
         #endregion
 
-        #region Mec
+        #region Procesos Mec
         public void IsertarMonitoreo(MecMonitoreosP Monitoreo)
         {
             MecService mecService = new MecService();
             mecService.IsertarMonitoreo(Monitoreo);
 
+        }
+        public List<MecProcesos> ListaProcesosMec()
+        {
+            MecService mecService = new MecService();
+            return mecService.ListaProcesosMec();
+        }
+        public List<MecLineas> ListaLineasMec(int IdProceso)
+        {
+            MecService mecService = new MecService();
+            return mecService.ListaLineasMec(IdProceso);
+        }
+        public List<MecListasDistribucion> ListasCorreosMec(int IdLinea)
+        {
+            MecService mecService = new MecService();
+            return mecService.ListasCorreosMec(IdLinea);
+        }
+        public List<MecTipoAlarmas> ListaTipoAlarmasMec()
+        {
+            MecService mecService = new MecService();
+            return mecService.ListaTipoAlarmasMec();
+        }
+        public MecListasDistribucion DestinatariosMec(int IdLista)
+        {
+            MecService mecService = new MecService();
+            return mecService.DestinatariosMec(IdLista);
+        }
+        public void ActualizarMonitoreo(MecMonitoreosP Monitoreo)
+        {
+            MecService mecService = new MecService();
+            mecService.ActualizarMonitoreo(Monitoreo);
+        }
+        public List<MecMonitoreosP> ConsultaAdminMonitoreosPrincipal(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            MecService mecService = new MecService();
+            return mecService.ConsultaAdminMonitoreosPrincipal(FechaInicial, FechaFinal);
+        }
+        public List<MecMonitoreosL> ConsultaAdminMonitoreosLog(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            MecService mecService = new MecService();
+            return mecService.ConsultaAdminMonitoreosLog(FechaInicial, FechaFinal);
+        }
+        public MecMonitoreosP ConsultarMonitoreoPorId(int IdMonitoreo)
+        {
+            MecService mecService = new MecService();
+            return mecService.ConsultarMonitoreoPorId(IdMonitoreo);
+        }
+        public List<MecMonitoreosP> ConsultaAgenteMonitoreosPrincipal(DateTime FechaInicial, DateTime FechaFinal, string UsuarioGestion)
+        {
+            MecService mecService = new MecService();
+            return mecService.ConsultaAgenteMonitoreosPrincipal(FechaInicial, FechaFinal, UsuarioGestion);
         }
         #endregion
     }
