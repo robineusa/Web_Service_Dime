@@ -14,7 +14,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
 
         public MultiplayCargueConfiguration(string schema)
         {
-            ToTable("TBL_MCB_MULTIPLAY", schema);
+            ToTable("TMP_MCB_MULTIPLAY", schema);
             HasKey(x => new { x.IdSubReg });
 
             Property(x => x.IdSubReg).HasColumnName(@"ID_SUB_REG").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
