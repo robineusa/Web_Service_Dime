@@ -19,7 +19,7 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
             Monitoreo.NombreProceso = UnitOfWorkProceso.MecProcesos.Get(Monitoreo.IdProceso).Proceso;
             Monitoreo.NombreLinea = UnitOfWorkProceso.MecLineas.Get(Monitoreo.IdLinea).NombreLinea;
-            Monitoreo.MotivoAlarma = UnitOfWorkProceso.MecTipoAlarmas.Get(Convert.ToInt32(Monitoreo.MotivoAlarma)).NombreAlarma;
+            Monitoreo.TipoDeAlarma = UnitOfWorkProceso.MecTipoAlarmas.Get(Convert.ToInt32(Monitoreo.TipoDeAlarma)).NombreAlarma;
 
             UnitOfWorkProceso.Complete();
             UnitOfWorkProceso.Dispose();
@@ -67,7 +67,7 @@ namespace Telmexla.Servicios.DIME.Business
             MonitoreoLog.NotaObtenida = Monitoreo.NotaObtenida;
             MonitoreoLog.TipoDeAlarma = Monitoreo.TipoDeAlarma;
             MonitoreoLog.RegistroMonitoreo = Monitoreo.RegistroMonitoreo;
-            MonitoreoLog.MotivoAlarma = Monitoreo.MotivoAlarma;
+            MonitoreoLog.MotivoLlamada = Monitoreo.MotivoLlamada;
             MonitoreoLog.AnalisisDeGestion = Monitoreo.AnalisisDeGestion;
             MonitoreoLog.AccionEmprender = Monitoreo.AccionEmprender;
             MonitoreoLog.EtiquetaDeLlamada = Monitoreo.EtiquetaDeLlamada;
@@ -174,7 +174,7 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
             Monitoreo.NombreProceso = UnitOfWorkProceso.MecProcesos.Get(Monitoreo.IdProceso).Proceso;
             Monitoreo.NombreLinea = UnitOfWorkProceso.MecLineas.Get(Monitoreo.IdLinea).NombreLinea;
-            Monitoreo.MotivoAlarma = UnitOfWorkProceso.MecTipoAlarmas.Get(Convert.ToInt32(Monitoreo.MotivoAlarma)).NombreAlarma;
+            Monitoreo.TipoDeAlarma = UnitOfWorkProceso.MecTipoAlarmas.Get(Convert.ToInt32(Monitoreo.TipoDeAlarma)).NombreAlarma;
 
             UnitOfWorkProceso.Complete();
             UnitOfWorkProceso.Dispose();
@@ -209,7 +209,7 @@ namespace Telmexla.Servicios.DIME.Business
             MonitoreoActualizable.NotaObtenida = Monitoreo.NotaObtenida;
             MonitoreoActualizable.TipoDeAlarma = Monitoreo.TipoDeAlarma;
             MonitoreoActualizable.RegistroMonitoreo = Monitoreo.RegistroMonitoreo;
-            MonitoreoActualizable.MotivoAlarma = Monitoreo.MotivoAlarma;
+            MonitoreoActualizable.MotivoLlamada = Monitoreo.MotivoLlamada;
             MonitoreoActualizable.AnalisisDeGestion = Monitoreo.AnalisisDeGestion;
             MonitoreoActualizable.AccionEmprender = Monitoreo.AccionEmprender;
             MonitoreoActualizable.EtiquetaDeLlamada = Monitoreo.EtiquetaDeLlamada;
@@ -255,7 +255,7 @@ namespace Telmexla.Servicios.DIME.Business
             MonitoreoLog.NotaObtenida = Monitoreo.NotaObtenida;
             MonitoreoLog.TipoDeAlarma = Monitoreo.TipoDeAlarma;
             MonitoreoLog.RegistroMonitoreo = Monitoreo.RegistroMonitoreo;
-            MonitoreoLog.MotivoAlarma = Monitoreo.MotivoAlarma;
+            MonitoreoLog.MotivoLlamada = Monitoreo.MotivoLlamada;
             MonitoreoLog.AnalisisDeGestion = Monitoreo.AnalisisDeGestion;
             MonitoreoLog.AccionEmprender = Monitoreo.AccionEmprender;
             MonitoreoLog.EtiquetaDeLlamada = Monitoreo.EtiquetaDeLlamada;
@@ -307,7 +307,7 @@ namespace Telmexla.Servicios.DIME.Business
                                     a.NotaObtenida,
                                     a.TipoDeAlarma,
                                     a.RegistroMonitoreo,
-                                    a.MotivoAlarma,
+                                    a.MotivoLlamada,
                                     a.AnalisisDeGestion,
                                     a.AccionEmprender,
                                     a.EtiquetaDeLlamada,
@@ -350,7 +350,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].NotaObtenida = objetosResult[i].NotaObtenida;
                 result[i].TipoDeAlarma = objetosResult[i].TipoDeAlarma;
                 result[i].RegistroMonitoreo = objetosResult[i].RegistroMonitoreo;
-                result[i].MotivoAlarma = objetosResult[i].MotivoAlarma;
+                result[i].MotivoLlamada = objetosResult[i].MotivoLlamada;
                 result[i].AnalisisDeGestion = objetosResult[i].AnalisisDeGestion;
                 result[i].AccionEmprender = objetosResult[i].AccionEmprender;
                 result[i].EtiquetaDeLlamada = objetosResult[i].EtiquetaDeLlamada;
@@ -400,7 +400,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.NotaObtenida,
                                      a.TipoDeAlarma,
                                      a.RegistroMonitoreo,
-                                     a.MotivoAlarma,
+                                     a.MotivoLlamada,
                                      a.AnalisisDeGestion,
                                      a.AccionEmprender,
                                      a.EtiquetaDeLlamada,
@@ -444,7 +444,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].NotaObtenida = objetosResult[i].NotaObtenida;
                 result[i].TipoDeAlarma = objetosResult[i].TipoDeAlarma;
                 result[i].RegistroMonitoreo = objetosResult[i].RegistroMonitoreo;
-                result[i].MotivoAlarma = objetosResult[i].MotivoAlarma;
+                result[i].MotivoLlamada = objetosResult[i].MotivoLlamada;
                 result[i].AnalisisDeGestion = objetosResult[i].AnalisisDeGestion;
                 result[i].AccionEmprender = objetosResult[i].AccionEmprender;
                 result[i].EtiquetaDeLlamada = objetosResult[i].EtiquetaDeLlamada;
@@ -498,7 +498,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.NotaObtenida,
                                      a.TipoDeAlarma,
                                      a.RegistroMonitoreo,
-                                     a.MotivoAlarma,
+                                     a.MotivoLlamada,
                                      a.AnalisisDeGestion,
                                      a.AccionEmprender,
                                      a.EtiquetaDeLlamada,
@@ -541,7 +541,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].NotaObtenida = objetosResult[i].NotaObtenida;
                 result[i].TipoDeAlarma = objetosResult[i].TipoDeAlarma;
                 result[i].RegistroMonitoreo = objetosResult[i].RegistroMonitoreo;
-                result[i].MotivoAlarma = objetosResult[i].MotivoAlarma;
+                result[i].MotivoLlamada = objetosResult[i].MotivoLlamada;
                 result[i].AnalisisDeGestion = objetosResult[i].AnalisisDeGestion;
                 result[i].AccionEmprender = objetosResult[i].AccionEmprender;
                 result[i].EtiquetaDeLlamada = objetosResult[i].EtiquetaDeLlamada;

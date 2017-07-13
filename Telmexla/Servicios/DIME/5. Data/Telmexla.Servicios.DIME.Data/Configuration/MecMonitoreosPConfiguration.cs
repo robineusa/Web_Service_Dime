@@ -45,10 +45,10 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.NotaObtenida).HasColumnName(@"NOTA_OBTENIDA").IsOptional().HasColumnType("numeric");
             Property(x => x.TipoDeAlarma).HasColumnName(@"TIPO_DE_ALARMA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.RegistroMonitoreo).HasColumnName(@"REGISTRO_MONITOREO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.MotivoAlarma).HasColumnName(@"MOTIVO_DE_ALARMA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.AnalisisDeGestion).HasColumnName(@"ANALISIS_DE_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.AccionEmprender).HasColumnName(@"ACCION_A_EMPRENDER").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.EtiquetaDeLlamada).HasColumnName(@"ETIQUETA_DE_LLAMADA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.MotivoLlamada).HasColumnName(@"MOTIVO_DE_LLAMADA").IsOptional().IsUnicode(false).HasColumnType("varchar");
+            Property(x => x.AnalisisDeGestion).HasColumnName(@"ANALISIS_DE_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar");
+            Property(x => x.AccionEmprender).HasColumnName(@"ACCION_A_EMPRENDER").IsOptional().IsUnicode(false).HasColumnType("varchar");
+            Property(x => x.EtiquetaDeLlamada).HasColumnName(@"ETIQUETA_DE_LLAMADA").IsOptional().IsUnicode(false).HasColumnType("varchar");
             Property(x => x.IdListaDistribucion).HasColumnName(@"ID_LISTA_DISTRIBUCION").IsOptional().HasColumnType("numeric");
             Property(x => x.EstadoMonitoreo).HasColumnName(@"ESTADO_MONITOREO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
         }
