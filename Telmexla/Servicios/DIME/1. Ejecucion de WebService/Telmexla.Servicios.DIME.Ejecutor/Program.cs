@@ -28,7 +28,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //mo.UsuarioGestion = "ret";
             //mo.NombreBase = "mierda";
 
-            var r = m.BuscarDatosMultiplay(307);
+            var r = m.BuscarDatosMultiplay(85696144);
             var z = "";
 
 
