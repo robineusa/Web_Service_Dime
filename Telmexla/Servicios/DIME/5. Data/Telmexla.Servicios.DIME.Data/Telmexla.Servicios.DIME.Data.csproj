@@ -67,7 +67,7 @@
     <Compile Include="Configuration\CuentasMejorasTecnicasConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiguienteMejorOfertaConfiguration.cs" />
-    <Compile Include="Configuration\DatosMultiplayConfiguration.cs" />
+    <Compile Include="Configuration\MultiplayCargueConfiguration.cs" />
     <Compile Include="Configuration\DepartamentoConfiguration.cs" />
     <Compile Include="Configuration\DistribucionBlendingConfiguration.cs" />
     <Compile Include="Configuration\GBCDocsisConfiguration.cs" />
@@ -92,7 +92,7 @@
     <Compile Include="Configuration\MecProcesosConfiguration.cs" />
     <Compile Include="Configuration\MecTipoAlarmasConfiguration.cs" />
     <Compile Include="Configuration\MejorasTecnicasConfiguration.cs" />
-    <Compile Include="Configuration\MultiPlayConfiguration.cs" />
+    <Compile Include="Configuration\MultiPlayRegistroConfiguration.cs" />
     <Compile Include="Configuration\NotasTrasladoConfiguration.cs" />
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />
     <Compile Include="Configuration\RazonIngresoSoporteConfiguration.cs" />
@@ -111,7 +111,7 @@
     <Compile Include="CuentasMejorasTecnicasRepository.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaRepository.cs" />
-    <Compile Include="DatosMultiplayRepository.cs" />
+    <Compile Include="MultiplayCargueRepository.cs" />
     <Compile Include="DepartamentoRepository.cs" />
     <Compile Include="DistribucionBlendingRepository.cs" />
     <Compile Include="GBCDocsisRepository.cs" />
@@ -192,7 +192,7 @@
     <Compile Include="MecTipoAlarmasRepository.cs" />
     <Compile Include="MejorasTecnicasRepository.cs" />
     <Compile Include="ModosLoginRepository.cs" />
-    <Compile Include="MultiPlayRepository.cs" />
+    <Compile Include="MultiPlayRegistroRepository.cs" />
     <Compile Include="NotasIngresoRepository.cs" />
     <Compile Include="NotasTrasladoRepository.cs" />
     <Compile Include="NotificacionesBuenServicioRepository.cs" />

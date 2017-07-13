@@ -69,8 +69,8 @@ namespace Telmexla.Servicios.DIME.Data
             GBLDocsis = new GBLDocsisRepository(this.dimeContext);
             GBCDocsis = new GBCDocsisRepository(this.dimeContext);
             Retencion = new RetencionRepository(this.dimeContext);
-            DatosMultiplay = new DatosMultiplayRepository(this.dimeContext);
-            MultiPlay = new MultiPlayRepository(this.dimeContext);
+            MultiplayCargue = new MultiplayCargueRepository(this.dimeContext);
+            MultiPlayRegistro = new MultiPlayRegistroRepository(this.dimeContext);
             MecMonitoreosP = new MecMonitoreosPRepository(this.dimeContext);
             MecMonitoreosL = new MecMonitoreosLRepository(this.dimeContext);
             MecProcesos = new MecProcesosRepository(this.dimeContext);
@@ -305,11 +305,11 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        public IDatosMultiplayRepository DatosMultiplay
+        public IMultiplayCargueRepository MultiplayCargue
         {
             get; private set;
         }
-        public IMultiPlayRepository MultiPlay
+        public IMultiPlayRegistroRepository MultiPlayRegistro
         {
             get; private set;
         }

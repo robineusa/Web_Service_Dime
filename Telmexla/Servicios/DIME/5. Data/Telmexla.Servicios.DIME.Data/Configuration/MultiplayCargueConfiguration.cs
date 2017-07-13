@@ -1,35 +1,26 @@
-﻿// ReSharper disable ConvertPropertyToExpressionBody
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable RedundantNameQualifier
-// ReSharper disable RedundantOverridenMember
-// ReSharper disable UseNameofExpression
-// TargetFrameworkVersion = 4.51
-#pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
+﻿
+#pragma warning disable 1591    
 
 using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.Data.Configuration
 {
-    public class DatosMultiplayConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<DatosMultiplay>
+    public class MultiplayCargueConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<MultiplayCargue>
     {
-        public DatosMultiplayConfiguration()
+        public MultiplayCargueConfiguration()
             : this("dbo")
         {
         }
 
-        public DatosMultiplayConfiguration(string schema)
+        public MultiplayCargueConfiguration(string schema)
         {
-            ToTable("TBL_DATOS_MULTIPLAY", schema);
+            ToTable("TBL_MCB_MULTIPLAY", schema);
             HasKey(x => new { x.IdSubReg });
 
             Property(x => x.IdSubReg).HasColumnName(@"ID_SUB_REG").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            //Property(x => x.SubRegistro).HasColumnName(@"SUB_REGISTRO ").IsRequired().HasColumnType("numeric");
-            Property(x => x.RegBaGen).HasColumnName(@"REG_BA_GEN ").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            Property(x => x.Cuenta).HasColumnName(@"CUENTA ").IsRequired().HasColumnType("numeric");
-            Property(x => x.Custcode).HasColumnName(@"CUSTCODE ").IsOptional().HasColumnType("decimal");
+            Property(x => x.RegBaGen).HasColumnName(@"REG_BA_GEN").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.Cuenta).HasColumnName(@"CUENTA").IsRequired().HasColumnType("numeric");
+            Property(x => x.Custcode).HasColumnName(@"CUSTCODE").IsOptional().HasColumnType("numeric");
             Property(x => x.TipoCuscode).HasColumnName(@"TIPO_CUSCODE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Min).HasColumnName(@"MIN").IsOptional().HasColumnType("numeric");
             Property(x => x.CustomerId).HasColumnName(@"CUSTOMER_ID").IsOptional().HasColumnType("numeric");
@@ -41,9 +32,9 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.SaldoActualAC).HasColumnName(@"SALDO_ACTUAL_AC").IsOptional().HasColumnType("numeric");
             Property(x => x.SaldoEquipoAC).HasColumnName(@"SALDO_EQUIPO_AC").IsOptional().HasColumnType("numeric");
             Property(x => x.SaldoEquipoAscard).HasColumnName(@"SALDO_EQUIPO_ASCARD").IsOptional().HasColumnType("numeric");
-            Property(x => x.SaldoGrupo1).HasColumnName(@"SALDO_GRUPO_1 ").IsOptional().HasColumnType("numeric");
-            Property(x => x.SaldoGrupo2).HasColumnName(@"SALDO_GRUPO_2 ").IsOptional().HasColumnType("numeric");
-            Property(x => x.SaldoGrupo3).HasColumnName(@"SALDO_GRUPO_3 ").IsOptional().HasColumnType("numeric");
+            Property(x => x.SaldoGrupo1).HasColumnName(@"SALDO_GRUPO_1").IsOptional().HasColumnType("numeric");
+            Property(x => x.SaldoGrupo2).HasColumnName(@"SALDO_GRUPO_2").IsOptional().HasColumnType("numeric");
+            Property(x => x.SaldoGrupo3).HasColumnName(@"SALDO_GRUPO_3").IsOptional().HasColumnType("numeric");
             Property(x => x.SaldoTotalRR).HasColumnName(@"SALDO_TOTAL_RR").IsOptional().HasColumnType("numeric");
             Property(x => x.EscVentaCliente).HasColumnName(@"ESC_VENTA_CLIENTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.AplicAjusteRR).HasColumnName(@"APLIC_AJUSTE_RR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
@@ -83,11 +74,8 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Valor3).HasColumnName(@"VALOR_3").IsOptional().HasColumnType("numeric");
             Property(x => x.Plataforma).HasColumnName(@"PLATAFORMA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.ArrPropClieRR).HasColumnName(@"ARR_PROP_CLIE_RR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            //Property(x => x.NotasAdicionales).HasColumnName(@"NOTAS_ADICIONALES").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(500);
             Property(x => x.Escenario1).HasColumnName(@"ESCENARIO_1").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(200);
-            //Property(x => x.AgenteGestiona).HasColumnName(@"AGENTE_GESTIONA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
-            //Property(x => x.FechaGestion).HasColumnName(@"FECHA_GESTION").IsOptional().HasColumnType("date");
-            Property(x => x.FechaCargueBase).HasColumnName(@"FECHA_CARGUE_BASE").IsOptional().HasColumnType("date");
+            Property(x => x.FechaCargueBase).HasColumnName(@"FECHA_CARGUE_BASE").IsOptional().HasColumnType("datetime");
             Property(x => x.NombreBase).HasColumnName(@"NOMBRE_BASE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(200);
         }
     }

@@ -94,7 +94,7 @@
     <Compile Include="DatoConsultaDirecciones.cs" />
     <Compile Include="DatosAdicionalesCliente.cs" />
     <Compile Include="DatosAdicionalesClienteCollection.cs" />
-    <Compile Include="DatosMultiplay.cs" />
+    <Compile Include="MultiplayCargue.cs" />
     <Compile Include="DatosMultiplayCollection.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="DepartamentoCollection.cs" />
@@ -169,8 +169,7 @@
     <Compile Include="MecTipoAlarmas.cs" />
     <Compile Include="MejorasTecnicas.cs" />
     <Compile Include="ModosLogin.cs" />
-    <Compile Include="MultiPlay.cs" />
-    <Compile Include="MultiPlayCollection.cs" />
+    <Compile Include="MultiPlayRegistro.cs" />
     <Compile Include="NotasIngreso.cs" />
     <Compile Include="NotasTraslado.cs" />
     <Compile Include="NotasTrasladoCollection.cs" />

@@ -12,17 +12,18 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface IMultiPlayService
     {
         [OperationContract]
-        DatosMultiplay BuscarDatosMultiplay(int cuentacliente);
+        MultiplayCargue BuscarDatosMultiplay(decimal cuentacliente);
 
         [OperationContract]
-        void InsertarMultiPlay(MultiPlay multiplay);
+        void InsertarMultiPlay(MultiPlayRegistro multiplay);
 
         [OperationContract]
-        void EliminaCuentaDatosMultiplay(int Id_Cuenta, int Cuenta);
+        void EliminaCuentaDatosMultiplay(decimal Id_Cuenta, decimal Cuenta);
 
         [OperationContract]
-        MultiPlayCollection ConsultaAdminBasePresidencial(DateTime inicial, DateTime final);
+        List<MultiPlayRegistro> ConsultaAdminBasePresidencial(DateTime inicial, DateTime final);
 
-        
+
+
     }
 }

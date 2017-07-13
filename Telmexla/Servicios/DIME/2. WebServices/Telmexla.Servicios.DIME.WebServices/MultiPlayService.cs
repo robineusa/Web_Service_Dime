@@ -12,23 +12,23 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
     public class MultiPlayService : IMultiPlayService
     {
-        public DatosMultiplay BuscarDatosMultiplay(int cuentacliente)
+        public MultiplayCargue BuscarDatosMultiplay(decimal cuentacliente)
         {
             MultiplayBusiness Multi = new MultiplayBusiness();
             return Multi.BuscarDatosMultiplay(cuentacliente);
         }
-        public void InsertarMultiPlay(MultiPlay multiplay)
+        public void InsertarMultiPlay(MultiPlayRegistro multiplay)
         {
             MultiplayBusiness Multi = new MultiplayBusiness();
             Multi.InsertarMultiPlay(multiplay);
         }
-        public void EliminaCuentaDatosMultiplay(int Id_Cuenta, int Cuenta)
+        public void EliminaCuentaDatosMultiplay(decimal Id_Cuenta, decimal Cuenta)
         {
             MultiplayBusiness Multi = new MultiplayBusiness();
             Multi.EliminaCuentaDatosMultiplay(Id_Cuenta, Cuenta);
         }
 
-        public MultiPlayCollection ConsultaAdminBasePresidencial(DateTime inicial, DateTime final)
+        public List<MultiPlayRegistro> ConsultaAdminBasePresidencial(DateTime inicial, DateTime final)
         {
             MultiplayBusiness Multi = new MultiplayBusiness();
             return Multi.ConsultaAdminBasePresidencial(inicial, final);

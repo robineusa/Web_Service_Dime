@@ -7,7 +7,7 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IData
 {
-    public interface IMultiPlayRepository : IRepository<MultiPlay>
+    public interface IMultiPlayRegistroRepository : IRepository<MultiPlayRegistro>
     {
 
     }

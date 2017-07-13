@@ -87,8 +87,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<GBLDocsis> GBLDocsis { get; set; } // TBL_GBL_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<GBCDocsis> GBCDocsis { get; set; } // TMP_GBC_DOCSIS_OVERLAP
         public System.Data.Entity.DbSet<Retencion> Retencion { get; set; } // TBL_RETENCION
-        public System.Data.Entity.DbSet<DatosMultiplay> DatosMultiplay { get; set; } // TBL_DATOS_MULTIPLAY
-        public System.Data.Entity.DbSet<MultiPlay> MultiPlay { get; set; } // TBL_MULTIPLAY
+        public System.Data.Entity.DbSet<MultiplayCargue> MultiplayCargue { get; set; } 
+        public System.Data.Entity.DbSet<MultiPlayRegistro> MultiPlayRegistro { get; set; }
         public System.Data.Entity.DbSet<MecMonitoreosP> MecMonitoreosP { get; set; }
         public System.Data.Entity.DbSet<MecMonitoreosL> MecMonitoreosL { get; set; }
         public System.Data.Entity.DbSet<MecProcesos> MecProcesos { get; set; }
@@ -214,8 +214,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBLDocsisConfiguration());
             modelBuilder.Configurations.Add(new GBCDocsisConfiguration());
             modelBuilder.Configurations.Add(new RetencionConfiguration());
-            modelBuilder.Configurations.Add(new DatosMultiplayConfiguration());
-            modelBuilder.Configurations.Add(new MultiPlayConfiguration());
+            modelBuilder.Configurations.Add(new MultiplayCargueConfiguration());
+            modelBuilder.Configurations.Add(new MultiPlayRegistroConfiguration());
             modelBuilder.Configurations.Add(new MecMonitoreosPConfiguration());
             modelBuilder.Configurations.Add(new MecMonitoreosLConfiguration());
             modelBuilder.Configurations.Add(new MecProcesosConfiguration());
@@ -294,8 +294,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GBLDocsisConfiguration(schema));
             modelBuilder.Configurations.Add(new GBCDocsisConfiguration(schema));
             modelBuilder.Configurations.Add(new RetencionConfiguration(schema));
-            modelBuilder.Configurations.Add(new DatosMultiplayConfiguration(schema));
-            modelBuilder.Configurations.Add(new MultiPlayConfiguration(schema));
+            modelBuilder.Configurations.Add(new MultiplayCargueConfiguration(schema));
+            modelBuilder.Configurations.Add(new MultiPlayRegistroConfiguration(schema));
             modelBuilder.Configurations.Add(new MecMonitoreosPConfiguration(schema));
             modelBuilder.Configurations.Add(new MecMonitoreosLConfiguration(schema));
             modelBuilder.Configurations.Add(new MecProcesosConfiguration(schema));

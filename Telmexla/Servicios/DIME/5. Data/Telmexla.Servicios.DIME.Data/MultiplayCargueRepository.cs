@@ -9,9 +9,9 @@ using Telmexla.Servicios.DIME.IData;
 
 namespace Telmexla.Servicios.DIME.Data
 {
-    class MultiPlayRepository : Repository<MultiPlay>, IMultiPlayRepository
+    public class MultiplayCargueRepository : Repository<MultiplayCargue>, IMultiplayCargueRepository
     {
-        public MultiPlayRepository(DimeContext context) : base(context)
+        public MultiplayCargueRepository(DimeContext context) : base(context)
         {
 
         }

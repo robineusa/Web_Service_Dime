@@ -1512,22 +1512,22 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion
 
         #region MultiPlay
-        public DatosMultiplay BuscarDatosMultiplay(int cuentacliente)
+        public MultiplayCargue BuscarDatosMultiplay(decimal cuentacliente)
         {
             MultiPlayService Multi = new MultiPlayService();
             return Multi.BuscarDatosMultiplay(cuentacliente);
         }
-        public void InsertarMultiPlay(MultiPlay multiplay)
+        public void InsertarMultiPlay(MultiPlayRegistro multiplay)
         {
             MultiPlayService Multi = new MultiPlayService();
             Multi.InsertarMultiPlay(multiplay);
         }
-        public void EliminaCuentaDatosMultiplay(int Id_Cuenta, int Cuenta)
+        public void EliminaCuentaDatosMultiplay(decimal Id_Cuenta, decimal Cuenta)
         {
             MultiPlayService Multi = new MultiPlayService();
             Multi.EliminaCuentaDatosMultiplay(Id_Cuenta, Cuenta);
         }
-        public MultiPlayCollection ConsultaAdminBasePresidencial(DateTime inicial, DateTime final)
+        public List<MultiPlayRegistro> ConsultaAdminBasePresidencial(DateTime inicial, DateTime final)
         {
             MultiPlayService Multi = new MultiPlayService();
             return Multi.ConsultaAdminBasePresidencial(inicial, final);

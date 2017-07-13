@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Telmexla.Servicios.DIME.Entity
 {
-    public class DatosMultiplayCollection : List<DatosMultiplay>
+    public class DatosMultiplayCollection : List<MultiplayCargue>
     {
     }
 }
