@@ -83,6 +83,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<MecProcesos> result = new List<MecProcesos>();
             var objetosResult = (from a in dimContext.MecProcesos
+                                 where a.Estado.Equals("ACTIVO")
                                  orderby a.Proceso ascending
                                  select new
                                  {
@@ -104,7 +105,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<MecLineas> result = new List<MecLineas>();
             var objetosResult = (from a in dimContext.MecLineas
-                                 where a.IdProceso.Equals(IdProceso)
+                                 where a.IdProceso.Equals(IdProceso) && a.Estado.Equals("ACTIVO")
                                  orderby a.NombreLinea ascending
                                  select new
                                  {
@@ -182,8 +183,9 @@ namespace Telmexla.Servicios.DIME.Business
             //busca monitoreo para actualizar
             UnitOfWork UnitOfWorkMonitoreoActualizable = new UnitOfWork(new DimeContext());
             MecMonitoreosP MonitoreoActualizable = UnitOfWorkMonitoreoActualizable.MecMonitoreosP.Find(c=> c.IdMonitoreo == Monitoreo.IdMonitoreo).FirstOrDefault();
+            var NuevoEstadoMonitoreo = "ACTUALIZADO";
+
             
-            MonitoreoActualizable.IdMonitoreo = Monitoreo.IdMonitoreo;
             MonitoreoActualizable.IdProceso = Monitoreo.IdProceso;
             MonitoreoActualizable.NombreProceso = Monitoreo.NombreProceso;
             MonitoreoActualizable.IdLinea = Monitoreo.IdLinea;
@@ -214,7 +216,7 @@ namespace Telmexla.Servicios.DIME.Business
             MonitoreoActualizable.AccionEmprender = Monitoreo.AccionEmprender;
             MonitoreoActualizable.EtiquetaDeLlamada = Monitoreo.EtiquetaDeLlamada;
             MonitoreoActualizable.IdListaDistribucion = Monitoreo.IdListaDistribucion;
-            MonitoreoActualizable.EstadoMonitoreo = Monitoreo.EstadoMonitoreo;
+            MonitoreoActualizable.EstadoMonitoreo = NuevoEstadoMonitoreo;
 
             UnitOfWorkMonitoreoActualizable.Complete();
             UnitOfWorkMonitoreoActualizable.Dispose();
@@ -222,10 +224,11 @@ namespace Telmexla.Servicios.DIME.Business
             //inserta monitoreo al log
             UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
             MecMonitoreosL MonitoreoLog = new MecMonitoreosL();
-            var NuevoEstadoMonitoreo = "ACTUALIZADO";
+            
+            var FechaGestion = DateTime.Now;
 
             MonitoreoLog.IdMonitoreo = Monitoreo.IdMonitoreo;
-            MonitoreoLog.FechaGestion = Monitoreo.FechaGestion;
+            MonitoreoLog.FechaGestion = FechaGestion;
             MonitoreoLog.UsuarioGestion = Monitoreo.UsuarioGestion;
             MonitoreoLog.CedulaUsuarioGestion = Monitoreo.CedulaUsuarioGestion;
             MonitoreoLog.NombreUsuarioGestion = Monitoreo.NombreUsuarioGestion;
@@ -457,6 +460,7 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
             return UnitOfWork.MecMonitoreosP.Get(IdMonitoreo);
+            
         }
         public List<MecMonitoreosP> ConsultaAgenteMonitoreosPrincipal(DateTime FechaInicial, DateTime FechaFinal, string UsuarioGestion)
         {
