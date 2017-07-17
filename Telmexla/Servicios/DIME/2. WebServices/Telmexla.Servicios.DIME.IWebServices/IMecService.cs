@@ -33,5 +33,29 @@ namespace Telmexla.Servicios.DIME.IWebServices
         MecMonitoreosP ConsultarMonitoreoPorId(int IdMonitoreo);
         [OperationContract]
         List<MecMonitoreosP> ConsultaAgenteMonitoreosPrincipal(DateTime FechaInicial, DateTime FechaFinal, string UsuarioGestion);
+        [OperationContract]
+        void RegistrarMacroproceso(MecProcesos proceso);
+        [OperationContract]
+        void ActualizarMacroproceso(MecProcesos proceso);
+        [OperationContract]
+        void RegistrarLinea(MecLineas Linea);
+        [OperationContract]
+        void ActualizarLinea(MecLineas Linea);
+        [OperationContract]
+        void RegistrarListaDistribucion(MecListasDistribucion ListaD);
+        [OperationContract]
+        void ActualizarListaDistribucion(MecListasDistribucion ListaD);
+        [OperationContract]
+        void RegistrarTipoAlarma(MecTipoAlarmas Alarma);
+        [OperationContract]
+        void ActualizarTipoAlarmas(MecTipoAlarmas Alarma);
+        [OperationContract]
+        List<MecProcesos> ListaProcesosMecAdmin();
+        [OperationContract]
+        List<MecLineas> ListaLineasMecAdmin(int IdProceso);
+        [OperationContract]
+        List<MecListasDistribucion> ListasCorreosMecAdmin(int IdLinea);
+        [OperationContract]
+        List<MecTipoAlarmas> ListaTipoAlarmasMecAdmin();
     }
 }

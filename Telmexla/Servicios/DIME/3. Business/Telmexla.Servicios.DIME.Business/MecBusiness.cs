@@ -554,5 +554,153 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        public void RegistrarMacroproceso(MecProcesos proceso)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.MecProcesos.Add(proceso);
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void ActualizarMacroproceso (MecProcesos proceso)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecProcesos procesoactualizable = unitWork.MecProcesos.Find(c => c.IdProceso == proceso.IdProceso).FirstOrDefault();
+            procesoactualizable.Proceso = proceso.Proceso;
+            procesoactualizable.Estado = proceso.Estado;
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void RegistrarLinea(MecLineas Linea)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.MecLineas.Add(Linea);
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void ActualizarLinea(MecLineas Linea)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecLineas lineaactualizable = unitWork.MecLineas.Find(c => c.IdLinea == Linea.IdLinea).FirstOrDefault();
+            lineaactualizable.IdProceso = Linea.IdProceso;
+            lineaactualizable.NombreLinea = Linea.NombreLinea;
+            lineaactualizable.Estado = Linea.Estado;
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void RegistrarListaDistribucion(MecListasDistribucion ListaD)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.MecListasDistribucion.Add(ListaD);
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void ActualizarListaDistribucion(MecListasDistribucion ListaD)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecListasDistribucion listaactualizable = unitWork.MecListasDistribucion.Find(c => c.IdLista == ListaD.IdLista).FirstOrDefault();
+            listaactualizable.IdLinea = ListaD.IdLinea;
+            listaactualizable.Destinatarios = ListaD.Destinatarios;
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void RegistrarTipoAlarma (MecTipoAlarmas Alarma){
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.MecTipoAlarmas.Add(Alarma);
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void ActualizarTipoAlarmas(MecTipoAlarmas Alarma)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecTipoAlarmas alarmaactualizable = unitWork.MecTipoAlarmas.Find(c => c.IdAlarma == Alarma.IdAlarma).FirstOrDefault();
+            alarmaactualizable.NombreAlarma= Alarma.NombreAlarma;
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public List<MecProcesos> ListaProcesosMecAdmin()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MecProcesos> result = new List<MecProcesos>();
+            var objetosResult = (from a in dimContext.MecProcesos
+                                 orderby a.Proceso ascending
+                                 select new
+                                 {
+                                     a.IdProceso,
+                                     a.Proceso
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MecProcesos());
+                result[i].IdProceso = objetosResult[i].IdProceso;
+                result[i].Proceso = objetosResult[i].Proceso;
+            }
+            return result;
+        }
+        public List<MecLineas> ListaLineasMecAdmin(int IdProceso)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MecLineas> result = new List<MecLineas>();
+            var objetosResult = (from a in dimContext.MecLineas
+                                 where a.IdProceso.Equals(IdProceso)
+                                 orderby a.NombreLinea ascending
+                                 select new
+                                 {
+                                     a.IdLinea,
+                                     a.NombreLinea
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MecLineas());
+                result[i].IdLinea = objetosResult[i].IdLinea;
+                result[i].NombreLinea = objetosResult[i].NombreLinea;
+            }
+            return result;
+        }
+        public List<MecListasDistribucion> ListasCorreosMecAdmin(int IdLinea)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MecListasDistribucion> result = new List<MecListasDistribucion>();
+            var objetosResult = (from a in dimContext.MecListasDistribucion
+                                 where a.IdLinea.Equals(IdLinea)
+                                 select new
+                                 {
+                                     a.IdLista,
+                                     a.Destinatarios
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MecListasDistribucion());
+                result[i].IdLista = objetosResult[i].IdLista;
+                result[i].Destinatarios = objetosResult[i].Destinatarios;
+            }
+            return result;
+        }
+        public List<MecTipoAlarmas> ListaTipoAlarmasMecAdmin()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MecTipoAlarmas> result = new List<MecTipoAlarmas>();
+            var objetosResult = (from a in dimContext.MecTipoAlarmas
+                                 orderby a.NombreAlarma ascending
+                                 select new
+                                 {
+                                     a.IdAlarma,
+                                     a.NombreAlarma
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MecTipoAlarmas());
+                result[i].IdAlarma = objetosResult[i].IdAlarma;
+                result[i].NombreAlarma = objetosResult[i].NombreAlarma;
+            }
+            return result;
+        }
     }
 }

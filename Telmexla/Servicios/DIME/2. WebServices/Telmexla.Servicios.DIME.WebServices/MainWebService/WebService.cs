@@ -1592,6 +1592,71 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MecService mecService = new MecService();
             return mecService.ConsultaAgenteMonitoreosPrincipal(FechaInicial, FechaFinal, UsuarioGestion);
         }
+
+        public void RegistrarMacroproceso(MecProcesos proceso)
+        {
+            MecService mecService = new MecService();
+            mecService.RegistrarMacroproceso(proceso);
+        }
+        public void ActualizarMacroproceso(MecProcesos proceso)
+        {
+            MecService mecService = new MecService();
+            mecService.ActualizarMacroproceso(proceso);
+        }
+        public void RegistrarLinea(MecLineas Linea)
+        {
+            MecService mecService = new MecService();
+            mecService.RegistrarLinea(Linea);
+        }
+        public void ActualizarLinea(MecLineas Linea)
+        {
+            MecService mecService = new MecService();
+            mecService.ActualizarLinea(Linea);
+        }
+        public void RegistrarListaDistribucion(MecListasDistribucion ListaD)
+        {
+            MecService mecService = new MecService();
+            mecService.RegistrarListaDistribucion(ListaD);
+
+        }
+        public void ActualizarListaDistribucion(MecListasDistribucion ListaD)
+        {
+            MecService mecService = new MecService();
+            mecService.ActualizarListaDistribucion(ListaD);
+        }
+        public void RegistrarTipoAlarma(MecTipoAlarmas Alarma)
+        {
+            MecService mecService = new MecService();
+            mecService.RegistrarTipoAlarma(Alarma);
+
+        }
+        public void ActualizarTipoAlarmas(MecTipoAlarmas Alarma)
+        {
+            MecService mecService = new MecService();
+            mecService.ActualizarTipoAlarmas(Alarma);
+        }
+        public List<MecProcesos> ListaProcesosMecAdmin()
+        {
+            MecService mecService = new MecService();
+            return mecService.ListaProcesosMecAdmin();
+        }
+        public List<MecLineas> ListaLineasMecAdmin(int IdProceso)
+        {
+            MecService mecService = new MecService();
+            return mecService.ListaLineasMecAdmin(IdProceso);
+        }
+        public List<MecListasDistribucion> ListasCorreosMecAdmin(int IdLinea)
+        {
+            MecService mecService = new MecService();
+            return mecService.ListasCorreosMecAdmin(IdLinea);
+        }
+        public List<MecTipoAlarmas> ListaTipoAlarmasMecAdmin()
+        {
+            MecService mecService = new MecService();
+            return mecService.ListaTipoAlarmasMecAdmin();
+        }
+
+
         #endregion
     }
 }

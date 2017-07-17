@@ -67,5 +67,68 @@ namespace Telmexla.Servicios.DIME.WebServices
             MecBusiness mecBusiness = new MecBusiness();
             return mecBusiness.ConsultaAgenteMonitoreosPrincipal(FechaInicial, FechaFinal,UsuarioGestion);
         }
+        public void RegistrarMacroproceso(MecProcesos proceso)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+             mecBusiness.RegistrarMacroproceso(proceso);
+        }
+        public void ActualizarMacroproceso(MecProcesos proceso)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            mecBusiness.ActualizarMacroproceso(proceso);
+        }
+        public void RegistrarLinea(MecLineas Linea)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            mecBusiness.RegistrarLinea(Linea);
+        }
+        public void ActualizarLinea(MecLineas Linea)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            mecBusiness.ActualizarLinea(Linea);
+        }
+        public void RegistrarListaDistribucion(MecListasDistribucion ListaD)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            mecBusiness.RegistrarListaDistribucion(ListaD);
+
+        }
+        public void ActualizarListaDistribucion(MecListasDistribucion ListaD)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            mecBusiness.ActualizarListaDistribucion(ListaD);
+        }
+        public void RegistrarTipoAlarma(MecTipoAlarmas Alarma)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            mecBusiness.RegistrarTipoAlarma(Alarma);
+
+        }
+        public void ActualizarTipoAlarmas(MecTipoAlarmas Alarma)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            mecBusiness.ActualizarTipoAlarmas(Alarma);
+        }
+        public List<MecProcesos> ListaProcesosMecAdmin()
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ListaProcesosMecAdmin();
+        }
+        public List<MecLineas> ListaLineasMecAdmin(int IdProceso)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ListaLineasMecAdmin(IdProceso);
+        }
+        public List<MecListasDistribucion> ListasCorreosMecAdmin(int IdLinea)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ListasCorreosMecAdmin(IdLinea);
+        }
+        public List<MecTipoAlarmas> ListaTipoAlarmasMecAdmin()
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ListaTipoAlarmasMecAdmin();
+        }
+
         }
 }
