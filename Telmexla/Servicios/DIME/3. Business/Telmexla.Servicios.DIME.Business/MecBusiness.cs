@@ -626,7 +626,8 @@ namespace Telmexla.Servicios.DIME.Business
                                  select new
                                  {
                                      a.IdProceso,
-                                     a.Proceso
+                                     a.Proceso,
+                                     a.Estado
                                  }
                                  ).ToList();
 
@@ -635,6 +636,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result.Add(new MecProcesos());
                 result[i].IdProceso = objetosResult[i].IdProceso;
                 result[i].Proceso = objetosResult[i].Proceso;
+                result[i].Estado = objetosResult[i].Estado;
             }
             return result;
         }
@@ -648,7 +650,9 @@ namespace Telmexla.Servicios.DIME.Business
                                  select new
                                  {
                                      a.IdLinea,
-                                     a.NombreLinea
+                                     a.IdProceso,
+                                     a.NombreLinea,
+                                     a.Estado,
                                  }
                                  ).ToList();
 
@@ -656,7 +660,9 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 result.Add(new MecLineas());
                 result[i].IdLinea = objetosResult[i].IdLinea;
+                result[i].IdProceso = objetosResult[i].IdProceso;
                 result[i].NombreLinea = objetosResult[i].NombreLinea;
+                result[i].Estado = objetosResult[i].Estado;
             }
             return result;
         }
@@ -701,6 +707,27 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].NombreAlarma = objetosResult[i].NombreAlarma;
             }
             return result;
+        }
+        public MecProcesos ProcesoPorId(decimal IdProceso)
+        {
+
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecProcesos proceso = unitWork.MecProcesos.Find(c => c.IdProceso == IdProceso).FirstOrDefault();
+            return proceso;
+        }
+        public MecLineas LineaPorId(decimal IdLinea)
+        {
+
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecLineas linea = unitWork.MecLineas.Find(c => c.IdLinea == IdLinea).FirstOrDefault();
+            return linea;
+        }
+        public MecListasDistribucion ListaCorreosPorId(decimal IdLista)
+        {
+
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecListasDistribucion listadis = unitWork.MecListasDistribucion.Find(c => c.IdLista == IdLista).FirstOrDefault();
+            return listadis;
         }
     }
 }
