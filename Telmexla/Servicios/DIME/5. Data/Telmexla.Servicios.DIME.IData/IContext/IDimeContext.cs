@@ -94,7 +94,9 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<MecTipoAlarmas> MecTipoAlarmas { get; set; }
         System.Data.Entity.DbSet<CargaBaseFoxInbound> CargaBaseFoxInbound { get; set; }
         System.Data.Entity.DbSet<GestionFoxInbound> GestionFoxInbound { get; set; }
-
+        System.Data.Entity.DbSet<CcBaseMejoramiento> CcBaseMejoramientoes { get; set; } // TBL_CC_BASE_MEJORAMIENTO
+        System.Data.Entity.DbSet<CcGestionResidencialPredictivo> CcGestionResidencialPredictivoes { get; set; } // TBL_CC_GESTION_RESIDENCIAL_PREDICTIVO
+        System.Data.Entity.DbSet<CcResidencialPredictivoInfo> CcResidencialPredictivoInfoes { get; set; } // TBL_CC_RESIDENCIAL_PREDICTIVO_INFO
 
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();
