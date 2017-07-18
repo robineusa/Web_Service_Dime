@@ -58,7 +58,6 @@
     <Compile Include="ArbolesDeTipificacion.cs" />
     <Compile Include="BalanceScoreCardBusiness.cs" />
     <Compile Include="BlendingBusiness.cs" />
-    <Compile Include="CierreCicloBusiness.cs" />
     <Compile Include="ClientesBusiness.cs" />
     <Compile Include="ConsultaReporteBlending.cs" />
     <Compile Include="CuentasSiembraHDBusiness.cs" />

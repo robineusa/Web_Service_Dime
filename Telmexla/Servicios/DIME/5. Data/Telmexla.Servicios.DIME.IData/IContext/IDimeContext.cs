@@ -24,7 +24,6 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<Linea> Lineas { get; set; } // TBL_LINEA
         System.Data.Entity.DbSet<ModosLogin> ModosLogins { get; set; } // TBL_MODOS_LOGINS
         System.Data.Entity.DbSet<PreguntasDesbloqueo> PreguntasDesbloqueos { get; set; } // TBL_PREGUNTAS_DESBLOQUEO
-        System.Data.Entity.DbSet<CcGestionResidencialPredictivo> CcGestionResidencialPredictivoes { get; set; } // TBL_CC_GESTION_RESIDENCIAL_PREDICTIVO
         System.Data.Entity.DbSet<RegistroSesion> RegistroSesions { get; set; } // TBL_REGISTRO_SESION
         System.Data.Entity.DbSet<Usuario> Usuarios { get; set; } // TBL_USUARIOS
         System.Data.Entity.DbSet<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // TBL_USUARIOS_X_ACCESOS
@@ -93,8 +92,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<MecLineas> MecLineas { get; set; }
         System.Data.Entity.DbSet<MecListasDistribucion> MecListasDistribucion { get; set; }
         System.Data.Entity.DbSet<MecTipoAlarmas> MecTipoAlarmas { get; set; }
-        System.Data.Entity.DbSet<CcBaseMejoramiento> CcBaseMejoramientoes { get; set; } // TBL_CC_BASE_MEJORAMIENTO
-        System.Data.Entity.DbSet<CcResidencialPredictivoInfo> CcResidencialPredictivoInfoes { get; set; } // TBL_CC_RESIDENCIAL_PREDICTIVO_INFO
+        System.Data.Entity.DbSet<CargaBaseFoxInbound> CargaBaseFoxInbound { get; set; }
+        System.Data.Entity.DbSet<GestionFoxInbound> GestionFoxInbound { get; set; }
 
 
         int SaveChanges();

@@ -73,13 +73,7 @@
     <Compile Include="BlendingFueraNivel.cs" />
     <Compile Include="CambioEstrato.cs" />
     <Compile Include="CambioEstratoCollection.cs" />
-<<<<<<< HEAD
-    <Compile Include="CcBaseMejoramiento.cs" />
-    <Compile Include="CcGestionResidencialPredictivo.cs" />
-    <Compile Include="CcResidencialPredictivoInfo.cs" />
-=======
     <Compile Include="CargaBaseFoxInbound.cs" />
->>>>>>> 14145d5ce81a42b9b398f7a1e5bb9dc8cbd1744b
     <Compile Include="CierreCiclo.cs" />
     <Compile Include="CierreCicloCollection.cs" />
     <Compile Include="ClaroVideo.cs" />
