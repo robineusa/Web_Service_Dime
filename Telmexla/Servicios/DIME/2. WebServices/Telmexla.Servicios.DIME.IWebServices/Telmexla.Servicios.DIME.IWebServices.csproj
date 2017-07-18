@@ -63,6 +63,7 @@
     <Compile Include="IBlendingService.cs" />
     <Compile Include="ICasosAdminService.cs" />
     <Compile Include="ICasosCelulaService.cs" />
+    <Compile Include="ICierreCicloService.cs" />
     <Compile Include="IClientesService.cs" />
     <Compile Include="IDistribucionBlendingService.cs" />
     <Compile Include="IGraficosService.cs" />

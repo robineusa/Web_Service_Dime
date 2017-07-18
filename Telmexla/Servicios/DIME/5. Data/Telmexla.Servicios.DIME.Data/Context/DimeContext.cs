@@ -95,6 +95,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<MecLineas> MecLineas { get; set; }
         public System.Data.Entity.DbSet<MecListasDistribucion> MecListasDistribucion { get; set; }
         public System.Data.Entity.DbSet<MecTipoAlarmas> MecTipoAlarmas { get; set; }
+        public System.Data.Entity.DbSet<CcBaseMejoramiento> CcBaseMejoramientoes { get; set; } // TBL_CC_BASE_MEJORAMIENTO
+        public System.Data.Entity.DbSet<CcResidencialPredictivoInfo> CcResidencialPredictivoInfoes { get; set; } // TBL_CC_RESIDENCIAL_PREDICTIVO_INFO
+        public System.Data.Entity.DbSet<CcGestionResidencialPredictivo> CcGestionResidencialPredictivoes { get; set; } // TBL_CC_GESTION_RESIDENCIAL_PREDICTIVO
+
 
         static DimeContext()
         {
@@ -149,6 +153,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new AccesoConfiguration());
             modelBuilder.Configurations.Add(new CierreCicloConfiguration());
             modelBuilder.Configurations.Add(new ClaroVideoConfiguration());
+            modelBuilder.Configurations.Add(new CcBaseMejoramientoConfiguration());
+            modelBuilder.Configurations.Add(new CcResidencialPredictivoInfoConfiguration());
             modelBuilder.Configurations.Add(new ClientesTodoConfiguration());
             modelBuilder.Configurations.Add(new ConvenioElectronicoConfiguration());
             modelBuilder.Configurations.Add(new DatosAdicionalesClienteConfiguration());
@@ -222,6 +228,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new MecLineasConfiguration());
             modelBuilder.Configurations.Add(new MecListasDistribucionConfiguration());
             modelBuilder.Configurations.Add(new MecTipoAlarmasConfiguration());
+            modelBuilder.Configurations.Add(new CcGestionResidencialPredictivoConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -302,6 +309,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new MecLineasConfiguration(schema));
             modelBuilder.Configurations.Add(new MecListasDistribucionConfiguration(schema));
             modelBuilder.Configurations.Add(new MecTipoAlarmasConfiguration(schema));
+            modelBuilder.Configurations.Add(new CcBaseMejoramientoConfiguration(schema));
+            modelBuilder.Configurations.Add(new CcResidencialPredictivoInfoConfiguration(schema));
+            modelBuilder.Configurations.Add(new CcGestionResidencialPredictivoConfiguration(schema));
             return modelBuilder;
         }
 
