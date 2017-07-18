@@ -57,5 +57,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<MecListasDistribucion> ListasCorreosMecAdmin(int IdLinea);
         [OperationContract]
         List<MecTipoAlarmas> ListaTipoAlarmasMecAdmin();
+        [OperationContract]
+        MecProcesos ProcesoPorId(decimal IdProceso);
+        [OperationContract]
+        MecLineas LineaPorId(decimal IdLinea);
+        [OperationContract]
+        MecListasDistribucion ListaCorreosPorId(decimal IdLista);
     }
 }

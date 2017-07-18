@@ -1665,8 +1665,24 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MecService mecService = new MecService();
             return mecService.ListaTipoAlarmasMecAdmin();
         }
+        public MecProcesos ProcesoPorId(decimal IdProceso)
+        {
+            MecService mecService = new MecService();
+            return mecService.ProcesoPorId(IdProceso);
 
+        }
+        public MecLineas LineaPorId(decimal IdLinea)
+        {
+            MecService mecService = new MecService();
+            return mecService.LineaPorId(IdLinea);
 
+        }
+        public MecListasDistribucion ListaCorreosPorId(decimal IdLista)
+        {
+            MecService mecService = new MecService();
+            return mecService.ListaCorreosPorId(IdLista);
+
+        }
         #endregion
     }
 }
