@@ -83,6 +83,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<MecProcesos> result = new List<MecProcesos>();
             var objetosResult = (from a in dimContext.MecProcesos
+                                 where a.Estado.Equals("ACTIVO")
                                  orderby a.Proceso ascending
                                  select new
                                  {
@@ -104,7 +105,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<MecLineas> result = new List<MecLineas>();
             var objetosResult = (from a in dimContext.MecLineas
-                                 where a.IdProceso.Equals(IdProceso)
+                                 where a.IdProceso.Equals(IdProceso) && a.Estado.Equals("ACTIVO")
                                  orderby a.NombreLinea ascending
                                  select new
                                  {
@@ -182,8 +183,9 @@ namespace Telmexla.Servicios.DIME.Business
             //busca monitoreo para actualizar
             UnitOfWork UnitOfWorkMonitoreoActualizable = new UnitOfWork(new DimeContext());
             MecMonitoreosP MonitoreoActualizable = UnitOfWorkMonitoreoActualizable.MecMonitoreosP.Find(c=> c.IdMonitoreo == Monitoreo.IdMonitoreo).FirstOrDefault();
+            var NuevoEstadoMonitoreo = "ACTUALIZADO";
+
             
-            MonitoreoActualizable.IdMonitoreo = Monitoreo.IdMonitoreo;
             MonitoreoActualizable.IdProceso = Monitoreo.IdProceso;
             MonitoreoActualizable.NombreProceso = Monitoreo.NombreProceso;
             MonitoreoActualizable.IdLinea = Monitoreo.IdLinea;
@@ -214,7 +216,7 @@ namespace Telmexla.Servicios.DIME.Business
             MonitoreoActualizable.AccionEmprender = Monitoreo.AccionEmprender;
             MonitoreoActualizable.EtiquetaDeLlamada = Monitoreo.EtiquetaDeLlamada;
             MonitoreoActualizable.IdListaDistribucion = Monitoreo.IdListaDistribucion;
-            MonitoreoActualizable.EstadoMonitoreo = Monitoreo.EstadoMonitoreo;
+            MonitoreoActualizable.EstadoMonitoreo = NuevoEstadoMonitoreo;
 
             UnitOfWorkMonitoreoActualizable.Complete();
             UnitOfWorkMonitoreoActualizable.Dispose();
@@ -222,10 +224,11 @@ namespace Telmexla.Servicios.DIME.Business
             //inserta monitoreo al log
             UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
             MecMonitoreosL MonitoreoLog = new MecMonitoreosL();
-            var NuevoEstadoMonitoreo = "ACTUALIZADO";
+            
+            var FechaGestion = DateTime.Now;
 
             MonitoreoLog.IdMonitoreo = Monitoreo.IdMonitoreo;
-            MonitoreoLog.FechaGestion = Monitoreo.FechaGestion;
+            MonitoreoLog.FechaGestion = FechaGestion;
             MonitoreoLog.UsuarioGestion = Monitoreo.UsuarioGestion;
             MonitoreoLog.CedulaUsuarioGestion = Monitoreo.CedulaUsuarioGestion;
             MonitoreoLog.NombreUsuarioGestion = Monitoreo.NombreUsuarioGestion;
@@ -457,6 +460,7 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
             return UnitOfWork.MecMonitoreosP.Get(IdMonitoreo);
+            
         }
         public List<MecMonitoreosP> ConsultaAgenteMonitoreosPrincipal(DateTime FechaInicial, DateTime FechaFinal, string UsuarioGestion)
         {
@@ -549,6 +553,181 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].EstadoMonitoreo = objetosResult[i].EstadoMonitoreo;
             }
             return result;
+        }
+        public void RegistrarMacroproceso(MecProcesos proceso)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.MecProcesos.Add(proceso);
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void ActualizarMacroproceso (MecProcesos proceso)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecProcesos procesoactualizable = unitWork.MecProcesos.Find(c => c.IdProceso == proceso.IdProceso).FirstOrDefault();
+            procesoactualizable.Proceso = proceso.Proceso;
+            procesoactualizable.Estado = proceso.Estado;
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void RegistrarLinea(MecLineas Linea)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.MecLineas.Add(Linea);
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void ActualizarLinea(MecLineas Linea)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecLineas lineaactualizable = unitWork.MecLineas.Find(c => c.IdLinea == Linea.IdLinea).FirstOrDefault();
+            lineaactualizable.IdProceso = Linea.IdProceso;
+            lineaactualizable.NombreLinea = Linea.NombreLinea;
+            lineaactualizable.Estado = Linea.Estado;
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void RegistrarListaDistribucion(MecListasDistribucion ListaD)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.MecListasDistribucion.Add(ListaD);
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void ActualizarListaDistribucion(MecListasDistribucion ListaD)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecListasDistribucion listaactualizable = unitWork.MecListasDistribucion.Find(c => c.IdLista == ListaD.IdLista).FirstOrDefault();
+            listaactualizable.IdLinea = ListaD.IdLinea;
+            listaactualizable.Destinatarios = ListaD.Destinatarios;
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void RegistrarTipoAlarma (MecTipoAlarmas Alarma){
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.MecTipoAlarmas.Add(Alarma);
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public void ActualizarTipoAlarmas(MecTipoAlarmas Alarma)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecTipoAlarmas alarmaactualizable = unitWork.MecTipoAlarmas.Find(c => c.IdAlarma == Alarma.IdAlarma).FirstOrDefault();
+            alarmaactualizable.NombreAlarma= Alarma.NombreAlarma;
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public List<MecProcesos> ListaProcesosMecAdmin()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MecProcesos> result = new List<MecProcesos>();
+            var objetosResult = (from a in dimContext.MecProcesos
+                                 orderby a.Proceso ascending
+                                 select new
+                                 {
+                                     a.IdProceso,
+                                     a.Proceso,
+                                     a.Estado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MecProcesos());
+                result[i].IdProceso = objetosResult[i].IdProceso;
+                result[i].Proceso = objetosResult[i].Proceso;
+                result[i].Estado = objetosResult[i].Estado;
+            }
+            return result;
+        }
+        public List<MecLineas> ListaLineasMecAdmin(int IdProceso)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MecLineas> result = new List<MecLineas>();
+            var objetosResult = (from a in dimContext.MecLineas
+                                 where a.IdProceso.Equals(IdProceso)
+                                 orderby a.NombreLinea ascending
+                                 select new
+                                 {
+                                     a.IdLinea,
+                                     a.IdProceso,
+                                     a.NombreLinea,
+                                     a.Estado,
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MecLineas());
+                result[i].IdLinea = objetosResult[i].IdLinea;
+                result[i].IdProceso = objetosResult[i].IdProceso;
+                result[i].NombreLinea = objetosResult[i].NombreLinea;
+                result[i].Estado = objetosResult[i].Estado;
+            }
+            return result;
+        }
+        public List<MecListasDistribucion> ListasCorreosMecAdmin(int IdLinea)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MecListasDistribucion> result = new List<MecListasDistribucion>();
+            var objetosResult = (from a in dimContext.MecListasDistribucion
+                                 where a.IdLinea.Equals(IdLinea)
+                                 select new
+                                 {
+                                     a.IdLista,
+                                     a.Destinatarios
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MecListasDistribucion());
+                result[i].IdLista = objetosResult[i].IdLista;
+                result[i].Destinatarios = objetosResult[i].Destinatarios;
+            }
+            return result;
+        }
+        public List<MecTipoAlarmas> ListaTipoAlarmasMecAdmin()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MecTipoAlarmas> result = new List<MecTipoAlarmas>();
+            var objetosResult = (from a in dimContext.MecTipoAlarmas
+                                 orderby a.NombreAlarma ascending
+                                 select new
+                                 {
+                                     a.IdAlarma,
+                                     a.NombreAlarma
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MecTipoAlarmas());
+                result[i].IdAlarma = objetosResult[i].IdAlarma;
+                result[i].NombreAlarma = objetosResult[i].NombreAlarma;
+            }
+            return result;
+        }
+        public MecProcesos ProcesoPorId(decimal IdProceso)
+        {
+
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecProcesos proceso = unitWork.MecProcesos.Find(c => c.IdProceso == IdProceso).FirstOrDefault();
+            return proceso;
+        }
+        public MecLineas LineaPorId(decimal IdLinea)
+        {
+
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecLineas linea = unitWork.MecLineas.Find(c => c.IdLinea == IdLinea).FirstOrDefault();
+            return linea;
+        }
+        public MecListasDistribucion ListaCorreosPorId(decimal IdLista)
+        {
+
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecListasDistribucion listadis = unitWork.MecListasDistribucion.Find(c => c.IdLista == IdLista).FirstOrDefault();
+            return listadis;
         }
     }
 }

@@ -95,10 +95,15 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<MecLineas> MecLineas { get; set; }
         public System.Data.Entity.DbSet<MecListasDistribucion> MecListasDistribucion { get; set; }
         public System.Data.Entity.DbSet<MecTipoAlarmas> MecTipoAlarmas { get; set; }
+<<<<<<< HEAD
         public System.Data.Entity.DbSet<CcBaseMejoramiento> CcBaseMejoramientoes { get; set; } // TBL_CC_BASE_MEJORAMIENTO
         public System.Data.Entity.DbSet<CcResidencialPredictivoInfo> CcResidencialPredictivoInfoes { get; set; } // TBL_CC_RESIDENCIAL_PREDICTIVO_INFO
         public System.Data.Entity.DbSet<CcGestionResidencialPredictivo> CcGestionResidencialPredictivoes { get; set; } // TBL_CC_GESTION_RESIDENCIAL_PREDICTIVO
 
+=======
+        public System.Data.Entity.DbSet<CargaBaseFoxInbound> CargaBaseFoxInbound { get; set; }
+        public System.Data.Entity.DbSet<GestionFoxInbound> GestionFoxInbound { get; set; }
+>>>>>>> 14145d5ce81a42b9b398f7a1e5bb9dc8cbd1744b
 
         static DimeContext()
         {
@@ -228,7 +233,12 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new MecLineasConfiguration());
             modelBuilder.Configurations.Add(new MecListasDistribucionConfiguration());
             modelBuilder.Configurations.Add(new MecTipoAlarmasConfiguration());
+<<<<<<< HEAD
             modelBuilder.Configurations.Add(new CcGestionResidencialPredictivoConfiguration());
+=======
+            modelBuilder.Configurations.Add(new CargueBaseFoxInboundConfiguration());
+            modelBuilder.Configurations.Add(new GestionFoxInboundConfiguration());
+>>>>>>> 14145d5ce81a42b9b398f7a1e5bb9dc8cbd1744b
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -309,9 +319,14 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new MecLineasConfiguration(schema));
             modelBuilder.Configurations.Add(new MecListasDistribucionConfiguration(schema));
             modelBuilder.Configurations.Add(new MecTipoAlarmasConfiguration(schema));
+<<<<<<< HEAD
             modelBuilder.Configurations.Add(new CcBaseMejoramientoConfiguration(schema));
             modelBuilder.Configurations.Add(new CcResidencialPredictivoInfoConfiguration(schema));
             modelBuilder.Configurations.Add(new CcGestionResidencialPredictivoConfiguration(schema));
+=======
+            modelBuilder.Configurations.Add(new CargueBaseFoxInboundConfiguration(schema));
+            modelBuilder.Configurations.Add(new GestionFoxInboundConfiguration(schema));
+>>>>>>> 14145d5ce81a42b9b398f7a1e5bb9dc8cbd1744b
             return modelBuilder;
         }
 

@@ -20,16 +20,33 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            //BlendingBusiness blen = new BlendingBusiness();
-            //blen.EliminaUsuarioSkilles(1076622744);
 
-            MultiPlayService m = new MultiPlayService();
-            //MultiPlay mo = new MultiPlay();
-            //mo.UsuarioGestion = "ret";
-            //mo.NombreBase = "mierda";
+            //MecService mecservice = new MecService();
+            //int idmonitoreo = 2;
+            //MecMonitoreosP mmp = mecservice.ConsultarMonitoreoPorId(2);
+            //mmp.FechaGestion = DateTime.Now;
+            //mecservice.ActualizarMonitoreo(mmp);
 
-            var r = m.BuscarDatosMultiplay(85696144);
+            ActivacionSiembraHDService Act = new ActivacionSiembraHDService();
+            GestionFoxInbound m = new GestionFoxInbound();
+
+            m.NombreUsuarioGestion = "tleaala";
+
+            Act.InsertarFoxInbound(m);
+            var r = Act.BuscarCuentaFoxInbound(307);
             var z = "";
+
+
+            ////BlendingBusiness blen = new BlendingBusiness();
+            ////blen.EliminaUsuarioSkilles(1076622744);
+
+            //MultiPlayService m = new MultiPlayService();
+            ////MultiPlay mo = new MultiPlay();
+            ////mo.UsuarioGestion = "ret";
+            ////mo.NombreBase = "mierda";
+
+            //var r = m.BuscarDatosMultiplay(85696144);
+            //var z = "";
 
 
             //m.InsertarMultiPlay(mo);

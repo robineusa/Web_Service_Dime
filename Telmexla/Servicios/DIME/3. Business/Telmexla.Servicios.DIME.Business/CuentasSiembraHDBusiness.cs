@@ -57,5 +57,11 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
 
         }
+
+        public CargaBaseFoxInbound BuscarCuentaFoxInbound(decimal cuentacliente)
+        {
+            DimeContext context = new DimeContext();
+            return context.CargaBaseFoxInbound.Where(c => c.Cuenta == cuentacliente).FirstOrDefault();
+        }
     }
 }

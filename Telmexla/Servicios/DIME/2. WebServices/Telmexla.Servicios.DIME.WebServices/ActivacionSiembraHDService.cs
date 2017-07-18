@@ -55,5 +55,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
             activacionbusiness.InsertarMejorasTecnicasInbound(Mejoras);
         }
+        public CargaBaseFoxInbound BuscarCuentaFoxInbound(decimal cuentacliente)
+        {
+            CuentasSiembraHDBusiness cuentasbusines = new CuentasSiembraHDBusiness();
+            return cuentasbusines.BuscarCuentaFoxInbound(cuentacliente);
+        }
+        public void InsertarFoxInbound(GestionFoxInbound FoxInbound)
+        {
+            SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
+            activacionbusiness.InsertarFoxInbound(FoxInbound);
+        }
     }
 }
