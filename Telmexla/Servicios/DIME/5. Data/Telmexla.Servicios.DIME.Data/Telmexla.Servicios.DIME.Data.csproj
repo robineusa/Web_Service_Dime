@@ -60,12 +60,16 @@
     <Compile Include="BlendingFueraNivelRepository.cs" />
     <Compile Include="CambioEstratoRepository.cs" />
     <Compile Include="CargueBaseFoxInboundRepository.cs" />
+    <Compile Include="CcGestionResidencialPredictivoRepository.cs" />
     <Compile Include="Configuration\ActivacionClaroVideoConfiguration.cs" />
     <Compile Include="Configuration\BalanceScoreCardConfiguration.cs" />
     <Compile Include="Configuration\BasePersonalHoloConfiguration.cs" />
     <Compile Include="Configuration\BlendingFueraNivelConfiguration.cs" />
     <Compile Include="Configuration\CambioEstratoConfiguration.cs" />
     <Compile Include="Configuration\CargueBaseFoxInboundConfiguration.cs" />
+    <Compile Include="Configuration\CcBaseMejoramientoConfiguration.cs" />
+    <Compile Include="Configuration\CcGestionResidencialPredictivoConfiguration.cs" />
+    <Compile Include="Configuration\CcResidencialPredictivoInfoConfiguration.cs" />
     <Compile Include="Configuration\CuentasMejorasTecnicasConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiguienteMejorOfertaConfiguration.cs" />

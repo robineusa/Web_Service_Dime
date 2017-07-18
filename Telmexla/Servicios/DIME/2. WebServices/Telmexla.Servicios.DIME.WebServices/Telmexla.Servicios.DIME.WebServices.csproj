@@ -67,6 +67,7 @@
     <Compile Include="BlendingService.cs" />
     <Compile Include="CasosAdminService.cs" />
     <Compile Include="CasosCelulaService.cs" />
+    <Compile Include="CierreCicloService.cs" />
     <Compile Include="ClientesService.cs" />
     <Compile Include="DistribucionBlendingService.cs" />
     <Compile Include="GraficosService.cs" />
