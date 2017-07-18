@@ -36,5 +36,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void InsertarMejorasTecnicasInbound(MejorasTecnicas Mejoras);
 
+        [OperationContract]
+        CargaBaseFoxInbound BuscarCuentaFoxInbound(decimal cuentacliente);
+
+        [OperationContract]
+        void InsertarFoxInbound(GestionFoxInbound FoxInbound);
+
     }
 }
