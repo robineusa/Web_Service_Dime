@@ -21,15 +21,19 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            MecService mecservice = new MecService();
-            
-            int idmonitoreo = 2;
-            MecMonitoreosP mmp = mecservice.ConsultarMonitoreoPorId(2);
+            //MecService mecservice = new MecService();
+            //int idmonitoreo = 2;
+            //MecMonitoreosP mmp = mecservice.ConsultarMonitoreoPorId(2);
+            //mmp.FechaGestion = DateTime.Now;
+            //mecservice.ActualizarMonitoreo(mmp);
 
-            mmp.FechaGestion = DateTime.Now;
+            ActivacionSiembraHDService Act = new ActivacionSiembraHDService();
+            GestionFoxInbound m = new GestionFoxInbound();
 
+            m.NombreUsuarioGestion = "tleaala";
 
-            mecservice.ActualizarMonitoreo(mmp);
+            Act.InsertarFoxInbound(m);
+            var r = Act.BuscarCuentaFoxInbound(307);
             var z = "";
 
 

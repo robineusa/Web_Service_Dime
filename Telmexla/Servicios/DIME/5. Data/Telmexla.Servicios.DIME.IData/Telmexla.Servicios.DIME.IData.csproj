@@ -59,9 +59,11 @@
     <Compile Include="IBalanceScoreCardRepository.cs" />
     <Compile Include="IBlendingFueraNivelRepository.cs" />
     <Compile Include="ICambioEstratoRepository.cs" />
+    <Compile Include="ICargueBaseFoxInboundRepository.cs" />
     <Compile Include="ICuentasMejorasTecnicasRepository.cs" />
     <Compile Include="ICuentasSiembraHDRepository.cs" />
     <Compile Include="ICuentasSiguienteMejorOfertaRepository.cs" />
+    <Compile Include="IGestionFoxInboundRepository.cs" />
     <Compile Include="IMultiplayCargueRepository.cs" />
     <Compile Include="IDepartamentoRepository.cs" />
     <Compile Include="IDistribucionBlendingRepository.cs" />

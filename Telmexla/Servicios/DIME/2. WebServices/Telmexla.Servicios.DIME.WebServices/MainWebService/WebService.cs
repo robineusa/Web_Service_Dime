@@ -1169,6 +1169,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             SiembraHDBusiness activacionbusiness = new SiembraHDBusiness();
             activacionbusiness.InsertarMejorasTecnicasInbound(Mejoras);
         }
+        public CargaBaseFoxInbound BuscarCuentaFoxInbound(decimal cuentacliente)
+        {
+            ActivacionSiembraHDService cuentasbusines = new ActivacionSiembraHDService();
+            return cuentasbusines.BuscarCuentaFoxInbound(cuentacliente);
+        }
+        public void InsertarFoxInbound(GestionFoxInbound FoxInbound)
+        {
+            ActivacionSiembraHDService activacionbusiness = new ActivacionSiembraHDService();
+            activacionbusiness.InsertarFoxInbound(FoxInbound);
+        }
         #endregion
 
         #region BalanceScoreCard

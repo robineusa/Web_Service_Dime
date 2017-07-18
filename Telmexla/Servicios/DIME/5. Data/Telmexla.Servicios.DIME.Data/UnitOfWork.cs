@@ -77,6 +77,8 @@ namespace Telmexla.Servicios.DIME.Data
             MecLineas = new MecLineasRepository(this.dimeContext);
             MecListasDistribucion = new MecListasDistribucionRepository(this.dimeContext);
             MecTipoAlarmas = new MecTipoAlarmasRepository(this.dimeContext);
+            CargaBaseFoxInbound = new CargueBaseFoxInboundRepository(this.dimeContext);
+            GestionFoxInbound = new GestionFoxInboundRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -335,6 +337,14 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IMecTipoAlarmasRepository MecTipoAlarmas
+        {
+            get; private set;
+        }
+        public ICargueBaseFoxInboundRepository CargaBaseFoxInbound
+        {
+            get; private set;
+        }
+        public IGestionFoxInboundRepository GestionFoxInbound
         {
             get; private set;
         }

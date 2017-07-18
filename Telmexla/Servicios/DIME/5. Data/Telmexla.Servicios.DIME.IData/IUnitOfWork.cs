@@ -70,7 +70,10 @@ namespace Telmexla.Servicios.DIME.IData
         IMecLineasRepository MecLineas { get; }
         IMecListasDistribucionRepository MecListasDistribucion { get; }
         IMecTipoAlarmasRepository MecTipoAlarmas { get; }
-        
+        ICargueBaseFoxInboundRepository CargaBaseFoxInbound { get; }
+        IGestionFoxInboundRepository GestionFoxInbound { get; }
+
+
         int Complete();
     }
 }

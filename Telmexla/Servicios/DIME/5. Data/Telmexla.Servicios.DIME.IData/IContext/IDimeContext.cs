@@ -92,6 +92,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<MecLineas> MecLineas { get; set; }
         System.Data.Entity.DbSet<MecListasDistribucion> MecListasDistribucion { get; set; }
         System.Data.Entity.DbSet<MecTipoAlarmas> MecTipoAlarmas { get; set; }
+        System.Data.Entity.DbSet<CargaBaseFoxInbound> CargaBaseFoxInbound { get; set; }
+        System.Data.Entity.DbSet<GestionFoxInbound> GestionFoxInbound { get; set; }
 
 
         int SaveChanges();
