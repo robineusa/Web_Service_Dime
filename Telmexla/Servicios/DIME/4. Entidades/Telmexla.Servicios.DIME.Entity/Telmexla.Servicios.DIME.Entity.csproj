@@ -95,6 +95,7 @@
     <Compile Include="CuentasSiembraHDCollection.cs" />
     <Compile Include="CuentasSiguienteMejorOferta.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaCollection.cs" />
+    <Compile Include="DatoConsultaCCResidencialPredictivo.cs" />
     <Compile Include="DatoConsultaDirecciones.cs" />
     <Compile Include="DatosAdicionalesCliente.cs" />
     <Compile Include="DatosAdicionalesClienteCollection.cs" />

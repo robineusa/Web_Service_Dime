@@ -62,7 +62,6 @@
     <Compile Include="ClientesBusiness.cs" />
     <Compile Include="ConsultaReporteBlending.cs" />
     <Compile Include="CuentasSiembraHDBusiness.cs" />
-    <Compile Include="DatoConsultaCCResidencialPredictivo.cs" />
     <Compile Include="DatoConsultaGestionAdmin.cs" />
     <Compile Include="DatoConsultaPaloteo.cs" />
     <Compile Include="DatoConsultaRechazo.cs" />
