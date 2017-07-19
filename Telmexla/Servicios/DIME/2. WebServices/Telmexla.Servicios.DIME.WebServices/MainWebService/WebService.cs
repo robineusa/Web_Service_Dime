@@ -1687,8 +1687,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
 
         #region CierreCiclo
-
-        
+        public List<DatoConsultaCCResidencialPredictivo> ListaResidencialPredictivoDeCuenta(float cuenta)
+        {
+            CierreCicloService cierreCicloServ = new CierreCicloService();
+            return cierreCicloServ.ListaResidencialPredictivoDeCuenta(cuenta);
+        }
         #endregion
     }
 }
