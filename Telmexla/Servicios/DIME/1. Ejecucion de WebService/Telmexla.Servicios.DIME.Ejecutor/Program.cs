@@ -27,13 +27,18 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //mmp.FechaGestion = DateTime.Now;
             //mecservice.ActualizarMonitoreo(mmp);
 
-            ActivacionSiembraHDService Act = new ActivacionSiembraHDService();
-            GestionFoxInbound m = new GestionFoxInbound();
+            //ActivacionSiembraHDService Act = new ActivacionSiembraHDService();
+            //GestionFoxInbound m = new GestionFoxInbound();
 
-            m.NombreUsuarioGestion = "tleaala";
+            //m.NombreUsuarioGestion = "tleaala";
 
-            Act.InsertarFoxInbound(m);
-            var r = Act.BuscarCuentaFoxInbound(307);
+            //Act.InsertarFoxInbound(m);
+            //var r = Act.BuscarCuentaFoxInbound(307);
+            MultiPlayService multiplay = new MultiPlayService();
+            DateTime inicial = Convert.ToDateTime("2017-07-17");
+            DateTime final = Convert.ToDateTime("2017-07-20");
+            var r1 = multiplay.ConsultaAdminBasePresidencial(inicial, final);
+
             var z = "";
 
 

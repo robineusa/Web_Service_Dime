@@ -10,7 +10,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     [ServiceContract]
     public interface ICierreCicloService
     {
-
+        [OperationContract]
 
     }
 }
