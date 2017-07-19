@@ -12,7 +12,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface ICierreCicloService
     {
         [OperationContract]
+<<<<<<< HEAD
         List<DatoConsultaCCResidencialPredictivo> ListaResidencialPredictivoDeCuenta(float cuenta);
+=======
+>>>>>>> 45eddb8d3bcbead4ac47f965ccc31b9e64d5e546
 
     }
 }

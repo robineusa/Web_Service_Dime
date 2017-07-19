@@ -11,7 +11,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public string AliadoGestion { get; set; }
         public string RegBaGen { get; set; }
         public decimal Cuenta { get; set; }
-        public decimal? Custcode { get; set; }
+        public decimal Custcode { get; set; }
         public string TipoCuscode { get; set; }
         public decimal Min { get; set; }
         public decimal CustomerId { get; set; }
