@@ -734,5 +734,11 @@ namespace Telmexla.Servicios.DIME.Business
             MecListasDistribucion listadis = unitWork.MecListasDistribucion.Find(c => c.IdLista == IdLista).FirstOrDefault();
             return listadis;
         }
+        public MecTipoAlarmas ListaALarmasPorId(decimal IdAlarma)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            MecTipoAlarmas listaalarmas = unitWork.MecTipoAlarmas.Find(c => c.IdAlarma == IdAlarma).FirstOrDefault();
+            return listaalarmas;
+        }
     }
 }

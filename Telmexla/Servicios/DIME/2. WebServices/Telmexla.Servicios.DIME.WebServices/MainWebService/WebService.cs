@@ -1683,6 +1683,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return mecService.ListaCorreosPorId(IdLista);
 
         }
+        public MecTipoAlarmas ListaALarmasPorId(decimal IdAlarma)
+        {
+            MecService mecService = new MecService();
+            return mecService.ListaALarmasPorId(IdAlarma);
+        }
         #endregion
 
 

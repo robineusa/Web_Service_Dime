@@ -145,6 +145,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             MecBusiness mecBusiness = new MecBusiness();
             return mecBusiness.ListaCorreosPorId(IdLista);
         }
-
+        public MecTipoAlarmas ListaALarmasPorId(decimal IdAlarma)
+        {
+            MecBusiness mecBusiness = new MecBusiness();
+            return mecBusiness.ListaALarmasPorId(IdAlarma);
+        }
         }
 }
