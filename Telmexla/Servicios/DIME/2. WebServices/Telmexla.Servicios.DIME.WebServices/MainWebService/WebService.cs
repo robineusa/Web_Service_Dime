@@ -1567,10 +1567,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MecService mecService = new MecService();
             return mecService.ListasCorreosMec(IdLinea);
         }
-        public List<MecTipoAlarmas> ListaTipoAlarmasMec()
+        public List<MecTipoAlarmas> ListaTipoAlarmasMec(decimal IdProceso)
         {
             MecService mecService = new MecService();
-            return mecService.ListaTipoAlarmasMec();
+            return mecService.ListaTipoAlarmasMec(IdProceso);
         }
         public MecListasDistribucion DestinatariosMec(int IdLista)
         {

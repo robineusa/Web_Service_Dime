@@ -20,7 +20,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<MecListasDistribucion> ListasCorreosMec(int IdLinea);
         [OperationContract]
-        List<MecTipoAlarmas> ListaTipoAlarmasMec();
+        List<MecTipoAlarmas> ListaTipoAlarmasMec(decimal IdProceso);
         [OperationContract]
         MecListasDistribucion DestinatariosMec(int IdLista);
         [OperationContract]

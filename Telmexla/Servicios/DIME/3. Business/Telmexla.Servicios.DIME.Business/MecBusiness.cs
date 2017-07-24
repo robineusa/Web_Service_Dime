@@ -143,15 +143,17 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
-        public List<MecTipoAlarmas> ListaTipoAlarmasMec()
+        public List<MecTipoAlarmas> ListaTipoAlarmasMec(decimal IdProceso)
         {
             DimeContext dimContext = new DimeContext();
             List<MecTipoAlarmas> result = new List<MecTipoAlarmas>();
             var objetosResult = (from a in dimContext.MecTipoAlarmas
+                                 where a.IdProceso.Equals(IdProceso)
                                  orderby a.NombreAlarma ascending
                                  select new
                                  {
                                      a.IdAlarma,
+                                     a.IdProceso,
                                      a.NombreAlarma
                                  }
                                  ).ToList();
@@ -160,6 +162,7 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 result.Add(new MecTipoAlarmas());
                 result[i].IdAlarma = objetosResult[i].IdAlarma;
+                result[i].IdProceso = objetosResult[i].IdProceso;
                 result[i].NombreAlarma = objetosResult[i].NombreAlarma;
             }
             return result;
@@ -696,6 +699,7 @@ namespace Telmexla.Servicios.DIME.Business
                                  select new
                                  {
                                      a.IdAlarma,
+                                     a.IdProceso,
                                      a.NombreAlarma
                                  }
                                  ).ToList();
@@ -704,6 +708,7 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 result.Add(new MecTipoAlarmas());
                 result[i].IdAlarma = objetosResult[i].IdAlarma;
+                result[i].IdProceso = objetosResult[i].IdProceso;
                 result[i].NombreAlarma = objetosResult[i].NombreAlarma;
             }
             return result;

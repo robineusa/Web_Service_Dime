@@ -15,6 +15,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             HasKey(x => new { x.IdAlarma });
 
             Property(x => x.IdAlarma).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.IdProceso).HasColumnName(@"ID_PROCESO").IsOptional().HasColumnType("numeric");
             Property(x => x.NombreAlarma).HasColumnName(@"NOMBRE_TIPO_ALARMA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
 
         }

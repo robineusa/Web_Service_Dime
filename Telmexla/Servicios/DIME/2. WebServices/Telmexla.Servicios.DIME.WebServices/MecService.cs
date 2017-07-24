@@ -32,10 +32,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             MecBusiness mecBusiness = new MecBusiness();
             return mecBusiness.ListasCorreosMec(IdLinea);
         }
-        public List<MecTipoAlarmas> ListaTipoAlarmasMec()
+        public List<MecTipoAlarmas> ListaTipoAlarmasMec(decimal IdProceso)
         {
             MecBusiness mecBusiness = new MecBusiness();
-            return mecBusiness.ListaTipoAlarmasMec();
+            return mecBusiness.ListaTipoAlarmasMec(IdProceso);
         }
         public MecListasDistribucion DestinatariosMec(int IdLista)
         {
