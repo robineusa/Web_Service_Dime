@@ -79,6 +79,13 @@ namespace Telmexla.Servicios.DIME.Data
             MecTipoAlarmas = new MecTipoAlarmasRepository(this.dimeContext);
             CargaBaseFoxInbound = new CargueBaseFoxInboundRepository(this.dimeContext);
             GestionFoxInbound = new GestionFoxInboundRepository(this.dimeContext);
+            BELSolicitudes = new BELSolicitudesRepository(this.dimeContext);
+            BEMDetalleDeGestion = new BEMDetalleDeGestionRepository(this.dimeContext);
+            BEMDetalleEscalamientos = new BEMDetalleEscalamientosRepository(this.dimeContext);
+            BEMDistribuciones = new BEMDistribucionesRepository(this.dimeContext);
+            BEMRazonMalEscalamiento = new BEMRazonMalEscalamientoRepository(this.dimeContext);
+            BEMTipoDeEscalamientos = new BEMTipoDeEscalamientosRepository(this.dimeContext);
+            BEPSolicitudes = new BEPSolicitudesRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -345,6 +352,34 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IGestionFoxInboundRepository GestionFoxInbound
+        {
+            get; private set;
+        }
+        public IBELSolicitudesRepository BELSolicitudes
+        {
+            get; private set;
+        }
+        public IBEMDetalleDeGestionRepository BEMDetalleDeGestion
+        {
+            get; private set;
+        }
+        public IBEMDetalleEscalamientosRepository BEMDetalleEscalamientos
+        {
+            get; private set;
+        }
+        public IBEMDistribucionesRepository BEMDistribuciones
+        {
+            get; private set;
+        }
+        public IBEMRazonMalEscalamientoRepository BEMRazonMalEscalamiento
+        {
+            get; private set;
+        }
+        public IBEMTipoDeEscalamientosRepository BEMTipoDeEscalamientos
+        {
+            get; private set;
+        }
+        public IBEPSolicitudesRepository BEPSolicitudes
         {
             get; private set;
         }

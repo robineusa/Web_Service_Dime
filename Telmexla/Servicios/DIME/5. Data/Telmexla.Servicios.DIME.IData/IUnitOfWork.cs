@@ -72,7 +72,13 @@ namespace Telmexla.Servicios.DIME.IData
         IMecTipoAlarmasRepository MecTipoAlarmas { get; }
         ICargueBaseFoxInboundRepository CargaBaseFoxInbound { get; }
         IGestionFoxInboundRepository GestionFoxInbound { get; }
-
+        IBELSolicitudesRepository BELSolicitudes { get; }
+        IBEMDetalleDeGestionRepository BEMDetalleDeGestion { get; }
+        IBEMDetalleEscalamientosRepository BEMDetalleEscalamientos { get; }
+        IBEMDistribucionesRepository BEMDistribuciones { get; }
+        IBEMRazonMalEscalamientoRepository BEMRazonMalEscalamiento { get; }
+        IBEMTipoDeEscalamientosRepository BEMTipoDeEscalamientos { get; }
+        IBEPSolicitudesRepository BEPSolicitudes { get; }
 
         int Complete();
     }

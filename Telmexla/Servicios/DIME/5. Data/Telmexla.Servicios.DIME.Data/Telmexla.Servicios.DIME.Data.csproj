@@ -57,6 +57,13 @@
     <Compile Include="AccesoRepository.cs" />
     <Compile Include="ActivacionClaroVideoRepository.cs" />
     <Compile Include="BalaceScoreCardRepository.cs" />
+    <Compile Include="BELSolicitudesRepository.cs" />
+    <Compile Include="BEMDetalleDeGestionRepository.cs" />
+    <Compile Include="BEMDetalleEscalamientosRepository.cs" />
+    <Compile Include="BEMDistribucionesRepository.cs" />
+    <Compile Include="BEMRazonMalEscalamientoRepository.cs" />
+    <Compile Include="BEMTipoDeEscalamientosRepository.cs" />
+    <Compile Include="BEPSolicitudesRepository.cs" />
     <Compile Include="BlendingFueraNivelRepository.cs" />
     <Compile Include="CambioEstratoRepository.cs" />
     <Compile Include="CargueBaseFoxInboundRepository.cs" />
@@ -64,6 +71,13 @@
     <Compile Include="Configuration\ActivacionClaroVideoConfiguration.cs" />
     <Compile Include="Configuration\BalanceScoreCardConfiguration.cs" />
     <Compile Include="Configuration\BasePersonalHoloConfiguration.cs" />
+    <Compile Include="Configuration\BELSolicitudesConfiguration.cs" />
+    <Compile Include="Configuration\BEMDetalleDeEscalamientosConfiguration.cs" />
+    <Compile Include="Configuration\BEMDetalleDeGestionConfiguration.cs" />
+    <Compile Include="Configuration\BEMDistribucionesConfiguration.cs" />
+    <Compile Include="Configuration\BEMRazonMalEscalamientoConfiguration.cs" />
+    <Compile Include="Configuration\BEMTipoDeEscalamientosConfiguration.cs" />
+    <Compile Include="Configuration\BEPSolicitudesConfiguration.cs" />
     <Compile Include="Configuration\BlendingFueraNivelConfiguration.cs" />
     <Compile Include="Configuration\CambioEstratoConfiguration.cs" />
     <Compile Include="Configuration\CargueBaseFoxInboundConfiguration.cs" />

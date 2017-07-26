@@ -100,6 +100,13 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<CcBaseMejoramiento> CcBaseMejoramientoes { get; set; } // TBL_CC_BASE_MEJORAMIENTO
         public System.Data.Entity.DbSet<CcGestionResidencialPredictivo> CcGestionResidencialPredictivoes { get; set; } // TBL_CC_GESTION_RESIDENCIAL_PREDICTIVO
         public System.Data.Entity.DbSet<CcResidencialPredictivoInfo> CcResidencialPredictivoInfoes { get; set; } // TBL_CC_RESIDENCIAL_PREDICTIVO_INFO
+        public System.Data.Entity.DbSet<BELSolicitudes> BELSolicitudes { get; set; }
+        public System.Data.Entity.DbSet<BEMDetalleDeGestion> BEMDetalleDeGestion { get; set; }
+        public System.Data.Entity.DbSet<BEMDetalleEscalamientos> BEMDetalleEscalamientos { get; set; }
+        public System.Data.Entity.DbSet<BEMDistribuciones> BEMDistribuciones { get; set; }
+        public System.Data.Entity.DbSet<BEMRazonMalEscalamiento> BEMRazonMalEscalamiento { get; set; }
+        public System.Data.Entity.DbSet<BEMTipoDeEscalamientos> BEMTipoDeEscalamientos { get; set; }
+        public System.Data.Entity.DbSet<BEPSolicitudes> BEPSolicitudes { get; set; }
 
         static DimeContext()
         {
@@ -232,6 +239,13 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CcBaseMejoramientoConfiguration());
             modelBuilder.Configurations.Add(new CcGestionResidencialPredictivoConfiguration());
             modelBuilder.Configurations.Add(new CcResidencialPredictivoInfoConfiguration());
+            modelBuilder.Configurations.Add(new BELSolicitudesConfiguration());
+            modelBuilder.Configurations.Add(new BEMDetalleDeGestionConfiguration());
+            modelBuilder.Configurations.Add(new BEMDetalleDeEscalamientosConfiguration());
+            modelBuilder.Configurations.Add(new BEMDistribucionesConfiguration());
+            modelBuilder.Configurations.Add(new BEMRazonMalEscalamientoConfiguration());
+            modelBuilder.Configurations.Add(new BEMTipoDeEscalamientosConfiguration());
+            modelBuilder.Configurations.Add(new BEPSolicitudesConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -317,6 +331,13 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CcBaseMejoramientoConfiguration(schema));
             modelBuilder.Configurations.Add(new CcGestionResidencialPredictivoConfiguration(schema));
             modelBuilder.Configurations.Add(new CcResidencialPredictivoInfoConfiguration(schema));
+            modelBuilder.Configurations.Add(new BELSolicitudesConfiguration(schema));
+            modelBuilder.Configurations.Add(new BEMDetalleDeGestionConfiguration(schema));
+            modelBuilder.Configurations.Add(new BEMDetalleDeEscalamientosConfiguration(schema));
+            modelBuilder.Configurations.Add(new BEMDistribucionesConfiguration(schema));
+            modelBuilder.Configurations.Add(new BEMRazonMalEscalamientoConfiguration(schema));
+            modelBuilder.Configurations.Add(new BEMTipoDeEscalamientosConfiguration(schema));
+            modelBuilder.Configurations.Add(new BEPSolicitudesConfiguration(schema));
             return modelBuilder;
         }
 

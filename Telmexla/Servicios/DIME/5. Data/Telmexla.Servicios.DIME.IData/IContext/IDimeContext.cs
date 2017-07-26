@@ -97,6 +97,14 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<CcBaseMejoramiento> CcBaseMejoramientoes { get; set; } // TBL_CC_BASE_MEJORAMIENTO
         System.Data.Entity.DbSet<CcGestionResidencialPredictivo> CcGestionResidencialPredictivoes { get; set; } // TBL_CC_GESTION_RESIDENCIAL_PREDICTIVO
         System.Data.Entity.DbSet<CcResidencialPredictivoInfo> CcResidencialPredictivoInfoes { get; set; } // TBL_CC_RESIDENCIAL_PREDICTIVO_INFO
+        System.Data.Entity.DbSet<BELSolicitudes> BELSolicitudes { get; set; }
+        System.Data.Entity.DbSet<BEMDetalleDeGestion> BEMDetalleDeGestion { get; set; }
+        System.Data.Entity.DbSet<BEMDetalleEscalamientos> BEMDetalleEscalamientos { get; set; }
+        System.Data.Entity.DbSet<BEMDistribuciones> BEMDistribuciones { get; set; }
+        System.Data.Entity.DbSet<BEMRazonMalEscalamiento> BEMRazonMalEscalamiento { get; set; }
+        System.Data.Entity.DbSet<BEMTipoDeEscalamientos> BEMTipoDeEscalamientos { get; set; }
+        System.Data.Entity.DbSet<BEPSolicitudes> BEPSolicitudes { get; set; }
+
 
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();

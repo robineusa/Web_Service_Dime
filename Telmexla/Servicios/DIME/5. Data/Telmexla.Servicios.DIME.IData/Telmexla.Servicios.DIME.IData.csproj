@@ -57,6 +57,13 @@
     <Compile Include="IAccesoRepository.cs" />
     <Compile Include="IActivacionClaroVideoRepository.cs" />
     <Compile Include="IBalanceScoreCardRepository.cs" />
+    <Compile Include="IBELSolicitudesRepository.cs" />
+    <Compile Include="IBEMDetalleDeGestionRepository.cs" />
+    <Compile Include="IBEMDetalleEscalamientosRepository.cs" />
+    <Compile Include="IBEMDistribucionesRepository.cs" />
+    <Compile Include="IBEMRazonMalEscalamientoRepository.cs" />
+    <Compile Include="IBEMTipoDeEscalamientosRepository.cs" />
+    <Compile Include="IBEPSolicitudesRepository.cs" />
     <Compile Include="IBlendingFueraNivelRepository.cs" />
     <Compile Include="ICambioEstratoRepository.cs" />
     <Compile Include="ICargueBaseFoxInboundRepository.cs" />
