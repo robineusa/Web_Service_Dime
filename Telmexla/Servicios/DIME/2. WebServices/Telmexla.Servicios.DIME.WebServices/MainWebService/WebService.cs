@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService
     {
 
 
@@ -1696,6 +1696,46 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             CierreCicloService cierreCicloServ = new CierreCicloService();
             return cierreCicloServ.ListaResidencialPredictivoDeCuenta(cuenta);
+        }
+        #endregion
+
+        #region BackElite
+        public void RegistrarSolicitud(BEPSolicitudes Solicitud)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            backeliteservice.RegistrarSolicitud(Solicitud);
+        }
+        public void ActualizaSolicitud(BEPSolicitudes Solicitud)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            backeliteservice.ActualizaSolicitud(Solicitud);
+        }
+        public List<BEMTipoDeEscalamientos> ListaTipoDeEscalamientos()
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ListaTipoDeEscalamientos();
+
+        }
+        public List<BEMDetalleEscalamientos> ListaDetalleDeEscalamientos(decimal IdTipo)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ListaDetalleDeEscalamientos(IdTipo);
+        }
+        public List<BEMRazonMalEscalamiento> ListaRazonesMalEscalamiento(decimal IdTipo)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ListaRazonesMalEscalamiento(IdTipo);
+        }
+        public List<BEMDetalleDeGestion> ListaDetallesDeGestion(decimal IdTipo)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ListaDetallesDeGestion(IdTipo);
+
+        }
+        public BEMDetalleDeGestion DetalleGestionPorId(decimal IdGestion)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.DetalleGestionPorId(IdGestion);
         }
         #endregion
     }

@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="ActivacionClaroVideoBusiness.cs" />
     <Compile Include="ArbolesDeTipificacion.cs" />
+    <Compile Include="BackEliteBusiness.cs" />
     <Compile Include="BalanceScoreCardBusiness.cs" />
     <Compile Include="BlendingBusiness.cs" />
     <Compile Include="CierreCicloBusiness.cs" />

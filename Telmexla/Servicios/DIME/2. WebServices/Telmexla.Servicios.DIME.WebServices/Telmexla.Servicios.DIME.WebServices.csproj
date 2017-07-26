@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="ActivacionClaroVideoService.cs" />
     <Compile Include="ActivacionSiembraHDService.cs" />
+    <Compile Include="BackEliteService.cs" />
     <Compile Include="BalanceScoreCardService.cs" />
     <Compile Include="BlendingService.cs" />
     <Compile Include="CasosAdminService.cs" />
