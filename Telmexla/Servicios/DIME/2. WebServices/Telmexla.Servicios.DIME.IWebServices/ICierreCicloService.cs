@@ -15,6 +15,12 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<DatoConsultaCCResidencialPredictivo> ListaResidencialPredictivoDeCuenta(float cuenta);
 
+        [OperationContract]
+        CcResidencialPredictivoInfo GetResidencialPredictivoInfoPorId(int id);
+
+
+        [OperationContract]
+        CcBaseMejoramiento RecibirBaseMejoramientoDeResdPredInfo(double cuenta, string problemaEdAMotivo);
 
     }
 }

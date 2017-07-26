@@ -16,5 +16,23 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreCicloBusiness cierreCicloBusi = new CierreCicloBusiness();
            return  cierreCicloBusi.HistorialDeCuentaResidencialPredictivo(cuenta);
         }
+
+        public CcResidencialPredictivoInfo GetResidencialPredictivoInfoPorId(int id)
+        {
+            CierreCicloBusiness cierreCicloBusi = new CierreCicloBusiness();
+            return cierreCicloBusi.RecibirResidencialPredictivoInfoPorId(id);
+        }
+
+        public CcBaseMejoramiento RecibirBaseMejoramientoDeResdPredInfo(double cuenta, string problemaEdAMotivo)
+        {
+            CierreCicloBusiness cierreCicloBusi = new CierreCicloBusiness();
+            DateTime ultimaFechaDeCuenta = cierreCicloBusi.GetUltimaFechaDeCuenta(cuenta, problemaEdAMotivo);
+            return cierreCicloBusiGetBaseMejoramientoDeResdPredInfo(cuenta, problemaEdAMotivo, ultimaFechaDeCuenta);
+        }
+
+        private CcBaseMejoramiento cierreCicloBusiGetBaseMejoramientoDeResdPredInfo(double cuenta, string problemaEdAMotivo, DateTime ultimaFechaDeCuenta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

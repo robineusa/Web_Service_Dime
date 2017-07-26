@@ -40,5 +40,18 @@ namespace Telmexla.Servicios.DIME.Business
 
             return resultado;
         }
+
+        public DateTime GetUltimaFechaDeCuenta(double cuenta, string problemaEdAMotivo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public CcResidencialPredictivoInfo RecibirResidencialPredictivoInfoPorId(int id)
+        {
+            DimeContext dimContext = new DimeContext();
+            CcResidencialPredictivoInfo result = new CcResidencialPredictivoInfo();
+            result = dimContext.CcResidencialPredictivoInfoes.Where(c => c.Id == id).FirstOrDefault();
+            return result;
+        }
     }
 }

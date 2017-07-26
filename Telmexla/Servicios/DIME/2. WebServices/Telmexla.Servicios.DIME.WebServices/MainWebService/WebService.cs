@@ -1697,6 +1697,18 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreCicloService cierreCicloServ = new CierreCicloService();
             return cierreCicloServ.ListaResidencialPredictivoDeCuenta(cuenta);
         }
+
+        public CcResidencialPredictivoInfo GetResidencialPredictivoInfoPorId(int id)
+        {
+            CierreCicloService cierreCicloServ = new CierreCicloService();
+            return cierreCicloServ.GetResidencialPredictivoInfoPorId(id);
+        }
+
+        public CcBaseMejoramiento RecibirBaseMejoramientoDeResdPredInfo(double cuenta, string problemaEdAMotivo)
+        {
+            CierreCicloService cierreCicloServ = new CierreCicloService();
+            return cierreCicloServ.RecibirBaseMejoramientoDeResdPredInfo(cuenta, problemaEdAMotivo);
+        }
         #endregion
 
         #region BackElite
