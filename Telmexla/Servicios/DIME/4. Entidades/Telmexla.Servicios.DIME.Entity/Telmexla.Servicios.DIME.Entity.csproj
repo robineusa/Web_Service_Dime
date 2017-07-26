@@ -70,6 +70,13 @@
     <Compile Include="BalanceScoreCardCollection.cs" />
     <Compile Include="BasePersonalHolo.cs" />
     <Compile Include="BasePersonalHoloCollection.cs" />
+    <Compile Include="BELSolicitudes.cs" />
+    <Compile Include="BEMDetalleDeGestion.cs" />
+    <Compile Include="BEMDetalleEscalamientos.cs" />
+    <Compile Include="BEMDistribuciones.cs" />
+    <Compile Include="BEMRazonMalEscalamiento.cs" />
+    <Compile Include="BEMTipoDeEscalamientos.cs" />
+    <Compile Include="BEPSolicitudes.cs" />
     <Compile Include="BlendingFueraNivel.cs" />
     <Compile Include="CambioEstrato.cs" />
     <Compile Include="CambioEstratoCollection.cs" />
