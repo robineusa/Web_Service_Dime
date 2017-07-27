@@ -42,10 +42,23 @@ namespace Telmexla.Servicios.DIME.Business
             return resultado;
         }
 
-        public void SetGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred)
+        public long SetGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             unitWork.CcGestionResidencialPredictivo.Add(gestionResdPred);
+            unitWork.Complete();
+            unitWork.Dispose();
+            DimeContext dimContext = new DimeContext();
+            CcResidencialPredictivoInfo gestionInfo = new CcResidencialPredictivoInfo
+            {
+                Id = Convert.ToInt32(gestionResdPred.IdResdPredInfo),
+                EstadoInicial = gestionResdPred.PersisteFalla
+            };
+            dimContext.CcResidencialPredictivoInfoes.Attach(gestionInfo);
+            var entry = dimContext.Entry(gestionInfo);
+            entry.Property(e => e.EstadoInicial).IsModified = true;
+            dimContext.SaveChanges();
+            return gestionResdPred.Id;
         }
 
         public CcBaseMejoramiento GetBaseMejoramientoDeResdPredInfo(double cuenta, string problemaEdAMotivo, DateTime ultimaFechaDeCuenta)

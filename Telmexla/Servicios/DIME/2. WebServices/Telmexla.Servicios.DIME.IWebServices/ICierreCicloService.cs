@@ -23,7 +23,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         CcBaseMejoramiento RecibirBaseMejoramientoDeResdPredInfo(double cuenta, string problemaEdAMotivo);
 
         [OperationContract]
-        void IngresarGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred);
+        long IngresarGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred);
 
     }
 }

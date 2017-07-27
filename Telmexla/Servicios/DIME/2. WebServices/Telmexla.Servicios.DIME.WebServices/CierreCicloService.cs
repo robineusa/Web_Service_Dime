@@ -30,10 +30,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             return cierreCicloBusi.GetBaseMejoramientoDeResdPredInfo(cuenta, problemaEdAMotivo, ultimaFechaDeCuentaBaseMejora);
         }
 
-        public void IngresarGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred)
+        public long IngresarGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred)
         {
             CierreCicloBusiness cierreCicloBusi = new CierreCicloBusiness();
-            cierreCicloBusi.SetGestionResidencialPredictivo(gestionResdPred);
+           return cierreCicloBusi.SetGestionResidencialPredictivo(gestionResdPred);
         }
 
 

@@ -1711,10 +1711,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
 
 
-        public void IngresarGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred)
+        public long IngresarGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred)
         {
             CierreCicloService cierreCicloServ = new CierreCicloService();
-            cierreCicloServ.IngresarGestionResidencialPredictivo(gestionResdPred);
+          return  cierreCicloServ.IngresarGestionResidencialPredictivo(gestionResdPred);
         }
         #endregion
 
