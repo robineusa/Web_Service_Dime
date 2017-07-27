@@ -114,6 +114,7 @@
     <Compile Include="Configuration\MecTipoAlarmasConfiguration.cs" />
     <Compile Include="Configuration\MejorasTecnicasConfiguration.cs" />
     <Compile Include="Configuration\MultiPlayRegistroConfiguration.cs" />
+    <Compile Include="Configuration\NodosZonificadosConfiguration.cs" />
     <Compile Include="Configuration\NotasTrasladoConfiguration.cs" />
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />
     <Compile Include="Configuration\RazonIngresoSoporteConfiguration.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="MejorasTecnicasRepository.cs" />
     <Compile Include="ModosLoginRepository.cs" />
     <Compile Include="MultiPlayRegistroRepository.cs" />
+    <Compile Include="NodosZonificadosRepository.cs" />
     <Compile Include="NotasIngresoRepository.cs" />
     <Compile Include="NotasTrasladoRepository.cs" />
     <Compile Include="NotificacionesBuenServicioRepository.cs" />

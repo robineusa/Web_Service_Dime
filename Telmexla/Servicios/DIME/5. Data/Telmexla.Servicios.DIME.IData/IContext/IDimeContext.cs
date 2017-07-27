@@ -104,6 +104,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<BEMRazonMalEscalamiento> BEMRazonMalEscalamiento { get; set; }
         System.Data.Entity.DbSet<BEMTipoDeEscalamientos> BEMTipoDeEscalamientos { get; set; }
         System.Data.Entity.DbSet<BEPSolicitudes> BEPSolicitudes { get; set; }
+        System.Data.Entity.DbSet<NodosZonificados> NodosZonificados { get; set; }
 
 
         int SaveChanges();

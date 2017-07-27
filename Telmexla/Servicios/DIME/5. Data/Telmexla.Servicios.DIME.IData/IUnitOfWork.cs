@@ -79,6 +79,7 @@ namespace Telmexla.Servicios.DIME.IData
         IBEMRazonMalEscalamientoRepository BEMRazonMalEscalamiento { get; }
         IBEMTipoDeEscalamientosRepository BEMTipoDeEscalamientos { get; }
         IBEPSolicitudesRepository BEPSolicitudes { get; }
+        INodosZonificadosRepository NodosZonificados { get; }
         ICcGestionResidencialPredictivoRepository CcGestionResidencialPredictivo { get; }
         int Complete();
     }

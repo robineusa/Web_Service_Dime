@@ -64,6 +64,16 @@ namespace Telmexla.Servicios.DIME.WebServices
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
             return backelitebusiness.ApartarCuentadeSolcitudBackElita(Cedula,TipoTrabajo,noRecursividad);
         }
+        public NodosZonificados TraerNodoPorId(string idNodo)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.TraerNodoPorId(idNodo);
+        }
+        public BEMTipoDeEscalamientos TipoEscalamientoPorNombre(string NombreTipoEs)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.TipoEscalamientoPorNombre(NombreTipoEs);
+        }
 
     }
 }

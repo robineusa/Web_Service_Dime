@@ -270,6 +270,18 @@ namespace Telmexla.Servicios.DIME.Business
                 return ApartarCuentadeSolcitudBackElita(Cedula, TipoTrabajo, noRecursividad);
             }
         }
+        public NodosZonificados TraerNodoPorId(string idNodo)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            NodosZonificados Nodo = unitWork.NodosZonificados.Find(c => c.Nodo.Equals(idNodo)).FirstOrDefault();
+            return Nodo;
+        }
+        public BEMTipoDeEscalamientos TipoEscalamientoPorNombre(string NombreTipoEs)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BEMTipoDeEscalamientos tipoescalamiento = unitWork.BEMTipoDeEscalamientos.Find(c => c.TipoEscalamiento.Equals(NombreTipoEs)).FirstOrDefault();
+            return tipoescalamiento;
+        }
     }
 }
 

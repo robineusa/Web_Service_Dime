@@ -1771,6 +1771,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BackEliteService backeliteservice = new BackEliteService();
             return backeliteservice.ApartarCuentadeSolcitudBackElita(Cedula,TipoTrabajo,noRecursividad);
         }
+        public NodosZonificados TraerNodoPorId(string idNodo)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.TraerNodoPorId(idNodo);
+        }
+        public BEMTipoDeEscalamientos TipoEscalamientoPorNombre(string NombreTipoEs)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.TipoEscalamientoPorNombre(NombreTipoEs);
+        }
         #endregion
     }
 }
