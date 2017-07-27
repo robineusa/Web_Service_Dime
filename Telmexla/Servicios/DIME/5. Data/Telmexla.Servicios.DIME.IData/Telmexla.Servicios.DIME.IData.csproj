@@ -122,6 +122,7 @@
     <Compile Include="IMejorasTecnicasRepository.cs" />
     <Compile Include="IModosLoginRepository.cs" />
     <Compile Include="IMultiPlayRegistroRepository.cs" />
+    <Compile Include="INodosZonificadosRepository.cs" />
     <Compile Include="INotasIngresoRepository.cs" />
     <Compile Include="INotasTrasladoRepository.cs" />
     <Compile Include="INotificacionesBuenServicioRepository.cs" />

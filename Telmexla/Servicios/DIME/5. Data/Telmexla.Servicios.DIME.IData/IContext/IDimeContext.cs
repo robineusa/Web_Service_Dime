@@ -104,6 +104,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<BEMRazonMalEscalamiento> BEMRazonMalEscalamiento { get; set; }
         System.Data.Entity.DbSet<BEMTipoDeEscalamientos> BEMTipoDeEscalamientos { get; set; }
         System.Data.Entity.DbSet<BEPSolicitudes> BEPSolicitudes { get; set; }
+        System.Data.Entity.DbSet<NodosZonificados> NodosZonificados { get; set; }
 
 
         int SaveChanges();
@@ -164,7 +165,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
          System.Collections.Generic.List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino(string aliado, out int procResult);
         System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaBlendingFormularioDestinoReturnViewModel>> ConsultaBlendingFormularioDestinoAsync(string aliado);
 
-
+        //apartar cuenta de gestion back elite
+        int ApartarCuentaGestionBackElite(decimal Cedula, string TipoTrabajo);
 
     }
 

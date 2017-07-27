@@ -7,11 +7,12 @@ using Telmexla.Servicios.DIME.Data.Context;
 using Telmexla.Servicios.DIME.Entity;
 using Telmexla.Servicios.DIME.IData;
 
+
 namespace Telmexla.Servicios.DIME.Data
 {
-    public class BEPSolicitudesRepository: Repository<BEPSolicitudes>, IBEPSolicitudesRepository
+    public class NodosZonificadosRepository: Repository<NodosZonificados>, INodosZonificadosRepository
     {
-        public BEPSolicitudesRepository(DimeContext context) : base(context)
+        public NodosZonificadosRepository(DimeContext context) : base(context)
         {
 
 
@@ -20,11 +21,6 @@ namespace Telmexla.Servicios.DIME.Data
         public DimeContext dimeContext
         {
             get { return Context as DimeContext; }
-        }
-        public bool ApartarCuentaGestionBackElite(decimal Cedula, string TipoTrabajo)
-        {
-            dimeContext.ApartarCuentaGestionBackElite(Cedula, TipoTrabajo);
-            return true;
         }
     }
 }

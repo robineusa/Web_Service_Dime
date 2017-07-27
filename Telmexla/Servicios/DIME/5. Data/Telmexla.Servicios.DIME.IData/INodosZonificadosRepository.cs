@@ -7,8 +7,7 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IData
 {
-    public interface IBEPSolicitudesRepository: IRepository<BEPSolicitudes>
+    public interface INodosZonificadosRepository: IRepository<NodosZonificados>
     {
-        bool ApartarCuentaGestionBackElite(decimal Decula, string TipoTrabajo);
     }
 }
