@@ -86,6 +86,7 @@ namespace Telmexla.Servicios.DIME.Data
             BEMRazonMalEscalamiento = new BEMRazonMalEscalamientoRepository(this.dimeContext);
             BEMTipoDeEscalamientos = new BEMTipoDeEscalamientosRepository(this.dimeContext);
             BEPSolicitudes = new BEPSolicitudesRepository(this.dimeContext);
+            CcGestionResidencialPredictivo = new CcGestionResidencialPredictivoRepository(this.dimeContext);
         }
         public IIngresoSoporteRepository ingresosSoporte
         {
@@ -380,6 +381,11 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IBEPSolicitudesRepository BEPSolicitudes
+        {
+            get; private set;
+        }
+
+        public ICcGestionResidencialPredictivoRepository CcGestionResidencialPredictivo
         {
             get; private set;
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Telmexla.Servicios.DIME.Data;
 using Telmexla.Servicios.DIME.Data.Context;
 using Telmexla.Servicios.DIME.Entity;
 
@@ -41,9 +42,25 @@ namespace Telmexla.Servicios.DIME.Business
             return resultado;
         }
 
-        public DateTime GetUltimaFechaDeCuenta(double cuenta, string problemaEdAMotivo)
+        public void SetGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred)
         {
-            throw new NotImplementedException();
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.CcGestionResidencialPredictivo.Add(gestionResdPred);
+        }
+
+        public CcBaseMejoramiento GetBaseMejoramientoDeResdPredInfo(double cuenta, string problemaEdAMotivo, DateTime ultimaFechaDeCuenta)
+        {
+            DimeContext dimContext = new DimeContext();
+            CcBaseMejoramiento resultado = dimContext.CcBaseMejoramientoes.Where(c => c.Cuenta == cuenta
+                                   && c.Motivo.Equals(problemaEdAMotivo) && c.Fecha == ultimaFechaDeCuenta).FirstOrDefault();
+            return resultado;
+        }
+
+        public DateTime GetUltimaFechaDeCuentaBaseMejora(double cuenta, string problemaEdAMotivo)
+        {
+            DimeContext dimContext = new DimeContext();
+            DateTime? resultado = dimContext.CcBaseMejoramientoes.Where(c=>c.Cuenta==cuenta && c.Motivo.Equals(problemaEdAMotivo)).OrderByDescending(x => x.Fecha).First().Fecha;
+            return Convert.ToDateTime(resultado);
         }
 
         public CcResidencialPredictivoInfo RecibirResidencialPredictivoInfoPorId(int id)
@@ -53,5 +70,7 @@ namespace Telmexla.Servicios.DIME.Business
             result = dimContext.CcResidencialPredictivoInfoes.Where(c => c.Id == id).FirstOrDefault();
             return result;
         }
+
+  
     }
 }
