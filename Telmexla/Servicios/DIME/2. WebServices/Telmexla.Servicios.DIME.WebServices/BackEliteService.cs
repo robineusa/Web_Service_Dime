@@ -48,5 +48,22 @@ namespace Telmexla.Servicios.DIME.WebServices
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
             return backelitebusiness.DetalleGestionPorId(IdGestion);
         }
+        public bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ValidarCuentaEnBackElite(CuentaCliente, Ot);
+
+        }
+        public BEPSolicitudes ConsultarSolicitudPorId(decimal IdSolicitud)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ConsultarSolicitudPorId(IdSolicitud);
+        }
+        public BEPSolicitudes ApartarCuentadeSolcitudBackElita(decimal Cedula, string TipoTrabajo, int noRecursividad)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ApartarCuentadeSolcitudBackElita(Cedula,TipoTrabajo,noRecursividad);
+        }
+
     }
 }

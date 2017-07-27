@@ -837,8 +837,24 @@ namespace Telmexla.Servicios.DIME.Data.Context
             return procResultData;
         }
 
+        //procedimiento apartar cuenta back elite
 
+        public int ApartarCuentaGestionBackElite(decimal Cedula, string TipoTrabajo)
+        {
+            var cedulaParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario", SqlDbType = System.Data.SqlDbType.Decimal, Direction = System.Data.ParameterDirection.Input, Value = Cedula, Precision = 18, Scale = 0 };
+            if (cedulaParam.Value== null)
+                cedulaParam.Value = System.DBNull.Value;
 
+            var TipoTrabajoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@TipoTrabajo", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = TipoTrabajo, Size = 255 };
+            if (TipoTrabajoParam.Value == null)
+                TipoTrabajoParam.Value = System.DBNull.Value;
+            
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Apartar_Cuenta_Back_Elite] @Usuario, @TipoTrabajo", cedulaParam, TipoTrabajoParam, procResultParam);
+
+            return (int)procResultParam.Value;
+        }
 
 
 

@@ -5,8 +5,8 @@ namespace Telmexla.Servicios.DIME.Entity
     public class BEPSolicitudes
     {
         public decimal IdSolicitud { get; set; }
-        public decimal CuentaCliente { get; set; }
-        public decimal LlsOt { get; set; }
+        public decimal? CuentaCliente { get; set; }
+        public decimal? LlsOt { get; set; }
         public string TipoDeSolicitud { get; set; }
         public string DetalleDeSolicitud { get; set; }
         public System.DateTime? FechaDeSolicitud { get; set; }

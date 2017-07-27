@@ -242,6 +242,34 @@ namespace Telmexla.Servicios.DIME.Business
             BEMDetalleDeGestion gestion = unitWork.BEMDetalleDeGestion.Find(c => c.IdGestion == IdGestion).FirstOrDefault();
             return gestion;
         }
+        public bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            var resultado = unitWork.BEPSolicitudes.Find(c => c.CuentaCliente == CuentaCliente && c.LlsOt == Ot).ToList();
+
+            if (resultado.Count() > 0) { return true; }
+            else { return false; }
+        }
+        public BEPSolicitudes ConsultarSolicitudPorId(decimal IdSolicitud)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BEPSolicitudes solicitud = unitWork.BEPSolicitudes.Find(c => c.IdSolicitud == IdSolicitud).FirstOrDefault();
+            return solicitud;
+        }
+        public BEPSolicitudes ApartarCuentadeSolcitudBackElita(decimal Cedula, string TipoTrabajo,int noRecursividad)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            List < decimal > solicitud = unitWork.BEPSolicitudes.Find(c => c.UsuarioGestionando == Cedula).Select(x => x.IdSolicitud).ToList();
+            if (solicitud.Count >0) {
+                BEPSolicitudes solicitudencontrada = new BEPSolicitudes();
+                return ConsultarSolicitudPorId(solicitud[0]);
+            } else {
+                unitWork.BEPSolicitudes.ApartarCuentaGestionBackElite(Cedula, TipoTrabajo);
+                noRecursividad++;
+                if (noRecursividad > 1) return null;
+                return ApartarCuentadeSolcitudBackElita(Cedula, TipoTrabajo, noRecursividad);
+            }
+        }
     }
 }
 

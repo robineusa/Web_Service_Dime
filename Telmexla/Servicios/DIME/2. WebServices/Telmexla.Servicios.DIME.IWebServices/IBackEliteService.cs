@@ -25,6 +25,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<BEMDetalleDeGestion> ListaDetallesDeGestion(decimal IdTipo);
         [OperationContract]
         BEMDetalleDeGestion DetalleGestionPorId(decimal IdGestion);
-
+        [OperationContract]
+        bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot);
+        [OperationContract]
+        BEPSolicitudes ConsultarSolicitudPorId(decimal IdSolicitud);
+        [OperationContract]
+        BEPSolicitudes ApartarCuentadeSolcitudBackElita(decimal Cedula, string TipoTrabajo, int noRecursividad);
     }
 }

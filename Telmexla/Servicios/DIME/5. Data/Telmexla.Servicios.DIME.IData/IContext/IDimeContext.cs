@@ -164,7 +164,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
          System.Collections.Generic.List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino(string aliado, out int procResult);
         System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaBlendingFormularioDestinoReturnViewModel>> ConsultaBlendingFormularioDestinoAsync(string aliado);
 
-
+        //apartar cuenta de gestion back elite
+        int ApartarCuentaGestionBackElite(decimal Cedula, string TipoTrabajo);
 
     }
 
