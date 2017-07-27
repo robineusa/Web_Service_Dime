@@ -108,6 +108,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<BEMTipoDeEscalamientos> BEMTipoDeEscalamientos { get; set; }
         public System.Data.Entity.DbSet<BEPSolicitudes> BEPSolicitudes { get; set; }
         public System.Data.Entity.DbSet<NodosZonificados> NodosZonificados { get; set; }
+        public System.Data.Entity.DbSet<CcSegundaTipificacion> CcSegundaTipificacions { get; set; }
 
         static DimeContext()
         {
@@ -248,6 +249,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BEMTipoDeEscalamientosConfiguration());
             modelBuilder.Configurations.Add(new BEPSolicitudesConfiguration());
             modelBuilder.Configurations.Add(new NodosZonificadosConfiguration());
+            modelBuilder.Configurations.Add(new CcSegundaTipificacionConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -341,6 +343,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BEMTipoDeEscalamientosConfiguration(schema));
             modelBuilder.Configurations.Add(new BEPSolicitudesConfiguration(schema));
             modelBuilder.Configurations.Add(new NodosZonificadosConfiguration(schema));
+            modelBuilder.Configurations.Add(new CcSegundaTipificacionConfiguration(schema));
             return modelBuilder;
         }
 

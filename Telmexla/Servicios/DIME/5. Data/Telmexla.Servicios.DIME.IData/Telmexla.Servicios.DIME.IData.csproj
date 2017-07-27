@@ -68,6 +68,7 @@
     <Compile Include="ICambioEstratoRepository.cs" />
     <Compile Include="ICargueBaseFoxInboundRepository.cs" />
     <Compile Include="ICcGestionResidencialPredictivoRepository.cs" />
+    <Compile Include="ICcSegundaTipificacionRepository.cs" />
     <Compile Include="ICuentasMejorasTecnicasRepository.cs" />
     <Compile Include="ICuentasSiembraHDRepository.cs" />
     <Compile Include="ICuentasSiguienteMejorOfertaRepository.cs" />

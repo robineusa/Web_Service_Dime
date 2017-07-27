@@ -88,6 +88,11 @@ namespace Telmexla.Servicios.DIME.Data
             BEPSolicitudes = new BEPSolicitudesRepository(this.dimeContext);
             NodosZonificados = new NodosZonificadosRepository(this.dimeContext);
             CcGestionResidencialPredictivo = new CcGestionResidencialPredictivoRepository(this.dimeContext);
+            CcSegundaTipificacion = new CcSegundaTipificacionRepository(this.dimeContext);
+        }
+        public ICcSegundaTipificacionRepository CcSegundaTipificacion
+        {
+            get; private set;
         }
         public IIngresoSoporteRepository ingresosSoporte
         {

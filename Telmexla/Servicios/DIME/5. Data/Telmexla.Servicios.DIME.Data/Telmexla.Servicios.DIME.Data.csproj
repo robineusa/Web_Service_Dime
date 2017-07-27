@@ -68,6 +68,7 @@
     <Compile Include="CambioEstratoRepository.cs" />
     <Compile Include="CargueBaseFoxInboundRepository.cs" />
     <Compile Include="CcGestionResidencialPredictivoRepository.cs" />
+    <Compile Include="CcSegundaTipificacionRepository.cs" />
     <Compile Include="Configuration\ActivacionClaroVideoConfiguration.cs" />
     <Compile Include="Configuration\BalanceScoreCardConfiguration.cs" />
     <Compile Include="Configuration\BasePersonalHoloConfiguration.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Configuration\CcBaseMejoramientoConfiguration.cs" />
     <Compile Include="Configuration\CcGestionResidencialPredictivoConfiguration.cs" />
     <Compile Include="Configuration\CcResidencialPredictivoInfoConfiguration.cs" />
+    <Compile Include="Configuration\CcSegundaTipificacionConfiguration.cs" />
     <Compile Include="Configuration\CuentasMejorasTecnicasConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiguienteMejorOfertaConfiguration.cs" />

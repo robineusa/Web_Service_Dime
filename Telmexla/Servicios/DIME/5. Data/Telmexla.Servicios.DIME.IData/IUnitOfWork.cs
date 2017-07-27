@@ -81,6 +81,7 @@ namespace Telmexla.Servicios.DIME.IData
         IBEPSolicitudesRepository BEPSolicitudes { get; }
         INodosZonificadosRepository NodosZonificados { get; }
         ICcGestionResidencialPredictivoRepository CcGestionResidencialPredictivo { get; }
+        ICcSegundaTipificacionRepository CcSegundaTipificacion { get; }
         int Complete();
     }
 }
