@@ -26,13 +26,18 @@ namespace Telmexla.Servicios.DIME.WebServices
         public CcBaseMejoramiento RecibirBaseMejoramientoDeResdPredInfo(double cuenta, string problemaEdAMotivo)
         {
             CierreCicloBusiness cierreCicloBusi = new CierreCicloBusiness();
-            DateTime ultimaFechaDeCuenta = cierreCicloBusi.GetUltimaFechaDeCuenta(cuenta, problemaEdAMotivo);
-            return cierreCicloBusiGetBaseMejoramientoDeResdPredInfo(cuenta, problemaEdAMotivo, ultimaFechaDeCuenta);
+            DateTime ultimaFechaDeCuentaBaseMejora = cierreCicloBusi.GetUltimaFechaDeCuentaBaseMejora(cuenta, problemaEdAMotivo);
+            return cierreCicloBusi.GetBaseMejoramientoDeResdPredInfo(cuenta, problemaEdAMotivo, ultimaFechaDeCuentaBaseMejora);
         }
 
-        private CcBaseMejoramiento cierreCicloBusiGetBaseMejoramientoDeResdPredInfo(double cuenta, string problemaEdAMotivo, DateTime ultimaFechaDeCuenta)
+        public void IngresarGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred)
         {
-            throw new NotImplementedException();
+            CierreCicloBusiness cierreCicloBusi = new CierreCicloBusiness();
+            cierreCicloBusi.SetGestionResidencialPredictivo(gestionResdPred);
         }
+
+
+
+
     }
 }
