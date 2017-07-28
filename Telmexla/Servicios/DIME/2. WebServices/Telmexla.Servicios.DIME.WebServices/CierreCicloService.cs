@@ -36,6 +36,11 @@ namespace Telmexla.Servicios.DIME.WebServices
            return cierreCicloBusi.SetGestionResidencialPredictivo(gestionResdPred);
         }
 
+        public void IngresarSegundaTipificacion(CcSegundaTipificacion segundaTipifi)
+        {
+            CierreCicloBusiness cierreCicloBusi = new CierreCicloBusiness();
+            cierreCicloBusi.InsertarSegundaTipificacion(segundaTipifi);
+        }
 
 
 
