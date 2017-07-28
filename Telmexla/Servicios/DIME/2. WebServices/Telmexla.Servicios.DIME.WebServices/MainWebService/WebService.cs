@@ -1716,6 +1716,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreCicloService cierreCicloServ = new CierreCicloService();
           return  cierreCicloServ.IngresarGestionResidencialPredictivo(gestionResdPred);
         }
+
+        public void IngresarSegundaTipificacion(CcSegundaTipificacion segundaTipifi)
+        {
+            CierreCicloService cierreCicloServ = new CierreCicloService();
+             cierreCicloServ.IngresarSegundaTipificacion(segundaTipifi);
+        }
         #endregion
 
         #region BackElite

@@ -61,6 +61,13 @@ namespace Telmexla.Servicios.DIME.Business
             return gestionResdPred.Id;
         }
 
+        public void InsertarSegundaTipificacion(CcSegundaTipificacion segundaTipifi)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.CcSegundaTipificacion.Add(segundaTipifi);
+            unitWork.Complete();
+        }
+
         public CcBaseMejoramiento GetBaseMejoramientoDeResdPredInfo(double cuenta, string problemaEdAMotivo, DateTime ultimaFechaDeCuenta)
         {
             DimeContext dimContext = new DimeContext();

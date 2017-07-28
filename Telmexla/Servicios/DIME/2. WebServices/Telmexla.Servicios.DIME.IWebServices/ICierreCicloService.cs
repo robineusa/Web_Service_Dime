@@ -25,5 +25,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         long IngresarGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred);
 
+        [OperationContract]
+        void IngresarSegundaTipificacion(CcSegundaTipificacion segundaTipifi);
+
     }
 }
