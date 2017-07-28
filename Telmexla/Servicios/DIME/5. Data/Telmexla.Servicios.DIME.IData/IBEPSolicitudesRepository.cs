@@ -9,6 +9,6 @@ namespace Telmexla.Servicios.DIME.IData
 {
     public interface IBEPSolicitudesRepository: IRepository<BEPSolicitudes>
     {
-        bool ApartarCuentaGestionBackElite(decimal Decula, string TipoTrabajo);
+        bool ApartarCuentaGestionBackElite(decimal Decula);
     }
 }

@@ -30,10 +30,14 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         BEPSolicitudes ConsultarSolicitudPorId(decimal IdSolicitud);
         [OperationContract]
-        BEPSolicitudes ApartarCuentadeSolcitudBackElita(decimal Cedula, string TipoTrabajo, int noRecursividad);
+        BEPSolicitudes ApartarCuentadeSolcitudBackElita(decimal Cedula, int noRecursividad);
         [OperationContract]
         NodosZonificados TraerNodoPorId(string idNodo);
         [OperationContract]
         BEMTipoDeEscalamientos TipoEscalamientoPorNombre(string NombreTipoEs);
+        [OperationContract]
+        List<BELSolicitudes> ListaInteraccionesSolicitud(decimal IdSolicitud);
+        [OperationContract]
+        List<BEPSolicitudes> ListaSeguimientosAgente(decimal Cedula);
     }
 }

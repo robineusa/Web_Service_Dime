@@ -47,10 +47,12 @@ namespace Telmexla.Servicios.DIME.Business
             SolcitudLog.CuentaCliente = Solicitud.CuentaCliente;
             SolcitudLog.LlsOt = Solicitud.LlsOt;
             SolcitudLog.TipoDeSolicitud = Solicitud.TipoDeSolicitud;
+            SolcitudLog.DetalleDeSolicitud = Solicitud.DetalleDeSolicitud;
             SolcitudLog.FechaDeSolicitud = Solicitud.FechaDeSolicitud;
             SolcitudLog.UsuarioQueSolicita = Solicitud.UsuarioQueSolicita;
             SolcitudLog.NombreUsuarioQueSolicita = Solicitud.NombreUsuarioQueSolicita;
             SolcitudLog.AliadoQueSolicita = Solicitud.AliadoQueSolicita;
+            SolcitudLog.OperacionQueSolicita = Solicitud.OperacionQueSolicita;
             SolcitudLog.FechaUltimaActualizacion = Solicitud.FechaUltimaActualizacion;
             SolcitudLog.UsuarioUltimaActualizacion = Solicitud.UsuarioUltimaActualizacion;
             SolcitudLog.NombreUsuarioUltimaActualizacion = Solicitud.NombreUsuarioUltimaActualizacion;
@@ -73,9 +75,10 @@ namespace Telmexla.Servicios.DIME.Business
         {
             //trae la informacion de los procesos y las listas seleccionadas
             UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
-            Solicitud.TipoDeSolicitud = UnitOfWorkProceso.BEMTipoDeEscalamientos.Get(Convert.ToInt32(Solicitud.TipoDeSolicitud)).TipoEscalamiento;
-            Solicitud.DetalleDeSolicitud = UnitOfWorkProceso.BEMDetalleEscalamientos.Get(Convert.ToInt32(Solicitud.DetalleDeSolicitud)).DetalleEscalamiento;
-            Solicitud.DetalleMalEscalado = UnitOfWorkProceso.BEMRazonMalEscalamiento.Get(Convert.ToInt32(Solicitud.DetalleMalEscalado)).NombreRazonEscalamiento;
+            //Solicitud.TipoDeSolicitud = UnitOfWorkProceso.BEMTipoDeEscalamientos.Get(Convert.ToInt32(Solicitud.TipoDeSolicitud)).TipoEscalamiento;
+            //Solicitud.DetalleDeSolicitud = UnitOfWorkProceso.BEMDetalleEscalamientos.Get(Convert.ToInt32(Solicitud.DetalleDeSolicitud)).DetalleEscalamiento;
+            if (Solicitud.DetalleMalEscalado == "NO APLICA") { } else {
+            Solicitud.DetalleMalEscalado = UnitOfWorkProceso.BEMRazonMalEscalamiento.Get(Convert.ToInt32(Solicitud.DetalleMalEscalado)).NombreRazonEscalamiento; }
             Solicitud.Gestion = UnitOfWorkProceso.BEMDetalleDeGestion.Get(Convert.ToInt32(Solicitud.Gestion)).NombreGestion;
             UnitOfWorkProceso.Complete();
             UnitOfWorkProceso.Dispose();
@@ -83,14 +86,10 @@ namespace Telmexla.Servicios.DIME.Business
             //busca solicitud para actualizar
             UnitOfWork UnitOfWorkSolicitdActualizable = new UnitOfWork(new DimeContext());
             BEPSolicitudes SolicitdActualizable = UnitOfWorkSolicitdActualizable.BEPSolicitudes.Find(c => c.IdSolicitud == Solicitud.IdSolicitud).FirstOrDefault();
-            Solicitud.FechaDeSolicitud = DateTime.Now;
-            Solicitud.FechaUltimaActualizacion = Solicitud.FechaDeSolicitud;
-            Solicitud.UsuarioUltimaActualizacion = Solicitud.UsuarioQueSolicita;
-            Solicitud.NombreUsuarioUltimaActualizacion = Solicitud.NombreUsuarioQueSolicita;
-            
-            SolicitdActualizable.FechaUltimaActualizacion = Solicitud.FechaUltimaActualizacion;
-            SolicitdActualizable.UsuarioUltimaActualizacion = Solicitud.UsuarioUltimaActualizacion;
-            SolicitdActualizable.NombreUsuarioUltimaActualizacion = Solicitud.NombreUsuarioUltimaActualizacion;
+            DateTime Fecha = DateTime.Now;
+            SolicitdActualizable.FechaUltimaActualizacion = Fecha;
+            SolicitdActualizable.UsuarioUltimaActualizacion = Solicitud.UsuarioQueSolicita;
+            SolicitdActualizable.NombreUsuarioUltimaActualizacion = Solicitud.NombreUsuarioQueSolicita;
             SolicitdActualizable.Malescalado = Solicitud.Malescalado;
             SolicitdActualizable.DetalleMalEscalado = Solicitud.DetalleMalEscalado;
             SolicitdActualizable.Gestion = Solicitud.Gestion;
@@ -101,11 +100,15 @@ namespace Telmexla.Servicios.DIME.Business
 
             if (Solicitud.EstadoEscalamiento == "FINALIZADO")
             {
-                SolicitdActualizable.FechaDeFinalizacion = Solicitud.FechaDeSolicitud;
+                SolicitdActualizable.FechaDeFinalizacion = Fecha;
                 SolicitdActualizable.UsuarioQueFinaliza = Solicitud.UsuarioQueSolicita;
                 SolicitdActualizable.NombreUsuarioQueFinaliza = Solicitud.NombreUsuarioQueSolicita;
             }
-
+            if (Solicitud.EstadoEscalamiento == "SEGUIMIENTO")
+            {
+                SolicitdActualizable.UsuarioGestionando = Convert.ToDecimal(Solicitud.UsuarioQueSolicita);
+                
+            }
             UnitOfWorkSolicitdActualizable.Complete();
             UnitOfWorkSolicitdActualizable.Dispose();
 
@@ -117,10 +120,12 @@ namespace Telmexla.Servicios.DIME.Business
             SolcitudLog.CuentaCliente = SolicitdActualizable.CuentaCliente;
             SolcitudLog.LlsOt = SolicitdActualizable.LlsOt;
             SolcitudLog.TipoDeSolicitud = SolicitdActualizable.TipoDeSolicitud;
+            SolcitudLog.DetalleDeSolicitud = SolicitdActualizable.DetalleDeSolicitud;
             SolcitudLog.FechaDeSolicitud = SolicitdActualizable.FechaDeSolicitud;
             SolcitudLog.UsuarioQueSolicita = SolicitdActualizable.UsuarioQueSolicita;
             SolcitudLog.NombreUsuarioQueSolicita = SolicitdActualizable.NombreUsuarioQueSolicita;
             SolcitudLog.AliadoQueSolicita = SolicitdActualizable.AliadoQueSolicita;
+            SolcitudLog.OperacionQueSolicita = SolicitdActualizable.OperacionQueSolicita;
             SolcitudLog.FechaUltimaActualizacion = SolicitdActualizable.FechaUltimaActualizacion;
             SolcitudLog.UsuarioUltimaActualizacion = SolicitdActualizable.UsuarioUltimaActualizacion;
             SolcitudLog.NombreUsuarioUltimaActualizacion = SolicitdActualizable.NombreUsuarioUltimaActualizacion;
@@ -256,18 +261,18 @@ namespace Telmexla.Servicios.DIME.Business
             BEPSolicitudes solicitud = unitWork.BEPSolicitudes.Find(c => c.IdSolicitud == IdSolicitud).FirstOrDefault();
             return solicitud;
         }
-        public BEPSolicitudes ApartarCuentadeSolcitudBackElita(decimal Cedula, string TipoTrabajo,int noRecursividad)
+        public BEPSolicitudes ApartarCuentadeSolcitudBackElita(decimal Cedula,int noRecursividad)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            List < decimal > solicitud = unitWork.BEPSolicitudes.Find(c => c.UsuarioGestionando == Cedula).Select(x => x.IdSolicitud).ToList();
+            List < decimal > solicitud = unitWork.BEPSolicitudes.Find(c => c.UsuarioGestionando == Cedula && c.EstadoEscalamiento.Equals("PENDIENTE")).Select(x => x.IdSolicitud).ToList();
             if (solicitud.Count >0) {
                 BEPSolicitudes solicitudencontrada = new BEPSolicitudes();
                 return ConsultarSolicitudPorId(solicitud[0]);
             } else {
-                unitWork.BEPSolicitudes.ApartarCuentaGestionBackElite(Cedula, TipoTrabajo);
+                unitWork.BEPSolicitudes.ApartarCuentaGestionBackElite(Cedula);
                 noRecursividad++;
                 if (noRecursividad > 1) return null;
-                return ApartarCuentadeSolcitudBackElita(Cedula, TipoTrabajo, noRecursividad);
+                return ApartarCuentadeSolcitudBackElita(Cedula, noRecursividad);
             }
         }
         public NodosZonificados TraerNodoPorId(string idNodo)
@@ -282,6 +287,136 @@ namespace Telmexla.Servicios.DIME.Business
             BEMTipoDeEscalamientos tipoescalamiento = unitWork.BEMTipoDeEscalamientos.Find(c => c.TipoEscalamiento.Equals(NombreTipoEs)).FirstOrDefault();
             return tipoescalamiento;
         }
-    }
+        public List<BELSolicitudes> ListaInteraccionesSolicitud(decimal IdSolicitud)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BELSolicitudes> result = new List<BELSolicitudes>();
+            var objetosResult = (from a in dimContext.BELSolicitudes
+                                 where a.IdSolicitud.Equals(IdSolicitud)
+                                 orderby a.FechaUltimaActualizacion ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.IdSolicitud,
+                                     a.CuentaCliente,
+                                     a.LlsOt,
+                                     a.TipoDeSolicitud,
+                                     a.DetalleDeSolicitud,
+                                     a.FechaDeSolicitud,
+                                     a.UsuarioQueSolicita,
+                                     a.NombreUsuarioQueSolicita,
+                                     a.AliadoQueSolicita,
+                                     a.OperacionQueSolicita,
+                                     a.FechaUltimaActualizacion,
+                                     a.UsuarioUltimaActualizacion,
+                                     a.NombreUsuarioUltimaActualizacion,
+                                     a.FechaDeFinalizacion,
+                                     a.UsuarioQueFinaliza,
+                                     a.NombreUsuarioQueFinaliza,
+                                     a.Nodo,
+                                     a.Malescalado,
+                                     a.DetalleMalEscalado,
+                                     a.Gestion,
+                                     a.EstadoEscalamiento,
+                                     a.FechaDeAgenda,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BELSolicitudes());
+                result[i].Id = objetosResult[i].Id;
+                result[i].IdSolicitud = objetosResult[i].IdSolicitud;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].LlsOt = objetosResult[i].LlsOt;
+                result[i].TipoDeSolicitud = objetosResult[i].TipoDeSolicitud;
+                result[i].DetalleDeSolicitud = objetosResult[i].DetalleDeSolicitud;
+                result[i].FechaDeSolicitud = objetosResult[i].FechaDeSolicitud;
+                result[i].UsuarioQueSolicita = objetosResult[i].UsuarioQueSolicita;
+                result[i].NombreUsuarioQueSolicita = objetosResult[i].NombreUsuarioQueSolicita;
+                result[i].AliadoQueSolicita = objetosResult[i].AliadoQueSolicita;
+                result[i].OperacionQueSolicita = objetosResult[i].OperacionQueSolicita;
+                result[i].FechaUltimaActualizacion = objetosResult[i].FechaUltimaActualizacion;
+                result[i].UsuarioUltimaActualizacion = objetosResult[i].UsuarioUltimaActualizacion;
+                result[i].NombreUsuarioUltimaActualizacion = objetosResult[i].NombreUsuarioUltimaActualizacion;
+                result[i].FechaDeFinalizacion = objetosResult[i].FechaDeFinalizacion;
+                result[i].UsuarioQueFinaliza = objetosResult[i].UsuarioQueFinaliza;
+                result[i].NombreUsuarioQueFinaliza = objetosResult[i].NombreUsuarioQueFinaliza;
+                result[i].Nodo = objetosResult[i].Nodo;
+                result[i].Malescalado = objetosResult[i].Malescalado;
+                result[i].DetalleMalEscalado = objetosResult[i].DetalleMalEscalado;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].EstadoEscalamiento = objetosResult[i].EstadoEscalamiento;
+                result[i].FechaDeAgenda = objetosResult[i].FechaDeAgenda;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+        }
+        public List<BEPSolicitudes> ListaSeguimientosAgente(decimal Cedula)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BEPSolicitudes> result = new List<BEPSolicitudes>();
+            var objetosResult = (from a in dimContext.BEPSolicitudes
+                                 where a.UsuarioGestionando.Equals(Cedula)
+                                 orderby a.FechaDeAgenda ascending
+                                 select new
+                                 {
+                                     a.IdSolicitud,
+                                     a.CuentaCliente,
+                                     a.LlsOt,
+                                     a.TipoDeSolicitud,
+                                     a.DetalleDeSolicitud,
+                                     a.FechaDeSolicitud,
+                                     a.UsuarioQueSolicita,
+                                     a.NombreUsuarioQueSolicita,
+                                     a.AliadoQueSolicita,
+                                     a.OperacionQueSolicita,
+                                     a.FechaUltimaActualizacion,
+                                     a.UsuarioUltimaActualizacion,
+                                     a.NombreUsuarioUltimaActualizacion,
+                                     a.FechaDeFinalizacion,
+                                     a.UsuarioQueFinaliza,
+                                     a.NombreUsuarioQueFinaliza,
+                                     a.Nodo,
+                                     a.Malescalado,
+                                     a.DetalleMalEscalado,
+                                     a.Gestion,
+                                     a.EstadoEscalamiento,
+                                     a.FechaDeAgenda,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BEPSolicitudes());
+                result[i].IdSolicitud = objetosResult[i].IdSolicitud;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].LlsOt = objetosResult[i].LlsOt;
+                result[i].TipoDeSolicitud = objetosResult[i].TipoDeSolicitud;
+                result[i].DetalleDeSolicitud = objetosResult[i].DetalleDeSolicitud;
+                result[i].FechaDeSolicitud = objetosResult[i].FechaDeSolicitud;
+                result[i].UsuarioQueSolicita = objetosResult[i].UsuarioQueSolicita;
+                result[i].NombreUsuarioQueSolicita = objetosResult[i].NombreUsuarioQueSolicita;
+                result[i].AliadoQueSolicita = objetosResult[i].AliadoQueSolicita;
+                result[i].OperacionQueSolicita = objetosResult[i].OperacionQueSolicita;
+                result[i].FechaUltimaActualizacion = objetosResult[i].FechaUltimaActualizacion;
+                result[i].UsuarioUltimaActualizacion = objetosResult[i].UsuarioUltimaActualizacion;
+                result[i].NombreUsuarioUltimaActualizacion = objetosResult[i].NombreUsuarioUltimaActualizacion;
+                result[i].FechaDeFinalizacion = objetosResult[i].FechaDeFinalizacion;
+                result[i].UsuarioQueFinaliza = objetosResult[i].UsuarioQueFinaliza;
+                result[i].NombreUsuarioQueFinaliza = objetosResult[i].NombreUsuarioQueFinaliza;
+                result[i].Nodo = objetosResult[i].Nodo;
+                result[i].Malescalado = objetosResult[i].Malescalado;
+                result[i].DetalleMalEscalado = objetosResult[i].DetalleMalEscalado;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].EstadoEscalamiento = objetosResult[i].EstadoEscalamiento;
+                result[i].FechaDeAgenda = objetosResult[i].FechaDeAgenda;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+        }
+        }
 }
 

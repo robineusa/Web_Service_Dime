@@ -20,13 +20,19 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            var cedula = 1032381244;
-            var TT = "FALLA MODULO DE GESTION";
+            var cedula = 1012378617;
+            var TT = "INCUMPLIMIENTO";
             int nr = 0;
 
             var nodo = "AAE";
             BackEliteService BES = new BackEliteService();
-            var RESUL = BES.TraerNodoPorId(nodo);
+            BEPSolicitudes RESUL = new BEPSolicitudes();
+            RESUL = BES.ApartarCuentadeSolcitudBackElita(cedula, nr);
+            RESUL.DetalleMalEscalado = "NO APLICA";
+            RESUL.Gestion = "25";
+            BES.ActualizaSolicitud(RESUL);
+
+
             var Z = "";
             
         }

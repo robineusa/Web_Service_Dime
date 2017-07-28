@@ -366,6 +366,7 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
+
         public IBEMDetalleDeGestionRepository BEMDetalleDeGestion
         {
             get; private set;

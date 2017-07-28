@@ -21,9 +21,9 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get { return Context as DimeContext; }
         }
-        public bool ApartarCuentaGestionBackElite(decimal Cedula, string TipoTrabajo)
+        public bool ApartarCuentaGestionBackElite(decimal Cedula)
         {
-            dimeContext.ApartarCuentaGestionBackElite(Cedula, TipoTrabajo);
+            dimeContext.ApartarCuentaGestionBackElite(Cedula);
             return true;
         }
     }

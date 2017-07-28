@@ -59,10 +59,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
             return backelitebusiness.ConsultarSolicitudPorId(IdSolicitud);
         }
-        public BEPSolicitudes ApartarCuentadeSolcitudBackElita(decimal Cedula, string TipoTrabajo, int noRecursividad)
+        public BEPSolicitudes ApartarCuentadeSolcitudBackElita(decimal Cedula, int noRecursividad)
         {
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
-            return backelitebusiness.ApartarCuentadeSolcitudBackElita(Cedula,TipoTrabajo,noRecursividad);
+            return backelitebusiness.ApartarCuentadeSolcitudBackElita(Cedula,noRecursividad);
         }
         public NodosZonificados TraerNodoPorId(string idNodo)
         {
@@ -73,6 +73,16 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
             return backelitebusiness.TipoEscalamientoPorNombre(NombreTipoEs);
+        }
+        public List<BELSolicitudes> ListaInteraccionesSolicitud(decimal IdSolicitud)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ListaInteraccionesSolicitud(IdSolicitud);
+        }
+        public List<BEPSolicitudes> ListaSeguimientosAgente(decimal Cedula)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ListaSeguimientosAgente(Cedula);
         }
 
     }
