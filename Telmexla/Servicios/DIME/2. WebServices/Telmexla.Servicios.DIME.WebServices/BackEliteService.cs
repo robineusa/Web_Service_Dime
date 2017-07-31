@@ -84,6 +84,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
             return backelitebusiness.ListaSeguimientosAgente(Cedula);
         }
-
+        public List<BELSolicitudes> ConsultadeGestionAgente(string Usuario, DateTime FechaInicial, DateTime FechaFinal)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ConsultadeGestionAgente(Usuario,FechaInicial,FechaFinal);
+        }
     }
 }

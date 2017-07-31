@@ -1797,6 +1797,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BackEliteService backeliteservice = new BackEliteService();
             return backeliteservice.ListaSeguimientosAgente(Cedula);
         }
+        public List<BELSolicitudes> ConsultadeGestionAgente(string Usuario, DateTime FechaInicial, DateTime FechaFinal)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ConsultadeGestionAgente(Usuario,FechaInicial,FechaFinal);
+        }
         #endregion
     }
 }

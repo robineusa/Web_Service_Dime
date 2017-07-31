@@ -39,5 +39,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<BELSolicitudes> ListaInteraccionesSolicitud(decimal IdSolicitud);
         [OperationContract]
         List<BEPSolicitudes> ListaSeguimientosAgente(decimal Cedula);
+        [OperationContract]
+        List<BELSolicitudes> ConsultadeGestionAgente(string Usuario, DateTime FechaInicial, DateTime FechaFinal);
     }
 }
