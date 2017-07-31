@@ -1796,6 +1796,45 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BackEliteService backeliteservice = new BackEliteService();
             return backeliteservice.ListaSeguimientosAgente(Cedula);
         }
+        public List<BELSolicitudes> ConsultadeGestionAgente(string Usuario, DateTime FechaInicial, DateTime FechaFinal)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ConsultadeGestionAgente(Usuario,FechaInicial,FechaFinal);
+        }
+        public List<BELSolicitudes> ConsultaSolicitudesAdminLog(DateTime FechaInicial, DateTime FechaFinal) {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ConsultaSolicitudesAdminLog(FechaInicial, FechaFinal);
+        }
+        public List<BEPSolicitudes> ConsultaSolicitudesAdminPricipal(DateTime FechaInicial, DateTime FechaFinal) {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ConsultaSolicitudesAdminPricipal(FechaInicial, FechaFinal);
+        }
+        public bool ValidarUsuarioDistribucion(decimal Cedula, string Proceso)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ValidarUsuarioDistribucion(Cedula, Proceso);
+        }
+        public void RegistrarUsuarioDistribucion(BEMDistribuciones Distribucion)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            backeliteservice.RegistrarUsuarioDistribucion(Distribucion);
+        }
+        public void EliminarUsuarioDistribucion(decimal Cedula, string Proceso)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            backeliteservice.EliminarUsuarioDistribucion(Cedula,Proceso);
+
+        }
+        public List<BEMDistribuciones> ListaDistribucionPorIdCedula(decimal Cedula)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ListaDistribucionPorIdCedula(Cedula);
+        }
+        public BEMDistribuciones DistribucionPorId(decimal Id)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.DistribucionPorId(Id);
+        }
         #endregion
 
         #region Recurrencia

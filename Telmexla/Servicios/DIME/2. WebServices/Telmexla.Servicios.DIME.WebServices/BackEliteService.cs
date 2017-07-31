@@ -84,6 +84,46 @@ namespace Telmexla.Servicios.DIME.WebServices
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
             return backelitebusiness.ListaSeguimientosAgente(Cedula);
         }
+        public List<BELSolicitudes> ConsultadeGestionAgente(string Usuario, DateTime FechaInicial, DateTime FechaFinal)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ConsultadeGestionAgente(Usuario,FechaInicial,FechaFinal);
+        }
+        public List<BELSolicitudes> ConsultaSolicitudesAdminLog(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ConsultaSolicitudesAdminLog(FechaInicial, FechaFinal);
 
+        }
+        public List<BEPSolicitudes> ConsultaSolicitudesAdminPricipal(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ConsultaSolicitudesAdminPricipal(FechaInicial, FechaFinal);
+        }
+        public bool ValidarUsuarioDistribucion(decimal Cedula, string Proceso)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ValidarUsuarioDistribucion(Cedula, Proceso);
+        }
+        public void RegistrarUsuarioDistribucion(BEMDistribuciones Distribucion)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            backelitebusiness.RegistrarUsuarioDistribucion(Distribucion);
+        }
+        public void EliminarUsuarioDistribucion(decimal Cedula, string Proceso)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            backelitebusiness.EliminarUsuarioDistribucion(Cedula,Proceso);
+        }
+        public List<BEMDistribuciones> ListaDistribucionPorIdCedula(decimal Cedula)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ListaDistribucionPorIdCedula(Cedula);
+        }
+        public BEMDistribuciones DistribucionPorId(decimal Id)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.DistribucionPorId(Id);
+        }
     }
 }
