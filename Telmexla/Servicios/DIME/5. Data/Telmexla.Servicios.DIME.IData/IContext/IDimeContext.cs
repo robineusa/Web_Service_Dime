@@ -106,6 +106,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<BEMTipoDeEscalamientos> BEMTipoDeEscalamientos { get; set; }
         System.Data.Entity.DbSet<BEPSolicitudes> BEPSolicitudes { get; set; }
         System.Data.Entity.DbSet<NodosZonificados> NodosZonificados { get; set; }
+        System.Data.Entity.DbSet<RecurrenciaCargaBase> RecurrenciaCargaBase { get; set; }
 
 
         int SaveChanges();
@@ -168,6 +169,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
 
         //apartar cuenta de gestion back elite
         int ApartarCuentaGestionBackElite(decimal Cedula);
+
+        int ApartarCuentaGestionRecurrencia(decimal idAsesor);
 
     }
 

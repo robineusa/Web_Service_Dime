@@ -130,6 +130,7 @@
     <Compile Include="IPqrMaestroCodCierreRepository.cs" />
     <Compile Include="IPreguntasDesbloqueoRepository.cs" />
     <Compile Include="IRechazoRepository.cs" />
+    <Compile Include="IRecurrenciaCargaBaseRepository.cs" />
     <Compile Include="IRegistroSesionRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IRetencionRepository.cs" />

@@ -89,6 +89,7 @@ namespace Telmexla.Servicios.DIME.Data
             NodosZonificados = new NodosZonificadosRepository(this.dimeContext);
             CcGestionResidencialPredictivo = new CcGestionResidencialPredictivoRepository(this.dimeContext);
             CcSegundaTipificacion = new CcSegundaTipificacionRepository(this.dimeContext);
+            RecurrenciaCargaBase = new RecurrenciaCargaBaseRepository(this.dimeContext);
         }
         public ICcSegundaTipificacionRepository CcSegundaTipificacion
         {
@@ -400,6 +401,11 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
+        public IRecurrenciaCargaBaseRepository RecurrenciaCargaBase
+        {
+            get; private set;
+        }
+        
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

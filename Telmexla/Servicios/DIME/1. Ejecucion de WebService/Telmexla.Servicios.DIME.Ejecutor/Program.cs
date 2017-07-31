@@ -20,21 +20,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            var cedula = 1012378617;
-            var TT = "INCUMPLIMIENTO";
-            int nr = 0;
+            RecurrenciaService rec = new RecurrenciaService();
 
-            var nodo = "AAE";
-            BackEliteService BES = new BackEliteService();
-            BEPSolicitudes RESUL = new BEPSolicitudes();
-            RESUL = BES.ApartarCuentadeSolcitudBackElita(cedula, nr);
-            RESUL.DetalleMalEscalado = "NO APLICA";
-            RESUL.Gestion = "25";
-            BES.ActualizaSolicitud(RESUL);
-
-
-            var Z = "";
-            
+            var r = rec.TraerInformacionCuentaRecurrencia(459);
+            var z = "";            
         }
     }
 }

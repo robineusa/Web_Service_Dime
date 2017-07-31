@@ -199,6 +199,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RazonIngresoSoporte.cs" />
     <Compile Include="Rechazo.cs" />
+    <Compile Include="RecurrenciaCargaBase.cs" />
     <Compile Include="RegistroSesion.cs" />
     <Compile Include="Retencion.cs" />
     <Compile Include="RetencionCollection.cs" />

@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService, IRecurrenciaService
     {
 
 
@@ -1690,7 +1690,6 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
-
         #region CierreCiclo
         public List<DatoConsultaCCResidencialPredictivo> ListaResidencialPredictivoDeCuenta(float cuenta)
         {
@@ -1796,6 +1795,20 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             BackEliteService backeliteservice = new BackEliteService();
             return backeliteservice.ListaSeguimientosAgente(Cedula);
+        }
+        #endregion
+
+        #region Recurrencia
+        public ClientesTodo TraerInformacionCuentaRecurrencia(int idAsesor)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.TraerInformacionCuentaRecurrencia(idAsesor);
+
+        }
+        public RecurrenciaCargaBase TraerDatosRecurrencia(int idAsesor, int CuentaCliente)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.TraerDatosRecurrencia(idAsesor, CuentaCliente);
         }
         #endregion
     }

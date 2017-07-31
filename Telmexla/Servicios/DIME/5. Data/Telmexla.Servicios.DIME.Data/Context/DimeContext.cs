@@ -109,6 +109,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<BEPSolicitudes> BEPSolicitudes { get; set; }
         public System.Data.Entity.DbSet<NodosZonificados> NodosZonificados { get; set; }
         public System.Data.Entity.DbSet<CcSegundaTipificacion> CcSegundaTipificacions { get; set; }
+        public System.Data.Entity.DbSet<RecurrenciaCargaBase> RecurrenciaCargaBase { get; set; }
 
         static DimeContext()
         {
@@ -250,6 +251,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BEPSolicitudesConfiguration());
             modelBuilder.Configurations.Add(new NodosZonificadosConfiguration());
             modelBuilder.Configurations.Add(new CcSegundaTipificacionConfiguration());
+            modelBuilder.Configurations.Add(new RecurrenciaCargueBaseConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -344,6 +346,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BEPSolicitudesConfiguration(schema));
             modelBuilder.Configurations.Add(new NodosZonificadosConfiguration(schema));
             modelBuilder.Configurations.Add(new CcSegundaTipificacionConfiguration(schema));
+            modelBuilder.Configurations.Add(new RecurrenciaCargueBaseConfiguration(schema));
             return modelBuilder;
         }
 
@@ -854,6 +857,19 @@ namespace Telmexla.Servicios.DIME.Data.Context
             var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
 
             Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Apartar_Cuenta_Back_Elite] @Usuario", cedulaParam, procResultParam);
+
+            return (int)procResultParam.Value;
+        }
+
+        public int ApartarCuentaGestionRecurrencia(decimal idAsesor)
+        {
+            var IdAsesorParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@USUARIO", SqlDbType = System.Data.SqlDbType.Decimal, Direction = System.Data.ParameterDirection.Input, Value = idAsesor, Precision = 18, Scale = 0 };
+            if (IdAsesorParam.Value == null)
+                IdAsesorParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[APARTAR_CUENTA_RECURRENCIA] @USUARIO", IdAsesorParam, procResultParam);
 
             return (int)procResultParam.Value;
         }
