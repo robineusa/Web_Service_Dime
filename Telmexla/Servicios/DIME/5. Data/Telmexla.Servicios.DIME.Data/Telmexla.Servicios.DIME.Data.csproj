@@ -90,6 +90,11 @@
     <Compile Include="Configuration\CuentasSiembraHDConfiguration.cs" />
     <Compile Include="Configuration\CuentasSiguienteMejorOfertaConfiguration.cs" />
     <Compile Include="Configuration\GestionFoxInboundConfiguration.cs" />
+    <Compile Include="Configuration\GPrincipalRecurrenciaConfiguration.cs" />
+    <Compile Include="Configuration\MaestroFallaCausaRaizConfiguration.cs" />
+    <Compile Include="Configuration\MaestroFallaEspecificaConfiguration.cs" />
+    <Compile Include="Configuration\MaestroOpcionesRecurrenciaConfiguration.cs" />
+    <Compile Include="Configuration\MaestroRecurrenciaConfiguration.cs" />
     <Compile Include="Configuration\MultiplayCargueConfiguration.cs" />
     <Compile Include="Configuration\DepartamentoConfiguration.cs" />
     <Compile Include="Configuration\DistribucionBlendingConfiguration.cs" />
@@ -137,6 +142,10 @@
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaRepository.cs" />
     <Compile Include="GestionFoxInboundRepository.cs" />
+    <Compile Include="MaestroFallaEspecificaRepository.cs" />
+    <Compile Include="MaestroOpcionesRecurrenciaRepository.cs" />
+    <Compile Include="MaestroRecurrenciaRepository.cs" />
+    <Compile Include="MaestroFallaCausaRaizRepository.cs" />
     <Compile Include="MultiplayCargueRepository.cs" />
     <Compile Include="DepartamentoRepository.cs" />
     <Compile Include="DistribucionBlendingRepository.cs" />

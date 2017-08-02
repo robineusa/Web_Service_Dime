@@ -7,7 +7,7 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IData
 {
-    public interface IActivacionClaroVideoRepository : IRepository<ActivacionClaroVideo>
+    public interface IMaestroOpcionesRecurrenciaRepository : IRepository<MaestroOpcionesRecurrencia>
     {
 
     }

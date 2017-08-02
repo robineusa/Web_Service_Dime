@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Telmexla.Servicios.DIME.Entity
 {
-    public class MaestroOpcionesRecurrencia
+    public class MaestroFallaCausaRaiz
     {
         public int Id { get; set; }
-        public int IdProceso { get; set; }
-        public string OpcionesRecurrencia { get; set; }
+        public int IdFallaEspecifica { get; set; }
+        public string FallaCausaRaiz { get; set; }
     }
 }

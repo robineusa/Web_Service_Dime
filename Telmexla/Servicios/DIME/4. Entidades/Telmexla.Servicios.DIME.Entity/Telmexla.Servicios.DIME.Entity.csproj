@@ -108,6 +108,11 @@
     <Compile Include="DatosAdicionalesCliente.cs" />
     <Compile Include="DatosAdicionalesClienteCollection.cs" />
     <Compile Include="GestionFoxInbound.cs" />
+    <Compile Include="GPrincipalRecurrencia.cs" />
+    <Compile Include="MaestroFallaCausaRaiz.cs" />
+    <Compile Include="MaestroFallaEspecifica.cs" />
+    <Compile Include="MaestroOpcionesRecurrencia.cs" />
+    <Compile Include="MaestroRecurrencia.cs" />
     <Compile Include="MultiplayCargue.cs" />
     <Compile Include="DatosMultiplayCollection.cs" />
     <Compile Include="Departamento.cs" />

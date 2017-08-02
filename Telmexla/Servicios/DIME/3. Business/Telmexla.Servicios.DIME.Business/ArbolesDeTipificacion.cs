@@ -156,5 +156,21 @@ namespace Telmexla.Servicios.DIME.Business
             MaestrosContext MaestContext = new MaestrosContext();
             return MaestContext.MaestroLineasBlending.Where(a=> a.Aliado == Aliado).ToList();
         }
+        public List<MaestroOpcionesRecurrencia> GetOpcionesRecurrencia(int idProceso)
+        {
+            MaestrosContext MaestContext = new MaestrosContext();
+            return MaestContext.MaestroOpcionesRecurrencia.Where(a => a.IdProceso == idProceso).ToList();
+        }
+        public List<MaestroFallaEspecifica> GetFallaEspecifica(int idOpcionesRecurrencia)
+        {
+            MaestrosContext MaestContext = new MaestrosContext();
+            return MaestContext.MaestroFallaEspecifica.Where(a => a.IdOpcionesRecurrencia == idOpcionesRecurrencia).ToList();
+        }
+        public List<MaestroFallaCausaRaiz> GetFallaCausaRaiz(int idFallaEspecifica)
+        {
+            MaestrosContext MaestContext = new MaestrosContext();
+            return MaestContext.MaestroFallaCausaRaiz.Where(a => a.IdFallaEspecifica == idFallaEspecifica).ToList();
+        }
     }
 }
+

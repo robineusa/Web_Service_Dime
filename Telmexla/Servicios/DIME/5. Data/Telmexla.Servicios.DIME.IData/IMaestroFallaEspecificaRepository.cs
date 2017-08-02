@@ -7,8 +7,7 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IData
 {
-    public interface IActivacionClaroVideoRepository : IRepository<ActivacionClaroVideo>
+    public interface IMaestroFallaEspecificaRepository : IRepository<MaestroFallaEspecifica>
     {
-
     }
 }

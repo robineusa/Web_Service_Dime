@@ -24,5 +24,20 @@ namespace Telmexla.Servicios.DIME.WebServices
             RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
             return recurrenciaBusiness.TraerDatosRecurrencia(idAsesor, CuentaCliente);
         }
+        public List<MaestroOpcionesRecurrencia> GetOpcionesRecurrencia(int idProceso)
+        {
+            ArbolesDeTipificacion ArbolBusiness = new ArbolesDeTipificacion();
+            return ArbolBusiness.GetOpcionesRecurrencia(idProceso);
+        }
+        public List<MaestroFallaEspecifica> GetFallaEspecifica(int idOpcionesRecurrencia)
+        {
+            ArbolesDeTipificacion ArbolBusiness = new ArbolesDeTipificacion();
+            return ArbolBusiness.GetFallaEspecifica(idOpcionesRecurrencia);
+        }
+        public List<MaestroFallaCausaRaiz> GetFallaCausaRaiz(int idFallaEspecifica)
+        {
+            ArbolesDeTipificacion ArbolBusiness = new ArbolesDeTipificacion();
+            return ArbolBusiness.GetFallaCausaRaiz(idFallaEspecifica);
+        }
     }
 }

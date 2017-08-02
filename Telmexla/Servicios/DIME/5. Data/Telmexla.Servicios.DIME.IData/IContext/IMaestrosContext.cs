@@ -26,6 +26,10 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<MaestroOutboundTipoContacto> MaestroOutboundTipoContactoes { get; set; } // MAESTRO_OUTBOUND_TIPO_CONTACTO
         System.Data.Entity.DbSet<MaestroOutboundTipoGestion> MaestroOutboundTipoGestions { get; set; } // MAESTRO_OUTBOUND_TIPO_GESTION
         System.Data.Entity.DbSet<MaestroLineasBlending> MaestroLineasBlending { get; set; } // MAESTRO_LINEAS_BLENDING
+        System.Data.Entity.DbSet<MaestroRecurrencia> MaestroRecurrencia { get; set; }
+        System.Data.Entity.DbSet<MaestroOpcionesRecurrencia> MaestroOpcionesRecurrencia { get; set; }
+        System.Data.Entity.DbSet<MaestroFallaEspecifica> MaestroFallaEspecifica { get; set; }
+        System.Data.Entity.DbSet<MaestroFallaCausaRaiz> MaestroFallaCausaRaiz { get; set; }
 
 
         int SaveChanges();

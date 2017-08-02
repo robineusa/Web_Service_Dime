@@ -14,6 +14,15 @@ namespace Telmexla.Servicios.DIME.IData
         IMaestroOutboundCausaRepository maestrosOutboundCausa { get; }
         IMaestroOutboundMotivoRepository maestrosOutboundMotivo { get; }
         IMaestroLineasBlendingRepository maestrosLineasBlending { get; }
+        IMaestroRecurrenciaRepository maestroRecurrencia { get; }
+        IMaestroOpcionesRecurrenciaRepository maestroOpcionesRecurrencia { get; }
+        IMaestroFallaEspecificaRepository maestroFallaEspecifica { get; }
+        IMaestroFallaCausaRaizRepository maestroFallaCausaRaiz { get; }
+
+        
+            
+            
+            
         int Complete();
     }
 }

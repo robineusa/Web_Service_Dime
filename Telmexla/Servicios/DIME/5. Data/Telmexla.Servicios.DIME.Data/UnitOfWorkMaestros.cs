@@ -22,6 +22,10 @@ namespace Telmexla.Servicios.DIME.Data
             maestrosOutboundCausa = new MaestroOutboundCausaRepository(this.maestrosContext);
             maestrosOutboundMotivo = new MaestroOutboundMotivoRepository(this.maestrosContext);
             maestrosLineasBlending = new MaestroLineasBlendingRepository(this.maestrosContext);
+            maestroRecurrencia = new MaestroRecurrenciaRepository(this.maestrosContext);
+            maestroOpcionesRecurrencia = new MaestroOpcionesRecurrenciaRepository(this.maestrosContext);
+            maestroFallaEspecifica = new MaestroFallaEspecificaRepository(this.maestrosContext);
+            maestroFallaCausaRaiz = new MaestroFallaCausaRaizRepository(this.maestrosContext);
         }
 
         public IMaestroOutboundTipoContactoRepository maestrosOutboundTipoContactos
@@ -48,6 +52,24 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
+        public IMaestroRecurrenciaRepository maestroRecurrencia
+        {
+            get; private set;
+        }
+        public IMaestroOpcionesRecurrenciaRepository maestroOpcionesRecurrencia
+        {
+            get; private set;
+        }
+        public IMaestroFallaEspecificaRepository maestroFallaEspecifica
+        {
+            get; private set;
+        }
+        public IMaestroFallaCausaRaizRepository maestroFallaCausaRaiz
+        {
+            get; private set;
+        }
+        
+        
         public int Complete()
         {
             return this.maestrosContext.SaveChanges();

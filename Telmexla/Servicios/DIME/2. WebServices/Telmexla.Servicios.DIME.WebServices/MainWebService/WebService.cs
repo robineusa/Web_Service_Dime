@@ -1849,6 +1849,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.TraerDatosRecurrencia(idAsesor, CuentaCliente);
         }
+        public List<MaestroOpcionesRecurrencia> GetOpcionesRecurrencia(int idProceso)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.GetOpcionesRecurrencia(idProceso);
+        }
+        public List<MaestroFallaEspecifica> GetFallaEspecifica(int idOpcionesRecurrencia)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.GetFallaEspecifica(idOpcionesRecurrencia);
+        }
+        public List<MaestroFallaCausaRaiz> GetFallaCausaRaiz(int idFallaEspecifica)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.GetFallaCausaRaiz(idFallaEspecifica);
+        }
         #endregion
     }
 }

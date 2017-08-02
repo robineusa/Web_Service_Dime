@@ -17,5 +17,15 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         RecurrenciaCargaBase TraerDatosRecurrencia(int idAsesor, int CuentaCliente);
+
+        [OperationContract]
+        List<MaestroOpcionesRecurrencia> GetOpcionesRecurrencia(int idProceso);
+
+        [OperationContract]
+        List<MaestroFallaEspecifica> GetFallaEspecifica(int idOpcionesRecurrencia);
+
+        [OperationContract]
+        List<MaestroFallaCausaRaiz> GetFallaCausaRaiz(int idFallaEspecifica);
+        
     }
 }
