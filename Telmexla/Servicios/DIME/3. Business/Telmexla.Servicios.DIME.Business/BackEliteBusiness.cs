@@ -73,8 +73,15 @@ namespace Telmexla.Servicios.DIME.Business
         {
             //trae la informacion de los procesos y las listas seleccionadas
             UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
-            if (Solicitud.DetalleMalEscalado == "NO APLICA") { } else {
-            Solicitud.DetalleMalEscalado = UnitOfWorkProceso.BEMRazonMalEscalamiento.Get(Convert.ToInt32(Solicitud.DetalleMalEscalado)).NombreRazonEscalamiento; }
+            if (Solicitud.DetalleMalEscalado.Length > 3) { }
+            else
+            {
+                if (Solicitud.DetalleMalEscalado == "NO APLICA") { }
+                else
+                {
+                    Solicitud.DetalleMalEscalado = UnitOfWorkProceso.BEMRazonMalEscalamiento.Get(Convert.ToInt32(Solicitud.DetalleMalEscalado)).NombreRazonEscalamiento;
+                }
+            }
             Solicitud.Gestion = UnitOfWorkProceso.BEMDetalleDeGestion.Get(Convert.ToInt32(Solicitud.Gestion)).NombreGestion;
             UnitOfWorkProceso.Complete();
             UnitOfWorkProceso.Dispose();

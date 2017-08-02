@@ -20,10 +20,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            RecurrenciaService rec = new RecurrenciaService();
-
-            var r = rec.TraerInformacionCuentaRecurrencia(459);
-            var z = "";            
+            BackEliteService BES = new BackEliteService();
+            var DATO = BES.ConsultarSolicitudPorId(3);
+            var Z = "";
         }
     }
 }
