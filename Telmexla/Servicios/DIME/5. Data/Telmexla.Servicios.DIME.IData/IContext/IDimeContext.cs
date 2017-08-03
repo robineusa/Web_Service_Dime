@@ -107,6 +107,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<BEPSolicitudes> BEPSolicitudes { get; set; }
         System.Data.Entity.DbSet<NodosZonificados> NodosZonificados { get; set; }
         System.Data.Entity.DbSet<RecurrenciaCargaBase> RecurrenciaCargaBase { get; set; }
+        System.Data.Entity.DbSet<GPrincipalRecurrencia> GPrincipalRecurrencia { get; set; }
+        System.Data.Entity.DbSet<GLogRecurrencia> GLogRecurrencia { get; set; }
 
 
         int SaveChanges();

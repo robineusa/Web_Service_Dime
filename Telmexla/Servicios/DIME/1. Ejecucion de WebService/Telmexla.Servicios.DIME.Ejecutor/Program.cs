@@ -21,9 +21,8 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
             RecurrenciaService rec = new RecurrenciaService();
-
-            var r = rec.GetOpcionesRecurrencia(2);
-
+            var r = rec.TraerGPrinRecurrencia(307);
+            var h = rec.GetOpcionesRecurrencia(1);
             var z = "";       
         }
     }

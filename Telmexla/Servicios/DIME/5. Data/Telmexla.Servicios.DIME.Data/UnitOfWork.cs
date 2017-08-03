@@ -90,6 +90,9 @@ namespace Telmexla.Servicios.DIME.Data
             CcGestionResidencialPredictivo = new CcGestionResidencialPredictivoRepository(this.dimeContext);
             CcSegundaTipificacion = new CcSegundaTipificacionRepository(this.dimeContext);
             RecurrenciaCargaBase = new RecurrenciaCargaBaseRepository(this.dimeContext);
+            GPrincipalRecurrencia = new GPrincipalRecurrenciaRepository(this.dimeContext);
+            GLogRecurrencia = new GLogRecurrenciaRepository(this.dimeContext);
+
         }
         public ICcSegundaTipificacionRepository CcSegundaTipificacion
         {
@@ -405,13 +408,18 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        
+        public IGPrincipalRecurrenciaRepository GPrincipalRecurrencia
+        {
+            get; private set;
+        }
+        public IGLogRecurrenciaRepository GLogRecurrencia
+        {
+            get; private set;
+        }
         public int Complete()
         {
             return this.dimeContext.SaveChanges();
         }
-
-
         public void Dispose()
         {
             this.dimeContext.Dispose();

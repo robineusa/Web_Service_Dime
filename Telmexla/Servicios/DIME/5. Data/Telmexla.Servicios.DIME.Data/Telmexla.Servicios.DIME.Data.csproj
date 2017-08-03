@@ -142,6 +142,9 @@
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaRepository.cs" />
     <Compile Include="GestionFoxInboundRepository.cs" />
+    <Compile Include="Configuration\GLogRecurrenciaConfiguration.cs" />
+    <Compile Include="GLogRecurrenciaRepository.cs" />
+    <Compile Include="GPrincipalRecurrenciaRepository.cs" />
     <Compile Include="MaestroFallaEspecificaRepository.cs" />
     <Compile Include="MaestroOpcionesRecurrenciaRepository.cs" />
     <Compile Include="MaestroRecurrenciaRepository.cs" />
