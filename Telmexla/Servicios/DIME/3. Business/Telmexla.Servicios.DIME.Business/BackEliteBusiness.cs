@@ -250,10 +250,13 @@ namespace Telmexla.Servicios.DIME.Business
             BEMDetalleDeGestion gestion = unitWork.BEMDetalleDeGestion.Find(c => c.IdGestion == IdGestion).FirstOrDefault();
             return gestion;
         }
-        public bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot)
+        public bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot,string Proceso)
         {
+            decimal idpro = Convert.ToDecimal(Proceso);
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            var resultado = unitWork.BEPSolicitudes.Find(c => c.CuentaCliente == CuentaCliente && c.LlsOt == Ot && c.EstadoEscalamiento != "FINALIZADO").ToList();
+            UnitOfWork unitWorkproceso = new UnitOfWork(new DimeContext());
+            var TipoSolicitud = unitWorkproceso.BEMTipoDeEscalamientos.Find(c => c.IdTipo == idpro).Select(x => x.TipoEscalamiento).FirstOrDefault();
+            var resultado = unitWork.BEPSolicitudes.Find(c => c.CuentaCliente == CuentaCliente && c.LlsOt == Ot && c.EstadoEscalamiento != "FINALIZADO" && c.TipoDeSolicitud.Equals(TipoSolicitud)).ToList();
 
             if (resultado.Count() > 0) { return true; }
             else { return false; }

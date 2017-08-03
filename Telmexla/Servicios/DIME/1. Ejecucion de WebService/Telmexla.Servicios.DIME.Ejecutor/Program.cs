@@ -20,9 +20,12 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            RecurrenciaService rec = new RecurrenciaService();
+            BackEliteService bes = new BackEliteService();
+            var cuenta = 73689564;
+            var ot = 789456123;
+            var proceso = "4";
 
-            var r = rec.GetOpcionesRecurrencia(2);
+            var r = bes.ValidarCuentaEnBackElite(cuenta,ot,proceso);
 
             var z = "";       
         }

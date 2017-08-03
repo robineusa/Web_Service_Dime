@@ -1761,10 +1761,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BackEliteService backeliteservice = new BackEliteService();
             return backeliteservice.DetalleGestionPorId(IdGestion);
         }
-        public bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot)
+        public bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot, string Proceso)
         {
             BackEliteService backeliteservice = new BackEliteService();
-            return backeliteservice.ValidarCuentaEnBackElite(CuentaCliente, Ot);
+            return backeliteservice.ValidarCuentaEnBackElite(CuentaCliente, Ot, Proceso);
         }
         public BEPSolicitudes ConsultarSolicitudPorId(decimal IdSolicitud)
         {
