@@ -108,6 +108,7 @@
     <Compile Include="DatosAdicionalesCliente.cs" />
     <Compile Include="DatosAdicionalesClienteCollection.cs" />
     <Compile Include="GestionFoxInbound.cs" />
+    <Compile Include="GLogRecurrencia.cs" />
     <Compile Include="GPrincipalRecurrencia.cs" />
     <Compile Include="MaestroFallaCausaRaiz.cs" />
     <Compile Include="MaestroFallaEspecifica.cs" />

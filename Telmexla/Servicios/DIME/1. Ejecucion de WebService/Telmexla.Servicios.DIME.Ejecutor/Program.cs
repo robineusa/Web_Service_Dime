@@ -20,6 +20,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+<<<<<<< HEAD
             BackEliteService bes = new BackEliteService();
             var cuenta = 73689564;
             var ot = 789456123;
@@ -27,6 +28,11 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
             var r = bes.ValidarCuentaEnBackElite(cuenta,ot,proceso);
 
+=======
+            RecurrenciaService rec = new RecurrenciaService();
+            var r = rec.TraerGPrinRecurrencia(307);
+            var h = rec.GetOpcionesRecurrencia(1);
+>>>>>>> 87a4bc735305ec15f256b0dbe340faa747e31f8a
             var z = "";       
         }
     }

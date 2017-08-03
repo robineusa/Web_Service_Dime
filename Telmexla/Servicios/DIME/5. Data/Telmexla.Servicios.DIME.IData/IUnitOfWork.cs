@@ -83,6 +83,8 @@ namespace Telmexla.Servicios.DIME.IData
         ICcGestionResidencialPredictivoRepository CcGestionResidencialPredictivo { get; }
         ICcSegundaTipificacionRepository CcSegundaTipificacion { get; }
         IRecurrenciaCargaBaseRepository RecurrenciaCargaBase { get; }
+        IGPrincipalRecurrenciaRepository GPrincipalRecurrencia { get; }
+        IGLogRecurrenciaRepository GLogRecurrencia { get; }
         int Complete();
     }
 }

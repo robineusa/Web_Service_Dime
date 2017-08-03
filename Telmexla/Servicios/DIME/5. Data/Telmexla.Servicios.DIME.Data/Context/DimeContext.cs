@@ -110,6 +110,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<NodosZonificados> NodosZonificados { get; set; }
         public System.Data.Entity.DbSet<CcSegundaTipificacion> CcSegundaTipificacions { get; set; }
         public System.Data.Entity.DbSet<RecurrenciaCargaBase> RecurrenciaCargaBase { get; set; }
+        public System.Data.Entity.DbSet<GPrincipalRecurrencia> GPrincipalRecurrencia { get; set; }
+        public System.Data.Entity.DbSet<GLogRecurrencia> GLogRecurrencia { get; set; }
 
         static DimeContext()
         {
@@ -252,6 +254,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new NodosZonificadosConfiguration());
             modelBuilder.Configurations.Add(new CcSegundaTipificacionConfiguration());
             modelBuilder.Configurations.Add(new RecurrenciaCargueBaseConfiguration());
+            modelBuilder.Configurations.Add(new GPrincipalRecurrenciaConfiguration());
+            modelBuilder.Configurations.Add(new GLogRecurrenciaConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -347,6 +351,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new NodosZonificadosConfiguration(schema));
             modelBuilder.Configurations.Add(new CcSegundaTipificacionConfiguration(schema));
             modelBuilder.Configurations.Add(new RecurrenciaCargueBaseConfiguration(schema));
+            modelBuilder.Configurations.Add(new GPrincipalRecurrenciaConfiguration(schema));
+            modelBuilder.Configurations.Add(new GLogRecurrenciaConfiguration(schema));
             return modelBuilder;
         }
 

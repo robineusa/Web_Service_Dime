@@ -5,18 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Telmexla.Servicios.DIME.Entity;
 
-namespace Telmexla.Servicios.DIME.Data.Configuration
+namespace Telmexla.Servicios.DIME.Data
 {
-    public class GPrincipalRecurrenciaConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<GPrincipalRecurrencia>
+    public class GLogRecurrenciaConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<GLogRecurrencia>
     {
-        public GPrincipalRecurrenciaConfiguration()
+        public GLogRecurrenciaConfiguration()
             : this("dbo")
         {
         }
 
-        public GPrincipalRecurrenciaConfiguration(string schema)
+        public GLogRecurrenciaConfiguration(string schema)
         {
-            ToTable("TBL_GPR_RECURRENCIA", schema);
+            ToTable("TBL_GLR_RECURRENCIA", schema);
             HasKey(x => x.Id);
 
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);

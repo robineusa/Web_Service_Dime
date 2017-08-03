@@ -26,6 +26,21 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<MaestroFallaCausaRaiz> GetFallaCausaRaiz(int idFallaEspecifica);
-        
+
+        [OperationContract]
+        void EliminaCuentaRecurrencia(decimal Cuenta);
+
+        [OperationContract]
+        void InsertarGRecurrencia(GPrincipalRecurrencia recurrencia);
+
+        [OperationContract]
+        void ActualizarGRecurrencia(GPrincipalRecurrencia recurrencia);
+
+        [OperationContract]
+        GPrincipalRecurrencia TraerGPrinRecurrencia(int CuentaCliente);
+
+        [OperationContract]
+        List<GPrincipalRecurrencia> ListaSeguimientosRecurrencia(int CuentaCliente);
+
     }
 }
