@@ -1835,6 +1835,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BackEliteService backeliteservice = new BackEliteService();
             return backeliteservice.DistribucionPorId(Id);
         }
+        public List<BEPSolicitudes> ConsultarSolicitudesMasivo(List<string> Solicitudes)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ConsultarSolicitudesMasivo(Solicitudes);
+        }
+
         #endregion
 
         #region Recurrencia

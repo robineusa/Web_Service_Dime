@@ -689,6 +689,24 @@ namespace Telmexla.Servicios.DIME.Business
             BEMDistribuciones distri = unitWork.BEMDistribuciones.Find(c => c.Id == Id).FirstOrDefault();
             return distri;
         }
+        public List<BEPSolicitudes> ConsultarSolicitudesMasivo(List<string> Solicitudes)
+        {
+
+            DimeContext context = new DimeContext();
+            List<decimal> IdSolicitudes = Solicitudes.ConvertAll(s => Convert.ToDecimal(s));
+            List<BEPSolicitudes> ListaSolicitudes = new List<BEPSolicitudes>();
+            foreach (decimal ID_SOLICITUD in IdSolicitudes)
+            {
+                BEPSolicitudes Solicitud = context.BEPSolicitudes.Where(c => c.IdSolicitud == ID_SOLICITUD && c.EstadoEscalamiento != "FINALIZADO").FirstOrDefault();
+                if (Solicitud !=null) 
+                {
+                    ListaSolicitudes.Add(Solicitud);
+                }
+            }
+            return ListaSolicitudes;
+        }
+
+
     }
 }
 

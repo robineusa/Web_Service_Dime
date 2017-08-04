@@ -125,5 +125,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
             return backelitebusiness.DistribucionPorId(Id);
         }
+        public List<BEPSolicitudes> ConsultarSolicitudesMasivo(List<string> Solicitudes)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ConsultarSolicitudesMasivo(Solicitudes);
+        }
     }
 }

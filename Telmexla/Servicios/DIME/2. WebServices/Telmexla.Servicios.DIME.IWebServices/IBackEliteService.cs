@@ -55,5 +55,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<BEMDistribuciones> ListaDistribucionPorIdCedula(decimal Cedula);
         [OperationContract]
         BEMDistribuciones DistribucionPorId(decimal Id);
+        [OperationContract]
+        List<BEPSolicitudes> ConsultarSolicitudesMasivo(List<string> Solicitudes);
     }
 }
