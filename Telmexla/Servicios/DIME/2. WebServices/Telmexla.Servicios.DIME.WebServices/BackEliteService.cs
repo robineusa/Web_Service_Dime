@@ -48,10 +48,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
             return backelitebusiness.DetalleGestionPorId(IdGestion);
         }
-        public bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot)
+        public bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot, string Proceso)
         {
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
-            return backelitebusiness.ValidarCuentaEnBackElite(CuentaCliente, Ot);
+            return backelitebusiness.ValidarCuentaEnBackElite(CuentaCliente, Ot,Proceso);
 
         }
         public BEPSolicitudes ConsultarSolicitudPorId(decimal IdSolicitud)

@@ -26,7 +26,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         BEMDetalleDeGestion DetalleGestionPorId(decimal IdGestion);
         [OperationContract]
-        bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot);
+        bool ValidarCuentaEnBackElite(decimal CuentaCliente, decimal Ot, string Proceso);
         [OperationContract]
         BEPSolicitudes ConsultarSolicitudPorId(decimal IdSolicitud);
         [OperationContract]
