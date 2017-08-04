@@ -55,6 +55,7 @@ namespace Telmexla.Servicios.DIME.Data
             Property(x => x.VolvioLlamar).HasColumnName(@"VOLVIO_A_LLAMAR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
             Property(x => x.PorQue).HasColumnName(@"PORQUE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(500);
             Property(x => x.Contacto).HasColumnName(@"CONTACTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.VozCliente).HasColumnName(@"VOZ_CLIENTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.ClientePresentaNovedades).HasColumnName(@"CLIENTE_PRESENTA_NOVEDADES").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.Proceso).HasColumnName(@"PROCESO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.Macroproceso).HasColumnName(@"MACROPROCESO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
@@ -64,7 +65,7 @@ namespace Telmexla.Servicios.DIME.Data
             Property(x => x.SolucionEspecifica).HasColumnName(@"SOLUCION_ESPECIFICA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.Solucionado).HasColumnName(@"SOLUCIONADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
             Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.ActivacionClaroVideo).HasColumnName(@"ACTIVACION_CLARO_VIDEO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.ActivacionClaroVideoNagra).HasColumnName(@"ACTIVACION_CLARO_VIDEO_NAGRA]").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.AceptacionPrimerOfrecimiento).HasColumnName(@"ACEPTACION_PRIMER_OFRECIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
             Property(x => x.AceptacionSegundoOfrecimiento).HasColumnName(@"ACEPTACION_SEGUNDO_OFRECIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
             Property(x => x.AceptacionTercerOfrecimiento).HasColumnName(@"ACEPTACION_TERCERO_OFRECIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);

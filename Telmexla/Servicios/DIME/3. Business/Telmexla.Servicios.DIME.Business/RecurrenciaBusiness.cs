@@ -99,6 +99,7 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.VolvioLlamar = recurrencia.VolvioLlamar;
                 LogRecurrencia.PorQue = recurrencia.PorQue;
                 LogRecurrencia.Contacto = recurrencia.Contacto;
+                LogRecurrencia.VozCliente = recurrencia.VozCliente;
                 LogRecurrencia.ClientePresentaNovedades = recurrencia.ClientePresentaNovedades;
                 LogRecurrencia.Proceso = recurrencia.Proceso;
                 LogRecurrencia.Macroproceso = recurrencia.Macroproceso;
@@ -108,7 +109,7 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.SolucionEspecifica = recurrencia.SolucionEspecifica;
                 LogRecurrencia.Solucionado = recurrencia.Solucionado;
                 LogRecurrencia.Estado = recurrencia.Estado;
-                LogRecurrencia.ActivacionClaroVideo = recurrencia.ActivacionClaroVideo;
+                LogRecurrencia.ActivacionClaroVideoNagra = recurrencia.ActivacionClaroVideoNagra;
                 LogRecurrencia.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
                 LogRecurrencia.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
                 LogRecurrencia.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
@@ -174,6 +175,7 @@ namespace Telmexla.Servicios.DIME.Business
                 GPRecurActualizable.VolvioLlamar = recurrencia.VolvioLlamar;
                 GPRecurActualizable.PorQue = recurrencia.PorQue;
                 GPRecurActualizable.Contacto = recurrencia.Contacto;
+                GPRecurActualizable.VozCliente = recurrencia.VozCliente;
                 GPRecurActualizable.ClientePresentaNovedades = recurrencia.ClientePresentaNovedades;
                 GPRecurActualizable.Proceso = recurrencia.Proceso;
                 GPRecurActualizable.Macroproceso = recurrencia.Macroproceso;
@@ -183,7 +185,7 @@ namespace Telmexla.Servicios.DIME.Business
                 GPRecurActualizable.SolucionEspecifica = recurrencia.SolucionEspecifica;
                 GPRecurActualizable.Solucionado = recurrencia.Solucionado;
                 GPRecurActualizable.Estado = recurrencia.Estado;
-                GPRecurActualizable.ActivacionClaroVideo = recurrencia.ActivacionClaroVideo;
+                GPRecurActualizable.ActivacionClaroVideoNagra = recurrencia.ActivacionClaroVideoNagra;
                 GPRecurActualizable.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
                 GPRecurActualizable.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
                 GPRecurActualizable.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
@@ -229,6 +231,7 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.VolvioLlamar = recurrencia.VolvioLlamar;
                 LogRecurrencia.PorQue = recurrencia.PorQue;
                 LogRecurrencia.Contacto = recurrencia.Contacto;
+                LogRecurrencia.VozCliente = recurrencia.VozCliente;
                 LogRecurrencia.ClientePresentaNovedades = recurrencia.ClientePresentaNovedades;
                 LogRecurrencia.Proceso = recurrencia.Proceso;
                 LogRecurrencia.Macroproceso = recurrencia.Macroproceso;
@@ -238,7 +241,7 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.SolucionEspecifica = recurrencia.SolucionEspecifica;
                 LogRecurrencia.Solucionado = recurrencia.Solucionado;
                 LogRecurrencia.Estado = recurrencia.Estado;
-                LogRecurrencia.ActivacionClaroVideo = recurrencia.ActivacionClaroVideo;
+                LogRecurrencia.ActivacionClaroVideoNagra = recurrencia.ActivacionClaroVideoNagra;
                 LogRecurrencia.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
                 LogRecurrencia.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
                 LogRecurrencia.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
@@ -310,6 +313,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.VolvioLlamar,
                                      a.PorQue,
                                      a.Contacto,
+                                     a.VozCliente,
                                      a.ClientePresentaNovedades,
                                      a.Proceso,
                                      a.Macroproceso,
@@ -319,7 +323,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.SolucionEspecifica,
                                      a.Solucionado,
                                      a.Estado,
-                                     a.ActivacionClaroVideo,
+                                     a.ActivacionClaroVideoNagra,
                                      a.AceptacionPrimerOfrecimiento,
                                      a.AceptacionSegundoOfrecimiento,
                                      a.AceptacionTercerOfrecimiento,
@@ -366,6 +370,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].VolvioLlamar = objetosResult[i].VolvioLlamar;
                 result[i].PorQue = objetosResult[i].PorQue;
                 result[i].Contacto = objetosResult[i].Contacto;
+                result[i].VozCliente = objetosResult[i].VozCliente;
                 result[i].ClientePresentaNovedades = objetosResult[i].ClientePresentaNovedades;
                 result[i].Proceso = objetosResult[i].Proceso;
                 result[i].Macroproceso= objetosResult[i].Macroproceso;
@@ -375,7 +380,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
                 result[i].Solucionado = objetosResult[i].Solucionado;
                 result[i].Estado = objetosResult[i].Estado;
-                result[i].ActivacionClaroVideo = objetosResult[i].ActivacionClaroVideo;
+                result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
                 result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
                 result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
