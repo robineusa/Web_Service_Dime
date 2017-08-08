@@ -57,5 +57,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         BEMDistribuciones DistribucionPorId(decimal Id);
         [OperationContract]
         List<BEPSolicitudes> ConsultarSolicitudesMasivo(List<string> Solicitudes);
+        [OperationContract]
+        void ActualizarSolicitudesMasivo(List<string> Solicitudes, BEPSolicitudes Solicitud);
     }
 }

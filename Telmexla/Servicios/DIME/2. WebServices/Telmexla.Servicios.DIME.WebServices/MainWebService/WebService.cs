@@ -1840,6 +1840,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BackEliteService backeliteservice = new BackEliteService();
             return backeliteservice.ConsultarSolicitudesMasivo(Solicitudes);
         }
+        public void ActualizarSolicitudesMasivo(List<string> Solicitudes, BEPSolicitudes Solicitud)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            backeliteservice.ActualizarSolicitudesMasivo(Solicitudes, Solicitud);
+        }
 
         #endregion
 

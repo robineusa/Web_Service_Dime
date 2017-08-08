@@ -705,6 +705,66 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return ListaSolicitudes;
         }
+        public void ActualizarSolicitudesMasivo(List<string> Solicitudes, BEPSolicitudes Solicitud)
+        {
+            
+            List<decimal> IdSolicitudes = Solicitudes.ConvertAll(s => Convert.ToDecimal(s));
+            foreach (decimal ID_SOLICITUD in IdSolicitudes)
+            {
+                UnitOfWork UnitOfWorkSolicitdActualizable = new UnitOfWork(new DimeContext());
+                BEPSolicitudes SolicitudActualizable = UnitOfWorkSolicitdActualizable.BEPSolicitudes.Find(c => c.IdSolicitud == ID_SOLICITUD && c.EstadoEscalamiento != "FINALIZADO").FirstOrDefault();
+                if (SolicitudActualizable != null)
+                {
+                    //Actualiza solicitud
+                    DateTime Fecha = DateTime.Now;
+                    SolicitudActualizable.FechaUltimaActualizacion = Fecha;
+                    SolicitudActualizable.UsuarioUltimaActualizacion = Solicitud.UsuarioQueSolicita;
+                    SolicitudActualizable.NombreUsuarioUltimaActualizacion = Solicitud.NombreUsuarioQueSolicita;
+                    SolicitudActualizable.Gestion = "GESTION MASIVA (SE AGENDA / SE CONFIRMA)";
+                    SolicitudActualizable.EstadoEscalamiento = "FINALIZADO";
+                    SolicitudActualizable.Observaciones = "SE GENERA CIERRE MASIVO DE LA SOLICITUD POR PARTE DEL ADMINISTRADOR POR MOTIVO DE GESTION MASIVA (SE AGENDA / SE CONFIRMA)";
+                    SolicitudActualizable.FechaDeFinalizacion = Fecha;
+                    SolicitudActualizable.UsuarioQueFinaliza = Solicitud.UsuarioQueSolicita;
+                    SolicitudActualizable.NombreUsuarioQueFinaliza = Solicitud.NombreUsuarioQueSolicita;
+
+                    UnitOfWorkSolicitdActualizable.Complete();
+                    UnitOfWorkSolicitdActualizable.Dispose();
+
+                    //inserta solicitud en la tabla del log
+                    UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
+                    BELSolicitudes SolcitudLog = new BELSolicitudes();
+
+                    SolcitudLog.IdSolicitud = SolicitudActualizable.IdSolicitud;
+                    SolcitudLog.CuentaCliente = SolicitudActualizable.CuentaCliente;
+                    SolcitudLog.LlsOt = SolicitudActualizable.LlsOt;
+                    SolcitudLog.TipoDeSolicitud = SolicitudActualizable.TipoDeSolicitud;
+                    SolcitudLog.DetalleDeSolicitud = SolicitudActualizable.DetalleDeSolicitud;
+                    SolcitudLog.FechaDeSolicitud = SolicitudActualizable.FechaDeSolicitud;
+                    SolcitudLog.UsuarioQueSolicita = SolicitudActualizable.UsuarioQueSolicita;
+                    SolcitudLog.NombreUsuarioQueSolicita = SolicitudActualizable.NombreUsuarioQueSolicita;
+                    SolcitudLog.AliadoQueSolicita = SolicitudActualizable.AliadoQueSolicita;
+                    SolcitudLog.OperacionQueSolicita = SolicitudActualizable.OperacionQueSolicita;
+                    SolcitudLog.FechaUltimaActualizacion = SolicitudActualizable.FechaUltimaActualizacion;
+                    SolcitudLog.UsuarioUltimaActualizacion = SolicitudActualizable.UsuarioUltimaActualizacion;
+                    SolcitudLog.NombreUsuarioUltimaActualizacion = SolicitudActualizable.NombreUsuarioUltimaActualizacion;
+                    SolcitudLog.FechaDeFinalizacion = SolicitudActualizable.FechaDeFinalizacion;
+                    SolcitudLog.UsuarioQueFinaliza = SolicitudActualizable.UsuarioQueFinaliza;
+                    SolcitudLog.NombreUsuarioQueFinaliza = SolicitudActualizable.NombreUsuarioQueFinaliza;
+                    SolcitudLog.Nodo = SolicitudActualizable.Nodo;
+                    SolcitudLog.Malescalado = SolicitudActualizable.Malescalado;
+                    SolcitudLog.DetalleMalEscalado = SolicitudActualizable.DetalleMalEscalado;
+                    SolcitudLog.Gestion = SolicitudActualizable.Gestion;
+                    SolcitudLog.EstadoEscalamiento = SolicitudActualizable.EstadoEscalamiento;
+                    SolcitudLog.FechaDeAgenda = SolicitudActualizable.FechaDeAgenda;
+                    SolcitudLog.Observaciones = SolicitudActualizable.Observaciones;
+
+                    UnitOfWorkLog.BELSolicitudes.Add(SolcitudLog);
+                    UnitOfWorkLog.Complete();
+                    UnitOfWorkLog.Dispose();
+                }
+            }
+
+        }
 
 
     }

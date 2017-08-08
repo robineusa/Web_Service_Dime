@@ -130,5 +130,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
             return backelitebusiness.ConsultarSolicitudesMasivo(Solicitudes);
         }
+        public void ActualizarSolicitudesMasivo(List<string> Solicitudes, BEPSolicitudes Solicitud)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            backelitebusiness.ActualizarSolicitudesMasivo(Solicitudes,Solicitud);
+        }
     }
 }
