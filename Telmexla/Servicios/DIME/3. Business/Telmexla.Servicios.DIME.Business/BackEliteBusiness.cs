@@ -712,7 +712,7 @@ namespace Telmexla.Servicios.DIME.Business
             foreach (decimal ID_SOLICITUD in IdSolicitudes)
             {
                 UnitOfWork UnitOfWorkSolicitdActualizable = new UnitOfWork(new DimeContext());
-                BEPSolicitudes SolicitudActualizable = UnitOfWorkSolicitdActualizable.BEPSolicitudes.Find(c => c.IdSolicitud == ID_SOLICITUD && c.EstadoEscalamiento != "FINALIZADO").FirstOrDefault();
+                BEPSolicitudes SolicitudActualizable = UnitOfWorkSolicitdActualizable.BEPSolicitudes.Find(c => c.IdSolicitud == ID_SOLICITUD && c.EstadoEscalamiento.Equals("PENDIENTE")).FirstOrDefault();
                 if (SolicitudActualizable != null)
                 {
                     //Actualiza solicitud
@@ -720,12 +720,15 @@ namespace Telmexla.Servicios.DIME.Business
                     SolicitudActualizable.FechaUltimaActualizacion = Fecha;
                     SolicitudActualizable.UsuarioUltimaActualizacion = Solicitud.UsuarioQueSolicita;
                     SolicitudActualizable.NombreUsuarioUltimaActualizacion = Solicitud.NombreUsuarioQueSolicita;
-                    SolicitudActualizable.Gestion = "GESTION MASIVA (SE AGENDA / SE CONFIRMA)";
-                    SolicitudActualizable.EstadoEscalamiento = "FINALIZADO";
-                    SolicitudActualizable.Observaciones = "SE GENERA CIERRE MASIVO DE LA SOLICITUD POR PARTE DEL ADMINISTRADOR POR MOTIVO DE GESTION MASIVA (SE AGENDA / SE CONFIRMA)";
+                    SolicitudActualizable.Malescalado = Solicitud.Malescalado;
+                    SolicitudActualizable.DetalleMalEscalado = Solicitud.DetalleMalEscalado;
+                    SolicitudActualizable.Gestion = Solicitud.Gestion;
+                    SolicitudActualizable.EstadoEscalamiento =Solicitud.EstadoEscalamiento;
+                    SolicitudActualizable.Observaciones = Solicitud.Observaciones;
                     SolicitudActualizable.FechaDeFinalizacion = Fecha;
                     SolicitudActualizable.UsuarioQueFinaliza = Solicitud.UsuarioQueSolicita;
                     SolicitudActualizable.NombreUsuarioQueFinaliza = Solicitud.NombreUsuarioQueSolicita;
+                    SolicitudActualizable.FechaDeAgenda = Solicitud.FechaDeAgenda;
 
                     UnitOfWorkSolicitdActualizable.Complete();
                     UnitOfWorkSolicitdActualizable.Dispose();
