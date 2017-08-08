@@ -40,7 +40,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
         GPrincipalRecurrencia TraerGPrinRecurrencia(int CuentaCliente);
 
         [OperationContract]
-        List<GPrincipalRecurrencia> ListaSeguimientosRecurrencia(int CuentaCliente);
+        List<GPrincipalRecurrencia> ListaSeguimientosRecurrencia();
 
+        [OperationContract]
+        void UsuarioGestionandoGRecurrencia(int idUsuario, int idCaso);
+        
     }
 }

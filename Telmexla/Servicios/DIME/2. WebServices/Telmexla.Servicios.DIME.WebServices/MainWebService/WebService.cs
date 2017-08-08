@@ -1896,10 +1896,15 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.TraerGPrinRecurrencia(CuentaCliente);
         }
-        public List<GPrincipalRecurrencia> ListaSeguimientosRecurrencia(int CuentaCliente)
+        public List<GPrincipalRecurrencia> ListaSeguimientosRecurrencia()
         {
             RecurrenciaService recurrenciaService = new RecurrenciaService();
-            return recurrenciaService.ListaSeguimientosRecurrencia(CuentaCliente);
+            return recurrenciaService.ListaSeguimientosRecurrencia();
+        }
+        public void UsuarioGestionandoGRecurrencia(int idUsuario, int idCaso)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            recurrenciaService.UsuarioGestionandoGRecurrencia(idUsuario, idCaso);
         }
         #endregion
     }

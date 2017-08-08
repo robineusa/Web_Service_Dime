@@ -62,12 +62,12 @@ namespace Telmexla.Servicios.DIME.Business
 
 
                 UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
-                GLogRecurrencia LogRecurrencia= new GLogRecurrencia();
+                GLogRecurrencia LogRecurrencia = new GLogRecurrencia();
 
                 LogRecurrencia.FechaGestion = recurrencia.FechaGestion;
                 LogRecurrencia.UsuarioGestion = recurrencia.UsuarioGestion;
                 LogRecurrencia.NombreUsuarioGestion = recurrencia.NombreUsuarioGestion;
-                LogRecurrencia.AliadoGestion = recurrencia.AliadoGestion; 
+                LogRecurrencia.AliadoGestion = recurrencia.AliadoGestion;
                 LogRecurrencia.CuentaCliente = recurrencia.CuentaCliente;
                 LogRecurrencia.NombreCliente = recurrencia.NombreCliente;
                 LogRecurrencia.ApellidoCliente = recurrencia.ApellidoCliente;
@@ -104,7 +104,7 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.Proceso = recurrencia.Proceso;
                 LogRecurrencia.Macroproceso = recurrencia.Macroproceso;
                 LogRecurrencia.ServicioAfectado = recurrencia.ServicioAfectado;
-                LogRecurrencia.FallaEspecificaArbolCCAA = recurrencia.FallaEspecificaArbolCCAA; 
+                LogRecurrencia.FallaEspecificaArbolCCAA = recurrencia.FallaEspecificaArbolCCAA;
                 LogRecurrencia.FallaCausaRaiz = recurrencia.FallaCausaRaiz;
                 LogRecurrencia.SolucionEspecifica = recurrencia.SolucionEspecifica;
                 LogRecurrencia.Solucionado = recurrencia.Solucionado;
@@ -138,8 +138,8 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 UnitOfWork unitWork = new UnitOfWork(new DimeContext());
                 recurrencia.FechaGestion = DateTime.Now;
-                GPrincipalRecurrencia GPRecurActualizable = unitWork.GPrincipalRecurrencia.Find(c =>c.CuentaCliente == recurrencia.CuentaCliente).FirstOrDefault();
-                
+                GPrincipalRecurrencia GPRecurActualizable = unitWork.GPrincipalRecurrencia.Find(c => c.CuentaCliente == recurrencia.CuentaCliente).FirstOrDefault();
+
                 GPRecurActualizable.FechaGestion = recurrencia.FechaGestion;
                 GPRecurActualizable.UsuarioGestion = recurrencia.UsuarioGestion;
                 GPRecurActualizable.NombreUsuarioGestion = recurrencia.NombreUsuarioGestion;
@@ -190,6 +190,7 @@ namespace Telmexla.Servicios.DIME.Business
                 GPRecurActualizable.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
                 GPRecurActualizable.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
                 GPRecurActualizable.Observaciones = recurrencia.Observaciones;
+                GPRecurActualizable.UsuarioGestionando = recurrencia.UsuarioGestionando;
                 unitWork.Complete();
                 unitWork.Dispose();
 
@@ -269,12 +270,12 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             return unitOfWork.GPrincipalRecurrencia.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
         }
-        public List<GPrincipalRecurrencia> ListaSeguimientosRecurrencia(int CuentaCliente)
+        public List<GPrincipalRecurrencia> ListaSeguimientosRecurrencia()
         {
             DimeContext dimContext = new DimeContext();
             List<GPrincipalRecurrencia> result = new List<GPrincipalRecurrencia>();
             var objetosResult = (from a in dimContext.GPrincipalRecurrencia
-                                 where a.CuentaCliente.Equals(CuentaCliente) && a.Estado == "SEGUIMIENTO"
+                                 where a.Estado == "SEGUIMIENTO"
                                  select new
                                  {
                                      a.Id,
@@ -373,9 +374,9 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].VozCliente = objetosResult[i].VozCliente;
                 result[i].ClientePresentaNovedades = objetosResult[i].ClientePresentaNovedades;
                 result[i].Proceso = objetosResult[i].Proceso;
-                result[i].Macroproceso= objetosResult[i].Macroproceso;
+                result[i].Macroproceso = objetosResult[i].Macroproceso;
                 result[i].ServicioAfectado = objetosResult[i].ServicioAfectado;
-                result[i].FallaEspecificaArbolCCAA= objetosResult[i].FallaEspecificaArbolCCAA;
+                result[i].FallaEspecificaArbolCCAA = objetosResult[i].FallaEspecificaArbolCCAA;
                 result[i].FallaCausaRaiz = objetosResult[i].FallaCausaRaiz;
                 result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
                 result[i].Solucionado = objetosResult[i].Solucionado;
@@ -388,5 +389,17 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        public void UsuarioGestionandoGRecurrencia(int idUsuario, int idCaso)
+        {
+
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            GPrincipalRecurrencia GPRecurActualizable = unitWork.GPrincipalRecurrencia.Find(c => c.Id == idCaso).FirstOrDefault();
+
+            GPRecurActualizable.UsuarioGestionando = idUsuario;
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+
     }
 }
+    
