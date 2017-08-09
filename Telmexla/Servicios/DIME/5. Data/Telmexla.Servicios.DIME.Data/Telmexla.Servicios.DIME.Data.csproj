@@ -64,6 +64,8 @@
     <Compile Include="BEMRazonMalEscalamientoRepository.cs" />
     <Compile Include="BEMTipoDeEscalamientosRepository.cs" />
     <Compile Include="BEPSolicitudesRepository.cs" />
+    <Compile Include="BitacoraIncidentesLogRepository.cs" />
+    <Compile Include="BitacoraIncidentesRepository.cs" />
     <Compile Include="BlendingFueraNivelRepository.cs" />
     <Compile Include="CambioEstratoRepository.cs" />
     <Compile Include="CargueBaseFoxInboundRepository.cs" />
@@ -79,6 +81,8 @@
     <Compile Include="Configuration\BEMRazonMalEscalamientoConfiguration.cs" />
     <Compile Include="Configuration\BEMTipoDeEscalamientosConfiguration.cs" />
     <Compile Include="Configuration\BEPSolicitudesConfiguration.cs" />
+    <Compile Include="Configuration\BitacoraIncidentesConfiguration.cs" />
+    <Compile Include="Configuration\BitacoraIncidentesLogConfiguration.cs" />
     <Compile Include="Configuration\BlendingFueraNivelConfiguration.cs" />
     <Compile Include="Configuration\CambioEstratoConfiguration.cs" />
     <Compile Include="Configuration\CargueBaseFoxInboundConfiguration.cs" />

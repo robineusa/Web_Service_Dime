@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService, IRecurrenciaService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService
     {
 
 
@@ -1905,6 +1905,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             recurrenciaService.UsuarioGestionandoGRecurrencia(idUsuario, idCaso);
+        }
+        #endregion
+
+        #region BitacoraIncidentes
+        public void RegistrarIncidente(BitacoraIncidentes Bitacora)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.RegistrarIncidente(Bitacora);
         }
         #endregion
     }

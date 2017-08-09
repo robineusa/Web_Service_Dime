@@ -64,6 +64,8 @@
     <Compile Include="IBEMRazonMalEscalamientoRepository.cs" />
     <Compile Include="IBEMTipoDeEscalamientosRepository.cs" />
     <Compile Include="IBEPSolicitudesRepository.cs" />
+    <Compile Include="IBitacoraIncidentesLogRepository.cs" />
+    <Compile Include="IBitacoraIncidentesRepository.cs" />
     <Compile Include="IBlendingFueraNivelRepository.cs" />
     <Compile Include="ICambioEstratoRepository.cs" />
     <Compile Include="ICargueBaseFoxInboundRepository.cs" />

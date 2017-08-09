@@ -77,6 +77,8 @@
     <Compile Include="BEMRazonMalEscalamiento.cs" />
     <Compile Include="BEMTipoDeEscalamientos.cs" />
     <Compile Include="BEPSolicitudes.cs" />
+    <Compile Include="BitacoraIncidentes.cs" />
+    <Compile Include="BitacoraIncidentesLog.cs" />
     <Compile Include="BlendingFueraNivel.cs" />
     <Compile Include="CambioEstrato.cs" />
     <Compile Include="CambioEstratoCollection.cs" />
