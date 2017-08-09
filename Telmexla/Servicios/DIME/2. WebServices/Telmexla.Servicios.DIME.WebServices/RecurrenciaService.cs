@@ -70,5 +70,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
             recurrenciaBusiness.UsuarioGestionandoGRecurrencia(idUsuario, idCaso);
         }
+        public List<GPrincipalRecurrencia> ConsultaAdminGPrincipalRecurrencia(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.ConsultaAdminGPrincipalRecurrencia(FechaInicial, FechaFinal);
+        }
+        public List<GLogRecurrencia> ConsultaAdminGLogRecurrencia(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.ConsultaAdminGLogRecurrencia(FechaInicial, FechaFinal);
+        }
     }
 }

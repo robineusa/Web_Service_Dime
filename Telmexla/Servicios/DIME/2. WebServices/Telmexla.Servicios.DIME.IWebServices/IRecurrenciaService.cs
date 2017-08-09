@@ -44,6 +44,13 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         void UsuarioGestionandoGRecurrencia(int idUsuario, int idCaso);
-        
+
+        [OperationContract]
+        List<GPrincipalRecurrencia> ConsultaAdminGPrincipalRecurrencia(DateTime FechaInicial, DateTime FechaFinal);
+
+        [OperationContract]
+        List<GLogRecurrencia> ConsultaAdminGLogRecurrencia(DateTime FechaInicial, DateTime FechaFinal);
+
+
     }
 }

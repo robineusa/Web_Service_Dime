@@ -1906,6 +1906,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             recurrenciaService.UsuarioGestionandoGRecurrencia(idUsuario, idCaso);
         }
+        public List<GPrincipalRecurrencia> ConsultaAdminGPrincipalRecurrencia(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ConsultaAdminGPrincipalRecurrencia(FechaInicial, FechaFinal);
+        }
+        public List<GLogRecurrencia> ConsultaAdminGLogRecurrencia(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ConsultaAdminGLogRecurrencia(FechaInicial, FechaFinal);
+        }
         #endregion
     }
 }

@@ -399,7 +399,244 @@ namespace Telmexla.Servicios.DIME.Business
             unitWork.Complete();
             unitWork.Dispose();
         }
+        public List<GPrincipalRecurrencia> ConsultaAdminGPrincipalRecurrencia(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GPrincipalRecurrencia> result = new List<GPrincipalRecurrencia>();
+            var objetosResult = (from a in dimContext.GPrincipalRecurrencia
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.NombreUsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.CuentaCliente,
+                                     a.NombreCliente,
+                                     a.ApellidoCliente,
+                                     a.Division,
+                                     a.Area,
+                                     a.Zona,
+                                     a.Marcaciones,
+                                     a.FechaUltimaMarcacion,
+                                     a.FechaUltimaGestion,
+                                     a.Telefono1,
+                                     a.Telefono2,
+                                     a.Telefono3,
+                                     a.TelefonoTelmex,
+                                     a.IncluyeClaroVideo,
+                                     a.UsoClaroVideo,
+                                     a.ClienteNagra,
+                                     a.Ofrecimiento1,
+                                     a.Ofrecimiento2,
+                                     a.Ofrecimiento3,
+                                     a.Diferenciador,
+                                     a.Prioridad,
+                                     a.VecesGestionado,
+                                     a.MacroProcesoRecurrencia1,
+                                     a.MacroProcesoRecurrencia2,
+                                     a.MacroProcesoRecurrencia3,
+                                     a.MarcacionRecurrente1,
+                                     a.MarcacionRecurrente2,
+                                     a.MarcacionRecurrente3,
+                                     a.VolvioLlamar,
+                                     a.PorQue,
+                                     a.Contacto,
+                                     a.VozCliente,
+                                     a.ClientePresentaNovedades,
+                                     a.Proceso,
+                                     a.Macroproceso,
+                                     a.ServicioAfectado,
+                                     a.FallaEspecificaArbolCCAA,
+                                     a.FallaCausaRaiz,
+                                     a.SolucionEspecifica,
+                                     a.Solucionado,
+                                     a.Estado,
+                                     a.ActivacionClaroVideoNagra,
+                                     a.AceptacionPrimerOfrecimiento,
+                                     a.AceptacionSegundoOfrecimiento,
+                                     a.AceptacionTercerOfrecimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
 
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GPrincipalRecurrencia());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].NombreCliente = objetosResult[i].NombreCliente;
+                result[i].ApellidoCliente = objetosResult[i].ApellidoCliente;
+                result[i].Division = objetosResult[i].Division;
+                result[i].Area = objetosResult[i].Area;
+                result[i].Zona = objetosResult[i].Zona;
+                result[i].Marcaciones = objetosResult[i].Marcaciones;
+                result[i].FechaUltimaMarcacion = objetosResult[i].FechaUltimaMarcacion;
+                result[i].FechaUltimaGestion = objetosResult[i].FechaUltimaGestion;
+                result[i].Telefono1 = objetosResult[i].Telefono1;
+                result[i].Telefono2 = objetosResult[i].Telefono2;
+                result[i].Telefono3 = objetosResult[i].Telefono3;
+                result[i].TelefonoTelmex = objetosResult[i].TelefonoTelmex;
+                result[i].IncluyeClaroVideo = objetosResult[i].IncluyeClaroVideo;
+                result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
+                result[i].ClienteNagra = objetosResult[i].ClienteNagra;
+                result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
+                result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
+                result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
+                result[i].Diferenciador = objetosResult[i].Diferenciador;
+                result[i].Prioridad = objetosResult[i].Prioridad;
+                result[i].VecesGestionado = objetosResult[i].VecesGestionado;
+                result[i].MacroProcesoRecurrencia1 = objetosResult[i].MacroProcesoRecurrencia1;
+                result[i].MacroProcesoRecurrencia2 = objetosResult[i].MacroProcesoRecurrencia2;
+                result[i].MacroProcesoRecurrencia3 = objetosResult[i].MacroProcesoRecurrencia3;
+                result[i].MarcacionRecurrente1 = objetosResult[i].MarcacionRecurrente1;
+                result[i].MarcacionRecurrente2 = objetosResult[i].MarcacionRecurrente2;
+                result[i].MarcacionRecurrente3 = objetosResult[i].MarcacionRecurrente3;
+                result[i].VolvioLlamar = objetosResult[i].VolvioLlamar;
+                result[i].PorQue = objetosResult[i].PorQue;
+                result[i].Contacto = objetosResult[i].Contacto;
+                result[i].VozCliente = objetosResult[i].VozCliente;
+                result[i].ClientePresentaNovedades = objetosResult[i].ClientePresentaNovedades;
+                result[i].Proceso = objetosResult[i].Proceso;
+                result[i].Macroproceso = objetosResult[i].Macroproceso;
+                result[i].ServicioAfectado = objetosResult[i].ServicioAfectado;
+                result[i].FallaEspecificaArbolCCAA = objetosResult[i].FallaEspecificaArbolCCAA;
+                result[i].FallaCausaRaiz = objetosResult[i].FallaCausaRaiz;
+                result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
+                result[i].Solucionado = objetosResult[i].Solucionado;
+                result[i].Estado = objetosResult[i].Estado;
+                result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
+                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
+                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
+                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+        }
+        public List<GLogRecurrencia> ConsultaAdminGLogRecurrencia(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GLogRecurrencia> result = new List<GLogRecurrencia>();
+            var objetosResult = (from a in dimContext.GLogRecurrencia
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.NombreUsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.CuentaCliente,
+                                     a.NombreCliente,
+                                     a.ApellidoCliente,
+                                     a.Division,
+                                     a.Area,
+                                     a.Zona,
+                                     a.Marcaciones,
+                                     a.FechaUltimaMarcacion,
+                                     a.FechaUltimaGestion,
+                                     a.Telefono1,
+                                     a.Telefono2,
+                                     a.Telefono3,
+                                     a.TelefonoTelmex,
+                                     a.IncluyeClaroVideo,
+                                     a.UsoClaroVideo,
+                                     a.ClienteNagra,
+                                     a.Ofrecimiento1,
+                                     a.Ofrecimiento2,
+                                     a.Ofrecimiento3,
+                                     a.Diferenciador,
+                                     a.Prioridad,
+                                     a.VecesGestionado,
+                                     a.MacroProcesoRecurrencia1,
+                                     a.MacroProcesoRecurrencia2,
+                                     a.MacroProcesoRecurrencia3,
+                                     a.MarcacionRecurrente1,
+                                     a.MarcacionRecurrente2,
+                                     a.MarcacionRecurrente3,
+                                     a.VolvioLlamar,
+                                     a.PorQue,
+                                     a.Contacto,
+                                     a.VozCliente,
+                                     a.ClientePresentaNovedades,
+                                     a.Proceso,
+                                     a.Macroproceso,
+                                     a.ServicioAfectado,
+                                     a.FallaEspecificaArbolCCAA,
+                                     a.FallaCausaRaiz,
+                                     a.SolucionEspecifica,
+                                     a.Solucionado,
+                                     a.Estado,
+                                     a.ActivacionClaroVideoNagra,
+                                     a.AceptacionPrimerOfrecimiento,
+                                     a.AceptacionSegundoOfrecimiento,
+                                     a.AceptacionTercerOfrecimiento,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GLogRecurrencia());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].NombreCliente = objetosResult[i].NombreCliente;
+                result[i].ApellidoCliente = objetosResult[i].ApellidoCliente;
+                result[i].Division = objetosResult[i].Division;
+                result[i].Area = objetosResult[i].Area;
+                result[i].Zona = objetosResult[i].Zona;
+                result[i].Marcaciones = objetosResult[i].Marcaciones;
+                result[i].FechaUltimaMarcacion = objetosResult[i].FechaUltimaMarcacion;
+                result[i].FechaUltimaGestion = objetosResult[i].FechaUltimaGestion;
+                result[i].Telefono1 = objetosResult[i].Telefono1;
+                result[i].Telefono2 = objetosResult[i].Telefono2;
+                result[i].Telefono3 = objetosResult[i].Telefono3;
+                result[i].TelefonoTelmex = objetosResult[i].TelefonoTelmex;
+                result[i].IncluyeClaroVideo = objetosResult[i].IncluyeClaroVideo;
+                result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
+                result[i].ClienteNagra = objetosResult[i].ClienteNagra;
+                result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
+                result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
+                result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
+                result[i].Diferenciador = objetosResult[i].Diferenciador;
+                result[i].Prioridad = objetosResult[i].Prioridad;
+                result[i].VecesGestionado = objetosResult[i].VecesGestionado;
+                result[i].MacroProcesoRecurrencia1 = objetosResult[i].MacroProcesoRecurrencia1;
+                result[i].MacroProcesoRecurrencia2 = objetosResult[i].MacroProcesoRecurrencia2;
+                result[i].MacroProcesoRecurrencia3 = objetosResult[i].MacroProcesoRecurrencia3;
+                result[i].MarcacionRecurrente1 = objetosResult[i].MarcacionRecurrente1;
+                result[i].MarcacionRecurrente2 = objetosResult[i].MarcacionRecurrente2;
+                result[i].MarcacionRecurrente3 = objetosResult[i].MarcacionRecurrente3;
+                result[i].VolvioLlamar = objetosResult[i].VolvioLlamar;
+                result[i].PorQue = objetosResult[i].PorQue;
+                result[i].Contacto = objetosResult[i].Contacto;
+                result[i].VozCliente = objetosResult[i].VozCliente;
+                result[i].ClientePresentaNovedades = objetosResult[i].ClientePresentaNovedades;
+                result[i].Proceso = objetosResult[i].Proceso;
+                result[i].Macroproceso = objetosResult[i].Macroproceso;
+                result[i].ServicioAfectado = objetosResult[i].ServicioAfectado;
+                result[i].FallaEspecificaArbolCCAA = objetosResult[i].FallaEspecificaArbolCCAA;
+                result[i].FallaCausaRaiz = objetosResult[i].FallaCausaRaiz;
+                result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
+                result[i].Solucionado = objetosResult[i].Solucionado;
+                result[i].Estado = objetosResult[i].Estado;
+                result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
+                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
+                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
+                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+        }
     }
 }
     
