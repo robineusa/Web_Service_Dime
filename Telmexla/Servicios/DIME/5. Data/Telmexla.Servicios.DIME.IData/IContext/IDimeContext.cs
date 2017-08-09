@@ -109,6 +109,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<RecurrenciaCargaBase> RecurrenciaCargaBase { get; set; }
         System.Data.Entity.DbSet<GPrincipalRecurrencia> GPrincipalRecurrencia { get; set; }
         System.Data.Entity.DbSet<GLogRecurrencia> GLogRecurrencia { get; set; }
+        System.Data.Entity.DbSet<BitacoraIncidentes> BitacoraIncidentes { get; set; }
+        System.Data.Entity.DbSet<BitacoraIncidentesLog> BitacoraIncidentesLog { get; set; }
 
 
         int SaveChanges();

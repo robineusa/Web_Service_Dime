@@ -65,6 +65,7 @@
     <Compile Include="ActivacionSiembraHDService.cs" />
     <Compile Include="BackEliteService.cs" />
     <Compile Include="BalanceScoreCardService.cs" />
+    <Compile Include="BitacoraIncidentesService.cs" />
     <Compile Include="BlendingService.cs" />
     <Compile Include="CasosAdminService.cs" />
     <Compile Include="CasosCelulaService.cs" />

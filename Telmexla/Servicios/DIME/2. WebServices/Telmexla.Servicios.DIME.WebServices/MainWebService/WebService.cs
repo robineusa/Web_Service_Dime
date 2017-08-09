@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService, IRecurrenciaService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService
     {
 
 
@@ -839,258 +839,258 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         public List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion(string Usuario)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSolicitudesCrearDireccion(Usuario);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSolicitudesCrearDireccion(Usuario);
         }
         public NotasTrasladoCollection ListaInteraccionesCrearDireccion(int id)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaInteraccionesCrearDireccion(id);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaInteraccionesCrearDireccion(id);
         }
         public void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado, TraficoTraslado transaccion)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.ActualizarSolicitudCrearDireccion(ingreso, notaTraslado,transaccion);
+            TrasladosService trasladosService = new TrasladosService();
+            trasladosService.ActualizarSolicitudCrearDireccion(ingreso, notaTraslado,transaccion);
         }
         public bool TransaccionEnGestion(int id, String usrABackOffice)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.TransaccionEnGestion(id, usrABackOffice);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.TransaccionEnGestion(id, usrABackOffice);
         }
         public List<DatoConsultaDirecciones> ListaSeguimientosDireccionesCelula(string usrABackOffice)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSeguimientosDireccionesCelula(usrABackOffice);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSeguimientosDireccionesCelula(usrABackOffice);
         }
         public List<DatoConsultaDirecciones> ListaDireccionesCreadasOutbound(string Usuario)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaDireccionesCreadasOutbound(Usuario);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaDireccionesCreadasOutbound(Usuario);
         }
         public bool TransaccionEnGestionOut(int id, String usrOut)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.TransaccionEnGestionOut(id, usrOut);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.TransaccionEnGestionOut(id, usrOut);
         }
         public List<DatoConsultaDirecciones> ListaSeguimientosDireccionesOutbound(string UsuarioOut)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSeguimientosDireccionesOutbound(UsuarioOut);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSeguimientosDireccionesOutbound(UsuarioOut);
         }
         public List<DatoConsultaDirecciones> ListGestionCrearDireccion(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListGestionCrearDireccion(FechaInicial, FechaFinal, usrTransac);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListGestionCrearDireccion(FechaInicial, FechaFinal, usrTransac);
         }
         //PROCESOS CAMBIO DE ESTRATO
         public void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato, TraficoTraslado transaccion)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.InsertIngresoCambioEstrato(ingreso, cambioEstrato,transaccion);
+            TrasladosService trasladosService = new TrasladosService();
+            trasladosService.InsertIngresoCambioEstrato(ingreso, cambioEstrato,transaccion);
         }
         public bool ExisteCuentaEscaladaCambioEstrato(decimal cuenta)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ExisteCuentaEscaladaCambioEstrato(cuenta);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ExisteCuentaEscaladaCambioEstrato(cuenta);
         }
         public List<DatoConsultaDirecciones> ListaSolicitudesCambioEstrato(string Usuario)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSolicitudesCambioEstrato(Usuario);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSolicitudesCambioEstrato(Usuario);
         }
         public CambioEstratoCollection ListaInteraccionesCambioEstrato(int id)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaInteraccionesCambioEstrato(id);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaInteraccionesCambioEstrato(id);
         }
         public void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato, TraficoTraslado transaccion)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.ActualizarSolicitudCambioEstrato(ingreso, CambioEstrato,transaccion);
+            TrasladosService trasladosService = new TrasladosService();
+            trasladosService.ActualizarSolicitudCambioEstrato(ingreso, CambioEstrato,transaccion);
         }
         public bool TransaccionEnGestionCambioEstrato(int id, String usrABackOffice)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.TransaccionEnGestionCambioEstrato(id, usrABackOffice);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.TransaccionEnGestionCambioEstrato(id, usrABackOffice);
         }
         public List<DatoConsultaDirecciones> ListaSeguimientosCambiodeEstratoCelula(string usrABackOffice)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSeguimientosCambiodeEstratoCelula(usrABackOffice);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSeguimientosCambiodeEstratoCelula(usrABackOffice);
         }
         public List<DatoConsultaDirecciones> ListGestionCambioDeEstrato(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListGestionCambioDeEstrato(FechaInicial, FechaFinal, usrTransac);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListGestionCambioDeEstrato(FechaInicial, FechaFinal, usrTransac);
         }
         //PROCESO LIBERACIONES DE HOME PASS
         public void InsertIngresoLiberacionHomePass(IngresoTraslado ingreso, LiberacionHomePass liberacion, TraficoTraslado transaccion)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.InsertIngresoLiberacionHomePass(ingreso, liberacion, transaccion);
+            TrasladosService trasladosService = new TrasladosService();
+            trasladosService.InsertIngresoLiberacionHomePass(ingreso, liberacion, transaccion);
         }
         public bool ExisteCuentaEscaladaLiberacionHomePass(decimal cuenta)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ExisteCuentaEscaladaLiberacionHomePass(cuenta);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ExisteCuentaEscaladaLiberacionHomePass(cuenta);
         }
         public List<DatoConsultaDirecciones> ListaSolicitudesLiberacionesHomePass(string Usuario)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSolicitudesLiberacionesHomePass(Usuario);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSolicitudesLiberacionesHomePass(Usuario);
         }
         public LiberacionHomePassCollection ListaInteraccionesLiberacionHomePass(int id)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaInteraccionesLiberacionHomePass(id);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaInteraccionesLiberacionHomePass(id);
         }
         public void ActualizarSolicitudLiberacionesHomePass(IngresoTraslado ingreso, LiberacionHomePass liberacion, TraficoTraslado transaccion)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.ActualizarSolicitudLiberacionesHomePass(ingreso, liberacion, transaccion);
+            TrasladosService trasladosService = new TrasladosService();
+            trasladosService.ActualizarSolicitudLiberacionesHomePass(ingreso, liberacion, transaccion);
         }
         public bool TransaccionEnGestionLiberacionHomePass(int id, String usrABackOffice)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.TransaccionEnGestionLiberacionHomePass(id, usrABackOffice);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.TransaccionEnGestionLiberacionHomePass(id, usrABackOffice);
         }
         public List<DatoConsultaDirecciones> ListaSeguimientosLiberacionHomePassCelula(string usrABackOffice)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSeguimientosLiberacionHomePassCelula(usrABackOffice);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSeguimientosLiberacionHomePassCelula(usrABackOffice);
         }
         public List<DatoConsultaDirecciones> ListGestionLiberacionHomePass(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListGestionLiberacionHomePass(FechaInicial, FechaFinal, usrTransac);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListGestionLiberacionHomePass(FechaInicial, FechaFinal, usrTransac);
         }
         //PROCESO GESTION DE MATRICES
         public void InsertIngresoGestionMatriz(IngresoTraslado ingreso, GestionMatriz matriz, TraficoTraslado transaccion)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.InsertIngresoGestionMatriz(ingreso, matriz, transaccion);
+            TrasladosService trasladosService = new TrasladosService();
+            trasladosService.InsertIngresoGestionMatriz(ingreso, matriz, transaccion);
         }
         public bool ExisteCuentaEscaladaMatriz(decimal cuenta)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ExisteCuentaEscaladaMatriz(cuenta);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ExisteCuentaEscaladaMatriz(cuenta);
         }
         public List<DatoConsultaDirecciones> ListaSolicitudesCreaciondeMatriz(string Usuario)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSolicitudesCreaciondeMatriz(Usuario);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSolicitudesCreaciondeMatriz(Usuario);
         }
         public GestionMatrizColleciton ListaInteraccionesMatrices(int id)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaInteraccionesMatrices(id);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaInteraccionesMatrices(id);
         }
         public void ActualizarSolicitudMatrices(IngresoTraslado ingreso, GestionMatriz matriz, TraficoTraslado transaccion)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.ActualizarSolicitudMatrices(ingreso, matriz, transaccion);
+            TrasladosService trasladosService = new TrasladosService();
+            trasladosService.ActualizarSolicitudMatrices(ingreso, matriz, transaccion);
         }
         public bool TransaccionCrearMatrizEnGestion(int id, String usrABackOffice)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.TransaccionCrearMatrizEnGestion(id, usrABackOffice);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.TransaccionCrearMatrizEnGestion(id, usrABackOffice);
         }
         public List<DatoConsultaDirecciones> ListaSeguimientosCrearMatrizCelula(string usrABackOffice)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSeguimientosCrearMatrizCelula(usrABackOffice);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSeguimientosCrearMatrizCelula(usrABackOffice);
         }
         public List<DatoConsultaDirecciones> ListaSolicitudesGestionMatriz(string Usuario)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSolicitudesGestionMatriz(Usuario);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSolicitudesGestionMatriz(Usuario);
         }
         public bool TransaccionGestionMatrizEnGestion(int id, String usrOut)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.TransaccionGestionMatrizEnGestion(id, usrOut);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.TransaccionGestionMatrizEnGestion(id, usrOut);
         }
         public List<DatoConsultaDirecciones> ListaSeguimientosGestionMatricesCelula(string UsuarioOut)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaSeguimientosGestionMatricesCelula(UsuarioOut);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaSeguimientosGestionMatricesCelula(UsuarioOut);
         }
         public List<DatoConsultaDirecciones> ListGestionMatrices(DateTime FechaInicial, DateTime FechaFinal, string usrTransac)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListGestionMatrices(FechaInicial, FechaFinal, usrTransac);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListGestionMatrices(FechaInicial, FechaFinal, usrTransac);
         }
         //consultas administracion
         public List<DatoConsultaDirecciones> ListaGeneralIngresosTraslados(DateTime FechaInicial, DateTime FechaFinal)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaGeneralIngresosTraslados(FechaInicial, FechaFinal);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaGeneralIngresosTraslados(FechaInicial, FechaFinal);
         }
         public List<DatoConsultaDirecciones> ListaGeneralIngresosCrearDireccion(DateTime FechaInicial, DateTime FechaFinal)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaGeneralIngresosCrearDireccion(FechaInicial, FechaFinal);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaGeneralIngresosCrearDireccion(FechaInicial, FechaFinal);
         }
         public List<DatoConsultaDirecciones> ListaGeneralIngresosCambiEstrato(DateTime FechaInicial, DateTime FechaFinal)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaGeneralIngresosCambiEstrato(FechaInicial, FechaFinal);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaGeneralIngresosCambiEstrato(FechaInicial, FechaFinal);
         }
         public List<DatoConsultaDirecciones> ListaGeneralIngresosLiberaciones(DateTime FechaInicial, DateTime FechaFinal)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaGeneralIngresosLiberaciones(FechaInicial, FechaFinal);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaGeneralIngresosLiberaciones(FechaInicial, FechaFinal);
         }
         public List<DatoConsultaDirecciones> ListaGeneralIngresosmatrices(DateTime FechaInicial, DateTime FechaFinal)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaGeneralIngresosmatrices(FechaInicial, FechaFinal);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaGeneralIngresosmatrices(FechaInicial, FechaFinal);
         }
         public List<DatoConsultaDirecciones> ConsultaIngresosTrasladosAsesor(decimal CuentaCliente)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ConsultaIngresosTrasladosAsesor(CuentaCliente);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ConsultaIngresosTrasladosAsesor(CuentaCliente);
         }
         public List<DatoConsultaDirecciones> ListaGeneralIngresosCrearDireccionAsesor(decimal CuentaCliente)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaGeneralIngresosCrearDireccionAsesor(CuentaCliente);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaGeneralIngresosCrearDireccionAsesor(CuentaCliente);
         }
         public List<DatoConsultaDirecciones> ListaGeneralIngresosCambiEstratoAsesor(decimal CuentaCliente)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaGeneralIngresosCambiEstratoAsesor(CuentaCliente);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaGeneralIngresosCambiEstratoAsesor(CuentaCliente);
         }
         public List<DatoConsultaDirecciones> ListaGeneralIngresosLiberacionesAsesor(decimal CuentaCliente)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaGeneralIngresosLiberacionesAsesor(CuentaCliente);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaGeneralIngresosLiberacionesAsesor(CuentaCliente);
         }
         public List<DatoConsultaDirecciones> ListaGeneralIngresosmatricesAsesor(decimal CuentaCliente)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ListaGeneralIngresosmatricesAsesor(CuentaCliente);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ListaGeneralIngresosmatricesAsesor(CuentaCliente);
         }
         //traslados fallidos
         public void InsertIngresoTrasladoFallido(IngresoTraslado ingreso, TrasladoFallido notaTraslado, TraficoTraslado transaccion)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            ingresoBusi.InsertIngresoTrasladoFallido(ingreso, notaTraslado, transaccion);
+            TrasladosService trasladosService = new TrasladosService();
+            trasladosService.InsertIngresoTrasladoFallido(ingreso, notaTraslado, transaccion);
         }
         public List<DatoConsultaDirecciones> ConsultaTrasladoFallidoCliente(decimal CuentaCliente)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ConsultaTrasladoFallidoCliente(CuentaCliente);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ConsultaTrasladoFallidoCliente(CuentaCliente);
         }
         public List<DatoConsultaDirecciones> ConsultaGeneralTrasladosFallidos(DateTime FechaInicial, DateTime FechaFinal)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ConsultaGeneralTrasladosFallidos(FechaInicial, FechaFinal);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ConsultaGeneralTrasladosFallidos(FechaInicial, FechaFinal);
         }
         public List<DatoConsultaDirecciones> ConsultaGestionTrasladoFallido(DateTime FechaInicial, DateTime FechaFinal, string Usuario)
         {
-            IngresoTrasladoBusiness ingresoBusi = new IngresoTrasladoBusiness();
-            return ingresoBusi.ConsultaGestionTrasladoFallido(FechaInicial, FechaFinal, Usuario);
+            TrasladosService trasladosService = new TrasladosService();
+            return trasladosService.ConsultaGestionTrasladoFallido(FechaInicial, FechaFinal, Usuario);
         }
 
         #endregion
@@ -1915,6 +1915,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.ConsultaAdminGLogRecurrencia(FechaInicial, FechaFinal);
+        }
+        #endregion
+
+        #region BitacoraIncidentes
+        public void RegistrarIncidente(BitacoraIncidentes Bitacora)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.RegistrarIncidente(Bitacora);
         }
         #endregion
     }

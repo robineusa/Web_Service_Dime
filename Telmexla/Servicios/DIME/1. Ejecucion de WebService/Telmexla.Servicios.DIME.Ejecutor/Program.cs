@@ -20,7 +20,11 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-
+            TrasladosService ts = new TrasladosService();
+            DateTime fecha1 = Convert.ToDateTime("2017-07-31");
+            DateTime fecha2 = Convert.ToDateTime("2017-08-01");
+            var resultado = ts.ConsultaGeneralTrasladosFallidos(fecha1,fecha2);
+            var z = "";
         }
     }
 }

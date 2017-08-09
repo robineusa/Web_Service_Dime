@@ -92,6 +92,8 @@ namespace Telmexla.Servicios.DIME.Data
             RecurrenciaCargaBase = new RecurrenciaCargaBaseRepository(this.dimeContext);
             GPrincipalRecurrencia = new GPrincipalRecurrenciaRepository(this.dimeContext);
             GLogRecurrencia = new GLogRecurrenciaRepository(this.dimeContext);
+            BitacoraIncidentes = new BitacoraIncidentesRepository(this.dimeContext);
+            BitacoraIncidentesLog = new BitacoraIncidentesLogRepository(this.dimeContext);
 
         }
         public ICcSegundaTipificacionRepository CcSegundaTipificacion
@@ -413,6 +415,14 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IGLogRecurrenciaRepository GLogRecurrencia
+        {
+            get; private set;
+        }
+        public IBitacoraIncidentesRepository BitacoraIncidentes
+        {
+            get; private set;
+        }
+        public IBitacoraIncidentesLogRepository BitacoraIncidentesLog
         {
             get; private set;
         }

@@ -112,6 +112,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<RecurrenciaCargaBase> RecurrenciaCargaBase { get; set; }
         public System.Data.Entity.DbSet<GPrincipalRecurrencia> GPrincipalRecurrencia { get; set; }
         public System.Data.Entity.DbSet<GLogRecurrencia> GLogRecurrencia { get; set; }
+        public System.Data.Entity.DbSet<BitacoraIncidentes> BitacoraIncidentes { get; set; }
+        public System.Data.Entity.DbSet<BitacoraIncidentesLog> BitacoraIncidentesLog { get; set; }
 
         static DimeContext()
         {
@@ -256,6 +258,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new RecurrenciaCargueBaseConfiguration());
             modelBuilder.Configurations.Add(new GPrincipalRecurrenciaConfiguration());
             modelBuilder.Configurations.Add(new GLogRecurrenciaConfiguration());
+            modelBuilder.Configurations.Add(new BitacoraIncidentesConfiguration());
+            modelBuilder.Configurations.Add(new BitacoraIncidentesLogConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -353,6 +357,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new RecurrenciaCargueBaseConfiguration(schema));
             modelBuilder.Configurations.Add(new GPrincipalRecurrenciaConfiguration(schema));
             modelBuilder.Configurations.Add(new GLogRecurrenciaConfiguration(schema));
+            modelBuilder.Configurations.Add(new BitacoraIncidentesConfiguration(schema));
+            modelBuilder.Configurations.Add(new BitacoraIncidentesLogConfiguration(schema));
             return modelBuilder;
         }
 
