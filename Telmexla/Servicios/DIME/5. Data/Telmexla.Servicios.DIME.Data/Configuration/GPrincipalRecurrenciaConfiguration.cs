@@ -66,9 +66,9 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Solucionado).HasColumnName(@"SOLUCIONADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
             Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.ActivacionClaroVideoNagra).HasColumnName(@"ACTIVACION_CLARO_VIDEO_NAGRA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.AceptacionPrimerOfrecimiento).HasColumnName(@"ACEPTACION_PRIMER_OFRECIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
-            Property(x => x.AceptacionSegundoOfrecimiento).HasColumnName(@"ACEPTACION_SEGUNDO_OFRECIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
-            Property(x => x.AceptacionTercerOfrecimiento).HasColumnName(@"ACEPTACION_TERCERO_OFRECIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(10);
+            Property(x => x.AceptacionPrimerOfrecimiento).HasColumnName(@"ACEPTACION_PRIMER_OFRECIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.AceptacionSegundoOfrecimiento).HasColumnName(@"ACEPTACION_SEGUNDO_OFRECIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.AceptacionTercerOfrecimiento).HasColumnName(@"ACEPTACION_TERCERO_OFRECIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.Observaciones).HasColumnName(@"OBSERVACIONES").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
             Property(x => x.UsuarioGestionando).HasColumnName(@"USUARIO_GESTIONANDO").IsOptional().HasColumnType("numeric");
         }
