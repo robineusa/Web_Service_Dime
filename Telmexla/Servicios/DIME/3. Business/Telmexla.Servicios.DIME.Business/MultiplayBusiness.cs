@@ -198,7 +198,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].ArrPropClieRR = objetosResult[i].ArrPropClieRR;
                 result[i].NotasAdicionales = objetosResult[i].NotasAdicionales;
                 result[i].Escenario1 = objetosResult[i].Escenario1;
-                //result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].NombreBase = objetosResult[i].NombreBase;
             }
             return result;
