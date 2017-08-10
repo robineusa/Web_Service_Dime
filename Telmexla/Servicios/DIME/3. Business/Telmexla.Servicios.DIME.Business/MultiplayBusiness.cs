@@ -127,7 +127,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.ArrPropClieRR,
                                      a.NotasAdicionales,
                                      a.Escenario1,
-                                     //a.FechaGestion,
+                                     a.FechaGestion,
                                      a.NombreBase
                                  }
                                  ).ToList();
