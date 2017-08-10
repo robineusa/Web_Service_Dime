@@ -697,7 +697,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<BEPSolicitudes> ListaSolicitudes = new List<BEPSolicitudes>();
             foreach (decimal ID_SOLICITUD in IdSolicitudes)
             {
-                BEPSolicitudes Solicitud = context.BEPSolicitudes.Where(c => c.IdSolicitud == ID_SOLICITUD && c.EstadoEscalamiento != "FINALIZADO").FirstOrDefault();
+                BEPSolicitudes Solicitud = context.BEPSolicitudes.Where(c => c.IdSolicitud == ID_SOLICITUD && c.EstadoEscalamiento.Equals("PENDIENTE") && c.UsuarioGestionando == 0).FirstOrDefault();
                 if (Solicitud !=null) 
                 {
                     ListaSolicitudes.Add(Solicitud);
@@ -712,7 +712,7 @@ namespace Telmexla.Servicios.DIME.Business
             foreach (decimal ID_SOLICITUD in IdSolicitudes)
             {
                 UnitOfWork UnitOfWorkSolicitdActualizable = new UnitOfWork(new DimeContext());
-                BEPSolicitudes SolicitudActualizable = UnitOfWorkSolicitdActualizable.BEPSolicitudes.Find(c => c.IdSolicitud == ID_SOLICITUD && c.EstadoEscalamiento.Equals("PENDIENTE")).FirstOrDefault();
+                BEPSolicitudes SolicitudActualizable = UnitOfWorkSolicitdActualizable.BEPSolicitudes.Find(c => c.IdSolicitud == ID_SOLICITUD && c.EstadoEscalamiento.Equals("PENDIENTE") && c.TipoDeSolicitud.Equals(Solicitud.TipoDeSolicitud) && c.UsuarioGestionando == 0).FirstOrDefault();
                 if (SolicitudActualizable != null)
                 {
                     //Actualiza solicitud
