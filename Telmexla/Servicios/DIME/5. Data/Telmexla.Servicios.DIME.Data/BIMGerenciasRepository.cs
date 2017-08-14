@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 using Telmexla.Servicios.DIME.Data.Context;
 using Telmexla.Servicios.DIME.Entity;
 using Telmexla.Servicios.DIME.IData;
-
 namespace Telmexla.Servicios.DIME.Data
 {
-    public class BitacoraIncidentesLogRepository: Repository<BitacoraIncidentesLog>, IBitacoraIncidentesLogRepository
+    public class BIMGerenciasRepository : Repository<BIMGerencias>, IBIMGerenciasRepository
     {
-        public BitacoraIncidentesLogRepository(DimeContext context) : base(context)
+        public BIMGerenciasRepository(DimeContext context) : base(context)
         {
 
 

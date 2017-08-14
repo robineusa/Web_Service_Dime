@@ -1919,7 +1919,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion
 
         #region BitacoraIncidentes
-        public void RegistrarIncidente(BitacoraIncidentes Bitacora)
+        public void RegistrarIncidente(BIPBitacoraIncidentes Bitacora)
         {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             BitacoraService.RegistrarIncidente(Bitacora);

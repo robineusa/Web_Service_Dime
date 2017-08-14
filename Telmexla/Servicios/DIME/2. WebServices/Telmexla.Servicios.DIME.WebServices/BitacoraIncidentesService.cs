@@ -11,7 +11,7 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
     public class BitacoraIncidentesService : IBitacoraIncidentesService
     {
-        public void RegistrarIncidente(BitacoraIncidentes Bitacora)
+        public void RegistrarIncidente(BIPBitacoraIncidentes Bitacora)
         {
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
             Bitacorabusiness.RegistrarIncidente(Bitacora);

@@ -7,7 +7,7 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IData
 {
-    public interface IBitacoraIncidentesRepository: IRepository<BitacoraIncidentes>
+    public interface IBIMTipoFallaRepository: IRepository<BIMTipoFalla>
     {
     }
 }

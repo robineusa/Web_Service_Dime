@@ -112,8 +112,15 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<RecurrenciaCargaBase> RecurrenciaCargaBase { get; set; }
         public System.Data.Entity.DbSet<GPrincipalRecurrencia> GPrincipalRecurrencia { get; set; }
         public System.Data.Entity.DbSet<GLogRecurrencia> GLogRecurrencia { get; set; }
-        public System.Data.Entity.DbSet<BitacoraIncidentes> BitacoraIncidentes { get; set; }
-        public System.Data.Entity.DbSet<BitacoraIncidentesLog> BitacoraIncidentesLog { get; set; }
+        public System.Data.Entity.DbSet<BIPBitacoraIncidentes> BIPBitacoraIncidentes { get; set; }
+        public System.Data.Entity.DbSet<BILBitacoraIncidentes> BILBitacoraIncidentes { get; set; }
+        public System.Data.Entity.DbSet<BIMGerencias> BIMGerencias { get; set; }
+        public System.Data.Entity.DbSet<BIMAliados> BIMAliados { get; set; }
+        public System.Data.Entity.DbSet<BIMOperaciones> BIMOperaciones { get; set; }
+        public System.Data.Entity.DbSet<BIPIncidentesPorOperacion> BIPIncidentesPorOperacion { get; set; }
+        public System.Data.Entity.DbSet<BIMTipoFalla> BIMTipoFalla { get; set; }
+        public System.Data.Entity.DbSet<BIMPrioridades> BIMPrioridades { get; set; }
+        public System.Data.Entity.DbSet<BIMHerramientas> BIMHerramientas { get; set; }
 
         static DimeContext()
         {
@@ -258,8 +265,15 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new RecurrenciaCargueBaseConfiguration());
             modelBuilder.Configurations.Add(new GPrincipalRecurrenciaConfiguration());
             modelBuilder.Configurations.Add(new GLogRecurrenciaConfiguration());
-            modelBuilder.Configurations.Add(new BitacoraIncidentesConfiguration());
-            modelBuilder.Configurations.Add(new BitacoraIncidentesLogConfiguration());
+            modelBuilder.Configurations.Add(new BIPBitacoraIncidentesConfiguration());
+            modelBuilder.Configurations.Add(new BILBitacoraIncidentesConfiguration());
+            modelBuilder.Configurations.Add(new BIMGerenciasConfiguration());
+            modelBuilder.Configurations.Add(new BIMAliadosConfiguration());
+            modelBuilder.Configurations.Add(new BIMOperacionesConfiguration());
+            modelBuilder.Configurations.Add(new BIPIncidentesPorOperacionConfiguration());
+            modelBuilder.Configurations.Add(new BIMTipoFallaConfiguration());
+            modelBuilder.Configurations.Add(new BIMPrioridadesConfiguration());
+            modelBuilder.Configurations.Add(new BIMHerramientasConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -357,8 +371,16 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new RecurrenciaCargueBaseConfiguration(schema));
             modelBuilder.Configurations.Add(new GPrincipalRecurrenciaConfiguration(schema));
             modelBuilder.Configurations.Add(new GLogRecurrenciaConfiguration(schema));
-            modelBuilder.Configurations.Add(new BitacoraIncidentesConfiguration(schema));
-            modelBuilder.Configurations.Add(new BitacoraIncidentesLogConfiguration(schema));
+            modelBuilder.Configurations.Add(new BIPBitacoraIncidentesConfiguration(schema));
+            modelBuilder.Configurations.Add(new BILBitacoraIncidentesConfiguration(schema));
+            modelBuilder.Configurations.Add(new BIMGerenciasConfiguration(schema));
+            modelBuilder.Configurations.Add(new BIMAliadosConfiguration(schema));
+            modelBuilder.Configurations.Add(new BIMOperacionesConfiguration(schema));
+            modelBuilder.Configurations.Add(new BIPIncidentesPorOperacionConfiguration(schema));
+            modelBuilder.Configurations.Add(new BIMTipoFallaConfiguration(schema));
+            modelBuilder.Configurations.Add(new BIMPrioridadesConfiguration(schema));
+            modelBuilder.Configurations.Add(new BIMHerramientasConfiguration(schema));
+
             return modelBuilder;
         }
 

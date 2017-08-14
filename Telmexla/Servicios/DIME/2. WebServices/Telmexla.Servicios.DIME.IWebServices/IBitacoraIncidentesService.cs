@@ -12,6 +12,6 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface IBitacoraIncidentesService
     {
         [OperationContract]
-        void RegistrarIncidente(BitacoraIncidentes Bitacora);
+        void RegistrarIncidente(BIPBitacoraIncidentes Bitacora);
     }
 }
