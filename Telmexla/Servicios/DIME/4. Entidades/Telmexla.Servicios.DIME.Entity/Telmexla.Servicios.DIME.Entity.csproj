@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Acceso.cs" />
     <Compile Include="AccesoCollection.cs" />
+    <Compile Include="AccesosXLinea.cs" />
     <Compile Include="ActivacionClaroVideo.cs" />
     <Compile Include="ActivacionClaroVideoCollection.cs" />
     <Compile Include="ActualizarUsuarioGestionBackCreacionMatrizReturnModel.cs" />

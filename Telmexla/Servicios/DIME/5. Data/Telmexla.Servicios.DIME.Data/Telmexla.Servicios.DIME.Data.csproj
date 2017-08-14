@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoRepository.cs" />
+    <Compile Include="AccesosXLineaRepository.cs" />
     <Compile Include="ActivacionClaroVideoRepository.cs" />
     <Compile Include="BalaceScoreCardRepository.cs" />
     <Compile Include="BELSolicitudesRepository.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="CargueBaseFoxInboundRepository.cs" />
     <Compile Include="CcGestionResidencialPredictivoRepository.cs" />
     <Compile Include="CcSegundaTipificacionRepository.cs" />
+    <Compile Include="Configuration\AccesosXLineaConfiguration.cs" />
     <Compile Include="Configuration\ActivacionClaroVideoConfiguration.cs" />
     <Compile Include="Configuration\BalanceScoreCardConfiguration.cs" />
     <Compile Include="Configuration\BasePersonalHoloConfiguration.cs" />
