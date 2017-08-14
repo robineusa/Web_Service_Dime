@@ -1923,11 +1923,42 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
-            #region BitacoraIncidentes
+        #region BitacoraIncidentes
         public void RegistrarIncidente(BIPBitacoraIncidentes Bitacora)
         {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             BitacoraService.RegistrarIncidente(Bitacora);
+        }
+        public void ActualizarRegistroIncidente(BIPBitacoraIncidentes Bitacora)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.ActualizarRegistroIncidente(Bitacora);
+        }
+        public void RegistrarOperacionesPorIncidente(List<string> Operaciones, decimal IdRegistro)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.RegistrarOperacionesPorIncidente(Operaciones,IdRegistro);
+        }
+        public void EliminarIncidenteOperacion(decimal Id)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.EliminarIncidenteOperacion(Id);
+        }
+        public List<BIMGerencias> ListaDeGerencias()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaDeGerencias();
+
+        }
+        public List<BIMAliados> ListaDeAliados()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaDeAliados();
+        }
+        public List<BIMOperaciones> ListaOperaciones()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaOperaciones();
         }
         #endregion
     }
