@@ -11,10 +11,10 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
     public class BitacoraIncidentesService : IBitacoraIncidentesService
     {
-        public void RegistrarIncidente(BIPBitacoraIncidentes Bitacora)
+        public decimal RegistrarIncidente(BIPBitacoraIncidentes Bitacora)
         {
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
-            Bitacorabusiness.RegistrarIncidente(Bitacora);
+            return Bitacorabusiness.RegistrarIncidente(Bitacora);
         }
         public void ActualizarRegistroIncidente(BIPBitacoraIncidentes Bitacora)
         {

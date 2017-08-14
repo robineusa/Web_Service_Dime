@@ -12,7 +12,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface IBitacoraIncidentesService
     {
         [OperationContract]
-        void RegistrarIncidente(BIPBitacoraIncidentes Bitacora);
+        decimal RegistrarIncidente(BIPBitacoraIncidentes Bitacora);
         [OperationContract]
         void ActualizarRegistroIncidente(BIPBitacoraIncidentes Bitacora);
         [OperationContract]

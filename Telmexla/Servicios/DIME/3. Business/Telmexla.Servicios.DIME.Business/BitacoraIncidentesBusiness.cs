@@ -13,7 +13,7 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class BitacoraIncidentesBusiness
     {
-        public void RegistrarIncidente(BIPBitacoraIncidentes Bitacora)
+        public decimal RegistrarIncidente(BIPBitacoraIncidentes Bitacora)
         {
             //registra incidente tabla principal
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
@@ -54,7 +54,7 @@ namespace Telmexla.Servicios.DIME.Business
             unitWorklog.BILBitacoraIncidentes.Add(BitacoraLog);
             unitWorklog.Complete();
             unitWorklog.Dispose();
-
+            return Bitacora.IdRegistro;
         }
         public void ActualizarRegistroIncidente(BIPBitacoraIncidentes Bitacora)
         {
