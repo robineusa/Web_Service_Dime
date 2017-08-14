@@ -1960,6 +1960,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             return BitacoraService.ListaOperaciones();
         }
+        public List<BIMHerramientas> ListaDeHerramientas()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaDeHerramientas();
+        }
+        public List<BIMTipoFalla> ListaTiposDeFallas()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaTiposDeFallas();
+        }
+        public List<BIMPrioridades> ListaDePrioridades()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaDePrioridades();
+        }
         #endregion
     }
 }

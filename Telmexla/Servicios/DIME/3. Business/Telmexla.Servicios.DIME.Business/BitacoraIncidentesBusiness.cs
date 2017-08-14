@@ -237,5 +237,74 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        public List<BIMHerramientas> ListaDeHerramientas()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BIMHerramientas> result = new List<BIMHerramientas>();
+            var objetosResult = (from a in dimContext.BIMHerramientas
+                                 where a.Estado.Equals("ACTIVO")
+                                 orderby a.NombreHerramienta ascending
+                                 select new
+                                 {
+                                     a.IdHerramienta,
+                                     a.NombreHerramienta
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BIMHerramientas());
+                result[i].IdHerramienta = objetosResult[i].IdHerramienta;
+                result[i].NombreHerramienta = objetosResult[i].NombreHerramienta;
+                
+            }
+            return result;
+        }
+        public List<BIMTipoFalla> ListaTiposDeFallas()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BIMTipoFalla> result = new List<BIMTipoFalla>();
+            var objetosResult = (from a in dimContext.BIMTipoFalla
+                                 where a.Estado.Equals("ACTIVO")
+                                 orderby a.TipoFalla ascending
+                                 select new
+                                 {
+                                     a.IdTipoFalla,
+                                     a.TipoFalla
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BIMTipoFalla());
+                result[i].IdTipoFalla = objetosResult[i].IdTipoFalla;
+                result[i].TipoFalla = objetosResult[i].TipoFalla;
+
+            }
+            return result;
+        }
+        public List<BIMPrioridades> ListaDePrioridades()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BIMPrioridades> result = new List<BIMPrioridades>();
+            var objetosResult = (from a in dimContext.BIMPrioridades
+                                 where a.Estado.Equals("ACTIVO")
+                                 orderby a.Prioridad ascending
+                                 select new
+                                 {
+                                     a.IdPrioridad,
+                                     a.Prioridad
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BIMPrioridades());
+                result[i].IdPrioridad = objetosResult[i].IdPrioridad;
+                result[i].Prioridad = objetosResult[i].Prioridad;
+
+            }
+            return result;
+        }
     }
 }
