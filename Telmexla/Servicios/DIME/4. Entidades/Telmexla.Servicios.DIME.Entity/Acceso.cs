@@ -1,17 +1,6 @@
-// ReSharper disable ConvertPropertyToExpressionBody
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable RedundantNameQualifier
-// ReSharper disable RedundantOverridenMember
-// ReSharper disable UseNameofExpression
-// TargetFrameworkVersion = 4.51
-#pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
 namespace Telmexla.Servicios.DIME.Entity
 {
-
     // TBL_ACCESOS
     public class Acceso
     {
@@ -20,13 +9,15 @@ namespace Telmexla.Servicios.DIME.Entity
         public int? IdModoLogin { get; set; } // ID_MODO_LOGIN
 
         // Reverse navigation
-        public virtual System.Collections.Generic.ICollection<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // Many to many mapping
+        public virtual System.Collections.Generic.ICollection<AccesosXLinea> AccesosXLineas { get; set; } // TBL_ACCESOS_X_LINEA.FK__TBL_ACCES__ID_AC__5BED93EA
+        public virtual System.Collections.Generic.ICollection<UsuariosXAcceso> UsuariosXAccesoes { get; set; } // TBL_USUARIOS_X_ACCESOS.FK__TBL_USUAR__ID_AC__52E34C9D
 
         // Foreign keys
-        public virtual ModosLogin ModosLogin { get; set; } // FK__TBL_ACCES__ID_MO__7A3223E8
+        public virtual ModosLogin ModosLogin { get; set; } // FK__TBL_ACCES__ID_MO__1DE57479
 
         public Acceso()
         {
+            AccesosXLineas = new System.Collections.Generic.List<AccesosXLinea>();
             UsuariosXAccesoes = new System.Collections.Generic.List<UsuariosXAcceso>();
         }
     }

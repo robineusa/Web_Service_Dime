@@ -1,19 +1,7 @@
-// ReSharper disable ConvertPropertyToExpressionBody
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable RedundantNameQualifier
-// ReSharper disable RedundantOverridenMember
-// ReSharper disable UseNameofExpression
-// TargetFrameworkVersion = 4.51
-#pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
-
 using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.Data.Configuration
 {
-    // TBL_LINEA
     public class LineaConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Linea>
     {
         public LineaConfiguration()
@@ -31,8 +19,9 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.IdModoLogin).HasColumnName(@"ID_MODO_LOGIN").IsOptional().HasColumnType("int");
 
             // Foreign keys
-            HasOptional(a => a.ModosLogin).WithMany(b => b.Lineas).HasForeignKey(c => c.IdModoLogin).WillCascadeOnDelete(false); // FK__TBL_LINEA__ID_MO__7755B73D
+            HasOptional(a => a.ModosLogin).WithMany(b => b.Lineas).HasForeignKey(c => c.IdModoLogin).WillCascadeOnDelete(false); // FK__TBL_LINEA__ID_MO__0F6D37F0
         }
     }
 
 }
+// </auto-generated>

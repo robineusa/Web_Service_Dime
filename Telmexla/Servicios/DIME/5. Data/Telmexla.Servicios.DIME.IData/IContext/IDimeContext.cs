@@ -118,6 +118,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<BIMTipoFalla> BIMTipoFalla { get; set; }
         System.Data.Entity.DbSet<BIMPrioridades> BIMPrioridades { get; set; }
         System.Data.Entity.DbSet<BIMHerramientas> BIMHerramientas { get; set; }
+        System.Data.Entity.DbSet<AccesosXLinea> AccesosXLineas { get; set; } // TBL_ACCESOS_X_LINEA
 
 
         int SaveChanges();

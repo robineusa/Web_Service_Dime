@@ -101,7 +101,12 @@ namespace Telmexla.Servicios.DIME.Data
             BIMTipoFalla = new BIMTipoFallaRepository(this.dimeContext);
             BIMPrioridades = new BIMPrioridadesRepository(this.dimeContext);
             BIMHerramientas = new BIMHerramientasRepository(this.dimeContext);
+            AccesosXLinea = new AccesosXLineaRepository(this.dimeContext);
 
+        }
+        public IAccesosXLineaRepository AccesosXLinea
+        {
+            get; private set;
         }
         public ICcSegundaTipificacionRepository CcSegundaTipificacion
         {

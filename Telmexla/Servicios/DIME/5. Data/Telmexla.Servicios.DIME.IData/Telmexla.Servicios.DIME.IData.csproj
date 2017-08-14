@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAccesoRepository.cs" />
+    <Compile Include="IAccesosXLineaRepository.cs" />
     <Compile Include="IActivacionClaroVideoRepository.cs" />
     <Compile Include="IBalanceScoreCardRepository.cs" />
     <Compile Include="IBELSolicitudesRepository.cs" />
