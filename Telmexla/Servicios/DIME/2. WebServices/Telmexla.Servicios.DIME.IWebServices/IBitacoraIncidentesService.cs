@@ -13,5 +13,17 @@ namespace Telmexla.Servicios.DIME.IWebServices
     {
         [OperationContract]
         void RegistrarIncidente(BIPBitacoraIncidentes Bitacora);
+        [OperationContract]
+        void ActualizarRegistroIncidente(BIPBitacoraIncidentes Bitacora);
+        [OperationContract]
+        void RegistrarOperacionesPorIncidente(List<string> Operaciones, decimal IdRegistro);
+        [OperationContract]
+        void EliminarIncidenteOperacion(decimal Id);
+        [OperationContract]
+        List<BIMGerencias> ListaDeGerencias();
+        [OperationContract]
+        List<BIMAliados> ListaDeAliados();
+        [OperationContract]
+        List<BIMOperaciones> ListaOperaciones();
     }
 }
