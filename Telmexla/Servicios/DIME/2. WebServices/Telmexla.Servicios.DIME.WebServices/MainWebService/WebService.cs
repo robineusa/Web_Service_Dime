@@ -1916,9 +1916,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.ConsultaAdminGLogRecurrencia(FechaInicial, FechaFinal);
         }
+        public List<GLogRecurrencia> ListaHistorialSeguimientosRecurrencia(decimal CuentaCliente)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ListaHistorialSeguimientosRecurrencia(CuentaCliente);
+        }
         #endregion
 
-        #region BitacoraIncidentes
+            #region BitacoraIncidentes
         public void RegistrarIncidente(BitacoraIncidentes Bitacora)
         {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
