@@ -85,8 +85,15 @@ namespace Telmexla.Servicios.DIME.IData
         IRecurrenciaCargaBaseRepository RecurrenciaCargaBase { get; }
         IGPrincipalRecurrenciaRepository GPrincipalRecurrencia { get; }
         IGLogRecurrenciaRepository GLogRecurrencia { get; }
-        IBitacoraIncidentesRepository BitacoraIncidentes { get; }
-        IBitacoraIncidentesLogRepository BitacoraIncidentesLog { get; }
+        IBIPBitacoraIncidentesRepository BIPBitacoraIncidentes { get; }
+        IBILBitacoraIncidentesRepository BILBitacoraIncidentes { get; }
+        IBIMGerenciasRepository BIMGerencias { get; }
+        IBIMAliadosRepository BIMAliados { get; }
+        IBIMOperacionesRepository BIMOperaciones { get; }
+        IBIPIncidentesPorOperacionRepository BIPIncidentesPorOperacion { get; }
+        IBIMTipoFallaRepository BIMTipoFalla { get; }
+        IBIMPrioridadesRepository BIMPrioridades { get; }
+        IBIMHerramientasRepository BIMHerramientas { get; }
         int Complete();
     }
 }

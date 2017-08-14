@@ -9,9 +9,9 @@ using Telmexla.Servicios.DIME.IData;
 
 namespace Telmexla.Servicios.DIME.Data
 {
-    public class BitacoraIncidentesRepository : Repository<BitacoraIncidentes>, IBitacoraIncidentesRepository
+   public  class BIMTipoFallaRepository: Repository<BIMTipoFalla>, IBIMTipoFallaRepository
     {
-        public BitacoraIncidentesRepository(DimeContext context) : base(context)
+        public BIMTipoFallaRepository(DimeContext context) : base(context)
         {
 
 

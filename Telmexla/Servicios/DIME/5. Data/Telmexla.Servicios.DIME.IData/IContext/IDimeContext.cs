@@ -109,8 +109,15 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<RecurrenciaCargaBase> RecurrenciaCargaBase { get; set; }
         System.Data.Entity.DbSet<GPrincipalRecurrencia> GPrincipalRecurrencia { get; set; }
         System.Data.Entity.DbSet<GLogRecurrencia> GLogRecurrencia { get; set; }
-        System.Data.Entity.DbSet<BitacoraIncidentes> BitacoraIncidentes { get; set; }
-        System.Data.Entity.DbSet<BitacoraIncidentesLog> BitacoraIncidentesLog { get; set; }
+        System.Data.Entity.DbSet<BIPBitacoraIncidentes> BIPBitacoraIncidentes { get; set; }
+        System.Data.Entity.DbSet<BILBitacoraIncidentes> BILBitacoraIncidentes { get; set; }
+        System.Data.Entity.DbSet<BIMGerencias> BIMGerencias { get; set; }
+        System.Data.Entity.DbSet<BIMAliados> BIMAliados { get; set; }
+        System.Data.Entity.DbSet<BIMOperaciones> BIMOperaciones { get; set; }
+        System.Data.Entity.DbSet<BIPIncidentesPorOperacion> BIPIncidentesPorOperacion { get; set; }
+        System.Data.Entity.DbSet<BIMTipoFalla> BIMTipoFalla { get; set; }
+        System.Data.Entity.DbSet<BIMPrioridades> BIMPrioridades { get; set; }
+        System.Data.Entity.DbSet<BIMHerramientas> BIMHerramientas { get; set; }
 
 
         int SaveChanges();

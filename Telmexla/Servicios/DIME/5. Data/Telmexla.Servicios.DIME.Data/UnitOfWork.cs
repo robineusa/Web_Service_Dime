@@ -92,8 +92,15 @@ namespace Telmexla.Servicios.DIME.Data
             RecurrenciaCargaBase = new RecurrenciaCargaBaseRepository(this.dimeContext);
             GPrincipalRecurrencia = new GPrincipalRecurrenciaRepository(this.dimeContext);
             GLogRecurrencia = new GLogRecurrenciaRepository(this.dimeContext);
-            BitacoraIncidentes = new BitacoraIncidentesRepository(this.dimeContext);
-            BitacoraIncidentesLog = new BitacoraIncidentesLogRepository(this.dimeContext);
+            BIPBitacoraIncidentes = new BIPBitacoraIncidentesRepository(this.dimeContext);
+            BILBitacoraIncidentes = new BILBitacoraIncidentesRepository(this.dimeContext);
+            BIMGerencias = new BIMGerenciasRepository(this.dimeContext);
+            BIMAliados = new BIMAliadosRepository(this.dimeContext);
+            BIMOperaciones = new BIMOperacionesRepository(this.dimeContext);
+            BIPIncidentesPorOperacion = new BIPIncidentesPorOperacionRepository(this.dimeContext);
+            BIMTipoFalla = new BIMTipoFallaRepository(this.dimeContext);
+            BIMPrioridades = new BIMPrioridadesRepository(this.dimeContext);
+            BIMHerramientas = new BIMHerramientasRepository(this.dimeContext);
 
         }
         public ICcSegundaTipificacionRepository CcSegundaTipificacion
@@ -418,14 +425,43 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        public IBitacoraIncidentesRepository BitacoraIncidentes
+        public IBIPBitacoraIncidentesRepository BIPBitacoraIncidentes
         {
             get; private set;
         }
-        public IBitacoraIncidentesLogRepository BitacoraIncidentesLog
+        public IBILBitacoraIncidentesRepository BILBitacoraIncidentes
         {
             get; private set;
         }
+        public IBIMGerenciasRepository BIMGerencias
+        {
+            get; private set;
+        }
+        public IBIMAliadosRepository BIMAliados
+        {
+            get; private set;
+        }
+        public IBIMOperacionesRepository BIMOperaciones
+        {
+            get; private set;
+        }
+        public IBIPIncidentesPorOperacionRepository BIPIncidentesPorOperacion
+        {
+            get; private set;
+        }
+        public IBIMTipoFallaRepository BIMTipoFalla
+        {
+            get; private set;
+        }
+        public IBIMPrioridadesRepository BIMPrioridades
+        {
+            get; private set;
+        }
+        public IBIMHerramientasRepository BIMHerramientas
+        {
+            get; private set;
+        }
+
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

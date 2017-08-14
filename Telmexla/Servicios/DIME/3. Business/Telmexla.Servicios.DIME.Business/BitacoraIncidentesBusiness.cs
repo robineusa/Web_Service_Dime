@@ -13,10 +13,10 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class BitacoraIncidentesBusiness
     {
-        public void RegistrarIncidente(BitacoraIncidentes Bitacora)
+        public void RegistrarIncidente(BIPBitacoraIncidentes Bitacora)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            unitWork.BitacoraIncidentes.Add(Bitacora);
+            unitWork.BIPBitacoraIncidentes.Add(Bitacora);
             unitWork.Complete();
             unitWork.Dispose();
         }
