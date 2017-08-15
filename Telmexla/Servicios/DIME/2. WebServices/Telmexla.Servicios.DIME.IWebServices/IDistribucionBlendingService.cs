@@ -176,6 +176,13 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino(string aliado);
-        
+
+        [OperationContract]
+        List<ConsultaBlendingOperacionDestinoReturnViewModel> ConsultaBlendingOperacionDestino(string aliado, string formulario);
+
+        [OperationContract]
+        List<ConsultaBlendingCampañaDestinoReturnViewModel> ConsultaBlendingCampanaDestino(string aliado, string formulario, string operacion);
+
+
     }
 }

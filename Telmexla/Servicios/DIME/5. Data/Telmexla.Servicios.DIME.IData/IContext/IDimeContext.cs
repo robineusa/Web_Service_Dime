@@ -178,6 +178,12 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Collections.Generic.List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino(string aliado);
          System.Collections.Generic.List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino(string aliado, out int procResult);
         System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaBlendingFormularioDestinoReturnViewModel>> ConsultaBlendingFormularioDestinoAsync(string aliado);
+        System.Collections.Generic.List<ConsultaBlendingOperacionDestinoReturnViewModel> ConsultaBlendingOperacionDestino(string aliado, string formulario);
+        System.Collections.Generic.List<ConsultaBlendingOperacionDestinoReturnViewModel> ConsultaBlendingOperacionDestino(string aliado, string formulario, out int procResult);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaBlendingOperacionDestinoReturnViewModel>> ConsultaBlendingOperacionDestinoAsync(string aliado, string formulario);
+        System.Collections.Generic.List<ConsultaBlendingCampañaDestinoReturnViewModel> ConsultaBlendingCampanaDestino(string aliado, string formulario, string operacion);
+        System.Collections.Generic.List<ConsultaBlendingCampañaDestinoReturnViewModel> ConsultaBlendingCampanaDestino(string aliado, string formulario, string operacion, out int procResult);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaBlendingCampañaDestinoReturnViewModel>> ConsultaBlendingCampanaDestinoAsync(string aliado, string formulario, string operacion);
 
         //apartar cuenta de gestion back elite
         int ApartarCuentaGestionBackElite(decimal Cedula);

@@ -912,7 +912,92 @@ namespace Telmexla.Servicios.DIME.Data.Context
         }
 
 
+        public System.Collections.Generic.List<ConsultaBlendingOperacionDestinoReturnViewModel> ConsultaBlendingOperacionDestino(string aliado, string formulario)
+        {
+            int procResult;
+            return ConsultaBlendingOperacionDestino(aliado, formulario, out procResult);
+        }
 
+        public System.Collections.Generic.List<ConsultaBlendingOperacionDestinoReturnViewModel> ConsultaBlendingOperacionDestino(string aliado, string formulario, out int procResult)
+        {
+
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var formularioParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Formulario_destino", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = formulario, Size = 200 };
+            if (formularioParam.Value == null)
+                formularioParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ConsultaBlendingOperacionDestinoReturnViewModel>("EXEC @procResult = [dbo].[CONSULTA_BLENDING_OPERACION_DESTINO]  @Aliado, @Formulario_destino", aliadoParam, formularioParam, procResultParam).ToList();
+
+            procResult = (int)procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaBlendingOperacionDestinoReturnViewModel>> ConsultaBlendingOperacionDestinoAsync(string aliado, string formulario)
+        {
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var formularioParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Formulario_destino", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = formulario, Size = 200 };
+            if (formularioParam.Value == null)
+                formularioParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ConsultaBlendingOperacionDestinoReturnViewModel>("EXEC [dbo].[CONSULTA_BLENDING_OPERACION_DESTINO] @Aliado, @Formulario_destino", aliadoParam, formularioParam).ToListAsync();
+
+            return procResultData;
+        }
+
+
+        public System.Collections.Generic.List<ConsultaBlendingCampañaDestinoReturnViewModel> ConsultaBlendingCampanaDestino(string aliado, string formulario, string operacion)
+        {
+            int procResult;
+            return ConsultaBlendingCampanaDestino(aliado, formulario, operacion, out procResult);
+        }
+
+        public System.Collections.Generic.List<ConsultaBlendingCampañaDestinoReturnViewModel> ConsultaBlendingCampanaDestino(string aliado, string formulario, string operacion, out int procResult)
+        {
+
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var formularioParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Formulario_destino", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = formulario, Size = 200 };
+            if (formularioParam.Value == null)
+                formularioParam.Value = System.DBNull.Value;
+
+            var operacionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Operacion_destino", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = operacion, Size = 200 };
+            if (operacionParam.Value == null)
+                operacionParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ConsultaBlendingCampañaDestinoReturnViewModel>("EXEC @procResult = [dbo].[CONSULTA_BLENDING_CAMPAÑA_DESTINO]  @Aliado, @Formulario_destino, @Operacion_destino", aliadoParam, formularioParam, operacionParam, procResultParam).ToList();
+
+            procResult = (int)procResultParam.Value;
+            return procResultData;
+        }
+
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ConsultaBlendingCampañaDestinoReturnViewModel>> ConsultaBlendingCampanaDestinoAsync(string aliado, string formulario, string operacion)
+        {
+            var aliadoParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Aliado", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = aliado, Size = 200 };
+            if (aliadoParam.Value == null)
+                aliadoParam.Value = System.DBNull.Value;
+
+            var formularioParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Formulario_destino", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = formulario, Size = 200 };
+            if (formularioParam.Value == null)
+                formularioParam.Value = System.DBNull.Value;
+
+            var operacionParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Operacion_destino", SqlDbType = System.Data.SqlDbType.VarChar, Direction = System.Data.ParameterDirection.Input, Value = operacion, Size = 200 };
+            if (operacionParam.Value == null)
+                operacionParam.Value = System.DBNull.Value;
+
+            var procResultData = await Database.SqlQuery<ConsultaBlendingCampañaDestinoReturnViewModel>("EXEC [dbo].[CONSULTA_BLENDING_CAMPAÑA_DESTINO] @Aliado, @Formulario_destino, @Operacion_destino", aliadoParam, formularioParam, operacionParam).ToListAsync();
+
+            return procResultData;
+        }
 
     }
 }

@@ -1777,6 +1777,22 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
 
         }
-    
-}
+        public List<ConsultaBlendingOperacionDestinoReturnViewModel> ConsultaBlendingOperacionDestino(string aliado, string formulario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<ConsultaBlendingOperacionDestinoReturnViewModel> result = new List<ConsultaBlendingOperacionDestinoReturnViewModel>();
+            result = dimContext.ConsultaBlendingOperacionDestino(aliado, formulario);
+            return result;
+
+        }
+        public List<ConsultaBlendingCampañaDestinoReturnViewModel> ConsultaBlendingCampanaDestino(string aliado, string formulario, string operacion)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<ConsultaBlendingCampañaDestinoReturnViewModel> result = new List<ConsultaBlendingCampañaDestinoReturnViewModel>();
+            result = dimContext.ConsultaBlendingCampanaDestino(aliado, formulario, operacion);
+            return result;
+
+        }
+
+    }
 }

@@ -101,7 +101,9 @@
     <Compile Include="ClaroVideoCollection.cs" />
     <Compile Include="ClientesTodo.cs" />
     <Compile Include="ClientesTodoCollection.cs" />
+    <Compile Include="ConsultaBlendingCampañaDestinoReturnViewModel.cs" />
     <Compile Include="ConsultaBlendingFormularioDestinoReturnViewModel.cs" />
+    <Compile Include="ConsultaBlendingOperacionDestinoReturnViewModel.cs" />
     <Compile Include="ConsultaGestionSqlReturnModel.cs" />
     <Compile Include="ConsultaPaloteoSqlReturnModel.cs" />
     <Compile Include="ConsultaRechazosAdminSqlReturnModel.cs" />

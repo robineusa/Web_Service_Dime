@@ -1508,8 +1508,18 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         public List<ConsultaBlendingFormularioDestinoReturnViewModel> ConsultaBlendingFormularioDestino(string aliado)
         {
-            DistribucionBlendingBusiness distribucionesBlendingBusiness = new DistribucionBlendingBusiness();
-            return distribucionesBlendingBusiness.ConsultaBlendingFormularioDestino(aliado);
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ConsultaBlendingFormularioDestino(aliado);
+        }
+        public List<ConsultaBlendingOperacionDestinoReturnViewModel> ConsultaBlendingOperacionDestino(string aliado, string formulario)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ConsultaBlendingOperacionDestino(aliado, formulario);
+        }
+        public List<ConsultaBlendingCampañaDestinoReturnViewModel> ConsultaBlendingCampanaDestino(string aliado, string formulario, string operacion)
+        {
+            DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
+            return distribucionesBlendingService.ConsultaBlendingCampanaDestino(aliado, formulario, operacion);
         }
         #endregion
 
