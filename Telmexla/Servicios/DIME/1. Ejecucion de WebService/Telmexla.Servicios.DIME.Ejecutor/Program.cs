@@ -20,18 +20,17 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            TrasladosService ts = new TrasladosService();
-            DateTime fecha1 = Convert.ToDateTime("2017-07-31");
-            DateTime fecha2 = Convert.ToDateTime("2017-08-01");
-            var resultado = ts.ConsultaGeneralTrasladosFallidos(fecha1,fecha2);
+            BitacoraIncidentesService bis = new BitacoraIncidentesService();
+            List<string> gerencias = new List<string>();
+            gerencias.Add("1");
+            
+            
+            List<string> Aliados = new List<string>();
+            Aliados.Add("1");
+            Aliados.Add("4");
+            Aliados.Add("5");
+            var resultado = bis.ListaDeOperacionesPorgerenciaYAliado(gerencias,Aliados);
             var z = "";
-
-            RecurrenciaService rec = new RecurrenciaService();
-            GPrincipalRecurrencia model = new GPrincipalRecurrencia();
-
-            rec.InsertarGRecurrencia(model);
-            var y = "";
-
         }
     }
 }

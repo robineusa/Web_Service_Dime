@@ -149,7 +149,8 @@ namespace Telmexla.Servicios.DIME.Business
             }
 
         }
-        public void EliminarIncidenteOperacion(decimal Id) {
+        public void EliminarIncidenteOperacion(decimal Id)
+        {
 
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             BIPIncidentesPorOperacion RegistroEliminar = unitWork.BIPIncidentesPorOperacion.Find(c => c.Id == Id).FirstOrDefault();
@@ -256,7 +257,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result.Add(new BIMHerramientas());
                 result[i].IdHerramienta = objetosResult[i].IdHerramienta;
                 result[i].NombreHerramienta = objetosResult[i].NombreHerramienta;
-                
+
             }
             return result;
         }
@@ -306,5 +307,118 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        public List<BIMOperaciones> ListaDeOperaciones()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BIMOperaciones> result = new List<BIMOperaciones>();
+            var objetosResult = (from a in dimContext.BIMOperaciones
+                                 where a.Estado.Equals("ACTIVO")
+                                 orderby a.NombreOperacion ascending
+                                 select new
+                                 {
+                                     a.IdOperacion,
+                                     a.NombreOperacion
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BIMOperaciones());
+                result[i].IdOperacion = objetosResult[i].IdOperacion;
+                result[i].NombreOperacion = objetosResult[i].NombreOperacion;
+
+            }
+            return result;
+        }
+        public List<BIMAliados> ListaDeAliadosPorGerencia(List<string> Gerencias)
+        {
+            List<decimal> IdGerencias = Gerencias.ConvertAll(s => Convert.ToDecimal(s));
+            List<BIMAliados> result = new List<BIMAliados>();
+            foreach (decimal Id in IdGerencias)
+            {
+                DimeContext dimContext = new DimeContext();
+                List<BIMOperaciones> Operaciones = dimContext.BIMOperaciones.Where(c => c.IdGerencia == Id).ToList();
+                if (Operaciones.Count > 0)
+                {
+
+                    var objetosResult = (from a in dimContext.BIMAliados
+                                         join b in (from m in dimContext.BIMOperaciones select new { m.IdAliado, m.IdGerencia }).Distinct() on a.IdAliado equals b.IdAliado
+                                         where b.IdGerencia == Id
+                                         select new
+                                         {
+                                             a.IdAliado,
+                                             a.NombreAliado
+
+                                         }
+                                         ).Distinct().ToList();
+                    List<decimal> IdAliados = objetosResult.ConvertAll(s => Convert.ToDecimal(s.IdAliado));
+                    foreach (decimal IdAliado in IdAliados)
+                    {
+                        BIMAliados NuevoAliado = dimContext.BIMAliados.Where(c => c.IdAliado == IdAliado).FirstOrDefault();
+                        if (NuevoAliado != null)
+                        {
+                            BIMAliados AliadoExistente = result.Find(x => x.IdAliado == NuevoAliado.IdAliado);
+                            if (AliadoExistente== null)
+                            {
+                                result.Add(NuevoAliado);
+                            }
+                        }
+                    }
+
+                }
+                else { }
+            }
+            
+            return result;
+        }
+        public List<BIMOperaciones> ListaDeOperacionesPorgerenciaYAliado(List<string> Gerencias, List<string>Aliados)
+        {
+            List<decimal> IdGerencias = Gerencias.ConvertAll(s => Convert.ToDecimal(s));
+            List<decimal> IdAliados = Aliados.ConvertAll(s => Convert.ToDecimal(s));
+            List<BIMOperaciones> result = new List<BIMOperaciones>();
+            foreach (decimal Id in IdGerencias)
+            {
+                DimeContext dimContext = new DimeContext();
+                List<BIMOperaciones> Operaciones = dimContext.BIMOperaciones.Where(c => c.IdGerencia == Id).ToList();
+                if (Operaciones.Count > 0)
+                {
+                    foreach (decimal Ids in IdAliados)
+                    {
+                        List<BIMAliados> Aliadosexistentes = dimContext.BIMAliados.Where(c => c.IdAliado == Ids).ToList();
+                        if (Aliadosexistentes != null)
+                        {
+                            var objetosResult = (from a in dimContext.BIMOperaciones
+                                                 where a.IdAliado == Ids && a.IdGerencia== Id
+                                                 select new
+                                                 {
+                                                     a.IdOperacion,
+                                                     a.NombreOperacion
+
+                                                 }
+                                         ).Distinct().ToList();
+                            List<decimal> IdOperaciones = objetosResult.ConvertAll(s => Convert.ToDecimal(s.IdOperacion));
+                            foreach (decimal IdOperacion in IdOperaciones)
+                            {
+                                BIMOperaciones NuevaOperacion = dimContext.BIMOperaciones.Where(c => c.IdOperacion == IdOperacion).FirstOrDefault();
+                                if (NuevaOperacion != null)
+                                {
+                                    BIMOperaciones OperacionExistente = result.Find(x => x.IdOperacion == NuevaOperacion.IdOperacion);
+                                    if (OperacionExistente == null)
+                                    {
+                                        result.Add(NuevaOperacion);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+                else { }
+            }
+
+            return result;
+        }
+
     }
 }

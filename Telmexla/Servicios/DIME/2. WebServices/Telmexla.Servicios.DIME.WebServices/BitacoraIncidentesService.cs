@@ -61,5 +61,20 @@ namespace Telmexla.Servicios.DIME.WebServices
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
             return Bitacorabusiness.ListaDePrioridades();
         }
+        public List<BIMOperaciones> ListaDeOperaciones()
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaDeOperaciones();
+        }
+        public List<BIMAliados> ListaDeAliadosPorGerencia(List<string> Gerencias)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaDeAliadosPorGerencia(Gerencias);
+        }
+        public List<BIMOperaciones> ListaDeOperacionesPorgerenciaYAliado(List<string> Gerencias, List<string> Aliados)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaDeOperacionesPorgerenciaYAliado(Gerencias, Aliados);
+        }
     }
 }
