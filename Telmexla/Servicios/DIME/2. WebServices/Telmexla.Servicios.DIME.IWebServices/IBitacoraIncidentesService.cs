@@ -31,5 +31,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<BIMTipoFalla> ListaTiposDeFallas();
         [OperationContract]
         List<BIMPrioridades> ListaDePrioridades();
+        [OperationContract]
+        List<BIMOperaciones> ListaDeOperaciones();
+        [OperationContract]
+        List<BIMAliados> ListaDeAliadosPorGerencia(List<string> Gerencias);
+        [OperationContract]
+        List<BIMOperaciones> ListaDeOperacionesPorgerenciaYAliado(List<string> Gerencias, List<string> Aliados);
     }
 }
