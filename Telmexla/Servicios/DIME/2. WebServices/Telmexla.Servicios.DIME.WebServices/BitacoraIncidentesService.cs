@@ -80,5 +80,25 @@ namespace Telmexla.Servicios.DIME.WebServices
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
             Bitacorabusiness.RegistrarOperacionesEnIncidente(Operaciones, IdRegistro);
         }
+        public BIPBitacoraIncidentes TraeIncidentePorId(int IdRegistro)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.TraeIncidentePorId(IdRegistro);
+        }
+        public List<ViewModelIncidentesOperaciones> ListaDeIncidentesOperacionPorRegistro(decimal IdRegistro)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaDeIncidentesOperacionPorRegistro(IdRegistro);
+        }
+        public void EliminarOpoeracionDeIncidente(int Id)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.EliminarOpoeracionDeIncidente(Id);
+        }
+        public List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion()
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaDeIncidentesEnGestion();
+        }
     }
 }
