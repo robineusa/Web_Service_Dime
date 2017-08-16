@@ -420,5 +420,28 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
         }
 
+        public void RegistrarOperacionesEnIncidente(List<string> Operaciones, decimal IdRegistro)
+        {
+            List<decimal> IdOperaciones = Operaciones.ConvertAll(s => Convert.ToDecimal(s));
+            foreach (decimal Id in IdOperaciones)
+            {
+                DimeContext dimContext = new DimeContext();
+                BIMOperaciones ExisteOperacion = dimContext.BIMOperaciones.Where(c => c.IdOperacion == Id && c.Estado.Equals("ACTIVO")).FirstOrDefault();
+                if (ExisteOperacion != null)
+                {
+                    UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                    BIPIncidentesPorOperacion Incidente = new BIPIncidentesPorOperacion();
+                    Incidente.IdOperacion = Id;
+                    Incidente.IdGerencia = ExisteOperacion.IdGerencia;
+                    Incidente.IdAliado = ExisteOperacion.IdAliado;
+                    Incidente.IdRegistro = IdRegistro;
+                    unitWork.BIPIncidentesPorOperacion.Add(Incidente);
+                    unitWork.Complete();
+                    unitWork.Dispose();
+
+                }
+                else { }
+            }
+        }
     }
 }

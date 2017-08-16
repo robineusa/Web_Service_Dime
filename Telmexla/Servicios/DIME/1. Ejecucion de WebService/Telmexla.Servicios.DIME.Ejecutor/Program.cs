@@ -25,11 +25,12 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             gerencias.Add("1");
             
             
-            List<string> Aliados = new List<string>();
-            Aliados.Add("1");
-            Aliados.Add("4");
-            Aliados.Add("5");
-            var resultado = bis.ListaDeOperacionesPorgerenciaYAliado(gerencias,Aliados);
+            List<string> Operaciones = new List<string>();
+            Operaciones.Add("1");
+            Operaciones.Add("2");
+            Operaciones.Add("3");
+            decimal id = 2;
+            bis.RegistrarOperacionesEnIncidente(Operaciones, id);
             var z = "";
         }
     }

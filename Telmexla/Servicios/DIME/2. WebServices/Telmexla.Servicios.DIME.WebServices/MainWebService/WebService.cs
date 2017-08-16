@@ -2000,6 +2000,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             return BitacoraService.ListaDeOperacionesPorgerenciaYAliado(Gerencias, Aliados);
         }
-        #endregion
-    }
+        public void RegistrarOperacionesEnIncidente(List<string> Operaciones, decimal IdRegistro)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.RegistrarOperacionesEnIncidente(Operaciones, IdRegistro);
+        }
+            #endregion
+        }
 }
