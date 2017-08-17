@@ -273,6 +273,14 @@ namespace Telmexla.Servicios.DIME.WebServices
             return result;
         }
 
+        public AccesoCollection ListaAccesosDeLinea(int idLinea)
+        {
+            DimeContext context = new DimeContext();
+            AccesoCollection result = new AccesoCollection();
+            result.AddRange(context.Accesoes.Where(c => c.AccesosXLineas.Any(d=>d.IdLinea== idLinea )).ToList());
+            return result;
+        }
+
         public LineaCollection ListaLineasDePerfil(int idPerfil)
         {
             DimeContext context = new DimeContext();
