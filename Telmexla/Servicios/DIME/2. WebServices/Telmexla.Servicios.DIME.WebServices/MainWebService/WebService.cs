@@ -136,6 +136,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
         }
 
+        public AccesoCollection ListaAccesosDeLinea(int idLinea)
+        {
+            LoginService lService = new LoginService();
+            return lService.ListaAccesosDeLinea(idLinea);
+        }
+
         public LineaCollection ListaLineasDePerfil(int idPerfil)
         {
             LoginService lService = new LoginService();

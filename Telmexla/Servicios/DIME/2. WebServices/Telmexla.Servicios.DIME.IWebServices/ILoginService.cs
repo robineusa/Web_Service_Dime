@@ -77,6 +77,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         AccesoCollection ListaAccesosDePerfil(int idPerfil);
 
         [OperationContract]
+        AccesoCollection ListaAccesosDeLinea(int idLinea);
+         
+        [OperationContract]
         LineaCollection ListaLineasDePerfil(int idPerfil);
 
         [OperationContract]
