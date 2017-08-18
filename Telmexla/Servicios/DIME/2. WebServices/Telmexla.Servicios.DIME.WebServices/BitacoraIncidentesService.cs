@@ -100,5 +100,64 @@ namespace Telmexla.Servicios.DIME.WebServices
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
             return Bitacorabusiness.ListaDeIncidentesEnGestion();
         }
+        public void AgregarAliado(BIMAliados AliadoNuevo) {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.AgregarAliado(AliadoNuevo);
+        }
+        public void ActualizarAliado(BIMAliados Aliado) {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.ActualizarAliado(Aliado);
+        }
+        public void AgregarGerencia(BIMGerencias GerenciaNueva)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.AgregarGerencia(GerenciaNueva);
+        }
+        public void ActualizarGerencia(BIMGerencias Gerencia)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.ActualizarGerencia(Gerencia);
+        }
+        public void AgregarOperaciones(BIMOperaciones OperacionNueva)
+        {
+
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.AgregarOperaciones(OperacionNueva);
+        }
+        public void ActualizarOperacion(BIMOperaciones Operacion)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.ActualizarOperacion(Operacion);
+        }
+        public List<BIMGerencias> ListaDeGerenciasAdmin()
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaDeGerenciasAdmin();
+        }
+        public List<BIMAliados> ListaDeAliadosAdmin()
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaDeAliadosAdmin();
+        }
+        public List<ViewModelIncidentesOperaciones> ListaDeOperacionesAdmin()
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaDeOperacionesAdmin();
+        }
+        public BIMGerencias GerenciaPorId(int Id)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.GerenciaPorId(Id);
+        }
+        public BIMAliados AliadoPorId(int Id)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.AliadoPorId(Id);
+        }
+        public BIMOperaciones OperacionPorId(int Id)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.OperacionPorId(Id);
+        }
     }
 }

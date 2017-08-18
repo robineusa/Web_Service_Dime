@@ -2029,6 +2029,64 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             return BitacoraService.ListaDeIncidentesEnGestion();
         }
+        public void AgregarAliado(BIMAliados AliadoNuevo)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.AgregarAliado(AliadoNuevo);
+        }
+        public void ActualizarAliado(BIMAliados Aliado)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.ActualizarAliado(Aliado);
+        }
+        public void AgregarGerencia(BIMGerencias GerenciaNueva) {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.AgregarGerencia(GerenciaNueva);
+        }
+        public void ActualizarGerencia(BIMGerencias Gerencia)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.ActualizarGerencia(Gerencia);
+        }
+        public void AgregarOperaciones(BIMOperaciones OperacionNueva) {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.AgregarOperaciones(OperacionNueva);
+        }
+        public void ActualizarOperacion(BIMOperaciones Operacion)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.ActualizarOperacion(Operacion);
+        }
+        public List<BIMGerencias> ListaDeGerenciasAdmin()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaDeGerenciasAdmin();
+        }
+        public List<BIMAliados> ListaDeAliadosAdmin()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaDeAliadosAdmin();
+        }
+        public List<ViewModelIncidentesOperaciones> ListaDeOperacionesAdmin()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaDeOperacionesAdmin();
+        }
+        public BIMGerencias GerenciaPorId(int Id)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.GerenciaPorId(Id);
+        }
+        public BIMAliados AliadoPorId(int Id)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.AliadoPorId(Id);
+        }
+        public BIMOperaciones OperacionPorId(int Id)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.OperacionPorId(Id);
+        }
             #endregion
     }
 }

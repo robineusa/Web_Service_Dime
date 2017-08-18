@@ -47,5 +47,29 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void EliminarOpoeracionDeIncidente(int Id);
         [OperationContract]
         List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion();
+        [OperationContract]
+        void AgregarAliado(BIMAliados AliadoNuevo);
+        [OperationContract]
+        void ActualizarAliado(BIMAliados Aliado);
+        [OperationContract]
+        void AgregarGerencia(BIMGerencias GerenciaNueva);
+        [OperationContract]
+        void ActualizarGerencia(BIMGerencias Gerencia);
+        [OperationContract]
+        void AgregarOperaciones(BIMOperaciones OperacionNueva);
+        [OperationContract]
+        void ActualizarOperacion(BIMOperaciones Operacion);
+        [OperationContract]
+        List<BIMGerencias> ListaDeGerenciasAdmin();
+        [OperationContract]
+        List<BIMAliados> ListaDeAliadosAdmin();
+        [OperationContract]
+        List<ViewModelIncidentesOperaciones> ListaDeOperacionesAdmin();
+        [OperationContract]
+        BIMGerencias GerenciaPorId(int Id);
+        [OperationContract]
+        BIMAliados AliadoPorId(int Id);
+        [OperationContract]
+        BIMOperaciones OperacionPorId(int Id);
     }
 }
