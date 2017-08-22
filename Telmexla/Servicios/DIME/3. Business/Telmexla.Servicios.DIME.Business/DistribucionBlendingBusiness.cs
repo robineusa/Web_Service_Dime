@@ -78,10 +78,14 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 RegistroActualizar.UsuarioGestionando = Id;
                 unitWork.Complete();
+                ClientesBusiness clientesBusiness = new ClientesBusiness();
+                return clientesBusiness.ObtenerClienteCompleto(Convert.ToInt32(CuentaCliente));
             }
-            else { }
-            ClientesBusiness clientesBusiness = new ClientesBusiness();
-            return clientesBusiness.ObtenerClienteCompleto(Convert.ToInt32(CuentaCliente));
+            else {
+                
+                return null;
+            }
+           
 
         }
 
