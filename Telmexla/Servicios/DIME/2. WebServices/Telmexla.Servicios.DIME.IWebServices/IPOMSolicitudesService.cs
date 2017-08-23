@@ -12,7 +12,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface IPOMSolicitudesService
     {
         [OperationContract]
-        void RegistrarSolicitud(POMSolicitudes Solicitud);
+        void RegistrarSolicitudPom(POMSolicitudes Solicitud);
         [OperationContract]
         bool ValidarCuentaEnBaseSolicitudesPom(decimal CuentaCliente);
         [OperationContract]

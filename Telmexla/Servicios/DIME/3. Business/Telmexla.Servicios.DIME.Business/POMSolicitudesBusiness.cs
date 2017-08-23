@@ -14,7 +14,7 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class POMSolicitudesBusiness
     {
-        public void RegistrarSolicitud(POMSolicitudes Solicitud)
+        public void RegistrarSolicitudPom(POMSolicitudes Solicitud)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             DateTime Fecha = DateTime.Now;

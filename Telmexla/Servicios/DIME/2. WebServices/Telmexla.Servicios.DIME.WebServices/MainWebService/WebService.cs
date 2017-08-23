@@ -2090,10 +2090,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion
 
         #region PomSolicitudes
-        public void RegistrarSolicitud(POMSolicitudes Solicitud)
+        public void RegistrarSolicitudPom(POMSolicitudes Solicitud)
         {
             POMSolicitudesService PomService = new POMSolicitudesService();
-            PomService.RegistrarSolicitud(Solicitud);
+            PomService.RegistrarSolicitudPom(Solicitud);
         }
         public bool ValidarCuentaEnBaseSolicitudesPom(decimal CuentaCliente)
         {

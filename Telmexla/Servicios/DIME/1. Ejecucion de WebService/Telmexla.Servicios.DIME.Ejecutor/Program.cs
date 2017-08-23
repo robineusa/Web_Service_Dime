@@ -29,7 +29,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             sol.CorreoElectronico = "robinson.neusa@gmail.com";
             sol.MovilClaro = "SI";
             sol.UsuarioSolicitud = "1032381244";
-            poms.RegistrarSolicitud(sol);
+            poms.RegistrarSolicitudPom(sol);
             var Z = "";
         }
     }
