@@ -20,18 +20,17 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            BitacoraIncidentesService bis = new BitacoraIncidentesService();
-            List<string> gerencias = new List<string>();
-            gerencias.Add("1");
-            
-            
-            List<string> Operaciones = new List<string>();
-            Operaciones.Add("1");
-            Operaciones.Add("2");
-            Operaciones.Add("3");
-            decimal id = 2;
-            bis.RegistrarOperacionesEnIncidente(Operaciones, id);
-            var z = "";
+            POMSolicitudesService poms = new POMSolicitudesService();
+            POMSolicitudes sol = new POMSolicitudes();
+            DateTime fecha = DateTime.Now;
+            sol.CuentaCliente = 307;
+            sol.FechaSolicitud = fecha;
+            sol.TelefonoCeluar = 3228451001;
+            sol.CorreoElectronico = "robinson.neusa@gmail.com";
+            sol.MovilClaro = "SI";
+            sol.UsuarioSolicitud = "1032381244";
+            poms.RegistrarSolicitud(sol);
+            var Z = "";
         }
     }
 }

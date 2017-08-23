@@ -102,6 +102,7 @@ namespace Telmexla.Servicios.DIME.Data
             BIMPrioridades = new BIMPrioridadesRepository(this.dimeContext);
             BIMHerramientas = new BIMHerramientasRepository(this.dimeContext);
             AccesosXLinea = new AccesosXLineaRepository(this.dimeContext);
+            POMSolicitudes = new POMSolicitudesRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -463,6 +464,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IBIMHerramientasRepository BIMHerramientas
+        {
+            get; private set;
+        }
+        public IPOMSolicitudesRepository POMSolicitudes
         {
             get; private set;
         }

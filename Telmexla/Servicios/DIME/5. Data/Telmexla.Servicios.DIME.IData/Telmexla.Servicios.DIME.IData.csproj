@@ -143,6 +143,7 @@
     <Compile Include="INotasIngresoRepository.cs" />
     <Compile Include="INotasTrasladoRepository.cs" />
     <Compile Include="INotificacionesBuenServicioRepository.cs" />
+    <Compile Include="IPOMSolicitudesRepository.cs" />
     <Compile Include="IPqrMaestroCodCierreRepository.cs" />
     <Compile Include="IPreguntasDesbloqueoRepository.cs" />
     <Compile Include="IRechazoRepository.cs" />

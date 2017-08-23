@@ -95,6 +95,7 @@ namespace Telmexla.Servicios.DIME.IData
         IBIMPrioridadesRepository BIMPrioridades { get; }
         IBIMHerramientasRepository BIMHerramientas { get; }
         IAccesosXLineaRepository AccesosXLinea { get; }
+        IPOMSolicitudesRepository POMSolicitudes { get; }
         int Complete();
     }
 }

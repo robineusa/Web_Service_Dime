@@ -78,6 +78,7 @@
     <Compile Include="IMecService.cs" />
     <Compile Include="IMultiPlayService.cs" />
     <Compile Include="INotificacionesBuenServicioService.cs" />
+    <Compile Include="IPOMSolicitudesService.cs" />
     <Compile Include="IRecurrenciaService.cs" />
     <Compile Include="ITrasladosService.cs" />
     <Compile Include="IUsabilidadService.cs" />

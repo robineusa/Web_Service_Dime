@@ -122,6 +122,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<BIMPrioridades> BIMPrioridades { get; set; }
         public System.Data.Entity.DbSet<BIMHerramientas> BIMHerramientas { get; set; }
         public System.Data.Entity.DbSet<AccesosXLinea> AccesosXLineas { get; set; } // TBL_ACCESOS_X_LINEA
+        public System.Data.Entity.DbSet<POMSolicitudes> POMSolicitudes { get; set; }
 
         static DimeContext()
         {
@@ -276,6 +277,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BIMPrioridadesConfiguration());
             modelBuilder.Configurations.Add(new BIMHerramientasConfiguration());
             modelBuilder.Configurations.Add(new AccesosXLineaConfiguration());
+            modelBuilder.Configurations.Add(new POMSolicitudesConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -383,6 +385,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BIMPrioridadesConfiguration(schema));
             modelBuilder.Configurations.Add(new BIMHerramientasConfiguration(schema));
             modelBuilder.Configurations.Add(new AccesosXLineaConfiguration(schema));
+            modelBuilder.Configurations.Add(new POMSolicitudesConfiguration(schema));
 
             return modelBuilder;
         }

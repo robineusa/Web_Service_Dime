@@ -143,6 +143,7 @@
     <Compile Include="Configuration\MultiPlayRegistroConfiguration.cs" />
     <Compile Include="Configuration\NodosZonificadosConfiguration.cs" />
     <Compile Include="Configuration\NotasTrasladoConfiguration.cs" />
+    <Compile Include="Configuration\POMSolicitudesConfiguration.cs" />
     <Compile Include="Configuration\PqrMaestroCodCierreConfiguration.cs" />
     <Compile Include="Configuration\RazonIngresoSoporteConfiguration.cs" />
     <Compile Include="Configuration\RechazoConfiguration.cs" />
@@ -258,6 +259,7 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="POMSolicitudesRepository.cs" />
     <Compile Include="PqrMaestroCodCierreRepository.cs" />
     <Compile Include="PreguntasDesbloqueoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

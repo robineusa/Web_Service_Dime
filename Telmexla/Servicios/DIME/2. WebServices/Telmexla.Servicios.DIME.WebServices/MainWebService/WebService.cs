@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService
     {
 
 
@@ -2087,6 +2087,24 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             return BitacoraService.OperacionPorId(Id);
         }
-            #endregion
+        #endregion
+
+        #region PomSolicitudes
+        public void RegistrarSolicitud(POMSolicitudes Solicitud)
+        {
+            POMSolicitudesService PomService = new POMSolicitudesService();
+            PomService.RegistrarSolicitud(Solicitud);
+        }
+        public bool ValidarCuentaEnBaseSolicitudesPom(decimal CuentaCliente)
+        {
+            POMSolicitudesService PomService = new POMSolicitudesService();
+            return PomService.ValidarCuentaEnBaseSolicitudesPom(CuentaCliente);
+        }
+        public List<POMSolicitudes> ListaSolicitudesPom(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            POMSolicitudesService PomService = new POMSolicitudesService();
+            return PomService.ListaSolicitudesPom(FechaInicial,FechaFinal);
+        }
+        #endregion
     }
 }
