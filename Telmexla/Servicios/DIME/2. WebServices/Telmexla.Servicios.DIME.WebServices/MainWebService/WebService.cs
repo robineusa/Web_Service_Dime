@@ -30,10 +30,6 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             LoginService lService = new LoginService();
             return lService.AutenticarUsuarioEnSesion(usuario);
         }
-
-
- 
-
         public List<PreguntasDesbloqueo> ObtenerPosiblesPreguntas()
         {
             LoginService lService = new LoginService();
@@ -265,6 +261,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             LoginService lService = new LoginService();
             return lService.CampañaPorCedula(Cedula);
+        }
+        public List<UsuariosMasivoData> ListaDatosUsuariosDimePorCedulas(List<string> cedulas)
+        {
+            LoginService lService = new LoginService();
+            return lService.ListaDatosUsuariosDimePorCedulas(cedulas);
         }
         #endregion
 

@@ -600,6 +600,82 @@ namespace Telmexla.Servicios.DIME.WebServices
             
         }
 
+        public List<UsuariosMasivoData> ListaDatosUsuariosDimePorCedulas(List<string> cedulas)
+        {
+            DimeContext context = new DimeContext();
+            List<UsuariosMasivoData> result = new List<UsuariosMasivoData>();
+            List<decimal> cedulasDecimal = cedulas.ConvertAll(s => Convert.ToDecimal(s));
 
+            List<BasePersonalHolo> holosResult = context.BasePersonalHoloes.Where(c => cedulasDecimal.Contains(c.Cedula)).ToList();
+
+            foreach (var item in holosResult)
+            {
+                UsuariosMasivoData nuevoUsuario = new UsuariosMasivoData();
+                nuevoUsuario.Aliado = item.Aliado;
+                nuevoUsuario.Apellido1 = item.Apellido1;
+                nuevoUsuario.Apellido2 = item.Apellido2;
+                nuevoUsuario.Canal = item.Canal;
+                nuevoUsuario.Cargo = item.Cargo;
+                nuevoUsuario.Cedula = item.Cedula;
+                nuevoUsuario.Estado = item.Estado;
+                nuevoUsuario.Grupo = item.Grupo;
+                nuevoUsuario.Nombre = item.Nombre;
+                nuevoUsuario.Nombre1 = item.Nombre1;
+                nuevoUsuario.Nombre2 = item.Nombre2;
+                nuevoUsuario.NombreLinea = item.NombreLinea;
+                nuevoUsuario.Operacion = item.Operacion;
+                nuevoUsuario.Segmento = item.Segmento;
+                nuevoUsuario.UsuarioAgendamiento = item.UsuarioAgendamiento;
+                nuevoUsuario.UsuarioGerencia = item.UsuarioGerencia;
+                nuevoUsuario.UsuarioRr = item.UsuarioRr;
+                result.Add(nuevoUsuario);
+            }
+
+           //for (int i = 0; i < cedulasDecimal.Count; i++)
+           // {
+           //     if (!result.Any(c => c.Cedula == cedulasDecimal[i]))
+           //     {
+           //         UsuariosMasivoData nuevoUsuario = new UsuariosMasivoData();
+           //         result.Remove(nuevoUsuario);
+           //         //nuevoUsuario.Cedula = cedulasDecimal[i];
+           //         //nuevoUsuario.InfoRegistro = "No se Puede Modificar. No esta en Holos";
+           //         //result.Add(nuevoUsuario);
+           //     }
+           // }
+
+            for (int j = 0; j < cedulasDecimal.Count; j++)
+            {
+                decimal cedulaUnica = cedulasDecimal[j];
+                if (context.Usuarios.Where(c => c.Cedula == cedulaUnica).Any())
+                {
+                    if (result.Any(c => c.Cedula == cedulasDecimal[j]))
+                    {
+                        UsuariosMasivoData nuevoUsuario = result.FirstOrDefault(c => c.Cedula == cedulasDecimal[j]);
+                        result.Remove(nuevoUsuario);
+                        nuevoUsuario.InfoRegistro = "Modificable";
+                        result.Add(nuevoUsuario);
+                    }
+                    else
+                    {
+                        UsuariosMasivoData nuevoUsuario = new UsuariosMasivoData();
+                        nuevoUsuario.Cedula = cedulasDecimal[j];
+                        nuevoUsuario.InfoRegistro = "Modificable";
+                        result.Add(nuevoUsuario);
+
+                    }
+
+                }
+                else
+                {
+                    UsuariosMasivoData nuevoUsuario = result.FirstOrDefault(c => c.Cedula == cedulasDecimal[j]);
+                    result.Remove(nuevoUsuario);
+                    //nuevoUsuario.InfoRegistro = "El usuario ya se encuentra creado";
+                    //result.Add(nuevoUsuario);
+                }
+
+            }
+
+            return result;
+        }
     }
 }

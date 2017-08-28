@@ -31,6 +31,13 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //sol.UsuarioSolicitud = "1032381244";
             //poms.RegistrarSolicitudPom(sol);
             //var Z = "";
+
+            LoginService log = new LoginService();
+            List<string> Users = new List<string>();
+            Users.Add("1076622744");
+            Users.Add("10766");
+            var r = log.ListaDatosUsuariosDimePorCedulas(Users);
+            var z = "";
         }
     }
 }
