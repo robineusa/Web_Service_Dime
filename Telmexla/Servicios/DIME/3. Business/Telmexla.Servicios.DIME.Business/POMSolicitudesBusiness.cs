@@ -18,7 +18,8 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             DateTime Fecha = DateTime.Now;
-            Solicitud.FechaSolicitud = Fecha;
+            Solicitud.FechaTransaccion = Fecha;
+            Solicitud.CanalTransaccion = "CAV";
             unitWork.POMSolicitudes.Add(Solicitud);
             unitWork.Complete();
             unitWork.Dispose();
@@ -36,30 +37,38 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<POMSolicitudes> result = new List<POMSolicitudes>();
             var objetosResult = (from a in dimContext.POMSolicitudes
-                                 where a.FechaSolicitud >= FechaInicial && a.FechaSolicitud <= FechaFinal
-                                 orderby a.IdRegistro ascending
+                                 where a.FechaTransaccion >= FechaInicial && a.FechaTransaccion <= FechaFinal
+                                 orderby a.IdTansaccion ascending
                                  select new
                                  {
-                                     a.IdRegistro,
-                                     a.FechaSolicitud,
-                                     a.UsuarioSolicitud,
-                                     a.CuentaCliente,
+                                     a.IdTansaccion,
+                                     a.FechaTransaccion,
+                                     a.UsuarioTransaccion,
+                                     a.CanalTransaccion,
+                                     a.ZonaTransaccion,
                                      a.TelefonoCeluar,
+                                     a.TelefonoDeContacto,
                                      a.CorreoElectronico,
-                                     a.MovilClaro
+                                     a.CuentaCliente,
+                                     a.Operacion,
+                                     a.TokenId
                                  }
                                  ).ToList();
 
             for (int i = 0; i < objetosResult.Count; i++)
             {
                 result.Add(new POMSolicitudes());
-                result[i].IdRegistro = objetosResult[i].IdRegistro;
-                result[i].FechaSolicitud = objetosResult[i].FechaSolicitud;
-                result[i].UsuarioSolicitud = objetosResult[i].UsuarioSolicitud;
-                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].IdTansaccion = objetosResult[i].IdTansaccion;
+                result[i].FechaTransaccion = objetosResult[i].FechaTransaccion;
+                result[i].UsuarioTransaccion = objetosResult[i].UsuarioTransaccion;
+                result[i].CanalTransaccion = objetosResult[i].CanalTransaccion;
+                result[i].ZonaTransaccion = objetosResult[i].ZonaTransaccion;
                 result[i].TelefonoCeluar = objetosResult[i].TelefonoCeluar;
+                result[i].TelefonoDeContacto = objetosResult[i].TelefonoDeContacto;
                 result[i].CorreoElectronico = objetosResult[i].CorreoElectronico;
-                result[i].MovilClaro = objetosResult[i].MovilClaro;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].Operacion = objetosResult[i].Operacion;
+                result[i].TokenId = objetosResult[i].TokenId;
             }
             return result;
 

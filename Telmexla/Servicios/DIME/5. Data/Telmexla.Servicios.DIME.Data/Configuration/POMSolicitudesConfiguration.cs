@@ -10,17 +10,20 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
         { }
         public POMSolicitudesConfiguration(string schema)
         {
-            ToTable("TBL_POM_SOLICITUDES", schema);
-            HasKey(x => new { x.IdRegistro });
+            ToTable("TBL_ENCUESTA_CAVS", schema);
+            HasKey(x => new { x.IdTansaccion });
 
-            Property(x => x.IdRegistro).HasColumnName(@"ID_REGISTRO").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.FechaSolicitud).HasColumnName(@"FECHA_SOLICITUD").IsOptional().HasColumnType("datetime");
-            Property(x => x.UsuarioSolicitud).HasColumnName(@"USUARIO_SOLICITUD").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.CuentaCliente).HasColumnName(@"CUENTA_CLIENTE").IsOptional().HasColumnType("numeric");
+            Property(x => x.IdTansaccion).HasColumnName(@"ID_TRANSACCION").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.FechaTransaccion).HasColumnName(@"FECHA_TRANSACCION").IsOptional().HasColumnType("datetime");
+            Property(x => x.UsuarioTransaccion).HasColumnName(@"USUARIO_TRANSACCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.CanalTransaccion).HasColumnName(@"CANAL_TRANSACCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.ZonaTransaccion).HasColumnName(@"ZONA_TRANSACCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.TelefonoCeluar).HasColumnName(@"TELEFONO_CELULAR").IsOptional().HasColumnType("numeric");
+            Property(x => x.TelefonoDeContacto).HasColumnName(@"TELEFONO_CONTACTO").IsOptional().HasColumnType("numeric");
             Property(x => x.CorreoElectronico).HasColumnName(@"CORREO_ELECTRONICO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.MovilClaro).HasColumnName(@"MOVIL_CLARO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-
+            Property(x => x.CuentaCliente).HasColumnName(@"CUENTA_CLIENTE").IsOptional().HasColumnType("numeric");
+            Property(x => x.Operacion).HasColumnName(@"OPERACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.TokenId).HasColumnName(@"TOKEN_ID").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
         }
     }
 }

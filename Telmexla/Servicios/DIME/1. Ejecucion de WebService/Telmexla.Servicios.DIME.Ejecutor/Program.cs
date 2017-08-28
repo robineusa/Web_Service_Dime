@@ -20,17 +20,17 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            POMSolicitudesService poms = new POMSolicitudesService();
-            POMSolicitudes sol = new POMSolicitudes();
-            DateTime fecha = DateTime.Now;
-            sol.CuentaCliente = 307;
-            sol.FechaSolicitud = fecha;
-            sol.TelefonoCeluar = 3228451001;
-            sol.CorreoElectronico = "robinson.neusa@gmail.com";
-            sol.MovilClaro = "SI";
-            sol.UsuarioSolicitud = "1032381244";
-            poms.RegistrarSolicitudPom(sol);
-            var Z = "";
+            //POMSolicitudesService poms = new POMSolicitudesService();
+            //POMSolicitudes sol = new POMSolicitudes();
+            //DateTime fecha = DateTime.Now;
+            //sol.CuentaCliente = 307;
+            //sol.FechaSolicitud = fecha;
+            //sol.TelefonoCeluar = 3228451001;
+            //sol.CorreoElectronico = "robinson.neusa@gmail.com";
+            //sol.MovilClaro = "SI";
+            //sol.UsuarioSolicitud = "1032381244";
+            //poms.RegistrarSolicitudPom(sol);
+            //var Z = "";
         }
     }
 }
