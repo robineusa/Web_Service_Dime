@@ -734,5 +734,10 @@ namespace Telmexla.Servicios.DIME.Business
             BIMOperaciones Operacion = unitWork.BIMOperaciones.Get(Id);
             if (Operacion != null) { return Operacion; } else { return null; }
         }
+        public BILBitacoraIncidentes TraeLogIncidentePorId(int IdRegistro)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            return unitWork.BILBitacoraIncidentes.Get(IdRegistro);
+        }
     }
 }

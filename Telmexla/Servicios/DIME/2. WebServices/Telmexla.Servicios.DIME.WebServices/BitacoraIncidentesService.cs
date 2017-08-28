@@ -159,5 +159,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
             return Bitacorabusiness.OperacionPorId(Id);
         }
+        public BILBitacoraIncidentes TraeLogIncidentePorId(int IdRegistro)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.TraeLogIncidentePorId(IdRegistro);
+        }
     }
 }
