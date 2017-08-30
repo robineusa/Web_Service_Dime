@@ -73,5 +73,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         BIMOperaciones OperacionPorId(int Id);
         [OperationContract]
         BILBitacoraIncidentes TraeLogIncidentePorId(int IdRegistro);
+        [OperationContract]
+        List<ViewModelIncidentesOperaciones> ListaDeAliadosAfectados(decimal IdRegistro);
+        [OperationContract]
+        List<BILBitacoraIncidentes> LogDeIncidentesPorId(decimal IdRegistro);
     }
 }
