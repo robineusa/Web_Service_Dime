@@ -32,11 +32,46 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //poms.RegistrarSolicitudPom(sol);
             //var Z = "";
 
-            LoginService log = new LoginService();
-            List<string> Users = new List<string>();
-            Users.Add("1076622744");
-            Users.Add("10766");
-            var r = log.ListaDatosUsuariosDimePorCedulas(Users);
+            //InboundService inb = new InboundService();
+
+            //var r = inb.ListaIngresosDeCuenta("52309424");
+
+            LoginService lo = new LoginService();
+
+            List<int> Users = new List<int>();
+            Users.Add(1076622744);
+            int i = 0;
+            foreach (var u in Users)
+            {
+                string[] permisos;
+                string x = "42-54-45-55-57-56-58-64-63-62-61-60-59";
+                //List<string> ListaPermisos = new List<string>();
+                //var r = lo.ListaAccesosDeUsuario(u);
+                //int j = 1;
+                //foreach (var rs in r)
+                //{
+                //    //var t = r.Count();
+                //    if (rs != "92")
+                //    {
+                //        x = x.Insert(x.Length, rs.ToString() + " ");
+                //    }
+                //    j++;
+                //}
+                //x = x.Insert(x.Length, "92");
+                permisos = x.Split('-');
+                //ListaPermisos = permisos.OfType<string>().ToList();
+
+                var id = lo.RecibirIdUsuario(u);
+                var idP = lo.IdPerfilDeUsuario(id);
+                var idL = lo.IdLineaDeUsuario(id);
+
+                lo.ActualizarAccesosUsuario(id, idP, idL, permisos, "", "41213");
+                i++;
+
+            }
+
+
+
             var z = "";
         }
     }
