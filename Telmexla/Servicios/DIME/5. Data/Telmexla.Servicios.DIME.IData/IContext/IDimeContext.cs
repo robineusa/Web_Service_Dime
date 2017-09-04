@@ -190,6 +190,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         int ApartarCuentaGestionBackElite(decimal Cedula);
 
         int ApartarCuentaGestionRecurrencia(decimal idAsesor);
+        //apartar cuenta bitacora de incidentes
+        int ApartarCuentaIncidente(decimal Cedula, decimal IdRegistro);
 
     }
 

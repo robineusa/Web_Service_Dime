@@ -21,6 +21,7 @@ namespace Telmexla.Servicios.DIME.Business
             Bitacora.FechaDeRegistro = Fecha;
             Bitacora.FechaUltimaActualizacion = Fecha;
             Bitacora.EstadoDelCaso = "EN GESTION";
+            Bitacora.UsuarioGestionando = 0;
             unitWork.BIPBitacoraIncidentes.Add(Bitacora);
             unitWork.Complete();
             unitWork.Dispose();
@@ -494,12 +495,12 @@ namespace Telmexla.Servicios.DIME.Business
             unitWork.Complete();
             unitWork.Dispose();
         }
-        public List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion()
+        public List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion(decimal Cedula)
         {
             DimeContext dimContext = new DimeContext();
             List<BIPBitacoraIncidentes> result = new List<BIPBitacoraIncidentes>();
             var objetosResult = (from a in dimContext.BIPBitacoraIncidentes
-                                 where a.EstadoDelCaso.Equals("EN GESTION")
+                                 where a.EstadoDelCaso.Equals("EN GESTION") && ( a.UsuarioGestionando== 0 || a.UsuarioGestionando == Cedula)
                                  orderby a.FechaUltimaActualizacion ascending
                                  select new
                                  {
@@ -831,6 +832,188 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
 
+        }
+        public bool ValidarSolicitudIncidente(string CasoSD)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            var resultado = unitWork.BIPBitacoraIncidentes.Find(c => c.CasoSD.Equals(CasoSD)).ToList();
+
+            if (resultado.Count() > 0) { return true; }
+            else { return false; }
+        }
+        public bool TransaccionIncidenteEnGestion(string Cedula,decimal IdRegistro)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            decimal CedulaUsuario = Convert.ToDecimal(Cedula);
+            decimal result = Convert.ToDecimal(unitWork.BIPBitacoraIncidentes.ApartarCuentaIncidente(CedulaUsuario, IdRegistro));
+            if (result == CedulaUsuario) return false;
+            else return true;
+        }
+        //admin
+        public BIMHerramientas HerramientasPorId(int Id)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BIMHerramientas Herramienta = unitWork.BIMHerramientas.Get(Id);
+            if (Herramienta != null) { return Herramienta; } else { return null; }
+        }
+        public BIMPrioridades PrioridadesPorId(int Id)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BIMPrioridades Prioridad = unitWork.BIMPrioridades.Get(Id);
+            if (Prioridad != null) { return Prioridad; } else { return null; }
+        }
+        public BIMTipoFalla TipoFallaPorId(int Id)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BIMTipoFalla TipoFalla = unitWork.BIMTipoFalla.Get(Id);
+            if (TipoFalla != null) { return TipoFalla; } else { return null; }
+        }
+        public void AgregarHerramienta(BIMHerramientas HerramientaNueva)
+        {
+            //verifica si la herramienta Existe
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BIMHerramientas HerramientaExistente = unitWork.BIMHerramientas.Find(c => c.NombreHerramienta.Equals(HerramientaNueva.NombreHerramienta)).FirstOrDefault();
+            if (HerramientaExistente == null)
+            {
+                unitWork.BIMHerramientas.Add(HerramientaNueva);
+                unitWork.Complete();
+                unitWork.Dispose();
+            }
+
+        }
+        public void ActualizarHerramienta(BIMHerramientas Herramienta)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BIMHerramientas HerramientaActualizable = unitWork.BIMHerramientas.Find(c => c.IdHerramienta == Herramienta.IdHerramienta).FirstOrDefault();
+            if (HerramientaActualizable != null)
+            {
+                HerramientaActualizable.NombreHerramienta = Herramienta.NombreHerramienta;
+                HerramientaActualizable.Estado = Herramienta.Estado;
+                unitWork.Complete();
+                unitWork.Dispose();
+            }
+        }
+        public void AgregarPrioridad(BIMPrioridades PrioridadNueva)
+        {
+            //verifica si la herramienta Existe
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BIMPrioridades PrioridadExistente = unitWork.BIMPrioridades.Find(c => c.Prioridad.Equals(PrioridadNueva.Prioridad)).FirstOrDefault();
+            if (PrioridadExistente == null)
+            {
+                unitWork.BIMPrioridades.Add(PrioridadNueva);
+                unitWork.Complete();
+                unitWork.Dispose();
+            }
+
+        }
+        public void ActualizarPrioridad(BIMPrioridades Prioridad)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BIMPrioridades PrioridadActualizable = unitWork.BIMPrioridades.Find(c => c.IdPrioridad == Prioridad.IdPrioridad).FirstOrDefault();
+            if (PrioridadActualizable != null)
+            {
+                PrioridadActualizable.Prioridad = Prioridad.Prioridad;
+                PrioridadActualizable.Estado = Prioridad.Estado;
+                unitWork.Complete();
+                unitWork.Dispose();
+            }
+        }
+        public void AgregarTipoFalla(BIMTipoFalla TipoFallaNueva)
+        {
+            //verifica si la herramienta Existe
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BIMTipoFalla TipoFallaExistente = unitWork.BIMTipoFalla.Find(c => c.TipoFalla.Equals(TipoFallaNueva.TipoFalla)).FirstOrDefault();
+            if (TipoFallaExistente == null)
+            {
+                unitWork.BIMTipoFalla.Add(TipoFallaNueva);
+                unitWork.Complete();
+                unitWork.Dispose();
+            }
+
+        }
+        public void ActualizarTipoFalla(BIMTipoFalla TipoFalla)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BIMTipoFalla TipoFallaActualizable = unitWork.BIMTipoFalla.Find(c => c.IdTipoFalla == TipoFalla.IdTipoFalla).FirstOrDefault();
+            if (TipoFallaActualizable != null)
+            {
+                TipoFallaActualizable.TipoFalla = TipoFalla.TipoFalla;
+                TipoFallaActualizable.Estado = TipoFalla.Estado;
+                unitWork.Complete();
+                unitWork.Dispose();
+            }
+        }
+        public List<BIMHerramientas> ListaDeHerramientasAdmin()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BIMHerramientas> result = new List<BIMHerramientas>();
+            var objetosResult = (from a in dimContext.BIMHerramientas
+                                 orderby a.NombreHerramienta ascending
+                                 select new
+                                 {
+                                     a.IdHerramienta,
+                                     a.NombreHerramienta,
+                                     a.Estado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BIMHerramientas());
+                result[i].IdHerramienta = objetosResult[i].IdHerramienta;
+                result[i].NombreHerramienta = objetosResult[i].NombreHerramienta;
+                result[i].Estado = objetosResult[i].Estado;
+
+            }
+            return result;
+        }
+        public List<BIMTipoFalla> ListaTiposDeFallasAdmin()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BIMTipoFalla> result = new List<BIMTipoFalla>();
+            var objetosResult = (from a in dimContext.BIMTipoFalla
+                                 orderby a.TipoFalla ascending
+                                 select new
+                                 {
+                                     a.IdTipoFalla,
+                                     a.TipoFalla,
+                                     a.Estado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BIMTipoFalla());
+                result[i].IdTipoFalla = objetosResult[i].IdTipoFalla;
+                result[i].TipoFalla = objetosResult[i].TipoFalla;
+                result[i].Estado = objetosResult[i].Estado;
+
+            }
+            return result;
+        }
+        public List<BIMPrioridades> ListaDePrioridadesAdmin()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BIMPrioridades> result = new List<BIMPrioridades>();
+            var objetosResult = (from a in dimContext.BIMPrioridades
+                                 orderby a.Prioridad ascending
+                                 select new
+                                 {
+                                     a.IdPrioridad,
+                                     a.Prioridad,
+                                     a.Estado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BIMPrioridades());
+                result[i].IdPrioridad = objetosResult[i].IdPrioridad;
+                result[i].Prioridad = objetosResult[i].Prioridad;
+                result[i].Estado = objetosResult[i].Estado;
+
+            }
+            return result;
         }
     }
 }

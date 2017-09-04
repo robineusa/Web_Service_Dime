@@ -2026,9 +2026,9 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             BitacoraService.EliminarOpoeracionDeIncidente(Id);
         }
-        public List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion() {
+        public List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion(decimal Cedula) {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
-            return BitacoraService.ListaDeIncidentesEnGestion();
+            return BitacoraService.ListaDeIncidentesEnGestion(Cedula);
         }
         public void AgregarAliado(BIMAliados AliadoNuevo)
         {
@@ -2102,6 +2102,77 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             return BitacoraService.LogDeIncidentesPorId(IdRegistro);
+        }
+        public bool ValidarSolicitudIncidente(string CasoSD)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ValidarSolicitudIncidente(CasoSD);
+        }
+        public bool TransaccionIncidenteEnGestion(string Cedula, decimal IdRegistro)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.TransaccionIncidenteEnGestion(Cedula,IdRegistro);
+        }
+        public BIMHerramientas HerramientasPorId(int Id)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.HerramientasPorId(Id);
+        }
+        public BIMPrioridades PrioridadesPorId(int Id)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.PrioridadesPorId(Id);
+        }
+        public BIMTipoFalla TipoFallaPorId(int Id)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.TipoFallaPorId(Id);
+        }
+        public void AgregarHerramienta(BIMHerramientas HerramientaNueva)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.AgregarHerramienta(HerramientaNueva);
+        }
+        public void ActualizarHerramienta(BIMHerramientas Herramienta)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.ActualizarHerramienta(Herramienta);
+        }
+        public void AgregarPrioridad(BIMPrioridades PrioridadNueva)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.AgregarPrioridad(PrioridadNueva);
+
+        }
+        public void ActualizarPrioridad(BIMPrioridades Prioridad)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.ActualizarPrioridad(Prioridad);
+        }
+        public void AgregarTipoFalla(BIMTipoFalla TipoFallaNueva)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.AgregarTipoFalla(TipoFallaNueva);
+        }
+        public void ActualizarTipoFalla(BIMTipoFalla TipoFalla)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            BitacoraService.ActualizarTipoFalla(TipoFalla);
+        }
+        public List<BIMHerramientas> ListaDeHerramientasAdmin()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaDeHerramientasAdmin();
+        }
+        public List<BIMTipoFalla> ListaTiposDeFallasAdmin()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaTiposDeFallasAdmin();
+        }
+        public List<BIMPrioridades> ListaDePrioridadesAdmin()
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ListaDePrioridadesAdmin();
         }
         #endregion
 
