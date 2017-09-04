@@ -246,6 +246,20 @@ namespace Telmexla.Servicios.DIME.WebServices
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
             return Bitacorabusiness.ListaDePrioridadesAdmin();
         }
-
+        public BIPBitacoraIncidentes TraeIncidentePorCasoSD(string CasoSD)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.TraeIncidentePorCasoSD(CasoSD);
+        }
+        public List<BIPBitacoraIncidentes> ConsultaPrincipalIncidentes(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ConsultaPrincipalIncidentes(FechaInicial,FechaFinal);
+        }
+        public List<BILBitacoraIncidentes> ConsultaLogIncidentes(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ConsultaLogIncidentes(FechaInicial, FechaFinal);
+        }
     }
 }

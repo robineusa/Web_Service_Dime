@@ -105,5 +105,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<BIMTipoFalla> ListaTiposDeFallasAdmin();
         [OperationContract]
         List<BIMPrioridades> ListaDePrioridadesAdmin();
+        [OperationContract]
+        BIPBitacoraIncidentes TraeIncidentePorCasoSD(string CasoSD);
+        [OperationContract]
+        List<BIPBitacoraIncidentes> ConsultaPrincipalIncidentes(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<BILBitacoraIncidentes> ConsultaLogIncidentes(DateTime FechaInicial, DateTime FechaFinal);
     }
 }
