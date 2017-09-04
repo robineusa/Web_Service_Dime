@@ -111,5 +111,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<BIPBitacoraIncidentes> ConsultaPrincipalIncidentes(DateTime FechaInicial, DateTime FechaFinal);
         [OperationContract]
         List<BILBitacoraIncidentes> ConsultaLogIncidentes(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<BIPBitacoraIncidentes> ConsultaDeIncidentePorSD(string SD);
     }
 }

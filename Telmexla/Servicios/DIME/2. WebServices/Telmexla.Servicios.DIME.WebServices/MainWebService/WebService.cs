@@ -2189,6 +2189,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             return BitacoraService.ConsultaLogIncidentes(FechaInicial, FechaFinal);
         }
+        public List<BIPBitacoraIncidentes> ConsultaDeIncidentePorSD(string SD)
+        {
+            BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
+            return BitacoraService.ConsultaDeIncidentePorSD(SD);
+        }
         #endregion
 
         #region PomSolicitudes

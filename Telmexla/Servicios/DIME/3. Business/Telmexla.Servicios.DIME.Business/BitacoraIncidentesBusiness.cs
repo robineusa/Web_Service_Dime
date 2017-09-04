@@ -1155,6 +1155,70 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
 
         }
+        public List<BIPBitacoraIncidentes> ConsultaDeIncidentePorSD(string SD)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BIPBitacoraIncidentes> result = new List<BIPBitacoraIncidentes>();
+            var objetosResult = (from a in dimContext.BIPBitacoraIncidentes
+                                 where a.CasoSD.Equals(SD)
+                                 orderby a.IdRegistro ascending
+                                 select new
+                                 {
+                                     a.IdRegistro,
+                                     a.UsuarioCreacion,
+                                     a.NombreUsuarioCreacion,
+                                     a.FechaDeRegistro,
+                                     a.FechaUltimaActualizacion,
+                                     a.UsuarioUltimaActualizacion,
+                                     a.NombreUsuarioUltimaActualizacion,
+                                     a.CasoSD,
+                                     a.IM,
+                                     a.FechaDeCreacionTicket,
+                                     a.FechaDeCierreTicket,
+                                     a.FechaDeCierreAfectacion,
+                                     a.Herramienta,
+                                     a.TipoDeFalla,
+                                     a.ModuloAfectado,
+                                     a.DescripcionAfectacion,
+                                     a.Prioridad,
+                                     a.EscaladoA,
+                                     a.CantidadUsuariosAfectados,
+                                     a.ComentariosDeCierre,
+                                     a.EstadoDelCaso,
+                                     a.UsuarioGestionando
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BIPBitacoraIncidentes());
+                result[i].IdRegistro = objetosResult[i].IdRegistro;
+                result[i].UsuarioCreacion = objetosResult[i].UsuarioCreacion;
+                result[i].NombreUsuarioCreacion = objetosResult[i].NombreUsuarioCreacion;
+                result[i].FechaDeRegistro = objetosResult[i].FechaDeRegistro;
+                result[i].FechaUltimaActualizacion = objetosResult[i].FechaUltimaActualizacion;
+                result[i].UsuarioUltimaActualizacion = objetosResult[i].UsuarioUltimaActualizacion;
+                result[i].NombreUsuarioUltimaActualizacion = objetosResult[i].NombreUsuarioUltimaActualizacion;
+                result[i].CasoSD = objetosResult[i].CasoSD;
+                result[i].IM = objetosResult[i].IM;
+                result[i].FechaDeCreacionTicket = objetosResult[i].FechaDeCreacionTicket;
+                result[i].FechaDeCierreTicket = objetosResult[i].FechaDeCierreTicket;
+                result[i].FechaDeCierreAfectacion = objetosResult[i].FechaDeCierreAfectacion;
+                result[i].Herramienta = objetosResult[i].Herramienta;
+                result[i].TipoDeFalla = objetosResult[i].TipoDeFalla;
+                result[i].ModuloAfectado = objetosResult[i].ModuloAfectado;
+                result[i].DescripcionAfectacion = objetosResult[i].DescripcionAfectacion;
+                result[i].Prioridad = objetosResult[i].Prioridad;
+                result[i].EscaladoA = objetosResult[i].EscaladoA;
+                result[i].CantidadUsuariosAfectados = objetosResult[i].CantidadUsuariosAfectados;
+                result[i].ComentariosDeCierre = objetosResult[i].ComentariosDeCierre;
+                result[i].EstadoDelCaso = objetosResult[i].EstadoDelCaso;
+                result[i].UsuarioGestionando = objetosResult[i].UsuarioGestionando;
+
+            }
+            return result;
+
+        }
     }
 
 }
