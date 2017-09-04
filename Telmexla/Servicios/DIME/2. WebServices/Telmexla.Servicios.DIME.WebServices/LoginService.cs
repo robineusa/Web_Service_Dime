@@ -631,17 +631,14 @@ namespace Telmexla.Servicios.DIME.WebServices
                 result.Add(nuevoUsuario);
             }
 
-           //for (int i = 0; i < cedulasDecimal.Count; i++)
-           // {
-           //     if (!result.Any(c => c.Cedula == cedulasDecimal[i]))
-           //     {
-           //         UsuariosMasivoData nuevoUsuario = new UsuariosMasivoData();
-           //         result.Remove(nuevoUsuario);
-           //         //nuevoUsuario.Cedula = cedulasDecimal[i];
-           //         //nuevoUsuario.InfoRegistro = "No se Puede Modificar. No esta en Holos";
-           //         //result.Add(nuevoUsuario);
-           //     }
-           // }
+            for (int i = 0; i < cedulasDecimal.Count; i++)
+            {
+                if (!result.Any(c => c.Cedula == cedulasDecimal[i]))
+                {
+                    UsuariosMasivoData nuevoUsuario = new UsuariosMasivoData();
+                    result.Remove(nuevoUsuario);
+                }
+            }
 
             for (int j = 0; j < cedulasDecimal.Count; j++)
             {
@@ -657,10 +654,6 @@ namespace Telmexla.Servicios.DIME.WebServices
                     }
                     else
                     {
-                        UsuariosMasivoData nuevoUsuario = new UsuariosMasivoData();
-                        nuevoUsuario.Cedula = cedulasDecimal[j];
-                        nuevoUsuario.InfoRegistro = "Modificable";
-                        result.Add(nuevoUsuario);
 
                     }
 
@@ -669,8 +662,6 @@ namespace Telmexla.Servicios.DIME.WebServices
                 {
                     UsuariosMasivoData nuevoUsuario = result.FirstOrDefault(c => c.Cedula == cedulasDecimal[j]);
                     result.Remove(nuevoUsuario);
-                    //nuevoUsuario.InfoRegistro = "El usuario ya se encuentra creado";
-                    //result.Add(nuevoUsuario);
                 }
 
             }
