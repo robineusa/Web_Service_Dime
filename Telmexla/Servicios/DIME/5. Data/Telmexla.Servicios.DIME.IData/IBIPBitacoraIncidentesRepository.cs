@@ -9,5 +9,6 @@ namespace Telmexla.Servicios.DIME.IData
 {
     public interface IBIPBitacoraIncidentesRepository: IRepository<BIPBitacoraIncidentes>
     {
+        bool ApartarCuentaIncidente(decimal Decula, decimal IdRegistro);
     }
 }

@@ -22,5 +22,10 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get { return Context as DimeContext; }
         }
+        public bool ApartarCuentaIncidente(decimal Cedula, decimal IdRegistro)
+        {
+            dimeContext.ApartarCuentaIncidente(Cedula, IdRegistro);
+            return true;
+        }
     }
 }

@@ -95,10 +95,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
             Bitacorabusiness.EliminarOpoeracionDeIncidente(Id);
         }
-        public List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion()
+        public List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion(decimal Cedula)
         {
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
-            return Bitacorabusiness.ListaDeIncidentesEnGestion();
+            return Bitacorabusiness.ListaDeIncidentesEnGestion(Cedula);
         }
         public void AgregarAliado(BIMAliados AliadoNuevo) {
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
@@ -173,6 +173,98 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
             return Bitacorabusiness.LogDeIncidentesPorId(IdRegistro);
+        }
+        public bool ValidarSolicitudIncidente(string CasoSD)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ValidarSolicitudIncidente(CasoSD);
+        }
+        public bool TransaccionIncidenteEnGestion(string Cedula, decimal IdRegistro)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.TransaccionIncidenteEnGestion(Cedula,IdRegistro);
+        }
+        public BIMHerramientas HerramientasPorId(int Id)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.HerramientasPorId(Id);
+        }
+        public BIMPrioridades PrioridadesPorId(int Id)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.PrioridadesPorId(Id);
+        }
+        public BIMTipoFalla TipoFallaPorId(int Id)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.TipoFallaPorId(Id);
+
+        }
+        public void AgregarHerramienta(BIMHerramientas HerramientaNueva)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.AgregarHerramienta(HerramientaNueva);
+        }
+        public void ActualizarHerramienta(BIMHerramientas Herramienta)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.ActualizarHerramienta(Herramienta);
+        }
+        public void AgregarPrioridad(BIMPrioridades PrioridadNueva)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.AgregarPrioridad(PrioridadNueva);
+        }
+        public void ActualizarPrioridad(BIMPrioridades Prioridad)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.ActualizarPrioridad(Prioridad);
+        }
+        public void AgregarTipoFalla(BIMTipoFalla TipoFallaNueva)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.AgregarTipoFalla(TipoFallaNueva);
+        }
+        public void ActualizarTipoFalla(BIMTipoFalla TipoFalla)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            Bitacorabusiness.ActualizarTipoFalla(TipoFalla);
+        }
+        public List<BIMHerramientas> ListaDeHerramientasAdmin()
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaDeHerramientasAdmin();
+
+        }
+        public List<BIMTipoFalla> ListaTiposDeFallasAdmin()
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaTiposDeFallasAdmin();
+        }
+        public List<BIMPrioridades> ListaDePrioridadesAdmin()
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ListaDePrioridadesAdmin();
+        }
+        public BIPBitacoraIncidentes TraeIncidentePorCasoSD(string CasoSD)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.TraeIncidentePorCasoSD(CasoSD);
+        }
+        public List<BIPBitacoraIncidentes> ConsultaPrincipalIncidentes(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ConsultaPrincipalIncidentes(FechaInicial,FechaFinal);
+        }
+        public List<BILBitacoraIncidentes> ConsultaLogIncidentes(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ConsultaLogIncidentes(FechaInicial, FechaFinal);
+        }
+        public List<BIPBitacoraIncidentes> ConsultaDeIncidentePorSD(string SD)
+        {
+            BitacoraIncidentesBusiness Bitacorabusiness = new BitacoraIncidentesBusiness();
+            return Bitacorabusiness.ConsultaDeIncidentePorSD(SD);
         }
     }
 }

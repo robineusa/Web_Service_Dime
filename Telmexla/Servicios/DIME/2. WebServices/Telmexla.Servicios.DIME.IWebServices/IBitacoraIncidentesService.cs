@@ -46,7 +46,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void EliminarOpoeracionDeIncidente(int Id);
         [OperationContract]
-        List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion();
+        List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion(decimal Cedula);
         [OperationContract]
         void AgregarAliado(BIMAliados AliadoNuevo);
         [OperationContract]
@@ -77,5 +77,41 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<ViewModelIncidentesOperaciones> ListaDeAliadosAfectados(decimal IdRegistro);
         [OperationContract]
         List<BILBitacoraIncidentes> LogDeIncidentesPorId(decimal IdRegistro);
+        [OperationContract]
+        bool ValidarSolicitudIncidente(string CasoSD);
+        [OperationContract]
+        bool TransaccionIncidenteEnGestion(string Cedula, decimal IdRegistro);
+        [OperationContract]
+        BIMHerramientas HerramientasPorId(int Id);
+        [OperationContract]
+        BIMPrioridades PrioridadesPorId(int Id);
+        [OperationContract]
+        BIMTipoFalla TipoFallaPorId(int Id);
+        [OperationContract]
+        void AgregarHerramienta(BIMHerramientas HerramientaNueva);
+        [OperationContract]
+        void ActualizarHerramienta(BIMHerramientas Herramienta);
+        [OperationContract]
+        void AgregarPrioridad(BIMPrioridades PrioridadNueva);
+        [OperationContract]
+        void ActualizarPrioridad(BIMPrioridades Prioridad);
+        [OperationContract]
+        void AgregarTipoFalla(BIMTipoFalla TipoFallaNueva);
+        [OperationContract]
+        void ActualizarTipoFalla(BIMTipoFalla TipoFalla);
+        [OperationContract]
+        List<BIMHerramientas> ListaDeHerramientasAdmin();
+        [OperationContract]
+        List<BIMTipoFalla> ListaTiposDeFallasAdmin();
+        [OperationContract]
+        List<BIMPrioridades> ListaDePrioridadesAdmin();
+        [OperationContract]
+        BIPBitacoraIncidentes TraeIncidentePorCasoSD(string CasoSD);
+        [OperationContract]
+        List<BIPBitacoraIncidentes> ConsultaPrincipalIncidentes(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<BILBitacoraIncidentes> ConsultaLogIncidentes(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<BIPBitacoraIncidentes> ConsultaDeIncidentePorSD(string SD);
     }
 }

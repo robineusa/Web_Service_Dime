@@ -35,6 +35,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.CantidadUsuariosAfectados).HasColumnName(@"CANTIDAD_DE_USUARIOS_AFECTADOS").IsOptional().HasColumnType("numeric");
             Property(x => x.ComentariosDeCierre).HasColumnName(@"COMENTARIO_DE_CIERRE").IsOptional().IsUnicode(false).HasColumnType("varchar");
             Property(x => x.EstadoDelCaso).HasColumnName(@"ESTADO_DEL_CASO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.UsuarioGestionando).HasColumnName(@"USUARIO_GESTIONANDO").IsOptional().HasColumnType("numeric");
         }
     }
 }

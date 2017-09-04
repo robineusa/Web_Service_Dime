@@ -1002,5 +1002,24 @@ namespace Telmexla.Servicios.DIME.Data.Context
             return procResultData;
         }
 
+        //procedimiento apartar BITACORA DE INCIDENTES
+
+        public int ApartarCuentaIncidente(decimal Cedula, decimal IdRegistro)
+        {
+            var cedulaParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario", SqlDbType = System.Data.SqlDbType.Decimal, Direction = System.Data.ParameterDirection.Input, Value = Cedula, Precision = 18, Scale = 0 };
+            if (cedulaParam.Value == null)
+                cedulaParam.Value = System.DBNull.Value;
+
+            var registroParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@IdRegistro", SqlDbType = System.Data.SqlDbType.Decimal, Direction = System.Data.ParameterDirection.Input, Value = IdRegistro, Precision = 18, Scale = 0 };
+            if (registroParam.Value == null)
+                registroParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Actualizar_Usuario_Back_Incidentes] @Usuario, @IdRegistro", cedulaParam, registroParam, procResultParam);
+
+            return (int)procResultParam.Value;
+        }
+
     }
 }
