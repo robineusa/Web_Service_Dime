@@ -845,7 +845,7 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             decimal CedulaUsuario = Convert.ToDecimal(Cedula);
-            decimal result = Convert.ToDecimal(unitWork.BIPBitacoraIncidentes.ApartarCuentaIncidente(CedulaUsuario, IdRegistro));
+            var result = Convert.ToDecimal(unitWork.BIPBitacoraIncidentes.ApartarCuentaIncidente(CedulaUsuario, IdRegistro));
             if (result == CedulaUsuario) return false;
             else return true;
         }

@@ -21,8 +21,8 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
             BitacoraIncidentesService bis = new BitacoraIncidentesService();
-            var SD = "SD457896552";
-            var Result = bis.TraeIncidentePorCasoSD(SD);
+            var cedula = "1032381244";
+            var Result = bis.TransaccionIncidenteEnGestion(cedula,1);
             var W = "";
 
             //POMSolicitudesService poms = new POMSolicitudesService();

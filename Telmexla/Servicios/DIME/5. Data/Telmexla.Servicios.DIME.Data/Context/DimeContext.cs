@@ -1016,7 +1016,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
 
             var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
 
-            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Actualizar_Usuario_Back_Incidentes] @Usuario, @IdRegistro", cedulaParam, registroParam, procResultParam);
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Actualizar_Usuario_Back_Incidentes] @IdRegistro, @Usuario", registroParam, cedulaParam, procResultParam);
 
             return (int)procResultParam.Value;
         }
