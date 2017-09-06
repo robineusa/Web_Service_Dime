@@ -104,6 +104,10 @@
       <Project>{A012A255-31D0-4A67-918B-4D7B6EB3AFC8}</Project>
       <Name>Telmexla.Servicios.DIME.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\5. Data\Telmexla.Servicios.DIME.IData\Telmexla.Servicios.DIME.IData.csproj">
+      <Project>{0842C0D8-F2D3-4B5B-AA46-CEF83CE1AD12}</Project>
+      <Name>Telmexla.Servicios.DIME.IData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\6. Helpers\Telmexla.Servicios.DIME.Helpers.Encription\Telmexla.Servicios.DIME.Helpers.Encription.csproj">
       <Project>{3F5CB654-998C-409D-B00F-4479EF005389}</Project>
       <Name>Telmexla.Servicios.DIME.Helpers.Encription</Name>

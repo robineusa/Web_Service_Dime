@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Telmexla.Servicios.DIME.Data.Context;
+using Telmexla.Servicios.DIME.Data;
 using Telmexla.Servicios.DIME.Entity;
 using Telmexla.Servicios.DIME.Helpers.Encription;
 using Telmexla.Servicios.DIME.IWebServices;
@@ -667,6 +668,13 @@ namespace Telmexla.Servicios.DIME.WebServices
             }
 
             return result;
+        }
+        public void EjecutraProcedimiento()
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            //Usuario usuario = context.Usuarios.Where(c => c.Id == id).Single();
+            unitOfWork.usuarios.ActualizaBDPersonal();
+            //unitOfWork.RecurrenciaCargaBase.ApartarCuentaaGestionarRecurrencia(idAsesor);
         }
     }
 }

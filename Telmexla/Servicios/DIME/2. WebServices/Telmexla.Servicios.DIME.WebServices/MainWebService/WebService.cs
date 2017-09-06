@@ -267,6 +267,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             LoginService lService = new LoginService();
             return lService.ListaDatosUsuariosDimePorCedulas(cedulas);
         }
+        public void EjecutraProcedimiento()
+        {
+            LoginService lService = new LoginService();
+            lService.EjecutraProcedimiento();
+        }
         #endregion
 
         #region Inbound Service 

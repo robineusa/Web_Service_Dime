@@ -21,8 +21,11 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get { return Context as DimeContext; }
         }
-
-
+        public bool ActualizaBDPersonal()
+        {
+            dimeContext.ActualizaBDPersonal();
+            return true;
+        }
 
     }
 }

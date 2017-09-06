@@ -9,5 +9,6 @@ namespace Telmexla.Servicios.DIME.IData
 {
     public interface IUsuarioRepository : IRepository<Usuario>
     {
+        bool ActualizaBDPersonal();
     }
 }

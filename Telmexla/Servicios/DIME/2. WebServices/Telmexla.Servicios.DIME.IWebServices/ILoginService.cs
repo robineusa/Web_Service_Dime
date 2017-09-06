@@ -142,7 +142,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<UsuariosMasivoData> ListaDatosUsuariosDimePorCedulas(List<string> cedulas);
 
-
+        [OperationContract]
+        void EjecutraProcedimiento();
     }
 
 
