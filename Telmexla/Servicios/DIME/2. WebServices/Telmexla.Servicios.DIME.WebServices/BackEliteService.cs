@@ -135,5 +135,20 @@ namespace Telmexla.Servicios.DIME.WebServices
             BackEliteBusiness backelitebusiness = new BackEliteBusiness();
             backelitebusiness.ActualizarSolicitudesMasivo(Solicitudes,Solicitud);
         }
+        public List<BEPSolicitudes> ListaCasosEnGestionPorBack(decimal Cedula)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ListaCasosEnGestionPorBack(Cedula);
+        }
+        public void ReasignarGestionBack(List<string> Solicitudes, decimal UsuarioNuevo)
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            backelitebusiness.ReasignarGestionBack(Solicitudes,UsuarioNuevo);
+        }
+        public List<Usuario> ListaDeUsuariosBackElite()
+        {
+            BackEliteBusiness backelitebusiness = new BackEliteBusiness();
+            return backelitebusiness.ListaDeUsuariosBackElite();
+        }
     }
 }

@@ -767,7 +767,115 @@ namespace Telmexla.Servicios.DIME.Business
                 }
             }
 
-        }       
+        }
+        public List<BEPSolicitudes> ListaCasosEnGestionPorBack(decimal Cedula)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BEPSolicitudes> result = new List<BEPSolicitudes>();
+            var objetosResult = (from a in dimContext.BEPSolicitudes
+                                 where a.UsuarioGestionando == Cedula
+                                 orderby a.FechaUltimaActualizacion ascending
+                                 select new
+                                 {
+                                     a.IdSolicitud,
+                                     a.CuentaCliente,
+                                     a.LlsOt,
+                                     a.TipoDeSolicitud,
+                                     a.DetalleDeSolicitud,
+                                     a.FechaDeSolicitud,
+                                     a.UsuarioQueSolicita,
+                                     a.NombreUsuarioQueSolicita,
+                                     a.AliadoQueSolicita,
+                                     a.OperacionQueSolicita,
+                                     a.FechaUltimaActualizacion,
+                                     a.UsuarioUltimaActualizacion,
+                                     a.NombreUsuarioUltimaActualizacion,
+                                     a.FechaDeFinalizacion,
+                                     a.UsuarioQueFinaliza,
+                                     a.NombreUsuarioQueFinaliza,
+                                     a.Nodo,
+                                     a.Malescalado,
+                                     a.DetalleMalEscalado,
+                                     a.Gestion,
+                                     a.EstadoEscalamiento,
+                                     a.FechaDeAgenda,
+                                     a.Observaciones,
+                                     a.UsuarioGestionando
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BEPSolicitudes());
+                result[i].IdSolicitud = objetosResult[i].IdSolicitud;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].LlsOt = objetosResult[i].LlsOt;
+                result[i].TipoDeSolicitud = objetosResult[i].TipoDeSolicitud;
+                result[i].DetalleDeSolicitud = objetosResult[i].DetalleDeSolicitud;
+                result[i].FechaDeSolicitud = objetosResult[i].FechaDeSolicitud;
+                result[i].UsuarioQueSolicita = objetosResult[i].UsuarioQueSolicita;
+                result[i].NombreUsuarioQueSolicita = objetosResult[i].NombreUsuarioQueSolicita;
+                result[i].AliadoQueSolicita = objetosResult[i].AliadoQueSolicita;
+                result[i].OperacionQueSolicita = objetosResult[i].OperacionQueSolicita;
+                result[i].FechaUltimaActualizacion = objetosResult[i].FechaUltimaActualizacion;
+                result[i].UsuarioUltimaActualizacion = objetosResult[i].UsuarioUltimaActualizacion;
+                result[i].NombreUsuarioUltimaActualizacion = objetosResult[i].NombreUsuarioUltimaActualizacion;
+                result[i].FechaDeFinalizacion = objetosResult[i].FechaDeFinalizacion;
+                result[i].UsuarioQueFinaliza = objetosResult[i].UsuarioQueFinaliza;
+                result[i].NombreUsuarioQueFinaliza = objetosResult[i].NombreUsuarioQueFinaliza;
+                result[i].Nodo = objetosResult[i].Nodo;
+                result[i].Malescalado = objetosResult[i].Malescalado;
+                result[i].DetalleMalEscalado = objetosResult[i].DetalleMalEscalado;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].EstadoEscalamiento = objetosResult[i].EstadoEscalamiento;
+                result[i].FechaDeAgenda = objetosResult[i].FechaDeAgenda;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+                result[i].UsuarioGestionando = objetosResult[i].UsuarioGestionando;
+            }
+            return result;
+        }
+        public void ReasignarGestionBack(List<string> Solicitudes, decimal UsuarioNuevo)
+        {
+
+            DimeContext context = new DimeContext();
+            List<decimal> IdSolicitudes = Solicitudes.ConvertAll(s => Convert.ToDecimal(s));
+            foreach (decimal ID_SOLICITUD in IdSolicitudes)
+            {
+                UnitOfWork UnitOfWorkSolicitdActualizable = new UnitOfWork(new DimeContext());
+                BEPSolicitudes SolicitudActualizable = UnitOfWorkSolicitdActualizable.BEPSolicitudes.Find(c => c.IdSolicitud == ID_SOLICITUD).FirstOrDefault();
+
+                if (SolicitudActualizable != null)
+                {
+                    SolicitudActualizable.UsuarioGestionando = UsuarioNuevo;
+                    UnitOfWorkSolicitdActualizable.Complete();
+                    UnitOfWorkSolicitdActualizable.Dispose();
+                }
+            }
+           
+        }
+        public List<Usuario> ListaDeUsuariosBackElite()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<Usuario> result = new List<Usuario>();
+            var objetosResult = (from a in dimContext.Usuarios
+                                 join b in (from m in dimContext.BasePersonalHoloes select new { m.Cedula }).Distinct() on a.Cedula equals b.Cedula
+                                 where b.Cedula > 0 && a.IdLinea == 34
+                                 orderby a.Nombre ascending
+                                 select new
+                                 {
+                                     a.Cedula,
+                                     a.Nombre
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new Usuario());
+                result[i].Cedula = objetosResult[i].Cedula;
+                result[i].Nombre = objetosResult[i].Nombre;
+            }
+            return result;
+        }
     }
 }
 

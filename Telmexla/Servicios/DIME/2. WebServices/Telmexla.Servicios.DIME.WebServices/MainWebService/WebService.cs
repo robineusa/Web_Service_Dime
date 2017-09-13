@@ -1867,7 +1867,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BackEliteService backeliteservice = new BackEliteService();
             backeliteservice.ActualizarSolicitudesMasivo(Solicitudes, Solicitud);
         }
-
+        public List<BEPSolicitudes> ListaCasosEnGestionPorBack(decimal Cedula)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+           return backeliteservice.ListaCasosEnGestionPorBack(Cedula);
+        }
+        public void ReasignarGestionBack(List<string> Solicitudes, decimal UsuarioNuevo)
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            backeliteservice.ReasignarGestionBack(Solicitudes,UsuarioNuevo);
+        }
+        public List<Usuario> ListaDeUsuariosBackElite()
+        {
+            BackEliteService backeliteservice = new BackEliteService();
+            return backeliteservice.ListaDeUsuariosBackElite();
+        }
         #endregion
 
         #region Recurrencia

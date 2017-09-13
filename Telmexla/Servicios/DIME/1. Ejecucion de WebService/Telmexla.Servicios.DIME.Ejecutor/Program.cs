@@ -20,9 +20,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            LoginService lo = new LoginService();
+            BackEliteService bes = new BackEliteService();
 
-            lo.EjecutraProcedimiento();
+            var resul = bes.ListaDeUsuariosBackElite();
 
             var z = "";
         }

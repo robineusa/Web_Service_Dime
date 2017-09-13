@@ -59,5 +59,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<BEPSolicitudes> ConsultarSolicitudesMasivo(List<string> Solicitudes);
         [OperationContract]
         void ActualizarSolicitudesMasivo(List<string> Solicitudes, BEPSolicitudes Solicitud);
+        [OperationContract]
+        List<BEPSolicitudes> ListaCasosEnGestionPorBack(decimal Cedula);
+        [OperationContract]
+        void ReasignarGestionBack(List<string> Solicitudes, decimal UsuarioNuevo);
+        [OperationContract]
+        List<Usuario> ListaDeUsuariosBackElite();
     }
 }
