@@ -2216,10 +2216,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion
 
         #region PomSolicitudes
-        public void RegistrarSolicitudPom(POMSolicitudes Solicitud)
+        public POMSolicitudes RegistrarSolicitudPom(POMSolicitudes Solicitud)
         {
             POMSolicitudesService PomService = new POMSolicitudesService();
-            PomService.RegistrarSolicitudPom(Solicitud);
+            return PomService.RegistrarSolicitudPom(Solicitud);
         }
         public bool ValidarCuentaEnBaseSolicitudesPom(decimal CuentaCliente)
         {
