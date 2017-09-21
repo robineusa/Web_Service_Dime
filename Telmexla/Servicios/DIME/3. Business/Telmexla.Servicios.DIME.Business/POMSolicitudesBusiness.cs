@@ -14,7 +14,7 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class POMSolicitudesBusiness
     {
-        public void RegistrarSolicitudPom(POMSolicitudes Solicitud)
+        public POMSolicitudes RegistrarSolicitudPom(POMSolicitudes Solicitud)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             DateTime Fecha = DateTime.Now;
@@ -23,6 +23,7 @@ namespace Telmexla.Servicios.DIME.Business
             unitWork.POMSolicitudes.Add(Solicitud);
             unitWork.Complete();
             unitWork.Dispose();
+            return Solicitud;
         }
         public bool ValidarCuentaEnBaseSolicitudesPom(decimal CuentaCliente)
         {

@@ -11,10 +11,10 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
     public class POMSolicitudesService : IPOMSolicitudesService
     {
-        public void RegistrarSolicitudPom(POMSolicitudes Solicitud)
+        public POMSolicitudes RegistrarSolicitudPom(POMSolicitudes Solicitud)
         {
             POMSolicitudesBusiness PomBussines = new POMSolicitudesBusiness();
-            PomBussines.RegistrarSolicitudPom(Solicitud);
+            return PomBussines.RegistrarSolicitudPom(Solicitud);
         }
         public bool ValidarCuentaEnBaseSolicitudesPom(decimal CuentaCliente)
         {
