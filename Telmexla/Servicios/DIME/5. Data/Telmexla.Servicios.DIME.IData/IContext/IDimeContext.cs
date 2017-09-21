@@ -119,7 +119,10 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<BIMPrioridades> BIMPrioridades { get; set; }
         System.Data.Entity.DbSet<BIMHerramientas> BIMHerramientas { get; set; }
         System.Data.Entity.DbSet<AccesosXLinea> AccesosXLineas { get; set; } // TBL_ACCESOS_X_LINEA
-        System.Data.Entity.DbSet<POMSolicitudes> POMSolicitudes { get; set; } 
+        System.Data.Entity.DbSet<POMSolicitudes> POMSolicitudes { get; set; }
+        System.Data.Entity.DbSet<FidelizacionMaestroServicios> FidelizacionMaestroServicios { get; set; }
+        System.Data.Entity.DbSet<FidelizacionMotivosCancelacion> FidelizacionMotivosCancelacion { get; set; }
+        System.Data.Entity.DbSet<FidelizacionSubmotivosCancelacion> FidelizacionSubmotivosCancelacion { get; set; }
 
 
         int SaveChanges();

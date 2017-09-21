@@ -3,7 +3,7 @@ namespace Telmexla.Servicios.DIME.Entity
 {
     public class ActivacionClaroVideo
     {
-       public decimal IdActivacion { get; set; }
+        public decimal IdActivacion { get; set; }
         public System.DateTime? FechaGestion { get; set; } 
         public string UsuarioGestion { get; set; }
         public string NombreUsuario { get; set; }

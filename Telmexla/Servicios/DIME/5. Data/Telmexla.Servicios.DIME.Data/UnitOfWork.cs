@@ -103,6 +103,9 @@ namespace Telmexla.Servicios.DIME.Data
             BIMHerramientas = new BIMHerramientasRepository(this.dimeContext);
             AccesosXLinea = new AccesosXLineaRepository(this.dimeContext);
             POMSolicitudes = new POMSolicitudesRepository(this.dimeContext);
+            FidelizacionMaestroServicios = new FidelizacionMaestroServiciosRepository(this.dimeContext);
+            FidelizacionMotivosCancelacion = new FidelizacionMotivosCancelacionRepository(this.dimeContext);
+            FidelizacionSubmotivosCancelacion = new FidelizacionSubmotivosCancelacionRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -468,6 +471,18 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IPOMSolicitudesRepository POMSolicitudes
+        {
+            get; private set;
+        }
+        public IFidelizacionMaestroServiciosRepository FidelizacionMaestroServicios
+        {
+            get; private set;
+        }
+        public IFidelizacionMotivosCancelacionRepository FidelizacionMotivosCancelacion
+        {
+            get; private set;
+        }
+        public IFidelizacionSubmotivosCancelacionRepository FidelizacionSubmotivosCancelacion
         {
             get; private set;
         }

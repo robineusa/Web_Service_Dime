@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService
     {
 
 
@@ -2230,6 +2230,53 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             POMSolicitudesService PomService = new POMSolicitudesService();
             return PomService.ListaSolicitudesPom(FechaInicial,FechaFinal);
+        }
+        #endregion
+
+        #region Fidelizacion
+        public List<FidelizacionMaestroServicios> getMaestroServiciosAll() {
+            FidelizacionService FildelizacionServicio = new FidelizacionService();
+            return FildelizacionServicio.getMaestroServiciosAll();
+
+        }
+        public FidelizacionMaestroServicios getMaestroServiciosById(string codServicio)
+        {
+            FidelizacionService FildelizacionServicio = new FidelizacionService();
+            return FildelizacionServicio.getMaestroServiciosById(codServicio);
+
+        }
+        
+        public void setMotivosCancelacion(FidelizacionMotivosCancelacion MotivoCancelacion)
+        {
+
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.setMotivosCancelacion(MotivoCancelacion);
+        }
+
+        public FidelizacionMotivosCancelacion getMotivosCancelacionById(decimal codMotivo)
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getMotivosCancelacionById(codMotivo);
+        }
+
+        public List<FidelizacionMotivosCancelacion> getMotivosCancelacionAll()
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getMotivosCancelacionAll();
+        }
+
+        public List<FidelizacionSubmotivosCancelacion> getSubmotivosCancelacionAll() {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getSubmotivosCancelacionAll();
+        }
+
+        public FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getSubmotivosCancelacionById(idSubmotivo);
+        }
+        public void setSubmotivoCancelacion(FidelizacionSubmotivosCancelacion ObjFidelizacion) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.setSubmotivoCancelacion(ObjFidelizacion);
         }
         #endregion
     }

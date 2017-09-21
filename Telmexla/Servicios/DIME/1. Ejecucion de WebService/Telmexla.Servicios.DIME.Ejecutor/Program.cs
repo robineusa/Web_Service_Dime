@@ -20,11 +20,43 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            BackEliteService bes = new BackEliteService();
+            //BackEliteService bes = new BackEliteService();
 
-            var resul = bes.ListaDeUsuariosBackElite();
+            //var resul = bes.ListaDeUsuariosBackElite();
 
-            var z = "";
+            //FidelizacionService fidelizacion = new FidelizacionService(); 
+            //var r = fidelizacion.getMaestroServiciosAll();
+
+
+
+            //FidelizacionService fideliza = new FidelizacionService();
+            //var x = fideliza.getMaestroServiciosById("00100");
+
+            //FidelizacionMotivosCancelacion fidelizacion = new FidelizacionMotivosCancelacion();
+            //fidelizacion.Motivo = "Esto es una prueba";
+            //fidelizacion.Registro = DateTime.Now;
+            //FidelizacionService fidelizacion2 = new FidelizacionService();
+            //fidelizacion2.setMotivosCancelacion(fidelizacion);
+
+
+            //FidelizacionService fidelizacion = new FidelizacionService();
+            //var motivo = fidelizacion.getMotivosCancelacionById(3);
+
+            //FidelizacionService fidelizacion = new FidelizacionService();
+            //var test = fidelizacion.getSubmotivosCancelacionAll();
+
+            //FidelizacionService Fidelizacion = new FidelizacionService();
+            //var rta = Fidelizacion.getSubmotivosCancelacionById(9);
+
+            FidelizacionSubmotivosCancelacion FidelizacionSubmotivos = new FidelizacionSubmotivosCancelacion();
+            FidelizacionSubmotivos.Registro = DateTime.Now;
+            FidelizacionSubmotivos.Submotivo = "Otro Submotivo";
+            FidelizacionSubmotivos.FIDMotivoId = 3;
+
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.setSubmotivoCancelacion(FidelizacionSubmotivos);
+
+            var z = ""; 
         }
     }
 }

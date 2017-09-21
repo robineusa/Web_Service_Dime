@@ -123,6 +123,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<BIMHerramientas> BIMHerramientas { get; set; }
         public System.Data.Entity.DbSet<AccesosXLinea> AccesosXLineas { get; set; } // TBL_ACCESOS_X_LINEA
         public System.Data.Entity.DbSet<POMSolicitudes> POMSolicitudes { get; set; }
+        public System.Data.Entity.DbSet<FidelizacionMaestroServicios> FidelizacionMaestroServicios { get; set; }
+        public System.Data.Entity.DbSet<FidelizacionMotivosCancelacion> FidelizacionMotivosCancelacion { get; set; }
+        public System.Data.Entity.DbSet<FidelizacionSubmotivosCancelacion> FidelizacionSubmotivosCancelacion { get; set; }
+
 
         static DimeContext()
         {
@@ -278,6 +282,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BIMHerramientasConfiguration());
             modelBuilder.Configurations.Add(new AccesosXLineaConfiguration());
             modelBuilder.Configurations.Add(new POMSolicitudesConfiguration());
+            modelBuilder.Configurations.Add(new FidelizacionMaestroServiciosConfiguration());
+            modelBuilder.Configurations.Add(new FidelizacionMotivosCancelacionConfiguration());
+            modelBuilder.Configurations.Add(new FidelizacionSubmotivosCancelacionConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -386,6 +393,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BIMHerramientasConfiguration(schema));
             modelBuilder.Configurations.Add(new AccesosXLineaConfiguration(schema));
             modelBuilder.Configurations.Add(new POMSolicitudesConfiguration(schema));
+            modelBuilder.Configurations.Add(new FidelizacionMaestroServiciosConfiguration(schema));
+            modelBuilder.Configurations.Add(new FidelizacionMotivosCancelacionConfiguration(schema));
+            modelBuilder.Configurations.Add(new FidelizacionSubmotivosCancelacionConfiguration(schema));
 
             return modelBuilder;
         }

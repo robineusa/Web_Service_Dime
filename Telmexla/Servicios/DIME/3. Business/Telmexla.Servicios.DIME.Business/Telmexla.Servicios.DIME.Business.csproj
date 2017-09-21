@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FidelizacionBusiness.cs" />
     <Compile Include="ActivacionClaroVideoBusiness.cs" />
     <Compile Include="ArbolesDeTipificacion.cs" />
     <Compile Include="BackEliteBusiness.cs" />

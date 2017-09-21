@@ -96,6 +96,9 @@ namespace Telmexla.Servicios.DIME.IData
         IBIMHerramientasRepository BIMHerramientas { get; }
         IAccesosXLineaRepository AccesosXLinea { get; }
         IPOMSolicitudesRepository POMSolicitudes { get; }
+        IFidelizacionMaestroServiciosRepository FidelizacionMaestroServicios{ get;}
+        IFidelizacionMotivosCancelacionRepository FidelizacionMotivosCancelacion { get; }
+        IFidelizacionSubmotivosCancelacionRepository FidelizacionSubmotivosCancelacion { get; }
         int Complete();
     }
 }
