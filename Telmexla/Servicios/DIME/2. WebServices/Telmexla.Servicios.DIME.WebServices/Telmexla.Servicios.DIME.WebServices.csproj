@@ -136,8 +136,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.WebServices.dll" />
-    <Content Include="bin\Debug\Telmexla.Servicios.DIME.WebServices.pdb" />
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
