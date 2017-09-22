@@ -57,6 +57,7 @@
     <Compile Include="IAccesoRepository.cs" />
     <Compile Include="IAccesosXLineaRepository.cs" />
     <Compile Include="IFidelizacionMotivosCancelacionRepository.cs" />
+    <Compile Include="IFidelizacionOtrosOfrecimientosRepository.cs" />
     <Compile Include="IFidelizacionSubmotivosCancelacionRepository.cs" />
     <Compile Include="IFidelizacionMaestroServiciosRepository.cs" />
     <Compile Include="IActivacionClaroVideoRepository.cs" />

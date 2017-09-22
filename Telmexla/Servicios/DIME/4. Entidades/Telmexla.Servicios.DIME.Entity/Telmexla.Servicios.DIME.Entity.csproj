@@ -58,6 +58,7 @@
     <Compile Include="Acceso.cs" />
     <Compile Include="AccesoCollection.cs" />
     <Compile Include="AccesosXLinea.cs" />
+    <Compile Include="FidelizacionOtrosOfrecimientos.cs" />
     <Compile Include="FidelizacionSubmotivosCancelacion.cs" />
     <Compile Include="FidelizacionMotivosCancelacion.cs" />
     <Compile Include="FidelizacionMaestroServicios.cs" />
