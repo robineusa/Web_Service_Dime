@@ -28,9 +28,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo);
         [OperationContract]
         void setSubmotivoCancelacion(FidelizacionSubmotivosCancelacion ObjFidelizacion);
-
-
-
+        void setOtrosOfrecimientos(FidelizacionOtrosOfrecimientos ObjOfrecimientos);
+        FidelizacionOtrosOfrecimientos getOtrosOfrecimientosById(decimal idOfrecimiento);
+        List<FidelizacionOtrosOfrecimientos> getOtrosOfrecimientosAll();
 
     }
 }

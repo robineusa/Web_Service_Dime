@@ -126,6 +126,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<FidelizacionMaestroServicios> FidelizacionMaestroServicios { get; set; }
         public System.Data.Entity.DbSet<FidelizacionMotivosCancelacion> FidelizacionMotivosCancelacion { get; set; }
         public System.Data.Entity.DbSet<FidelizacionSubmotivosCancelacion> FidelizacionSubmotivosCancelacion { get; set; }
+        public System.Data.Entity.DbSet<FidelizacionOtrosOfrecimientos> FidelizacionOtrosOfrecimientos { get; set; }
 
 
         static DimeContext()
@@ -285,6 +286,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new FidelizacionMaestroServiciosConfiguration());
             modelBuilder.Configurations.Add(new FidelizacionMotivosCancelacionConfiguration());
             modelBuilder.Configurations.Add(new FidelizacionSubmotivosCancelacionConfiguration());
+            modelBuilder.Configurations.Add(new FidelizacionOtrosOfrecimientosConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -396,6 +398,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new FidelizacionMaestroServiciosConfiguration(schema));
             modelBuilder.Configurations.Add(new FidelizacionMotivosCancelacionConfiguration(schema));
             modelBuilder.Configurations.Add(new FidelizacionSubmotivosCancelacionConfiguration(schema));
+            modelBuilder.Configurations.Add(new FidelizacionOtrosOfrecimientosConfiguration(schema));
 
             return modelBuilder;
         }
