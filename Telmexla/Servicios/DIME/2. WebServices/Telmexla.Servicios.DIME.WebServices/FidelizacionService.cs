@@ -62,5 +62,17 @@ namespace Telmexla.Servicios.DIME.WebServices
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
             Fidelizacion.setSubmotivoCancelacion(ObjFidelizacion);
         }
+        public void setOtrosOfrecimientos(FidelizacionOtrosOfrecimientos ObjOfrecimientos) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            Fidelizacion.setOtrosOfrecimientos(ObjOfrecimientos);
+        }
+        public FidelizacionOtrosOfrecimientos getOtrosOfrecimientosById(decimal idOfrecimiento) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            return Fidelizacion.getOtrosOfrecimientosById(idOfrecimiento);
+        }
+        public List<FidelizacionOtrosOfrecimientos> getOtrosOfrecimientosAll() {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            return Fidelizacion.getOtrosOfrecimientosAll();
+        }
     }
 }

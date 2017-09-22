@@ -2278,6 +2278,18 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.setSubmotivoCancelacion(ObjFidelizacion);
         }
+        public void setOtrosOfrecimientos(FidelizacionOtrosOfrecimientos ObjOfrecimientos) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.setOtrosOfrecimientos(ObjOfrecimientos);
+        }
+        public FidelizacionOtrosOfrecimientos getOtrosOfrecimientosById(decimal idOfrecimiento) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getOtrosOfrecimientosById(idOfrecimiento);
+        }
+        public List<FidelizacionOtrosOfrecimientos> getOtrosOfrecimientosAll() {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getOtrosOfrecimientosAll();
+        }
         #endregion
     }
 }

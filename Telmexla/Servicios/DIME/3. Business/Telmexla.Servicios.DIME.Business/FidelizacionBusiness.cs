@@ -132,5 +132,45 @@ namespace Telmexla.Servicios.DIME.Business
             unidadTrabajo.Dispose();
         }
 
+        public void setOtrosOfrecimientos(FidelizacionOtrosOfrecimientos ObjOfrecimientos)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            unidadTrabajo.FidelizacionOtrosOfrecimientos.Add(ObjOfrecimientos);
+            unidadTrabajo.Complete();
+            unidadTrabajo.Dispose();
+        }
+
+        public FidelizacionOtrosOfrecimientos getOtrosOfrecimientosById(decimal idOfrecimiento) {
+            UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionOtrosOfrecimientos fila = UnidadTrabajo.FidelizacionOtrosOfrecimientos.Find(c => c.Id == idOfrecimiento).FirstOrDefault();
+            return fila;
+        }
+
+        public List<FidelizacionOtrosOfrecimientos> getOtrosOfrecimientosAll() {
+            DimeContext dimeContex = new DimeContext();
+            List<FidelizacionOtrosOfrecimientos> objTmp = new List<FidelizacionOtrosOfrecimientos>();
+            var lisado = (from otrosOfrecimientos in dimeContex.FidelizacionOtrosOfrecimientos
+                          orderby otrosOfrecimientos.Nombre ascending
+                          select new
+                          {
+                              otrosOfrecimientos.Activo,
+                              otrosOfrecimientos.Eliminado,
+                              otrosOfrecimientos.Id,
+                              otrosOfrecimientos.Nombre,
+                              otrosOfrecimientos.UsuarioId,
+                          }
+                          ).ToList();
+
+            for (var i = 0; i < lisado.Count; i++) {
+                objTmp.Add(new FidelizacionOtrosOfrecimientos());
+                objTmp[i].Activo = lisado[i].Activo;
+                objTmp[i].Eliminado = lisado[i].Eliminado;
+                objTmp[i].Id = lisado[i].Id;
+                objTmp[i].Nombre = lisado[i].Nombre;
+                objTmp[i].UsuarioId = lisado[i].UsuarioId;
+            }
+            return objTmp;
+        }
+
     }
 }
