@@ -744,6 +744,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll.config" />
     <None Include="EF.Reverse.POCO.Core.ttinclude" />
     <None Include="EF.Reverse.POCO.ttinclude" />
     <None Include="packages.config" />
@@ -752,6 +753,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.dll" />
     <Content Include="bin\Debug\Telmexla.Servicios.DIME.Helpers.ReverseEngineer.pdb" />
     <Content Include="Database1.tt">
@@ -762,6 +767,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database2.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
