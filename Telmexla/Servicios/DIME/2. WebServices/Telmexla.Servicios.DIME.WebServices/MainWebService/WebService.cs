@@ -2290,6 +2290,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getOtrosOfrecimientosAll();
         }
+        public void setTipificacion(FidelizacionTipificacion objTipificacion) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.setTipificacion(objTipificacion);
+        }
         #endregion
     }
 }
