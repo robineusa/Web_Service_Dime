@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
@@ -85,21 +85,22 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.UsoClaroVideo = recurrencia.UsoClaroVideo;
                 LogRecurrencia.ClienteNagra = recurrencia.ClienteNagra;
                 LogRecurrencia.Ofrecimiento1 = recurrencia.Ofrecimiento1;
+                LogRecurrencia.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
                 LogRecurrencia.Ofrecimiento2 = recurrencia.Ofrecimiento2;
+                LogRecurrencia.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
                 LogRecurrencia.Ofrecimiento3 = recurrencia.Ofrecimiento3;
+                LogRecurrencia.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
                 LogRecurrencia.Diferenciador = recurrencia.Diferenciador;
                 LogRecurrencia.Prioridad = recurrencia.Prioridad;
                 LogRecurrencia.VecesGestionado = recurrencia.VecesGestionado;
-                LogRecurrencia.MacroProcesoRecurrencia1 = recurrencia.MacroProcesoRecurrencia1;
-                LogRecurrencia.MacroProcesoRecurrencia2 = recurrencia.MacroProcesoRecurrencia2;
-                LogRecurrencia.MacroProcesoRecurrencia3 = recurrencia.MacroProcesoRecurrencia3;
-                LogRecurrencia.MarcacionRecurrente1 = recurrencia.MarcacionRecurrente1;
-                LogRecurrencia.MarcacionRecurrente2 = recurrencia.MarcacionRecurrente2;
-                LogRecurrencia.MarcacionRecurrente3 = recurrencia.MarcacionRecurrente3;
-                LogRecurrencia.VolvioLlamar = recurrencia.VolvioLlamar;
+                LogRecurrencia.MarcacionInicialAfectacion = recurrencia.MarcacionInicialAfectacion;
+                LogRecurrencia.MarcacionReincidenteRecurrencia = recurrencia.MarcacionReincidenteRecurrencia;
+                LogRecurrencia.ClieComunicaRealizadaGestRecu = recurrencia.ClieComunicaRealizadaGestRecu;
                 LogRecurrencia.PorQue = recurrencia.PorQue;
                 LogRecurrencia.Contacto = recurrencia.Contacto;
-                LogRecurrencia.VozCliente = recurrencia.VozCliente;
+                LogRecurrencia.VozClienteCausaRaiz = recurrencia.VozClienteCausaRaiz;
+                LogRecurrencia.Solucionado = recurrencia.Solucionado;
+                LogRecurrencia.AreaParticipaSolucion = recurrencia.AreaParticipaSolucion;
                 LogRecurrencia.ClientePresentaNovedades = recurrencia.ClientePresentaNovedades;
                 LogRecurrencia.Proceso = recurrencia.Proceso;
                 LogRecurrencia.Macroproceso = recurrencia.Macroproceso;
@@ -107,12 +108,16 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.FallaEspecificaArbolCCAA = recurrencia.FallaEspecificaArbolCCAA;
                 LogRecurrencia.FallaCausaRaiz = recurrencia.FallaCausaRaiz;
                 LogRecurrencia.SolucionEspecifica = recurrencia.SolucionEspecifica;
-                LogRecurrencia.Solucionado = recurrencia.Solucionado;
                 LogRecurrencia.Estado = recurrencia.Estado;
+                LogRecurrencia.MarcaEquiposFalla = recurrencia.MarcaEquiposFalla;
+                LogRecurrencia.UbicacionModem = recurrencia.UbicacionModem;
+                LogRecurrencia.DispositivosInalambricosAlrededorModem = recurrencia.DispositivosInalambricosAlrededorModem;
+                LogRecurrencia.CantEquiposConecInternet = recurrencia.CantEquiposConecInternet;
+                LogRecurrencia.TipoDispConectaInternet = recurrencia.TipoDispConectaInternet;
+                LogRecurrencia.UsoBrindaInternet = recurrencia.UsoBrindaInternet;
                 LogRecurrencia.ActivacionClaroVideoNagra = recurrencia.ActivacionClaroVideoNagra;
-                LogRecurrencia.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
-                LogRecurrencia.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
-                LogRecurrencia.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
+                LogRecurrencia.ServicioOfrecido = recurrencia.ServicioOfrecido;
+                LogRecurrencia.AceptacionServicioOfrecido = recurrencia.AceptacionServicioOfrecido;
                 LogRecurrencia.Observaciones = recurrencia.Observaciones;
                 unitWorkLog.GLogRecurrencia.Add(LogRecurrencia);
                 unitWorkLog.Complete();
@@ -161,21 +166,22 @@ namespace Telmexla.Servicios.DIME.Business
                 GPRecurActualizable.UsoClaroVideo = recurrencia.UsoClaroVideo;
                 GPRecurActualizable.ClienteNagra = recurrencia.ClienteNagra;
                 GPRecurActualizable.Ofrecimiento1 = recurrencia.Ofrecimiento1;
+                GPRecurActualizable.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
                 GPRecurActualizable.Ofrecimiento2 = recurrencia.Ofrecimiento2;
+                GPRecurActualizable.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
                 GPRecurActualizable.Ofrecimiento3 = recurrencia.Ofrecimiento3;
+                GPRecurActualizable.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
                 GPRecurActualizable.Diferenciador = recurrencia.Diferenciador;
                 GPRecurActualizable.Prioridad = recurrencia.Prioridad;
                 GPRecurActualizable.VecesGestionado = recurrencia.VecesGestionado;
-                GPRecurActualizable.MacroProcesoRecurrencia1 = recurrencia.MacroProcesoRecurrencia1;
-                GPRecurActualizable.MacroProcesoRecurrencia2 = recurrencia.MacroProcesoRecurrencia2;
-                GPRecurActualizable.MacroProcesoRecurrencia3 = recurrencia.MacroProcesoRecurrencia3;
-                GPRecurActualizable.MarcacionRecurrente1 = recurrencia.MarcacionRecurrente1;
-                GPRecurActualizable.MarcacionRecurrente2 = recurrencia.MarcacionRecurrente2;
-                GPRecurActualizable.MarcacionRecurrente3 = recurrencia.MarcacionRecurrente3;
-                GPRecurActualizable.VolvioLlamar = recurrencia.VolvioLlamar;
+                GPRecurActualizable.MarcacionInicialAfectacion = recurrencia.MarcacionInicialAfectacion;
+                GPRecurActualizable.MarcacionReincidenteRecurrencia = recurrencia.MarcacionReincidenteRecurrencia;
+                GPRecurActualizable.ClieComunicaRealizadaGestRecu = recurrencia.ClieComunicaRealizadaGestRecu;
                 GPRecurActualizable.PorQue = recurrencia.PorQue;
                 GPRecurActualizable.Contacto = recurrencia.Contacto;
-                GPRecurActualizable.VozCliente = recurrencia.VozCliente;
+                GPRecurActualizable.VozClienteCausaRaiz = recurrencia.VozClienteCausaRaiz;
+                GPRecurActualizable.Solucionado = recurrencia.Solucionado;
+                GPRecurActualizable.AreaParticipaSolucion = recurrencia.AreaParticipaSolucion;
                 GPRecurActualizable.ClientePresentaNovedades = recurrencia.ClientePresentaNovedades;
                 GPRecurActualizable.Proceso = recurrencia.Proceso;
                 GPRecurActualizable.Macroproceso = recurrencia.Macroproceso;
@@ -183,12 +189,16 @@ namespace Telmexla.Servicios.DIME.Business
                 GPRecurActualizable.FallaEspecificaArbolCCAA = recurrencia.FallaEspecificaArbolCCAA;
                 GPRecurActualizable.FallaCausaRaiz = recurrencia.FallaCausaRaiz;
                 GPRecurActualizable.SolucionEspecifica = recurrencia.SolucionEspecifica;
-                GPRecurActualizable.Solucionado = recurrencia.Solucionado;
                 GPRecurActualizable.Estado = recurrencia.Estado;
+                GPRecurActualizable.MarcaEquiposFalla = recurrencia.MarcaEquiposFalla;
+                GPRecurActualizable.UbicacionModem = recurrencia.UbicacionModem;
+                GPRecurActualizable.DispositivosInalambricosAlrededorModem = recurrencia.DispositivosInalambricosAlrededorModem;
+                GPRecurActualizable.CantEquiposConecInternet = recurrencia.CantEquiposConecInternet;
+                GPRecurActualizable.TipoDispConectaInternet = recurrencia.TipoDispConectaInternet;
+                GPRecurActualizable.UsoBrindaInternet = recurrencia.UsoBrindaInternet;
                 GPRecurActualizable.ActivacionClaroVideoNagra = recurrencia.ActivacionClaroVideoNagra;
-                GPRecurActualizable.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
-                GPRecurActualizable.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
-                GPRecurActualizable.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
+                GPRecurActualizable.ServicioOfrecido = recurrencia.ServicioOfrecido;
+                GPRecurActualizable.AceptacionServicioOfrecido = recurrencia.AceptacionServicioOfrecido;
                 GPRecurActualizable.Observaciones = recurrencia.Observaciones;
                 GPRecurActualizable.UsuarioGestionando = recurrencia.UsuarioGestionando;
                 unitWork.Complete();
@@ -218,21 +228,22 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.UsoClaroVideo = recurrencia.UsoClaroVideo;
                 LogRecurrencia.ClienteNagra = recurrencia.ClienteNagra;
                 LogRecurrencia.Ofrecimiento1 = recurrencia.Ofrecimiento1;
+                LogRecurrencia.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
                 LogRecurrencia.Ofrecimiento2 = recurrencia.Ofrecimiento2;
+                LogRecurrencia.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
                 LogRecurrencia.Ofrecimiento3 = recurrencia.Ofrecimiento3;
+                LogRecurrencia.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
                 LogRecurrencia.Diferenciador = recurrencia.Diferenciador;
                 LogRecurrencia.Prioridad = recurrencia.Prioridad;
                 LogRecurrencia.VecesGestionado = recurrencia.VecesGestionado;
-                LogRecurrencia.MacroProcesoRecurrencia1 = recurrencia.MacroProcesoRecurrencia1;
-                LogRecurrencia.MacroProcesoRecurrencia2 = recurrencia.MacroProcesoRecurrencia2;
-                LogRecurrencia.MacroProcesoRecurrencia3 = recurrencia.MacroProcesoRecurrencia3;
-                LogRecurrencia.MarcacionRecurrente1 = recurrencia.MarcacionRecurrente1;
-                LogRecurrencia.MarcacionRecurrente2 = recurrencia.MarcacionRecurrente2;
-                LogRecurrencia.MarcacionRecurrente3 = recurrencia.MarcacionRecurrente3;
-                LogRecurrencia.VolvioLlamar = recurrencia.VolvioLlamar;
+                LogRecurrencia.MarcacionInicialAfectacion = recurrencia.MarcacionInicialAfectacion;
+                LogRecurrencia.MarcacionReincidenteRecurrencia = recurrencia.MarcacionReincidenteRecurrencia;
+                LogRecurrencia.ClieComunicaRealizadaGestRecu = recurrencia.ClieComunicaRealizadaGestRecu;
                 LogRecurrencia.PorQue = recurrencia.PorQue;
                 LogRecurrencia.Contacto = recurrencia.Contacto;
-                LogRecurrencia.VozCliente = recurrencia.VozCliente;
+                LogRecurrencia.VozClienteCausaRaiz = recurrencia.VozClienteCausaRaiz;
+                LogRecurrencia.Solucionado = recurrencia.Solucionado;
+                LogRecurrencia.AreaParticipaSolucion = recurrencia.AreaParticipaSolucion;
                 LogRecurrencia.ClientePresentaNovedades = recurrencia.ClientePresentaNovedades;
                 LogRecurrencia.Proceso = recurrencia.Proceso;
                 LogRecurrencia.Macroproceso = recurrencia.Macroproceso;
@@ -240,12 +251,16 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.FallaEspecificaArbolCCAA = recurrencia.FallaEspecificaArbolCCAA;
                 LogRecurrencia.FallaCausaRaiz = recurrencia.FallaCausaRaiz;
                 LogRecurrencia.SolucionEspecifica = recurrencia.SolucionEspecifica;
-                LogRecurrencia.Solucionado = recurrencia.Solucionado;
                 LogRecurrencia.Estado = recurrencia.Estado;
+                LogRecurrencia.MarcaEquiposFalla = recurrencia.MarcaEquiposFalla;
+                LogRecurrencia.UbicacionModem = recurrencia.UbicacionModem;
+                LogRecurrencia.DispositivosInalambricosAlrededorModem = recurrencia.DispositivosInalambricosAlrededorModem;
+                LogRecurrencia.CantEquiposConecInternet = recurrencia.CantEquiposConecInternet;
+                LogRecurrencia.TipoDispConectaInternet = recurrencia.TipoDispConectaInternet;
+                LogRecurrencia.UsoBrindaInternet = recurrencia.UsoBrindaInternet;
                 LogRecurrencia.ActivacionClaroVideoNagra = recurrencia.ActivacionClaroVideoNagra;
-                LogRecurrencia.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
-                LogRecurrencia.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
-                LogRecurrencia.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
+                LogRecurrencia.ServicioOfrecido = recurrencia.ServicioOfrecido;
+                LogRecurrencia.AceptacionServicioOfrecido = recurrencia.AceptacionServicioOfrecido;
                 LogRecurrencia.Observaciones = recurrencia.Observaciones;
                 unitWorkLog.GLogRecurrencia.Add(LogRecurrencia);
                 unitWorkLog.Complete();
@@ -300,21 +315,22 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.UsoClaroVideo,
                                      a.ClienteNagra,
                                      a.Ofrecimiento1,
+                                     a.AceptacionPrimerOfrecimiento,
                                      a.Ofrecimiento2,
+                                     a.AceptacionSegundoOfrecimiento,
                                      a.Ofrecimiento3,
+                                     a.AceptacionTercerOfrecimiento,
                                      a.Diferenciador,
                                      a.Prioridad,
                                      a.VecesGestionado,
-                                     a.MacroProcesoRecurrencia1,
-                                     a.MacroProcesoRecurrencia2,
-                                     a.MacroProcesoRecurrencia3,
-                                     a.MarcacionRecurrente1,
-                                     a.MarcacionRecurrente2,
-                                     a.MarcacionRecurrente3,
-                                     a.VolvioLlamar,
+                                     a.MarcacionInicialAfectacion,
+                                     a.MarcacionReincidenteRecurrencia,
+                                     a.ClieComunicaRealizadaGestRecu,
                                      a.PorQue,
                                      a.Contacto,
-                                     a.VozCliente,
+                                     a.VozClienteCausaRaiz,
+                                     a.Solucionado,
+                                     a.AreaParticipaSolucion,
                                      a.ClientePresentaNovedades,
                                      a.Proceso,
                                      a.Macroproceso,
@@ -322,12 +338,16 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.FallaEspecificaArbolCCAA,
                                      a.FallaCausaRaiz,
                                      a.SolucionEspecifica,
-                                     a.Solucionado,
                                      a.Estado,
+                                     a.MarcaEquiposFalla,
+                                     a.UbicacionModem,
+                                     a.DispositivosInalambricosAlrededorModem,
+                                     a.CantEquiposConecInternet,
+                                     a.TipoDispConectaInternet,
+                                     a.UsoBrindaInternet,
                                      a.ActivacionClaroVideoNagra,
-                                     a.AceptacionPrimerOfrecimiento,
-                                     a.AceptacionSegundoOfrecimiento,
-                                     a.AceptacionTercerOfrecimiento,
+                                     a.ServicioOfrecido,
+                                     a.AceptacionServicioOfrecido,
                                      a.Observaciones
                                  }
                                  ).ToList();
@@ -357,21 +377,20 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
                 result[i].ClienteNagra = objetosResult[i].ClienteNagra;
                 result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
+                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
                 result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
+                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
+                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
                 result[i].Diferenciador = objetosResult[i].Diferenciador;
                 result[i].Prioridad = objetosResult[i].Prioridad;
                 result[i].VecesGestionado = objetosResult[i].VecesGestionado;
-                result[i].MacroProcesoRecurrencia1 = objetosResult[i].MacroProcesoRecurrencia1;
-                result[i].MacroProcesoRecurrencia2 = objetosResult[i].MacroProcesoRecurrencia2;
-                result[i].MacroProcesoRecurrencia3 = objetosResult[i].MacroProcesoRecurrencia3;
-                result[i].MarcacionRecurrente1 = objetosResult[i].MarcacionRecurrente1;
-                result[i].MarcacionRecurrente2 = objetosResult[i].MarcacionRecurrente2;
-                result[i].MarcacionRecurrente3 = objetosResult[i].MarcacionRecurrente3;
-                result[i].VolvioLlamar = objetosResult[i].VolvioLlamar;
+                result[i].MarcacionInicialAfectacion = objetosResult[i].MarcacionInicialAfectacion;
+                result[i].MarcacionReincidenteRecurrencia = objetosResult[i].MarcacionReincidenteRecurrencia;
+                result[i].ClieComunicaRealizadaGestRecu = objetosResult[i].ClieComunicaRealizadaGestRecu;
                 result[i].PorQue = objetosResult[i].PorQue;
                 result[i].Contacto = objetosResult[i].Contacto;
-                result[i].VozCliente = objetosResult[i].VozCliente;
+                result[i].VozClienteCausaRaiz = objetosResult[i].VozClienteCausaRaiz;
                 result[i].ClientePresentaNovedades = objetosResult[i].ClientePresentaNovedades;
                 result[i].Proceso = objetosResult[i].Proceso;
                 result[i].Macroproceso = objetosResult[i].Macroproceso;
@@ -381,10 +400,15 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
                 result[i].Solucionado = objetosResult[i].Solucionado;
                 result[i].Estado = objetosResult[i].Estado;
+                result[i].MarcaEquiposFalla = objetosResult[i].MarcaEquiposFalla;
+                result[i].UbicacionModem = objetosResult[i].UbicacionModem;
+                result[i].DispositivosInalambricosAlrededorModem = objetosResult[i].DispositivosInalambricosAlrededorModem;
+                result[i].CantEquiposConecInternet = objetosResult[i].CantEquiposConecInternet;
+                result[i].TipoDispConectaInternet = objetosResult[i].TipoDispConectaInternet;
+                result[i].UsoBrindaInternet = objetosResult[i].UsoBrindaInternet;
                 result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
-                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
-                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
+                result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
             }
             return result;
@@ -429,21 +453,22 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.UsoClaroVideo,
                                      a.ClienteNagra,
                                      a.Ofrecimiento1,
+                                     a.AceptacionPrimerOfrecimiento,
                                      a.Ofrecimiento2,
+                                     a.AceptacionSegundoOfrecimiento,
                                      a.Ofrecimiento3,
+                                     a.AceptacionTercerOfrecimiento,
                                      a.Diferenciador,
                                      a.Prioridad,
                                      a.VecesGestionado,
-                                     a.MacroProcesoRecurrencia1,
-                                     a.MacroProcesoRecurrencia2,
-                                     a.MacroProcesoRecurrencia3,
-                                     a.MarcacionRecurrente1,
-                                     a.MarcacionRecurrente2,
-                                     a.MarcacionRecurrente3,
-                                     a.VolvioLlamar,
+                                     a.MarcacionInicialAfectacion,
+                                     a.MarcacionReincidenteRecurrencia,
+                                     a.ClieComunicaRealizadaGestRecu,
                                      a.PorQue,
                                      a.Contacto,
-                                     a.VozCliente,
+                                     a.VozClienteCausaRaiz,
+                                     a.Solucionado,
+                                     a.AreaParticipaSolucion,
                                      a.ClientePresentaNovedades,
                                      a.Proceso,
                                      a.Macroproceso,
@@ -451,12 +476,16 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.FallaEspecificaArbolCCAA,
                                      a.FallaCausaRaiz,
                                      a.SolucionEspecifica,
-                                     a.Solucionado,
                                      a.Estado,
+                                     a.MarcaEquiposFalla,
+                                     a.UbicacionModem,
+                                     a.DispositivosInalambricosAlrededorModem,
+                                     a.CantEquiposConecInternet,
+                                     a.TipoDispConectaInternet,
+                                     a.UsoBrindaInternet,
                                      a.ActivacionClaroVideoNagra,
-                                     a.AceptacionPrimerOfrecimiento,
-                                     a.AceptacionSegundoOfrecimiento,
-                                     a.AceptacionTercerOfrecimiento,
+                                     a.ServicioOfrecido,
+                                     a.AceptacionServicioOfrecido,
                                      a.Observaciones
                                  }
                                  ).ToList();
@@ -486,21 +515,20 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
                 result[i].ClienteNagra = objetosResult[i].ClienteNagra;
                 result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
+                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
                 result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
+                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
+                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
                 result[i].Diferenciador = objetosResult[i].Diferenciador;
                 result[i].Prioridad = objetosResult[i].Prioridad;
                 result[i].VecesGestionado = objetosResult[i].VecesGestionado;
-                result[i].MacroProcesoRecurrencia1 = objetosResult[i].MacroProcesoRecurrencia1;
-                result[i].MacroProcesoRecurrencia2 = objetosResult[i].MacroProcesoRecurrencia2;
-                result[i].MacroProcesoRecurrencia3 = objetosResult[i].MacroProcesoRecurrencia3;
-                result[i].MarcacionRecurrente1 = objetosResult[i].MarcacionRecurrente1;
-                result[i].MarcacionRecurrente2 = objetosResult[i].MarcacionRecurrente2;
-                result[i].MarcacionRecurrente3 = objetosResult[i].MarcacionRecurrente3;
-                result[i].VolvioLlamar = objetosResult[i].VolvioLlamar;
+                result[i].MarcacionInicialAfectacion = objetosResult[i].MarcacionInicialAfectacion;
+                result[i].MarcacionReincidenteRecurrencia = objetosResult[i].MarcacionReincidenteRecurrencia;
+                result[i].ClieComunicaRealizadaGestRecu = objetosResult[i].ClieComunicaRealizadaGestRecu;
                 result[i].PorQue = objetosResult[i].PorQue;
                 result[i].Contacto = objetosResult[i].Contacto;
-                result[i].VozCliente = objetosResult[i].VozCliente;
+                result[i].VozClienteCausaRaiz = objetosResult[i].VozClienteCausaRaiz;
                 result[i].ClientePresentaNovedades = objetosResult[i].ClientePresentaNovedades;
                 result[i].Proceso = objetosResult[i].Proceso;
                 result[i].Macroproceso = objetosResult[i].Macroproceso;
@@ -510,10 +538,15 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
                 result[i].Solucionado = objetosResult[i].Solucionado;
                 result[i].Estado = objetosResult[i].Estado;
+                result[i].MarcaEquiposFalla = objetosResult[i].MarcaEquiposFalla;
+                result[i].UbicacionModem = objetosResult[i].UbicacionModem;
+                result[i].DispositivosInalambricosAlrededorModem = objetosResult[i].DispositivosInalambricosAlrededorModem;
+                result[i].CantEquiposConecInternet = objetosResult[i].CantEquiposConecInternet;
+                result[i].TipoDispConectaInternet = objetosResult[i].TipoDispConectaInternet;
+                result[i].UsoBrindaInternet = objetosResult[i].UsoBrindaInternet;
                 result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
-                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
-                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
+                result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
             }
             return result;
@@ -548,21 +581,22 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.UsoClaroVideo,
                                      a.ClienteNagra,
                                      a.Ofrecimiento1,
+                                     a.AceptacionPrimerOfrecimiento,
                                      a.Ofrecimiento2,
+                                     a.AceptacionSegundoOfrecimiento,
                                      a.Ofrecimiento3,
+                                     a.AceptacionTercerOfrecimiento,
                                      a.Diferenciador,
                                      a.Prioridad,
                                      a.VecesGestionado,
-                                     a.MacroProcesoRecurrencia1,
-                                     a.MacroProcesoRecurrencia2,
-                                     a.MacroProcesoRecurrencia3,
-                                     a.MarcacionRecurrente1,
-                                     a.MarcacionRecurrente2,
-                                     a.MarcacionRecurrente3,
-                                     a.VolvioLlamar,
+                                     a.MarcacionInicialAfectacion,
+                                     a.MarcacionReincidenteRecurrencia,
+                                     a.ClieComunicaRealizadaGestRecu,
                                      a.PorQue,
                                      a.Contacto,
-                                     a.VozCliente,
+                                     a.VozClienteCausaRaiz,
+                                     a.Solucionado,
+                                     a.AreaParticipaSolucion,
                                      a.ClientePresentaNovedades,
                                      a.Proceso,
                                      a.Macroproceso,
@@ -570,12 +604,16 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.FallaEspecificaArbolCCAA,
                                      a.FallaCausaRaiz,
                                      a.SolucionEspecifica,
-                                     a.Solucionado,
                                      a.Estado,
+                                     a.MarcaEquiposFalla,
+                                     a.UbicacionModem,
+                                     a.DispositivosInalambricosAlrededorModem,
+                                     a.CantEquiposConecInternet,
+                                     a.TipoDispConectaInternet,
+                                     a.UsoBrindaInternet,
                                      a.ActivacionClaroVideoNagra,
-                                     a.AceptacionPrimerOfrecimiento,
-                                     a.AceptacionSegundoOfrecimiento,
-                                     a.AceptacionTercerOfrecimiento,
+                                     a.ServicioOfrecido,
+                                     a.AceptacionServicioOfrecido,
                                      a.Observaciones
                                  }
                                  ).ToList();
@@ -605,21 +643,20 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
                 result[i].ClienteNagra = objetosResult[i].ClienteNagra;
                 result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
+                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
                 result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
+                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
+                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
                 result[i].Diferenciador = objetosResult[i].Diferenciador;
                 result[i].Prioridad = objetosResult[i].Prioridad;
                 result[i].VecesGestionado = objetosResult[i].VecesGestionado;
-                result[i].MacroProcesoRecurrencia1 = objetosResult[i].MacroProcesoRecurrencia1;
-                result[i].MacroProcesoRecurrencia2 = objetosResult[i].MacroProcesoRecurrencia2;
-                result[i].MacroProcesoRecurrencia3 = objetosResult[i].MacroProcesoRecurrencia3;
-                result[i].MarcacionRecurrente1 = objetosResult[i].MarcacionRecurrente1;
-                result[i].MarcacionRecurrente2 = objetosResult[i].MarcacionRecurrente2;
-                result[i].MarcacionRecurrente3 = objetosResult[i].MarcacionRecurrente3;
-                result[i].VolvioLlamar = objetosResult[i].VolvioLlamar;
+                result[i].MarcacionInicialAfectacion = objetosResult[i].MarcacionInicialAfectacion;
+                result[i].MarcacionReincidenteRecurrencia = objetosResult[i].MarcacionReincidenteRecurrencia;
+                result[i].ClieComunicaRealizadaGestRecu = objetosResult[i].ClieComunicaRealizadaGestRecu;
                 result[i].PorQue = objetosResult[i].PorQue;
                 result[i].Contacto = objetosResult[i].Contacto;
-                result[i].VozCliente = objetosResult[i].VozCliente;
+                result[i].VozClienteCausaRaiz = objetosResult[i].VozClienteCausaRaiz;
                 result[i].ClientePresentaNovedades = objetosResult[i].ClientePresentaNovedades;
                 result[i].Proceso = objetosResult[i].Proceso;
                 result[i].Macroproceso = objetosResult[i].Macroproceso;
@@ -629,10 +666,15 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
                 result[i].Solucionado = objetosResult[i].Solucionado;
                 result[i].Estado = objetosResult[i].Estado;
+                result[i].MarcaEquiposFalla = objetosResult[i].MarcaEquiposFalla;
+                result[i].UbicacionModem = objetosResult[i].UbicacionModem;
+                result[i].DispositivosInalambricosAlrededorModem = objetosResult[i].DispositivosInalambricosAlrededorModem;
+                result[i].CantEquiposConecInternet = objetosResult[i].CantEquiposConecInternet;
+                result[i].TipoDispConectaInternet = objetosResult[i].TipoDispConectaInternet;
+                result[i].UsoBrindaInternet = objetosResult[i].UsoBrindaInternet;
                 result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
-                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
-                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
+                result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
             }
             return result;
@@ -667,21 +709,22 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.UsoClaroVideo,
                                      a.ClienteNagra,
                                      a.Ofrecimiento1,
+                                     a.AceptacionPrimerOfrecimiento,
                                      a.Ofrecimiento2,
+                                     a.AceptacionSegundoOfrecimiento,
                                      a.Ofrecimiento3,
+                                     a.AceptacionTercerOfrecimiento,
                                      a.Diferenciador,
                                      a.Prioridad,
                                      a.VecesGestionado,
-                                     a.MacroProcesoRecurrencia1,
-                                     a.MacroProcesoRecurrencia2,
-                                     a.MacroProcesoRecurrencia3,
-                                     a.MarcacionRecurrente1,
-                                     a.MarcacionRecurrente2,
-                                     a.MarcacionRecurrente3,
-                                     a.VolvioLlamar,
+                                     a.MarcacionInicialAfectacion,
+                                     a.MarcacionReincidenteRecurrencia,
+                                     a.ClieComunicaRealizadaGestRecu,
                                      a.PorQue,
                                      a.Contacto,
-                                     a.VozCliente,
+                                     a.VozClienteCausaRaiz,
+                                     a.Solucionado,
+                                     a.AreaParticipaSolucion,
                                      a.ClientePresentaNovedades,
                                      a.Proceso,
                                      a.Macroproceso,
@@ -689,12 +732,16 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.FallaEspecificaArbolCCAA,
                                      a.FallaCausaRaiz,
                                      a.SolucionEspecifica,
-                                     a.Solucionado,
                                      a.Estado,
+                                     a.MarcaEquiposFalla,
+                                     a.UbicacionModem,
+                                     a.DispositivosInalambricosAlrededorModem,
+                                     a.CantEquiposConecInternet,
+                                     a.TipoDispConectaInternet,
+                                     a.UsoBrindaInternet,
                                      a.ActivacionClaroVideoNagra,
-                                     a.AceptacionPrimerOfrecimiento,
-                                     a.AceptacionSegundoOfrecimiento,
-                                     a.AceptacionTercerOfrecimiento,
+                                     a.ServicioOfrecido,
+                                     a.AceptacionServicioOfrecido,
                                      a.Observaciones
                                  }
                                  ).ToList();
@@ -724,21 +771,20 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
                 result[i].ClienteNagra = objetosResult[i].ClienteNagra;
                 result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
+                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
                 result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
+                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
+                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
                 result[i].Diferenciador = objetosResult[i].Diferenciador;
                 result[i].Prioridad = objetosResult[i].Prioridad;
                 result[i].VecesGestionado = objetosResult[i].VecesGestionado;
-                result[i].MacroProcesoRecurrencia1 = objetosResult[i].MacroProcesoRecurrencia1;
-                result[i].MacroProcesoRecurrencia2 = objetosResult[i].MacroProcesoRecurrencia2;
-                result[i].MacroProcesoRecurrencia3 = objetosResult[i].MacroProcesoRecurrencia3;
-                result[i].MarcacionRecurrente1 = objetosResult[i].MarcacionRecurrente1;
-                result[i].MarcacionRecurrente2 = objetosResult[i].MarcacionRecurrente2;
-                result[i].MarcacionRecurrente3 = objetosResult[i].MarcacionRecurrente3;
-                result[i].VolvioLlamar = objetosResult[i].VolvioLlamar;
+                result[i].MarcacionInicialAfectacion = objetosResult[i].MarcacionInicialAfectacion;
+                result[i].MarcacionReincidenteRecurrencia = objetosResult[i].MarcacionReincidenteRecurrencia;
+                result[i].ClieComunicaRealizadaGestRecu = objetosResult[i].ClieComunicaRealizadaGestRecu;
                 result[i].PorQue = objetosResult[i].PorQue;
                 result[i].Contacto = objetosResult[i].Contacto;
-                result[i].VozCliente = objetosResult[i].VozCliente;
+                result[i].VozClienteCausaRaiz = objetosResult[i].VozClienteCausaRaiz;
                 result[i].ClientePresentaNovedades = objetosResult[i].ClientePresentaNovedades;
                 result[i].Proceso = objetosResult[i].Proceso;
                 result[i].Macroproceso = objetosResult[i].Macroproceso;
@@ -748,10 +794,15 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
                 result[i].Solucionado = objetosResult[i].Solucionado;
                 result[i].Estado = objetosResult[i].Estado;
+                result[i].MarcaEquiposFalla = objetosResult[i].MarcaEquiposFalla;
+                result[i].UbicacionModem = objetosResult[i].UbicacionModem;
+                result[i].DispositivosInalambricosAlrededorModem = objetosResult[i].DispositivosInalambricosAlrededorModem;
+                result[i].CantEquiposConecInternet = objetosResult[i].CantEquiposConecInternet;
+                result[i].TipoDispConectaInternet = objetosResult[i].TipoDispConectaInternet;
+                result[i].UsoBrindaInternet = objetosResult[i].UsoBrindaInternet;
                 result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
-                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
-                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
+                result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
             }
             return result;
