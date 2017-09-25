@@ -48,13 +48,22 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //FidelizacionService Fidelizacion = new FidelizacionService();
             //var rta = Fidelizacion.getSubmotivosCancelacionById(9);
 
-            FidelizacionSubmotivosCancelacion FidelizacionSubmotivos = new FidelizacionSubmotivosCancelacion();
-            FidelizacionSubmotivos.Registro = DateTime.Now;
-            FidelizacionSubmotivos.Submotivo = "Otro Submotivo";
-            FidelizacionSubmotivos.FIDMotivoId = 3;
+            //FidelizacionSubmotivosCancelacion Fidelizacionsubmotivos = new fidelizacionsubmotivoscancelacion();
+            //fidelizacionsubmotivos.registro = datetime.now;
+            //fidelizacionsubmotivos.submotivo = "otro submotivo";
+            //fidelizacionsubmotivos.fidmotivoid = 3;
+
+            //FidelizacionService Fidelizacion = new FidelizacionService();
+            //Fidelizacion.setSubmotivoCancelacion(FidelizacionSubmotivos);
+
+            FidelizacionTipificacion Tipificacion = new FidelizacionTipificacion();
+            Tipificacion.Registro = DateTime.Now;
+            Tipificacion.Nota = "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta).";
+            Tipificacion.Nombre = "Recuperado";
+            Tipificacion.UsuarioId = 4940;
 
             FidelizacionService Fidelizacion = new FidelizacionService();
-            Fidelizacion.setSubmotivoCancelacion(FidelizacionSubmotivos);
+            Fidelizacion.setTipificacion(Tipificacion);
 
             var z = ""; 
         }

@@ -124,6 +124,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<FidelizacionMotivosCancelacion> FidelizacionMotivosCancelacion { get; set; }
         System.Data.Entity.DbSet<FidelizacionSubmotivosCancelacion> FidelizacionSubmotivosCancelacion { get; set; }
         System.Data.Entity.DbSet<FidelizacionOtrosOfrecimientos> FidelizacionOtrosOfrecimientos { get; set; }
+        System.Data.Entity.DbSet<FidelizacionTipificacion> FidelizacionTipificacion { get; set; }
 
 
         int SaveChanges();

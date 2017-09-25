@@ -100,6 +100,7 @@ namespace Telmexla.Servicios.DIME.IData
         IFidelizacionMotivosCancelacionRepository FidelizacionMotivosCancelacion { get; }
         IFidelizacionSubmotivosCancelacionRepository FidelizacionSubmotivosCancelacion { get; }
         IFidelizacionOtrosOfrecimientosRepository FidelizacionOtrosOfrecimientos { get; }
+        IFidelizacionTipificacionRepository FidelizacionTipificacion { get; }
         int Complete();
     }
 }
