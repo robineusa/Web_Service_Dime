@@ -56,8 +56,10 @@
   <ItemGroup>
     <Compile Include="AccesoRepository.cs" />
     <Compile Include="AccesosXLineaRepository.cs" />
+    <Compile Include="Configuration\FidelizacionOtrosOfrecimientosConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionSubmotivosCancelacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionMotivosCancelacionConfiguration.cs" />
+    <Compile Include="FidelizacionOtrosOfrecimientosRepository.cs" />
     <Compile Include="FidelizacionSubmotivosCancelacionRepository.cs" />
     <Compile Include="FidelizacionMotivosCancelacionRepository.cs" />
     <Compile Include="FidelizacionMaestroServiciosRepository.cs" />
