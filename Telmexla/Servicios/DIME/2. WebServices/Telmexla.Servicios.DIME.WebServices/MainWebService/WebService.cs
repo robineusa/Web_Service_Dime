@@ -2292,7 +2292,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         public void setTipificacion(FidelizacionTipificacion objTipificacion) {
             FidelizacionService Fidelizacion = new FidelizacionService();
-            return Fidelizacion.setTipificacion(objTipificacion);
+            Fidelizacion.setTipificacion(objTipificacion);
         }
         #endregion
     }

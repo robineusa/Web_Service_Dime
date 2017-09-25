@@ -76,7 +76,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         }
         public void setTipificacion(FidelizacionTipificacion objTipificacion) {
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
-            return Fidelizacion.setTipificacion(objTipificacion);
+            Fidelizacion.setTipificacion(objTipificacion);
         }
     }
 }

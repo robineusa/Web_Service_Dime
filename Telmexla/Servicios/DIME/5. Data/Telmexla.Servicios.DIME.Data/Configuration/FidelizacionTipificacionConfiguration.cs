@@ -28,13 +28,13 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
 
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Nombre).HasColumnName(@"NOMBRE").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(250);
-            Property(x => x.Nombre).HasColumnName(@"NOTA").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(5000);
+            Property(x => x.Nota).HasColumnName(@"NOTA").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(500);
             Property(x => x.Eliminado).HasColumnName(@"ELIMINADO").IsRequired().HasColumnType("numeric");
             Property(x => x.Activo).HasColumnName(@"ACTIVO").IsRequired().HasColumnType("numeric");
-            Property(x => x.Activo).HasColumnName(@"MODULO").IsRequired().HasColumnType("numeric");
-            Property(x => x.Activo).HasColumnName(@"NIVEL1").IsRequired().HasColumnType("numeric");
-            Property(x => x.Activo).HasColumnName(@"NIVEL2").IsRequired().HasColumnType("numeric");
-            Property(x => x.Activo).HasColumnName(@"NIVEL3").IsRequired().HasColumnType("numeric");
+            Property(x => x.Modulo).HasColumnName(@"MODULO").IsRequired().HasColumnType("numeric");
+            Property(x => x.Nivel1).HasColumnName(@"NIVEL1").IsRequired().HasColumnType("numeric");
+            Property(x => x.Nivel2).HasColumnName(@"NIVEL2").IsRequired().HasColumnType("numeric");
+            Property(x => x.Nivel3).HasColumnName(@"NIVEL3").IsRequired().HasColumnType("numeric");
             Property(x => x.UsuarioId).HasColumnName(@"USUARIO_ID").IsRequired().HasColumnType("int");
             Property(x => x.Registro).HasColumnName(@"REGISTRO").IsRequired().HasColumnType("datetime");
 

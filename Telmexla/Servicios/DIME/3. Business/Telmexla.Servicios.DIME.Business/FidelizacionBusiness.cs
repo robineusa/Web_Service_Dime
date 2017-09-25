@@ -172,5 +172,12 @@ namespace Telmexla.Servicios.DIME.Business
             return objTmp;
         }
 
+        public void setTipificacion(FidelizacionTipificacion objTipificacion) {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            unidadTrabajo.FidelizacionTipificacion.Add(objTipificacion);
+            unidadTrabajo.Complete();
+            unidadTrabajo.Dispose();
+        }
+
     }
 }
