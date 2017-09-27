@@ -59,6 +59,7 @@
     <Compile Include="Configuration\FidelizacionOtrosOfrecimientosConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionSubmotivosCancelacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionMotivosCancelacionConfiguration.cs" />
+    <Compile Include="Configuration\FidelizacionTipificacionConfiguration.cs" />
     <Compile Include="FidelizacionOtrosOfrecimientosRepository.cs" />
     <Compile Include="FidelizacionSubmotivosCancelacionRepository.cs" />
     <Compile Include="FidelizacionMotivosCancelacionRepository.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="CuentasMejorasTecnicasRepository.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaRepository.cs" />
+    <Compile Include="FidelizacionTipificacionRepository.cs" />
     <Compile Include="GestionFoxInboundRepository.cs" />
     <Compile Include="Configuration\GLogRecurrenciaConfiguration.cs" />
     <Compile Include="GLogRecurrenciaRepository.cs" />
