@@ -56,14 +56,54 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //FidelizacionService Fidelizacion = new FidelizacionService();
             //Fidelizacion.setSubmotivoCancelacion(FidelizacionSubmotivos);
 
-            FidelizacionTipificacion Tipificacion = new FidelizacionTipificacion();
-            Tipificacion.Registro = DateTime.Now;
-            Tipificacion.Nota = "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta).";
-            Tipificacion.Nombre = "Recuperado";
-            Tipificacion.UsuarioId = 4940;
+            //FidelizacionTipificacion Tipificacion = new FidelizacionTipificacion();
+            //Tipificacion.Registro = DateTime.Now;
+            //Tipificacion.Nota = "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta).";
+            //Tipificacion.Nombre = "Recuperado";
+            //Tipificacion.UsuarioId = 4940;
 
-            FidelizacionService Fidelizacion = new FidelizacionService();
-            Fidelizacion.setTipificacion(Tipificacion);
+            //FidelizacionService Fidelizacion = new FidelizacionService();
+            //Fidelizacion.setTipificacion(Tipificacion);
+
+            //FidelizacionRecursiva Recursiva = new FidelizacionRecursiva();
+            //Recursiva.Nombre = "Campaña Retencion";
+            //Recursiva.Nivel = 1;
+            //Recursiva.ParentId = 6;
+            //Recursiva.VerNivel = "111";
+            //Recursiva.Label = "Texto Prueba";
+
+            //FidelizacionService Fidelizacion = new FidelizacionService();
+            //Fidelizacion.setRecursiva(Recursiva);
+
+            //FidelizacionService Fidelizacion = new FidelizacionService();
+            //var xz = Fidelizacion.getRecursivaAll();
+
+            //FidelizacionRegistro Registro = new FidelizacionRegistro();
+            //Registro.Cuenta = 760;
+            //Registro.DiaCorte = 2;
+            //Registro.FechaCorte = DateTime.Now;
+            //Registro.FechaRegistro = DateTime.Now;
+            //Registro.Notas = "texto de prueba";
+            //Registro.OtrosOfrecimientosId = 7;
+            //Registro.Permanencia = "No";
+            //Registro.RecursivaId = 301;
+            //Registro.ServiciosId = "101";
+            //Registro.ServiciosRetenidosId = "100";
+            //Registro.SubmotivoId = 11;
+            //Registro.TipificacionId = 3;
+            //Registro.UsuarioId = 4940;
+
+            //FidelizacionService Fidelizacion = new FidelizacionService();
+            //Fidelizacion.setRegistro(Registro);
+
+
+            FidelizacionService Registros = new FidelizacionService();
+            var dd = Registros.getRegistroAll();
+
+
+
+
+
 
             var z = ""; 
         }

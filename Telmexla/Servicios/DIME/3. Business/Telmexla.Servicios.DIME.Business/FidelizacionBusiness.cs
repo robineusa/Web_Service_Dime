@@ -179,5 +179,95 @@ namespace Telmexla.Servicios.DIME.Business
             unidadTrabajo.Dispose();
         }
 
+        public void setRecursiva(FidelizacionRecursiva objRecursiva) {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            unidadTrabajo.FidelizacionRecursiva.Add(objRecursiva);
+            unidadTrabajo.Complete();
+            unidadTrabajo.Dispose();
+        }
+
+        public FidelizacionRecursiva getRecursivaById(decimal idRecursiva) {
+            UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionRecursiva fila = UnidadTrabajo.FidelizacionRecursiva.Find(c => c.Id == idRecursiva).FirstOrDefault();
+            return fila;
+                
+        }
+        public List<FidelizacionRecursiva> getRecursivaAll() {
+            DimeContext dimeContext = new DimeContext();
+            List<FidelizacionRecursiva> objTmp = new List<FidelizacionRecursiva>();
+            
+            var listado = (from recursiva in dimeContext.FidelizacionRecursiva
+                           orderby recursiva.Nombre ascending
+                           select new {
+                               recursiva.Id,
+                               recursiva.Label,
+                               recursiva.Nivel,
+                               recursiva.Nombre,
+                               recursiva.ParentId,
+                               recursiva.VerNivel
+                           }
+                           ).ToList();
+
+            for (var i = 0; i < listado.Count; i++) {
+                objTmp.Add(new FidelizacionRecursiva());
+                objTmp[i].Id = listado[i].Id;
+                objTmp[i].Label = listado[i].Label;
+                objTmp[i].Nivel = listado[i].Nivel;
+                objTmp[i].Nombre = listado[i].Nombre;
+                objTmp[i].ParentId = listado[i].ParentId;
+                objTmp[i].VerNivel = listado[i].VerNivel;
+            }
+            return objTmp;
+        }
+        public void setRegistro(FidelizacionRegistro objRegistro) {
+            UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
+            UnidadTrabajo.FidelizacionRegistro.Add(objRegistro);
+            UnidadTrabajo.Complete();
+            UnidadTrabajo.Dispose();
+        }
+
+        public List<FidelizacionRegistro> getRegistroAll() {
+            DimeContext dimeContext = new DimeContext();
+            List<FidelizacionRegistro> objTmp = new List<FidelizacionRegistro>();
+            var listado = (from registro in dimeContext.FidelizacionRegistro
+                           orderby registro.FechaRegistro ascending
+                           select new
+                           {
+                               registro.Cuenta,
+                               registro.DiaCorte,
+                               registro.FechaCorte,
+                               registro.FechaRegistro,
+                               registro.Id,
+                               registro.Notas,
+                               registro.OtrosOfrecimientosId,
+                               registro.Permanencia,
+                               registro.RecursivaId,
+                               registro.ServiciosId,
+                               registro.ServiciosRetenidosId,
+                               registro.SubmotivoId,
+                               registro.TipificacionId,
+                               registro.UsuarioId
+                           }
+                           ).ToList();
+
+            for (var i = 0; i < listado.Count; i++) {
+                objTmp.Add(new FidelizacionRegistro());
+                objTmp[i].Cuenta = listado[i].Cuenta;
+                objTmp[i].DiaCorte = listado[i].DiaCorte;
+                objTmp[i].FechaCorte = listado[i].FechaCorte;
+                objTmp[i].FechaRegistro = listado[i].FechaRegistro;
+                objTmp[i].Id = listado[i].Id;
+                objTmp[i].Notas = listado[i].Notas;
+                objTmp[i].OtrosOfrecimientosId = listado[i].OtrosOfrecimientosId;
+                objTmp[i].RecursivaId = listado[i].RecursivaId;
+                objTmp[i].ServiciosId = listado[i].ServiciosId;
+                objTmp[i].ServiciosRetenidosId = listado[i].ServiciosRetenidosId;
+                objTmp[i].SubmotivoId = listado[i].SubmotivoId;
+                objTmp[i].TipificacionId = listado[i].TipificacionId;
+                objTmp[i].UsuarioId = listado[i].UsuarioId;
+            }
+            return objTmp;
+        }
+
     }
 }

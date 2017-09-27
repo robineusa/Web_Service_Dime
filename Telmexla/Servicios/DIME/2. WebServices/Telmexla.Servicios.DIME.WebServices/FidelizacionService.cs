@@ -78,5 +78,27 @@ namespace Telmexla.Servicios.DIME.WebServices
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
             Fidelizacion.setTipificacion(objTipificacion);
         }
+        public void setRecursiva(FidelizacionRecursiva objRecursiva) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            Fidelizacion.setRecursiva(objRecursiva);
+        }
+        public FidelizacionRecursiva getRecursivaById(decimal idRecursiva) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            return Fidelizacion.getRecursivaById(idRecursiva);
+        }
+        public List<FidelizacionRecursiva> getRecursivaAll() {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            return Fidelizacion.getRecursivaAll();
+        }
+        [OperationContract]
+        public void setRegistro(FidelizacionRegistro objRegistro) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            Fidelizacion.setRegistro(objRegistro);
+        }
+        [OperationContract]
+        public List<FidelizacionRegistro> getRegistroAll() {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            return Fidelizacion.getRegistroAll();
+        }
     }
 }

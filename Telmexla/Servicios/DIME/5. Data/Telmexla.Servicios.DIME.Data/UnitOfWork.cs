@@ -108,6 +108,8 @@ namespace Telmexla.Servicios.DIME.Data
             FidelizacionSubmotivosCancelacion = new FidelizacionSubmotivosCancelacionRepository(this.dimeContext);
             FidelizacionOtrosOfrecimientos = new FidelizacionOtrosOfrecimientosRepository(this.dimeContext);
             FidelizacionTipificacion = new FidelizacionTipificacionRepository(this.dimeContext);
+            FidelizacionRecursiva = new FidelizacionRecursivaRepository(this.dimeContext);
+            FidelizacionRegistro = new FidelizacionRegistroRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -494,6 +496,12 @@ namespace Telmexla.Servicios.DIME.Data
 
         public IFidelizacionTipificacionRepository FidelizacionTipificacion
         {
+            get; private set;
+        }
+        public IFidelizacionRecursivaRepository FidelizacionRecursiva {
+            get; private set;
+        }
+        public IFidelizacionRegistroRepository FidelizacionRegistro {
             get; private set;
         }
 

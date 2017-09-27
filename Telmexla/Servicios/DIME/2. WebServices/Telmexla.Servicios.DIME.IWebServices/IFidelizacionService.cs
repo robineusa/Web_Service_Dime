@@ -36,6 +36,16 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<FidelizacionOtrosOfrecimientos> getOtrosOfrecimientosAll();
         [OperationContract]
         void setTipificacion(FidelizacionTipificacion objTipificacion);
+        [OperationContract]
+        void setRecursiva(FidelizacionRecursiva objRecursiva);
+        [OperationContract]
+        FidelizacionRecursiva getRecursivaById(decimal idRecursiva);
+        [OperationContract]
+        List<FidelizacionRecursiva> getRecursivaAll();
+        [OperationContract]
+        void setRegistro(FidelizacionRegistro objRegistro);
+        [OperationContract]
+        List<FidelizacionRegistro> getRegistroAll();
 
     }
 }
