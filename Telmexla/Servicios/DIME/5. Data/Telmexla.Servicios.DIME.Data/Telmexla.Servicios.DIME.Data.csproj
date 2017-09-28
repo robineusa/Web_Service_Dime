@@ -62,6 +62,14 @@
     <Compile Include="Configuration\FidelizacionSubmotivosCancelacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionMotivosCancelacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionTipificacionConfiguration.cs" />
+    <Compile Include="Configuration\VILSolicitudesConfiguration.cs" />
+    <Compile Include="Configuration\VIMAliadoTecnicoConfiguration.cs" />
+    <Compile Include="Configuration\VIMGestionConfiguration.cs" />
+    <Compile Include="Configuration\VIMSubrazonConfiguration.cs" />
+    <Compile Include="Configuration\VIMTipoDeEquiposConfiguration.cs" />
+    <Compile Include="Configuration\VIMTipoDeRequerimientoConfiguration.cs" />
+    <Compile Include="Configuration\VIPSolicitudesConfiguration.cs" />
+    <Compile Include="Configuration\VIPSolicitudesPorEquipoConfiguration.cs" />
     <Compile Include="FidelizacionOtrosOfrecimientosRepository.cs" />
     <Compile Include="FidelizacionRecursivaRepository.cs" />
     <Compile Include="FidelizacionRegistroRepository.cs" />
@@ -298,6 +306,14 @@
     <Compile Include="UsuariosNotificadosRepository.cs" />
     <Compile Include="UsuariosXAccesoRepository.cs" />
     <Compile Include="UsuariosXPreguntasDesbRepository.cs" />
+    <Compile Include="VILSolicitudesRepository.cs" />
+    <Compile Include="VIMAliadoTecnicoRepository.cs" />
+    <Compile Include="VIMGestionRepository.cs" />
+    <Compile Include="VIMSubrazonRepository.cs" />
+    <Compile Include="VIMTipoDeEquiposRepository.cs" />
+    <Compile Include="VIMTipoDeRequerimientoRepository.cs" />
+    <Compile Include="VIPSolicitudesPorEquipoRepository.cs" />
+    <Compile Include="VIPSolicitudesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

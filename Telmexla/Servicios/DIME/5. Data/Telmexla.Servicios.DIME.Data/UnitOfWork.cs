@@ -110,6 +110,14 @@ namespace Telmexla.Servicios.DIME.Data
             FidelizacionTipificacion = new FidelizacionTipificacionRepository(this.dimeContext);
             FidelizacionRecursiva = new FidelizacionRecursivaRepository(this.dimeContext);
             FidelizacionRegistro = new FidelizacionRegistroRepository(this.dimeContext);
+            VIPSolicitudes = new VIPSolicitudesRepository(this.dimeContext);
+            VILSolicitudes = new VILSolicitudesRepository(this.dimeContext);
+            VIPSolicitudesPorEquipo = new VIPSolicitudesPorEquipoRepository(this.dimeContext);
+            VIMTipoDeEquipos = new VIMTipoDeEquiposRepository(this.dimeContext);
+            VIMTipoDeRequerimiento = new VIMTipoDeRequerimientoRepository(this.dimeContext);
+            VIMGestion = new VIMGestionRepository(this.dimeContext);
+            VIMSubrazon = new VIMSubrazonRepository(this.dimeContext);
+            VIMAliadoTecnico = new VIMAliadoTecnicoRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -504,7 +512,38 @@ namespace Telmexla.Servicios.DIME.Data
         public IFidelizacionRegistroRepository FidelizacionRegistro {
             get; private set;
         }
-
+        public IVIPSolicitudesRepository VIPSolicitudes
+        {
+            get; private set;
+        }
+        public IVILSolicitudesRepository VILSolicitudes
+        {
+            get; private set;
+        }
+        public IVIPSolicitudesPorEquipoRepository VIPSolicitudesPorEquipo
+        {
+            get; private set;
+        }
+        public IVIMTipoDeEquiposRepository VIMTipoDeEquipos
+        {
+            get; private set;
+        }
+        public IVIMTipoDeRequerimientoRepository VIMTipoDeRequerimiento
+        {
+            get; private set;
+        }
+        public IVIMGestionRepository VIMGestion
+        {
+            get; private set;
+        }
+        public IVIMSubrazonRepository VIMSubrazon
+        {
+            get; private set;
+        }
+        public IVIMAliadoTecnicoRepository VIMAliadoTecnico
+        {
+            get; private set;
+        }
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

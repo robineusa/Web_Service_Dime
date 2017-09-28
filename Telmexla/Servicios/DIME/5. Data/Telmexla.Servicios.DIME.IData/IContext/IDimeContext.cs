@@ -127,6 +127,14 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<FidelizacionTipificacion> FidelizacionTipificacion { get; set; }
         System.Data.Entity.DbSet<FidelizacionRecursiva> FidelizacionRecursiva { get; set; }
         System.Data.Entity.DbSet<FidelizacionRegistro> FidelizacionRegistro { get; set; }
+        System.Data.Entity.DbSet<VIPSolicitudes> VIPSolicitudes { get; set; }
+        System.Data.Entity.DbSet<VILSolicitudes> VILSolicitudes { get; set; }
+        System.Data.Entity.DbSet<VIPSolicitudesPorEquipo> VIPSolicitudesPorEquipo { get; set; }
+        System.Data.Entity.DbSet<VIMTipoDeEquipos> VIMTipoDeEquipos { get; set; }
+        System.Data.Entity.DbSet<VIMTipoDeRequerimiento> VIMTipoDeRequerimiento { get; set; }
+        System.Data.Entity.DbSet<VIMGestion> VIMGestion { get; set; }
+        System.Data.Entity.DbSet<VIMSubrazon> VIMSubrazon { get; set; }
+        System.Data.Entity.DbSet<VIMAliadoTecnico> VIMAliadoTecnico { get; set; }
 
 
         int SaveChanges();

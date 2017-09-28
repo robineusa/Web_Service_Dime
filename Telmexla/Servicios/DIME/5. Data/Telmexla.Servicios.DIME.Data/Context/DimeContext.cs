@@ -130,6 +130,14 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<FidelizacionTipificacion> FidelizacionTipificacion { get; set; }
         public System.Data.Entity.DbSet<FidelizacionRecursiva> FidelizacionRecursiva { get; set; }
         public System.Data.Entity.DbSet<FidelizacionRegistro> FidelizacionRegistro { get; set; }
+        public System.Data.Entity.DbSet<VIPSolicitudes> VIPSolicitudes { get; set; }
+        public System.Data.Entity.DbSet<VILSolicitudes> VILSolicitudes { get; set; }
+        public System.Data.Entity.DbSet<VIPSolicitudesPorEquipo> VIPSolicitudesPorEquipo { get; set; }
+        public System.Data.Entity.DbSet<VIMTipoDeEquipos> VIMTipoDeEquipos { get; set; }
+        public System.Data.Entity.DbSet<VIMTipoDeRequerimiento> VIMTipoDeRequerimiento { get; set; }
+        public System.Data.Entity.DbSet<VIMGestion> VIMGestion { get; set; }
+        public System.Data.Entity.DbSet<VIMSubrazon> VIMSubrazon { get; set; }
+        public System.Data.Entity.DbSet<VIMAliadoTecnico> VIMAliadoTecnico { get; set; }
 
 
         static DimeContext()
@@ -293,6 +301,14 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new FidelizacionTipificacionConfiguration());
             modelBuilder.Configurations.Add(new FidelizacionRecursivaConfiguration());
             modelBuilder.Configurations.Add(new FidelizacionRegistroConfiguration());
+            modelBuilder.Configurations.Add(new VIPSolicitudesConfiguration());
+            modelBuilder.Configurations.Add(new VILSolicitudesConfiguration());
+            modelBuilder.Configurations.Add(new VIPSolicitudesPorEquipoConfiguration());
+            modelBuilder.Configurations.Add(new VIMTipoDeEquiposConfiguration());
+            modelBuilder.Configurations.Add(new VIMTipoDeRequerimientoConfiguration());
+            modelBuilder.Configurations.Add(new VIMGestionConfiguration());
+            modelBuilder.Configurations.Add(new VIMSubrazonConfiguration());
+            modelBuilder.Configurations.Add(new VIMAliadoTecnicoConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -408,6 +424,14 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new FidelizacionTipificacionConfiguration(schema));
             modelBuilder.Configurations.Add(new FidelizacionRecursivaConfiguration(schema));
             modelBuilder.Configurations.Add(new FidelizacionRegistroConfiguration(schema));
+            modelBuilder.Configurations.Add(new VIPSolicitudesConfiguration(schema));
+            modelBuilder.Configurations.Add(new VILSolicitudesConfiguration(schema));
+            modelBuilder.Configurations.Add(new VIPSolicitudesPorEquipoConfiguration(schema));
+            modelBuilder.Configurations.Add(new VIMTipoDeEquiposConfiguration(schema));
+            modelBuilder.Configurations.Add(new VIMTipoDeRequerimientoConfiguration(schema));
+            modelBuilder.Configurations.Add(new VIMGestionConfiguration(schema));
+            modelBuilder.Configurations.Add(new VIMSubrazonConfiguration(schema));
+            modelBuilder.Configurations.Add(new VIMAliadoTecnicoConfiguration(schema));
 
             return modelBuilder;
         }

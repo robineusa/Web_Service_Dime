@@ -103,6 +103,15 @@ namespace Telmexla.Servicios.DIME.IData
         IFidelizacionTipificacionRepository FidelizacionTipificacion { get; }
         IFidelizacionRecursivaRepository FidelizacionRecursiva { get; }
         IFidelizacionRegistroRepository FidelizacionRegistro { get; }
+        IVIPSolicitudesRepository VIPSolicitudes { get; }
+        IVILSolicitudesRepository VILSolicitudes { get; }
+        IVIPSolicitudesPorEquipoRepository VIPSolicitudesPorEquipo { get; }
+        IVIMTipoDeEquiposRepository VIMTipoDeEquipos { get; }
+        IVIMTipoDeRequerimientoRepository VIMTipoDeRequerimiento { get; }
+        IVIMGestionRepository VIMGestion { get; }
+        IVIMSubrazonRepository VIMSubrazon { get; }
+        IVIMAliadoTecnicoRepository VIMAliadoTecnico { get; }
+
         int Complete();
     }
 }
