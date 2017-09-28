@@ -58,6 +58,8 @@
     <Compile Include="IAccesosXLineaRepository.cs" />
     <Compile Include="IFidelizacionMotivosCancelacionRepository.cs" />
     <Compile Include="IFidelizacionOtrosOfrecimientosRepository.cs" />
+    <Compile Include="IFidelizacionRecursivaRepository.cs" />
+    <Compile Include="IFidelizacionRegistroRepository.cs" />
     <Compile Include="IFidelizacionSubmotivosCancelacionRepository.cs" />
     <Compile Include="IFidelizacionMaestroServiciosRepository.cs" />
     <Compile Include="IActivacionClaroVideoRepository.cs" />

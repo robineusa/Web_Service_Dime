@@ -57,10 +57,14 @@
     <Compile Include="AccesoRepository.cs" />
     <Compile Include="AccesosXLineaRepository.cs" />
     <Compile Include="Configuration\FidelizacionOtrosOfrecimientosConfiguration.cs" />
+    <Compile Include="Configuration\FidelizacionRecursivaConfiguration.cs" />
+    <Compile Include="Configuration\FidelizacionRegistroConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionSubmotivosCancelacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionMotivosCancelacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionTipificacionConfiguration.cs" />
     <Compile Include="FidelizacionOtrosOfrecimientosRepository.cs" />
+    <Compile Include="FidelizacionRecursivaRepository.cs" />
+    <Compile Include="FidelizacionRegistroRepository.cs" />
     <Compile Include="FidelizacionSubmotivosCancelacionRepository.cs" />
     <Compile Include="FidelizacionMotivosCancelacionRepository.cs" />
     <Compile Include="FidelizacionMaestroServiciosRepository.cs" />
