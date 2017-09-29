@@ -90,7 +90,9 @@
     <Compile Include="ICuentasSiguienteMejorOfertaRepository.cs" />
     <Compile Include="IFidelizacionTipificacionRepository.cs" />
     <Compile Include="IGestionFoxInboundRepository.cs" />
+    <Compile Include="IGLogRecurrenciaInboundRepository.cs" />
     <Compile Include="IGLogRecurrenciaRepository.cs" />
+    <Compile Include="IGPrincipalRecurrenciaInboundRepository.cs" />
     <Compile Include="IGPrincipalRecurrenciaRepository.cs" />
     <Compile Include="IMaestroFallaCausaRaizRepository.cs" />
     <Compile Include="IMaestroFallaEspecificaRepository.cs" />

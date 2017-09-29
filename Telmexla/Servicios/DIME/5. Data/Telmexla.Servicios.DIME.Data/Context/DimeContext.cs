@@ -138,6 +138,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<VIMGestion> VIMGestion { get; set; }
         public System.Data.Entity.DbSet<VIMSubrazon> VIMSubrazon { get; set; }
         public System.Data.Entity.DbSet<VIMAliadoTecnico> VIMAliadoTecnico { get; set; }
+        public System.Data.Entity.DbSet<GPrincipalRecurrenciaInbound> GPrincipalRecurrenciaInbound { get; set; }
+        public System.Data.Entity.DbSet<GLogRecurrenciaInbound> GLogRecurrenciaInbound { get; set; }
 
 
         static DimeContext()
@@ -309,6 +311,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new VIMGestionConfiguration());
             modelBuilder.Configurations.Add(new VIMSubrazonConfiguration());
             modelBuilder.Configurations.Add(new VIMAliadoTecnicoConfiguration());
+            modelBuilder.Configurations.Add(new GPrincipalRecurrenciaInboundConfiguration());
+            modelBuilder.Configurations.Add(new GLogRecurrenciaInboundConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -432,6 +436,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new VIMGestionConfiguration(schema));
             modelBuilder.Configurations.Add(new VIMSubrazonConfiguration(schema));
             modelBuilder.Configurations.Add(new VIMAliadoTecnicoConfiguration(schema));
+            modelBuilder.Configurations.Add(new GPrincipalRecurrenciaInboundConfiguration(schema));
+            modelBuilder.Configurations.Add(new GLogRecurrenciaInboundConfiguration(schema));
 
             return modelBuilder;
         }

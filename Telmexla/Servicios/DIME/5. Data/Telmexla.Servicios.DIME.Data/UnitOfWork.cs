@@ -118,6 +118,8 @@ namespace Telmexla.Servicios.DIME.Data
             VIMGestion = new VIMGestionRepository(this.dimeContext);
             VIMSubrazon = new VIMSubrazonRepository(this.dimeContext);
             VIMAliadoTecnico = new VIMAliadoTecnicoRepository(this.dimeContext);
+            GPrincipalRecurrenciaInbound = new GPrincipalRecurrenciaInboundRepository(this.dimeContext);
+            GLogRecurrenciaInbound = new GLogRecurrenciaInboundRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -541,6 +543,14 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IVIMAliadoTecnicoRepository VIMAliadoTecnico
+        {
+            get; private set;
+        }
+        public IGPrincipalRecurrenciaInboundRepository GPrincipalRecurrenciaInbound
+        {
+            get; private set;
+        }
+        public IGLogRecurrenciaInboundRepository GLogRecurrenciaInbound
         {
             get; private set;
         }

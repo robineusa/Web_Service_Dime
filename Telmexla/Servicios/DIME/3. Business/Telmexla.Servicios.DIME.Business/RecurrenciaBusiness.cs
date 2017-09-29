@@ -807,6 +807,122 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        public void InsertarGRecurrenciaInbound(GPrincipalRecurrenciaInbound recurrenciainbound)
+        {
+            try
+            {
+                recurrenciainbound.FechaGestion = DateTime.Now;
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.GPrincipalRecurrenciaInbound.Add(recurrenciainbound);
+                unitWork.Complete();
+                unitWork.Dispose();
+
+
+                UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+                GLogRecurrenciaInbound LogRecurrenciaInbound = new GLogRecurrenciaInbound();
+
+                LogRecurrenciaInbound.FechaGestion = recurrenciainbound.FechaGestion;
+                LogRecurrenciaInbound.UsuarioGestion = recurrenciainbound.UsuarioGestion;
+                LogRecurrenciaInbound.NombreUsuarioGestion = recurrenciainbound.NombreUsuarioGestion;
+                LogRecurrenciaInbound.AliadoGestion = recurrenciainbound.AliadoGestion;
+                LogRecurrenciaInbound.CuentaCliente = recurrenciainbound.CuentaCliente;
+                LogRecurrenciaInbound.Macroproceso = recurrenciainbound.Macroproceso;
+                LogRecurrenciaInbound.ServicioAfectado = recurrenciainbound.ServicioAfectado;
+                LogRecurrenciaInbound.ArbolSoporte = recurrenciainbound.ArbolSoporte;
+                LogRecurrenciaInbound.FallaCausaRaiz = recurrenciainbound.FallaCausaRaiz;
+                LogRecurrenciaInbound.SolucionEspecifica = recurrenciainbound.SolucionEspecifica;
+                LogRecurrenciaInbound.Estado = recurrenciainbound.Estado;
+                LogRecurrenciaInbound.FallaAtribuibleA = recurrenciainbound.FallaAtribuibleA;
+                LogRecurrenciaInbound.PorQue = recurrenciainbound.PorQue;
+                LogRecurrenciaInbound.ActivacionClaroVideoNagra = recurrenciainbound.ActivacionClaroVideoNagra;
+                LogRecurrenciaInbound.ServicioOfrecido = recurrenciainbound.ServicioOfrecido;
+                LogRecurrenciaInbound.AceptacionServicioOfrecido = recurrenciainbound.AceptacionServicioOfrecido;
+                LogRecurrenciaInbound.Observaciones = recurrenciainbound.Observaciones;
+                unitWorkLog.GLogRecurrenciaInbound.Add(LogRecurrenciaInbound);
+                unitWorkLog.Complete();
+                unitWorkLog.Dispose();
+
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+        }
+        public void ActualizarGRecurrenciaInbound(GPrincipalRecurrenciaInbound recurrenciainbound)
+        {
+            try
+            {
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                recurrenciainbound.FechaGestion = DateTime.Now;
+                GPrincipalRecurrenciaInbound GPRecurInboundActualizable = unitWork.GPrincipalRecurrenciaInbound.Find(c => c.CuentaCliente == recurrenciainbound.CuentaCliente).FirstOrDefault();
+
+                GPRecurInboundActualizable.FechaGestion = recurrenciainbound.FechaGestion;
+                GPRecurInboundActualizable.UsuarioGestion = recurrenciainbound.UsuarioGestion;
+                GPRecurInboundActualizable.NombreUsuarioGestion = recurrenciainbound.NombreUsuarioGestion;
+                GPRecurInboundActualizable.AliadoGestion = recurrenciainbound.AliadoGestion;
+                GPRecurInboundActualizable.CuentaCliente = recurrenciainbound.CuentaCliente;
+                GPRecurInboundActualizable.Macroproceso = recurrenciainbound.Macroproceso;
+                GPRecurInboundActualizable.ServicioAfectado = recurrenciainbound.ServicioAfectado;
+                GPRecurInboundActualizable.ArbolSoporte = recurrenciainbound.ArbolSoporte;
+                GPRecurInboundActualizable.FallaCausaRaiz = recurrenciainbound.FallaCausaRaiz;
+                GPRecurInboundActualizable.SolucionEspecifica = recurrenciainbound.SolucionEspecifica;
+                GPRecurInboundActualizable.Estado = recurrenciainbound.Estado;
+                GPRecurInboundActualizable.FallaAtribuibleA = recurrenciainbound.FallaAtribuibleA;
+                GPRecurInboundActualizable.PorQue = recurrenciainbound.PorQue;
+                GPRecurInboundActualizable.ActivacionClaroVideoNagra = recurrenciainbound.ActivacionClaroVideoNagra;
+                GPRecurInboundActualizable.ServicioOfrecido = recurrenciainbound.ServicioOfrecido;
+                GPRecurInboundActualizable.AceptacionServicioOfrecido = recurrenciainbound.AceptacionServicioOfrecido;
+                GPRecurInboundActualizable.Observaciones = recurrenciainbound.Observaciones;
+                unitWork.Complete();
+                unitWork.Dispose();
+
+                UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
+                GLogRecurrenciaInbound LogRecurrenciaInbound = new GLogRecurrenciaInbound();
+
+                LogRecurrenciaInbound.FechaGestion = recurrenciainbound.FechaGestion;
+                LogRecurrenciaInbound.UsuarioGestion = recurrenciainbound.UsuarioGestion;
+                LogRecurrenciaInbound.NombreUsuarioGestion = recurrenciainbound.NombreUsuarioGestion;
+                LogRecurrenciaInbound.AliadoGestion = recurrenciainbound.AliadoGestion;
+                LogRecurrenciaInbound.CuentaCliente = recurrenciainbound.CuentaCliente;
+                LogRecurrenciaInbound.Macroproceso = recurrenciainbound.Macroproceso;
+                LogRecurrenciaInbound.ServicioAfectado = recurrenciainbound.ServicioAfectado;
+                LogRecurrenciaInbound.ArbolSoporte = recurrenciainbound.ArbolSoporte;
+                LogRecurrenciaInbound.FallaCausaRaiz = recurrenciainbound.FallaCausaRaiz;
+                LogRecurrenciaInbound.SolucionEspecifica = recurrenciainbound.SolucionEspecifica;
+                LogRecurrenciaInbound.Estado = recurrenciainbound.Estado;
+                LogRecurrenciaInbound.FallaAtribuibleA = recurrenciainbound.FallaAtribuibleA;
+                LogRecurrenciaInbound.PorQue = recurrenciainbound.PorQue;
+                LogRecurrenciaInbound.ActivacionClaroVideoNagra = recurrenciainbound.ActivacionClaroVideoNagra;
+                LogRecurrenciaInbound.ServicioOfrecido = recurrenciainbound.ServicioOfrecido;
+                LogRecurrenciaInbound.AceptacionServicioOfrecido = recurrenciainbound.AceptacionServicioOfrecido;
+                LogRecurrenciaInbound.Observaciones = recurrenciainbound.Observaciones;
+                unitWorkLog.GLogRecurrenciaInbound.Add(LogRecurrenciaInbound);
+                unitWorkLog.Complete();
+                unitWorkLog.Dispose();
+
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+        }
     }
 }
     

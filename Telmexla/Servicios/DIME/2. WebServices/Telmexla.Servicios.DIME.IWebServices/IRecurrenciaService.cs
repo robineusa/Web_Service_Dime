@@ -53,6 +53,12 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<GLogRecurrencia> ListaHistorialSeguimientosRecurrencia(decimal CuentaCliente);
-        
+
+        [OperationContract]
+        void InsertarGRecurrenciaInbound(GPrincipalRecurrenciaInbound recurrenciainbound);
+
+        [OperationContract]
+        void ActualizarGRecurrenciaInbound(GPrincipalRecurrenciaInbound recurrenciainbound);
+
     }
 }

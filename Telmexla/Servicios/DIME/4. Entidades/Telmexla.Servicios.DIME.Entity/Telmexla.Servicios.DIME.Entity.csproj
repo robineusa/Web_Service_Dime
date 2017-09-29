@@ -128,7 +128,9 @@
     <Compile Include="FidelizacionTipificacion.cs" />
     <Compile Include="GestionFoxInbound.cs" />
     <Compile Include="GLogRecurrencia.cs" />
+    <Compile Include="GLogRecurrenciaInbound.cs" />
     <Compile Include="GPrincipalRecurrencia.cs" />
+    <Compile Include="GPrincipalRecurrenciaInbound.cs" />
     <Compile Include="MaestroFallaCausaRaiz.cs" />
     <Compile Include="MaestroFallaEspecifica.cs" />
     <Compile Include="MaestroOpcionesRecurrencia.cs" />
