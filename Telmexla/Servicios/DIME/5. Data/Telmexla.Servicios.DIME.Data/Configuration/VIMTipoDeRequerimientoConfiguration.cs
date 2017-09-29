@@ -9,7 +9,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
         public VIMTipoDeRequerimientoConfiguration() : this("dbo") { }
         public VIMTipoDeRequerimientoConfiguration(string schema)
         {
-            ToTable("", schema);
+            ToTable("TBL_VIM_TIPO_DE_REQUERIMIENTO", schema);
             HasKey(x => new { x.Id });
 
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
