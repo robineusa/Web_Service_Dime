@@ -91,6 +91,7 @@
     <Compile Include="RecurrenciaService.cs" />
     <Compile Include="TrasladosService.cs" />
     <Compile Include="UsabilidadService.cs" />
+    <Compile Include="VerificacionDeInventarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\3. Business\Telmexla.Servicios.DIME.Business\Telmexla.Servicios.DIME.Business.csproj">

@@ -91,6 +91,7 @@
     <Compile Include="DatoConsultaGestion.cs" />
     <Compile Include="UsabilidadBusiness.cs" />
     <Compile Include="UsuariosMasivoData.cs" />
+    <Compile Include="VerificacionDeInventarioBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
