@@ -15,5 +15,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         decimal ReistrarSolicitud(VIPSolicitudes Solicitud);
         [OperationContract]
         void ActualizarSolicitud(VIPSolicitudes Solicitud);
+        [OperationContract]
+        List<VIMTipoDeRequerimiento> ListaTiposDeRequerimientos();
     }
 }

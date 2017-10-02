@@ -14,6 +14,12 @@ namespace Telmexla.Servicios.DIME.Business
     public class VerificacionDeInventarioBusiness
     {
         public decimal ReistrarSolicitud(VIPSolicitudes Solicitud) {
+            //trae la informacion de los procesos y las listas seleccionadas
+            UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
+            Solicitud.TipoDeRequerimiento = UnitOfWorkProceso.VIMTipoDeRequerimiento.Get(Convert.ToInt32(Solicitud.TipoDeRequerimiento)).TipoDeRequerimiento;
+            UnitOfWorkProceso.Complete();
+            UnitOfWorkProceso.Dispose();
+
             //REGISTRA SOLICITUD PRINCIPAL
             UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
             DateTime Fecha = DateTime.Now;
@@ -48,12 +54,22 @@ namespace Telmexla.Servicios.DIME.Business
             LogSolicitud.Observaciones = Solicitud.Observaciones;
             LogSolicitud.UsuarioGestionando = 0;
 
+            UnitOfWorkLog.VILSolicitudes.Add(LogSolicitud);
             UnitOfWorkLog.Complete();
             UnitOfWorkLog.Dispose();
             return Solicitud.IdSolicitud;
         }
         public void ActualizarSolicitud(VIPSolicitudes Solicitud)
         {
+            //trae la informacion de los procesos y las listas seleccionadas
+            UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
+            Solicitud.TipoDeRequerimiento = UnitOfWorkProceso.VIMTipoDeRequerimiento.Get(Convert.ToInt32(Solicitud.TipoDeRequerimiento)).TipoDeRequerimiento;
+            Solicitud.Gestion = UnitOfWorkProceso.VIMGestion.Get(Convert.ToInt32(Solicitud.Gestion)).Gestion;
+            Solicitud.Subrazon = UnitOfWorkProceso.VIMSubrazon.Get(Convert.ToInt32(Solicitud.Subrazon)).Subrazon;
+            Solicitud.AliadoTecnico = UnitOfWorkProceso.VIMAliadoTecnico.Get(Convert.ToInt32(Solicitud.AliadoTecnico)).AliadoTecnico;
+            UnitOfWorkProceso.Complete();
+            UnitOfWorkProceso.Dispose();
+
             //consulta solicitud para actualizar
             UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
             VIPSolicitudes SolicitudActualizable = UnitOfWork.VIPSolicitudes.Find(x => x.IdSolicitud == Solicitud.IdSolicitud).FirstOrDefault();
@@ -97,6 +113,30 @@ namespace Telmexla.Servicios.DIME.Business
 
             UnitOfWorkLog.Complete();
             UnitOfWorkLog.Dispose();
+        }
+        public List<VIMTipoDeRequerimiento> ListaTiposDeRequerimientos()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VIMTipoDeRequerimiento> result = new List<VIMTipoDeRequerimiento>();
+            var objetosResult = (from a in dimContext.VIMTipoDeRequerimiento
+                                 where a.Estado.Equals("ACTIVO")
+                                 orderby a.TipoDeRequerimiento ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.TipoDeRequerimiento
+
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VIMTipoDeRequerimiento());
+                result[i].Id = objetosResult[i].Id;
+                result[i].TipoDeRequerimiento = objetosResult[i].TipoDeRequerimiento;
+
+            }
+            return result;
         }
     }
 }

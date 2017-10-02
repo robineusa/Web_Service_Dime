@@ -21,5 +21,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
             VerificacionInventarioBusiness.ActualizarSolicitud(Solicitud);
         }
-   }
+        public List<VIMTipoDeRequerimiento> ListaTiposDeRequerimientos()
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ListaTiposDeRequerimientos();
+        }
+        }
 }
