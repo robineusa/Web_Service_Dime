@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService,IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService,ITrasladosService,IMaestroNodoService,IActivacionClaroVideoService,IActivacionSiembraHDService,IBalanceScoreCardService, IGraficosService,IUsabilidadService, IDistribucionBlendingService, IMultiPlayService,IMecService , ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService,IVerificacionDeInventarioService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService
     {
 
 
@@ -52,13 +52,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public bool RegistrarActualizarPreguntas(List<PreguntasDesbloqueo> preguntas, List<string> respuestas, Usuario usuario, int noPreguntas)
         {
             LoginService lService = new LoginService();
-            return lService.RegistrarActualizarPreguntas(preguntas,respuestas, usuario, noPreguntas);
+            return lService.RegistrarActualizarPreguntas(preguntas, respuestas, usuario, noPreguntas);
         }
 
         public bool BloquearUsuario(int id, int idUsuarioCambioo, string ipPrivadaCreacion, string ipPublicaCreacion)
         {
             LoginService lService = new LoginService();
-            return lService.BloquearUsuario(id,idUsuarioCambioo, ipPrivadaCreacion, ipPublicaCreacion);
+            return lService.BloquearUsuario(id, idUsuarioCambioo, ipPrivadaCreacion, ipPublicaCreacion);
         }
 
         public List<String> ObtenerPreguntasRegistradas(int id)
@@ -84,7 +84,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
 
         public bool PreguntasDesbloqueoCompletas(int id)
-        {   LoginService lService = new LoginService();
+        { LoginService lService = new LoginService();
             return lService.PreguntasDesbloqueoCompletas(id);
         }
 
@@ -118,7 +118,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return lService.RegistrarActualizarDatosUsuario(usuario);
 
         }
-        public  bool RegistrarSesionUsuario(RegistroSesion registroSesion)
+        public bool RegistrarSesionUsuario(RegistroSesion registroSesion)
         {
             LoginService lService = new LoginService();
             return lService.RegistrarSesionUsuario(registroSesion);
@@ -165,7 +165,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public string LineaDeUsuario(int idUsuario)
         {
             LoginService lService = new LoginService();
-           return  lService.LineaDeUsuario(idUsuario);
+            return lService.LineaDeUsuario(idUsuario);
         }
 
         public int IdLineaDeUsuario(int idUsuario)
@@ -177,7 +177,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public string PerfilDeUsuario(int idUsuario)
         {
             LoginService lService = new LoginService();
-           return  lService.PerfilDeUsuario(idUsuario);
+            return lService.PerfilDeUsuario(idUsuario);
         }
 
         public int IdPerfilDeUsuario(int idUsuario)
@@ -196,26 +196,26 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void ActualizarAccesosUsuario(int idUsuario, int idPerfil, int idLinea, string[] permisosOtorgados, string contraseña, string usuarioCambioo)
         {
             LoginService lService = new LoginService();
-            lService.ActualizarAccesosUsuario( idUsuario,  idPerfil,  idLinea,  permisosOtorgados,  contraseña,  usuarioCambioo);
+            lService.ActualizarAccesosUsuario(idUsuario, idPerfil, idLinea, permisosOtorgados, contraseña, usuarioCambioo);
         }
 
         public void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo)
         {
             LoginService lService = new LoginService();
-            lService.ActualizarAccesosUsuarioMasivo(listaUsuariosCambiados,  idLinea,  listaPermisos,  idUsuarioCambioo);
+            lService.ActualizarAccesosUsuarioMasivo(listaUsuariosCambiados, idLinea, listaPermisos, idUsuarioCambioo);
         }
 
 
         public List<UsuariosMasivoData> ListaDatosUsuariosHolosPorCedulas(List<string> cedulas)
         {
             LoginService lService = new LoginService();
-           return  lService.ListaDatosUsuariosHolosPorCedulas(cedulas);
+            return lService.ListaDatosUsuariosHolosPorCedulas(cedulas);
         }
 
         public void GuardarUsuariosMasivosConAccesos(List<string> cedulas, List<string> accesosCrear, int perfilCrear, int lineaCrear, string contraMasiva, int idUsuario)
         {
             LoginService lService = new LoginService();
-            lService.GuardarUsuariosMasivosConAccesos(cedulas,  accesosCrear,  perfilCrear,  lineaCrear,  contraMasiva,  idUsuario);
+            lService.GuardarUsuariosMasivosConAccesos(cedulas, accesosCrear, perfilCrear, lineaCrear, contraMasiva, idUsuario);
         }
 
 
@@ -313,7 +313,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void RegistrarIngresoInbound(ClientesTodo infoCliente, Ingreso ingreso, string observacion, IngresosSoporte ingresoSoporte)
         {
             InboundService inboundService = new InboundService();
-             inboundService.RegistrarIngresoInbound(infoCliente, ingreso, observacion, ingresoSoporte);
+            inboundService.RegistrarIngresoInbound(infoCliente, ingreso, observacion, ingresoSoporte);
         }
 
 
@@ -329,7 +329,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return inboundService.ListaHistorialCaso(idIngreso);
         }
 
-        public void  ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente, IngresosSoporte ingresoSoporte)
+        public void ActualizarIngresoInbound(Ingreso ingreso, string observacion, string llamadaCliente, IngresosSoporte ingresoSoporte)
         {
             InboundService inboundService = new InboundService();
             inboundService.ActualizarIngresoInbound(ingreso, observacion, llamadaCliente, ingresoSoporte);
@@ -374,13 +374,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
 
         public MaestroOutboundCierreCollection ObtenerTiposDeCierresDeContacto(decimal contactoId)
-         {
+        {
             MaestrosService maestrosService = new MaestrosService();
             return maestrosService.ObtenerTiposDeCierresDeContacto(contactoId);
-         }
+        }
 
         public MaestroOutboundRazonCollection ObtenerTiposDeRazonDeCierres(decimal cierreId)
-        {   MaestrosService maestrosService = new MaestrosService();
+        { MaestrosService maestrosService = new MaestrosService();
             return maestrosService.ObtenerTiposDeRazonDeCierres(cierreId);
         }
 
@@ -615,7 +615,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public MaestroMarcacioneCollection ObtenerMarcacionesPorPalabra(string palabra)
         {
             MarcacionesService marcacionesService = new MarcacionesService();
-           return  marcacionesService.ObtenerMarcacionesPorPalabra(palabra);
+            return marcacionesService.ObtenerMarcacionesPorPalabra(palabra);
         }
 
 
@@ -766,10 +766,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
 
 
-       public  List<RazonIngresoSoporte> ListaRazonesSoporteIngresos()
+        public List<RazonIngresoSoporte> ListaRazonesSoporteIngresos()
         {
             CasosCelulaService casosCelulaService = new CasosCelulaService();
-           return  casosCelulaService.ListaRazonesSoporteIngresos();
+            return casosCelulaService.ListaRazonesSoporteIngresos();
         }
 
 
@@ -834,7 +834,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void ActualizarIngresoPorAdmin(Ingreso ingreso, string notas, string cambioHecho)
         {
             CasosAdminService casosAdminService = new CasosAdminService();
-             casosAdminService.ActualizarIngresoPorAdmin(ingreso,notas, cambioHecho);
+            casosAdminService.ActualizarIngresoPorAdmin(ingreso, notas, cambioHecho);
         }
         #endregion CasosAdminService
 
@@ -842,12 +842,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void RegistrarIngresoTraslado(IngresoTraslado ingreso, NotasTraslado notaTraslado, TraficoTraslado transaccion)
         {
             TrasladosService trasladosService = new TrasladosService();
-            trasladosService.RegistrarIngresoTraslado(ingreso,notaTraslado,transaccion);
+            trasladosService.RegistrarIngresoTraslado(ingreso, notaTraslado, transaccion);
         }
         public bool ExisteCuentaEscalada(decimal cuenta)
         {
             TrasladosService trasladosService = new TrasladosService();
-            return   trasladosService.ExisteCuentaEscalada(cuenta);
+            return trasladosService.ExisteCuentaEscalada(cuenta);
         }
         public List<DatoConsultaDirecciones> ListaSolicitudesCrearDireccion(string Usuario)
         {
@@ -862,7 +862,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void ActualizarSolicitudCrearDireccion(IngresoTraslado ingreso, NotasTraslado notaTraslado, TraficoTraslado transaccion)
         {
             TrasladosService trasladosService = new TrasladosService();
-            trasladosService.ActualizarSolicitudCrearDireccion(ingreso, notaTraslado,transaccion);
+            trasladosService.ActualizarSolicitudCrearDireccion(ingreso, notaTraslado, transaccion);
         }
         public bool TransaccionEnGestion(int id, String usrABackOffice)
         {
@@ -898,7 +898,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void InsertIngresoCambioEstrato(IngresoTraslado ingreso, CambioEstrato cambioEstrato, TraficoTraslado transaccion)
         {
             TrasladosService trasladosService = new TrasladosService();
-            trasladosService.InsertIngresoCambioEstrato(ingreso, cambioEstrato,transaccion);
+            trasladosService.InsertIngresoCambioEstrato(ingreso, cambioEstrato, transaccion);
         }
         public bool ExisteCuentaEscaladaCambioEstrato(decimal cuenta)
         {
@@ -918,7 +918,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void ActualizarSolicitudCambioEstrato(IngresoTraslado ingreso, CambioEstrato CambioEstrato, TraficoTraslado transaccion)
         {
             TrasladosService trasladosService = new TrasladosService();
-            trasladosService.ActualizarSolicitudCambioEstrato(ingreso, CambioEstrato,transaccion);
+            trasladosService.ActualizarSolicitudCambioEstrato(ingreso, CambioEstrato, transaccion);
         }
         public bool TransaccionEnGestionCambioEstrato(int id, String usrABackOffice)
         {
@@ -1166,14 +1166,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public SmoRentaActual RentaActualPorCuentaCalRentas(string cuenta)
         {
             ActivacionSiembraHDService activacionService = new ActivacionSiembraHDService();
-           return  activacionService.RentaActualPorCuentaCalRentas(cuenta);
+            return activacionService.RentaActualPorCuentaCalRentas(cuenta);
 
         }
 
         public SmoTarifaActual TarifaActualDeDatos(string estrato, string voz, string tv, string internet)
         {
             ActivacionSiembraHDService activacionService = new ActivacionSiembraHDService();
-            return activacionService.TarifaActualDeDatos(estrato,voz,tv,internet);
+            return activacionService.TarifaActualDeDatos(estrato, voz, tv, internet);
 
         }
         public void InsertarMejorasTecnicasInbound(MejorasTecnicas Mejoras)
@@ -1250,7 +1250,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public ClientesTodo TraerInformacionCuentaBlending(int idAsesor, string formulario, string aliado, string operacion, string campana)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
-            return distribucionesBlendingService.TraerInformacionCuentaBlending(idAsesor,formulario,aliado,operacion,campana);
+            return distribucionesBlendingService.TraerInformacionCuentaBlending(idAsesor, formulario, aliado, operacion, campana);
 
         }
         public BlendingFueraNivel TraerInformacionCuentaFueraNiveles(decimal CuentaCliente)
@@ -1301,10 +1301,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
             return distribucionesBlendingService.TraeListaSeguimientosUsuarioFueraNiveles(Usuario);
         }
-        public ClientesTodo  AsignarIdCuentaDistribucionBlending(decimal CuentaCliente, string Formulario, string Aliado, string Operacion, string Campana, int Id)
+        public ClientesTodo AsignarIdCuentaDistribucionBlending(decimal CuentaCliente, string Formulario, string Aliado, string Operacion, string Campana, int Id)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
-            return distribucionesBlendingService.AsignarIdCuentaDistribucionBlending(CuentaCliente,Formulario,Aliado,Operacion,Campana,Id);
+            return distribucionesBlendingService.AsignarIdCuentaDistribucionBlending(CuentaCliente, Formulario, Aliado, Operacion, Campana, Id);
         }
         public GBPFueraNiveles TraerDatosCuentaSelectFueraNivel(decimal CuentaCliente)
         {
@@ -1325,7 +1325,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<GBPFueraNivelesCA> ConsultaAdminFueraNivelesP(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
-            return distribucionesBlendingService.ConsultaAdminFueraNivelesP(FechaInicial,FechaFinal);
+            return distribucionesBlendingService.ConsultaAdminFueraNivelesP(FechaInicial, FechaFinal);
         }
         public List<GBLFueraNivelesCA> ConsultaAdminFueraNivelesL(DateTime FechaInicial, DateTime FechaFinal)
         {
@@ -1387,7 +1387,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<GBPRentabilizacionCA> ConsultaAdminRentabilizacionP(DateTime FechaInicial, DateTime FechaFinal)
         {
             DistribucionBlendingService distribucionesBlendingService = new DistribucionBlendingService();
-            return distribucionesBlendingService.ConsultaAdminRentabilizacionP(FechaInicial,FechaFinal);
+            return distribucionesBlendingService.ConsultaAdminRentabilizacionP(FechaInicial, FechaFinal);
         }
         public List<GBLRentabilizacionCA> ConsultaAdminRentabilizacionL(DateTime FechaInicial, DateTime FechaFinal)
         {
@@ -1735,13 +1735,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public long IngresarGestionResidencialPredictivo(CcGestionResidencialPredictivo gestionResdPred)
         {
             CierreCicloService cierreCicloServ = new CierreCicloService();
-          return  cierreCicloServ.IngresarGestionResidencialPredictivo(gestionResdPred);
+            return cierreCicloServ.IngresarGestionResidencialPredictivo(gestionResdPred);
         }
 
         public void IngresarSegundaTipificacion(CcSegundaTipificacion segundaTipifi)
         {
             CierreCicloService cierreCicloServ = new CierreCicloService();
-             cierreCicloServ.IngresarSegundaTipificacion(segundaTipifi);
+            cierreCicloServ.IngresarSegundaTipificacion(segundaTipifi);
         }
         #endregion
 
@@ -1796,7 +1796,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public BEPSolicitudes ApartarCuentadeSolcitudBackElita(decimal Cedula, int noRecursividad)
         {
             BackEliteService backeliteservice = new BackEliteService();
-            return backeliteservice.ApartarCuentadeSolcitudBackElita(Cedula,noRecursividad);
+            return backeliteservice.ApartarCuentadeSolcitudBackElita(Cedula, noRecursividad);
         }
         public NodosZonificados TraerNodoPorId(string idNodo)
         {
@@ -1821,7 +1821,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<BELSolicitudes> ConsultadeGestionAgente(string Usuario, DateTime FechaInicial, DateTime FechaFinal)
         {
             BackEliteService backeliteservice = new BackEliteService();
-            return backeliteservice.ConsultadeGestionAgente(Usuario,FechaInicial,FechaFinal);
+            return backeliteservice.ConsultadeGestionAgente(Usuario, FechaInicial, FechaFinal);
         }
         public List<BELSolicitudes> ConsultaSolicitudesAdminLog(DateTime FechaInicial, DateTime FechaFinal) {
             BackEliteService backeliteservice = new BackEliteService();
@@ -1844,7 +1844,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void EliminarUsuarioDistribucion(decimal Cedula, string Proceso)
         {
             BackEliteService backeliteservice = new BackEliteService();
-            backeliteservice.EliminarUsuarioDistribucion(Cedula,Proceso);
+            backeliteservice.EliminarUsuarioDistribucion(Cedula, Proceso);
 
         }
         public List<BEMDistribuciones> ListaDistribucionPorIdCedula(decimal Cedula)
@@ -1870,12 +1870,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<BEPSolicitudes> ListaCasosEnGestionPorBack(decimal Cedula)
         {
             BackEliteService backeliteservice = new BackEliteService();
-           return backeliteservice.ListaCasosEnGestionPorBack(Cedula);
+            return backeliteservice.ListaCasosEnGestionPorBack(Cedula);
         }
         public void ReasignarGestionBack(List<string> Solicitudes, decimal UsuarioNuevo)
         {
             BackEliteService backeliteservice = new BackEliteService();
-            backeliteservice.ReasignarGestionBack(Solicitudes,UsuarioNuevo);
+            backeliteservice.ReasignarGestionBack(Solicitudes, UsuarioNuevo);
         }
         public List<Usuario> ListaDeUsuariosBackElite()
         {
@@ -1983,7 +1983,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void RegistrarOperacionesPorIncidente(List<string> Operaciones, decimal IdRegistro)
         {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
-            BitacoraService.RegistrarOperacionesPorIncidente(Operaciones,IdRegistro);
+            BitacoraService.RegistrarOperacionesPorIncidente(Operaciones, IdRegistro);
         }
         public void EliminarIncidenteOperacion(decimal Id)
         {
@@ -2140,7 +2140,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public bool TransaccionIncidenteEnGestion(string Cedula, decimal IdRegistro)
         {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
-            return BitacoraService.TransaccionIncidenteEnGestion(Cedula,IdRegistro);
+            return BitacoraService.TransaccionIncidenteEnGestion(Cedula, IdRegistro);
         }
         public BIMHerramientas HerramientasPorId(int Id)
         {
@@ -2211,7 +2211,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<BIPBitacoraIncidentes> ConsultaPrincipalIncidentes(DateTime FechaInicial, DateTime FechaFinal)
         {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
-            return BitacoraService.ConsultaPrincipalIncidentes(FechaInicial,FechaFinal);
+            return BitacoraService.ConsultaPrincipalIncidentes(FechaInicial, FechaFinal);
         }
         public List<BILBitacoraIncidentes> ConsultaLogIncidentes(DateTime FechaInicial, DateTime FechaFinal)
         {
@@ -2239,7 +2239,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<POMSolicitudes> ListaSolicitudesPom(DateTime FechaInicial, DateTime FechaFinal)
         {
             POMSolicitudesService PomService = new POMSolicitudesService();
-            return PomService.ListaSolicitudesPom(FechaInicial,FechaFinal);
+            return PomService.ListaSolicitudesPom(FechaInicial, FechaFinal);
         }
         #endregion
 
@@ -2255,7 +2255,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return FildelizacionServicio.getMaestroServiciosById(codServicio);
 
         }
-        
+
         public void setMotivosCancelacion(FidelizacionMotivosCancelacion MotivoCancelacion)
         {
 
@@ -2337,6 +2337,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             VerificacionInventarioService.ActualizarSolicitud(Solicitud);
+        }
+        public List<VIMTipoDeRequerimiento> ListaTiposDeRequerimientos()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaTiposDeRequerimientos();
         }
         #endregion
     }

@@ -48,6 +48,7 @@ namespace Telmexla.Servicios.DIME.Business
             LogSolicitud.Observaciones = Solicitud.Observaciones;
             LogSolicitud.UsuarioGestionando = 0;
 
+            UnitOfWorkLog.VILSolicitudes.Add(LogSolicitud);
             UnitOfWorkLog.Complete();
             UnitOfWorkLog.Dispose();
             return Solicitud.IdSolicitud;
@@ -97,6 +98,30 @@ namespace Telmexla.Servicios.DIME.Business
 
             UnitOfWorkLog.Complete();
             UnitOfWorkLog.Dispose();
+        }
+        public List<VIMTipoDeRequerimiento> ListaTiposDeRequerimientos()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VIMTipoDeRequerimiento> result = new List<VIMTipoDeRequerimiento>();
+            var objetosResult = (from a in dimContext.VIMTipoDeRequerimiento
+                                 where a.Estado.Equals("ACTIVO")
+                                 orderby a.TipoDeRequerimiento ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.TipoDeRequerimiento
+
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VIMTipoDeRequerimiento());
+                result[i].Id = objetosResult[i].Id;
+                result[i].TipoDeRequerimiento = objetosResult[i].TipoDeRequerimiento;
+
+            }
+            return result;
         }
     }
 }
