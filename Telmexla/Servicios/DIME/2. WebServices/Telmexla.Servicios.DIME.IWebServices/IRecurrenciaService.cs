@@ -60,5 +60,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void ActualizarGRecurrenciaInbound(GPrincipalRecurrenciaInbound recurrenciainbound);
 
+        [OperationContract]
+        GPrincipalRecurrenciaInbound TraerGPrinRecurrenciaInbound(int CuentaCliente);
     }
 }

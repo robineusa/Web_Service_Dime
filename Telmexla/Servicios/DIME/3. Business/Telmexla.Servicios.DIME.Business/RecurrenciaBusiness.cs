@@ -923,6 +923,12 @@ namespace Telmexla.Servicios.DIME.Business
                 }
             }
         }
+
+        public GPrincipalRecurrenciaInbound TraerGPrinRecurrenciaInbound(int CuentaCliente)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            return unitOfWork.GPrincipalRecurrenciaInbound.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+        }
     }
 }
     
