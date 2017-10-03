@@ -62,5 +62,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         GPrincipalRecurrenciaInbound TraerGPrinRecurrenciaInbound(int CuentaCliente);
+
+        [OperationContract]
+        List<GPrincipalRecurrenciaInbound> ListaSeguimientosRecurrenciaInbound();
+
+        [OperationContract]
+        List<GLogRecurrenciaInbound> ListaHistSeguiRecurrenciaInbound(decimal CuentaCliente);
     }
 }

@@ -1972,9 +1972,19 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.TraerGPrinRecurrenciaInbound(CuentaCliente);
         }
+        public List<GPrincipalRecurrenciaInbound> ListaSeguimientosRecurrenciaInbound()
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ListaSeguimientosRecurrenciaInbound();
+        }
+        public List<GLogRecurrenciaInbound> ListaHistSeguiRecurrenciaInbound(decimal CuentaCliente)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ListaHistSeguiRecurrenciaInbound(CuentaCliente);
+        }
         #endregion
 
-        #region BitacoraIncidentes
+            #region BitacoraIncidentes
         public decimal RegistrarIncidente(BIPBitacoraIncidentes Bitacora)
         {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
