@@ -1035,6 +1035,42 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        public NodosZonificados AliadoTecnico(string Nodo)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            return unitOfWork.NodosZonificados.Find(c => c.Nodo == Nodo).FirstOrDefault();
+        }
+        public List<InventarioEquipos> InventarioEquiposCuenta(decimal CuentaCliente)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<InventarioEquipos> result = new List<InventarioEquipos>();
+            var objetosResult = (from a in dimContext.InventarioEquipos
+                                 where a.Cuenta == CuentaCliente
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.Cuenta,
+                                     a.Tipo,
+                                     a.FabEquipo,
+                                     a.SerieEquipo,
+                                     a.Estado,
+                                     a.Descripcion
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new InventarioEquipos());
+                result[i].Id = objetosResult[i].Id;
+                result[i].Cuenta = objetosResult[i].Cuenta;
+                result[i].Tipo = objetosResult[i].Tipo;
+                result[i].FabEquipo = objetosResult[i].FabEquipo;
+                result[i].SerieEquipo = objetosResult[i].SerieEquipo;
+                result[i].Estado = objetosResult[i].Estado;
+                result[i].Descripcion = objetosResult[i].Descripcion;
+            }
+            return result;
+        }
     }
 }
     

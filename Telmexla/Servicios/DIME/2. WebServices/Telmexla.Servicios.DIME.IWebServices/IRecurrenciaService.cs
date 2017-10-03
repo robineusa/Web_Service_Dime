@@ -68,5 +68,12 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<GLogRecurrenciaInbound> ListaHistSeguiRecurrenciaInbound(decimal CuentaCliente);
+
+        [OperationContract]
+        NodosZonificados AliadoTecnico(string Nodo);
+
+        [OperationContract]
+        List<InventarioEquipos> InventarioEquiposCuenta(decimal CuentaCliente);
+        
     }
 }

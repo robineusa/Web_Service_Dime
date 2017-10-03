@@ -137,6 +137,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<VIMAliadoTecnico> VIMAliadoTecnico { get; set; }
         System.Data.Entity.DbSet<GPrincipalRecurrenciaInbound> GPrincipalRecurrenciaInbound { get; set; }
         System.Data.Entity.DbSet<GLogRecurrenciaInbound> GLogRecurrenciaInbound { get; set; }
+        System.Data.Entity.DbSet<InventarioEquipos> InventarioEquipos { get; set; }
 
 
         int SaveChanges();

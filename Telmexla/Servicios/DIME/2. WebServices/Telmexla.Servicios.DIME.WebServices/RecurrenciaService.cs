@@ -110,5 +110,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
             return recurrenciaBusiness.ListaHistSeguiRecurrenciaInbound(CuentaCliente);
         }
+        public NodosZonificados AliadoTecnico(string Nodo)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.AliadoTecnico(Nodo);
+        }
+        public List<InventarioEquipos> InventarioEquiposCuenta(decimal CuentaCliente)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.InventarioEquiposCuenta(CuentaCliente);
+        }
     }
 }
