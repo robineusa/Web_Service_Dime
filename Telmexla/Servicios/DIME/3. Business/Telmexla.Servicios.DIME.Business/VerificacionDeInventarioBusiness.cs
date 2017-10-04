@@ -138,5 +138,48 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        public void RegistrarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos)
+        {
+            //consulta id de desplegables
+            UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
+            Equipos.TipoDeEquipo = UnitOfWorkProceso.VIMTipoDeEquipos.Get(Convert.ToInt32(Equipos.TipoDeEquipo)).TipoDeEquipo;
+            UnitOfWorkProceso.Complete();
+            UnitOfWorkProceso.Dispose();
+
+            //registra solicitud
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            UnitOfWork.VIPSolicitudesPorEquipo.Add(Equipos);
+            UnitOfWork.Complete();
+            UnitOfWork.Dispose();
+        }
+        public List<VIPSolicitudesPorEquipo> ListaDeEquiposPorSolicitud(decimal IdSolicitud)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VIPSolicitudesPorEquipo> result = new List<VIPSolicitudesPorEquipo>();
+            var objetosResult = (from a in dimContext.VIPSolicitudesPorEquipo
+                                 where a.IdSolicitud==IdSolicitud
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.IdSolicitud,
+                                     a.TipoDeEquipo,
+                                     a.Mac,
+                                     a.Tarjeta
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VIPSolicitudesPorEquipo());
+                result[i].Id = objetosResult[i].Id;
+                result[i].IdSolicitud = objetosResult[i].IdSolicitud;
+                result[i].TipoDeEquipo = objetosResult[i].TipoDeEquipo;
+                result[i].Mac = objetosResult[i].Mac;
+                result[i].Tarjeta = objetosResult[i].Tarjeta;
+
+            }
+            return result;
+        }
     }
 }

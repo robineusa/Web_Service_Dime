@@ -80,6 +80,7 @@ namespace Telmexla.Servicios.DIME.Business
             IncidenteActualizable.CantidadUsuariosAfectados = Bitacora.CantidadUsuariosAfectados;
             IncidenteActualizable.ComentariosDeCierre = Bitacora.ComentariosDeCierre;
             IncidenteActualizable.EstadoDelCaso = Bitacora.EstadoDelCaso;
+            IncidenteActualizable.UsuarioGestionando = 0;
 
             UnitOfWorkActualizar.Complete();
             UnitOfWorkActualizar.Dispose();
@@ -110,7 +111,7 @@ namespace Telmexla.Servicios.DIME.Business
             BitacoraLog.CantidadUsuariosAfectados = IncidenteActualizable.CantidadUsuariosAfectados;
             BitacoraLog.ComentariosDeCierre = IncidenteActualizable.ComentariosDeCierre;
             BitacoraLog.EstadoDelCaso = IncidenteActualizable.EstadoDelCaso;
-
+            
             unitWorklog.BILBitacoraIncidentes.Add(BitacoraLog);
             unitWorklog.Complete();
             unitWorklog.Dispose();
