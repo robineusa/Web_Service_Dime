@@ -36,6 +36,26 @@ namespace Telmexla.Servicios.DIME.WebServices
             VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
             return VerificacionInventarioBusiness.ListaDeEquiposPorSolicitud(IdSolicitud);
         }
+        public void EliminarEquiposPorSolicitud(decimal Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            VerificacionInventarioBusiness.EliminarEquiposPorSolicitud(Id);
+        }
+        public void ActualizarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            VerificacionInventarioBusiness.ActualizarEquiposPorSolicitud(Equipos);
+        }
+        public VIPSolicitudesPorEquipo TraeEquipoPorId(int Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.TraeEquipoPorId(Id);
+        }
+        public List<VIMTipoDeEquipos> ListaTipoDeEquipos()
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ListaTipoDeEquipos();
+        }
 
      }
 }
