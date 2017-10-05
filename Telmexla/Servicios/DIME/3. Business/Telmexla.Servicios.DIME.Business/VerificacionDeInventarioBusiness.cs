@@ -181,5 +181,66 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        public void EliminarEquiposPorSolicitud(decimal Id)
+        {
+
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            VIPSolicitudesPorEquipo RegistroEliminar = unitWork.VIPSolicitudesPorEquipo.Find(c => c.Id == Id).FirstOrDefault();
+
+            if (RegistroEliminar != null)
+            {
+                unitWork.VIPSolicitudesPorEquipo.Remove(RegistroEliminar);
+                unitWork.Complete();
+            }
+            else { }
+        }
+        public void ActualizarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos)
+        {
+            //consulta id de desplegables
+            UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
+            Equipos.TipoDeEquipo = UnitOfWorkProceso.VIMTipoDeEquipos.Get(Convert.ToInt32(Equipos.TipoDeEquipo)).TipoDeEquipo;
+            UnitOfWorkProceso.Complete();
+            UnitOfWorkProceso.Dispose();
+            
+            //registra solicitud
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            VIPSolicitudesPorEquipo EquipoActualizable = UnitOfWork.VIPSolicitudesPorEquipo.Find(x => x.Id == Equipos.Id).FirstOrDefault();
+            EquipoActualizable.Mac = Equipos.Mac;
+            EquipoActualizable.TipoDeEquipo = Equipos.TipoDeEquipo;
+            EquipoActualizable.Tarjeta = Equipos.Tarjeta;
+            UnitOfWork.Complete();
+            UnitOfWork.Dispose();
+        }
+        public VIPSolicitudesPorEquipo TraeEquipoPorId(int Id)
+        {
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            VIPSolicitudesPorEquipo EquipoExistente = UnitOfWork.VIPSolicitudesPorEquipo.Get(Id);
+            return EquipoExistente;
+        }
+        public List<VIMTipoDeEquipos> ListaTipoDeEquipos()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VIMTipoDeEquipos> result = new List<VIMTipoDeEquipos>();
+            var objetosResult = (from a in dimContext.VIMTipoDeEquipos
+                                 where a.Estado.Equals("ACTIVO")
+                                 orderby a.TipoDeEquipo ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.TipoDeEquipo
+
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VIMTipoDeEquipos());
+                result[i].Id = objetosResult[i].Id;
+                result[i].TipoDeEquipo = objetosResult[i].TipoDeEquipo;
+
+            }
+            return result;
+        }
+
     }
 }
