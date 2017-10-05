@@ -140,12 +140,6 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public void RegistrarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos)
         {
-            //consulta id de desplegables
-            UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
-            Equipos.TipoDeEquipo = UnitOfWorkProceso.VIMTipoDeEquipos.Get(Convert.ToInt32(Equipos.TipoDeEquipo)).TipoDeEquipo;
-            UnitOfWorkProceso.Complete();
-            UnitOfWorkProceso.Dispose();
-
             //registra solicitud
             UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
             UnitOfWork.VIPSolicitudesPorEquipo.Add(Equipos);
@@ -196,12 +190,6 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public void ActualizarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos)
         {
-            //consulta id de desplegables
-            UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
-            Equipos.TipoDeEquipo = UnitOfWorkProceso.VIMTipoDeEquipos.Get(Convert.ToInt32(Equipos.TipoDeEquipo)).TipoDeEquipo;
-            UnitOfWorkProceso.Complete();
-            UnitOfWorkProceso.Dispose();
-            
             //registra solicitud
             UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
             VIPSolicitudesPorEquipo EquipoActualizable = UnitOfWork.VIPSolicitudesPorEquipo.Find(x => x.Id == Equipos.Id).FirstOrDefault();
