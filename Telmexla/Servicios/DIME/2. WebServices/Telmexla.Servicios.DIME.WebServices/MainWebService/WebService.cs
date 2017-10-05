@@ -1992,6 +1992,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.InventarioEquiposCuenta(CuentaCliente);
         }
+        public List<GPrincipalRecurrenciaInbound> ConsultaAdminPrincipalRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ConsultaAdminPrincipalRecurrenciaInbound(FechaInicial, FechaFinal);
+        }
+        public List<GLogRecurrenciaInbound> ConsultaAdminLogRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ConsultaAdminLogRecurrenciaInbound(FechaInicial, FechaFinal);
+        }
         #endregion
 
         #region BitacoraIncidentes
