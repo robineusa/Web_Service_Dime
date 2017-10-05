@@ -74,6 +74,12 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<InventarioEquipos> InventarioEquiposCuenta(decimal CuentaCliente);
-        
+
+        [OperationContract]
+        List<GPrincipalRecurrenciaInbound> ConsultaAdminPrincipalRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal);
+
+        [OperationContract]
+        List<GLogRecurrenciaInbound> ConsultaAdminLogRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal);
+
     }
 }
