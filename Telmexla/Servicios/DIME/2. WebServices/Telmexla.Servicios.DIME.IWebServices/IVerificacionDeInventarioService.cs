@@ -29,5 +29,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         VIPSolicitudesPorEquipo TraeEquipoPorId(int Id);
         [OperationContract]
         List<VIMTipoDeEquipos> ListaTipoDeEquipos();
+        [OperationContract]
+        bool ExisteSolicitudEscalada(decimal CuentaCliente);
+        [OperationContract]
+        List<VIPSolicitudes> ConsultaSolicitudesPorCliente(decimal CuentaCliente);
+        [OperationContract]
+        List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal);
     }
 }

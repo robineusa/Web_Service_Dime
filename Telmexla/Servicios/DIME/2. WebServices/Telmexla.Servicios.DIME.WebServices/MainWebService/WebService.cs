@@ -2408,7 +2408,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             return VerificacionInventarioService.ListaTipoDeEquipos();
         }
-
+        public bool ExisteSolicitudEscalada(decimal CuentaCliente)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ExisteSolicitudEscalada(CuentaCliente);
+        }
+        public List<VIPSolicitudes> ConsultaSolicitudesPorCliente(decimal CuentaCliente)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ConsultaSolicitudesPorCliente(CuentaCliente);
+        }
+        public List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ConsultaSolicitudesPorFecha(FechaInicial,FechaFinal);
+        }
         #endregion
     }
 }

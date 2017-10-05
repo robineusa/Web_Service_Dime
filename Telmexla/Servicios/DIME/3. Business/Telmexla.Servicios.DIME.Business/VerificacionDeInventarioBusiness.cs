@@ -13,7 +13,8 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class VerificacionDeInventarioBusiness
     {
-        public decimal ReistrarSolicitud(VIPSolicitudes Solicitud) {
+        public decimal ReistrarSolicitud(VIPSolicitudes Solicitud)
+        {
             //trae la informacion de los procesos y las listas seleccionadas
             UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
             Solicitud.TipoDeRequerimiento = UnitOfWorkProceso.VIMTipoDeRequerimiento.Get(Convert.ToInt32(Solicitud.TipoDeRequerimiento)).TipoDeRequerimiento;
@@ -151,7 +152,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<VIPSolicitudesPorEquipo> result = new List<VIPSolicitudesPorEquipo>();
             var objetosResult = (from a in dimContext.VIPSolicitudesPorEquipo
-                                 where a.IdSolicitud==IdSolicitud
+                                 where a.IdSolicitud == IdSolicitud
                                  orderby a.Id ascending
                                  select new
                                  {
@@ -229,6 +230,128 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        public bool ExisteSolicitudEscalada(decimal CuentaCliente)
+        {
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            VIPSolicitudes Solicitud = UnitOfWork.VIPSolicitudes.Find(x => x.CuentaCliente == CuentaCliente && x.EstadoSolicitud != "FINALIZADO").FirstOrDefault();
+            if (Solicitud != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public List<VIPSolicitudes> ConsultaSolicitudesPorCliente(decimal CuentaCliente)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VIPSolicitudes> result = new List<VIPSolicitudes>();
+            var objetosResult = (from a in dimContext.VIPSolicitudes
+                                 where a.CuentaCliente == CuentaCliente
+                                 orderby a.IdSolicitud ascending
+                                 select new
+                                 {
+                                     a.IdSolicitud,
+                                     a.FechaSolicitud,
+                                     a.UsuarioSolicitud,
+                                     a.NombreUsuarioSolicitud,
+                                     a.AliadoSolicitud,
+                                     a.OperacionSolicitud,
+                                     a.FechaUltimaActualizacion,
+                                     a.UsuarioUltimaActualizacion,
+                                     a.NombreUsuarioUltimaActualizacion,
+                                     a.CuentaCliente,
+                                     a.TipoDeRequerimiento,
+                                     a.RequiereAjuste,
+                                     a.Nodo,
+                                     a.Gestion,
+                                     a.Subrazon,
+                                     a.EstadoSolicitud,
+                                     a.AliadoTecnico,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
 
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VIPSolicitudes());
+                result[i].IdSolicitud = objetosResult[i].IdSolicitud;
+                result[i].FechaSolicitud = objetosResult[i].FechaSolicitud;
+                result[i].UsuarioSolicitud = objetosResult[i].UsuarioSolicitud;
+                result[i].NombreUsuarioSolicitud = objetosResult[i].NombreUsuarioSolicitud;
+                result[i].AliadoSolicitud = objetosResult[i].AliadoSolicitud;
+                result[i].OperacionSolicitud = objetosResult[i].OperacionSolicitud;
+                result[i].FechaUltimaActualizacion = objetosResult[i].FechaUltimaActualizacion;
+                result[i].UsuarioUltimaActualizacion = objetosResult[i].UsuarioUltimaActualizacion;
+                result[i].NombreUsuarioUltimaActualizacion = objetosResult[i].NombreUsuarioUltimaActualizacion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoDeRequerimiento = objetosResult[i].TipoDeRequerimiento;
+                result[i].RequiereAjuste = objetosResult[i].RequiereAjuste;
+                result[i].Nodo = objetosResult[i].Nodo;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Subrazon = objetosResult[i].Subrazon;
+                result[i].EstadoSolicitud = objetosResult[i].EstadoSolicitud;
+                result[i].AliadoTecnico = objetosResult[i].AliadoTecnico;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VIPSolicitudes> result = new List<VIPSolicitudes>();
+            var objetosResult = (from a in dimContext.VIPSolicitudes
+                                 where a.FechaSolicitud >= FechaInicial && a.FechaSolicitud <= FechaFinal
+                                 orderby a.IdSolicitud ascending
+                                 select new
+                                 {
+                                     a.IdSolicitud,
+                                     a.FechaSolicitud,
+                                     a.UsuarioSolicitud,
+                                     a.NombreUsuarioSolicitud,
+                                     a.AliadoSolicitud,
+                                     a.OperacionSolicitud,
+                                     a.FechaUltimaActualizacion,
+                                     a.UsuarioUltimaActualizacion,
+                                     a.NombreUsuarioUltimaActualizacion,
+                                     a.CuentaCliente,
+                                     a.TipoDeRequerimiento,
+                                     a.RequiereAjuste,
+                                     a.Nodo,
+                                     a.Gestion,
+                                     a.Subrazon,
+                                     a.EstadoSolicitud,
+                                     a.AliadoTecnico,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VIPSolicitudes());
+                result[i].IdSolicitud = objetosResult[i].IdSolicitud;
+                result[i].FechaSolicitud = objetosResult[i].FechaSolicitud;
+                result[i].UsuarioSolicitud = objetosResult[i].UsuarioSolicitud;
+                result[i].NombreUsuarioSolicitud = objetosResult[i].NombreUsuarioSolicitud;
+                result[i].AliadoSolicitud = objetosResult[i].AliadoSolicitud;
+                result[i].OperacionSolicitud = objetosResult[i].OperacionSolicitud;
+                result[i].FechaUltimaActualizacion = objetosResult[i].FechaUltimaActualizacion;
+                result[i].UsuarioUltimaActualizacion = objetosResult[i].UsuarioUltimaActualizacion;
+                result[i].NombreUsuarioUltimaActualizacion = objetosResult[i].NombreUsuarioUltimaActualizacion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoDeRequerimiento = objetosResult[i].TipoDeRequerimiento;
+                result[i].RequiereAjuste = objetosResult[i].RequiereAjuste;
+                result[i].Nodo = objetosResult[i].Nodo;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Subrazon = objetosResult[i].Subrazon;
+                result[i].EstadoSolicitud = objetosResult[i].EstadoSolicitud;
+                result[i].AliadoTecnico = objetosResult[i].AliadoTecnico;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
     }
 }
