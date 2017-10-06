@@ -9,5 +9,6 @@ namespace Telmexla.Servicios.DIME.IData
 {
     public interface IVIPSolicitudesRepository: IRepository<VIPSolicitudes>
     {
+        bool ProcedimientoApartarCuentaVerificacionInventario(decimal Cedula);
     }
 }

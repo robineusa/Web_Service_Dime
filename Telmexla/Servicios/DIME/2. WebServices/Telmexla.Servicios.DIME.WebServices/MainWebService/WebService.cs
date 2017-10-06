@@ -2423,6 +2423,18 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             return VerificacionInventarioService.ConsultaSolicitudesPorFecha(FechaInicial,FechaFinal);
         }
+        public VIPSolicitudes ApartarCuentaVerificacionInventario(decimal Cedula, int noRecursividad)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ApartarCuentaVerificacionInventario(Cedula,noRecursividad);
+        }
+        public VIPSolicitudes ConsultarSolicitudPorIdInventario(decimal Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ConsultarSolicitudPorIdInventario(Id);
+        }
+        
+
         #endregion
     }
 }

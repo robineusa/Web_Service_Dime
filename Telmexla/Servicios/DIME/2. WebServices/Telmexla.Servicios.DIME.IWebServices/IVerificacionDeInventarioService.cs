@@ -35,5 +35,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<VIPSolicitudes> ConsultaSolicitudesPorCliente(decimal CuentaCliente);
         [OperationContract]
         List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        VIPSolicitudes ApartarCuentaVerificacionInventario(decimal Cedula, int noRecursividad);
+        [OperationContract]
+        VIPSolicitudes ConsultarSolicitudPorIdInventario(decimal Id);
     }
 }

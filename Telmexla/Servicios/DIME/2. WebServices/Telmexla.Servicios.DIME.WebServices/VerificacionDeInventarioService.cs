@@ -72,6 +72,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
             return VerificacionInventarioBusiness.ConsultaSolicitudesPorFecha(FechaInicial,FechaFinal);
         }
-
+        public VIPSolicitudes ApartarCuentaVerificacionInventario(decimal Cedula, int noRecursividad)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ApartarCuentaVerificacionInventario(Cedula,noRecursividad);
+        }
+        public VIPSolicitudes ConsultarSolicitudPorIdInventario(decimal Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ConsultarSolicitudPorIdInventario(Id);
+        }
      }
 }
