@@ -140,6 +140,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<VIMAliadoTecnico> VIMAliadoTecnico { get; set; }
         public System.Data.Entity.DbSet<GPrincipalRecurrenciaInbound> GPrincipalRecurrenciaInbound { get; set; }
         public System.Data.Entity.DbSet<GLogRecurrenciaInbound> GLogRecurrenciaInbound { get; set; }
+        public System.Data.Entity.DbSet<InventarioEquipos> InventarioEquipos { get; set; }
 
 
         static DimeContext()
@@ -313,6 +314,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new VIMAliadoTecnicoConfiguration());
             modelBuilder.Configurations.Add(new GPrincipalRecurrenciaInboundConfiguration());
             modelBuilder.Configurations.Add(new GLogRecurrenciaInboundConfiguration());
+            modelBuilder.Configurations.Add(new InventarioEquiposConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -438,6 +440,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new VIMAliadoTecnicoConfiguration(schema));
             modelBuilder.Configurations.Add(new GPrincipalRecurrenciaInboundConfiguration(schema));
             modelBuilder.Configurations.Add(new GLogRecurrenciaInboundConfiguration(schema));
+            modelBuilder.Configurations.Add(new InventarioEquiposConfiguration(schema));
 
             return modelBuilder;
         }
@@ -949,6 +952,18 @@ namespace Telmexla.Servicios.DIME.Data.Context
             var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
 
             Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Apartar_Cuenta_Back_Elite] @Usuario", cedulaParam, procResultParam);
+
+            return (int)procResultParam.Value;
+        }
+        public int ApartarCuentaInventario(decimal Cedula)
+        {
+            var cedulaParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario", SqlDbType = System.Data.SqlDbType.Decimal, Direction = System.Data.ParameterDirection.Input, Value = Cedula, Precision = 18, Scale = 0 };
+            if (cedulaParam.Value == null)
+                cedulaParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Apartar_Cuenta_Inventario] @Usuario", cedulaParam, procResultParam);
 
             return (int)procResultParam.Value;
         }

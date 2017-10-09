@@ -62,5 +62,24 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         GPrincipalRecurrenciaInbound TraerGPrinRecurrenciaInbound(int CuentaCliente);
+
+        [OperationContract]
+        List<GPrincipalRecurrenciaInbound> ListaSeguimientosRecurrenciaInbound();
+
+        [OperationContract]
+        List<GLogRecurrenciaInbound> ListaHistSeguiRecurrenciaInbound(decimal CuentaCliente);
+
+        [OperationContract]
+        NodosZonificados AliadoTecnico(string Nodo);
+
+        [OperationContract]
+        List<InventarioEquipos> InventarioEquiposCuenta(decimal CuentaCliente);
+
+        [OperationContract]
+        List<GPrincipalRecurrenciaInbound> ConsultaAdminPrincipalRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal);
+
+        [OperationContract]
+        List<GLogRecurrenciaInbound> ConsultaAdminLogRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal);
+
     }
 }

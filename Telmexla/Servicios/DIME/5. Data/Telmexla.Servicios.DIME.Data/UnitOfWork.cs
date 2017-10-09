@@ -120,6 +120,7 @@ namespace Telmexla.Servicios.DIME.Data
             VIMAliadoTecnico = new VIMAliadoTecnicoRepository(this.dimeContext);
             GPrincipalRecurrenciaInbound = new GPrincipalRecurrenciaInboundRepository(this.dimeContext);
             GLogRecurrenciaInbound = new GLogRecurrenciaInboundRepository(this.dimeContext);
+            InventarioEquipos = new InventarioEquiposRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -554,6 +555,11 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
+        public IInventarioEquiposRepository InventarioEquipos
+        {
+            get; private set;
+        }
+        
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

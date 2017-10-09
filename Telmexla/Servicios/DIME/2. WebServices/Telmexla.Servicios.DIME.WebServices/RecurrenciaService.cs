@@ -100,5 +100,35 @@ namespace Telmexla.Servicios.DIME.WebServices
             RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
             return recurrenciaBusiness.TraerGPrinRecurrenciaInbound(CuentaCliente);
         }
+        public List<GPrincipalRecurrenciaInbound> ListaSeguimientosRecurrenciaInbound()
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.ListaSeguimientosRecurrenciaInbound();
+        }
+        public List<GLogRecurrenciaInbound> ListaHistSeguiRecurrenciaInbound(decimal CuentaCliente)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.ListaHistSeguiRecurrenciaInbound(CuentaCliente);
+        }
+        public NodosZonificados AliadoTecnico(string Nodo)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.AliadoTecnico(Nodo);
+        }
+        public List<InventarioEquipos> InventarioEquiposCuenta(decimal CuentaCliente)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.InventarioEquiposCuenta(CuentaCliente);
+        }
+        public List<GPrincipalRecurrenciaInbound> ConsultaAdminPrincipalRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.ConsultaAdminPrincipalRecurrenciaInbound(FechaInicial, FechaFinal);
+        }
+        public List<GLogRecurrenciaInbound> ConsultaAdminLogRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.ConsultaAdminLogRecurrenciaInbound(FechaInicial, FechaFinal);
+        }
     }
 }

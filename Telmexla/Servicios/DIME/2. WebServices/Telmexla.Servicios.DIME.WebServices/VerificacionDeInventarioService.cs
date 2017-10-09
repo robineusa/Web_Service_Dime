@@ -26,5 +26,61 @@ namespace Telmexla.Servicios.DIME.WebServices
             VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
             return VerificacionInventarioBusiness.ListaTiposDeRequerimientos();
         }
+        public void RegistrarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            VerificacionInventarioBusiness.RegistrarEquiposPorSolicitud(Equipos);
         }
+        public List<VIPSolicitudesPorEquipo> ListaDeEquiposPorSolicitud(decimal IdSolicitud)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ListaDeEquiposPorSolicitud(IdSolicitud);
+        }
+        public void EliminarEquiposPorSolicitud(decimal Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            VerificacionInventarioBusiness.EliminarEquiposPorSolicitud(Id);
+        }
+        public void ActualizarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            VerificacionInventarioBusiness.ActualizarEquiposPorSolicitud(Equipos);
+        }
+        public VIPSolicitudesPorEquipo TraeEquipoPorId(int Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.TraeEquipoPorId(Id);
+        }
+        public List<VIMTipoDeEquipos> ListaTipoDeEquipos()
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ListaTipoDeEquipos();
+        }
+        public bool ExisteSolicitudEscalada(decimal CuentaCliente)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ExisteSolicitudEscalada(CuentaCliente);
+        }
+        public List<VIPSolicitudes> ConsultaSolicitudesPorCliente(decimal CuentaCliente)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ConsultaSolicitudesPorCliente(CuentaCliente);
+
+        }
+        public List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ConsultaSolicitudesPorFecha(FechaInicial,FechaFinal);
+        }
+        public VIPSolicitudes ApartarCuentaVerificacionInventario(decimal Cedula, int noRecursividad)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ApartarCuentaVerificacionInventario(Cedula,noRecursividad);
+        }
+        public VIPSolicitudes ConsultarSolicitudPorIdInventario(decimal Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.ConsultarSolicitudPorIdInventario(Id);
+        }
+     }
 }

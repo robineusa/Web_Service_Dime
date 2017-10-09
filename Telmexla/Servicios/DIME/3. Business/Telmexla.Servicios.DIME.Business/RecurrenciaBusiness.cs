@@ -929,6 +929,254 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             return unitOfWork.GPrincipalRecurrenciaInbound.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
         }
+        public List<GPrincipalRecurrenciaInbound> ListaSeguimientosRecurrenciaInbound()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GPrincipalRecurrenciaInbound> result = new List<GPrincipalRecurrenciaInbound>();
+            var objetosResult = (from a in dimContext.GPrincipalRecurrenciaInbound
+                                 where a.Estado == "SEGUIMIENTO"
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.NombreUsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.CuentaCliente,
+                                     a.Macroproceso,
+                                     a.ServicioAfectado,
+                                     a.ArbolSoporte,
+                                     a.FallaCausaRaiz,
+                                     a.SolucionEspecifica,                                     
+                                     a.Estado,
+                                     a.FallaAtribuibleA,
+                                     a.PorQue,
+                                     a.ActivacionClaroVideoNagra,
+                                     a.ServicioOfrecido,
+                                     a.AceptacionServicioOfrecido,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GPrincipalRecurrenciaInbound());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].Macroproceso = objetosResult[i].Macroproceso;
+                result[i].ServicioAfectado = objetosResult[i].ServicioAfectado;
+                result[i].ArbolSoporte = objetosResult[i].ArbolSoporte;
+                result[i].FallaCausaRaiz = objetosResult[i].FallaCausaRaiz;
+                result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
+                result[i].Estado = objetosResult[i].Estado;
+                result[i].FallaAtribuibleA = objetosResult[i].FallaAtribuibleA;
+                result[i].PorQue = objetosResult[i].PorQue;
+                result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
+                result[i].ServicioOfrecido = objetosResult[i].ServicioAfectado;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionServicioOfrecido;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+        }
+        public List<GLogRecurrenciaInbound> ListaHistSeguiRecurrenciaInbound(decimal CuentaCliente)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GLogRecurrenciaInbound> result = new List<GLogRecurrenciaInbound>();
+            var objetosResult = (from a in dimContext.GLogRecurrenciaInbound
+                                 where a.CuentaCliente == CuentaCliente
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.NombreUsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.CuentaCliente,
+                                     a.Macroproceso,
+                                     a.ServicioAfectado,
+                                     a.ArbolSoporte,
+                                     a.FallaCausaRaiz,
+                                     a.SolucionEspecifica,
+                                     a.Estado,
+                                     a.FallaAtribuibleA,
+                                     a.PorQue,
+                                     a.ActivacionClaroVideoNagra,
+                                     a.ServicioOfrecido,
+                                     a.AceptacionServicioOfrecido,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GLogRecurrenciaInbound());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].Macroproceso = objetosResult[i].Macroproceso;
+                result[i].ServicioAfectado = objetosResult[i].ServicioAfectado;
+                result[i].ArbolSoporte = objetosResult[i].ArbolSoporte;
+                result[i].FallaCausaRaiz = objetosResult[i].FallaCausaRaiz;
+                result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
+                result[i].Estado = objetosResult[i].Estado;
+                result[i].FallaAtribuibleA = objetosResult[i].FallaAtribuibleA;
+                result[i].PorQue = objetosResult[i].PorQue;
+                result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
+                result[i].ServicioOfrecido = objetosResult[i].ServicioAfectado;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionServicioOfrecido;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+        }
+        public NodosZonificados AliadoTecnico(string Nodo)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            return unitOfWork.NodosZonificados.Find(c => c.Nodo == Nodo).FirstOrDefault();
+        }
+        public List<InventarioEquipos> InventarioEquiposCuenta(decimal CuentaCliente)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<InventarioEquipos> result = new List<InventarioEquipos>();
+            var objetosResult = (from a in dimContext.InventarioEquipos
+                                 where a.Cuenta == CuentaCliente
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.Cuenta,
+                                     a.Tipo,
+                                     a.FabEquipo,
+                                     a.SerieEquipo,
+                                     a.Estado,
+                                     a.Descripcion
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new InventarioEquipos());
+                result[i].Id = objetosResult[i].Id;
+                result[i].Cuenta = objetosResult[i].Cuenta;
+                result[i].Tipo = objetosResult[i].Tipo;
+                result[i].FabEquipo = objetosResult[i].FabEquipo;
+                result[i].SerieEquipo = objetosResult[i].SerieEquipo;
+                result[i].Estado = objetosResult[i].Estado;
+                result[i].Descripcion = objetosResult[i].Descripcion;
+            }
+            return result;
+        }
+        public List<GPrincipalRecurrenciaInbound> ConsultaAdminPrincipalRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GPrincipalRecurrenciaInbound> result = new List<GPrincipalRecurrenciaInbound>();
+            var objetosResult = (from a in dimContext.GPrincipalRecurrenciaInbound
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.NombreUsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.CuentaCliente,
+                                     a.Macroproceso,
+                                     a.ServicioAfectado,
+                                     a.ArbolSoporte,
+                                     a.FallaCausaRaiz,
+                                     a.SolucionEspecifica,
+                                     a.Estado,
+                                     a.FallaAtribuibleA,
+                                     a.PorQue,
+                                     a.ActivacionClaroVideoNagra,
+                                     a.ServicioOfrecido,
+                                     a.AceptacionServicioOfrecido,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GPrincipalRecurrenciaInbound());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].Macroproceso = objetosResult[i].Macroproceso;
+                result[i].ServicioAfectado = objetosResult[i].ServicioAfectado;
+                result[i].ArbolSoporte = objetosResult[i].ArbolSoporte;
+                result[i].FallaCausaRaiz = objetosResult[i].FallaCausaRaiz;
+                result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
+                result[i].Estado = objetosResult[i].Estado;
+                result[i].FallaAtribuibleA = objetosResult[i].FallaAtribuibleA;
+                result[i].PorQue = objetosResult[i].PorQue;
+                result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
+                result[i].ServicioOfrecido = objetosResult[i].ServicioAfectado;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionServicioOfrecido;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+        }
+        public List<GLogRecurrenciaInbound> ConsultaAdminLogRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<GLogRecurrenciaInbound> result = new List<GLogRecurrenciaInbound>();
+            var objetosResult = (from a in dimContext.GLogRecurrenciaInbound
+                                 where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.FechaGestion,
+                                     a.UsuarioGestion,
+                                     a.NombreUsuarioGestion,
+                                     a.AliadoGestion,
+                                     a.CuentaCliente,
+                                     a.Macroproceso,
+                                     a.ServicioAfectado,
+                                     a.ArbolSoporte,
+                                     a.FallaCausaRaiz,
+                                     a.SolucionEspecifica,
+                                     a.Estado,
+                                     a.FallaAtribuibleA,
+                                     a.PorQue,
+                                     a.ActivacionClaroVideoNagra,
+                                     a.ServicioOfrecido,
+                                     a.AceptacionServicioOfrecido,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new GLogRecurrenciaInbound());
+                result[i].Id = objetosResult[i].Id;
+                result[i].FechaGestion = objetosResult[i].FechaGestion;
+                result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
+                result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
+                result[i].AliadoGestion = objetosResult[i].AliadoGestion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].Macroproceso = objetosResult[i].Macroproceso;
+                result[i].ServicioAfectado = objetosResult[i].ServicioAfectado;
+                result[i].ArbolSoporte = objetosResult[i].ArbolSoporte;
+                result[i].FallaCausaRaiz = objetosResult[i].FallaCausaRaiz;
+                result[i].SolucionEspecifica = objetosResult[i].SolucionEspecifica;
+                result[i].Estado = objetosResult[i].Estado;
+                result[i].FallaAtribuibleA = objetosResult[i].FallaAtribuibleA;
+                result[i].PorQue = objetosResult[i].PorQue;
+                result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
+                result[i].ServicioOfrecido = objetosResult[i].ServicioAfectado;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionServicioOfrecido;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+        }
     }
 }
     

@@ -16,5 +16,10 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get { return Context as DimeContext; }
         }
+        public bool ProcedimientoApartarCuentaVerificacionInventario(decimal Cedula)
+        {
+            dimeContext.ApartarCuentaInventario(Cedula);
+            return true;
+        }
     }
 }

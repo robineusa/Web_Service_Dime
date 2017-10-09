@@ -17,5 +17,27 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void ActualizarSolicitud(VIPSolicitudes Solicitud);
         [OperationContract]
         List<VIMTipoDeRequerimiento> ListaTiposDeRequerimientos();
+        [OperationContract]
+        void RegistrarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos);
+        [OperationContract]
+        List<VIPSolicitudesPorEquipo> ListaDeEquiposPorSolicitud(decimal IdSolicitud);
+        [OperationContract]
+        void EliminarEquiposPorSolicitud(decimal Id);
+        [OperationContract]
+        void ActualizarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos);
+        [OperationContract]
+        VIPSolicitudesPorEquipo TraeEquipoPorId(int Id);
+        [OperationContract]
+        List<VIMTipoDeEquipos> ListaTipoDeEquipos();
+        [OperationContract]
+        bool ExisteSolicitudEscalada(decimal CuentaCliente);
+        [OperationContract]
+        List<VIPSolicitudes> ConsultaSolicitudesPorCliente(decimal CuentaCliente);
+        [OperationContract]
+        List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        VIPSolicitudes ApartarCuentaVerificacionInventario(decimal Cedula, int noRecursividad);
+        [OperationContract]
+        VIPSolicitudes ConsultarSolicitudPorIdInventario(decimal Id);
     }
 }

@@ -113,6 +113,8 @@ namespace Telmexla.Servicios.DIME.IData
         IVIMAliadoTecnicoRepository VIMAliadoTecnico { get; }
         IGPrincipalRecurrenciaInboundRepository GPrincipalRecurrenciaInbound { get; }
         IGLogRecurrenciaInboundRepository GLogRecurrenciaInbound { get; }
+        IInventarioEquiposRepository InventarioEquipos { get; }
+
 
         int Complete();
     }

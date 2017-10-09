@@ -137,6 +137,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<VIMAliadoTecnico> VIMAliadoTecnico { get; set; }
         System.Data.Entity.DbSet<GPrincipalRecurrenciaInbound> GPrincipalRecurrenciaInbound { get; set; }
         System.Data.Entity.DbSet<GLogRecurrenciaInbound> GLogRecurrenciaInbound { get; set; }
+        System.Data.Entity.DbSet<InventarioEquipos> InventarioEquipos { get; set; }
 
 
         int SaveChanges();
@@ -205,6 +206,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
 
         //apartar cuenta de gestion back elite
         int ApartarCuentaGestionBackElite(decimal Cedula);
+        //APARTAR CUENTA DE GESTION VERIFICACION DE INVENTARIO
+        int ApartarCuentaInventario(decimal Cedula);
 
         int ApartarCuentaGestionRecurrencia(decimal idAsesor);
         //apartar cuenta bitacora de incidentes

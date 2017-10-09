@@ -1972,6 +1972,36 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.TraerGPrinRecurrenciaInbound(CuentaCliente);
         }
+        public List<GPrincipalRecurrenciaInbound> ListaSeguimientosRecurrenciaInbound()
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ListaSeguimientosRecurrenciaInbound();
+        }
+        public List<GLogRecurrenciaInbound> ListaHistSeguiRecurrenciaInbound(decimal CuentaCliente)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ListaHistSeguiRecurrenciaInbound(CuentaCliente);
+        }
+        public NodosZonificados AliadoTecnico(string Nodo)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.AliadoTecnico(Nodo);
+        }
+        public List<InventarioEquipos> InventarioEquiposCuenta(decimal CuentaCliente)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.InventarioEquiposCuenta(CuentaCliente);
+        }
+        public List<GPrincipalRecurrenciaInbound> ConsultaAdminPrincipalRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ConsultaAdminPrincipalRecurrenciaInbound(FechaInicial, FechaFinal);
+        }
+        public List<GLogRecurrenciaInbound> ConsultaAdminLogRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ConsultaAdminLogRecurrenciaInbound(FechaInicial, FechaFinal);
+        }
         #endregion
 
         #region BitacoraIncidentes
@@ -2375,6 +2405,63 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             return VerificacionInventarioService.ListaTiposDeRequerimientos();
         }
+        public void RegistrarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.RegistrarEquiposPorSolicitud(Equipos);
+        }
+        public List<VIPSolicitudesPorEquipo> ListaDeEquiposPorSolicitud(decimal IdSolicitud)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaDeEquiposPorSolicitud(IdSolicitud);
+        }
+        public void EliminarEquiposPorSolicitud(decimal Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.EliminarEquiposPorSolicitud(Id);
+        }
+        public void ActualizarEquiposPorSolicitud(VIPSolicitudesPorEquipo Equipos)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarEquiposPorSolicitud(Equipos);
+        }
+        public VIPSolicitudesPorEquipo TraeEquipoPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.TraeEquipoPorId(Id);
+        }
+        public List<VIMTipoDeEquipos> ListaTipoDeEquipos()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaTipoDeEquipos();
+        }
+        public bool ExisteSolicitudEscalada(decimal CuentaCliente)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ExisteSolicitudEscalada(CuentaCliente);
+        }
+        public List<VIPSolicitudes> ConsultaSolicitudesPorCliente(decimal CuentaCliente)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ConsultaSolicitudesPorCliente(CuentaCliente);
+        }
+        public List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ConsultaSolicitudesPorFecha(FechaInicial,FechaFinal);
+        }
+        public VIPSolicitudes ApartarCuentaVerificacionInventario(decimal Cedula, int noRecursividad)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ApartarCuentaVerificacionInventario(Cedula,noRecursividad);
+        }
+        public VIPSolicitudes ConsultarSolicitudPorIdInventario(decimal Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ConsultarSolicitudPorIdInventario(Id);
+        }
+        
+
         #endregion
     }
 }

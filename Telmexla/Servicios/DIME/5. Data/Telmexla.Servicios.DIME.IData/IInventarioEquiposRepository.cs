@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Telmexla.Servicios.DIME.Entity;
 
+
 namespace Telmexla.Servicios.DIME.IData
 {
-    public interface IVIPSolicitudesRepository: IRepository<VIPSolicitudes>
+    public interface IInventarioEquiposRepository: IRepository<InventarioEquipos>
     {
-        bool ProcedimientoApartarCuentaVerificacionInventario(decimal Cedula);
     }
 }
