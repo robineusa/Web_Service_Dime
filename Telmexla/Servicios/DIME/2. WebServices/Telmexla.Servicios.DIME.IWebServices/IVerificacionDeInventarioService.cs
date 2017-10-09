@@ -36,8 +36,16 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal);
         [OperationContract]
+        List<VILSolicitudes> ListaDeInteraccionesPorSolicitud(decimal IdSolicitud);
+        [OperationContract]
         VIPSolicitudes ApartarCuentaVerificacionInventario(decimal Cedula, int noRecursividad);
         [OperationContract]
         VIPSolicitudes ConsultarSolicitudPorIdInventario(decimal Id);
+        [OperationContract]
+        List<VIMGestion> ListaDeGestion();
+        [OperationContract]
+        List<VIMSubrazon> ListaSubrazon(decimal IdGestion);
+        [OperationContract]
+        List<VIMAliadoTecnico> ListaAliadosTecnicos();
     }
 }

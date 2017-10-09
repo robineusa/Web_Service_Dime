@@ -27,6 +27,8 @@ namespace Telmexla.Servicios.DIME.Business
             Solicitud.FechaSolicitud = Fecha;
             Solicitud.FechaUltimaActualizacion = Fecha;
             Solicitud.EstadoSolicitud = "PENDIENTE";
+            Solicitud.Gestion = "SOLICITUD INBOUND";
+            Solicitud.Subrazon = "VERIFICACION DE INVENTARIO";
             Solicitud.UsuarioGestionando = 0;
             UnitOfWork.VIPSolicitudes.Add(Solicitud);
             UnitOfWork.Complete();
@@ -416,7 +418,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<decimal> solicitud = unitWork.VIPSolicitudes.Find(c => c.UsuarioGestionando == Cedula && c.EstadoSolicitud.Equals("PENDIENTE")).Select(x => x.IdSolicitud).ToList();
             if (solicitud.Count > 0)
             {
-                VIPSolicitudes solicitudencontrada = new VIPSolicitudes();
+                //VIPSolicitudes solicitudencontrada = new VIPSolicitudes();
                 return ConsultarSolicitudPorIdInventario(solicitud[0]);
             }
             else
@@ -432,6 +434,78 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             VIPSolicitudes solicitud = unitWork.VIPSolicitudes.Find(c => c.IdSolicitud == Id).FirstOrDefault();
             return solicitud;
+        }
+        public List<VIMGestion> ListaDeGestion()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VIMGestion> result = new List<VIMGestion>();
+            var objetosResult = (from a in dimContext.VIMGestion
+                                 where a.Estado.Equals("ACTIVO")
+                                 orderby a.Gestion ascending
+                                 select new
+                                 {
+                                     a.IdGestion,
+                                     a.Gestion
+
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VIMGestion());
+                result[i].IdGestion = objetosResult[i].IdGestion;
+                result[i].Gestion = objetosResult[i].Gestion;
+
+            }
+            return result;
+        }
+        public List<VIMSubrazon> ListaSubrazon(decimal IdGestion)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VIMSubrazon> result = new List<VIMSubrazon>();
+            var objetosResult = (from a in dimContext.VIMSubrazon
+                                 where a.Estado.Equals("ACTIVO") && a.IdGestion == IdGestion
+                                 orderby a.Subrazon ascending
+                                 select new
+                                 {
+                                     a.IdSubrazon,
+                                     a.Subrazon
+
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VIMSubrazon());
+                result[i].IdSubrazon = objetosResult[i].IdSubrazon;
+                result[i].Subrazon = objetosResult[i].Subrazon;
+
+            }
+            return result;
+        }
+        public List<VIMAliadoTecnico> ListaAliadosTecnicos()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VIMAliadoTecnico> result = new List<VIMAliadoTecnico>();
+            var objetosResult = (from a in dimContext.VIMAliadoTecnico
+                                 where a.Estado.Equals("ACTIVO") 
+                                 orderby a.AliadoTecnico ascending
+                                 select new
+                                 {
+                                     a.IdAliado,
+                                     a.AliadoTecnico
+
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VIMAliadoTecnico());
+                result[i].IdAliado = objetosResult[i].IdAliado;
+                result[i].AliadoTecnico = objetosResult[i].AliadoTecnico;
+
+            }
+            return result;
         }
     }
 }
