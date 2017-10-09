@@ -271,7 +271,7 @@ namespace Telmexla.Servicios.DIME.Business
         public void updateMaestroServicios(FidelizacionMaestroServicios objServicio)
         {
             UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
-            FidelizacionMaestroServicios servicioActualizado = unidadTrabajo.FidelizacionMaestroServicios.Get(Convert.ToInt32(objServicio.Id));
+            FidelizacionMaestroServicios servicioActualizado = unidadTrabajo.FidelizacionMaestroServicios.Get(Convert.ToInt32(objServicio.IdServicio));
 
             servicioActualizado.IdRetencion = objServicio.IdRetencion;
             servicioActualizado.IdServicio = objServicio.IdServicio;
