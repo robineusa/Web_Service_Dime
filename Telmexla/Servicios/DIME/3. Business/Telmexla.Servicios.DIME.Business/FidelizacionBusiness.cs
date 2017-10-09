@@ -268,6 +268,108 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return objTmp;
         }
+        public void updateMaestroServicios(FidelizacionMaestroServicios objServicio)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionMaestroServicios servicioActualizado = unidadTrabajo.FidelizacionMaestroServicios.Get(Convert.ToInt32(objServicio.Id));
+
+            servicioActualizado.IdRetencion = objServicio.IdRetencion;
+            servicioActualizado.IdServicio = objServicio.IdServicio;
+            servicioActualizado.Nombre = objServicio.Nombre;
+
+            unidadTrabajo.Complete();
+        }
+        public void updateMotivoCancelacion(FidelizacionMotivosCancelacion objMotivo)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionMotivosCancelacion motivoActualizado = unidadTrabajo.FidelizacionMotivosCancelacion.Get(Convert.ToInt32(objMotivo.Id));
+
+            motivoActualizado.Eliminado = objMotivo.Eliminado;
+            motivoActualizado.Motivo = objMotivo.Motivo;
+            motivoActualizado.OtrosCampos = objMotivo.OtrosCampos;
+            motivoActualizado.OtrosOfrecimientos = objMotivo.OtrosOfrecimientos;
+            motivoActualizado.Registro = DateTime.Now;
+            unidadTrabajo.Complete();
+
+        }
+        public void updateSubmotivoCancelacion(FidelizacionSubmotivosCancelacion objSubmotivo)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionSubmotivosCancelacion submotivoActualizado = unidadTrabajo.FidelizacionSubmotivosCancelacion.Get(Convert.ToInt32(objSubmotivo.Id));
+
+            submotivoActualizado.Eliminado = objSubmotivo.Eliminado;
+            submotivoActualizado.FIDMotivoId = objSubmotivo.FIDMotivoId;
+            submotivoActualizado.Id = objSubmotivo.Id;
+            submotivoActualizado.Registro = objSubmotivo.Registro;
+            submotivoActualizado.Submotivo = objSubmotivo.Submotivo;
+
+            unidadTrabajo.Complete();
+        }
+        public void updateOtrosOfrecimientos(FidelizacionOtrosOfrecimientos objOtros)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionOtrosOfrecimientos otrosActualizado = unidadTrabajo.FidelizacionOtrosOfrecimientos.Get(Convert.ToInt32(objOtros.Id));
+
+            otrosActualizado.Activo = objOtros.Activo;
+            otrosActualizado.Eliminado = objOtros.Eliminado;
+            otrosActualizado.Id = objOtros.Id;
+            otrosActualizado.Nombre = objOtros.Nombre;
+            otrosActualizado.UsuarioId = objOtros.UsuarioId;
+
+            unidadTrabajo.Complete();
+        }
+        public void updateTipificacion(FidelizacionTipificacion objTipificacion)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionTipificacion tipificacionActualizado = unidadTrabajo.FidelizacionTipificacion.Get(Convert.ToInt32(objTipificacion.Id));
+
+            tipificacionActualizado.Activo = objTipificacion.Activo;
+            tipificacionActualizado.Eliminado = objTipificacion.Eliminado;
+            tipificacionActualizado.Id = objTipificacion.Id;
+            tipificacionActualizado.Modulo = objTipificacion.Modulo;
+            tipificacionActualizado.Nivel1 = objTipificacion.Nivel1;
+            tipificacionActualizado.Nivel2 = objTipificacion.Nivel2;
+            tipificacionActualizado.Nivel3 = objTipificacion.Nivel3;
+            tipificacionActualizado.Nombre = objTipificacion.Nombre;
+            tipificacionActualizado.Registro = objTipificacion.Registro;
+            tipificacionActualizado.UsuarioId = objTipificacion.UsuarioId;
+            unidadTrabajo.Complete();
+        }
+        public void updateRecursiva(FidelizacionRecursiva objRecursiva)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionRecursiva recursivaActualizado = unidadTrabajo.FidelizacionRecursiva.Get(Convert.ToInt32(objRecursiva.Id));
+
+            recursivaActualizado.Id = objRecursiva.Id;
+            recursivaActualizado.Label = objRecursiva.Label;
+            recursivaActualizado.Nivel = objRecursiva.Nivel;
+            recursivaActualizado.Nombre = objRecursiva.Nombre;
+            recursivaActualizado.ParentId = objRecursiva.ParentId;
+            recursivaActualizado.VerNivel = objRecursiva.VerNivel;
+            unidadTrabajo.Complete();
+        }
+        public void updateRegistro(FidelizacionRegistro objRegistro)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionRegistro registroActualizado = unidadTrabajo.FidelizacionRegistro.Get(Convert.ToInt32(objRegistro.Id));
+
+            registroActualizado.Cuenta = objRegistro.Cuenta;
+            registroActualizado.DiaCorte = objRegistro.DiaCorte;
+            registroActualizado.FechaCorte = objRegistro.FechaCorte;
+            registroActualizado.FechaRegistro = objRegistro.FechaRegistro;
+            registroActualizado.Id = objRegistro.Id;
+            registroActualizado.Notas = objRegistro.Notas;
+            registroActualizado.OtrosOfrecimientosId = objRegistro.OtrosOfrecimientosId;
+            registroActualizado.Permanencia = objRegistro.Permanencia;
+            registroActualizado.RecursivaId = objRegistro.RecursivaId;
+            registroActualizado.ServiciosId = objRegistro.ServiciosId;
+            registroActualizado.ServiciosRetenidosId = objRegistro.ServiciosRetenidosId;
+            registroActualizado.SubmotivoId = objRegistro.SubmotivoId;
+            registroActualizado.TipificacionId = objRegistro.TipificacionId;
+            registroActualizado.UsuarioId = objRegistro.UsuarioId;
+
+            unidadTrabajo.Complete();
+        }
 
     }
 }

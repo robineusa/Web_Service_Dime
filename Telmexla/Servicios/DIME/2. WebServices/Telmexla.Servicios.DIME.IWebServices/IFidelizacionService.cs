@@ -46,6 +46,19 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void setRegistro(FidelizacionRegistro objRegistro);
         [OperationContract]
         List<FidelizacionRegistro> getRegistroAll();
-
+        [OperationContract]
+        void updateMotivoCancelacion(FidelizacionMotivosCancelacion objMotivo);
+        [OperationContract]
+        void updateMaestroServicios(FidelizacionMaestroServicios objServicio);
+        [OperationContract]
+        void updateSubmotivoCancelacion(FidelizacionSubmotivosCancelacion objSubmotivo);
+        [OperationContract]
+        void updateOtrosOfrecimientos(FidelizacionOtrosOfrecimientos objOtros);
+        [OperationContract]
+        void updateTipificacion(FidelizacionTipificacion objTipificacion);
+        [OperationContract]
+        void updateRecursiva(FidelizacionRecursiva objRecursiva);
+        [OperationContract]
+        void updateRegistro(FidelizacionRegistro objRegistro);
     }
 }

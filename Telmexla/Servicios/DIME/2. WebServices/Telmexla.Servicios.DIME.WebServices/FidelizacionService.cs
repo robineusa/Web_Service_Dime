@@ -100,5 +100,40 @@ namespace Telmexla.Servicios.DIME.WebServices
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
             return Fidelizacion.getRegistroAll();
         }
+        [OperationContract]
+        public void updateMotivoCancelacion(FidelizacionMotivosCancelacion objMotivo){
+            FidelizacionBusiness Fideliacion = new FidelizacionBusiness();
+            Fideliacion.updateMotivoCancelacion(objMotivo);
+        }
+        [OperationContract]
+        public void updateMaestroServicios(FidelizacionMaestroServicios objServicio) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            Fidelizacion.updateMaestroServicios(objServicio);
+        }
+        [OperationContract]
+        public void updateSubmotivoCancelacion(FidelizacionSubmotivosCancelacion objSubmotivo) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            Fidelizacion.updateSubmotivoCancelacion(objSubmotivo);
+        }
+        [OperationContract]
+        public void updateOtrosOfrecimientos(FidelizacionOtrosOfrecimientos objOtros) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            Fidelizacion.updateOtrosOfrecimientos(objOtros);
+        }
+        [OperationContract]
+        public void updateTipificacion(FidelizacionTipificacion objTipificacion) {
+            FidelizacionBusiness Fideliacion = new FidelizacionBusiness();
+            Fideliacion.updateTipificacion(objTipificacion);
+        }
+        [OperationContract]
+        public void updateRecursiva(FidelizacionRecursiva objRecursiva) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            Fidelizacion.updateRecursiva(objRecursiva);
+        }
+        [OperationContract]
+        public void updateRegistro(FidelizacionRegistro objRegistro) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            Fidelizacion.updateRegistro(objRegistro);
+        }
     }
 }

@@ -2329,7 +2329,34 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getRegistroAll();
         }
-
+        public void updateMotivoCancelacion(FidelizacionMotivosCancelacion objMotivo) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.updateMotivoCancelacion(objMotivo);
+        }
+        public void updateMaestroServicios(FidelizacionMaestroServicios objServicio) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.updateMaestroServicios(objServicio);
+        }
+        public void updateSubmotivoCancelacion(FidelizacionSubmotivosCancelacion objSubmotivo) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.updateSubmotivoCancelacion(objSubmotivo);
+        }
+        public void updateOtrosOfrecimientos(FidelizacionOtrosOfrecimientos objOtros) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.updateOtrosOfrecimientos(objOtros);
+        }
+        public void updateTipificacion(FidelizacionTipificacion objTipificacion) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.updateTipificacion(objTipificacion);
+        }
+        public void updateRecursiva(FidelizacionRecursiva objRecursiva) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.updateRecursiva(objRecursiva);
+        }
+        public void updateRegistro(FidelizacionRegistro objRegistro) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.updateRegistro(objRegistro);
+        }
         #endregion
 
         #region Verificacion de Inventario
