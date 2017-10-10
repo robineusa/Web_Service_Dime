@@ -2480,7 +2480,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             return VerificacionInventarioService.ListaAliadosTecnicos();
         }
-
+        public VIMSubrazon TraeSubrazonporIdGestion(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.TraeSubrazonporIdGestion(Id);
+        }
         #endregion
     }
 }

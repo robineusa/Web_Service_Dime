@@ -47,5 +47,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<VIMSubrazon> ListaSubrazon(decimal IdGestion);
         [OperationContract]
         List<VIMAliadoTecnico> ListaAliadosTecnicos();
+        [OperationContract]
+        VIMSubrazon TraeSubrazonporIdGestion(int Id);
     }
 }

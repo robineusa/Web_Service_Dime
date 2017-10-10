@@ -67,7 +67,6 @@ namespace Telmexla.Servicios.DIME.Business
         {
             //trae la informacion de los procesos y las listas seleccionadas
             UnitOfWork UnitOfWorkProceso = new UnitOfWork(new DimeContext());
-            Solicitud.TipoDeRequerimiento = UnitOfWorkProceso.VIMTipoDeRequerimiento.Get(Convert.ToInt32(Solicitud.TipoDeRequerimiento)).TipoDeRequerimiento;
             Solicitud.Gestion = UnitOfWorkProceso.VIMGestion.Get(Convert.ToInt32(Solicitud.Gestion)).Gestion;
             Solicitud.Subrazon = UnitOfWorkProceso.VIMSubrazon.Get(Convert.ToInt32(Solicitud.Subrazon)).Subrazon;
             Solicitud.AliadoTecnico = UnitOfWorkProceso.VIMAliadoTecnico.Get(Convert.ToInt32(Solicitud.AliadoTecnico)).AliadoTecnico;
@@ -115,6 +114,7 @@ namespace Telmexla.Servicios.DIME.Business
             LogSolicitud.Observaciones = SolicitudActualizable.Observaciones;
             LogSolicitud.UsuarioGestionando = SolicitudActualizable.UsuarioGestionando;
 
+            UnitOfWorkLog.VILSolicitudes.Add(LogSolicitud);
             UnitOfWorkLog.Complete();
             UnitOfWorkLog.Dispose();
         }
@@ -469,7 +469,7 @@ namespace Telmexla.Servicios.DIME.Business
                                  select new
                                  {
                                      a.IdSubrazon,
-                                     a.Subrazon
+                                     a.Subrazon,
 
                                  }
                                  ).ToList();
@@ -506,6 +506,12 @@ namespace Telmexla.Servicios.DIME.Business
 
             }
             return result;
+        }
+        public VIMSubrazon TraeSubrazonporIdGestion(int Id)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            VIMSubrazon solicitud = unitWork.VIMSubrazon.Get(Id);
+            return solicitud;
         }
     }
 }

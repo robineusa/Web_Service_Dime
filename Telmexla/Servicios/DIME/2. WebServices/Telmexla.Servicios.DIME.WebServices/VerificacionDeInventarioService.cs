@@ -102,5 +102,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
             return VerificacionInventarioBusiness.ListaAliadosTecnicos();
         }
+        public VIMSubrazon TraeSubrazonporIdGestion(int Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.TraeSubrazonporIdGestion(Id);
+        }
      }
 }
