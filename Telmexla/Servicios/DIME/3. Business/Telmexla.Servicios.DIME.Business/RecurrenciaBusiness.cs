@@ -1177,6 +1177,36 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
+        public RecurrenciaCargaBase TraerDatosRecurrenciaCarga(decimal CuentaCliente)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            return unitOfWork.RecurrenciaCargaBase.Find(c => c.Cuenta == CuentaCliente).FirstOrDefault();
+        }
+        public void ActualizarUusuarioGestionando(int Usuario, decimal Cuenta)
+        {
+            try
+            {
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                RecurrenciaCargaBase CargueRecurActualizable = unitWork.RecurrenciaCargaBase.Find(c => c.Cuenta == Cuenta).FirstOrDefault();
+
+                CargueRecurActualizable.Usuario_gestionando = Usuario;
+                //GPRecurInboundActualizable.FechaGestion = recurrenciainbound.FechaGestion;
+                unitWork.Complete();
+                unitWork.Dispose();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+        }
     }
 }
     

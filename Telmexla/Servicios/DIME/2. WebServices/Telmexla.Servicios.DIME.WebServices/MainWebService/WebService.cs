@@ -2002,6 +2002,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.ConsultaAdminLogRecurrenciaInbound(FechaInicial, FechaFinal);
         }
+        public RecurrenciaCargaBase TraerDatosRecurrenciaCarga(decimal CuentaCliente)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.TraerDatosRecurrenciaCarga(CuentaCliente);
+        }
+        public void ActualizarUusuarioGestionando(int Usuario, decimal Cuenta)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            recurrenciaService.ActualizarUusuarioGestionando(Usuario, Cuenta);
+        }
         #endregion
 
         #region BitacoraIncidentes
