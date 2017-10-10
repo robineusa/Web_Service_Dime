@@ -81,5 +81,12 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<GLogRecurrenciaInbound> ConsultaAdminLogRecurrenciaInbound(DateTime FechaInicial, DateTime FechaFinal);
 
+        [OperationContract]
+        RecurrenciaCargaBase TraerDatosRecurrenciaCarga(decimal CuentaCliente);
+
+        [OperationContract]
+        void ActualizarUusuarioGestionando(int Usuario, decimal Cuenta);
+        
+
     }
 }
