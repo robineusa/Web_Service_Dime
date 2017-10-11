@@ -199,6 +199,30 @@ namespace Telmexla.Servicios.DIME.WebServices
             VerificacionInventarioBusiness.ActualizarAliadoTecnico(DataAliado);
 
         }
-
+        public VIMTipoDeRequerimiento TipoDeRequerimientoPorId(int Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.TipoDeRequerimientoPorId(Id);
+        }
+        public VIMTipoDeEquipos TipoDeEquiposPorId(int Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.TipoDeEquiposPorId(Id);
+        }
+        public VIMGestion GestionPorId(int Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.GestionPorId(Id);
+        }
+        public VIMSubrazon SubrazonPorId(int Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.SubrazonPorId(Id);
+        }
+        public VIMAliadoTecnico AliadoTecnicoPorId(int Id)
+        {
+            VerificacionDeInventarioBusiness VerificacionInventarioBusiness = new VerificacionDeInventarioBusiness();
+            return VerificacionInventarioBusiness.AliadoTecnicoPorId(Id);
+        }
      }
 }

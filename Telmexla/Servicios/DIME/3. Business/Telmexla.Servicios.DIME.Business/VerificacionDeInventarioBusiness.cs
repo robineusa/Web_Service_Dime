@@ -893,5 +893,35 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork.Complete();
             UnitOfWork.Dispose();
         }
+        public VIMTipoDeRequerimiento TipoDeRequerimientoPorId(int Id)
+        {
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            VIMTipoDeRequerimiento Resultado = UnitOfWork.VIMTipoDeRequerimiento.Get(Id);
+            return Resultado;
+        }
+        public VIMTipoDeEquipos TipoDeEquiposPorId(int Id)
+        {
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            VIMTipoDeEquipos Resultado = UnitOfWork.VIMTipoDeEquipos.Get(Id);
+            return Resultado;
+        }
+        public VIMGestion GestionPorId(int Id)
+        {
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            VIMGestion Resultado = UnitOfWork.VIMGestion.Get(Id);
+            return Resultado;
+        }
+        public VIMSubrazon SubrazonPorId(int Id)
+        {
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            VIMSubrazon Resultado = UnitOfWork.VIMSubrazon.Get(Id);
+            return Resultado;
+        }
+        public VIMAliadoTecnico AliadoTecnicoPorId(int Id)
+        {
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            VIMAliadoTecnico Resultado = UnitOfWork.VIMAliadoTecnico.Get(Id);
+            return Resultado;
+        }
     }
 }

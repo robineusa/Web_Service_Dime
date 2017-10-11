@@ -2587,6 +2587,31 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionInventarioService.ActualizarAliadoTecnico(DataAliado);
 
         }
+        public VIMTipoDeRequerimiento TipoDeRequerimientoPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.TipoDeRequerimientoPorId(Id);
+        }
+        public VIMTipoDeEquipos TipoDeEquiposPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.TipoDeEquiposPorId(Id);
+        }
+        public VIMGestion GestionPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.GestionPorId(Id);
+        }
+        public VIMSubrazon SubrazonPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.SubrazonPorId(Id);
+        }
+        public VIMAliadoTecnico AliadoTecnicoPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.AliadoTecnicoPorId(Id);
+        }
         #endregion
     }
 }

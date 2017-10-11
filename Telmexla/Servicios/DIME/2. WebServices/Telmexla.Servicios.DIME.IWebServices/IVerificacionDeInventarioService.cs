@@ -86,5 +86,15 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void AgregarAliadoTecnico(VIMAliadoTecnico DataAliado);
         [OperationContract]
         void ActualizarAliadoTecnico(VIMAliadoTecnico DataAliado);
+        [OperationContract]
+        VIMTipoDeRequerimiento TipoDeRequerimientoPorId(int Id);
+        [OperationContract]
+        VIMTipoDeEquipos TipoDeEquiposPorId(int Id);
+        [OperationContract]
+        VIMGestion GestionPorId(int Id);
+        [OperationContract]
+        VIMSubrazon SubrazonPorId(int Id);
+        [OperationContract]
+        VIMAliadoTecnico AliadoTecnicoPorId(int Id);
     }
 }
