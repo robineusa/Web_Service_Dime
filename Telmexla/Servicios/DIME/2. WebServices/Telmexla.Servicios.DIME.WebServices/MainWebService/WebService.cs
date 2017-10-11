@@ -2455,10 +2455,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             return VerificacionInventarioService.ConsultaSolicitudesPorCliente(CuentaCliente);
         }
-        public List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal)
+        public List<VIPSolicitudes> ConsultaAdminSolicitudesPrincipal(DateTime FechaInicial, DateTime FechaFinal)
         {
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
-            return VerificacionInventarioService.ConsultaSolicitudesPorFecha(FechaInicial,FechaFinal);
+            return VerificacionInventarioService.ConsultaAdminSolicitudesPrincipal(FechaInicial,FechaFinal);
         }
         public List<VILSolicitudes> ListaDeInteraccionesPorSolicitud(decimal IdSolicitud)
         {
@@ -2504,6 +2504,88 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             return VerificacionInventarioService.ConsultaDeGestionBack(Cedula,FechaInicial,FechaFinal);
+        }
+        public List<VILSolicitudes> ConsultaAdminSolicitudesLog(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ConsultaAdminSolicitudesLog(FechaInicial, FechaFinal);
+        }
+        //procesos admin
+        public List<VIMTipoDeRequerimiento> ListaTiposDeRequerimientosAdmin()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaTiposDeRequerimientosAdmin();
+        }
+        public List<VIMTipoDeEquipos> ListaTipoDeEquiposAdmin()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaTipoDeEquiposAdmin();
+        }
+        public List<VIMGestion> ListaDeGestionAdmin()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaDeGestionAdmin();
+        }
+        public List<VIMSubrazon> ListaSubrazonAdmin(decimal IdGestion)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaSubrazonAdmin(IdGestion);
+        }
+        public List<VIMAliadoTecnico> ListaAliadosTecnicosAdmin()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaAliadosTecnicosAdmin();
+        }
+        public void AgregarTiposDeRequerimientos(VIMTipoDeRequerimiento TipoRequerimiento)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.AgregarTiposDeRequerimientos(TipoRequerimiento);
+        }
+        public void ActualizarTiposDeRequerimientos(VIMTipoDeRequerimiento TipoRequerimiento)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarTiposDeRequerimientos(TipoRequerimiento);
+        }
+        public void AgregarTipoDeEquipos(VIMTipoDeEquipos TipoEquipos)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.AgregarTipoDeEquipos(TipoEquipos);
+        }
+        public void ActualizarTipoDeEquipos(VIMTipoDeEquipos TipoEquipos)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarTipoDeEquipos(TipoEquipos);
+        }
+        public void AgregarGestion(VIMGestion Gestion)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.AgregarGestion(Gestion);
+        }
+        public void ActualizarGestion(VIMGestion Gestion)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarGestion(Gestion);
+        }
+        public void AgregarSubrazon(VIMSubrazon DataSubrazon)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.AgregarSubrazon(DataSubrazon);
+        }
+        public void ActualizarSubrazon(VIMSubrazon DataSubrazon)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarSubrazon(DataSubrazon);
+        }
+        public void AgregarAliadoTecnico(VIMAliadoTecnico DataAliado)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.AgregarAliadoTecnico(DataAliado);
+        }
+        public void ActualizarAliadoTecnico(VIMAliadoTecnico DataAliado)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarAliadoTecnico(DataAliado);
+
         }
         #endregion
     }
