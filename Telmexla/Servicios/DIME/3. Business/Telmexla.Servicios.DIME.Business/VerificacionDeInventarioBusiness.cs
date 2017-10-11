@@ -327,7 +327,8 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Subrazon,
                                      a.EstadoSolicitud,
                                      a.AliadoTecnico,
-                                     a.Observaciones
+                                     a.Observaciones,
+                                     a.UsuarioGestionando
                                  }
                                  ).ToList();
 
@@ -352,6 +353,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].EstadoSolicitud = objetosResult[i].EstadoSolicitud;
                 result[i].AliadoTecnico = objetosResult[i].AliadoTecnico;
                 result[i].Observaciones = objetosResult[i].Observaciones;
+                result[i].UsuarioGestionando = objetosResult[i].UsuarioGestionando;
             }
             return result;
 
@@ -768,6 +770,7 @@ namespace Telmexla.Servicios.DIME.Business
                                  select new
                                  {
                                      a.IdSubrazon,
+                                     a.IdGestion,
                                      a.Subrazon,
                                      a.EstadoFinal,
                                      a.Estado
@@ -779,6 +782,7 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 result.Add(new VIMSubrazon());
                 result[i].IdSubrazon = objetosResult[i].IdSubrazon;
+                result[i].IdGestion = objetosResult[i].IdGestion;
                 result[i].Subrazon = objetosResult[i].Subrazon;
                 result[i].EstadoFinal = objetosResult[i].EstadoFinal;
                 result[i].Estado = objetosResult[i].Estado;
@@ -869,7 +873,6 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
             VIMSubrazon Subrazonencontrada = UnitOfWork.VIMSubrazon.Find(x => x.IdSubrazon == DataSubrazon.IdSubrazon).FirstOrDefault();
-            Subrazonencontrada.IdGestion = DataSubrazon.IdGestion;
             Subrazonencontrada.Subrazon = DataSubrazon.Subrazon;
             Subrazonencontrada.EstadoFinal = DataSubrazon.EstadoFinal;
             Subrazonencontrada.Estado = DataSubrazon.Estado;
