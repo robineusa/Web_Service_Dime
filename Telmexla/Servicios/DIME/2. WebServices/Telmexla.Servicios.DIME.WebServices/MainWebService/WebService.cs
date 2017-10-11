@@ -2495,6 +2495,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             return VerificacionInventarioService.TraeSubrazonporIdGestion(Id);
         }
+        public List<VIPSolicitudes> SolicitudesEnSeguimiento(decimal Usuario)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.SolicitudesEnSeguimiento(Usuario);
+        }
+        public List<VILSolicitudes> ConsultaDeGestionBack(decimal Cedula, DateTime FechaInicial, DateTime FechaFinal)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ConsultaDeGestionBack(Cedula,FechaInicial,FechaFinal);
+        }
         #endregion
     }
 }

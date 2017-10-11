@@ -49,5 +49,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<VIMAliadoTecnico> ListaAliadosTecnicos();
         [OperationContract]
         VIMSubrazon TraeSubrazonporIdGestion(int Id);
+        [OperationContract]
+        List<VIPSolicitudes> SolicitudesEnSeguimiento(decimal Usuario);
+        [OperationContract]
+        List<VILSolicitudes> ConsultaDeGestionBack(decimal Cedula, DateTime FechaInicial, DateTime FechaFinal);
     }
 }
