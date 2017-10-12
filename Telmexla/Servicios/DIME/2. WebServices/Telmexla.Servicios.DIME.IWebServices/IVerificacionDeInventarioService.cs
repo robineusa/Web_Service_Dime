@@ -96,5 +96,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         VIMSubrazon SubrazonPorId(int Id);
         [OperationContract]
         VIMAliadoTecnico AliadoTecnicoPorId(int Id);
+        [OperationContract]
+        List<VIPSolicitudes> SolicitudesEnGestionPorBack(decimal Usuario);
+        [OperationContract]
+        List<Usuario> ListaDeUsuariosVerificacionInventario();
+        [OperationContract]
+        void ReasignarGestionBackInventario(List<string> Solicitudes, decimal UsuarioNuevo);
     }
 }

@@ -926,5 +926,102 @@ namespace Telmexla.Servicios.DIME.Business
             VIMAliadoTecnico Resultado = UnitOfWork.VIMAliadoTecnico.Get(Id);
             return Resultado;
         }
+        public List<VIPSolicitudes> SolicitudesEnGestionPorBack(decimal Usuario)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VIPSolicitudes> result = new List<VIPSolicitudes>();
+            var objetosResult = (from a in dimContext.VIPSolicitudes
+                                 where a.UsuarioGestionando == Usuario
+                                 orderby a.FechaUltimaActualizacion ascending
+                                 select new
+                                 {
+                                     a.IdSolicitud,
+                                     a.FechaSolicitud,
+                                     a.UsuarioSolicitud,
+                                     a.NombreUsuarioSolicitud,
+                                     a.AliadoSolicitud,
+                                     a.OperacionSolicitud,
+                                     a.FechaUltimaActualizacion,
+                                     a.UsuarioUltimaActualizacion,
+                                     a.NombreUsuarioUltimaActualizacion,
+                                     a.CuentaCliente,
+                                     a.TipoDeRequerimiento,
+                                     a.RequiereAjuste,
+                                     a.Nodo,
+                                     a.Gestion,
+                                     a.Subrazon,
+                                     a.EstadoSolicitud,
+                                     a.AliadoTecnico,
+                                     a.Observaciones
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VIPSolicitudes());
+                result[i].IdSolicitud = objetosResult[i].IdSolicitud;
+                result[i].FechaSolicitud = objetosResult[i].FechaSolicitud;
+                result[i].UsuarioSolicitud = objetosResult[i].UsuarioSolicitud;
+                result[i].NombreUsuarioSolicitud = objetosResult[i].NombreUsuarioSolicitud;
+                result[i].AliadoSolicitud = objetosResult[i].AliadoSolicitud;
+                result[i].OperacionSolicitud = objetosResult[i].OperacionSolicitud;
+                result[i].FechaUltimaActualizacion = objetosResult[i].FechaUltimaActualizacion;
+                result[i].UsuarioUltimaActualizacion = objetosResult[i].UsuarioUltimaActualizacion;
+                result[i].NombreUsuarioUltimaActualizacion = objetosResult[i].NombreUsuarioUltimaActualizacion;
+                result[i].CuentaCliente = objetosResult[i].CuentaCliente;
+                result[i].TipoDeRequerimiento = objetosResult[i].TipoDeRequerimiento;
+                result[i].RequiereAjuste = objetosResult[i].RequiereAjuste;
+                result[i].Nodo = objetosResult[i].Nodo;
+                result[i].Gestion = objetosResult[i].Gestion;
+                result[i].Subrazon = objetosResult[i].Subrazon;
+                result[i].EstadoSolicitud = objetosResult[i].EstadoSolicitud;
+                result[i].AliadoTecnico = objetosResult[i].AliadoTecnico;
+                result[i].Observaciones = objetosResult[i].Observaciones;
+            }
+            return result;
+
+        }
+        public List<Usuario> ListaDeUsuariosVerificacionInventario()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<Usuario> result = new List<Usuario>();
+            var objetosResult = (from a in dimContext.Usuarios
+                                 join b in (from m in dimContext.BasePersonalHoloes select new { m.Cedula }).Distinct() on a.Cedula equals b.Cedula
+                                 where b.Cedula > 0 && a.IdLinea == 34
+                                 orderby a.Nombre ascending
+                                 select new
+                                 {
+                                     a.Cedula,
+                                     a.Nombre
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new Usuario());
+                result[i].Cedula = objetosResult[i].Cedula;
+                result[i].Nombre = objetosResult[i].Nombre;
+            }
+            return result;
+        }
+        public void ReasignarGestionBackInventario(List<string> Solicitudes, decimal UsuarioNuevo)
+        {
+
+            DimeContext context = new DimeContext();
+            List<decimal> IdSolicitudes = Solicitudes.ConvertAll(s => Convert.ToDecimal(s));
+            foreach (decimal ID_SOLICITUD in IdSolicitudes)
+            {
+                UnitOfWork UnitOfWorkSolicitdActualizable = new UnitOfWork(new DimeContext());
+                VIPSolicitudes SolicitudActualizable = UnitOfWorkSolicitdActualizable.VIPSolicitudes.Find(c => c.IdSolicitud == ID_SOLICITUD).FirstOrDefault();
+
+                if (SolicitudActualizable != null)
+                {
+                    SolicitudActualizable.UsuarioGestionando = UsuarioNuevo;
+                    UnitOfWorkSolicitdActualizable.Complete();
+                    UnitOfWorkSolicitdActualizable.Dispose();
+                }
+            }
+
+        }
     }
 }

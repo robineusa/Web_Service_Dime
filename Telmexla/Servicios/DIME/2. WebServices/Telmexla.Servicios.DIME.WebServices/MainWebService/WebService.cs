@@ -2612,6 +2612,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             return VerificacionInventarioService.AliadoTecnicoPorId(Id);
         }
+        public List<VIPSolicitudes> SolicitudesEnGestionPorBack(decimal Usuario)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.SolicitudesEnGestionPorBack(Usuario);
+        }
+        public List<Usuario> ListaDeUsuariosVerificacionInventario()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaDeUsuariosVerificacionInventario();
+        }
+        public void ReasignarGestionBackInventario(List<string> Solicitudes, decimal UsuarioNuevo)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ReasignarGestionBackInventario(Solicitudes, UsuarioNuevo);
+        }
         #endregion
     }
 }
