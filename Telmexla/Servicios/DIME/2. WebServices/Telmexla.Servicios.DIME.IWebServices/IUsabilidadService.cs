@@ -13,7 +13,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface IUsabilidadService
     {
         [OperationContract]
-        void InsertarUsabilidadInboundConvenio(UsabilidadConvenioInbound convenio);
+        void InsertarUsabilidadAlertasInbound(UsabilidadAlertasInbound alertas);
 
         [OperationContract]
         void InsertarUsabilidadCuentaInbound(UsabilidadBusquedaCuentaInbound CuentaInbound);

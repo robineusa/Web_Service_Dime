@@ -1233,15 +1233,15 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion
 
         #region Usabilidad
-        public void InsertarUsabilidadInboundConvenio(UsabilidadConvenioInbound convenio)
+        public void InsertarUsabilidadAlertasInbound(UsabilidadAlertasInbound alertas)
         {
-            UsabilidadBusiness UsabilidaBusi = new UsabilidadBusiness();
-            UsabilidaBusi.InsertarUsabilidadInboundConvenio(convenio);
+            UsabilidadService UsabilidaService = new UsabilidadService();
+            UsabilidaService.InsertarUsabilidadAlertasInbound(alertas);
         }
         public void InsertarUsabilidadCuentaInbound(UsabilidadBusquedaCuentaInbound CuentaInbound)
         {
-            UsabilidadBusiness UsabilidaBusi = new UsabilidadBusiness();
-            UsabilidaBusi.InsertarUsabilidadCuentaInbound(CuentaInbound);
+            UsabilidadService UsabilidaService = new UsabilidadService();
+            UsabilidaService.InsertarUsabilidadCuentaInbound(CuentaInbound);
         }
         #endregion
 

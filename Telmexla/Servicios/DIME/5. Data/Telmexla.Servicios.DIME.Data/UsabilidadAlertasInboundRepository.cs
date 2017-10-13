@@ -9,9 +9,9 @@ using Telmexla.Servicios.DIME.IData;
 
 namespace Telmexla.Servicios.DIME.Data
 {
-    public class UsabilidadConvenoInboundRepository : Repository<UsabilidadConvenioInbound>, IUsabilidadConvenoInboundRepository
+    public class UsabilidadAlertasInboundRepository : Repository<UsabilidadAlertasInbound>, IUsabilidadAlertasInboundRepository
     {
-        public UsabilidadConvenoInboundRepository(DimeContext context) : base(context)
+        public UsabilidadAlertasInboundRepository(DimeContext context) : base(context)
         {
 
         }

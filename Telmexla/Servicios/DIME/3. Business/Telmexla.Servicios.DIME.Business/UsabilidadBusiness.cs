@@ -13,14 +13,14 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class UsabilidadBusiness
     {
-        public void InsertarUsabilidadInboundConvenio(UsabilidadConvenioInbound convenio)
+        public void InsertarUsabilidadAlertasInbound(UsabilidadAlertasInbound alertas)
         {
             try
             {
-                convenio.FechaRevision = DateTime.Now;
+                alertas.FechaRevision = DateTime.Now;
 
                 UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-                unitWork.UsabilidadConvenoInbound.Add(convenio);
+                unitWork.UsabilidadAlertasInbound.Add(alertas);
                 unitWork.Complete();
             }
             catch (DbEntityValidationException dbEx)

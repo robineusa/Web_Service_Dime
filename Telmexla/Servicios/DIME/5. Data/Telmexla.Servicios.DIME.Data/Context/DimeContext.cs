@@ -67,7 +67,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; } // TBL_SMO_RENTA_ACTUAL
         public System.Data.Entity.DbSet<SmoTarifaActual> SmoTarifaActuals { get; set; } // TBL_SMO_TARIFA_ACTUAL
         public System.Data.Entity.DbSet<TrasladoFallido> TrasladoFallidos { get; set; } // TBL_TRASLADOS_FALLIDOS
-        public System.Data.Entity.DbSet<UsabilidadConvenioInbound> UsabilidadConvenioInbound { get; set; } // TBL_USABILIDAD_ACTIVACION_CONVENIO
+        public System.Data.Entity.DbSet<UsabilidadAlertasInbound> UsabilidadAlertasInbound { get; set; } // TBL_USABILIDAD_ACTIVACION_CONVENIO
         public System.Data.Entity.DbSet<Departamento> Departamentos { get; set; } // TBL_DEPARTAMENTOS_CIUDADES
         public System.Data.Entity.DbSet<UsabilidadBusquedaCuentaInbound> UsabilidadBusquedaClienteInbound { get; set; } // TBL_USABILIDAD_BUSQUEDA_CLIENTE
         public System.Data.Entity.DbSet<SkillsUsuariosBlending> SkillsUsuariosBlending { get; set; } // TBL_SKILLS_USUARIOS_BLENDING
@@ -241,7 +241,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SmoRentaActualConfiguration());
             modelBuilder.Configurations.Add(new SmoTarifaActualConfiguration());
             modelBuilder.Configurations.Add(new TrasladoFallidoConfiguration());
-            modelBuilder.Configurations.Add(new UsabilidadConvenioInboundConfiguration());
+            modelBuilder.Configurations.Add(new UsabilidadAlertasInboundConfiguration());
             modelBuilder.Configurations.Add(new DepartamentoConfiguration());
             modelBuilder.Configurations.Add(new UsabilidadBusquedaCuentaInboundConfiguration());
             modelBuilder.Configurations.Add(new SkillsUsuariosBlendingConfiguration());
@@ -367,7 +367,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new SmoRentaActualConfiguration(schema));
             modelBuilder.Configurations.Add(new SmoTarifaActualConfiguration(schema));
             modelBuilder.Configurations.Add(new TrasladoFallidoConfiguration(schema));
-            modelBuilder.Configurations.Add(new UsabilidadConvenioInboundConfiguration(schema));
+            modelBuilder.Configurations.Add(new UsabilidadAlertasInboundConfiguration(schema));
             modelBuilder.Configurations.Add(new DepartamentoConfiguration(schema));
             modelBuilder.Configurations.Add(new UsabilidadBusquedaCuentaInboundConfiguration(schema));
             modelBuilder.Configurations.Add(new SkillsUsuariosBlendingConfiguration(schema));

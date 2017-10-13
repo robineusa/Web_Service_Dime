@@ -180,7 +180,7 @@
     <Compile Include="Configuration\TraficoTrasladoConfiguration.cs" />
     <Compile Include="Configuration\TrasladoFallidoConfiguration.cs" />
     <Compile Include="Configuration\UsabilidadBusquedaCuentaInboundConfiguration.cs" />
-    <Compile Include="Configuration\UsabilidadConvenioInboundConfiguration.cs" />
+    <Compile Include="Configuration\UsabilidadAlertasInboundConfiguration.cs" />
     <Compile Include="Configuration\UsuariosNotificadosConfiguration.cs" />
     <Compile Include="CuentasMejorasTecnicasRepository.cs" />
     <Compile Include="CuentasSiembraHDRepository.cs" />
@@ -307,7 +307,7 @@
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="UnitOfWorkMaestros.cs" />
     <Compile Include="UsabilidadBusquedaCuentaInboundRepository.cs" />
-    <Compile Include="UsabilidadConvenoInboundRepository.cs" />
+    <Compile Include="UsabilidadAlertasInboundRepository.cs" />
     <Compile Include="UsuarioRepository.cs" />
     <Compile Include="UsuariosNotificadosRepository.cs" />
     <Compile Include="UsuariosXAccesoRepository.cs" />
