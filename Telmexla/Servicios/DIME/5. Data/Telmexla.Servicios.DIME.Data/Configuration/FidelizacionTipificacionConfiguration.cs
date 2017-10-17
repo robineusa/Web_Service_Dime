@@ -32,13 +32,14 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Eliminado).HasColumnName(@"ELIMINADO").IsRequired().HasColumnType("numeric");
             Property(x => x.Activo).HasColumnName(@"ACTIVO").IsRequired().HasColumnType("numeric");
             Property(x => x.Modulo).HasColumnName(@"MODULO").IsRequired().HasColumnType("numeric");
-            Property(x => x.Nivel1).HasColumnName(@"NIVEL1").IsRequired().HasColumnType("bool");
-            Property(x => x.Nivel2).HasColumnName(@"NIVEL2").IsRequired().HasColumnType("bool");
-            Property(x => x.Nivel3).HasColumnName(@"NIVEL3").IsRequired().HasColumnType("bool");
+            Property(x => x.Nivel1).HasColumnName(@"NIVEL1").IsRequired().HasColumnType("numeric");
+            Property(x => x.Nivel2).HasColumnName(@"NIVEL2").IsRequired().HasColumnType("numeric");
+            Property(x => x.Nivel3).HasColumnName(@"NIVEL3").IsRequired().HasColumnType("numeric");
             Property(x => x.UsuarioId).HasColumnName(@"USUARIO_ID").IsRequired().HasColumnType("int");
             Property(x => x.Registro).HasColumnName(@"REGISTRO").IsRequired().HasColumnType("datetime");
 
-
+            //andres, esta es una anotacion de robin, el error que presentaba el web service, es por los tipos de datos bool que habias puesto, 
+            //si necesitas un true o false manejar mejor un 1 o 0 para hacer las validaciones.
         }
     }
 }

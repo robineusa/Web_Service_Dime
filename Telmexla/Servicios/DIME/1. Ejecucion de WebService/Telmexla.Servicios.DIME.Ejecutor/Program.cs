@@ -20,10 +20,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            //BackEliteService bes = new BackEliteService();
+            BackEliteService bes = new BackEliteService();
 
-            //var resul = bes.ListaDeUsuariosBackElite();
-
+            var resul = bes.ListaDeUsuariosBackElite();
+            var dddd = "";
             //FidelizacionService fidelizacion = new FidelizacionService(); 
             //var r = fidelizacion.getMaestroServiciosAll();
 
