@@ -42,7 +42,7 @@ namespace Telmexla.Servicios.DIME.IData
         ICuentasSiguienteMejorOfertaRepository CuentaSMO { get; }
         ISiguienteMejorOfertaRepository SMO { get; }
         ITrasladoFallidoRepository trasladosFallidos { get; }
-        IUsabilidadConvenoInboundRepository UsabilidadConvenoInbound { get; }
+        IUsabilidadAlertasInboundRepository UsabilidadAlertasInbound { get; }
         IDepartamentoRepository Departamentos { get; }
         IUsabilidadBusquedaCuentaInboundRepositiry UsabilidadCuentaInbound { get; }
         ISkillsUsuariosBlendingRepository SkillsUsuariosBlending { get; }

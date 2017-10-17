@@ -170,7 +170,7 @@
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="IUnitOfWorkMaestros.cs" />
     <Compile Include="IUsabilidadBusquedaCuentaInboundRepositiry.cs" />
-    <Compile Include="IUsabilidadConvenoInboundRepository.cs" />
+    <Compile Include="IUsabilidadAlertasInboundRepository.cs" />
     <Compile Include="IUsuarioRepository.cs" />
     <Compile Include="IUsuariosNotificadosRepository.cs" />
     <Compile Include="IUsuariosXAccesoRepository.cs" />

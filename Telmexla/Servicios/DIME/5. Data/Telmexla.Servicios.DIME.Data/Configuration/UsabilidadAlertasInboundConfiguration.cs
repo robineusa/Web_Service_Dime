@@ -13,23 +13,25 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.Data.Configuration
 {
-    public class UsabilidadConvenioInboundConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<UsabilidadConvenioInbound>
+    public class UsabilidadAlertasInboundConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<UsabilidadAlertasInbound>
     {
-        public UsabilidadConvenioInboundConfiguration()
+        public UsabilidadAlertasInboundConfiguration()
             : this("dbo")
         {
         }
 
-        public UsabilidadConvenioInboundConfiguration(string schema)
+        public UsabilidadAlertasInboundConfiguration(string schema)
         {
-            ToTable("TBL_USABILIDAD_ACTIVACION_CONVENIO", schema);
+            ToTable("TBL_USABILIDAD_ALERTAS", schema);
             HasKey(x => x.Id);
 
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.FechaRevision).HasColumnName(@"FECHA_REVISION").IsOptional().HasColumnType("datetime"); ;
             Property(x => x.IdUsuarioRevision).HasColumnName(@"ID_USUARIO_REVISION").IsOptional().HasColumnType("int");
             Property(x => x.NombreUsuarioRevision).HasColumnName(@"NOMBRE_USARIO_REVISON").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.Aliado).HasColumnName(@"ALIADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.CuentaRevisoTabla).HasColumnName(@"CUENTA_REVISO_TABLA").IsOptional().HasColumnType("int");
+            Property(x => x.Alerta).HasColumnName(@"ALERTA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
         }
     }
 }

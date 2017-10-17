@@ -1233,15 +1233,15 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion
 
         #region Usabilidad
-        public void InsertarUsabilidadInboundConvenio(UsabilidadConvenioInbound convenio)
+        public void InsertarUsabilidadAlertasInbound(UsabilidadAlertasInbound alertas)
         {
-            UsabilidadBusiness UsabilidaBusi = new UsabilidadBusiness();
-            UsabilidaBusi.InsertarUsabilidadInboundConvenio(convenio);
+            UsabilidadService UsabilidaService = new UsabilidadService();
+            UsabilidaService.InsertarUsabilidadAlertasInbound(alertas);
         }
         public void InsertarUsabilidadCuentaInbound(UsabilidadBusquedaCuentaInbound CuentaInbound)
         {
-            UsabilidadBusiness UsabilidaBusi = new UsabilidadBusiness();
-            UsabilidaBusi.InsertarUsabilidadCuentaInbound(CuentaInbound);
+            UsabilidadService UsabilidaService = new UsabilidadService();
+            UsabilidaService.InsertarUsabilidadCuentaInbound(CuentaInbound);
         }
         #endregion
 
@@ -2002,6 +2002,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.ConsultaAdminLogRecurrenciaInbound(FechaInicial, FechaFinal);
         }
+        public RecurrenciaCargaBase TraerDatosRecurrenciaCarga(decimal CuentaCliente)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.TraerDatosRecurrenciaCarga(CuentaCliente);
+        }
+        public void ActualizarUusuarioGestionando(int Usuario, decimal Cuenta)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            recurrenciaService.ActualizarUusuarioGestionando(Usuario, Cuenta);
+        }
         #endregion
 
         #region BitacoraIncidentes
@@ -2445,10 +2455,15 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             return VerificacionInventarioService.ConsultaSolicitudesPorCliente(CuentaCliente);
         }
-        public List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal)
+        public List<VIPSolicitudes> ConsultaAdminSolicitudesPrincipal(DateTime FechaInicial, DateTime FechaFinal)
         {
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
-            return VerificacionInventarioService.ConsultaSolicitudesPorFecha(FechaInicial,FechaFinal);
+            return VerificacionInventarioService.ConsultaAdminSolicitudesPrincipal(FechaInicial,FechaFinal);
+        }
+        public List<VILSolicitudes> ListaDeInteraccionesPorSolicitud(decimal IdSolicitud)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaDeInteraccionesPorSolicitud(IdSolicitud);
         }
         public VIPSolicitudes ApartarCuentaVerificacionInventario(decimal Cedula, int noRecursividad)
         {
@@ -2460,8 +2475,158 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
             return VerificacionInventarioService.ConsultarSolicitudPorIdInventario(Id);
         }
-        
+        public List<VIMGestion> ListaDeGestion()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaDeGestion();
+        }
+        public List<VIMSubrazon> ListaSubrazon(decimal IdGestion)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaSubrazon(IdGestion);
+        }
+        public List<VIMAliadoTecnico> ListaAliadosTecnicos()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaAliadosTecnicos();
+        }
+        public VIMSubrazon TraeSubrazonporIdGestion(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.TraeSubrazonporIdGestion(Id);
+        }
+        public List<VIPSolicitudes> SolicitudesEnSeguimiento(decimal Usuario)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.SolicitudesEnSeguimiento(Usuario);
+        }
+        public List<VILSolicitudes> ConsultaDeGestionBack(decimal Cedula, DateTime FechaInicial, DateTime FechaFinal)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ConsultaDeGestionBack(Cedula,FechaInicial,FechaFinal);
+        }
+        public List<VILSolicitudes> ConsultaAdminSolicitudesLog(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ConsultaAdminSolicitudesLog(FechaInicial, FechaFinal);
+        }
+        //procesos admin
+        public List<VIMTipoDeRequerimiento> ListaTiposDeRequerimientosAdmin()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaTiposDeRequerimientosAdmin();
+        }
+        public List<VIMTipoDeEquipos> ListaTipoDeEquiposAdmin()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaTipoDeEquiposAdmin();
+        }
+        public List<VIMGestion> ListaDeGestionAdmin()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaDeGestionAdmin();
+        }
+        public List<VIMSubrazon> ListaSubrazonAdmin(decimal IdGestion)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaSubrazonAdmin(IdGestion);
+        }
+        public List<VIMAliadoTecnico> ListaAliadosTecnicosAdmin()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaAliadosTecnicosAdmin();
+        }
+        public void AgregarTiposDeRequerimientos(VIMTipoDeRequerimiento TipoRequerimiento)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.AgregarTiposDeRequerimientos(TipoRequerimiento);
+        }
+        public void ActualizarTiposDeRequerimientos(VIMTipoDeRequerimiento TipoRequerimiento)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarTiposDeRequerimientos(TipoRequerimiento);
+        }
+        public void AgregarTipoDeEquipos(VIMTipoDeEquipos TipoEquipos)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.AgregarTipoDeEquipos(TipoEquipos);
+        }
+        public void ActualizarTipoDeEquipos(VIMTipoDeEquipos TipoEquipos)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarTipoDeEquipos(TipoEquipos);
+        }
+        public void AgregarGestion(VIMGestion Gestion)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.AgregarGestion(Gestion);
+        }
+        public void ActualizarGestion(VIMGestion Gestion)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarGestion(Gestion);
+        }
+        public void AgregarSubrazon(VIMSubrazon DataSubrazon)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.AgregarSubrazon(DataSubrazon);
+        }
+        public void ActualizarSubrazon(VIMSubrazon DataSubrazon)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarSubrazon(DataSubrazon);
+        }
+        public void AgregarAliadoTecnico(VIMAliadoTecnico DataAliado)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.AgregarAliadoTecnico(DataAliado);
+        }
+        public void ActualizarAliadoTecnico(VIMAliadoTecnico DataAliado)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ActualizarAliadoTecnico(DataAliado);
 
+        }
+        public VIMTipoDeRequerimiento TipoDeRequerimientoPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.TipoDeRequerimientoPorId(Id);
+        }
+        public VIMTipoDeEquipos TipoDeEquiposPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.TipoDeEquiposPorId(Id);
+        }
+        public VIMGestion GestionPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.GestionPorId(Id);
+        }
+        public VIMSubrazon SubrazonPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.SubrazonPorId(Id);
+        }
+        public VIMAliadoTecnico AliadoTecnicoPorId(int Id)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.AliadoTecnicoPorId(Id);
+        }
+        public List<VIPSolicitudes> SolicitudesEnGestionPorBack(decimal Usuario)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.SolicitudesEnGestionPorBack(Usuario);
+        }
+        public List<Usuario> ListaDeUsuariosVerificacionInventario()
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            return VerificacionInventarioService.ListaDeUsuariosVerificacionInventario();
+        }
+        public void ReasignarGestionBackInventario(List<string> Solicitudes, decimal UsuarioNuevo)
+        {
+            VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
+            VerificacionInventarioService.ReasignarGestionBackInventario(Solicitudes, UsuarioNuevo);
+        }
         #endregion
     }
 }

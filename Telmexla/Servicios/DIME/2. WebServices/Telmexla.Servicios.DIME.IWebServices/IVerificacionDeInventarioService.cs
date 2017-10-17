@@ -34,10 +34,73 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<VIPSolicitudes> ConsultaSolicitudesPorCliente(decimal CuentaCliente);
         [OperationContract]
-        List<VIPSolicitudes> ConsultaSolicitudesPorFecha(DateTime FechaInicial, DateTime FechaFinal);
+        List<VIPSolicitudes> ConsultaAdminSolicitudesPrincipal(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<VILSolicitudes> ListaDeInteraccionesPorSolicitud(decimal IdSolicitud);
         [OperationContract]
         VIPSolicitudes ApartarCuentaVerificacionInventario(decimal Cedula, int noRecursividad);
         [OperationContract]
         VIPSolicitudes ConsultarSolicitudPorIdInventario(decimal Id);
+        [OperationContract]
+        List<VIMGestion> ListaDeGestion();
+        [OperationContract]
+        List<VIMSubrazon> ListaSubrazon(decimal IdGestion);
+        [OperationContract]
+        List<VIMAliadoTecnico> ListaAliadosTecnicos();
+        [OperationContract]
+        VIMSubrazon TraeSubrazonporIdGestion(int Id);
+        [OperationContract]
+        List<VIPSolicitudes> SolicitudesEnSeguimiento(decimal Usuario);
+        [OperationContract]
+        List<VILSolicitudes> ConsultaDeGestionBack(decimal Cedula, DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<VILSolicitudes> ConsultaAdminSolicitudesLog(DateTime FechaInicial, DateTime FechaFinal);
+        //procesos admin
+        [OperationContract]
+        List<VIMTipoDeRequerimiento> ListaTiposDeRequerimientosAdmin();
+        [OperationContract]
+        List<VIMTipoDeEquipos> ListaTipoDeEquiposAdmin();
+        [OperationContract]
+        List<VIMGestion> ListaDeGestionAdmin();
+        [OperationContract]
+        List<VIMSubrazon> ListaSubrazonAdmin(decimal IdGestion);
+        [OperationContract]
+        List<VIMAliadoTecnico> ListaAliadosTecnicosAdmin();
+        [OperationContract]
+        void AgregarTiposDeRequerimientos(VIMTipoDeRequerimiento TipoRequerimiento);
+        [OperationContract]
+        void ActualizarTiposDeRequerimientos(VIMTipoDeRequerimiento TipoRequerimiento);
+        [OperationContract]
+        void AgregarTipoDeEquipos(VIMTipoDeEquipos TipoEquipos);
+        [OperationContract]
+        void ActualizarTipoDeEquipos(VIMTipoDeEquipos TipoEquipos);
+        [OperationContract]
+        void AgregarGestion(VIMGestion Gestion);
+        [OperationContract]
+        void ActualizarGestion(VIMGestion Gestion);
+        [OperationContract]
+        void AgregarSubrazon(VIMSubrazon DataSubrazon);
+        [OperationContract]
+        void ActualizarSubrazon(VIMSubrazon DataSubrazon);
+        [OperationContract]
+        void AgregarAliadoTecnico(VIMAliadoTecnico DataAliado);
+        [OperationContract]
+        void ActualizarAliadoTecnico(VIMAliadoTecnico DataAliado);
+        [OperationContract]
+        VIMTipoDeRequerimiento TipoDeRequerimientoPorId(int Id);
+        [OperationContract]
+        VIMTipoDeEquipos TipoDeEquiposPorId(int Id);
+        [OperationContract]
+        VIMGestion GestionPorId(int Id);
+        [OperationContract]
+        VIMSubrazon SubrazonPorId(int Id);
+        [OperationContract]
+        VIMAliadoTecnico AliadoTecnicoPorId(int Id);
+        [OperationContract]
+        List<VIPSolicitudes> SolicitudesEnGestionPorBack(decimal Usuario);
+        [OperationContract]
+        List<Usuario> ListaDeUsuariosVerificacionInventario();
+        [OperationContract]
+        void ReasignarGestionBackInventario(List<string> Solicitudes, decimal UsuarioNuevo);
     }
 }

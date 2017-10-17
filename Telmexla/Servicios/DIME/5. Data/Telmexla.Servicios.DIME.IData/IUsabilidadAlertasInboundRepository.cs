@@ -7,7 +7,7 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IData
 {
-    public interface IUsabilidadConvenoInboundRepository : IRepository<UsabilidadConvenioInbound>
+    public interface IUsabilidadAlertasInboundRepository : IRepository<UsabilidadAlertasInbound>
     {
 
     }

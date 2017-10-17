@@ -65,7 +65,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<SmoRentaActual> SmoRentaActuals { get; set; } // TBL_SMO_RENTA_ACTUAL
         System.Data.Entity.DbSet<SmoTarifaActual> SmoTarifaActuals { get; set; } // TBL_SMO_TARIFA_ACTUAL
         System.Data.Entity.DbSet<TrasladoFallido> TrasladoFallidos { get; set; } // TBL_TRASLADOS_FALLIDOS
-        System.Data.Entity.DbSet<UsabilidadConvenioInbound> UsabilidadConvenioInbound { get; set; } // TBL_USABILIDAD_ACTIVACION_CONVENIO
+        System.Data.Entity.DbSet<UsabilidadAlertasInbound> UsabilidadAlertasInbound { get; set; } // TBL_USABILIDAD_ACTIVACION_CONVENIO
         System.Data.Entity.DbSet<Departamento> Departamentos { get; set; } // TBL_DEPARTAMENTOS_CIUDADES
         System.Data.Entity.DbSet<UsabilidadBusquedaCuentaInbound> UsabilidadBusquedaClienteInbound { get; set; } // TBL_USABILIDAD_BUSQUEDA_CLIENTE
         System.Data.Entity.DbSet<SkillsUsuariosBlending> SkillsUsuariosBlending { get; set; } // TBL_SKILLS_USUARIOS_BLENDING

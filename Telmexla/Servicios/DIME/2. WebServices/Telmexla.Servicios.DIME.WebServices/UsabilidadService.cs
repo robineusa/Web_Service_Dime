@@ -12,10 +12,10 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
     public class UsabilidadService : IUsabilidadService
     {
-        public void InsertarUsabilidadInboundConvenio(UsabilidadConvenioInbound convenio)
+        public void InsertarUsabilidadAlertasInbound(UsabilidadAlertasInbound alertas)
         {
             UsabilidadBusiness UsabilidaBusi = new UsabilidadBusiness();
-            UsabilidaBusi.InsertarUsabilidadInboundConvenio(convenio);
+            UsabilidaBusi.InsertarUsabilidadAlertasInbound(alertas);
         }
 
         public void InsertarUsabilidadCuentaInbound(UsabilidadBusquedaCuentaInbound CuentaInbound)
