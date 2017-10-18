@@ -16,10 +16,13 @@ namespace Telmexla.Servicios.DIME.Business
     {
         public POMSolicitudes RegistrarSolicitudPom(POMSolicitudes Solicitud)
         {
+            Solicitud.IdEncuesta = 1;
+            Solicitud.MinOrigen = 0;
+            Solicitud.EnviaSoloEmail = "X";
+            Solicitud.EnviaReintento = 1;
+            Solicitud.FechaEnvioEncuesta = Solicitud.FechaTransaccion;
+
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            DateTime Fecha = DateTime.Now;
-            Solicitud.FechaTransaccion = Fecha;
-            Solicitud.CanalTransaccion = "CAV";
             unitWork.POMSolicitudes.Add(Solicitud);
             unitWork.Complete();
             unitWork.Dispose();
@@ -32,6 +35,17 @@ namespace Telmexla.Servicios.DIME.Business
 
             if (resultado.Count() > 0) { return true; }
             else { return false; }
+        }
+        public void EliminarEncuestaDime(POMSolicitudes Encuesta)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            POMSolicitudes EncuestaEncontrada = unitWork.POMSolicitudes.Find(x => x.IdTansaccion == Encuesta.IdTansaccion).FirstOrDefault();
+            if (EncuestaEncontrada != null)
+            {
+                unitWork.POMSolicitudes.Remove(EncuestaEncontrada);
+                unitWork.Complete();
+                unitWork.Dispose();
+            }else { }
         }
         public List<POMSolicitudes> ListaSolicitudesPom(DateTime FechaInicial, DateTime FechaFinal)
         {
@@ -52,7 +66,13 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.CorreoElectronico,
                                      a.CuentaCliente,
                                      a.Operacion,
-                                     a.TokenId
+                                     a.TokenId,
+                                     a.SubCanal,
+                                     a.FechaEnvioEncuesta,
+                                     a.MinOrigen,
+                                     a.EnviaReintento,
+                                     a.EnviaSoloEmail,
+                                     a.IdEncuesta
                                  }
                                  ).ToList();
 
@@ -70,6 +90,12 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].CuentaCliente = objetosResult[i].CuentaCliente;
                 result[i].Operacion = objetosResult[i].Operacion;
                 result[i].TokenId = objetosResult[i].TokenId;
+                result[i].SubCanal = objetosResult[i].SubCanal;
+                result[i].FechaEnvioEncuesta = objetosResult[i].FechaEnvioEncuesta;
+                result[i].MinOrigen = objetosResult[i].MinOrigen;
+                result[i].EnviaReintento = objetosResult[i].EnviaReintento;
+                result[i].EnviaSoloEmail = objetosResult[i].EnviaSoloEmail;
+                result[i].IdEncuesta = objetosResult[i].IdEncuesta;
             }
             return result;
 

@@ -17,5 +17,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         bool ValidarCuentaEnBaseSolicitudesPom(decimal CuentaCliente);
         [OperationContract]
         List<POMSolicitudes> ListaSolicitudesPom(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        void EliminarEncuestaDime(POMSolicitudes Encuesta);
     }
 }

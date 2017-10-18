@@ -24,6 +24,13 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.CuentaCliente).HasColumnName(@"CUENTA_CLIENTE").IsOptional().HasColumnType("numeric");
             Property(x => x.Operacion).HasColumnName(@"OPERACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.TokenId).HasColumnName(@"TOKEN_ID").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.SubCanal).HasColumnName(@"SUB_CANAL_TRANSACCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.FechaEnvioEncuesta).HasColumnName(@"FECHA_ENVIO_ENCUESTA").IsOptional().HasColumnType("datetime");
+            Property(x => x.MinOrigen).HasColumnName(@"MIN_ORIGEN").IsOptional().HasColumnType("numeric");
+            Property(x => x.EnviaReintento).HasColumnName(@"ENVIA_REINTENTO").IsOptional().HasColumnType("numeric");
+            Property(x => x.EnviaSoloEmail).HasColumnName(@"ENVIA_SOLO_EMAIL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
+            Property(x => x.IdEncuesta).HasColumnName(@"ID_ENCUESTA").IsOptional().HasColumnType("numeric");
+
         }
     }
 }

@@ -26,5 +26,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             POMSolicitudesBusiness PomBussines = new POMSolicitudesBusiness();
             return PomBussines.ListaSolicitudesPom(FechaInicial,FechaFinal);
         }
+        public void EliminarEncuestaDime(POMSolicitudes Encuesta)
+        {
+            POMSolicitudesBusiness PomBussines = new POMSolicitudesBusiness();
+            PomBussines.EliminarEncuestaDime(Encuesta);
+        }
     }
 }

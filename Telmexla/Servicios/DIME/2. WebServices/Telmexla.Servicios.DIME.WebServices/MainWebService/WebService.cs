@@ -2286,6 +2286,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             POMSolicitudesService PomService = new POMSolicitudesService();
             return PomService.ListaSolicitudesPom(FechaInicial, FechaFinal);
         }
+        public void EliminarEncuestaDime(POMSolicitudes Encuesta)
+        {
+            POMSolicitudesService PomService = new POMSolicitudesService();
+            PomService.EliminarEncuestaDime(Encuesta);
+        }
         #endregion
 
         #region Fidelizacion
