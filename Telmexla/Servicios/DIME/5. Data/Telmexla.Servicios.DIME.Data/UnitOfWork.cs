@@ -121,6 +121,8 @@ namespace Telmexla.Servicios.DIME.Data
             GPrincipalRecurrenciaInbound = new GPrincipalRecurrenciaInboundRepository(this.dimeContext);
             GLogRecurrenciaInbound = new GLogRecurrenciaInboundRepository(this.dimeContext);
             InventarioEquipos = new InventarioEquiposRepository(this.dimeContext);
+            BSCAdministracionBalanced = new BSCAdministracionBalancedRepository(this.dimeContext);
+            BSCAdministracionBalancedLog = new BSCAdministracionBalancedLogRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -559,7 +561,15 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        
+        public IBSCAdministracionBalancedRepository BSCAdministracionBalanced
+        {
+            get; private set;
+        }
+        public IBSCAdministracionBalancedLogRepository BSCAdministracionBalancedLog
+        {
+            get; private set;
+        }
+
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

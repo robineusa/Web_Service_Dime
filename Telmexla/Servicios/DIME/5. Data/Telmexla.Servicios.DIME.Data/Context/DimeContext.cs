@@ -141,6 +141,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<GPrincipalRecurrenciaInbound> GPrincipalRecurrenciaInbound { get; set; }
         public System.Data.Entity.DbSet<GLogRecurrenciaInbound> GLogRecurrenciaInbound { get; set; }
         public System.Data.Entity.DbSet<InventarioEquipos> InventarioEquipos { get; set; }
+        public System.Data.Entity.DbSet<BSCAdministracionBalanced> BSCAdministracionBalanced { get; set; }
+        public System.Data.Entity.DbSet<BSCAdministracionBalancedLog> BSCAdministracionBalancedLog { get; set; }
 
 
         static DimeContext()
@@ -315,6 +317,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GPrincipalRecurrenciaInboundConfiguration());
             modelBuilder.Configurations.Add(new GLogRecurrenciaInboundConfiguration());
             modelBuilder.Configurations.Add(new InventarioEquiposConfiguration());
+            modelBuilder.Configurations.Add(new BSCAdministracionBalancedConfiguration());
+            modelBuilder.Configurations.Add(new BSCAdministracionBalancedLogConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -441,6 +445,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GPrincipalRecurrenciaInboundConfiguration(schema));
             modelBuilder.Configurations.Add(new GLogRecurrenciaInboundConfiguration(schema));
             modelBuilder.Configurations.Add(new InventarioEquiposConfiguration(schema));
+            modelBuilder.Configurations.Add(new BSCAdministracionBalancedConfiguration(schema));
+            modelBuilder.Configurations.Add(new BSCAdministracionBalancedLogConfiguration(schema));
 
             return modelBuilder;
         }

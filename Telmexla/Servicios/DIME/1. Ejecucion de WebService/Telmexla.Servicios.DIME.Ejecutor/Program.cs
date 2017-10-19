@@ -20,9 +20,15 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            BackEliteService bes = new BackEliteService();
+            BalanceScoreCardService bscs = new BalanceScoreCardService();
+            BSCAdministracionBalanced entidad = new BSCAdministracionBalanced();
+            entidad.Skill = 1248;
+            entidad.Tmo = "07:30:00";
+            entidad.NombreSkill = "";
 
-            var resul = bes.ListaDeUsuariosBackElite();
+            bscs.RegistrarUmbralesBalanced(entidad, 1032381244, "Robinson Neusa Pinilla");
+
+
             var dddd = "";
             //FidelizacionService fidelizacion = new FidelizacionService(); 
             //var r = fidelizacion.getMaestroServiciosAll();

@@ -58,6 +58,8 @@
     <Compile Include="Acceso.cs" />
     <Compile Include="AccesoCollection.cs" />
     <Compile Include="AccesosXLinea.cs" />
+    <Compile Include="BSCAdministracionBalanced.cs" />
+    <Compile Include="BSCAdministracionBalancedLog.cs" />
     <Compile Include="FidelizacionOtrosOfrecimientos.cs" />
     <Compile Include="FidelizacionRecursiva.cs" />
     <Compile Include="FidelizacionRegistro.cs" />

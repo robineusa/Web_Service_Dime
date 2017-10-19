@@ -56,6 +56,10 @@
   <ItemGroup>
     <Compile Include="AccesoRepository.cs" />
     <Compile Include="AccesosXLineaRepository.cs" />
+    <Compile Include="BSCAdministracionBalancedLogRepository.cs" />
+    <Compile Include="BSCAdministracionBalancedRepository.cs" />
+    <Compile Include="Configuration\BSCAdministracionBalancedConfiguration.cs" />
+    <Compile Include="Configuration\BSCAdministracionBalancedLogConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionOtrosOfrecimientosConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionRecursivaConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionRegistroConfiguration.cs" />

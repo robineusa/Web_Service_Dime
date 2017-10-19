@@ -1196,8 +1196,28 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #region BalanceScoreCard
         public BalanceScoreCard IndicadoresUsuario(decimal cedula)
         {
-            BalanceScoreCardBusiness balancebusi = new BalanceScoreCardBusiness();
-            return balancebusi.IndicadoresUsuario(cedula);
+            BalanceScoreCardService balancedservice = new BalanceScoreCardService();
+            return balancedservice.IndicadoresUsuario(cedula);
+        }
+        public void RegistrarUmbralesBalanced(BSCAdministracionBalanced Umbrales, decimal Usuario, string NombreUsuario)
+        {
+            BalanceScoreCardService balancedservice = new BalanceScoreCardService();
+            balancedservice.RegistrarUmbralesBalanced(Umbrales,Usuario,NombreUsuario);
+        }
+        public void ActualizarUmbralesBalanced(BSCAdministracionBalanced Umbrales, decimal Usuario, string NombreUsuario)
+        {
+            BalanceScoreCardService balancedservice = new BalanceScoreCardService();
+            balancedservice.ActualizarUmbralesBalanced(Umbrales, Usuario, NombreUsuario);
+        }
+        public void EliminaUmbral(BSCAdministracionBalanced Umbrales, decimal Usuario, string NombreUsuario)
+        {
+            BalanceScoreCardService balancedservice = new BalanceScoreCardService();
+            balancedservice.EliminaUmbral(Umbrales, Usuario, NombreUsuario);
+        }
+        public BSCAdministracionBalanced ConsultaUmbralPorSkill(decimal Skill)
+        {
+            BalanceScoreCardService balancedservice = new BalanceScoreCardService();
+            return balancedservice.ConsultaUmbralPorSkill(Skill);
         }
         #endregion
 

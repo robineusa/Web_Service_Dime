@@ -14,5 +14,13 @@ namespace Telmexla.Servicios.DIME.IWebServices
     {
         [OperationContract]
         BalanceScoreCard IndicadoresUsuario(decimal cedula);
+        [OperationContract]
+        void RegistrarUmbralesBalanced(BSCAdministracionBalanced Umbrales, decimal Usuario, string NombreUsuario);
+        [OperationContract]
+        void ActualizarUmbralesBalanced(BSCAdministracionBalanced Umbrales, decimal Usuario, string NombreUsuario);
+        [OperationContract]
+        void EliminaUmbral(BSCAdministracionBalanced Umbrales, decimal Usuario, string NombreUsuario);
+        [OperationContract]
+        BSCAdministracionBalanced ConsultaUmbralPorSkill(decimal Skill);
     }
 }

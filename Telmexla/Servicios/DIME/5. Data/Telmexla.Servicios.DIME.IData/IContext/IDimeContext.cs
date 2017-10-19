@@ -138,6 +138,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<GPrincipalRecurrenciaInbound> GPrincipalRecurrenciaInbound { get; set; }
         System.Data.Entity.DbSet<GLogRecurrenciaInbound> GLogRecurrenciaInbound { get; set; }
         System.Data.Entity.DbSet<InventarioEquipos> InventarioEquipos { get; set; }
+        System.Data.Entity.DbSet<BSCAdministracionBalanced> BSCAdministracionBalanced { get; set; }
+        System.Data.Entity.DbSet<BSCAdministracionBalancedLog> BSCAdministracionBalancedLog { get; set; }
 
 
         int SaveChanges();
