@@ -1219,6 +1219,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BalanceScoreCardService balancedservice = new BalanceScoreCardService();
             return balancedservice.ConsultaUmbralPorSkill(Skill);
         }
+        public List<BSCAdministracionBalanced> ListaDeUmbralesActuales()
+        {
+            BalanceScoreCardService balancedservice = new BalanceScoreCardService();
+            return balancedservice.ListaDeUmbralesActuales();
+        }
         #endregion
 
         #region Graficos

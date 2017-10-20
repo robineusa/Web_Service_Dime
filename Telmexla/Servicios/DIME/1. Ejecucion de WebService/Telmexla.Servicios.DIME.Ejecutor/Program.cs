@@ -22,11 +22,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
             BalanceScoreCardService bscs = new BalanceScoreCardService();
             BSCAdministracionBalanced entidad = new BSCAdministracionBalanced();
-            entidad.Skill = 1248;
-            entidad.Tmo = "07:30:00";
-            entidad.NombreSkill = "";
+            entidad = bscs.ConsultaUmbralPorSkill(1248);
 
-            bscs.RegistrarUmbralesBalanced(entidad, 1032381244, "Robinson Neusa Pinilla");
+            bscs.EliminaUmbral(entidad, 1032381244, "Robinson Neusa Pinilla");
 
 
             var dddd = "";

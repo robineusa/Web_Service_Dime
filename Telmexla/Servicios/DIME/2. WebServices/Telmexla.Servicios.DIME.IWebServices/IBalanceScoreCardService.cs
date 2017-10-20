@@ -22,5 +22,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void EliminaUmbral(BSCAdministracionBalanced Umbrales, decimal Usuario, string NombreUsuario);
         [OperationContract]
         BSCAdministracionBalanced ConsultaUmbralPorSkill(decimal Skill);
+        [OperationContract]
+        List<BSCAdministracionBalanced> ListaDeUmbralesActuales();
     }
 }

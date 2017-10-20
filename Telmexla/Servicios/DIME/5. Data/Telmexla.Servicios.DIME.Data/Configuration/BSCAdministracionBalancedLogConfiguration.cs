@@ -17,7 +17,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Skill).HasColumnName(@"SKILL").IsOptional().HasColumnType("numeric");
             Property(x => x.NombreSkill).HasColumnName(@"NOMBRE_SKILL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.Tmo).HasColumnName(@"TMO").IsOptional().IsUnicode(false).HasColumnType("varchar");
+            Property(x => x.Tmo).HasColumnName(@"TMO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.LlamadasAtendidas).HasColumnName(@"LLAMADAS_ATENDIDAS").IsOptional().HasColumnType("numeric");
             Property(x => x.Marcaciones).HasColumnName(@"MARCACIONES").IsOptional().HasColumnType("numeric");
             Property(x => x.AjustesCorrectos).HasColumnName(@"AJUSTES_CORRECTOS").IsOptional().HasColumnType("numeric");

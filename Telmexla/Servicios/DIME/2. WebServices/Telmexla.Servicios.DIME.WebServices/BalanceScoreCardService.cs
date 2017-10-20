@@ -37,5 +37,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BalanceScoreCardBusiness balancebusi = new BalanceScoreCardBusiness();
            return  balancebusi.ConsultaUmbralPorSkill(Skill);
         }
+        public List<BSCAdministracionBalanced> ListaDeUmbralesActuales()
+        {
+            BalanceScoreCardBusiness balancebusi = new BalanceScoreCardBusiness();
+            return balancebusi.ListaDeUmbralesActuales();
+        }
     }
 }

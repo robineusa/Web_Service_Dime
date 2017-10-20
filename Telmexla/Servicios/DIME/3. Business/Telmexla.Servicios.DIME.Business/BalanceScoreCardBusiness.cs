@@ -107,37 +107,45 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public void EliminaUmbral(BSCAdministracionBalanced Umbrales, decimal Usuario, string NombreUsuario)
         {
+            decimal numeroSkill = Umbrales.Skill;
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            BSCAdministracionBalanced RegistroEliminar = unitWork.BSCAdministracionBalanced.Find(c => c.Skill == numeroSkill).FirstOrDefault();
 
-            //elimina registro del sistema.
-            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
-            UnitOfWork.BSCAdministracionBalanced.Remove(Umbrales);
+            if (RegistroEliminar != null)
+            {
+                unitWork.BSCAdministracionBalanced.Remove(RegistroEliminar);
+                unitWork.Complete();
+                unitWork.Dispose();
+                //registra tabla log de indicadores
+                UnitOfWork unitworkLog = new UnitOfWork(new DimeContext());
+                BSCAdministracionBalancedLog Log = new BSCAdministracionBalancedLog();
 
-            //registra tabla log de indicadores
-            UnitOfWork unitworkLog = new UnitOfWork(new DimeContext());
-            BSCAdministracionBalancedLog Log = new BSCAdministracionBalancedLog();
+                Log.Skill = Umbrales.Skill;
+                Log.NombreSkill = Umbrales.NombreSkill;
+                Log.Tmo = Umbrales.Tmo;
+                Log.LlamadasAtendidas = Umbrales.LlamadasAtendidas;
+                Log.Marcaciones = Umbrales.Marcaciones;
+                Log.AjustesCorrectos = Umbrales.AjustesCorrectos;
+                Log.PqrEscalados = Umbrales.PqrEscalados;
+                Log.VolumenDeVentas = Umbrales.VolumenDeVentas;
+                Log.Reincidencia = Umbrales.Reincidencia;
+                Log.Recomendacion = Umbrales.Recomendacion;
+                Log.NotaCalidad = Umbrales.NotaCalidad;
+                Log.NotaBuenServicio = Umbrales.NotaBuenServicio;
+                Log.ActivacionClaroVideo = Umbrales.ActivacionClaroVideo;
+                Log.ActivacionConvenioElectronico = Umbrales.ActivacionConvenioElectronico;
+                Log.TipoTransaccion = "ELIMINACION";
+                Log.FechaTransaccion = DateTime.Now;
+                Log.UsuarioTransaccion = Usuario;
+                Log.NombreUsuarioTransaccion = NombreUsuario;
 
-            Log.Skill = Umbrales.Skill;
-            Log.NombreSkill = Umbrales.NombreSkill;
-            Log.Tmo = Umbrales.Tmo;
-            Log.LlamadasAtendidas = Umbrales.LlamadasAtendidas;
-            Log.Marcaciones = Umbrales.Marcaciones;
-            Log.AjustesCorrectos = Umbrales.AjustesCorrectos;
-            Log.PqrEscalados = Umbrales.PqrEscalados;
-            Log.VolumenDeVentas = Umbrales.VolumenDeVentas;
-            Log.Reincidencia = Umbrales.Reincidencia;
-            Log.Recomendacion = Umbrales.Recomendacion;
-            Log.NotaCalidad = Umbrales.NotaCalidad;
-            Log.NotaBuenServicio = Umbrales.NotaBuenServicio;
-            Log.ActivacionClaroVideo = Umbrales.ActivacionClaroVideo;
-            Log.ActivacionConvenioElectronico = Umbrales.ActivacionConvenioElectronico;
-            Log.TipoTransaccion = "ELIMINACION";
-            Log.FechaTransaccion = DateTime.Now;
-            Log.UsuarioTransaccion = Usuario;
-            Log.NombreUsuarioTransaccion = NombreUsuario;
+                unitworkLog.BSCAdministracionBalancedLog.Add(Log);
+                unitworkLog.Complete();
+                unitworkLog.Dispose();
+            }
+            else { }
 
-            unitworkLog.BSCAdministracionBalancedLog.Add(Log);
-            unitworkLog.Complete();
-            unitworkLog.Dispose();
+            
         }
         public BSCAdministracionBalanced ConsultaUmbralPorSkill(decimal Skill)
         {
@@ -151,6 +159,54 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 return null;
             }
+        }
+        public List<BSCAdministracionBalanced> ListaDeUmbralesActuales()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<BSCAdministracionBalanced> result = new List<BSCAdministracionBalanced>();
+            var objetosResult = (from a in dimContext.BSCAdministracionBalanced
+                                 orderby a.Skill ascending
+                                 select new
+                                 {
+                                     a.Skill,
+                                     a.NombreSkill,
+                                     a.Tmo,
+                                     a.LlamadasAtendidas,
+                                     a.Marcaciones,
+                                     a.AjustesCorrectos,
+                                     a.PqrEscalados,
+                                     a.VolumenDeVentas,
+                                     a.Reincidencia,
+                                     a.Recomendacion,
+                                     a.NotaCalidad,
+                                     a.NotaBuenServicio,
+                                     a.ActivacionClaroVideo,
+                                     a.ActivacionConvenioElectronico,
+                                     a.UsoCCAA
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new BSCAdministracionBalanced());
+                result[i].Skill = objetosResult[i].Skill;
+                result[i].NombreSkill = objetosResult[i].NombreSkill;
+                result[i].Tmo = objetosResult[i].Tmo;
+                result[i].LlamadasAtendidas = objetosResult[i].LlamadasAtendidas;
+                result[i].Marcaciones = objetosResult[i].Marcaciones; 
+                result[i].AjustesCorrectos = objetosResult[i].AjustesCorrectos;
+                result[i].PqrEscalados = objetosResult[i].PqrEscalados;
+                result[i].VolumenDeVentas = objetosResult[i].VolumenDeVentas;
+                result[i].Reincidencia = objetosResult[i].Reincidencia;
+                result[i].Recomendacion = objetosResult[i].Recomendacion;
+                result[i].NotaCalidad = objetosResult[i].NotaCalidad;
+                result[i].NotaBuenServicio = objetosResult[i].NotaBuenServicio;
+                result[i].ActivacionClaroVideo = objetosResult[i].ActivacionClaroVideo;
+                result[i].ActivacionConvenioElectronico = objetosResult[i].ActivacionConvenioElectronico;
+                result[i].UsoCCAA = objetosResult[i].UsoCCAA;
+
+            }
+            return result;
         }
     }
 }
