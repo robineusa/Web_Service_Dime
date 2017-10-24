@@ -61,6 +61,7 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitwork = new UnitOfWork(new DimeContext());
             BSCAdministracionBalanced UmbralActualizable = unitwork.BSCAdministracionBalanced.Find(x => x.Skill == Umbrales.Skill).FirstOrDefault();
             //actualia la informacion
+            UmbralActualizable.NombreSkill = Umbrales.NombreSkill;
             UmbralActualizable.Tmo = Umbrales.Tmo;
             UmbralActualizable.LlamadasAtendidas = Umbrales.LlamadasAtendidas;
             UmbralActualizable.Marcaciones = Umbrales.Marcaciones;
@@ -73,6 +74,7 @@ namespace Telmexla.Servicios.DIME.Business
             UmbralActualizable.NotaBuenServicio = Umbrales.NotaBuenServicio;
             UmbralActualizable.ActivacionClaroVideo = Umbrales.ActivacionClaroVideo;
             UmbralActualizable.ActivacionConvenioElectronico = Umbrales.ActivacionConvenioElectronico;
+            UmbralActualizable.UsoCCAA = Umbrales.UsoCCAA;
 
             unitwork.Complete();
             unitwork.Dispose();
