@@ -60,5 +60,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void updateRecursiva(FidelizacionRecursiva objRecursiva);
         [OperationContract]
         void updateRegistro(FidelizacionRegistro objRegistro);
+        [OperationContract]
+        List<FidelizacionTipificacion> getTipificacionAll();
+        [OperationContract]
+        FidelizacionTipificacion getTipificacionById(decimal idTipificacion);
     }
 }

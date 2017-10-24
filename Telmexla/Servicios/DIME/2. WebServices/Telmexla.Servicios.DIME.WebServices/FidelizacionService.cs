@@ -135,5 +135,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
             Fidelizacion.updateRegistro(objRegistro);
         }
+        [OperationContract]
+        public List<FidelizacionTipificacion> getTipificacionAll() {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            return Fidelizacion.getTipificacionAll();
+        }
+        [OperationContract]
+        public FidelizacionTipificacion getTipificacionById(decimal idTipificacion) {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            return Fidelizacion.getTipificacionById(idTipificacion);
+        }
     }
 }

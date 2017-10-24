@@ -2427,6 +2427,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.updateRegistro(objRegistro);
         }
+        public List<FidelizacionTipificacion> getTipificacionAll() {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getTipificacionAll();
+        }
+        public FidelizacionTipificacion getTipificacionById(decimal idTipificacion) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getTipificacionById(idTipificacion);
+        }
         #endregion
 
         #region Verificacion de Inventario

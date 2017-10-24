@@ -219,6 +219,54 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return objTmp;
         }
+        public List<FidelizacionTipificacion> getTipificacionAll()
+        {
+            DimeContext dimeContext = new DimeContext();
+            List<FidelizacionTipificacion> objTmp = new List<FidelizacionTipificacion>();
+
+            var listado = (from tipificacion in dimeContext.FidelizacionTipificacion
+                           orderby tipificacion.Nombre ascending
+                           select new
+                           {
+                               tipificacion.Activo,
+                               tipificacion.Eliminado,
+                               tipificacion.Id,
+                               tipificacion.Modulo,
+                               tipificacion.Nivel1,
+                               tipificacion.Nivel2,
+                               tipificacion.Nivel3,
+                               tipificacion.Nombre,
+                               tipificacion.Nota,
+                               tipificacion.Registro,
+                               tipificacion.UsuarioId
+                               
+                           }
+                           ).ToList();
+
+            for (var i = 0; i < listado.Count; i++)
+            {
+                objTmp.Add(new FidelizacionTipificacion());
+                objTmp[i].Activo = listado[i].Activo;
+                objTmp[i].Eliminado = listado[i].Eliminado;
+                objTmp[i].Id = listado[i].Id;
+                objTmp[i].Modulo = listado[i].Modulo;
+                objTmp[i].Nombre = listado[i].Nombre;
+                objTmp[i].Nivel1 = listado[i].Nivel1;
+                objTmp[i].Nivel2 = listado[i].Nivel2;
+                objTmp[i].Nivel3 = listado[i].Nivel3;
+                objTmp[i].Nota = listado[i].Nota;
+                objTmp[i].Registro = listado[i].Registro;
+                objTmp[i].UsuarioId = listado[i].UsuarioId;
+            }
+            return objTmp;
+        }
+        public FidelizacionTipificacion getTipificacionById(decimal idTipificacion)
+        {
+            UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionTipificacion fila = UnidadTrabajo.FidelizacionTipificacion.Find(c => c.Id == idTipificacion).FirstOrDefault();
+            return fila;
+
+        }
         public void setRegistro(FidelizacionRegistro objRegistro) {
             UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
             UnidadTrabajo.FidelizacionRegistro.Add(objRegistro);
@@ -331,6 +379,7 @@ namespace Telmexla.Servicios.DIME.Business
             tipificacionActualizado.Nivel2 = objTipificacion.Nivel2;
             tipificacionActualizado.Nivel3 = objTipificacion.Nivel3;
             tipificacionActualizado.Nombre = objTipificacion.Nombre;
+            tipificacionActualizado.Nota = objTipificacion.Nota;
             tipificacionActualizado.Registro = objTipificacion.Registro;
             tipificacionActualizado.UsuarioId = objTipificacion.UsuarioId;
             unidadTrabajo.Complete();
