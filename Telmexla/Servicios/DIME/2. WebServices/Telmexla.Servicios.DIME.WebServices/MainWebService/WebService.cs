@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService
     {
 
 
@@ -2666,5 +2666,19 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VerificacionInventarioService.ReasignarGestionBackInventario(Solicitudes, UsuarioNuevo);
         }
         #endregion
+
+        #region VisitasAutorizadas
+        public void AgregarNuevaVisita(VisitasAutorizadas Visita)
+        {
+            VisitasAutorizadasService visitasservice = new VisitasAutorizadasService();
+            visitasservice.AgregarNuevaVisita(Visita);
+        }
+        public List<VisitasAutorizadas> ConsultaBaseVisitasAutorizadas(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            VisitasAutorizadasService visitasservice = new VisitasAutorizadasService();
+            return visitasservice.ConsultaBaseVisitasAutorizadas(FechaInicial,FechaFinal);
+        }
+        #endregion
+
     }
 }

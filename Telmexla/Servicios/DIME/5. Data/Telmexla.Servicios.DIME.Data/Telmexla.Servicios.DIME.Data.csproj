@@ -76,6 +76,7 @@
     <Compile Include="Configuration\VIMTipoDeRequerimientoConfiguration.cs" />
     <Compile Include="Configuration\VIPSolicitudesConfiguration.cs" />
     <Compile Include="Configuration\VIPSolicitudesPorEquipoConfiguration.cs" />
+    <Compile Include="Configuration\VisitasAutorizadasConfiguration.cs" />
     <Compile Include="FidelizacionOtrosOfrecimientosRepository.cs" />
     <Compile Include="FidelizacionRecursivaRepository.cs" />
     <Compile Include="FidelizacionRegistroRepository.cs" />
@@ -324,6 +325,7 @@
     <Compile Include="VIMTipoDeRequerimientoRepository.cs" />
     <Compile Include="VIPSolicitudesPorEquipoRepository.cs" />
     <Compile Include="VIPSolicitudesRepository.cs" />
+    <Compile Include="VisitasAutorizadasRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
