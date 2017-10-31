@@ -15,9 +15,16 @@ namespace Telmexla.Servicios.DIME.Business
     {
         public void AgregarNuevaVisita(VisitasAutorizadas Visita)
         {
+            UnitOfWork unitOfWorkDesplegable = new UnitOfWork(new DimeContext());
+            decimal Id = Convert.ToDecimal(Visita.Motivo);
+            VAMotivosSolicitud MotivoTexto = unitOfWorkDesplegable.VAMotivosSolicitud.Find(x => x.IdMotivo == Id).FirstOrDefault();
+            unitOfWorkDesplegable.Complete();
+            unitOfWorkDesplegable.Dispose();
+
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             DateTime FechaSistema = DateTime.Now;
             Visita.FechaRegistro = FechaSistema;
+            Visita.Motivo = MotivoTexto.Motivo;
             unitOfWork.VisitasAutorizadas.Add(Visita);
             unitOfWork.Complete();
             unitOfWork.Dispose();
@@ -28,7 +35,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             List<VisitasAutorizadas> result = new List<VisitasAutorizadas>();
             var objetosResult = (from a in dimContext.VisitasAutorizadas
-                                 join b in (from m in dimContext.BasePersonalHoloes select new { m.Cedula, m.Nombre,m.UsuarioRr }).Distinct() on a.CedulaUsuarioGestion equals b.Cedula
+                                 //join b in (from m in dimContext.BasePersonalHoloes select new { m.Cedula, m.Nombre,m.UsuarioRr }).Distinct() on a.CedulaUsuarioGestion equals b.Cedula
                                  where a.FechaRegistro >= FechaInicial && a.FechaRegistro<= FechaFinal
                                  orderby a.IdVisita ascending
                                  select new
@@ -42,10 +49,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.LlamadaServicio,
                                      a.Aviso,
                                      a.Motivo,
-                                     a.CedulaUsuarioGestion,
-                                     b.Nombre,
-                                     b.UsuarioRr
-
+                                     a.CedulaUsuarioGestion
                                  }
                                  ).ToList();
 
@@ -63,6 +67,28 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].Motivo = objetosResult[i].Motivo;
                 result[i].CedulaUsuarioGestion = objetosResult[i].CedulaUsuarioGestion;
                 
+            }
+            return result;
+        }
+        public List<VAMotivosSolicitud> ListaMotivosSolicitud()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<VAMotivosSolicitud> result = new List<VAMotivosSolicitud>();
+            var objetosResult = (from a in dimContext.VAMotivosSolicitud
+                                 where a.Estado.Equals("ACTIVO")
+                                 orderby a.Motivo ascending
+                                 select new
+                                 {
+                                     a.IdMotivo,
+                                     a.Motivo
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new VAMotivosSolicitud());
+                result[i].IdMotivo = objetosResult[i].IdMotivo;
+                result[i].Motivo = objetosResult[i].Motivo;
             }
             return result;
         }

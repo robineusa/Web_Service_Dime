@@ -68,6 +68,7 @@
     <Compile Include="Configuration\FidelizacionTipificacionConfiguration.cs" />
     <Compile Include="Configuration\GLogRecurrenciaInboundConfiguration.cs" />
     <Compile Include="Configuration\InventarioEquiposConfiguration.cs" />
+    <Compile Include="Configuration\VAMotivosSolicitudConfiguration.cs" />
     <Compile Include="Configuration\VILSolicitudesConfiguration.cs" />
     <Compile Include="Configuration\VIMAliadoTecnicoConfiguration.cs" />
     <Compile Include="Configuration\VIMGestionConfiguration.cs" />
@@ -317,6 +318,7 @@
     <Compile Include="UsuariosNotificadosRepository.cs" />
     <Compile Include="UsuariosXAccesoRepository.cs" />
     <Compile Include="UsuariosXPreguntasDesbRepository.cs" />
+    <Compile Include="VAMotivosSolicitudRepository.cs" />
     <Compile Include="VILSolicitudesRepository.cs" />
     <Compile Include="VIMAliadoTecnicoRepository.cs" />
     <Compile Include="VIMGestionRepository.cs" />

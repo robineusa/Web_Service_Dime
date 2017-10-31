@@ -2678,6 +2678,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VisitasAutorizadasService visitasservice = new VisitasAutorizadasService();
             return visitasservice.ConsultaBaseVisitasAutorizadas(FechaInicial,FechaFinal);
         }
+        public List<VAMotivosSolicitud> ListaMotivosSolicitud()
+        {
+            VisitasAutorizadasService visitasservice = new VisitasAutorizadasService();
+            return visitasservice.ListaMotivosSolicitud();
+
+        }
         #endregion
 
     }

@@ -117,6 +117,7 @@ namespace Telmexla.Servicios.DIME.IData
         IBSCAdministracionBalancedRepository BSCAdministracionBalanced { get; }
         IBSCAdministracionBalancedLogRepository BSCAdministracionBalancedLog { get; }
         IVisitasAutorizadasRepository VisitasAutorizadas { get; }
+        IVAMotivosSolicitudRepository VAMotivosSolicitud { get; }
 
         int Complete();
     }

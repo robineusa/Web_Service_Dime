@@ -20,6 +20,14 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+
+            VisitasAutorizadasService vas = new VisitasAutorizadasService();
+            DateTime Fecha1 = Convert.ToDateTime("2017-10-30");
+            DateTime Fecha2 = Convert.ToDateTime("2017-11-01");
+
+            var dato = vas.ConsultaBaseVisitasAutorizadas(Fecha1,Fecha2);
+            var n = "";
+
             BalanceScoreCardService bscs = new BalanceScoreCardService();
             BSCAdministracionBalanced entidad = new BSCAdministracionBalanced();
             entidad = bscs.ConsultaUmbralPorSkill(1248);

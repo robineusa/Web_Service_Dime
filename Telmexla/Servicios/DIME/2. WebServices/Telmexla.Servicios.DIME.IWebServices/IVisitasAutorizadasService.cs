@@ -15,6 +15,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void AgregarNuevaVisita(VisitasAutorizadas Visita);
         [OperationContract]
         List<VisitasAutorizadas> ConsultaBaseVisitasAutorizadas(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<VAMotivosSolicitud> ListaMotivosSolicitud();
 
     }
 }

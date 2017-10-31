@@ -177,6 +177,7 @@
     <Compile Include="IUsuariosNotificadosRepository.cs" />
     <Compile Include="IUsuariosXAccesoRepository.cs" />
     <Compile Include="IUsuariosXPreguntasDesbRepository.cs" />
+    <Compile Include="IVAMotivosSolicitudRepository.cs" />
     <Compile Include="IVILSolicitudesRepository.cs" />
     <Compile Include="IVIMAliadoTecnicoRepository.cs" />
     <Compile Include="IVIMGestionRepository.cs" />

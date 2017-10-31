@@ -21,5 +21,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             VisitasAutorizadasBusiness visitasbusines = new VisitasAutorizadasBusiness();
             return visitasbusines.ConsultaBaseVisitasAutorizadas(FechaInicial,FechaFinal);
         }
+        public List<VAMotivosSolicitud> ListaMotivosSolicitud()
+        {
+            VisitasAutorizadasBusiness visitasbusines = new VisitasAutorizadasBusiness();
+            return visitasbusines.ListaMotivosSolicitud();
+        }
     }
 }
