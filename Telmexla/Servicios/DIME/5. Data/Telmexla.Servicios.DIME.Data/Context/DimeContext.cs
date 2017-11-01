@@ -143,7 +143,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<InventarioEquipos> InventarioEquipos { get; set; }
         public System.Data.Entity.DbSet<BSCAdministracionBalanced> BSCAdministracionBalanced { get; set; }
         public System.Data.Entity.DbSet<BSCAdministracionBalancedLog> BSCAdministracionBalancedLog { get; set; }
-
+        public System.Data.Entity.DbSet<VisitasAutorizadas> VisitasAutorizadas { get; set; }
+        public System.Data.Entity.DbSet<VAMotivosSolicitud> VAMotivosSolicitud { get; set; }
 
         static DimeContext()
         {
@@ -319,6 +320,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new InventarioEquiposConfiguration());
             modelBuilder.Configurations.Add(new BSCAdministracionBalancedConfiguration());
             modelBuilder.Configurations.Add(new BSCAdministracionBalancedLogConfiguration());
+            modelBuilder.Configurations.Add(new VisitasAutorizadasConfiguration());
+            modelBuilder.Configurations.Add(new VAMotivosSolicitudConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -447,6 +450,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new InventarioEquiposConfiguration(schema));
             modelBuilder.Configurations.Add(new BSCAdministracionBalancedConfiguration(schema));
             modelBuilder.Configurations.Add(new BSCAdministracionBalancedLogConfiguration(schema));
+            modelBuilder.Configurations.Add(new VisitasAutorizadasConfiguration(schema));
+            modelBuilder.Configurations.Add(new VAMotivosSolicitudConfiguration(schema));
 
             return modelBuilder;
         }

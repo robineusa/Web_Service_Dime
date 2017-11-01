@@ -93,6 +93,7 @@
     <Compile Include="UsabilidadBusiness.cs" />
     <Compile Include="UsuariosMasivoData.cs" />
     <Compile Include="VerificacionDeInventarioBusiness.cs" />
+    <Compile Include="VisitasAutorizadasBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
