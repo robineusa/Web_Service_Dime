@@ -415,13 +415,14 @@ namespace Telmexla.Servicios.DIME.WebServices
                     accesosUsuario.FechaCreacion = fechaActual;
                     accesosUsuario.HoraCreacion = fechaActual.TimeOfDay;
                     dimContext.UsuariosXAccesoes.Add(accesosUsuario);
+                    dimContext.SaveChanges();
                 }
                 else
                 {
 
                 }
             }
-            dimContext.SaveChanges();
+            
         }
 
         public void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo)
@@ -436,15 +437,22 @@ namespace Telmexla.Servicios.DIME.WebServices
                 DateTime fechaActual = DateTime.Now;
                 for (int i = 0; i < listaPermisos.Count; i++)
                 {
-                    UsuariosXAcceso accesosUsuario = new UsuariosXAcceso();
-                    accesosUsuario.IdUsuario = usuario.Id;
-                    accesosUsuario.IdAcceso = Convert.ToInt32(listaPermisos[i]);
-                    accesosUsuario.IdUserCambioo = Convert.ToInt32(idUsuarioCambioo);
-                    accesosUsuario.FechaCreacion = fechaActual;
-                    accesosUsuario.HoraCreacion = fechaActual.TimeOfDay;
-                    dimContext.UsuariosXAccesoes.Add(accesosUsuario);
+                    var IdAcceso = Convert.ToInt32(listaPermisos[i]);
+                    var Validacion = dimContext.UsuariosXAccesoes.FirstOrDefault(c => c.IdUsuario == usuario.Id && c.IdAcceso == IdAcceso);
+                    if (Validacion == null)
+                    {
+                        UsuariosXAcceso accesosUsuario = new UsuariosXAcceso();
+                        accesosUsuario.IdUsuario = usuario.Id;
+                        accesosUsuario.IdAcceso = Convert.ToInt32(listaPermisos[i]);
+                        accesosUsuario.IdUserCambioo = Convert.ToInt32(idUsuarioCambioo);
+                        accesosUsuario.FechaCreacion = fechaActual;
+                        accesosUsuario.HoraCreacion = fechaActual.TimeOfDay;
+                        dimContext.UsuariosXAccesoes.Add(accesosUsuario);
+                        dimContext.SaveChanges();
+                    }
+                    else { }
                 }
-                dimContext.SaveChanges();
+                
             }
 
         }

@@ -33,9 +33,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             listaPermisos[0]= "75";
             listaPermisos[1] = "100";
 
-            lg.ActualizarAccesosUsuario(41213, 2, 33, listaPermisos, "", "8875");
+            //lg.ActualizarAccesosUsuario(41213, 2, 33, listaPermisos, "", "8875");
 
-            lg.EliminarAccesosUsuario(41213, 100);
+            //lg.EliminarAccesosUsuario(41213, 100);
 
             var dddd = "";
             //FidelizacionService fidelizacion = new FidelizacionService(); 
