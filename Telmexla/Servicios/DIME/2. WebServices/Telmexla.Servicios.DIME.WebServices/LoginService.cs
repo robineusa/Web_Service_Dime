@@ -33,34 +33,38 @@ namespace Telmexla.Servicios.DIME.WebServices
 
         public int AutenticarUsuarioEnSesion(Usuario usuario)
         {
-            
+
             usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(usuario.Contrasena);
             DimeContext context = new DimeContext();
-            var userLastDate = context.UsuariosXAccesoes.OrderByDescending(x => x.FechaCreacion).Where(c => c.IdUsuario == usuario.Id).Select(x => new { x.FechaCreacion }).FirstOrDefault();
-            var userLastTime = context.UsuariosXAccesoes.OrderByDescending(x => x.HoraCreacion).Where(c => c.IdUsuario == usuario.Id && c.FechaCreacion==userLastDate.FechaCreacion).Select(x => new { x.HoraCreacion }).FirstOrDefault();
+            //var userLastDate = context.UsuariosXAccesoes.OrderByDescending(x => x.FechaCreacion).Where(c => c.IdUsuario == usuario.Id).Select(x => new { x.FechaCreacion }).FirstOrDefault();
+            //var userLastTime = context.UsuariosXAccesoes.OrderByDescending(x => x.HoraCreacion).Where(c => c.IdUsuario == usuario.Id && c.FechaCreacion == userLastDate.FechaCreacion).Select(x => new { x.HoraCreacion }).FirstOrDefault();
+            //var r = context.UsuariosXAccesoes.FirstOrDefault(c => c.IdUsuario == usuario.Id && c.FechaCreacion == userLastDate.FechaCreacion && c.HoraCreacion == userLastTime.HoraCreacion && (c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAdministrador || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAsesor
+            //|| c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoCelula)).IdAcceso;
             if (usuario.Id != 0 && usuario.Contrasena.Equals(context.Usuarios.Single(c => c.Cedula == usuario.Cedula).Contrasena)
-              && context.UsuariosXAccesoes.Any(c => c.IdUsuario == usuario.Id && c.FechaCreacion == userLastDate.FechaCreacion && c.HoraCreacion == userLastTime.HoraCreacion && (c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAdministrador || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAsesor
+              && context.UsuariosXAccesoes.Any(c => c.IdUsuario == usuario.Id && (c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAdministrador || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAsesor
                  || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoCelula)))
-                {
-                return context.UsuariosXAccesoes.Single(c => c.IdUsuario == usuario.Id && c.FechaCreacion == userLastDate.FechaCreacion && c.HoraCreacion == userLastTime.HoraCreacion && (c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAdministrador || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAsesor
+            {
+                return context.UsuariosXAccesoes.FirstOrDefault(c => c.IdUsuario == usuario.Id && (c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAdministrador || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAsesor
                  || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoCelula)).IdAcceso;
-                }
+            }
             else
-            { if (!context.UsuariosXAccesoes.Any(c => c.IdUsuario == usuario.Id && c.FechaCreacion == userLastDate.FechaCreacion && c.HoraCreacion == userLastTime.HoraCreacion && (c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAdministrador || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAsesor
-                 || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoCelula)))
+            {
+                if (!context.UsuariosXAccesoes.Any(c => c.IdUsuario == usuario.Id && (c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAdministrador || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAsesor
+                   || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoCelula)))
                 {
                     return -1;
                 }
                 return 0;
             }
 
-             
+
         }
 
 
         public bool PreguntasDesbloqueoCompletas(int id)
-        {   DimeContext context = new DimeContext();
-            if(context.UsuariosXPreguntasDesbs.Where(c=>c.IdUsuario==id).Count()==5)
+        {
+            DimeContext context = new DimeContext();
+            if (context.UsuariosXPreguntasDesbs.Where(c => c.IdUsuario == id).Count() == 5)
             {
                 return true;
             }
@@ -68,9 +72,10 @@ namespace Telmexla.Servicios.DIME.WebServices
         }
 
         public bool DatosUsuarioCompleto(int id)
-        { DimeContext context = new DimeContext();
-            Usuario usuario = context.Usuarios.Where(c=>c.Id==id).Single();
-            if(usuario.Correo == null || usuario.FechaNacimiento == null || usuario.Genero == null || usuario.Telefono == null)
+        {
+            DimeContext context = new DimeContext();
+            Usuario usuario = context.Usuarios.Where(c => c.Id == id).Single();
+            if (usuario.Correo == null || usuario.FechaNacimiento == null || usuario.Genero == null || usuario.Telefono == null)
             {
                 return false;
             }
@@ -83,7 +88,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             DimeContext context = new DimeContext();
             var usuario = context.Usuarios.Where(c => c.Id == id).Select(x => new { x.FechaContrasena }).FirstOrDefault();
             DateTime datePasswordPut = usuario.FechaContrasena ?? (DateTime)usuario.FechaContrasena;
-            if ( (((int)(DateTime.Now-datePasswordPut).TotalDays) > 30) || usuario.FechaContrasena== null   )
+            if ((((int)(DateTime.Now - datePasswordPut).TotalDays) > 30) || usuario.FechaContrasena == null)
                 return true;
 
             return false;
@@ -117,7 +122,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public int RecibirIdUsuario(decimal? cedula)
         {
             DimeContext context = new DimeContext();
-            var result = context.Usuarios.SingleOrDefault(c=>c.Cedula== cedula);
+            var result = context.Usuarios.SingleOrDefault(c => c.Cedula == cedula);
             if (result != null)
             {
                 return result.Id;
@@ -142,18 +147,18 @@ namespace Telmexla.Servicios.DIME.WebServices
             DimeContext context = new DimeContext();
             var contentList = context.UsuariosXPreguntasDesbs.Where(o => o.IdUsuario == usuario.Id);
             context.UsuariosXPreguntasDesbs.RemoveRange(contentList);
-            for(int i = 0; i<noPreguntas; i ++)
-               {
-                if (i< preguntas.Count() && i < respuestas.Count() )
-                    { 
-                     UsuariosXPreguntasDesb item = new UsuariosXPreguntasDesb();
-                      item.IdPregunta = preguntas[i].Id;
-                     item.IdUsuario = usuario.Id;
-                     item.Respuesta = new GeneralEncriptor().GetEncriptedData(respuestas[i].ToUpperNoSpecialChars());
-                     context.UsuariosXPreguntasDesbs.Add(item);
-                     }
-                       else return false;
-               }
+            for (int i = 0; i < noPreguntas; i++)
+            {
+                if (i < preguntas.Count() && i < respuestas.Count())
+                {
+                    UsuariosXPreguntasDesb item = new UsuariosXPreguntasDesb();
+                    item.IdPregunta = preguntas[i].Id;
+                    item.IdUsuario = usuario.Id;
+                    item.Respuesta = new GeneralEncriptor().GetEncriptedData(respuestas[i].ToUpperNoSpecialChars());
+                    context.UsuariosXPreguntasDesbs.Add(item);
+                }
+                else return false;
+            }
             context.SaveChanges();
             return true;
         }
@@ -172,17 +177,18 @@ namespace Telmexla.Servicios.DIME.WebServices
         }
 
         public bool BloquearUsuario(int id, int idUsuarioCambioo, string ipPrivadaCreacion, string ipPublicaCreacion)
-        { DimeContext context = new DimeContext();
-            var userLastDate = context.UsuariosXAccesoes.OrderByDescending(x => x.FechaCreacion).Where(c => c.IdUsuario == id).Select(x=> new {x.FechaCreacion }).FirstOrDefault();
+        {
+            DimeContext context = new DimeContext();
+            var userLastDate = context.UsuariosXAccesoes.OrderByDescending(x => x.FechaCreacion).Where(c => c.IdUsuario == id).Select(x => new { x.FechaCreacion }).FirstOrDefault();
             var userLastTime = context.UsuariosXAccesoes.OrderByDescending(x => x.HoraCreacion).Where(c => c.IdUsuario == id).Select(x => new { x.HoraCreacion }).FirstOrDefault();
-            var permisosUsuario = context.UsuariosXAccesoes.Where(c => c.IdUsuario == id &&  c.FechaCreacion == userLastDate.FechaCreacion && c.HoraCreacion== userLastTime.HoraCreacion);
+            var permisosUsuario = context.UsuariosXAccesoes.Where(c => c.IdUsuario == id && c.FechaCreacion == userLastDate.FechaCreacion && c.HoraCreacion == userLastTime.HoraCreacion);
             var permisosQuitar = permisosUsuario.Where(c => (c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAdministrador || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoAsesor
-                  || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoCelula) );
-            if(permisosQuitar.Any())
+                  || c.IdAcceso == (int)IDS_MODOS_ACCESOS.IngresoCelula));
+            if (permisosQuitar.Any())
             {
-                permisosUsuario=  permisosUsuario.Except(permisosQuitar);
+                permisosUsuario = permisosUsuario.Except(permisosQuitar);
                 var permisosUsuarioList = permisosUsuario.ToList();
-            for(int i=0; i < permisosUsuarioList.Count(); i++)
+                for (int i = 0; i < permisosUsuarioList.Count(); i++)
                 {
                     permisosUsuarioList.ElementAt(i).IdUserCambioo = idUsuarioCambioo;
                     permisosUsuarioList.ElementAt(i).FechaCreacion = DateTime.Now;
@@ -191,10 +197,11 @@ namespace Telmexla.Servicios.DIME.WebServices
                     permisosUsuarioList.ElementAt(i).IpPublicaCreacion = ipPublicaCreacion;
                 }
 
-            context.UsuariosXAccesoes.AddRange(permisosUsuarioList);
-            context.SaveChanges();
-            return true;
-            }else
+                context.UsuariosXAccesoes.AddRange(permisosUsuarioList);
+                context.SaveChanges();
+                return true;
+            }
+            else
             {
                 return false;
             }
@@ -203,26 +210,29 @@ namespace Telmexla.Servicios.DIME.WebServices
         public List<String> ObtenerPreguntasRegistradas(int id)
         {
             DimeContext context = new DimeContext();
-            var result = (from b in context.UsuariosXPreguntasDesbs join c in context.PreguntasDesbloqueos on b.IdPregunta equals c.Id
-                         where b.IdUsuario == id  select c.Nombre).ToList();
+            var result = (from b in context.UsuariosXPreguntasDesbs
+                          join c in context.PreguntasDesbloqueos on b.IdPregunta equals c.Id
+                          where b.IdUsuario == id
+                          select c.Nombre).ToList();
             return result;
         }
 
         public bool RespuestasValidas(List<string> respuestas, int idUsuario)
         {
-         for (int i = 0; i < respuestas.Count; i++)
-            { respuestas[i]= new GeneralEncriptor().GetEncriptedData(respuestas[i].ToUpperNoSpecialChars());
+            for (int i = 0; i < respuestas.Count; i++)
+            {
+                respuestas[i] = new GeneralEncriptor().GetEncriptedData(respuestas[i].ToUpperNoSpecialChars());
             }
             DimeContext context = new DimeContext();
             List<string> result = (from b in context.UsuariosXPreguntasDesbs
-                          where b.IdUsuario == idUsuario
-                          select b.Respuesta).ToList();
+                                   where b.IdUsuario == idUsuario
+                                   select b.Respuesta).ToList();
             return respuestas.SequenceEqual(result);
         }
 
         public bool RestablecerContraseña(string contraseña, int idUsuario)
         {
-            
+
 
             try
             {
@@ -252,7 +262,7 @@ namespace Telmexla.Servicios.DIME.WebServices
                             ve.PropertyName, ve.ErrorMessage);
                     }
                 }
-            
+
             }
             return true;
         }
@@ -278,7 +288,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             DimeContext context = new DimeContext();
             AccesoCollection result = new AccesoCollection();
-            result.AddRange(context.Accesoes.Where(c => c.AccesosXLineas.Any(d=>d.IdLinea== idLinea )).ToList());
+            result.AddRange(context.Accesoes.Where(c => c.AccesosXLineas.Any(d => d.IdLinea == idLinea)).ToList());
             return result;
         }
 
@@ -286,7 +296,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             DimeContext context = new DimeContext();
             LineaCollection result = new LineaCollection();
-            result.AddRange(context.Lineas.Where(c => c.IdModoLogin  == idPerfil).ToList());
+            result.AddRange(context.Lineas.Where(c => c.IdModoLogin == idPerfil).ToList());
             return result;
         }
 
@@ -303,10 +313,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             DimeContext context = new DimeContext();
             BasePersonalHoloCollection result = new BasePersonalHoloCollection();
             List<BasePersonalHolo> holosResult = context.BasePersonalHoloes.Where(c => c.Aliado == aliado).ToList();
-            List<decimal> usuariosDime = context.Usuarios.Where(x=>x.Linea.IdModoLogin==idPerfil).Select(c=> c.Cedula??0).ToList();
+            List<decimal> usuariosDime = context.Usuarios.Where(x => x.Linea.IdModoLogin == idPerfil).Select(c => c.Cedula ?? 0).ToList();
 
-            holosResult = holosResult.Where(c=> usuariosDime.Contains(c.Cedula) ).ToList();
-            result.AddRange(holosResult);  
+            holosResult = holosResult.Where(c => usuariosDime.Contains(c.Cedula)).ToList();
+            result.AddRange(holosResult);
             return result;
         }
 
@@ -324,7 +334,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             dimContext.SaveChanges();
 
             DateTime fechaActual = DateTime.Now;
-            for(int i = 0; i< permisosOtorgados.Length; i++)
+            for (int i = 0; i < permisosOtorgados.Length; i++)
             {
                 UsuariosXAcceso accesosUsuario = new UsuariosXAcceso();
                 accesosUsuario.IdUsuario = usuario.Id;
@@ -340,7 +350,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         public string LineaDeUsuario(int idUsuario)
         {
             DimeContext context = new DimeContext();
-           return context.Usuarios.Where(c=>c.Id == idUsuario).Select(x=>x.Linea.Nombre).FirstOrDefault();
+            return context.Usuarios.Where(c => c.Id == idUsuario).Select(x => x.Linea.Nombre).FirstOrDefault();
         }
         public int IdLineaDeUsuario(int idUsuario)
         {
@@ -369,13 +379,13 @@ namespace Telmexla.Servicios.DIME.WebServices
 
 
             List<UsuariosXAcceso> userAcces = context.UsuariosXAccesoes.Where(c => c.IdUsuario == idUsuario).OrderBy(d => d.FechaCreacion).ThenBy(e => e.HoraCreacion).ToList();
-            DateTime? ultimaFecha = userAcces.Last().FechaCreacion;
-            TimeSpan? ultimaHora = userAcces.Last().HoraCreacion;
-            List <string> result = new List<string>();
-            foreach(var item in userAcces)
+            //DateTime? ultimaFecha = userAcces.Last().FechaCreacion;
+            //TimeSpan? ultimaHora = userAcces.Last().HoraCreacion;
+            List<string> result = new List<string>();
+            foreach (var item in userAcces)
             {
-                if(item.HoraCreacion == ultimaHora && item.FechaCreacion == ultimaFecha)
-                  result.Add( context.Accesoes.Where(c=>c.Id== item.IdAcceso).SingleOrDefault().Nombre );
+                //if(item.HoraCreacion == ultimaHora && item.FechaCreacion == ultimaFecha)
+                result.Add(context.Accesoes.Where(c => c.Id == item.IdAcceso).SingleOrDefault().Nombre);
             }
             return result;
         }
@@ -386,21 +396,30 @@ namespace Telmexla.Servicios.DIME.WebServices
             DimeContext dimContext = new DimeContext();
             Usuario usuario = dimContext.Set<Usuario>().Find(idUsuario);
             usuario.IdLinea = idLinea;
-            if(contraseña != null && contraseña != "" )
-            { 
-            usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(contraseña);
-            usuario.FechaContrasena = Convert.ToDateTime("2015-05-28");
+            if (contraseña != null && contraseña != "")
+            {
+                usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(contraseña);
+                usuario.FechaContrasena = Convert.ToDateTime("2015-05-28");
             }
             DateTime fechaActual = DateTime.Now;
             for (int i = 0; i < permisosOtorgados.Length; i++)
             {
-                UsuariosXAcceso accesosUsuario = new UsuariosXAcceso();
-                accesosUsuario.IdUsuario = usuario.Id;
-                accesosUsuario.IdAcceso = Convert.ToInt32(permisosOtorgados[i]);
-                accesosUsuario.IdUserCambioo = Convert.ToInt32(usuarioCambioo);
-                accesosUsuario.FechaCreacion = fechaActual;
-                accesosUsuario.HoraCreacion = fechaActual.TimeOfDay;
-                dimContext.UsuariosXAccesoes.Add(accesosUsuario);
+                var IdAcceso = Convert.ToInt32(permisosOtorgados[i]);
+                var Validacion = dimContext.UsuariosXAccesoes.FirstOrDefault(c => c.IdUsuario == idUsuario && c.IdAcceso == IdAcceso);
+                if (Validacion == null)
+                {
+                    UsuariosXAcceso accesosUsuario = new UsuariosXAcceso();
+                    accesosUsuario.IdUsuario = usuario.Id;
+                    accesosUsuario.IdAcceso = Convert.ToInt32(permisosOtorgados[i]);
+                    accesosUsuario.IdUserCambioo = Convert.ToInt32(usuarioCambioo);
+                    accesosUsuario.FechaCreacion = fechaActual;
+                    accesosUsuario.HoraCreacion = fechaActual.TimeOfDay;
+                    dimContext.UsuariosXAccesoes.Add(accesosUsuario);
+                }
+                else
+                {
+
+                }
             }
             dimContext.SaveChanges();
         }
@@ -409,7 +428,7 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             DimeContext dimContext = new DimeContext();
 
-            foreach(string cedUsuario in listaUsuariosCambiados)
+            foreach (string cedUsuario in listaUsuariosCambiados)
             {
                 decimal cedulaUsuario = Convert.ToDecimal(cedUsuario);
                 Usuario usuario = dimContext.Set<Usuario>().Where(c => c.Cedula == cedulaUsuario).FirstOrDefault();
@@ -434,11 +453,11 @@ namespace Telmexla.Servicios.DIME.WebServices
         public List<UsuariosMasivoData> ListaDatosUsuariosHolosPorCedulas(List<string> cedulas)
         {
             DimeContext context = new DimeContext();
-            List<UsuariosMasivoData> result= new List<UsuariosMasivoData>();
-            List<decimal> cedulasDecimal = cedulas.ConvertAll(s=> Convert.ToDecimal(s));
+            List<UsuariosMasivoData> result = new List<UsuariosMasivoData>();
+            List<decimal> cedulasDecimal = cedulas.ConvertAll(s => Convert.ToDecimal(s));
             List<BasePersonalHolo> holosResult = context.BasePersonalHoloes.Where(c => cedulasDecimal.Contains(c.Cedula)).ToList();
 
-            foreach(var item in holosResult   )
+            foreach (var item in holosResult)
             {
                 UsuariosMasivoData nuevoUsuario = new UsuariosMasivoData();
                 nuevoUsuario.Aliado = item.Aliado;
@@ -461,9 +480,9 @@ namespace Telmexla.Servicios.DIME.WebServices
                 result.Add(nuevoUsuario);
             }
 
-            for(int i = 0; i< cedulasDecimal.Count; i++)
+            for (int i = 0; i < cedulasDecimal.Count; i++)
             {
-               if( !result.Any(c=>c.Cedula== cedulasDecimal[i]))
+                if (!result.Any(c => c.Cedula == cedulasDecimal[i]))
                 {
                     UsuariosMasivoData nuevoUsuario = new UsuariosMasivoData();
                     nuevoUsuario.Cedula = cedulasDecimal[i];
@@ -472,10 +491,10 @@ namespace Telmexla.Servicios.DIME.WebServices
                 }
             }
 
-            for(int j = 0; j< cedulasDecimal.Count; j++)
+            for (int j = 0; j < cedulasDecimal.Count; j++)
             {
                 decimal cedulaUnica = cedulasDecimal[j];
-                if (context.Usuarios.Where(c=>c.Cedula == cedulaUnica).Any() )
+                if (context.Usuarios.Where(c => c.Cedula == cedulaUnica).Any())
                 {
                     if (result.Any(c => c.Cedula == cedulasDecimal[j]))
                     {
@@ -492,7 +511,7 @@ namespace Telmexla.Servicios.DIME.WebServices
                         result.Add(nuevoUsuario);
 
                     }
-             
+
                 }
 
             }
@@ -535,16 +554,16 @@ namespace Telmexla.Servicios.DIME.WebServices
                 }
                 context.SaveChanges();
             }
-  
+
         }
 
         public Usuario RecibirUsuarioConId(int idUsuario)
         {
             DimeContext dimeContext = new DimeContext();
-           return  dimeContext.Usuarios.Find(idUsuario);
+            return dimeContext.Usuarios.Find(idUsuario);
         }
 
-  
+
         public string AliadoDeUsuario(decimal? cedula)
         {
             DimeContext dimeContext = new DimeContext();
@@ -556,19 +575,19 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             DimeContext dimeContext = new DimeContext();
             return dimeContext.Lineas.Find(idLinea).Nombre;
-         
+
         }
 
         public string ModoLoginPorId(int idLinea)
         {
             DimeContext dimeContext = new DimeContext();
-            return dimeContext.Lineas.Find(idLinea).IdModoLogin.ToString();  
+            return dimeContext.Lineas.Find(idLinea).IdModoLogin.ToString();
         }
 
         public bool ExisteUsuarioHolos(decimal cedula)
         {
             DimeContext dimeContext = new DimeContext();
-            return dimeContext.BasePersonalHoloes.Any(c=>c.Cedula== cedula);
+            return dimeContext.BasePersonalHoloes.Any(c => c.Cedula == cedula);
         }
 
 
@@ -598,7 +617,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             {
                 return FindUser;
             }
-            
+
         }
 
         public List<UsuariosMasivoData> ListaDatosUsuariosDimePorCedulas(List<string> cedulas)
@@ -668,6 +687,42 @@ namespace Telmexla.Servicios.DIME.WebServices
             }
 
             return result;
+        }
+        public List<ListaAccesoSUsuario> ListaAccesosDeUsuario2(int cedUsuario)
+        {
+            DimeContext context = new DimeContext();
+            int idUsuario = context.Usuarios.Where(c => c.Cedula == cedUsuario).Select(x => x.Id).FirstOrDefault();
+
+            //List<UsuariosXAcceso> userAcces = context.UsuariosXAccesoes.Where(c => c.IdUsuario == idUsuario).OrderBy(d => d.FechaCreacion).ThenBy(e => e.HoraCreacion).ToList();
+
+            List<ListaAccesoSUsuario> result = new List<ListaAccesoSUsuario>();
+            var objetosResult = (from a in context.UsuariosXAccesoes
+                                 join b in context.Accesoes on a.IdAcceso equals b.Id
+                                 where a.IdUsuario == idUsuario
+                                 orderby a.IdAcceso ascending
+                                 select new
+                                 {
+                                     a.IdAcceso,
+                                     b.Nombre,
+                                     b.Descripcion
+                                 }).ToList();
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new ListaAccesoSUsuario());
+                result[i].IdAcceso = objetosResult[i].IdAcceso;
+                result[i].NombreAcceso = objetosResult[i].Nombre;
+                result[i].DescripcionAcceso = objetosResult[i].Descripcion;
+            }
+            return result;
+        }
+        public void EliminarAccesosUsuario(int idUsuario, int idAcceso)
+        {
+            DimeContext dimContext = new DimeContext();
+            //Usuario usuario = dimContext.Set<Usuario>().Find(idUsuario);
+            UsuariosXAcceso accesosUsuario = new UsuariosXAcceso();
+            accesosUsuario = dimContext.UsuariosXAccesoes.FirstOrDefault(c => c.IdUsuario == idUsuario && c.IdAcceso == idAcceso);
+            dimContext.UsuariosXAccesoes.Remove(accesosUsuario);
+            dimContext.SaveChanges();
         }
         public void EjecutraProcedimiento()
         {

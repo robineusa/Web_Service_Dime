@@ -7,6 +7,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public int Id { get; set; } // ID (Primary key)
         public string Nombre { get; set; } // NOMBRE (length: 50)
         public int? IdModoLogin { get; set; } // ID_MODO_LOGIN
+        public string Descripcion { get; set; }
 
         // Reverse navigation
         public virtual System.Collections.Generic.ICollection<AccesosXLinea> AccesosXLineas { get; set; } // TBL_ACCESOS_X_LINEA.FK__TBL_ACCES__ID_AC__5BED93EA

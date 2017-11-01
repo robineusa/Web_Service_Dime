@@ -267,6 +267,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             LoginService lService = new LoginService();
             return lService.ListaDatosUsuariosDimePorCedulas(cedulas);
         }
+        public List<ListaAccesoSUsuario> ListaAccesosDeUsuario2(int cedUsuario)
+        {
+            LoginService lService = new LoginService();
+            return lService.ListaAccesosDeUsuario2(cedUsuario);
+        }
+        public void EliminarAccesosUsuario(int idUsuario, int idAcceso)
+        {
+            LoginService lService = new LoginService();
+            lService.EliminarAccesosUsuario(idUsuario, idAcceso);
+        }
         public void EjecutraProcedimiento()
         {
             LoginService lService = new LoginService();

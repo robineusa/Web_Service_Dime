@@ -73,6 +73,7 @@
     <Compile Include="GraficosBusiness.cs" />
     <Compile Include="IngresoBusiness.cs" />
     <Compile Include="IngresoTrasladoBusiness.cs" />
+    <Compile Include="ListaAccesoSUsuario.cs" />
     <Compile Include="ListasSelectBusiness.cs" />
     <Compile Include="MaestroNodoBusiness.cs" />
     <Compile Include="MarcacionesBusiness.cs" />

@@ -20,12 +20,22 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            BalanceScoreCardService bscs = new BalanceScoreCardService();
-            BSCAdministracionBalanced entidad = new BSCAdministracionBalanced();
-            entidad = bscs.ConsultaUmbralPorSkill(1248);
+            //BalanceScoreCardService bscs = new BalanceScoreCardService();
+            //BSCAdministracionBalanced entidad = new BSCAdministracionBalanced();
+            //entidad = bscs.ConsultaUmbralPorSkill(1248);
 
-            bscs.EliminaUmbral(entidad, 1032381244, "Robinson Neusa Pinilla");
+            //bscs.EliminaUmbral(entidad, 1032381244, "Robinson Neusa Pinilla");
 
+            Usuario us = new Usuario();
+            LoginService lg = new LoginService();
+
+            string[] listaPermisos = new string[2];
+            listaPermisos[0]= "75";
+            listaPermisos[1] = "100";
+
+            lg.ActualizarAccesosUsuario(41213, 2, 33, listaPermisos, "", "8875");
+
+            lg.EliminarAccesosUsuario(41213, 100);
 
             var dddd = "";
             //FidelizacionService fidelizacion = new FidelizacionService(); 
