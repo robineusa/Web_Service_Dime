@@ -400,6 +400,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             {
                 usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(contraseña);
                 usuario.FechaContrasena = Convert.ToDateTime("2015-05-28");
+                dimContext.SaveChanges();
             }
             DateTime fechaActual = DateTime.Now;
             for (int i = 0; i < permisosOtorgados.Length; i++)
