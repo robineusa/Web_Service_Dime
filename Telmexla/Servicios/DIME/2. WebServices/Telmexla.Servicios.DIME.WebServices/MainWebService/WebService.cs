@@ -282,9 +282,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             LoginService lService = new LoginService();
             lService.EjecutraProcedimiento();
         }
+        public List<Acceso> ListaAccesos()
+        {
+            LoginService lService = new LoginService();
+            return lService.ListaAccesos();
+        }
         #endregion
 
-        #region Inbound Service 
+            #region Inbound Service 
         public bool RegistrarActualizarDatosAdicionalesCliente(DatosAdicionalesCliente datosAdicionalesCliente)
         {
             InboundService inboundService = new InboundService();

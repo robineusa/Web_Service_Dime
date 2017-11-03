@@ -740,5 +740,30 @@ namespace Telmexla.Servicios.DIME.WebServices
             unitOfWork.usuarios.ActualizaBDPersonal();
             //unitOfWork.RecurrenciaCargaBase.ApartarCuentaaGestionarRecurrencia(idAsesor);
         }
+        public List<Acceso> ListaAccesos()
+        {
+            DimeContext context = new DimeContext();
+            List<Acceso> result = new List<Acceso>();
+            var objetosResult = (from a in context.Accesoes
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.Nombre,
+                                     a.IdModoLogin,
+                                     a.Descripcion
+                                 }).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new Acceso());
+                result[i].Id = objetosResult[i].Id;
+                result[i].Nombre = objetosResult[i].Nombre;
+                result[i].IdModoLogin = objetosResult[i].IdModoLogin;
+                result[i].Descripcion = objetosResult[i].Descripcion;                
+            }
+
+            return result;
+        }
     }
 }

@@ -150,6 +150,10 @@ namespace Telmexla.Servicios.DIME.IWebServices
         
         [OperationContract]
         void EjecutraProcedimiento();
+
+        [OperationContract]
+        List<Acceso> ListaAccesos();
+        
     }
 
 
