@@ -64,5 +64,23 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<FidelizacionTipificacion> getTipificacionAll();
         [OperationContract]
         FidelizacionTipificacion getTipificacionById(decimal idTipificacion);
+        [OperationContract]
+        void updateOtrosCampos(FidelizacionOtrosCampos objOtrosCampos);
+        [OperationContract]
+        void setOtrosCampos(FidelizacionOtrosCampos objOtrosCampos);
+        [OperationContract]
+        FidelizacionOtrosCampos getOtrosCamposById(decimal idOtrosCampos);
+        [OperationContract]
+        List<FidelizacionOtrosCampos> getOtrosCamposAll();
+        [OperationContract]
+        void setRegistroCampos(FidelizacionRegistroCampos objRegistroCampos);
+        [OperationContract]
+        FidelizacionRegistroCampos getRegistroCamposById(decimal idRegistro);
+        [OperationContract]
+        List<FidelizacionRegistroCampos> getRegistroCamposAll();
+        [OperationContract]
+        void updateRegistroCampos(FidelizacionRegistroCampos objRegistroCampos);
+        [OperationContract]
+        List<FidelizacionRecursivaVista> getRecursivaVistaAll();
     }
 }

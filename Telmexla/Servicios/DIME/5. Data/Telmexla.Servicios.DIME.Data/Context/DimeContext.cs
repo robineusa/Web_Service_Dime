@@ -145,7 +145,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<BSCAdministracionBalancedLog> BSCAdministracionBalancedLog { get; set; }
         public System.Data.Entity.DbSet<VisitasAutorizadas> VisitasAutorizadas { get; set; }
         public System.Data.Entity.DbSet<VAMotivosSolicitud> VAMotivosSolicitud { get; set; }
-
+        public System.Data.Entity.DbSet<FidelizacionOtrosCampos> FidelizacionOtrosCampos { get; set; }
+        public System.Data.Entity.DbSet<FidelizacionRegistroCampos> FidelizacionRegistroCampos { get; set; }
+        public System.Data.Entity.DbSet<FidelizacionRecursivaVista> FidelizacionRecursivaVista { get; set; }
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -322,6 +324,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BSCAdministracionBalancedLogConfiguration());
             modelBuilder.Configurations.Add(new VisitasAutorizadasConfiguration());
             modelBuilder.Configurations.Add(new VAMotivosSolicitudConfiguration());
+            modelBuilder.Configurations.Add(new FidelizacionOtrosCamposConfiguration());
+            modelBuilder.Configurations.Add(new FidelizacionRegistroCamposConfiguration());
+            modelBuilder.Configurations.Add(new FidelizacionRecursivaVistaConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -452,6 +457,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BSCAdministracionBalancedLogConfiguration(schema));
             modelBuilder.Configurations.Add(new VisitasAutorizadasConfiguration(schema));
             modelBuilder.Configurations.Add(new VAMotivosSolicitudConfiguration(schema));
+            modelBuilder.Configurations.Add(new FidelizacionOtrosCamposConfiguration(schema));
+            modelBuilder.Configurations.Add(new FidelizacionRegistroCamposConfiguration(schema));
+            modelBuilder.Configurations.Add(new FidelizacionRecursivaVistaConfiguration(schema));
 
             return modelBuilder;
         }

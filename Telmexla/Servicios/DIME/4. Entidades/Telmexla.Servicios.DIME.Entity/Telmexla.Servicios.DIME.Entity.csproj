@@ -60,9 +60,11 @@
     <Compile Include="AccesosXLinea.cs" />
     <Compile Include="BSCAdministracionBalanced.cs" />
     <Compile Include="BSCAdministracionBalancedLog.cs" />
+    <Compile Include="FidelizacionOtrosCampos.cs" />
     <Compile Include="FidelizacionOtrosOfrecimientos.cs" />
     <Compile Include="FidelizacionRecursiva.cs" />
     <Compile Include="FidelizacionRegistro.cs" />
+    <Compile Include="FidelizacionRegistroCampos.cs" />
     <Compile Include="FidelizacionSubmotivosCancelacion.cs" />
     <Compile Include="FidelizacionMotivosCancelacion.cs" />
     <Compile Include="FidelizacionMaestroServicios.cs" />
@@ -128,6 +130,7 @@
     <Compile Include="DatosAdicionalesCliente.cs" />
     <Compile Include="DatosAdicionalesClienteCollection.cs" />
     <Compile Include="FidelizacionTipificacion.cs" />
+    <Compile Include="FidelizacionRecursivaVista.cs" />
     <Compile Include="GestionFoxInbound.cs" />
     <Compile Include="GLogRecurrencia.cs" />
     <Compile Include="GLogRecurrenciaInbound.cs" />

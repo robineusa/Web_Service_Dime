@@ -125,6 +125,9 @@ namespace Telmexla.Servicios.DIME.Data
             BSCAdministracionBalancedLog = new BSCAdministracionBalancedLogRepository(this.dimeContext);
             VisitasAutorizadas = new VisitasAutorizadasRepository(this.dimeContext);
             VAMotivosSolicitud = new VAMotivosSolicitudRepository(this.dimeContext);
+            FidelizacionOtrosCampos = new FidelizacionOtrosCamposRepository(this.dimeContext);
+            FidelizacionRegistroCampos = new FidelizacionRegistroCamposRepository(this.dimeContext);
+            FidelizacionRecursivaVista = new FidelizacionRecursivaVistaRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -576,6 +579,18 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IVAMotivosSolicitudRepository VAMotivosSolicitud
+        {
+            get; private set;
+        }
+        public IFidelizacionOtrosCamposRepository FidelizacionOtrosCampos
+        {
+            get; private set;
+        }
+        public IFidelizacionRegistroCamposRepository FidelizacionRegistroCampos
+        {
+            get; private set;
+        }
+        public IFidelizacionRecursivaVistaRepository FidelizacionRecursivaVista
         {
             get; private set;
         }

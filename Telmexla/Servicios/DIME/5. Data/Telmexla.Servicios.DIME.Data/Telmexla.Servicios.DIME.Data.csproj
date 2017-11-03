@@ -60,12 +60,15 @@
     <Compile Include="BSCAdministracionBalancedRepository.cs" />
     <Compile Include="Configuration\BSCAdministracionBalancedConfiguration.cs" />
     <Compile Include="Configuration\BSCAdministracionBalancedLogConfiguration.cs" />
+    <Compile Include="Configuration\FidelizacionOtrosCamposConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionOtrosOfrecimientosConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionRecursivaConfiguration.cs" />
+    <Compile Include="Configuration\FidelizacionRegistroCamposConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionRegistroConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionSubmotivosCancelacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionMotivosCancelacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionTipificacionConfiguration.cs" />
+    <Compile Include="Configuration\FidelizacionRecursivaVistaConfiguration.cs" />
     <Compile Include="Configuration\GLogRecurrenciaInboundConfiguration.cs" />
     <Compile Include="Configuration\InventarioEquiposConfiguration.cs" />
     <Compile Include="Configuration\VAMotivosSolicitudConfiguration.cs" />
@@ -78,8 +81,10 @@
     <Compile Include="Configuration\VIPSolicitudesConfiguration.cs" />
     <Compile Include="Configuration\VIPSolicitudesPorEquipoConfiguration.cs" />
     <Compile Include="Configuration\VisitasAutorizadasConfiguration.cs" />
+    <Compile Include="FidelizacionOtrosCamposRepository.cs" />
     <Compile Include="FidelizacionOtrosOfrecimientosRepository.cs" />
     <Compile Include="FidelizacionRecursivaRepository.cs" />
+    <Compile Include="FidelizacionRegistroCamposRepository.cs" />
     <Compile Include="FidelizacionRegistroRepository.cs" />
     <Compile Include="FidelizacionSubmotivosCancelacionRepository.cs" />
     <Compile Include="FidelizacionMotivosCancelacionRepository.cs" />
@@ -192,6 +197,7 @@
     <Compile Include="CuentasSiembraHDRepository.cs" />
     <Compile Include="CuentasSiguienteMejorOfertaRepository.cs" />
     <Compile Include="FidelizacionTipificacionRepository.cs" />
+    <Compile Include="FidelizacionRecursivaVistaRepository.cs" />
     <Compile Include="GestionFoxInboundRepository.cs" />
     <Compile Include="Configuration\GLogRecurrenciaConfiguration.cs" />
     <Compile Include="GLogRecurrenciaInboundRepository.cs" />

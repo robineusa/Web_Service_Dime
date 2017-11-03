@@ -13,36 +13,41 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class FidelizacionBusiness
     {
-        public List<FidelizacionMaestroServicios> getMaestroServiciosAll() {
+        public List<FidelizacionMaestroServicios> getMaestroServiciosAll()
+        {
             DimeContext dimeContext = new DimeContext();
             List<FidelizacionMaestroServicios> objTmp = new List<FidelizacionMaestroServicios>();
             var listado = (from maestroServicio in dimeContext.FidelizacionMaestroServicios
                            orderby maestroServicio.Nombre ascending
-                           select new {
+                           select new
+                           {
                                maestroServicio.IdRetencion,
                                maestroServicio.IdServicio,
                                maestroServicio.Nombre
                            }
                            ).ToList();
 
-            for (int i = 0; i < listado.Count; i++) {
+            for (int i = 0; i < listado.Count; i++)
+            {
                 objTmp.Add(new FidelizacionMaestroServicios());
                 objTmp[i].IdRetencion = listado[i].IdRetencion;
                 objTmp[i].IdServicio = listado[i].IdServicio;
                 objTmp[i].Nombre = listado[i].Nombre;
-             }
+            }
 
             return objTmp;
-            
+
         }
 
-        public FidelizacionMaestroServicios getMaestroServiciosById(string codServicio) {
+        public FidelizacionMaestroServicios getMaestroServiciosById(string codServicio)
+        {
             UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
             FidelizacionMaestroServicios fila = unidadTrabajo.FidelizacionMaestroServicios.Find(c => c.IdServicio == codServicio).FirstOrDefault();
             return fila;
         }
 
-        public void setMotivosCancelacion(FidelizacionMotivosCancelacion MotivoCancelacion) {
+        public void setMotivosCancelacion(FidelizacionMotivosCancelacion MotivoCancelacion)
+        {
             UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
             unidadTrabajo.FidelizacionMotivosCancelacion.Add(MotivoCancelacion);
             unidadTrabajo.Complete();
@@ -72,7 +77,7 @@ namespace Telmexla.Servicios.DIME.Business
                            }
                            ).ToList();
 
-            
+
             for (int i = 0; i < listado.Count; i++)
             {
                 objTmp.Add(new FidelizacionMotivosCancelacion());
@@ -119,13 +124,15 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
-        public FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo) {
+        public FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo)
+        {
             UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
-            FidelizacionSubmotivosCancelacion fila = unidadTrabajo.FidelizacionSubmotivosCancelacion.Find(c=>c.Id == idSubmotivo).FirstOrDefault();
+            FidelizacionSubmotivosCancelacion fila = unidadTrabajo.FidelizacionSubmotivosCancelacion.Find(c => c.Id == idSubmotivo).FirstOrDefault();
             return fila;
         }
 
-        public void setSubmotivoCancelacion(FidelizacionSubmotivosCancelacion ObjFidelizacion) {
+        public void setSubmotivoCancelacion(FidelizacionSubmotivosCancelacion ObjFidelizacion)
+        {
             UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
             unidadTrabajo.FidelizacionSubmotivosCancelacion.Add(ObjFidelizacion);
             unidadTrabajo.Complete();
@@ -140,13 +147,15 @@ namespace Telmexla.Servicios.DIME.Business
             unidadTrabajo.Dispose();
         }
 
-        public FidelizacionOtrosOfrecimientos getOtrosOfrecimientosById(decimal idOfrecimiento) {
+        public FidelizacionOtrosOfrecimientos getOtrosOfrecimientosById(decimal idOfrecimiento)
+        {
             UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
             FidelizacionOtrosOfrecimientos fila = UnidadTrabajo.FidelizacionOtrosOfrecimientos.Find(c => c.Id == idOfrecimiento).FirstOrDefault();
             return fila;
         }
 
-        public List<FidelizacionOtrosOfrecimientos> getOtrosOfrecimientosAll() {
+        public List<FidelizacionOtrosOfrecimientos> getOtrosOfrecimientosAll()
+        {
             DimeContext dimeContex = new DimeContext();
             List<FidelizacionOtrosOfrecimientos> objTmp = new List<FidelizacionOtrosOfrecimientos>();
             var lisado = (from otrosOfrecimientos in dimeContex.FidelizacionOtrosOfrecimientos
@@ -161,7 +170,8 @@ namespace Telmexla.Servicios.DIME.Business
                           }
                           ).ToList();
 
-            for (var i = 0; i < lisado.Count; i++) {
+            for (var i = 0; i < lisado.Count; i++)
+            {
                 objTmp.Add(new FidelizacionOtrosOfrecimientos());
                 objTmp[i].Activo = lisado[i].Activo;
                 objTmp[i].Eliminado = lisado[i].Eliminado;
@@ -172,33 +182,38 @@ namespace Telmexla.Servicios.DIME.Business
             return objTmp;
         }
 
-        public void setTipificacion(FidelizacionTipificacion objTipificacion) {
+        public void setTipificacion(FidelizacionTipificacion objTipificacion)
+        {
             UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
             unidadTrabajo.FidelizacionTipificacion.Add(objTipificacion);
             unidadTrabajo.Complete();
             unidadTrabajo.Dispose();
         }
 
-        public void setRecursiva(FidelizacionRecursiva objRecursiva) {
+        public void setRecursiva(FidelizacionRecursiva objRecursiva)
+        {
             UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
             unidadTrabajo.FidelizacionRecursiva.Add(objRecursiva);
             unidadTrabajo.Complete();
             unidadTrabajo.Dispose();
         }
 
-        public FidelizacionRecursiva getRecursivaById(decimal idRecursiva) {
+        public FidelizacionRecursiva getRecursivaById(decimal idRecursiva)
+        {
             UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
             FidelizacionRecursiva fila = UnidadTrabajo.FidelizacionRecursiva.Find(c => c.Id == idRecursiva).FirstOrDefault();
             return fila;
-                
+
         }
-        public List<FidelizacionRecursiva> getRecursivaAll() {
+        public List<FidelizacionRecursiva> getRecursivaAll()
+        {
             DimeContext dimeContext = new DimeContext();
             List<FidelizacionRecursiva> objTmp = new List<FidelizacionRecursiva>();
-            
+
             var listado = (from recursiva in dimeContext.FidelizacionRecursiva
                            orderby recursiva.Nombre ascending
-                           select new {
+                           select new
+                           {
                                recursiva.Id,
                                recursiva.Label,
                                recursiva.Nivel,
@@ -208,7 +223,8 @@ namespace Telmexla.Servicios.DIME.Business
                            }
                            ).ToList();
 
-            for (var i = 0; i < listado.Count; i++) {
+            for (var i = 0; i < listado.Count; i++)
+            {
                 objTmp.Add(new FidelizacionRecursiva());
                 objTmp[i].Id = listado[i].Id;
                 objTmp[i].Label = listado[i].Label;
@@ -239,7 +255,7 @@ namespace Telmexla.Servicios.DIME.Business
                                tipificacion.Nota,
                                tipificacion.Registro,
                                tipificacion.UsuarioId
-                               
+
                            }
                            ).ToList();
 
@@ -267,14 +283,16 @@ namespace Telmexla.Servicios.DIME.Business
             return fila;
 
         }
-        public void setRegistro(FidelizacionRegistro objRegistro) {
+        public void setRegistro(FidelizacionRegistro objRegistro)
+        {
             UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
             UnidadTrabajo.FidelizacionRegistro.Add(objRegistro);
             UnidadTrabajo.Complete();
             UnidadTrabajo.Dispose();
         }
 
-        public List<FidelizacionRegistro> getRegistroAll() {
+        public List<FidelizacionRegistro> getRegistroAll()
+        {
             DimeContext dimeContext = new DimeContext();
             List<FidelizacionRegistro> objTmp = new List<FidelizacionRegistro>();
             var listado = (from registro in dimeContext.FidelizacionRegistro
@@ -298,7 +316,8 @@ namespace Telmexla.Servicios.DIME.Business
                            }
                            ).ToList();
 
-            for (var i = 0; i < listado.Count; i++) {
+            for (var i = 0; i < listado.Count; i++)
+            {
                 objTmp.Add(new FidelizacionRegistro());
                 objTmp[i].Cuenta = listado[i].Cuenta;
                 objTmp[i].DiaCorte = listado[i].DiaCorte;
@@ -416,9 +435,146 @@ namespace Telmexla.Servicios.DIME.Business
             registroActualizado.SubmotivoId = objRegistro.SubmotivoId;
             registroActualizado.TipificacionId = objRegistro.TipificacionId;
             registroActualizado.UsuarioId = objRegistro.UsuarioId;
+            unidadTrabajo.Complete();
+        }
+        public void updateOtrosCampos(FidelizacionOtrosCampos objOtrosCampos)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionOtrosCampos registroActualizado = unidadTrabajo.FidelizacionOtrosCampos.Get(Convert.ToInt32(objOtrosCampos.Id));
+
+            registroActualizado.Eliminado = objOtrosCampos.Eliminado;
+            registroActualizado.Id = objOtrosCampos.Id;
+            registroActualizado.Nivel = objOtrosCampos.Nivel;
+            registroActualizado.Nombre = objOtrosCampos.Nombre;
+            registroActualizado.Opciones = objOtrosCampos.Opciones;
+            registroActualizado.Tipo = objOtrosCampos.Tipo;
 
             unidadTrabajo.Complete();
         }
+        public void setOtrosCampos(FidelizacionOtrosCampos objOtrosCampos)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            unidadTrabajo.FidelizacionOtrosCampos.Add(objOtrosCampos);
+            unidadTrabajo.Complete();
+            unidadTrabajo.Dispose();
+        }
 
+        public FidelizacionOtrosCampos getOtrosCamposById(decimal idOtrosCampos)
+        {
+            UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionOtrosCampos fila = UnidadTrabajo.FidelizacionOtrosCampos.Find(c => c.Id == idOtrosCampos).FirstOrDefault();
+            return fila;
+
+        }
+        public List<FidelizacionOtrosCampos> getOtrosCamposAll()
+        {
+            DimeContext dimeContext = new DimeContext();
+            List<FidelizacionOtrosCampos> objTmp = new List<FidelizacionOtrosCampos>();
+            var listado = (from otrosCampos in dimeContext.FidelizacionOtrosCampos
+                           orderby otrosCampos.Nombre ascending
+                           select new
+                           {
+                               otrosCampos.Eliminado,
+                               otrosCampos.Id,
+                               otrosCampos.Nivel,
+                               otrosCampos.Nombre,
+                               otrosCampos.Opciones,
+                               otrosCampos.Tipo
+                           }
+                           ).ToList();
+
+            for (var i = 0; i < listado.Count; i++)
+            {
+                objTmp.Add(new FidelizacionOtrosCampos());
+                objTmp[i].Eliminado = listado[i].Eliminado;
+                objTmp[i].Id = listado[i].Id;
+                objTmp[i].Nivel = listado[i].Nivel;
+                objTmp[i].Nombre = listado[i].Nombre;
+                objTmp[i].Opciones = listado[i].Opciones;
+                objTmp[i].Tipo = listado[i].Tipo;
+            }
+            return objTmp;
+        }
+
+        public void setRegistroCampos(FidelizacionRegistroCampos objRegistroCampos)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            unidadTrabajo.FidelizacionRegistroCampos.Add(objRegistroCampos);
+            unidadTrabajo.Complete();
+            unidadTrabajo.Dispose();
+        }
+
+        public FidelizacionRegistroCampos getRegistroCamposById(decimal idRegistro)
+        {
+            UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionRegistroCampos fila = UnidadTrabajo.FidelizacionRegistroCampos.Find(c => c.RegistroId == idRegistro).FirstOrDefault();
+            return fila;
+
+        }
+        public List<FidelizacionRegistroCampos> getRegistroCamposAll()
+        {
+            DimeContext dimeContext = new DimeContext();
+            List<FidelizacionRegistroCampos> objTmp = new List<FidelizacionRegistroCampos>();
+            var listado = (from registroCampos in dimeContext.FidelizacionRegistroCampos
+                           orderby registroCampos.RegistroId, registroCampos.OtrosCamposId ascending
+                           select new
+                           {
+                               registroCampos.OtrosCamposId,
+                               registroCampos.RegistroId,
+                               registroCampos.Valor
+                           }
+                           ).ToList();
+
+            for (var i = 0; i < listado.Count; i++)
+            {
+                objTmp.Add(new FidelizacionRegistroCampos());
+                objTmp[i].OtrosCamposId = listado[i].OtrosCamposId;
+                objTmp[i].RegistroId = listado[i].RegistroId;
+                objTmp[i].Valor = listado[i].Valor;
+            }
+            return objTmp;
+        }
+        public void updateRegistroCampos(FidelizacionRegistroCampos objRegistroCampos)
+        {
+            UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
+            FidelizacionRegistroCampos registroActualizado = unidadTrabajo.FidelizacionRegistroCampos.Get(Convert.ToInt32(objRegistroCampos.Id));
+
+            registroActualizado.Id = objRegistroCampos.Id;
+            registroActualizado.OtrosCamposId = objRegistroCampos.OtrosCamposId;
+            registroActualizado.RegistroId = objRegistroCampos.RegistroId;
+            registroActualizado.Valor = objRegistroCampos.Valor;
+
+            unidadTrabajo.Complete();
+        }
+        public List<FidelizacionRecursivaVista> getRecursivaVistaAll()
+        {
+            DimeContext dimeContext = new DimeContext();
+            List<FidelizacionRecursivaVista> objTmp = new List<FidelizacionRecursivaVista>();
+
+            var listado = (from recursiva in dimeContext.FidelizacionRecursivaVista
+                           orderby recursiva.Nombre ascending
+                           select new
+                           {
+                               recursiva.Id,
+                               recursiva.Label,
+                               recursiva.Nivel,
+                               recursiva.Nombre,
+                               recursiva.ParentId,
+                               recursiva.VerNivel
+                           }
+                           ).ToList();
+
+            for (var i = 0; i < listado.Count; i++)
+            {
+                objTmp.Add(new FidelizacionRecursivaVista());
+                objTmp[i].Id = listado[i].Id;
+                objTmp[i].Label = listado[i].Label;
+                objTmp[i].Nivel = listado[i].Nivel;
+                objTmp[i].Nombre = listado[i].Nombre;
+                objTmp[i].ParentId = listado[i].ParentId;
+                objTmp[i].VerNivel = listado[i].VerNivel;
+            }
+            return objTmp;
+        }
     }
 }

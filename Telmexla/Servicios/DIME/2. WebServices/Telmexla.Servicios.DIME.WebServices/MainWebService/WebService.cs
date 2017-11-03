@@ -2329,7 +2329,8 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion
 
         #region Fidelizacion
-        public List<FidelizacionMaestroServicios> getMaestroServiciosAll() {
+        public List<FidelizacionMaestroServicios> getMaestroServiciosAll()
+        {
             FidelizacionService FildelizacionServicio = new FidelizacionService();
             return FildelizacionServicio.getMaestroServiciosAll();
 
@@ -2360,90 +2361,156 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return Fidelizacion.getMotivosCancelacionAll();
         }
 
-        public List<FidelizacionSubmotivosCancelacion> getSubmotivosCancelacionAll() {
+        public List<FidelizacionSubmotivosCancelacion> getSubmotivosCancelacionAll()
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getSubmotivosCancelacionAll();
         }
 
-        public FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo) {
+        public FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getSubmotivosCancelacionById(idSubmotivo);
         }
-        public void setSubmotivoCancelacion(FidelizacionSubmotivosCancelacion ObjFidelizacion) {
+        public void setSubmotivoCancelacion(FidelizacionSubmotivosCancelacion ObjFidelizacion)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.setSubmotivoCancelacion(ObjFidelizacion);
         }
-        public void setOtrosOfrecimientos(FidelizacionOtrosOfrecimientos ObjOfrecimientos) {
+        public void setOtrosOfrecimientos(FidelizacionOtrosOfrecimientos ObjOfrecimientos)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.setOtrosOfrecimientos(ObjOfrecimientos);
         }
-        public FidelizacionOtrosOfrecimientos getOtrosOfrecimientosById(decimal idOfrecimiento) {
+        public FidelizacionOtrosOfrecimientos getOtrosOfrecimientosById(decimal idOfrecimiento)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getOtrosOfrecimientosById(idOfrecimiento);
         }
-        public List<FidelizacionOtrosOfrecimientos> getOtrosOfrecimientosAll() {
+        public List<FidelizacionOtrosOfrecimientos> getOtrosOfrecimientosAll()
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getOtrosOfrecimientosAll();
         }
-        public void setTipificacion(FidelizacionTipificacion objTipificacion) {
+        public void setTipificacion(FidelizacionTipificacion objTipificacion)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.setTipificacion(objTipificacion);
         }
-        public void setRecursiva(FidelizacionRecursiva objRecursiva) {
+        public void setRecursiva(FidelizacionRecursiva objRecursiva)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.setRecursiva(objRecursiva);
         }
-        public FidelizacionRecursiva getRecursivaById(decimal idRecursiva) {
+        public FidelizacionRecursiva getRecursivaById(decimal idRecursiva)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getRecursivaById(idRecursiva);
         }
-        public List<FidelizacionRecursiva> getRecursivaAll() {
+        public List<FidelizacionRecursiva> getRecursivaAll()
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getRecursivaAll();
         }
-        public void setRegistro(FidelizacionRegistro objRegistro) {
+        public void setRegistro(FidelizacionRegistro objRegistro)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.setRegistro(objRegistro);
         }
-        public List<FidelizacionRegistro> getRegistroAll() {
+        public List<FidelizacionRegistro> getRegistroAll()
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getRegistroAll();
         }
-        public void updateMotivoCancelacion(FidelizacionMotivosCancelacion objMotivo) {
+        public void updateMotivoCancelacion(FidelizacionMotivosCancelacion objMotivo)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.updateMotivoCancelacion(objMotivo);
         }
-        public void updateMaestroServicios(FidelizacionMaestroServicios objServicio) {
+        public void updateMaestroServicios(FidelizacionMaestroServicios objServicio)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.updateMaestroServicios(objServicio);
         }
-        public void updateSubmotivoCancelacion(FidelizacionSubmotivosCancelacion objSubmotivo) {
+        public void updateSubmotivoCancelacion(FidelizacionSubmotivosCancelacion objSubmotivo)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.updateSubmotivoCancelacion(objSubmotivo);
         }
-        public void updateOtrosOfrecimientos(FidelizacionOtrosOfrecimientos objOtros) {
+        public void updateOtrosOfrecimientos(FidelizacionOtrosOfrecimientos objOtros)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.updateOtrosOfrecimientos(objOtros);
         }
-        public void updateTipificacion(FidelizacionTipificacion objTipificacion) {
+        public void updateTipificacion(FidelizacionTipificacion objTipificacion)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.updateTipificacion(objTipificacion);
         }
-        public void updateRecursiva(FidelizacionRecursiva objRecursiva) {
+        public void updateRecursiva(FidelizacionRecursiva objRecursiva)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.updateRecursiva(objRecursiva);
         }
-        public void updateRegistro(FidelizacionRegistro objRegistro) {
+        public void updateRegistro(FidelizacionRegistro objRegistro)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             Fidelizacion.updateRegistro(objRegistro);
         }
-        public List<FidelizacionTipificacion> getTipificacionAll() {
+        public List<FidelizacionTipificacion> getTipificacionAll()
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getTipificacionAll();
         }
-        public FidelizacionTipificacion getTipificacionById(decimal idTipificacion) {
+        public FidelizacionTipificacion getTipificacionById(decimal idTipificacion)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getTipificacionById(idTipificacion);
+        }
+        public void updateOtrosCampos(FidelizacionOtrosCampos objOtrosCampos)
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.updateOtrosCampos(objOtrosCampos);
+        }
+        public void setOtrosCampos(FidelizacionOtrosCampos objOtrosCampos)
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.setOtrosCampos(objOtrosCampos);
+        }
+        public FidelizacionOtrosCampos getOtrosCamposById(decimal idOtrosCampos)
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getOtrosCamposById(idOtrosCampos);
+        }
+        public List<FidelizacionOtrosCampos> getOtrosCamposAll()
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getOtrosCamposAll();
+        }
+        public void setRegistroCampos(FidelizacionRegistroCampos objRegistroCampos)
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.setRegistroCampos(objRegistroCampos);
+        }
+        public FidelizacionRegistroCampos getRegistroCamposById(decimal idRegistro)
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getRegistroCamposById(idRegistro);
+        }
+        public List<FidelizacionRegistroCampos> getRegistroCamposAll()
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getRegistroCamposAll();
+        }
+        public void updateRegistroCampos(FidelizacionRegistroCampos objRegistroCampos)
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            Fidelizacion.updateRegistroCampos(objRegistroCampos);
+        }
+        public List<FidelizacionRecursivaVista> getRecursivaVistaAll()
+        {
+            IFidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getRecursivaVistaAll();
         }
         #endregion
 

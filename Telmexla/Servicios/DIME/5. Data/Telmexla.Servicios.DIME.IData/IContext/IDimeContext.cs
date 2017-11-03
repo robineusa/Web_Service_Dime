@@ -142,6 +142,9 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<BSCAdministracionBalancedLog> BSCAdministracionBalancedLog { get; set; }
         System.Data.Entity.DbSet<VisitasAutorizadas> VisitasAutorizadas { get; set; }
         System.Data.Entity.DbSet<VAMotivosSolicitud> VAMotivosSolicitud { get; set; }
+        System.Data.Entity.DbSet<FidelizacionOtrosCampos> FidelizacionOtrosCampos { get; set; }
+        System.Data.Entity.DbSet<FidelizacionRegistroCampos> FidelizacionRegistroCampos { get; set; }
+        System.Data.Entity.DbSet<FidelizacionRecursivaVista> FidelizacionRecursivaVista { get; set; }
 
 
         int SaveChanges();
