@@ -396,6 +396,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             DimeContext dimContext = new DimeContext();
             Usuario usuario = dimContext.Set<Usuario>().Find(idUsuario);
             usuario.IdLinea = idLinea;
+            dimContext.SaveChanges();
             if (contraseña != null && contraseña != "")
             {
                 usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(contraseña);
@@ -435,6 +436,7 @@ namespace Telmexla.Servicios.DIME.WebServices
                 decimal cedulaUsuario = Convert.ToDecimal(cedUsuario);
                 Usuario usuario = dimContext.Set<Usuario>().Where(c => c.Cedula == cedulaUsuario).FirstOrDefault();
                 usuario.IdLinea = idLinea;
+                dimContext.SaveChanges();
                 DateTime fechaActual = DateTime.Now;
                 for (int i = 0; i < listaPermisos.Count; i++)
                 {
