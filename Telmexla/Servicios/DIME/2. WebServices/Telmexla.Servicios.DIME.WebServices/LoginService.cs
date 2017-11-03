@@ -396,6 +396,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             DimeContext dimContext = new DimeContext();
             Usuario usuario = dimContext.Set<Usuario>().Find(idUsuario);
             usuario.IdLinea = idLinea;
+            dimContext.SaveChanges();
             if (contraseña != null && contraseña != "")
             {
                 usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(contraseña);
@@ -435,6 +436,7 @@ namespace Telmexla.Servicios.DIME.WebServices
                 decimal cedulaUsuario = Convert.ToDecimal(cedUsuario);
                 Usuario usuario = dimContext.Set<Usuario>().Where(c => c.Cedula == cedulaUsuario).FirstOrDefault();
                 usuario.IdLinea = idLinea;
+                dimContext.SaveChanges();
                 DateTime fechaActual = DateTime.Now;
                 for (int i = 0; i < listaPermisos.Count; i++)
                 {
@@ -739,6 +741,31 @@ namespace Telmexla.Servicios.DIME.WebServices
             //Usuario usuario = context.Usuarios.Where(c => c.Id == id).Single();
             unitOfWork.usuarios.ActualizaBDPersonal();
             //unitOfWork.RecurrenciaCargaBase.ApartarCuentaaGestionarRecurrencia(idAsesor);
+        }
+        public List<Acceso> ListaAccesos()
+        {
+            DimeContext context = new DimeContext();
+            List<Acceso> result = new List<Acceso>();
+            var objetosResult = (from a in context.Accesoes
+                                 orderby a.Id ascending
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.Nombre,
+                                     a.IdModoLogin,
+                                     a.Descripcion
+                                 }).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new Acceso());
+                result[i].Id = objetosResult[i].Id;
+                result[i].Nombre = objetosResult[i].Nombre;
+                result[i].IdModoLogin = objetosResult[i].IdModoLogin;
+                result[i].Descripcion = objetosResult[i].Descripcion;                
+            }
+
+            return result;
         }
     }
 }
