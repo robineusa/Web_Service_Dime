@@ -66,6 +66,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public string AceptacionServicioOfrecido { get; set; }
         public string Observaciones { get; set; }
         public decimal UsuarioGestionando { get; set; }
+        public string FechaSesguimiento { get; set; }
 
     }
 }

@@ -119,6 +119,7 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.ServicioOfrecido = recurrencia.ServicioOfrecido;
                 LogRecurrencia.AceptacionServicioOfrecido = recurrencia.AceptacionServicioOfrecido;
                 LogRecurrencia.Observaciones = recurrencia.Observaciones;
+                LogRecurrencia.FechaSesguimiento = recurrencia.FechaSesguimiento;
                 unitWorkLog.GLogRecurrencia.Add(LogRecurrencia);
                 unitWorkLog.Complete();
                 unitWorkLog.Dispose();
@@ -201,6 +202,7 @@ namespace Telmexla.Servicios.DIME.Business
                 GPRecurActualizable.AceptacionServicioOfrecido = recurrencia.AceptacionServicioOfrecido;
                 GPRecurActualizable.Observaciones = recurrencia.Observaciones;
                 GPRecurActualizable.UsuarioGestionando = recurrencia.UsuarioGestionando;
+                GPRecurActualizable.FechaSesguimiento = recurrencia.FechaSesguimiento;
                 unitWork.Complete();
                 unitWork.Dispose();
 
@@ -262,6 +264,7 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.ServicioOfrecido = recurrencia.ServicioOfrecido;
                 LogRecurrencia.AceptacionServicioOfrecido = recurrencia.AceptacionServicioOfrecido;
                 LogRecurrencia.Observaciones = recurrencia.Observaciones;
+                LogRecurrencia.FechaSesguimiento = LogRecurrencia.FechaSesguimiento;
                 unitWorkLog.GLogRecurrencia.Add(LogRecurrencia);
                 unitWorkLog.Complete();
                 unitWorkLog.Dispose();
@@ -348,7 +351,8 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.ActivacionClaroVideoNagra,
                                      a.ServicioOfrecido,
                                      a.AceptacionServicioOfrecido,
-                                     a.Observaciones
+                                     a.Observaciones,
+                                     a.FechaSesguimiento
                                  }
                                  ).ToList();
 
@@ -410,6 +414,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
                 result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
+                result[i].FechaSesguimiento = objetosResult[i].FechaSesguimiento;
             }
             return result;
         }
@@ -486,7 +491,8 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.ActivacionClaroVideoNagra,
                                      a.ServicioOfrecido,
                                      a.AceptacionServicioOfrecido,
-                                     a.Observaciones
+                                     a.Observaciones,
+                                     a.FechaSesguimiento
                                  }
                                  ).ToList();
 
@@ -548,6 +554,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
                 result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
+                result[i].FechaSesguimiento = objetosResult[i].FechaSesguimiento;
             }
             return result;
         }
@@ -614,7 +621,8 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.ActivacionClaroVideoNagra,
                                      a.ServicioOfrecido,
                                      a.AceptacionServicioOfrecido,
-                                     a.Observaciones
+                                     a.Observaciones,
+                                     a.FechaSesguimiento
                                  }
                                  ).ToList();
 
@@ -676,6 +684,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
                 result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
+                result[i].FechaSesguimiento = objetosResult[i].FechaSesguimiento;
             }
             return result;
         }
@@ -742,7 +751,8 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.ActivacionClaroVideoNagra,
                                      a.ServicioOfrecido,
                                      a.AceptacionServicioOfrecido,
-                                     a.Observaciones
+                                     a.Observaciones,
+                                     a.FechaSesguimiento
                                  }
                                  ).ToList();
 
@@ -804,6 +814,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
                 result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
+                result[i].FechaSesguimiento = objetosResult[i].FechaSesguimiento;
             }
             return result;
         }
