@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService
     {
 
 
@@ -2765,6 +2765,39 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             VisitasAutorizadasService visitasservice = new VisitasAutorizadasService();
             return visitasservice.ListaMotivosSolicitud();
 
+        }
+        #endregion
+
+        #region Banner Alertas
+        public bool ValidarClienteEnConvenioElectronico(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ValidarClienteEnConvenioElectronico(CuentaCliente);
+        }
+        public bool ValidarClienteEnClaroVideo(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ValidarClienteEnClaroVideo(CuentaCliente);
+        }
+        public bool ValidarClienteEnMejorOferta(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ValidarClienteEnMejorOferta(CuentaCliente);
+        }
+        public bool ValidarClienteEnSiembraHD(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ValidarClienteEnSiembraHD(CuentaCliente);
+        }
+        public bool ValidarClienteEnMejorasTecnicas(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ValidarClienteEnMejorasTecnicas(CuentaCliente);
+        }
+        public bool ValidarClienteEnFox(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ValidarClienteEnFox(CuentaCliente);
         }
         #endregion
 
