@@ -546,21 +546,23 @@ namespace Telmexla.Servicios.DIME.Business
 
             unidadTrabajo.Complete();
         }
+
         public List<FidelizacionRecursivaVista> getRecursivaVistaAll()
         {
             DimeContext dimeContext = new DimeContext();
             List<FidelizacionRecursivaVista> objTmp = new List<FidelizacionRecursivaVista>();
-
-            var listado = (from recursiva in dimeContext.FidelizacionRecursivaVista
-                           orderby recursiva.Nombre ascending
+            dimeContext.GeneraJerarquiaRecursiva();
+            var listado = (from recursivaVista in dimeContext.FidelizacionRecursivaVista
+                           orderby recursivaVista.Ordr ascending
+                           where recursivaVista.ParentId != null
                            select new
                            {
-                               recursiva.Id,
-                               recursiva.Label,
-                               recursiva.Nivel,
-                               recursiva.Nombre,
-                               recursiva.ParentId,
-                               recursiva.VerNivel
+                               recursivaVista.Id,
+                               recursivaVista.Label,
+                               recursivaVista.Nivel,
+                               recursivaVista.Nombre,
+                               recursivaVista.ParentId,
+                               recursivaVista.VerNivel
                            }
                            ).ToList();
 
@@ -570,7 +572,7 @@ namespace Telmexla.Servicios.DIME.Business
                 objTmp[i].Id = listado[i].Id;
                 objTmp[i].Label = listado[i].Label;
                 objTmp[i].Nivel = listado[i].Nivel;
-                objTmp[i].Nombre = listado[i].Nombre;
+                objTmp[i].Nombre = new String('-', Convert.ToInt32(listado[i].Nivel)) +listado[i].Nombre;
                 objTmp[i].ParentId = listado[i].ParentId;
                 objTmp[i].VerNivel = listado[i].VerNivel;
             }

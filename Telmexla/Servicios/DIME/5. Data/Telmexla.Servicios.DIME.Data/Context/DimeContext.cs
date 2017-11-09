@@ -1116,6 +1116,14 @@ namespace Telmexla.Servicios.DIME.Data.Context
 
             return (int)procResultParam.Value;
         }
+        public int GeneraJerarquiaRecursiva()
+        {
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[CREAR_RECURSIVA_FIDELIZACION] ", procResultParam);
+
+            return (int)procResultParam.Value;
+        }
 
     }
 }

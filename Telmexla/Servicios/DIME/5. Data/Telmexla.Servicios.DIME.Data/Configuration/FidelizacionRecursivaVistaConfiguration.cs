@@ -23,7 +23,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
 
         public FidelizacionRecursivaVistaConfiguration(string schema)
         {
-            ToTable("V_FID_RECURSIVA", schema);
+            ToTable("TMP_FID_RECURSIVA", schema);
             HasKey(x => new { x.Id });
 
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);

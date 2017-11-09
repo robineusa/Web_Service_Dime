@@ -220,6 +220,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         //apartar cuenta bitacora de incidentes
         int ApartarCuentaIncidente(decimal Cedula, decimal IdRegistro);
         int ActualizaBDPersonal();
+        int GeneraJerarquiaRecursiva();
 
 
     }
