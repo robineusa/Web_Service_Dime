@@ -86,7 +86,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         void ActualizarUusuarioGestionando(int Usuario, decimal Cuenta);
-        
+
+        [OperationContract]
+        List<GPrincipalRecurrencia> CuentaGprincipalRecurrencia(int CuentaCliente);
 
     }
 }

@@ -76,6 +76,9 @@ namespace Telmexla.Servicios.DIME.Data
             Property(x => x.AceptacionServicioOfrecido).HasColumnName(@"ACEPTACION_SERVICIO_OFRECIDO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.Observaciones).HasColumnName(@"OBSERVACIONES").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
             Property(x => x.FechaSesguimiento).HasColumnName(@"FECHA_SEGUIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
+            Property(x => x.IdGprincipal).HasColumnName(@"ID_GPRINCIPAL").IsOptional().HasColumnType("numeric");
+
+            HasOptional(a => a.GPrincipalRecurrencia).WithMany(b => b.GLogRecurrenciaVirtual).HasForeignKey(c => c.IdGprincipal).WillCascadeOnDelete(false);
         }
     }
 }

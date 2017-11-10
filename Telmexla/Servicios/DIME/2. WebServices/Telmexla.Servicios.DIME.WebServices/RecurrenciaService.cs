@@ -140,5 +140,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
             recurrenciaBusiness.ActualizarUusuarioGestionando(Usuario, Cuenta);
         }
+        public List<GPrincipalRecurrencia> CuentaGprincipalRecurrencia(int CuentaCliente)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.CuentaGprincipalRecurrencia(CuentaCliente);
+        }
     }
 }

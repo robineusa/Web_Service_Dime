@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
@@ -60,10 +60,8 @@ namespace Telmexla.Servicios.DIME.Business
                 unitWork.Complete();
                 unitWork.Dispose();
 
-
                 UnitOfWork unitWorkLog = new UnitOfWork(new DimeContext());
                 GLogRecurrencia LogRecurrencia = new GLogRecurrencia();
-
                 LogRecurrencia.FechaGestion = recurrencia.FechaGestion;
                 LogRecurrencia.UsuarioGestion = recurrencia.UsuarioGestion;
                 LogRecurrencia.NombreUsuarioGestion = recurrencia.NombreUsuarioGestion;
@@ -120,6 +118,7 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.AceptacionServicioOfrecido = recurrencia.AceptacionServicioOfrecido;
                 LogRecurrencia.Observaciones = recurrencia.Observaciones;
                 LogRecurrencia.FechaSesguimiento = recurrencia.FechaSesguimiento;
+                LogRecurrencia.IdGprincipal = recurrencia.Id;
                 unitWorkLog.GLogRecurrencia.Add(LogRecurrencia);
                 unitWorkLog.Complete();
                 unitWorkLog.Dispose();
@@ -203,6 +202,7 @@ namespace Telmexla.Servicios.DIME.Business
                 GPRecurActualizable.Observaciones = recurrencia.Observaciones;
                 GPRecurActualizable.UsuarioGestionando = recurrencia.UsuarioGestionando;
                 GPRecurActualizable.FechaSesguimiento = recurrencia.FechaSesguimiento;
+                
                 unitWork.Complete();
                 unitWork.Dispose();
 
@@ -265,6 +265,7 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.AceptacionServicioOfrecido = recurrencia.AceptacionServicioOfrecido;
                 LogRecurrencia.Observaciones = recurrencia.Observaciones;
                 LogRecurrencia.FechaSesguimiento = LogRecurrencia.FechaSesguimiento;
+                LogRecurrencia.IdGprincipal = GPRecurActualizable.Id;
                 unitWorkLog.GLogRecurrencia.Add(LogRecurrencia);
                 unitWorkLog.Complete();
                 unitWorkLog.Dispose();
@@ -567,6 +568,7 @@ namespace Telmexla.Servicios.DIME.Business
                                  select new
                                  {
                                      a.Id,
+                                     a.IdGprincipal,
                                      a.FechaGestion,
                                      a.UsuarioGestion,
                                      a.NombreUsuarioGestion,
@@ -630,6 +632,7 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 result.Add(new GLogRecurrencia());
                 result[i].Id = objetosResult[i].Id;
+                result[i].IdGprincipal = objetosResult[i].IdGprincipal;
                 result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
                 result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
@@ -688,7 +691,7 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return result;
         }
-        public List<GLogRecurrencia> ListaHistorialSeguimientosRecurrencia( decimal CuentaCliente)
+        public List<GLogRecurrencia> ListaHistorialSeguimientosRecurrencia(decimal CuentaCliente)
         {
             DimeContext dimContext = new DimeContext();
             List<GLogRecurrencia> result = new List<GLogRecurrencia>();
@@ -697,6 +700,7 @@ namespace Telmexla.Servicios.DIME.Business
                                  select new
                                  {
                                      a.Id,
+                                     a.IdGprincipal,
                                      a.FechaGestion,
                                      a.UsuarioGestion,
                                      a.NombreUsuarioGestion,
@@ -760,6 +764,7 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 result.Add(new GLogRecurrencia());
                 result[i].Id = objetosResult[i].Id;
+                result[i].IdGprincipal = objetosResult[i].IdGprincipal;
                 result[i].FechaGestion = objetosResult[i].FechaGestion;
                 result[i].UsuarioGestion = objetosResult[i].UsuarioGestion;
                 result[i].NombreUsuarioGestion = objetosResult[i].NombreUsuarioGestion;
@@ -958,7 +963,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.ServicioAfectado,
                                      a.ArbolSoporte,
                                      a.FallaCausaRaiz,
-                                     a.SolucionEspecifica,                                     
+                                     a.SolucionEspecifica,
                                      a.Estado,
                                      a.FallaAtribuibleA,
                                      a.PorQue,
@@ -1218,6 +1223,11 @@ namespace Telmexla.Servicios.DIME.Business
                 }
             }
         }
+        public List<GPrincipalRecurrencia> CuentaGprincipalRecurrencia(int CuentaCliente)
+        {
+            DimeContext dimeContext = new DimeContext();
+            List<GPrincipalRecurrencia> result = dimeContext.GPrincipalRecurrencia.Where(c => c.CuentaCliente == CuentaCliente && c.Estado != "FINALIZADO").ToList();
+            return result;
+        }
     }
 }
-    

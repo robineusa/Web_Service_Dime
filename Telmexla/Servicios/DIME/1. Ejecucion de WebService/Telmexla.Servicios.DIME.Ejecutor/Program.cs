@@ -20,8 +20,14 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            FidelizacionService Fidelizacion = new FidelizacionService();
-            var r = Fidelizacion.getRecursivaVistaAll();
+            RecurrenciaService rec = new RecurrenciaService();
+            GPrincipalRecurrencia model = new GPrincipalRecurrencia();
+
+            model.CuentaCliente = 1292864;
+            model.MarcacionInicialAfectacion = "SOP EDA";
+            model.MarcacionReincidenteRecurrencia = "OPE PVM";
+
+            var z = rec.CuentaGprincipalRecurrencia(Convert.ToInt32(model.CuentaCliente));
 
             var dddd = "";
             //FidelizacionService fidelizacion = new FidelizacionService(); 
@@ -95,17 +101,6 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
             //FidelizacionService Fidelizacion = new FidelizacionService();
             //Fidelizacion.setRegistro(Registro);
-
-
-            FidelizacionService Registros = new FidelizacionService();
-            var dd = Registros.getRegistroAll();
-
-
-
-
-
-
-            var z = ""; 
         }
     }
 }
