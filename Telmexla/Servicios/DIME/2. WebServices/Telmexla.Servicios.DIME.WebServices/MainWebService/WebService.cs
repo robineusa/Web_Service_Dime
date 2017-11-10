@@ -14,15 +14,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
     public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService
     {
-
-
-
         public Usuario MuestraEntidades()
         {
             return new Usuario { Nombre = "Alejandro ", Cedula = 1033478952 };
         }
-
-
 
         #region Login Service
         public int AutenticarUsuarioEnSesion(Usuario usuario)
@@ -289,7 +284,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         #endregion
 
-            #region Inbound Service 
+        #region Inbound Service 
         public bool RegistrarActualizarDatosAdicionalesCliente(DatosAdicionalesCliente datosAdicionalesCliente)
         {
             InboundService inboundService = new InboundService();
@@ -2056,6 +2051,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.CuentaGprincipalRecurrencia(CuentaCliente);
+        }
+        public List<GLogRecurrencia> ListaMiHistorialRecurrencia(string usuarioGestion)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.ListaMiHistorialRecurrencia(usuarioGestion);
         }
         #endregion
 

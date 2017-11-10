@@ -90,5 +90,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<GPrincipalRecurrencia> CuentaGprincipalRecurrencia(int CuentaCliente);
 
+        [OperationContract]
+        List<GLogRecurrencia> ListaMiHistorialRecurrencia(string usuarioGestion);
+
     }
 }
