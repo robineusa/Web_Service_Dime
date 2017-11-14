@@ -61,5 +61,11 @@ namespace Telmexla.Servicios.DIME.Business
             if (resultado.Count() > 0) { return true; }
             else { return false; }
         }
+        public CuentasSiguienteMejorOferta ConsultarClienteMejorOferta(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            CuentasSiguienteMejorOferta SMO = unitWork.CuentaSMO.Find(x => x.CuentaCliente == CuentaCliente).FirstOrDefault(); ;
+            return SMO;
+        }
     }
 }

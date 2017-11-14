@@ -2804,6 +2804,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BannerAlertasService banneralertasservice = new BannerAlertasService();
             return banneralertasservice.ValidarClienteEnFox(CuentaCliente);
         }
+        public CuentasSiguienteMejorOferta ConsultarClienteMejorOferta(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ConsultarClienteMejorOferta(CuentaCliente);
+        }
         #endregion
 
     }

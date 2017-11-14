@@ -23,5 +23,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         bool ValidarClienteEnMejorasTecnicas(decimal CuentaCliente);
         [OperationContract]
         bool ValidarClienteEnFox(decimal CuentaCliente);
+        [OperationContract]
+        CuentasSiguienteMejorOferta ConsultarClienteMejorOferta(decimal CuentaCliente);
     }
 }

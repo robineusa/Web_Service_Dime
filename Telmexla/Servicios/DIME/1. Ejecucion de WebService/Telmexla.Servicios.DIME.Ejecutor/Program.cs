@@ -20,6 +20,12 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+            BannerAlertasService bas = new BannerAlertasService();
+            Int32 Cuenta = 94928249;
+            CuentasSiguienteMejorOferta cuentas = bas.ConsultarClienteMejorOferta(Cuenta);
+
+
+
             RecurrenciaService rec = new RecurrenciaService();
             GPrincipalRecurrencia model = new GPrincipalRecurrencia();
 
