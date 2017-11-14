@@ -67,5 +67,43 @@ namespace Telmexla.Servicios.DIME.Business
             CuentasSiguienteMejorOferta SMO = unitWork.CuentaSMO.Find(x => x.CuentaCliente == CuentaCliente).FirstOrDefault(); ;
             return SMO;
         }
+        public void RegistrarSMO(SiguienteMejorOferta smo)
+        {
+            try
+            {
+                smo.FechaGestion = DateTime.Now;
+
+                //actualiza informacion de los maestros
+                UnitOfWorkMaestros unitWorkMaestros = new UnitOfWorkMaestros(new MaestrosContext());
+
+                smo.TipoContacto = unitWorkMaestros.maestrosOutboundTipoContactos.Get(Convert.ToInt32(smo.TipoContacto)).TipoContacto;
+                smo.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(smo.Gestion)).Cierre;
+                smo.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(smo.Cierre)).Razon;
+                smo.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(smo.Razon)).Causa;
+
+                unitWorkMaestros.Complete();
+                unitWorkMaestros.Dispose();
+
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.SMO.Add(smo);
+                unitWork.Complete();
+
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
     }
 }

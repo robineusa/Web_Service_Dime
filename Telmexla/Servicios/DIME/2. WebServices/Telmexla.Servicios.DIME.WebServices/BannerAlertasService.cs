@@ -48,5 +48,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
             return banneralertasbusiness.ConsultarClienteMejorOferta(CuentaCliente);
         }
+        public void RegistrarSMO(SiguienteMejorOferta smo)
+        {
+            BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
+            banneralertasbusiness.RegistrarSMO(smo);
+        }
     }
 }

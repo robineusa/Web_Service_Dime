@@ -25,5 +25,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         bool ValidarClienteEnFox(decimal CuentaCliente);
         [OperationContract]
         CuentasSiguienteMejorOferta ConsultarClienteMejorOferta(decimal CuentaCliente);
+        [OperationContract]
+        void RegistrarSMO(SiguienteMejorOferta smo);
     }
 }

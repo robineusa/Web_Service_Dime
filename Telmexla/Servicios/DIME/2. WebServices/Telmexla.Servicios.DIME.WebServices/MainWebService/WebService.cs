@@ -2809,6 +2809,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BannerAlertasService banneralertasservice = new BannerAlertasService();
             return banneralertasservice.ConsultarClienteMejorOferta(CuentaCliente);
         }
+        public void RegistrarSMO(SiguienteMejorOferta smo)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            banneralertasservice.RegistrarSMO(smo);
+        }
         #endregion
 
     }
