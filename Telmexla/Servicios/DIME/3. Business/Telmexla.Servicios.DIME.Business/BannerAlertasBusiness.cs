@@ -231,5 +231,28 @@ namespace Telmexla.Servicios.DIME.Business
 
 
         }
+        public void RegistraUsabilidadBanner(UsabilidadAlertasInbound Usabilidad)
+        {
+            try
+            {
+                Usabilidad.FechaRevision = DateTime.Now;
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.UsabilidadAlertasInbound.Add(Usabilidad);
+                unitWork.Complete();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+        }
     }
 }

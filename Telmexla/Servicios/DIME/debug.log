@@ -16,3 +16,12 @@
 [0810/173422.111:ERROR:process_info.cc(632)] range at 0x899f317e00000000, size 0x1b7 fully unreadable
 [0810/173422.111:ERROR:process_info.cc(632)] range at 0x899f319e00000000, size 0x1b7 fully unreadable
 [0810/173422.111:ERROR:process_info.cc(632)] range at 0x0, size 0x1b7 fully unreadable
+[1115/064601.562:ERROR:process_info.cc(632)] range at 0x2bf2399e00000000, size 0x213 fully unreadable
+[1115/064601.575:ERROR:process_info.cc(632)] range at 0x2bf23a0000000000, size 0x213 fully unreadable
+[1115/064601.575:ERROR:process_info.cc(632)] range at 0x0, size 0x213 fully unreadable
+[1115/111925.424:ERROR:process_info.cc(632)] range at 0xdb0339a200000000, size 0x1dd fully unreadable
+[1115/111925.425:ERROR:process_info.cc(632)] range at 0xdb033a0600000000, size 0x1dd fully unreadable
+[1115/111925.425:ERROR:process_info.cc(632)] range at 0x0, size 0x1dd fully unreadable
+[1115/113227.390:ERROR:process_info.cc(632)] range at 0x75239a200000000, size 0x1bf fully unreadable
+[1115/113227.390:ERROR:process_info.cc(632)] range at 0x7523a0600000000, size 0x1bf fully unreadable
+[1115/113227.390:ERROR:process_info.cc(632)] range at 0x0, size 0x1bf fully unreadable

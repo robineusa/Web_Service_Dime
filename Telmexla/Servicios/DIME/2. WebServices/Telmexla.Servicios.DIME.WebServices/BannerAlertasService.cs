@@ -88,5 +88,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
             banneralertasbusiness.RegistraFox(Fox);
         }
+        public void RegistraUsabilidadBanner(UsabilidadAlertasInbound Usabilidad)
+        {
+            BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
+            banneralertasbusiness.RegistraUsabilidadBanner(Usabilidad);
+        }
     }
 }

@@ -41,5 +41,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         CargaBaseFoxInbound ConsultaCuentaBaseFox(decimal CuentaCliente);
         [OperationContract]
         void RegistraFox(GestionFoxInbound Fox);
+        [OperationContract]
+        void RegistraUsabilidadBanner(UsabilidadAlertasInbound Usabilidad);
     }
 }

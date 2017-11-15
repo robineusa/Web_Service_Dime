@@ -2849,6 +2849,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BannerAlertasService banneralertasservice = new BannerAlertasService();
             banneralertasservice.RegistraFox(Fox);
         }
+        public void RegistraUsabilidadBanner(UsabilidadAlertasInbound Usabilidad)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            banneralertasservice.RegistraUsabilidadBanner(Usabilidad);
+        }
         #endregion
 
     }
