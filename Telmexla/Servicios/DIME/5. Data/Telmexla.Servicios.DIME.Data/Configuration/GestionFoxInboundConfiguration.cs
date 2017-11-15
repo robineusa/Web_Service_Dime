@@ -20,6 +20,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.NombreUsuarioGestion).HasColumnName(@"NOMBRE_USUARIO_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.AliadoGestion).HasColumnName(@"ALIADO_GESTION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
             Property(x => x.CuentaCliente).HasColumnName(@"CUENTA_CLIENTE").IsRequired().HasColumnType("numeric");
+            Property(x => x.FechaVencimiento).HasColumnName(@"FECHA_VENCIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.Ofrecimiento).HasColumnName(@"OFRECIMIENTO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
             Property(x => x.AceptacionFoxInbound).HasColumnName(@"ACEPTACION_FOX_INBOUND").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(2);
         }

@@ -105,5 +105,131 @@ namespace Telmexla.Servicios.DIME.Business
 
 
         }
+        public void RegistrarClaroVideo(ActivacionClaroVideo ClaroVideo)
+        {
+            try
+            {
+                ClaroVideo.FechaGestion = DateTime.Now;
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.activacionClaroVideo.Add(ClaroVideo);
+                unitWork.Complete();
+
+
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
+        public CuentasSiembraHD ConsultarCuentaSiembraHD(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            CuentasSiembraHD SiembraHD = unitWork.CuentasSiembraHD.Find(x => x.CuentaCliente == CuentaCliente).FirstOrDefault(); ;
+            return SiembraHD;
+        }
+        public void RegistrarSiembraHD(SiembraHD siembra)
+        {
+            try
+            {
+                siembra.FechaGestion = DateTime.Now;
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.ActivacionSiembraHD.Add(siembra);
+                unitWork.Complete();
+
+
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
+        public CuentasMejorasTecnicas ConsultarCuentaMejorasTecnicas(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            CuentasMejorasTecnicas MejoraTecnica = unitWork.CuentasMejorasTecnicas.Find(x => x.Cuenta == CuentaCliente).FirstOrDefault(); ;
+            return MejoraTecnica;
+        }
+        public void RegistrarMejorasTecnicas(MejorasTecnicas Mejoras)
+        {
+            try
+            {
+                Mejoras.FechaGestion = DateTime.Now;
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.MejorasTecnicas.Add(Mejoras);
+                unitWork.Complete();
+
+
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
+        public CargaBaseFoxInbound ConsultaCuentaBaseFox(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            CargaBaseFoxInbound CuentasFox = unitWork.CargaBaseFoxInbound.Find(x => x.Cuenta == CuentaCliente).FirstOrDefault(); ;
+            return CuentasFox;
+        }
+        public void RegistraFox(GestionFoxInbound Fox)
+        {
+            try
+            {
+                Fox.FechaGestion = DateTime.Now;
+
+                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                unitWork.GestionFoxInbound.Add(Fox);
+                unitWork.Complete();
+
+
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+
+        }
     }
 }

@@ -53,5 +53,40 @@ namespace Telmexla.Servicios.DIME.WebServices
             BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
             banneralertasbusiness.RegistrarSMO(smo);
         }
+        public void RegistrarClaroVideo(ActivacionClaroVideo ClaroVideo)
+        {
+            BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
+            banneralertasbusiness.RegistrarClaroVideo(ClaroVideo);
+        }
+        public CuentasSiembraHD ConsultarCuentaSiembraHD(decimal CuentaCliente)
+        {
+            BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
+            return banneralertasbusiness.ConsultarCuentaSiembraHD(CuentaCliente);
+        }
+        public void RegistrarSiembraHD(SiembraHD siembra)
+        {
+            BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
+            banneralertasbusiness.RegistrarSiembraHD(siembra);
+        }
+        public CuentasMejorasTecnicas ConsultarCuentaMejorasTecnicas(decimal CuentaCliente)
+        {
+            BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
+            return banneralertasbusiness.ConsultarCuentaMejorasTecnicas(CuentaCliente);
+        }
+        public void RegistrarMejorasTecnicas(MejorasTecnicas Mejoras)
+        {
+            BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
+            banneralertasbusiness.RegistrarMejorasTecnicas(Mejoras);
+        }
+        public CargaBaseFoxInbound ConsultaCuentaBaseFox(decimal CuentaCliente)
+        {
+            BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
+            return banneralertasbusiness.ConsultaCuentaBaseFox(CuentaCliente);
+        }
+        public void RegistraFox(GestionFoxInbound Fox)
+        {
+            BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
+            banneralertasbusiness.RegistraFox(Fox);
+        }
     }
 }

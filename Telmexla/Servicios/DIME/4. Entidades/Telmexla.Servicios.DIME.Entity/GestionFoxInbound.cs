@@ -10,6 +10,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public string NombreUsuarioGestion { get; set; } //Nombre_Usuario_Gestion (length: 50)
         public string AliadoGestion { get; set; } //Aliado_Gestion (length: 30)
         public decimal CuentaCliente { get; set; } //Cuenta_Cliente
+        public string FechaVencimiento { get; set; } //Ofrecimiento (Length: 500)
         public string Ofrecimiento { get; set; } //Ofrecimiento (Length: 500)
         public string AceptacionFoxInbound { get; set; } //Aceptacion (Length: 2)
     }

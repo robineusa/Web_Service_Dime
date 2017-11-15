@@ -27,5 +27,19 @@ namespace Telmexla.Servicios.DIME.IWebServices
         CuentasSiguienteMejorOferta ConsultarClienteMejorOferta(decimal CuentaCliente);
         [OperationContract]
         void RegistrarSMO(SiguienteMejorOferta smo);
+        [OperationContract]
+        void RegistrarClaroVideo(ActivacionClaroVideo ClaroVideo);
+        [OperationContract]
+        CuentasSiembraHD ConsultarCuentaSiembraHD(decimal CuentaCliente);
+        [OperationContract]
+        void RegistrarSiembraHD(SiembraHD siembra);
+        [OperationContract]
+        CuentasMejorasTecnicas ConsultarCuentaMejorasTecnicas(decimal CuentaCliente);
+        [OperationContract]
+        void RegistrarMejorasTecnicas(MejorasTecnicas Mejoras);
+        [OperationContract]
+        CargaBaseFoxInbound ConsultaCuentaBaseFox(decimal CuentaCliente);
+        [OperationContract]
+        void RegistraFox(GestionFoxInbound Fox);
     }
 }

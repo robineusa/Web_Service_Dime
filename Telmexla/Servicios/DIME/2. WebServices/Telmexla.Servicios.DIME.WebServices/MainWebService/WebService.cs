@@ -2814,6 +2814,41 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BannerAlertasService banneralertasservice = new BannerAlertasService();
             banneralertasservice.RegistrarSMO(smo);
         }
+        public void RegistrarClaroVideo(ActivacionClaroVideo ClaroVideo)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            banneralertasservice.RegistrarClaroVideo(ClaroVideo);
+        }
+        public CuentasSiembraHD ConsultarCuentaSiembraHD(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ConsultarCuentaSiembraHD(CuentaCliente);
+        }
+        public void RegistrarSiembraHD(SiembraHD siembra)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            banneralertasservice.RegistrarSiembraHD(siembra);
+        }
+        public CuentasMejorasTecnicas ConsultarCuentaMejorasTecnicas(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ConsultarCuentaMejorasTecnicas(CuentaCliente);
+        }
+        public void RegistrarMejorasTecnicas(MejorasTecnicas Mejoras)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            banneralertasservice.RegistrarMejorasTecnicas(Mejoras);
+        }
+        public CargaBaseFoxInbound ConsultaCuentaBaseFox(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ConsultaCuentaBaseFox(CuentaCliente);
+        }
+        public void RegistraFox(GestionFoxInbound Fox)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            banneralertasservice.RegistraFox(Fox);
+        }
         #endregion
 
     }
