@@ -30,7 +30,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Subrazon).HasColumnName(@"SUBRAZON").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.EstadoSolicitud).HasColumnName(@"ESTADO_SOLICITUD").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.AliadoTecnico).HasColumnName(@"ALIADO_TECNICO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.Observaciones).HasColumnName(@"OBSERVACIONES").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.Observaciones).HasColumnName(@"OBSERVACIONES").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
             Property(x => x.UsuarioGestionando).HasColumnName(@"USUARIO_GESTIONANDO").IsOptional().HasColumnType("numeric");
         }
     }
