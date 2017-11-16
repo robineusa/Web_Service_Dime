@@ -82,5 +82,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void updateRegistroCampos(FidelizacionRegistroCampos objRegistroCampos);
         [OperationContract]
         List<FidelizacionRecursivaVista> getRecursivaVistaAll();
+        [OperationContract]
+        FidelizacionRecursiva getRecursivaVistaById(decimal idRecursiva);
     }
 }

@@ -2519,8 +2519,12 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         public List<FidelizacionRecursivaVista> getRecursivaVistaAll()
         {
-            IFidelizacionService Fidelizacion = new FidelizacionService();
+            FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getRecursivaVistaAll();
+        }
+        public FidelizacionRecursiva getRecursivaVistaById(decimal idRecursiva) {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getRecursivaVistaById(idRecursiva);
         }
         #endregion
 

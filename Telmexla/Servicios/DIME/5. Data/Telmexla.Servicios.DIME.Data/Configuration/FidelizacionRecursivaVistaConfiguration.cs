@@ -13,7 +13,7 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.Data.Configuration
 {
-    //TBL_FID_OTROS_OFRECIMIENTOS
+    //TMP_FID_RECURSIVA
     public class FidelizacionRecursivaVistaConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<FidelizacionRecursivaVista>
     {
         public FidelizacionRecursivaVistaConfiguration()
@@ -32,6 +32,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.VerNivel).HasColumnName(@"VER_NIVEL").IsOptional().IsUnicode(false).HasColumnType("varchar");
             Property(x => x.Nivel).HasColumnName(@"NIVEL").IsOptional().HasColumnType("numeric");
             Property(x => x.Label).HasColumnName(@"LABEL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
+            Property(x => x.Ordr).HasColumnName(@"ORDR").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(30);
 
         }
     }
