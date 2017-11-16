@@ -20,20 +20,22 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            BannerAlertasService bas = new BannerAlertasService();
-            Int32 Cuenta = 94928249;
-            CuentasSiguienteMejorOferta cuentas = bas.ConsultarClienteMejorOferta(Cuenta);
+            VerificacionDeInventarioService ver = new VerificacionDeInventarioService();
+            VIPSolicitudes model = new VIPSolicitudes();
 
+            model.AliadoSolicitud = "INTERCONTACT";
+            model.CuentaCliente = 88598776;
+            model.Nodo = "6904";
+            model.NombreUsuarioSolicitud = "SDFCSDF";
+            model.NombreUsuarioUltimaActualizacion = "SDFSD";
+            model.Observaciones = "USUARIO INDICA QUE EN SU DOMICILIO SOLO CUENTA CON 2 DECODIFICADORES EN CASA LOS CUALES EL CLIENTE TIENE LOS SIGUIENTES: 1ER DECO M90827FYC863 2DO DECO 00518913071753088 SMART NO TIENE LOS EQUIPOS, RETIRAR EQUIPO: M91050FXFA71 se solicita ajuste, incidencia es 43114502";
+            model.OperacionSolicitud = "SOPORTE OPERACIONES DE SERVICIO";
+            model.RequiereAjuste = "SI";
+            model.TipoDeRequerimiento = "3";
+            model.UsuarioSolicitud = 1076622744;
+            model.UsuarioUltimaActualizacion = 1076622744;
 
-
-            RecurrenciaService rec = new RecurrenciaService();
-            GPrincipalRecurrencia model = new GPrincipalRecurrencia();
-
-            model.CuentaCliente = 1292864;
-            model.MarcacionInicialAfectacion = "SOP EDA";
-            model.MarcacionReincidenteRecurrencia = "OPE PVM";
-
-            var z = rec.CuentaGprincipalRecurrencia(Convert.ToInt32(model.CuentaCliente));
+            ver.ReistrarSolicitud(model);
 
             var dddd = "";
             //FidelizacionService fidelizacion = new FidelizacionService(); 
