@@ -121,6 +121,8 @@ namespace Telmexla.Servicios.DIME.IData
         IFidelizacionOtrosCamposRepository FidelizacionOtrosCampos { get; }
         IFidelizacionRegistroCamposRepository FidelizacionRegistroCampos { get; }
         IFidelizacionRecursivaVistaRepository FidelizacionRecursivaVista { get; }
+        IArbolRepository Arbol { get; }
+        INodoRepository Nodo { get; }
 
         int Complete();
     }

@@ -128,6 +128,8 @@ namespace Telmexla.Servicios.DIME.Data
             FidelizacionOtrosCampos = new FidelizacionOtrosCamposRepository(this.dimeContext);
             FidelizacionRegistroCampos = new FidelizacionRegistroCamposRepository(this.dimeContext);
             FidelizacionRecursivaVista = new FidelizacionRecursivaVistaRepository(this.dimeContext);
+            Arbol = new ArbolRepository(this.dimeContext);
+            Nodo = new NodoRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -508,7 +510,8 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        public IFidelizacionOtrosOfrecimientosRepository FidelizacionOtrosOfrecimientos {
+        public IFidelizacionOtrosOfrecimientosRepository FidelizacionOtrosOfrecimientos
+        {
             get; private set;
         }
 
@@ -516,10 +519,12 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        public IFidelizacionRecursivaRepository FidelizacionRecursiva {
+        public IFidelizacionRecursivaRepository FidelizacionRecursiva
+        {
             get; private set;
         }
-        public IFidelizacionRegistroRepository FidelizacionRegistro {
+        public IFidelizacionRegistroRepository FidelizacionRegistro
+        {
             get; private set;
         }
         public IVIPSolicitudesRepository VIPSolicitudes
@@ -594,7 +599,14 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-
+        public IArbolRepository Arbol
+        {
+            get; private set;
+        }
+        public INodoRepository Nodo
+        {
+            get; private set;
+        }
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

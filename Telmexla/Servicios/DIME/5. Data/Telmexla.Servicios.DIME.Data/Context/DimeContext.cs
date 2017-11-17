@@ -148,6 +148,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<FidelizacionOtrosCampos> FidelizacionOtrosCampos { get; set; }
         public System.Data.Entity.DbSet<FidelizacionRegistroCampos> FidelizacionRegistroCampos { get; set; }
         public System.Data.Entity.DbSet<FidelizacionRecursivaVista> FidelizacionRecursivaVista { get; set; }
+        public System.Data.Entity.DbSet<Arbol> Arbol { get; set; }
+        public System.Data.Entity.DbSet<Nodo> Nodo { get; set; }
+
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -327,6 +330,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new FidelizacionOtrosCamposConfiguration());
             modelBuilder.Configurations.Add(new FidelizacionRegistroCamposConfiguration());
             modelBuilder.Configurations.Add(new FidelizacionRecursivaVistaConfiguration());
+            modelBuilder.Configurations.Add(new ArbolConfiguration( ));
+            modelBuilder.Configurations.Add(new NodoConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -460,7 +465,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new FidelizacionOtrosCamposConfiguration(schema));
             modelBuilder.Configurations.Add(new FidelizacionRegistroCamposConfiguration(schema));
             modelBuilder.Configurations.Add(new FidelizacionRecursivaVistaConfiguration(schema));
-
+            modelBuilder.Configurations.Add(new ArbolConfiguration(schema));
+            modelBuilder.Configurations.Add(new NodoConfiguration(schema));
             return modelBuilder;
         }
 
