@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="IAccesoRepository.cs" />
     <Compile Include="IAccesosXLineaRepository.cs" />
+    <Compile Include="IArbolRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedRepository.cs" />
     <Compile Include="IFidelizacionMotivosCancelacionRepository.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="IMejorasTecnicasRepository.cs" />
     <Compile Include="IModosLoginRepository.cs" />
     <Compile Include="IMultiPlayRegistroRepository.cs" />
+    <Compile Include="INodoRepository.cs" />
     <Compile Include="INodosZonificadosRepository.cs" />
     <Compile Include="INotasIngresoRepository.cs" />
     <Compile Include="INotasTrasladoRepository.cs" />

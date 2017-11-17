@@ -13,7 +13,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             ToTable("TBL_ARBOL", schema);
             HasKey(x => new { x.Id });
 
-            Property(x => x.NombreArbol).HasColumnName(@"TIPO_FALLA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.NombreArbol).HasColumnName(@"NOMBRE_ARBOL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(250);
 
         }
     }
