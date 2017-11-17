@@ -435,9 +435,13 @@ namespace Telmexla.Servicios.DIME.WebServices
             {
                 decimal cedulaUsuario = Convert.ToDecimal(cedUsuario);
                 Usuario usuario = dimContext.Set<Usuario>().Where(c => c.Cedula == cedulaUsuario).FirstOrDefault();
-                usuario.IdLinea = idLinea;
-                dimContext.SaveChanges();
+                if (idLinea != 0)
+                {
+                    usuario.IdLinea = idLinea;
+                    dimContext.SaveChanges();
+                }
                 DateTime fechaActual = DateTime.Now;
+
                 for (int i = 0; i < listaPermisos.Count; i++)
                 {
                     var IdAcceso = Convert.ToInt32(listaPermisos[i]);
