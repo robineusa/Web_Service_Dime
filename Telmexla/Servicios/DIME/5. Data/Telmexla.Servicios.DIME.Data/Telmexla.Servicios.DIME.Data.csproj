@@ -58,6 +58,7 @@
     <Compile Include="AccesosXLineaRepository.cs" />
     <Compile Include="BSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="BSCAdministracionBalancedRepository.cs" />
+    <Compile Include="Configuration\ArbolConfiguration.cs" />
     <Compile Include="Configuration\BSCAdministracionBalancedConfiguration.cs" />
     <Compile Include="Configuration\BSCAdministracionBalancedLogConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionOtrosCamposConfiguration.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Configuration\FidelizacionRecursivaVistaConfiguration.cs" />
     <Compile Include="Configuration\GLogRecurrenciaInboundConfiguration.cs" />
     <Compile Include="Configuration\InventarioEquiposConfiguration.cs" />
+    <Compile Include="Configuration\NodoConfiguration.cs" />
     <Compile Include="Configuration\VAMotivosSolicitudConfiguration.cs" />
     <Compile Include="Configuration\VILSolicitudesConfiguration.cs" />
     <Compile Include="Configuration\VIMAliadoTecnicoConfiguration.cs" />

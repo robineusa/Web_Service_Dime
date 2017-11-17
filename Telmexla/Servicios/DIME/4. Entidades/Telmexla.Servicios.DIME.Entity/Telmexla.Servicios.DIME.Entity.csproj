@@ -58,6 +58,7 @@
     <Compile Include="Acceso.cs" />
     <Compile Include="AccesoCollection.cs" />
     <Compile Include="AccesosXLinea.cs" />
+    <Compile Include="Arbol.cs" />
     <Compile Include="BSCAdministracionBalanced.cs" />
     <Compile Include="BSCAdministracionBalancedLog.cs" />
     <Compile Include="FidelizacionOtrosCampos.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="MejorasTecnicas.cs" />
     <Compile Include="ModosLogin.cs" />
     <Compile Include="MultiPlayRegistro.cs" />
+    <Compile Include="Nodo.cs" />
     <Compile Include="NodosZonificados.cs" />
     <Compile Include="NotasIngreso.cs" />
     <Compile Include="NotasTraslado.cs" />
