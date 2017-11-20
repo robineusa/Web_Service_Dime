@@ -20,22 +20,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-            VerificacionDeInventarioService ver = new VerificacionDeInventarioService();
-            VIPSolicitudes model = new VIPSolicitudes();
-
-            model.AliadoSolicitud = "INTERCONTACT";
-            model.CuentaCliente = 88598776;
-            model.Nodo = "6904";
-            model.NombreUsuarioSolicitud = "SDFCSDF";
-            model.NombreUsuarioUltimaActualizacion = "SDFSD";
-            model.Observaciones = "USUARIO INDICA QUE EN SU DOMICILIO SOLO CUENTA CON 2 DECODIFICADORES EN CASA LOS CUALES EL CLIENTE TIENE LOS SIGUIENTES: 1ER DECO M90827FYC863 2DO DECO 00518913071753088 SMART NO TIENE LOS EQUIPOS, RETIRAR EQUIPO: M91050FXFA71 se solicita ajuste, incidencia es 43114502";
-            model.OperacionSolicitud = "SOPORTE OPERACIONES DE SERVICIO";
-            model.RequiereAjuste = "SI";
-            model.TipoDeRequerimiento = "3";
-            model.UsuarioSolicitud = 1076622744;
-            model.UsuarioUltimaActualizacion = 1076622744;
-
-            ver.ReistrarSolicitud(model);
+            ProcesosBusiness por = new ProcesosBusiness();
+            List<Nodo> nodo = new List<Nodo>();
+            nodo= por.ConsultarNodos(1);
 
             var dddd = "";
             //FidelizacionService fidelizacion = new FidelizacionService(); 

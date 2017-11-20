@@ -1,9 +1,8 @@
-﻿
-using Telmexla.Servicios.DIME.Entity;
+﻿using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.Data.Configuration
 {
-    class NodoConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Nodo>
+    public class NodoConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Nodo>
     {
         public NodoConfiguration()
             : this("dbo")
@@ -13,8 +12,11 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             ToTable("TBL_NODOS", schema);
             HasKey(x => new { x.Id });
 
-            Property(x => x.IdPadre).HasColumnName(@"ID_PADRE").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.IdArbol).HasColumnName(@"ID_ARBOL").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.IdArbol).HasColumnName(@"ID_ARBOL").IsRequired().HasColumnType("int");
+            Property(x => x.IdPadre).HasColumnName(@"ID_PADRE").IsRequired().HasColumnType("int");
+            Property(x => x.NombreNodo).HasColumnName(@"NOMBRE_NODO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+
         }
     }
 }
