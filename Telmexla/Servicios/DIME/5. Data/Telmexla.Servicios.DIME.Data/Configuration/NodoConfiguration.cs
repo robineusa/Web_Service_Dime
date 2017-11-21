@@ -16,7 +16,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.IdArbol).HasColumnName(@"ID_ARBOL").IsRequired().HasColumnType("int");
             Property(x => x.IdPadre).HasColumnName(@"ID_PADRE").IsRequired().HasColumnType("int");
             Property(x => x.NombreNodo).HasColumnName(@"NOMBRE_NODO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-
+            Property(x => x.NombreNodo).HasColumnName(@"CODIGO_HTML").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(null) ;
         }
     }
 }
