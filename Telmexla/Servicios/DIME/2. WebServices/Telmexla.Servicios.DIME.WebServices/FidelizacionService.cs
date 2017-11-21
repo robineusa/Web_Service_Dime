@@ -217,7 +217,8 @@ namespace Telmexla.Servicios.DIME.WebServices
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
             return Fidelizacion.getRecursivaVistaAll();
         }
-        public FidelizacionRecursiva getRecursivaVistaById(decimal idRecursiva) {
+        public FidelizacionRecursivaVista getRecursivaVistaById(decimal idRecursiva)
+        {
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
             return Fidelizacion.getRecursivaVistaById(idRecursiva);
         }

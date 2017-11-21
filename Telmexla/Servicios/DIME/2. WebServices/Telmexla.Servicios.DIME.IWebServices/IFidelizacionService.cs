@@ -83,6 +83,6 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<FidelizacionRecursivaVista> getRecursivaVistaAll();
         [OperationContract]
-        FidelizacionRecursiva getRecursivaVistaById(decimal idRecursiva);
+        FidelizacionRecursivaVista getRecursivaVistaById(decimal idRecursiva);
     }
 }

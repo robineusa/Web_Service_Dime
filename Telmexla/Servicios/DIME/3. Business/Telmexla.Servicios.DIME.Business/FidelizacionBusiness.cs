@@ -578,7 +578,7 @@ namespace Telmexla.Servicios.DIME.Business
             }
             return objTmp;
         }
-        public FidelizacionRecursiva getRecursivaVistaById(decimal idRecursiva)
+        public FidelizacionRecursivaVista getRecursivaVistaById(decimal idRecursiva)
         {
             UnitOfWork UnidadTrabajo = new UnitOfWork(new DimeContext());
             FidelizacionRecursivaVista fila = UnidadTrabajo.FidelizacionRecursivaVista.Find(c => c.Id == idRecursiva).FirstOrDefault();

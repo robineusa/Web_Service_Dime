@@ -2522,7 +2522,8 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getRecursivaVistaAll();
         }
-        public FidelizacionRecursiva getRecursivaVistaById(decimal idRecursiva) {
+        public FidelizacionRecursivaVista getRecursivaVistaById(decimal idRecursiva)
+        {
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getRecursivaVistaById(idRecursiva);
         }
