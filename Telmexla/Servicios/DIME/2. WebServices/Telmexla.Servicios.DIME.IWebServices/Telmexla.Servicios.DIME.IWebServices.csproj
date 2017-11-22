@@ -83,6 +83,7 @@
     <Compile Include="IPOMSolicitudesService.cs" />
     <Compile Include="IProcesosService.cs" />
     <Compile Include="IRecurrenciaService.cs" />
+    <Compile Include="IRetencionService.cs" />
     <Compile Include="ITrasladosService.cs" />
     <Compile Include="IUsabilidadService.cs" />
     <Compile Include="IVerificacionDeInventarioService.cs" />

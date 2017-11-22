@@ -239,6 +239,9 @@
     <Compile Include="RegistroSesion.cs" />
     <Compile Include="Retencion.cs" />
     <Compile Include="RetencionCollection.cs" />
+    <Compile Include="RSLSeguimientos.cs" />
+    <Compile Include="RSMArboles.cs" />
+    <Compile Include="RSPSeguimientos.cs" />
     <Compile Include="SiembraHD.cs" />
     <Compile Include="SiembraHDCollection.cs" />
     <Compile Include="SiguienteMejorOferta.cs" />

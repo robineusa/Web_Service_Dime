@@ -147,6 +147,9 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<FidelizacionRecursivaVista> FidelizacionRecursivaVista { get; set; }
         System.Data.Entity.DbSet<Arbol> Arbol { get; set; }
         System.Data.Entity.DbSet<Nodo> Nodo { get; set; }
+        System.Data.Entity.DbSet<RSPSeguimientos> RSPSeguimientos { get; set; }
+        System.Data.Entity.DbSet<RSLSeguimientos> RSLSeguimientos { get; set; }
+        System.Data.Entity.DbSet<RSMArboles> RSMArboles { get; set; }
 
 
         int SaveChanges();

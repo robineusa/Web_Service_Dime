@@ -150,6 +150,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<FidelizacionRecursivaVista> FidelizacionRecursivaVista { get; set; }
         public System.Data.Entity.DbSet<Arbol> Arbol { get; set; }
         public System.Data.Entity.DbSet<Nodo> Nodo { get; set; }
+        public System.Data.Entity.DbSet<RSPSeguimientos> RSPSeguimientos { get; set; }
+        public System.Data.Entity.DbSet<RSLSeguimientos> RSLSeguimientos { get; set; }
+        public System.Data.Entity.DbSet<RSMArboles> RSMArboles { get; set; }
 
         static DimeContext()
         {
@@ -332,6 +335,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new FidelizacionRecursivaVistaConfiguration());
             modelBuilder.Configurations.Add(new ArbolConfiguration( ));
             modelBuilder.Configurations.Add(new NodoConfiguration());
+            modelBuilder.Configurations.Add(new RSPSeguimientosConfiguration());
+            modelBuilder.Configurations.Add(new RSLSeguimientosConfiguration());
+            modelBuilder.Configurations.Add(new RSMArbolesConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -467,6 +473,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new FidelizacionRecursivaVistaConfiguration(schema));
             modelBuilder.Configurations.Add(new ArbolConfiguration(schema));
             modelBuilder.Configurations.Add(new NodoConfiguration(schema));
+            modelBuilder.Configurations.Add(new RSPSeguimientosConfiguration(schema));
+            modelBuilder.Configurations.Add(new RSLSeguimientosConfiguration(schema));
+            modelBuilder.Configurations.Add(new RSMArbolesConfiguration(schema));
             return modelBuilder;
         }
 

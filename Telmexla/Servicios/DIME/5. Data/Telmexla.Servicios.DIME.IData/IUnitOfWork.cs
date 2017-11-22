@@ -123,6 +123,9 @@ namespace Telmexla.Servicios.DIME.IData
         IFidelizacionRecursivaVistaRepository FidelizacionRecursivaVista { get; }
         IArbolRepository Arbol { get; }
         INodoRepository Nodo { get; }
+        IRSPSeguimientosRepository RSPSeguimientos { get; }
+        IRSLSeguimientosRepository RSLSeguimientos { get; }
+        IRSMArbolesRepository RSMArboles { get; }
 
         int Complete();
     }

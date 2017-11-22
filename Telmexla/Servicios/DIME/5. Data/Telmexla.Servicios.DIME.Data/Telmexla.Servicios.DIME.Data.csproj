@@ -74,6 +74,9 @@
     <Compile Include="Configuration\GLogRecurrenciaInboundConfiguration.cs" />
     <Compile Include="Configuration\InventarioEquiposConfiguration.cs" />
     <Compile Include="Configuration\NodoConfiguration.cs" />
+    <Compile Include="Configuration\RSLSeguimientosConfiguration.cs" />
+    <Compile Include="Configuration\RSMArbolesConfiguration.cs" />
+    <Compile Include="Configuration\RSPSeguimientosConfiguration.cs" />
     <Compile Include="Configuration\VAMotivosSolicitudConfiguration.cs" />
     <Compile Include="Configuration\VILSolicitudesConfiguration.cs" />
     <Compile Include="Configuration\VIMAliadoTecnicoConfiguration.cs" />
@@ -312,6 +315,9 @@
     <Compile Include="RegistroSesionRepository.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="RetencionRepository.cs" />
+    <Compile Include="RSLSeguimientosRepository.cs" />
+    <Compile Include="RSMArbolesRepository.cs" />
+    <Compile Include="RSPSeguimientosRepository.cs" />
     <Compile Include="SiembraHDRepository.cs" />
     <Compile Include="Configuration\SiguienteMejorOfertaConfiguration.cs" />
     <Compile Include="SiguienteMejorOfertaRepository.cs" />
