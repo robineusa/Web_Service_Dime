@@ -29,5 +29,15 @@ namespace Telmexla.Servicios.DIME.Business
                                 select n).ToList();
             return nodos;
         }
+
+        public List<Arbol> ConsultarArbol(int IdArbol)
+        {
+            DimeContext Context = new DimeContext();
+
+            List<Arbol> arbol = (from n in Context.Arbol
+                                 where n.Id == IdArbol
+                                 select n).ToList();
+            return arbol;
+        }
     }
 }
