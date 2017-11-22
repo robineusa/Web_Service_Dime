@@ -20,6 +20,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+
             ProcesosBusiness por = new ProcesosBusiness();
             List<Nodo> nodo = new List<Nodo>();
             nodo= por.ConsultarNodos(1);
