@@ -22,7 +22,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
             ProcesosBusiness por = new ProcesosBusiness();
-            List<Arbol> arbol = new List<Arbol>();
+            Arbol arbol = new Arbol();
             arbol = por.ConsultarArbol(1);
 
             var dddd = "";
