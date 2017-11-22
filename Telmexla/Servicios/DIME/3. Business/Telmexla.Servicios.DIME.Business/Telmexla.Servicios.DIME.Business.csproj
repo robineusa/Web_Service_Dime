@@ -89,6 +89,7 @@
     <Compile Include="ProcesosBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecurrenciaBusiness.cs" />
+    <Compile Include="RetencionBusiness.cs" />
     <Compile Include="SiembraHDBusiness.cs" />
     <Compile Include="TablaActualizarInbound.cs" />
     <Compile Include="DatoConsultaGestion.cs" />

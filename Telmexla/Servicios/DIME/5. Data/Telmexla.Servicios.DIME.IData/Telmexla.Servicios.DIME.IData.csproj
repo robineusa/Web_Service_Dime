@@ -168,6 +168,9 @@
     <Compile Include="IRegistroSesionRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IRetencionRepository.cs" />
+    <Compile Include="IRSLSeguimientosRepository.cs" />
+    <Compile Include="IRSMArbolesRepository.cs" />
+    <Compile Include="IRSPSeguimientosRepository.cs" />
     <Compile Include="ISiembraHDRepository.cs" />
     <Compile Include="ISiguienteMejorOfertaRepository.cs" />
     <Compile Include="ISkillsUsuariosBlendingRepository.cs" />

@@ -91,6 +91,7 @@
     <Compile Include="ProcesosService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecurrenciaService.cs" />
+    <Compile Include="RetencionService.cs" />
     <Compile Include="TrasladosService.cs" />
     <Compile Include="UsabilidadService.cs" />
     <Compile Include="VerificacionDeInventarioService.cs" />

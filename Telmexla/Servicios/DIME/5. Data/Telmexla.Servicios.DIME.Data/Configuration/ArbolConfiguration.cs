@@ -15,8 +15,8 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
 
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.NombreArbol).HasColumnName(@"NOMBRE_ARBOL").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(250);
-            Property(x => x.NombreArbol).HasColumnName(@"CODIGO_HTML").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(null);
-            Property(x => x.NombreArbol).HasColumnName(@"ESTADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.CodigoHtml).HasColumnName(@"CODIGO_HTML").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(null);
+            Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
         }
     }
 }

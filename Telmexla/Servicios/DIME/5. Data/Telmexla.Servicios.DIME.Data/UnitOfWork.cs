@@ -130,6 +130,9 @@ namespace Telmexla.Servicios.DIME.Data
             FidelizacionRecursivaVista = new FidelizacionRecursivaVistaRepository(this.dimeContext);
             Arbol = new ArbolRepository(this.dimeContext);
             Nodo = new NodoRepository(this.dimeContext);
+            RSPSeguimientos = new RSPSeguimientosRepository(this.dimeContext);
+            RSLSeguimientos = new RSLSeguimientosRepository(this.dimeContext);
+            RSMArboles = new RSMArbolesRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -604,6 +607,18 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public INodoRepository Nodo
+        {
+            get; private set;
+        }
+        public IRSPSeguimientosRepository RSPSeguimientos
+        {
+            get; private set;
+        }
+        public IRSLSeguimientosRepository RSLSeguimientos
+        {
+            get; private set;
+        }
+        public IRSMArbolesRepository RSMArboles
         {
             get; private set;
         }

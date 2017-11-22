@@ -13,5 +13,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void CrearNodo(Nodo nodo);
         [OperationContract]
         List<Nodo> ConsultarNodos(int IdArbol);
+        [OperationContract]
+        Arbol ConsultarArbol(int IdArbol);
     }
 }
