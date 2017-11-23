@@ -2898,6 +2898,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RetencionService retencionservice = new RetencionService();
             return retencionservice.ListasDeArbolesRetencion(IdPadre);
         }
+        public List<RSMArboles> ListasDeArbolesRetencionAdmin(decimal IdPadre)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.ListasDeArbolesRetencionAdmin(IdPadre);
+        }
+        public void ActualizarArbolRetencion(RSMArboles Arbol)
+        {
+            RetencionService retencionservice = new RetencionService();
+            retencionservice.ActualizarArbolRetencion(Arbol);
+        }
+        public void RegistrarNuevoArbol(RSMArboles Arbol)
+        {
+            RetencionService retencionservice = new RetencionService();
+            retencionservice.RegistrarNuevoArbol(Arbol);
+        }
         #endregion
     }
 }

@@ -35,7 +35,7 @@ namespace Telmexla.Servicios.DIME.Business
             Solicitud.Estrategia1 = "NO APLICA";
             Solicitud.Estrategia2 = "NO APLICA";
             Solicitud.Estrategia3 = "NO APLICA";
-            Solicitud.EstadoSolicitud = "PENDIENTE";
+            Solicitud.EstadoSolicitud = "FINALIZADO";
 
             unitOfWork.RSPSeguimientos.Add(Solicitud);
             unitOfWork.Complete();
@@ -85,7 +85,7 @@ namespace Telmexla.Servicios.DIME.Business
             Solicitud.RazonEscalamiento = "APLICACION DE OFRECIMIENTO";
             Solicitud.SubRazonEscalamiento = "APLICACION DE OFRECIMIENTO";
 
-            Solicitud.EstadoSolicitud = "PENDIENTE";
+            Solicitud.EstadoSolicitud = "FINALIZADO";
 
 
 
@@ -127,9 +127,35 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             List<RSMArboles> Lista = new List<RSMArboles>();
-            Lista = unitOfWork.RSMArboles.Find(x => x.IdPadre == IdPadre && x.Estado.Equals("ACTIVO")).ToList();
+            Lista = unitOfWork.RSMArboles.Find(x => x.IdPadre == IdPadre && x.Estado.Equals("ACTIVO") && x.Descripcion != "APLICACION DE OFRECIMIENTO").ToList();
             return Lista;
         }
-       
+        //procesos administrador
+        public List<RSMArboles> ListasDeArbolesRetencionAdmin(decimal IdPadre)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            List<RSMArboles> Lista = new List<RSMArboles>();
+            Lista = unitOfWork.RSMArboles.Find(x => x.IdPadre == IdPadre).ToList();
+            return Lista;
+        }
+        public void ActualizarArbolRetencion(RSMArboles Arbol)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            RSMArboles ArbolActualizable = unitOfWork.RSMArboles.Find(x => x.IdArbol == Arbol.IdArbol).FirstOrDefault();
+            if (ArbolActualizable.IdArbol > 0)
+            {
+                ArbolActualizable.IdPadre = Arbol.IdPadre;
+                ArbolActualizable.Descripcion = Arbol.Descripcion;
+                ArbolActualizable.Estado = Arbol.Estado;
+                unitOfWork.Complete();
+                unitOfWork.Dispose();
+            }
+        }
+        public void RegistrarNuevoArbol(RSMArboles Arbol)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            unitOfWork.RSMArboles.Add(Arbol);
+        }
+
     }
 }
