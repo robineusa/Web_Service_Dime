@@ -130,6 +130,7 @@
     <Compile Include="DatoConsultaDirecciones.cs" />
     <Compile Include="DatosAdicionalesCliente.cs" />
     <Compile Include="DatosAdicionalesClienteCollection.cs" />
+    <Compile Include="FidelizacionSubmotivosCancelacionDetalle.cs" />
     <Compile Include="FidelizacionTipificacion.cs" />
     <Compile Include="FidelizacionRecursivaVista.cs" />
     <Compile Include="GestionFoxInbound.cs" />

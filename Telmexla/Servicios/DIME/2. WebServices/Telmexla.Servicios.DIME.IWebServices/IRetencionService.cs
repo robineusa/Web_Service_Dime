@@ -23,5 +23,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void ActualizarArbolRetencion(RSMArboles Arbol);
         [OperationContract]
         void RegistrarNuevoArbol(RSMArboles Arbol);
+        [OperationContract]
+        RSMArboles TraerArbolPorId(decimal IdArbol);
     }
 }

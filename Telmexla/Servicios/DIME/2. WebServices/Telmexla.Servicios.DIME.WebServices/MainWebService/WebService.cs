@@ -2913,6 +2913,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RetencionService retencionservice = new RetencionService();
             retencionservice.RegistrarNuevoArbol(Arbol);
         }
+        public RSMArboles TraerArbolPorId(decimal IdArbol)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.TraerArbolPorId(IdArbol);
+        }
         #endregion
     }
 }

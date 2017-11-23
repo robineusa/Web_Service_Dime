@@ -40,5 +40,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             RetencionBusiness retencionbusiness = new RetencionBusiness();
             retencionbusiness.RegistrarNuevoArbol(Arbol);
         }
+        public RSMArboles TraerArbolPorId(decimal IdArbol)
+        {
+            RetencionBusiness retencionbusiness = new RetencionBusiness();
+            return retencionbusiness.TraerArbolPorId(IdArbol);
+        }
     }
 }

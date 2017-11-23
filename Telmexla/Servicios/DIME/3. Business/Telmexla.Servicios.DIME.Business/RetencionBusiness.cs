@@ -155,6 +155,21 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             unitOfWork.RSMArboles.Add(Arbol);
+            unitOfWork.Complete();
+            unitOfWork.Dispose();
+        }
+        public RSMArboles TraerArbolPorId(decimal IdArbol)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            RSMArboles Arbol = unitOfWork.RSMArboles.Find(x => x.IdArbol == IdArbol).FirstOrDefault();
+            if (Arbol.IdArbol > 0)
+            {
+                return Arbol;
+            }
+            else
+            {
+                return new RSMArboles();
+            }
         }
 
     }
