@@ -2376,10 +2376,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return Fidelizacion.getMotivosCancelacionAll();
         }
 
-        public List<FidelizacionSubmotivosCancelacion> getSubmotivosCancelacionAll()
+        public List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado)
         {
             FidelizacionService Fidelizacion = new FidelizacionService();
-            return Fidelizacion.getSubmotivosCancelacionAll();
+            return Fidelizacion.getSubmotivosCancelacionAll(estado);
         }
 
         public FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo)
@@ -2888,10 +2888,35 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion Procesos
 
         #region Retencion
-        public decimal RegistrarSolicitudRetencion(RSPSeguimientos Solicitud)
+        public decimal RegistrarSolicitudRetencionAutomatico(RSPSeguimientos Solicitud)
         {
             RetencionService retencionservice = new RetencionService();
-            return retencionservice.RegistrarSolicitudRetencion(Solicitud);
+            return retencionservice.RegistrarSolicitudRetencionAutomatico(Solicitud);
+        }
+        public decimal RegistrarSolicitudRetencionFormulario(RSPSeguimientos Solicitud)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.RegistrarSolicitudRetencionFormulario(Solicitud);
+        }
+        public List<RSMArboles> ListasDeArbolesRetencion(decimal IdPadre)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.ListasDeArbolesRetencion(IdPadre);
+        }
+        public List<RSMArboles> ListasDeArbolesRetencionAdmin(decimal IdPadre)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.ListasDeArbolesRetencionAdmin(IdPadre);
+        }
+        public void ActualizarArbolRetencion(RSMArboles Arbol)
+        {
+            RetencionService retencionservice = new RetencionService();
+            retencionservice.ActualizarArbolRetencion(Arbol);
+        }
+        public void RegistrarNuevoArbol(RSMArboles Arbol)
+        {
+            RetencionService retencionservice = new RetencionService();
+            retencionservice.RegistrarNuevoArbol(Arbol);
         }
         #endregion
     }

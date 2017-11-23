@@ -23,7 +23,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         List<FidelizacionMotivosCancelacion> getMotivosCancelacionAll();
         [OperationContract]
-        List<FidelizacionSubmotivosCancelacion> getSubmotivosCancelacionAll();
+        List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado);
         [OperationContract]
         FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo);
         [OperationContract]
