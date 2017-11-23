@@ -150,5 +150,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
             return recurrenciaBusiness.ListaMiHistorialRecurrencia(usuarioGestion);
         }
+        public GPrincipalRecurrencia TraerGPrinRecurrenciaid(int CuentaCliente, int id)
+        {
+            RecurrenciaBusiness recurrenciaBusiness = new RecurrenciaBusiness();
+            return recurrenciaBusiness.TraerGPrinRecurrenciaid(CuentaCliente, id);
+        }
     }
 }
