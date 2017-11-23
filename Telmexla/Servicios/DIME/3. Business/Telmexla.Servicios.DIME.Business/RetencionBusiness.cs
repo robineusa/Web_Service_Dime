@@ -35,6 +35,7 @@ namespace Telmexla.Servicios.DIME.Business
             Solicitud.Estrategia1 = "NO APLICA";
             Solicitud.Estrategia2 = "NO APLICA";
             Solicitud.Estrategia3 = "NO APLICA";
+            Solicitud.EstadoSolicitud = "PENDIENTE";
 
             unitOfWork.RSPSeguimientos.Add(Solicitud);
             unitOfWork.Complete();
@@ -78,6 +79,15 @@ namespace Telmexla.Servicios.DIME.Business
             Solicitud.FechaActualizacion = Solicitud.FechaSolicitud;
             Solicitud.UsuarioActualizacion = Solicitud.UsuarioSolicitud;
             Solicitud.NombreUsuarioActualizacion = Solicitud.NombreUsuarioSolicitud;
+            Solicitud.TipoEscalamiento = "APLICACION DE OFRECIMIENTO";
+            Solicitud.DetalleEscalamiento = "APLICACION DE OFRECIMIENTO";
+            Solicitud.MotivoEscalamiento = "APLICACION DE OFRECIMIENTO";
+            Solicitud.RazonEscalamiento = "APLICACION DE OFRECIMIENTO";
+            Solicitud.SubRazonEscalamiento = "APLICACION DE OFRECIMIENTO";
+
+            Solicitud.EstadoSolicitud = "PENDIENTE";
+
+
 
             unitOfWork.RSPSeguimientos.Add(Solicitud);
             unitOfWork.Complete();
