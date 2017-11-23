@@ -46,10 +46,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             return Fidelizacion.getMotivosCancelacionAll();
         }
 
-        public List<FidelizacionSubmotivosCancelacion> getSubmotivosCancelacionAll()
+        public List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado)
         {
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
-            return Fidelizacion.getSubmotivosCancelacionAll();
+            return Fidelizacion.getSubmotivosCancelacionAll(estado);
         }
         public FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo)
         {

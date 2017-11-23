@@ -2371,10 +2371,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return Fidelizacion.getMotivosCancelacionAll();
         }
 
-        public List<FidelizacionSubmotivosCancelacion> getSubmotivosCancelacionAll()
+        public List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado)
         {
             FidelizacionService Fidelizacion = new FidelizacionService();
-            return Fidelizacion.getSubmotivosCancelacionAll();
+            return Fidelizacion.getSubmotivosCancelacionAll(estado);
         }
 
         public FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo)

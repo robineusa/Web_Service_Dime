@@ -93,11 +93,13 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
-        public List<FidelizacionSubmotivosCancelacion> getSubmotivosCancelacionAll()
+        public List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado)
         {
             DimeContext dimeConext = new DimeContext();
-            List<FidelizacionSubmotivosCancelacion> objTmp = new List<FidelizacionSubmotivosCancelacion>();
+            List<FidelizacionSubmotivosCancelacionDetalle> objTmp = new List<FidelizacionSubmotivosCancelacionDetalle>();
             var listado = (from submotivosCancelacion in dimeConext.FidelizacionSubmotivosCancelacion
+                           join b in (from m in dimeConext.FidelizacionMotivosCancelacion select new { m.Id, m.Motivo }).Distinct() on submotivosCancelacion.FIDMotivoId equals b.Id
+                           where submotivosCancelacion.Eliminado==estado
                            orderby submotivosCancelacion.Submotivo ascending
                            select new
                            {
@@ -105,19 +107,21 @@ namespace Telmexla.Servicios.DIME.Business
                                submotivosCancelacion.Submotivo,
                                submotivosCancelacion.FIDMotivoId,
                                submotivosCancelacion.Registro,
-                               submotivosCancelacion.Eliminado
+                               submotivosCancelacion.Eliminado,
+                               b.Motivo
                            }
                            ).ToList();
 
 
             for (int i = 0; i < listado.Count; i++)
             {
-                objTmp.Add(new FidelizacionSubmotivosCancelacion());
+                objTmp.Add(new FidelizacionSubmotivosCancelacionDetalle());
                 objTmp[i].Id = listado[i].Id;
                 objTmp[i].Submotivo = listado[i].Submotivo;
                 objTmp[i].Eliminado = listado[i].Eliminado;
                 objTmp[i].Registro = listado[i].Registro;
                 objTmp[i].FIDMotivoId = listado[i].FIDMotivoId;
+                objTmp[i].NombreMotivo = listado[i].Motivo;
             }
 
             return objTmp;
@@ -553,6 +557,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<FidelizacionRecursivaVista> objTmp = new List<FidelizacionRecursivaVista>();
             dimeContext.GeneraJerarquiaRecursiva();
             var listado = (from recursivaVista in dimeContext.FidelizacionRecursivaVista
+                           //join b in (from m in dimeContext.FidelizacionRecursivaVista select new { m.Id, m.Nombre }).Distinct() on recursivaVista.ParentId equals b.Id
                            orderby recursivaVista.Ordr ascending
                            where recursivaVista.ParentId != null
                            select new
@@ -562,7 +567,8 @@ namespace Telmexla.Servicios.DIME.Business
                                recursivaVista.Nivel,
                                recursivaVista.Nombre,
                                recursivaVista.ParentId,
-                               recursivaVista.VerNivel
+                               recursivaVista.VerNivel,
+                               //recursivaVista.NombrePadre
                            }
                            ).ToList();
 
