@@ -2883,10 +2883,20 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion Procesos
 
         #region Retencion
-        public decimal RegistrarSolicitudRetencion(RSPSeguimientos Solicitud)
+        public decimal RegistrarSolicitudRetencionAutomatico(RSPSeguimientos Solicitud)
         {
             RetencionService retencionservice = new RetencionService();
-            return retencionservice.RegistrarSolicitudRetencion(Solicitud);
+            return retencionservice.RegistrarSolicitudRetencionAutomatico(Solicitud);
+        }
+        public decimal RegistrarSolicitudRetencionFormulario(RSPSeguimientos Solicitud)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.RegistrarSolicitudRetencionFormulario(Solicitud);
+        }
+        public List<RSMArboles> ListasDeArbolesRetencion(decimal IdPadre)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.ListasDeArbolesRetencion(IdPadre);
         }
         #endregion
     }
