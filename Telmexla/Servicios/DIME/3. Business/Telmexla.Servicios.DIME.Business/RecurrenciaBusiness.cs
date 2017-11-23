@@ -82,12 +82,6 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.IncluyeClaroVideo = recurrencia.IncluyeClaroVideo;
                 LogRecurrencia.UsoClaroVideo = recurrencia.UsoClaroVideo;
                 LogRecurrencia.ClienteNagra = recurrencia.ClienteNagra;
-                LogRecurrencia.Ofrecimiento1 = recurrencia.Ofrecimiento1;
-                LogRecurrencia.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
-                LogRecurrencia.Ofrecimiento2 = recurrencia.Ofrecimiento2;
-                LogRecurrencia.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
-                LogRecurrencia.Ofrecimiento3 = recurrencia.Ofrecimiento3;
-                LogRecurrencia.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
                 LogRecurrencia.Diferenciador = recurrencia.Diferenciador;
                 LogRecurrencia.Prioridad = recurrencia.Prioridad;
                 LogRecurrencia.VecesGestionado = recurrencia.VecesGestionado;
@@ -143,7 +137,7 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 UnitOfWork unitWork = new UnitOfWork(new DimeContext());
                 recurrencia.FechaGestion = DateTime.Now;
-                GPrincipalRecurrencia GPRecurActualizable = unitWork.GPrincipalRecurrencia.Find(c => c.CuentaCliente == recurrencia.CuentaCliente).FirstOrDefault();
+                GPrincipalRecurrencia GPRecurActualizable = unitWork.GPrincipalRecurrencia.Find(c => c.CuentaCliente == recurrencia.CuentaCliente && c.Id == recurrencia.Id).FirstOrDefault();
 
                 GPRecurActualizable.FechaGestion = recurrencia.FechaGestion;
                 GPRecurActualizable.UsuarioGestion = recurrencia.UsuarioGestion;
@@ -165,12 +159,6 @@ namespace Telmexla.Servicios.DIME.Business
                 GPRecurActualizable.IncluyeClaroVideo = recurrencia.IncluyeClaroVideo;
                 GPRecurActualizable.UsoClaroVideo = recurrencia.UsoClaroVideo;
                 GPRecurActualizable.ClienteNagra = recurrencia.ClienteNagra;
-                GPRecurActualizable.Ofrecimiento1 = recurrencia.Ofrecimiento1;
-                GPRecurActualizable.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
-                GPRecurActualizable.Ofrecimiento2 = recurrencia.Ofrecimiento2;
-                GPRecurActualizable.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
-                GPRecurActualizable.Ofrecimiento3 = recurrencia.Ofrecimiento3;
-                GPRecurActualizable.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
                 GPRecurActualizable.Diferenciador = recurrencia.Diferenciador;
                 GPRecurActualizable.Prioridad = recurrencia.Prioridad;
                 GPRecurActualizable.VecesGestionado = recurrencia.VecesGestionado;
@@ -229,12 +217,6 @@ namespace Telmexla.Servicios.DIME.Business
                 LogRecurrencia.IncluyeClaroVideo = recurrencia.IncluyeClaroVideo;
                 LogRecurrencia.UsoClaroVideo = recurrencia.UsoClaroVideo;
                 LogRecurrencia.ClienteNagra = recurrencia.ClienteNagra;
-                LogRecurrencia.Ofrecimiento1 = recurrencia.Ofrecimiento1;
-                LogRecurrencia.AceptacionPrimerOfrecimiento = recurrencia.AceptacionPrimerOfrecimiento;
-                LogRecurrencia.Ofrecimiento2 = recurrencia.Ofrecimiento2;
-                LogRecurrencia.AceptacionSegundoOfrecimiento = recurrencia.AceptacionSegundoOfrecimiento;
-                LogRecurrencia.Ofrecimiento3 = recurrencia.Ofrecimiento3;
-                LogRecurrencia.AceptacionTercerOfrecimiento = recurrencia.AceptacionTercerOfrecimiento;
                 LogRecurrencia.Diferenciador = recurrencia.Diferenciador;
                 LogRecurrencia.Prioridad = recurrencia.Prioridad;
                 LogRecurrencia.VecesGestionado = recurrencia.VecesGestionado;
@@ -287,7 +269,12 @@ namespace Telmexla.Servicios.DIME.Business
         public GPrincipalRecurrencia TraerGPrinRecurrencia(int CuentaCliente)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            return unitOfWork.GPrincipalRecurrencia.Find(c => c.CuentaCliente == CuentaCliente).FirstOrDefault();
+            return unitOfWork.GPrincipalRecurrencia.Find(c => c.CuentaCliente == CuentaCliente).LastOrDefault();
+        }
+        public GPrincipalRecurrencia TraerGPrinRecurrenciaid(int CuentaCliente, int id)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            return unitOfWork.GPrincipalRecurrencia.Find(c => c.Id == id && c.CuentaCliente == CuentaCliente).FirstOrDefault();
         }
         public List<GPrincipalRecurrencia> ListaSeguimientosRecurrencia()
         {
@@ -318,12 +305,6 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.IncluyeClaroVideo,
                                      a.UsoClaroVideo,
                                      a.ClienteNagra,
-                                     a.Ofrecimiento1,
-                                     a.AceptacionPrimerOfrecimiento,
-                                     a.Ofrecimiento2,
-                                     a.AceptacionSegundoOfrecimiento,
-                                     a.Ofrecimiento3,
-                                     a.AceptacionTercerOfrecimiento,
                                      a.Diferenciador,
                                      a.Prioridad,
                                      a.VecesGestionado,
@@ -381,12 +362,6 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].IncluyeClaroVideo = objetosResult[i].IncluyeClaroVideo;
                 result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
                 result[i].ClienteNagra = objetosResult[i].ClienteNagra;
-                result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
-                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
-                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
-                result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
-                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
                 result[i].Diferenciador = objetosResult[i].Diferenciador;
                 result[i].Prioridad = objetosResult[i].Prioridad;
                 result[i].VecesGestionado = objetosResult[i].VecesGestionado;
@@ -412,8 +387,8 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].TipoDispConectaInternet = objetosResult[i].TipoDispConectaInternet;
                 result[i].UsoBrindaInternet = objetosResult[i].UsoBrindaInternet;
                 result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
-                result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
+                result[i].ServicioOfrecido = objetosResult[i].ServicioOfrecido;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionServicioOfrecido;
                 result[i].Observaciones = objetosResult[i].Observaciones;
                 result[i].FechaSesguimiento = objetosResult[i].FechaSesguimiento;
             }
@@ -458,12 +433,6 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.IncluyeClaroVideo,
                                      a.UsoClaroVideo,
                                      a.ClienteNagra,
-                                     a.Ofrecimiento1,
-                                     a.AceptacionPrimerOfrecimiento,
-                                     a.Ofrecimiento2,
-                                     a.AceptacionSegundoOfrecimiento,
-                                     a.Ofrecimiento3,
-                                     a.AceptacionTercerOfrecimiento,
                                      a.Diferenciador,
                                      a.Prioridad,
                                      a.VecesGestionado,
@@ -521,12 +490,6 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].IncluyeClaroVideo = objetosResult[i].IncluyeClaroVideo;
                 result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
                 result[i].ClienteNagra = objetosResult[i].ClienteNagra;
-                result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
-                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
-                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
-                result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
-                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
                 result[i].Diferenciador = objetosResult[i].Diferenciador;
                 result[i].Prioridad = objetosResult[i].Prioridad;
                 result[i].VecesGestionado = objetosResult[i].VecesGestionado;
@@ -552,8 +515,8 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].TipoDispConectaInternet = objetosResult[i].TipoDispConectaInternet;
                 result[i].UsoBrindaInternet = objetosResult[i].UsoBrindaInternet;
                 result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
-                result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
+                result[i].ServicioOfrecido = objetosResult[i].ServicioOfrecido;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionServicioOfrecido;
                 result[i].Observaciones = objetosResult[i].Observaciones;
                 result[i].FechaSesguimiento = objetosResult[i].FechaSesguimiento;
             }
@@ -589,12 +552,6 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.IncluyeClaroVideo,
                                      a.UsoClaroVideo,
                                      a.ClienteNagra,
-                                     a.Ofrecimiento1,
-                                     a.AceptacionPrimerOfrecimiento,
-                                     a.Ofrecimiento2,
-                                     a.AceptacionSegundoOfrecimiento,
-                                     a.Ofrecimiento3,
-                                     a.AceptacionTercerOfrecimiento,
                                      a.Diferenciador,
                                      a.Prioridad,
                                      a.VecesGestionado,
@@ -653,12 +610,6 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].IncluyeClaroVideo = objetosResult[i].IncluyeClaroVideo;
                 result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
                 result[i].ClienteNagra = objetosResult[i].ClienteNagra;
-                result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
-                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
-                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
-                result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
-                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
                 result[i].Diferenciador = objetosResult[i].Diferenciador;
                 result[i].Prioridad = objetosResult[i].Prioridad;
                 result[i].VecesGestionado = objetosResult[i].VecesGestionado;
@@ -684,8 +635,8 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].TipoDispConectaInternet = objetosResult[i].TipoDispConectaInternet;
                 result[i].UsoBrindaInternet = objetosResult[i].UsoBrindaInternet;
                 result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
-                result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
+                result[i].ServicioOfrecido = objetosResult[i].ServicioOfrecido;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionServicioOfrecido;
                 result[i].Observaciones = objetosResult[i].Observaciones;
                 result[i].FechaSesguimiento = objetosResult[i].FechaSesguimiento;
             }
@@ -721,12 +672,6 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.IncluyeClaroVideo,
                                      a.UsoClaroVideo,
                                      a.ClienteNagra,
-                                     a.Ofrecimiento1,
-                                     a.AceptacionPrimerOfrecimiento,
-                                     a.Ofrecimiento2,
-                                     a.AceptacionSegundoOfrecimiento,
-                                     a.Ofrecimiento3,
-                                     a.AceptacionTercerOfrecimiento,
                                      a.Diferenciador,
                                      a.Prioridad,
                                      a.VecesGestionado,
@@ -785,12 +730,6 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].IncluyeClaroVideo = objetosResult[i].IncluyeClaroVideo;
                 result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
                 result[i].ClienteNagra = objetosResult[i].ClienteNagra;
-                result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
-                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
-                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
-                result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
-                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
                 result[i].Diferenciador = objetosResult[i].Diferenciador;
                 result[i].Prioridad = objetosResult[i].Prioridad;
                 result[i].VecesGestionado = objetosResult[i].VecesGestionado;
@@ -816,8 +755,8 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].TipoDispConectaInternet = objetosResult[i].TipoDispConectaInternet;
                 result[i].UsoBrindaInternet = objetosResult[i].UsoBrindaInternet;
                 result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
-                result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
+                result[i].ServicioOfrecido = objetosResult[i].ServicioOfrecido;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionServicioOfrecido;
                 result[i].Observaciones = objetosResult[i].Observaciones;
                 result[i].FechaSesguimiento = objetosResult[i].FechaSesguimiento;
             }
@@ -1260,12 +1199,6 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.IncluyeClaroVideo,
                                      a.UsoClaroVideo,
                                      a.ClienteNagra,
-                                     a.Ofrecimiento1,
-                                     a.AceptacionPrimerOfrecimiento,
-                                     a.Ofrecimiento2,
-                                     a.AceptacionSegundoOfrecimiento,
-                                     a.Ofrecimiento3,
-                                     a.AceptacionTercerOfrecimiento,
                                      a.Diferenciador,
                                      a.Prioridad,
                                      a.VecesGestionado,
@@ -1324,12 +1257,6 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].IncluyeClaroVideo = objetosResult[i].IncluyeClaroVideo;
                 result[i].UsoClaroVideo = objetosResult[i].UsoClaroVideo;
                 result[i].ClienteNagra = objetosResult[i].ClienteNagra;
-                result[i].Ofrecimiento1 = objetosResult[i].Ofrecimiento1;
-                result[i].AceptacionPrimerOfrecimiento = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].Ofrecimiento2 = objetosResult[i].Ofrecimiento2;
-                result[i].AceptacionSegundoOfrecimiento = objetosResult[i].AceptacionSegundoOfrecimiento;
-                result[i].Ofrecimiento3 = objetosResult[i].Ofrecimiento3;
-                result[i].AceptacionTercerOfrecimiento = objetosResult[i].AceptacionTercerOfrecimiento;
                 result[i].Diferenciador = objetosResult[i].Diferenciador;
                 result[i].Prioridad = objetosResult[i].Prioridad;
                 result[i].VecesGestionado = objetosResult[i].VecesGestionado;
@@ -1355,8 +1282,8 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].TipoDispConectaInternet = objetosResult[i].TipoDispConectaInternet;
                 result[i].UsoBrindaInternet = objetosResult[i].UsoBrindaInternet;
                 result[i].ActivacionClaroVideoNagra = objetosResult[i].ActivacionClaroVideoNagra;
-                result[i].ServicioOfrecido = objetosResult[i].AceptacionPrimerOfrecimiento;
-                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionSegundoOfrecimiento;
+                result[i].ServicioOfrecido = objetosResult[i].ServicioOfrecido;
+                result[i].AceptacionServicioOfrecido = objetosResult[i].AceptacionServicioOfrecido;
                 result[i].Observaciones = objetosResult[i].Observaciones;
                 result[i].FechaSesguimiento = objetosResult[i].FechaSesguimiento;
             }

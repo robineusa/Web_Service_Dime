@@ -2057,6 +2057,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.ListaMiHistorialRecurrencia(usuarioGestion);
         }
+        public GPrincipalRecurrencia TraerGPrinRecurrenciaid(int CuentaCliente, int id)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.TraerGPrinRecurrenciaid(CuentaCliente, id);
+        }
         #endregion
 
         #region BitacoraIncidentes
