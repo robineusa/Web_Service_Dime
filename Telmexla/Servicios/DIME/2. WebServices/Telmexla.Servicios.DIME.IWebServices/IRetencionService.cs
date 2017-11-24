@@ -25,5 +25,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void RegistrarNuevoArbol(RSMArboles Arbol);
         [OperationContract]
         RSMArboles TraerArbolPorId(decimal IdArbol);
+        [OperationContract]
+        List<RSPSeguimientos> ConsultaAdministradorPricipal(DateTime FechaInicio, DateTime FechaFin);
+        [OperationContract]
+        List<RSLSeguimientos> ConsultaAdministradorLog(DateTime FechaInicio, DateTime FechaFin);
     }
 }

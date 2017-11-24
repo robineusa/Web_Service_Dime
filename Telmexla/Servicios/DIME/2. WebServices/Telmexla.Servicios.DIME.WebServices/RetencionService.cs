@@ -45,5 +45,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             RetencionBusiness retencionbusiness = new RetencionBusiness();
             return retencionbusiness.TraerArbolPorId(IdArbol);
         }
+        public List<RSPSeguimientos> ConsultaAdministradorPricipal(DateTime FechaInicio, DateTime FechaFin)
+        {
+            RetencionBusiness retencionbusiness = new RetencionBusiness();
+            return retencionbusiness.ConsultaAdministradorPricipal(FechaInicio, FechaFin);
+        }
+        public List<RSLSeguimientos> ConsultaAdministradorLog(DateTime FechaInicio, DateTime FechaFin)
+        {
+            RetencionBusiness retencionbusiness = new RetencionBusiness();
+            return retencionbusiness.ConsultaAdministradorLog(FechaInicio, FechaFin);
+        }
     }
 }

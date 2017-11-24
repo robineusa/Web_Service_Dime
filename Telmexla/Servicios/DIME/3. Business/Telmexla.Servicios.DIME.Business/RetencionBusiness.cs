@@ -171,6 +171,22 @@ namespace Telmexla.Servicios.DIME.Business
                 return new RSMArboles();
             }
         }
+        public List<RSPSeguimientos> ConsultaAdministradorPricipal(DateTime FechaInicio, DateTime FechaFin)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            List<RSPSeguimientos> Lista = new List<RSPSeguimientos>();
+            Lista = unitOfWork.RSPSeguimientos.Find(x => x.FechaSolicitud >= FechaInicio && x.FechaSolicitud <= FechaFin).ToList();
+            return Lista;
+
+        }
+        public List<RSLSeguimientos> ConsultaAdministradorLog(DateTime FechaInicio, DateTime FechaFin)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            List<RSLSeguimientos> Lista = new List<RSLSeguimientos>();
+            Lista = unitOfWork.RSLSeguimientos.Find(x => x.FechaTransaccion >= FechaInicio && x.FechaTransaccion <= FechaFin).ToList();
+            return Lista;
+
+        }
 
     }
 }

@@ -2923,6 +2923,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RetencionService retencionservice = new RetencionService();
             return retencionservice.TraerArbolPorId(IdArbol);
         }
+        public List<RSPSeguimientos> ConsultaAdministradorPricipal(DateTime FechaInicio, DateTime FechaFin)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.ConsultaAdministradorPricipal(FechaInicio,FechaFin);
+        }
+        public List<RSLSeguimientos> ConsultaAdministradorLog(DateTime FechaInicio, DateTime FechaFin)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.ConsultaAdministradorLog(FechaInicio, FechaFin);
+        }
         #endregion
     }
 }
