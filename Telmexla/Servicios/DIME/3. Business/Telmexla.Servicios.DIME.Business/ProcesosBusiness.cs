@@ -11,10 +11,12 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class ProcesosBusiness
     {
+        
         //Crea los nodos
         public void CrearNodo(Nodo nodo)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            nodo.FechaCreacion = DateTime.Today;
             unitWork.Nodo.Add(nodo);
             unitWork.Complete();
             unitWork.Dispose();
@@ -28,6 +30,16 @@ namespace Telmexla.Servicios.DIME.Business
                                 where n.IdArbol == IdArbol
                                 select n).ToList();
             return nodos;
+        }
+        public Nodo ConsultarNodoCreado()
+        {
+            DimeContext Context = new DimeContext();
+            Nodo nodo = new Nodo();
+            nodo = (from n in Context.Nodo
+                    orderby n.FechaCreacion descending
+                    select n).FirstOrDefault();
+            return nodo;
+
         }
 
         public Arbol ConsultarArbol(int IdArbol)

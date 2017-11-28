@@ -21,9 +21,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
+
             ProcesosBusiness por = new ProcesosBusiness();
-            Arbol arbol = new Arbol();
-            arbol = por.ConsultarArbol(1);
+            Nodo nodo = new Nodo();
+            nodo = por.ConsultarNodoCreado();
 
             var dddd = "";
             //FidelizacionService fidelizacion = new FidelizacionService(); 
