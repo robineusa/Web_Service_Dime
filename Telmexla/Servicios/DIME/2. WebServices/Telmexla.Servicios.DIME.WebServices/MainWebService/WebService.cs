@@ -2057,6 +2057,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             RecurrenciaService recurrenciaService = new RecurrenciaService();
             return recurrenciaService.ListaMiHistorialRecurrencia(usuarioGestion);
         }
+        public GPrincipalRecurrencia TraerGPrinRecurrenciaid(int CuentaCliente, int id)
+        {
+            RecurrenciaService recurrenciaService = new RecurrenciaService();
+            return recurrenciaService.TraerGPrinRecurrenciaid(CuentaCliente, id);
+        }
         #endregion
 
         #region BitacoraIncidentes
@@ -2897,6 +2902,36 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             RetencionService retencionservice = new RetencionService();
             return retencionservice.ListasDeArbolesRetencion(IdPadre);
+        }
+        public List<RSMArboles> ListasDeArbolesRetencionAdmin(decimal IdPadre)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.ListasDeArbolesRetencionAdmin(IdPadre);
+        }
+        public void ActualizarArbolRetencion(RSMArboles Arbol)
+        {
+            RetencionService retencionservice = new RetencionService();
+            retencionservice.ActualizarArbolRetencion(Arbol);
+        }
+        public void RegistrarNuevoArbol(RSMArboles Arbol)
+        {
+            RetencionService retencionservice = new RetencionService();
+            retencionservice.RegistrarNuevoArbol(Arbol);
+        }
+        public RSMArboles TraerArbolPorId(decimal IdArbol)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.TraerArbolPorId(IdArbol);
+        }
+        public List<RSPSeguimientos> ConsultaAdministradorPricipal(DateTime FechaInicio, DateTime FechaFin)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.ConsultaAdministradorPricipal(FechaInicio,FechaFin);
+        }
+        public List<RSLSeguimientos> ConsultaAdministradorLog(DateTime FechaInicio, DateTime FechaFin)
+        {
+            RetencionService retencionservice = new RetencionService();
+            return retencionservice.ConsultaAdministradorLog(FechaInicio, FechaFin);
         }
         #endregion
     }
