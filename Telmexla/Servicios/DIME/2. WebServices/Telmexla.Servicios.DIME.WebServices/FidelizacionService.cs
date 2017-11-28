@@ -40,16 +40,16 @@ namespace Telmexla.Servicios.DIME.WebServices
             return Fidelizacion.getMotivosCancelacionById(codMotivo);
         }
 
-        public List<FidelizacionMotivosCancelacion> getMotivosCancelacionAll()
+        public List<FidelizacionMotivosCancelacion> getMotivosCancelacionAll(decimal eliminado)
         {
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
-            return Fidelizacion.getMotivosCancelacionAll();
+            return Fidelizacion.getMotivosCancelacionAll(eliminado);
         }
 
-        public List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado)
+        public List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado, decimal idMotivo)
         {
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
-            return Fidelizacion.getSubmotivosCancelacionAll(estado);
+            return Fidelizacion.getSubmotivosCancelacionAll(estado, idMotivo);
         }
         public FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo)
         {
@@ -92,10 +92,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
             return Fidelizacion.getRecursivaById(idRecursiva);
         }
-        public List<FidelizacionRecursiva> getRecursivaAll()
+        public List<FidelizacionRecursiva> getRecursivaAll(decimal idPadre = 0)
         {
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
-            return Fidelizacion.getRecursivaAll();
+            return Fidelizacion.getRecursivaAll(idPadre);
         }
         [OperationContract]
         public void setRegistro(FidelizacionRegistro objRegistro)
@@ -212,7 +212,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             Fidelizacion.updateRegistroCampos(objRegistroCampos);
         }
         [OperationContract]
-        public List<FidelizacionRecursivaVista> getRecursivaVistaAll()
+        public List<FidelizacionRecursivaVistaDetalle> getRecursivaVistaAll()
         {
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
             return Fidelizacion.getRecursivaVistaAll();

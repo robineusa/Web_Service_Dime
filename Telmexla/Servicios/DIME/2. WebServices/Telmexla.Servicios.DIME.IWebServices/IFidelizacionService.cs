@@ -21,9 +21,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         FidelizacionMotivosCancelacion getMotivosCancelacionById(decimal codMotivo);
         [OperationContract]
-        List<FidelizacionMotivosCancelacion> getMotivosCancelacionAll();
+        List<FidelizacionMotivosCancelacion> getMotivosCancelacionAll(decimal eliminado);
         [OperationContract]
-        List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado);
+        List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado, decimal idMotivo);
         [OperationContract]
         FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo);
         [OperationContract]
@@ -41,7 +41,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         FidelizacionRecursiva getRecursivaById(decimal idRecursiva);
         [OperationContract]
-        List<FidelizacionRecursiva> getRecursivaAll();
+        List<FidelizacionRecursiva> getRecursivaAll(decimal idPadre = 0);
         [OperationContract]
         void setRegistro(FidelizacionRegistro objRegistro);
         [OperationContract]
@@ -81,7 +81,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void updateRegistroCampos(FidelizacionRegistroCampos objRegistroCampos);
         [OperationContract]
-        List<FidelizacionRecursivaVista> getRecursivaVistaAll();
+        List<FidelizacionRecursivaVistaDetalle> getRecursivaVistaAll();
         [OperationContract]
         FidelizacionRecursivaVista getRecursivaVistaById(decimal idRecursiva);
     }

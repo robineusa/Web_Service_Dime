@@ -60,11 +60,12 @@ namespace Telmexla.Servicios.DIME.Business
             FidelizacionMotivosCancelacion fila = unidadTrabajo.FidelizacionMotivosCancelacion.Find(y => y.Id == codMotivo).FirstOrDefault();
             return fila;
         }
-        public List<FidelizacionMotivosCancelacion> getMotivosCancelacionAll()
+        public List<FidelizacionMotivosCancelacion> getMotivosCancelacionAll(decimal eliminado)
         {
             DimeContext dimeConext = new DimeContext();
             List<FidelizacionMotivosCancelacion> objTmp = new List<FidelizacionMotivosCancelacion>();
             var listado = (from motivosCancelacion in dimeConext.FidelizacionMotivosCancelacion
+                           where motivosCancelacion.Eliminado == eliminado
                            orderby motivosCancelacion.Motivo ascending
                            select new
                            {
@@ -93,13 +94,13 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
-        public List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado)
+        public List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado, decimal idMotivo)
         {
             DimeContext dimeConext = new DimeContext();
             List<FidelizacionSubmotivosCancelacionDetalle> objTmp = new List<FidelizacionSubmotivosCancelacionDetalle>();
             var listado = (from submotivosCancelacion in dimeConext.FidelizacionSubmotivosCancelacion
                            join b in (from m in dimeConext.FidelizacionMotivosCancelacion select new { m.Id, m.Motivo }).Distinct() on submotivosCancelacion.FIDMotivoId equals b.Id
-                           where submotivosCancelacion.Eliminado==estado
+                           where submotivosCancelacion.Eliminado == estado 
                            orderby submotivosCancelacion.Submotivo ascending
                            select new
                            {
@@ -112,16 +113,29 @@ namespace Telmexla.Servicios.DIME.Business
                            }
                            ).ToList();
 
-
+            var j = 0;
             for (int i = 0; i < listado.Count; i++)
             {
-                objTmp.Add(new FidelizacionSubmotivosCancelacionDetalle());
-                objTmp[i].Id = listado[i].Id;
-                objTmp[i].Submotivo = listado[i].Submotivo;
-                objTmp[i].Eliminado = listado[i].Eliminado;
-                objTmp[i].Registro = listado[i].Registro;
-                objTmp[i].FIDMotivoId = listado[i].FIDMotivoId;
-                objTmp[i].NombreMotivo = listado[i].Motivo;
+                if (idMotivo == 0)
+                {
+                    objTmp.Add(new FidelizacionSubmotivosCancelacionDetalle());
+                    objTmp[i].Id = listado[i].Id;
+                    objTmp[i].Submotivo = listado[i].Submotivo;
+                    objTmp[i].Eliminado = listado[i].Eliminado;
+                    objTmp[i].Registro = listado[i].Registro;
+                    objTmp[i].FIDMotivoId = listado[i].FIDMotivoId;
+                    objTmp[i].NombreMotivo = listado[i].Motivo;
+                }
+                else if (listado[i].FIDMotivoId == idMotivo) {
+                    objTmp.Add(new FidelizacionSubmotivosCancelacionDetalle());
+                    objTmp[j].Id = listado[i].Id;
+                    objTmp[j].Submotivo = listado[i].Submotivo;
+                    objTmp[j].Eliminado = listado[i].Eliminado;
+                    objTmp[j].Registro = listado[i].Registro;
+                    objTmp[j].FIDMotivoId = listado[i].FIDMotivoId;
+                    objTmp[j].NombreMotivo = listado[i].Motivo;
+                    j++;
+                }
             }
 
             return objTmp;
@@ -209,35 +223,68 @@ namespace Telmexla.Servicios.DIME.Business
             return fila;
 
         }
-        public List<FidelizacionRecursiva> getRecursivaAll()
+        public List<FidelizacionRecursiva> getRecursivaAll(decimal idPadre = 0)
         {
+            
             DimeContext dimeContext = new DimeContext();
             List<FidelizacionRecursiva> objTmp = new List<FidelizacionRecursiva>();
-
-            var listado = (from recursiva in dimeContext.FidelizacionRecursiva
-                           orderby recursiva.Nombre ascending
-                           select new
-                           {
-                               recursiva.Id,
-                               recursiva.Label,
-                               recursiva.Nivel,
-                               recursiva.Nombre,
-                               recursiva.ParentId,
-                               recursiva.VerNivel
-                           }
-                           ).ToList();
-
-            for (var i = 0; i < listado.Count; i++)
+            
+            if (idPadre == 0)
             {
-                objTmp.Add(new FidelizacionRecursiva());
-                objTmp[i].Id = listado[i].Id;
-                objTmp[i].Label = listado[i].Label;
-                objTmp[i].Nivel = listado[i].Nivel;
-                objTmp[i].Nombre = listado[i].Nombre;
-                objTmp[i].ParentId = listado[i].ParentId;
-                objTmp[i].VerNivel = listado[i].VerNivel;
+                  var listado = (from recursiva in dimeContext.FidelizacionRecursiva
+                               where recursiva.ParentId != null
+                               orderby recursiva.Nombre ascending
+                               select new
+                               {
+                                   recursiva.Id,
+                                   recursiva.Label,
+                                   recursiva.Nivel,
+                                   recursiva.Nombre,
+                                   recursiva.ParentId,
+                                   recursiva.VerNivel
+                               }
+                               ).ToList();
+                for (var i = 0; i < listado.Count; i++)
+                {
+                    objTmp.Add(new FidelizacionRecursiva());
+                    objTmp[i].Id = listado[i].Id;
+                    objTmp[i].Label = listado[i].Label;
+                    objTmp[i].Nivel = listado[i].Nivel;
+                    objTmp[i].Nombre = listado[i].Nombre;
+                    objTmp[i].ParentId = listado[i].ParentId;
+                    objTmp[i].VerNivel = listado[i].VerNivel;
+                }
+                return objTmp;
             }
-            return objTmp;
+            else {
+                 var listado = (from recursiva in dimeContext.FidelizacionRecursiva
+                               where recursiva.ParentId == idPadre
+                               orderby recursiva.Nombre ascending
+                               select new
+                               {
+                                   recursiva.Id,
+                                   recursiva.Label,
+                                   recursiva.Nivel,
+                                   recursiva.Nombre,
+                                   recursiva.ParentId,
+                                   recursiva.VerNivel
+                               }
+                               ).ToList();
+                for (var i = 0; i < listado.Count; i++)
+                {
+                    objTmp.Add(new FidelizacionRecursiva());
+                    objTmp[i].Id = listado[i].Id;
+                    objTmp[i].Label = listado[i].Label;
+                    objTmp[i].Nivel = listado[i].Nivel;
+                    objTmp[i].Nombre = listado[i].Nombre;
+                    objTmp[i].ParentId = listado[i].ParentId;
+                    objTmp[i].VerNivel = listado[i].VerNivel;
+                }
+                return objTmp;
+            }
+            
+            
+
         }
         public List<FidelizacionTipificacion> getTipificacionAll()
         {
@@ -551,13 +598,13 @@ namespace Telmexla.Servicios.DIME.Business
             unidadTrabajo.Complete();
         }
 
-        public List<FidelizacionRecursivaVista> getRecursivaVistaAll()
+        public List<FidelizacionRecursivaVistaDetalle> getRecursivaVistaAll()
         {
             DimeContext dimeContext = new DimeContext();
-            List<FidelizacionRecursivaVista> objTmp = new List<FidelizacionRecursivaVista>();
+            List<FidelizacionRecursivaVistaDetalle> objTmp = new List<FidelizacionRecursivaVistaDetalle>();
             dimeContext.GeneraJerarquiaRecursiva();
             var listado = (from recursivaVista in dimeContext.FidelizacionRecursivaVista
-                           //join b in (from m in dimeContext.FidelizacionRecursivaVista select new { m.Id, m.Nombre }).Distinct() on recursivaVista.ParentId equals b.Id
+                           join b in (from m in dimeContext.FidelizacionRecursivaVista select new { m.Id, m.Nombre }).Distinct() on recursivaVista.ParentId equals b.Id
                            orderby recursivaVista.Ordr ascending
                            where recursivaVista.ParentId != null
                            select new
@@ -568,19 +615,21 @@ namespace Telmexla.Servicios.DIME.Business
                                recursivaVista.Nombre,
                                recursivaVista.ParentId,
                                recursivaVista.VerNivel,
-                               //recursivaVista.NombrePadre
+                               NombrePadre = b.Nombre
+                               
                            }
                            ).ToList();
 
             for (var i = 0; i < listado.Count; i++)
             {
-                objTmp.Add(new FidelizacionRecursivaVista());
+                objTmp.Add(new FidelizacionRecursivaVistaDetalle());
                 objTmp[i].Id = listado[i].Id;
                 objTmp[i].Label = listado[i].Label;
                 objTmp[i].Nivel = listado[i].Nivel;
                 objTmp[i].Nombre = new String('-', Convert.ToInt32(listado[i].Nivel)) +listado[i].Nombre;
                 objTmp[i].ParentId = listado[i].ParentId;
                 objTmp[i].VerNivel = listado[i].VerNivel;
+                objTmp[i].ParentName = listado[i].NombrePadre;
             }
             return objTmp;
         }
