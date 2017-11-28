@@ -31,11 +31,12 @@ namespace Telmexla.Servicios.DIME.Business
                                 select n).ToList();
             return nodos;
         }
-        public Nodo ConsultarNodoCreado()
+        public Nodo ConsultarNodoCreado(int IdArbol)
         {
             DimeContext Context = new DimeContext();
             Nodo nodo = new Nodo();
             nodo = (from n in Context.Nodo
+                    where n.IdArbol== IdArbol
                     orderby n.FechaCreacion descending
                     select n).FirstOrDefault();
             return nodo;

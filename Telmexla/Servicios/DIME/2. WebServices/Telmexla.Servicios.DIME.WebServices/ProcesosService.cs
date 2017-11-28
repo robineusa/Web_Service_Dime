@@ -28,10 +28,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             ProcesosBusiness crearnodo = new ProcesosBusiness();
             return crearnodo.ConsultarArbol(IdArbol);
         }
-        public Nodo ConsultarNodoCreado()
+        public Nodo ConsultarNodoCreado(int IdArbol)
         {
             ProcesosBusiness crearnodo = new ProcesosBusiness();
-            return crearnodo.ConsultarNodoCreado();
+            return crearnodo.ConsultarNodoCreado(IdArbol);
         }
 
     }
