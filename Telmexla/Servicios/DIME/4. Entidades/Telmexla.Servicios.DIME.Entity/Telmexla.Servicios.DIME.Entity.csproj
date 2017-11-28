@@ -59,11 +59,14 @@
     <Compile Include="AccesoCollection.cs" />
     <Compile Include="AccesosXLinea.cs" />
     <Compile Include="Arbol.cs" />
+    <Compile Include="BACActualizarDatos.cs" />
+    <Compile Include="BAPActualizarDatos.cs" />
     <Compile Include="BSCAdministracionBalanced.cs" />
     <Compile Include="BSCAdministracionBalancedLog.cs" />
     <Compile Include="FidelizacionOtrosCampos.cs" />
     <Compile Include="FidelizacionOtrosOfrecimientos.cs" />
     <Compile Include="FidelizacionRecursiva.cs" />
+    <Compile Include="FidelizacionRecursivaVistaDetalle.cs" />
     <Compile Include="FidelizacionRegistro.cs" />
     <Compile Include="FidelizacionRegistroCampos.cs" />
     <Compile Include="FidelizacionSubmotivosCancelacion.cs" />

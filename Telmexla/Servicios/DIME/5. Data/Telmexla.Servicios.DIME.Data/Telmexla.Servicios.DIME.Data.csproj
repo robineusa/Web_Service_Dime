@@ -57,9 +57,13 @@
     <Compile Include="AccesoRepository.cs" />
     <Compile Include="AccesosXLineaRepository.cs" />
     <Compile Include="ArbolRepository.cs" />
+    <Compile Include="BACActualizarDatosRepository.cs" />
+    <Compile Include="BAPActualizarDatosRepository.cs" />
     <Compile Include="BSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="BSCAdministracionBalancedRepository.cs" />
     <Compile Include="Configuration\ArbolConfiguration.cs" />
+    <Compile Include="Configuration\BACActualizarDatosConfiguration.cs" />
+    <Compile Include="Configuration\BAPActualizarDatosConfiguration.cs" />
     <Compile Include="Configuration\BSCAdministracionBalancedConfiguration.cs" />
     <Compile Include="Configuration\BSCAdministracionBalancedLogConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionOtrosCamposConfiguration.cs" />

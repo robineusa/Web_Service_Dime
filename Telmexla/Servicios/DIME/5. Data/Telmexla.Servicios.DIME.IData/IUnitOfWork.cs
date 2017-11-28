@@ -126,6 +126,8 @@ namespace Telmexla.Servicios.DIME.IData
         IRSPSeguimientosRepository RSPSeguimientos { get; }
         IRSLSeguimientosRepository RSLSeguimientos { get; }
         IRSMArbolesRepository RSMArboles { get; }
+        IBACActualizarDatosRepository BACActualizarDatos { get; }
+        IBAPActualizarDatosRepository BAPActualizarDatos { get; }
 
         int Complete();
     }

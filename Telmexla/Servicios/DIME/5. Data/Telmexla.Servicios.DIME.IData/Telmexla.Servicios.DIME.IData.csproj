@@ -57,6 +57,8 @@
     <Compile Include="IAccesoRepository.cs" />
     <Compile Include="IAccesosXLineaRepository.cs" />
     <Compile Include="IArbolRepository.cs" />
+    <Compile Include="IBACActualizarDatosRepository.cs" />
+    <Compile Include="IBAPActualizarDatosRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedRepository.cs" />
     <Compile Include="IFidelizacionMotivosCancelacionRepository.cs" />
