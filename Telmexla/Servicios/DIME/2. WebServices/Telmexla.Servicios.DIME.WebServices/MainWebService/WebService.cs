@@ -2864,6 +2864,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BannerAlertasService banneralertasservice = new BannerAlertasService();
             banneralertasservice.RegistraUsabilidadBanner(Usabilidad);
         }
+        public bool ValidarClienteEnActualizaciondeDatos(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ValidarClienteEnActualizaciondeDatos(CuentaCliente);
+        }
+        public List<BACActualizarDatos> ListaClientesPorTelefono(decimal Telefono)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ListaClientesPorTelefono(Telefono);
+        }
+        public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, List<string> IdAsociadosNo, BAPActualizarDatos Datos)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            banneralertasservice.RegistrarActualizaciondeDatos(IdAsociadosSi,IdAsociadosNo,Datos);
+        }
         #endregion
 
         #region Procesos

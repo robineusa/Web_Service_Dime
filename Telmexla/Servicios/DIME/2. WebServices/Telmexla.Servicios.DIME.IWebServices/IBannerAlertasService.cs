@@ -43,5 +43,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void RegistraFox(GestionFoxInbound Fox);
         [OperationContract]
         void RegistraUsabilidadBanner(UsabilidadAlertasInbound Usabilidad);
+        [OperationContract]
+        bool ValidarClienteEnActualizaciondeDatos(decimal CuentaCliente);
+        [OperationContract]
+        List<BACActualizarDatos> ListaClientesPorTelefono(decimal Telefono);
+        [OperationContract]
+        void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, List<string> IdAsociadosNo, BAPActualizarDatos Datos);
     }
 }

@@ -254,5 +254,103 @@ namespace Telmexla.Servicios.DIME.Business
                 }
             }
         }
+        //actualizacion de datos
+        public bool ValidarClienteEnActualizaciondeDatos(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            var resultado = unitWork.BACActualizarDatos.Find(c => c.CuentaAsociada == CuentaCliente).ToList();
+
+            if (resultado.Count() > 0) { return true; }
+            else { return false; }
+        }
+        public List<BACActualizarDatos> ListaClientesPorTelefono(decimal Telefono)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            List<BACActualizarDatos> Lista = new List<BACActualizarDatos>();
+            Lista = unitWork.BACActualizarDatos.Find(x => x.Telefono == Telefono).ToList();
+            return Lista;
+        }
+        public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, List<string> IdAsociadosNo, BAPActualizarDatos Datos)
+        {
+            Datos.FechaGestion = DateTime.Now;
+
+            //agrega los id con select si
+            DimeContext context = new DimeContext();
+            List<decimal> IdDatos = IdAsociadosSi.ConvertAll(s => Convert.ToDecimal(s));
+            foreach (decimal ID in IdDatos)
+            {
+
+
+                UnitOfWork UnitOfWorkSolicitdActualizable = new UnitOfWork(new DimeContext());
+                BACActualizarDatos SolicitudActualizable = new BACActualizarDatos();
+                SolicitudActualizable = UnitOfWorkSolicitdActualizable.BACActualizarDatos.Find(c => c.Id == ID).FirstOrDefault();
+
+                if (SolicitudActualizable != null)
+                {
+                    //IGUALA Y CREA LA ENTIDAD PARA GUARDAD
+                    BAPActualizarDatos Nueva = new BAPActualizarDatos();
+                    Nueva.FechaGestion = Datos.FechaGestion;
+                    Nueva.UsuarioGestion = Datos.UsuarioGestion;
+                    Nueva.AliadoGestion = Datos.AliadoGestion;
+                    Nueva.OperacionGestion = Datos.OperacionGestion;
+                    Nueva.Telefono = SolicitudActualizable.Telefono;
+                    Nueva.CuentaAsociada = SolicitudActualizable.CuentaAsociada;
+                    Nueva.Direccion = SolicitudActualizable.Direccion;
+                    Nueva.Ciudad = SolicitudActualizable.Ciudad;
+                    Nueva.PropiedadCliente = "SI";
+                    
+                    //GUARDA LOS DATOS
+                    UnitOfWork UnitOfWordGuardar = new UnitOfWork(new DimeContext());
+                    UnitOfWordGuardar.BAPActualizarDatos.Add(Nueva);
+                    UnitOfWordGuardar.Complete();
+                    UnitOfWordGuardar.Dispose();
+
+                    //ELIMINA LOS DATOS ANTERIORES
+                    UnitOfWork UnitOfWordEliminar = new UnitOfWork(new DimeContext());
+                    UnitOfWordEliminar.BACActualizarDatos.Remove(SolicitudActualizable);
+                    UnitOfWordEliminar.Complete();
+                    UnitOfWordEliminar.Dispose();
+                }
+            }
+            //inserta id con select no
+            DimeContext context2 = new DimeContext();
+            List<decimal> IdDatos2 = IdAsociadosNo.ConvertAll(s => Convert.ToDecimal(s));
+            foreach (decimal ID in IdDatos2)
+            {
+
+
+                UnitOfWork UnitOfWorkSolicitdActualizable2 = new UnitOfWork(new DimeContext());
+                BACActualizarDatos SolicitudActualizable2 = new BACActualizarDatos();
+                SolicitudActualizable2 = UnitOfWorkSolicitdActualizable2.BACActualizarDatos.Find(c => c.Id == ID).FirstOrDefault();
+
+                if (SolicitudActualizable2 != null)
+                {
+                    //IGUALA LA ENTIDAD Y CREA ESTRUCTURA PARA GUARDAR
+                    BAPActualizarDatos Nueva2 = new BAPActualizarDatos();
+                    Nueva2.FechaGestion = Datos.FechaGestion;
+                    Nueva2.UsuarioGestion = Datos.UsuarioGestion;
+                    Nueva2.AliadoGestion = Datos.AliadoGestion;
+                    Nueva2.OperacionGestion = Datos.OperacionGestion;
+                    Nueva2.Telefono = SolicitudActualizable2.Telefono;
+                    Nueva2.CuentaAsociada = SolicitudActualizable2.CuentaAsociada;
+                    Nueva2.Direccion = SolicitudActualizable2.Direccion;
+                    Nueva2.Ciudad = SolicitudActualizable2.Ciudad;
+                    Nueva2.PropiedadCliente = "NO";
+
+                    //GUARDA LA INFORMACION
+                    UnitOfWork UnitOfWordGuardar2 = new UnitOfWork(new DimeContext());
+                    UnitOfWordGuardar2.BAPActualizarDatos.Add(Nueva2);
+                    UnitOfWordGuardar2.Complete();
+                    UnitOfWordGuardar2.Dispose();
+
+                    //ELIMINA DATOS ANTERIORES
+                    UnitOfWork UnitOfWordEliminar2 = new UnitOfWork(new DimeContext());
+                    UnitOfWordEliminar2.BACActualizarDatos.Remove(SolicitudActualizable2);
+                    UnitOfWordEliminar2.Complete();
+                    UnitOfWordEliminar2.Dispose();
+                }
+            }
+
+        }
     }
 }
