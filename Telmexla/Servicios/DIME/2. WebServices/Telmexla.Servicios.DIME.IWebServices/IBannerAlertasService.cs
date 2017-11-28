@@ -49,5 +49,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<BACActualizarDatos> ListaClientesPorTelefono(decimal Telefono);
         [OperationContract]
         void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, List<string> IdAsociadosNo, BAPActualizarDatos Datos);
+        [OperationContract]
+        decimal ConsultarTelefonoPorCuenta(decimal CuentaCliente);
     }
 }

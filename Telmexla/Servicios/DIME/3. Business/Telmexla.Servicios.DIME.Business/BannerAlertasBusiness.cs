@@ -352,5 +352,11 @@ namespace Telmexla.Servicios.DIME.Business
             }
 
         }
+        public decimal ConsultarTelefonoPorCuenta(decimal CuentaCliente)
+        {
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            BACActualizarDatos result = UnitOfWork.BACActualizarDatos.Find(x => x.CuentaAsociada == CuentaCliente).FirstOrDefault();
+            return result.Telefono;
+        }
     }
 }

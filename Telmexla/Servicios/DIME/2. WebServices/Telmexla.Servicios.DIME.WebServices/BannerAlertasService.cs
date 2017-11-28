@@ -108,5 +108,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
             banneralertasbusiness.RegistrarActualizaciondeDatos(IdAsociadosSi,IdAsociadosNo,Datos);
         }
+        public decimal ConsultarTelefonoPorCuenta(decimal CuentaCliente)
+        {
+            BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
+            return banneralertasbusiness.ConsultarTelefonoPorCuenta(CuentaCliente);
+        }
     }
 }

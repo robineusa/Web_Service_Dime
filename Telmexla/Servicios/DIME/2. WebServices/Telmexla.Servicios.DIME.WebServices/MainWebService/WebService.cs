@@ -2879,6 +2879,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BannerAlertasService banneralertasservice = new BannerAlertasService();
             banneralertasservice.RegistrarActualizaciondeDatos(IdAsociadosSi,IdAsociadosNo,Datos);
         }
+        public decimal ConsultarTelefonoPorCuenta(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ConsultarTelefonoPorCuenta(CuentaCliente);
+        }
         #endregion
 
         #region Procesos
