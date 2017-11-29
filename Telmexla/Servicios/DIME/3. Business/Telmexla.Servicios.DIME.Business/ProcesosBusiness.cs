@@ -16,7 +16,7 @@ namespace Telmexla.Servicios.DIME.Business
         public void CrearNodo(Nodo nodo)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            nodo.FechaCreacion = DateTime.Today;
+            nodo.FechaCreacion = DateTime.Now;
             unitWork.Nodo.Add(nodo);
             unitWork.Complete();
             unitWork.Dispose();
