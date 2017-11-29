@@ -270,9 +270,10 @@ namespace Telmexla.Servicios.DIME.Business
             Lista = unitWork.BACActualizarDatos.Find(x => x.Telefono == Telefono).ToList();
             return Lista;
         }
-        public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, List<string> IdAsociadosNo, BAPActualizarDatos Datos)
+        public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, BAPActualizarDatos Datos)
         {
             Datos.FechaGestion = DateTime.Now;
+            decimal Telefono = ConsultarTelefonoPorCuenta(Datos.CuentaAsociada);
 
             //agrega los id con select si
             DimeContext context = new DimeContext();
@@ -307,21 +308,25 @@ namespace Telmexla.Servicios.DIME.Business
 
                     //ELIMINA LOS DATOS ANTERIORES
                     UnitOfWork UnitOfWordEliminar = new UnitOfWork(new DimeContext());
-                    UnitOfWordEliminar.BACActualizarDatos.Remove(SolicitudActualizable);
-                    UnitOfWordEliminar.Complete();
-                    UnitOfWordEliminar.Dispose();
+                    BACActualizarDatos RegistroParaEliminar = UnitOfWordEliminar.BACActualizarDatos.Find(x => x.Id == SolicitudActualizable.Id).FirstOrDefault();
+                    if (RegistroParaEliminar != null)
+                    {
+                        UnitOfWordEliminar.BACActualizarDatos.Remove(RegistroParaEliminar);
+                        UnitOfWordEliminar.Complete();
+                        UnitOfWordEliminar.Dispose();
+                    }
                 }
             }
+           
+            List<decimal> ListaNo = ListaClientesPorTelefono(Telefono).Select(x=> x.Id).ToList();
+
             //inserta id con select no
             DimeContext context2 = new DimeContext();
-            List<decimal> IdDatos2 = IdAsociadosNo.ConvertAll(s => Convert.ToDecimal(s));
-            foreach (decimal ID in IdDatos2)
+            foreach (decimal Id in ListaNo)
             {
-
-
                 UnitOfWork UnitOfWorkSolicitdActualizable2 = new UnitOfWork(new DimeContext());
                 BACActualizarDatos SolicitudActualizable2 = new BACActualizarDatos();
-                SolicitudActualizable2 = UnitOfWorkSolicitdActualizable2.BACActualizarDatos.Find(c => c.Id == ID).FirstOrDefault();
+                SolicitudActualizable2 = UnitOfWorkSolicitdActualizable2.BACActualizarDatos.Find(c => c.Id == Id).FirstOrDefault();
 
                 if (SolicitudActualizable2 != null)
                 {
@@ -345,9 +350,13 @@ namespace Telmexla.Servicios.DIME.Business
 
                     //ELIMINA DATOS ANTERIORES
                     UnitOfWork UnitOfWordEliminar2 = new UnitOfWork(new DimeContext());
-                    UnitOfWordEliminar2.BACActualizarDatos.Remove(SolicitudActualizable2);
-                    UnitOfWordEliminar2.Complete();
-                    UnitOfWordEliminar2.Dispose();
+                    BACActualizarDatos RegistroParaEliminar2 = UnitOfWordEliminar2.BACActualizarDatos.Find(x => x.Id == SolicitudActualizable2.Id).FirstOrDefault();
+                    if (RegistroParaEliminar2 != null)
+                    {
+                        UnitOfWordEliminar2.BACActualizarDatos.Remove(RegistroParaEliminar2);
+                        UnitOfWordEliminar2.Complete();
+                        UnitOfWordEliminar2.Dispose();
+                    }
                 }
             }
 
@@ -355,7 +364,8 @@ namespace Telmexla.Servicios.DIME.Business
         public decimal ConsultarTelefonoPorCuenta(decimal CuentaCliente)
         {
             UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
-            BACActualizarDatos result = UnitOfWork.BACActualizarDatos.Find(x => x.CuentaAsociada == CuentaCliente).FirstOrDefault();
+           BACActualizarDatos result = new BACActualizarDatos();
+            result.Telefono = UnitOfWork.BACActualizarDatos.Find(x => x.CuentaAsociada == CuentaCliente).Select(x=> x.Telefono).FirstOrDefault();
             return result.Telefono;
         }
     }

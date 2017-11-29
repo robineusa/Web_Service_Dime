@@ -2874,10 +2874,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BannerAlertasService banneralertasservice = new BannerAlertasService();
             return banneralertasservice.ListaClientesPorTelefono(Telefono);
         }
-        public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, List<string> IdAsociadosNo, BAPActualizarDatos Datos)
+        public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, BAPActualizarDatos Datos)
         {
             BannerAlertasService banneralertasservice = new BannerAlertasService();
-            banneralertasservice.RegistrarActualizaciondeDatos(IdAsociadosSi,IdAsociadosNo,Datos);
+            banneralertasservice.RegistrarActualizaciondeDatos(IdAsociadosSi,Datos);
         }
         public decimal ConsultarTelefonoPorCuenta(decimal CuentaCliente)
         {

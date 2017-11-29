@@ -103,10 +103,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
             return banneralertasbusiness.ListaClientesPorTelefono(Telefono);
         }
-        public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, List<string> IdAsociadosNo, BAPActualizarDatos Datos)
+        public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, BAPActualizarDatos Datos)
         {
             BannerAlertasBusiness banneralertasbusiness = new BannerAlertasBusiness();
-            banneralertasbusiness.RegistrarActualizaciondeDatos(IdAsociadosSi,IdAsociadosNo,Datos);
+            banneralertasbusiness.RegistrarActualizaciondeDatos(IdAsociadosSi,Datos);
         }
         public decimal ConsultarTelefonoPorCuenta(decimal CuentaCliente)
         {
