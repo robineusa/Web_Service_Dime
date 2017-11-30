@@ -35,7 +35,7 @@ namespace Telmexla.Servicios.DIME.Business
             Solicitud.Estrategia1 = "NO APLICA";
             Solicitud.Estrategia2 = "NO APLICA";
             Solicitud.Estrategia3 = "NO APLICA";
-            Solicitud.EstadoSolicitud = "FINALIZADO";
+            Solicitud.EstadoSolicitud = "PENDIENTE";
 
             unitOfWork.RSPSeguimientos.Add(Solicitud);
             unitOfWork.Complete();
@@ -79,15 +79,7 @@ namespace Telmexla.Servicios.DIME.Business
             Solicitud.FechaActualizacion = Solicitud.FechaSolicitud;
             Solicitud.UsuarioActualizacion = Solicitud.UsuarioSolicitud;
             Solicitud.NombreUsuarioActualizacion = Solicitud.NombreUsuarioSolicitud;
-            Solicitud.TipoEscalamiento = "APLICACION DE OFRECIMIENTO";
-            Solicitud.DetalleEscalamiento = "APLICACION DE OFRECIMIENTO";
-            Solicitud.MotivoEscalamiento = "APLICACION DE OFRECIMIENTO";
-            Solicitud.RazonEscalamiento = "APLICACION DE OFRECIMIENTO";
-            Solicitud.SubRazonEscalamiento = "APLICACION DE OFRECIMIENTO";
-
-            Solicitud.EstadoSolicitud = "FINALIZADO";
-
-
+            Solicitud.EstadoSolicitud = "PENDIENTE";
 
             unitOfWork.RSPSeguimientos.Add(Solicitud);
             unitOfWork.Complete();
@@ -127,7 +119,7 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             List<RSMArboles> Lista = new List<RSMArboles>();
-            Lista = unitOfWork.RSMArboles.Find(x => x.IdPadre == IdPadre && x.Estado.Equals("ACTIVO") && x.Descripcion != "APLICACION DE OFRECIMIENTO").ToList();
+            Lista = unitOfWork.RSMArboles.Find(x => x.IdPadre == IdPadre && x.Estado.Equals("ACTIVO") && x.Descripcion != "APLICACIÓN DE OFRECIMIENTOS").ToList();
             return Lista;
         }
         //procesos administrador
