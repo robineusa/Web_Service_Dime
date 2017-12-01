@@ -120,6 +120,7 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             List<RSMArboles> Lista = new List<RSMArboles>();
             Lista = unitOfWork.RSMArboles.Find(x => x.IdPadre == IdPadre && x.Estado.Equals("ACTIVO") && x.Descripcion != "APLICACIÓN DE OFRECIMIENTOS").ToList();
+            Lista = Lista.OrderBy(x => x.Descripcion).ToList();
             return Lista;
         }
         //procesos administrador
