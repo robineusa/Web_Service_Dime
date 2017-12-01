@@ -2909,6 +2909,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             ProcesosService procesos = new ProcesosService();
             return procesos.ConsultarNodoCreado(IdArbol);
         }
+        public void CrearArbol(Arbol arbol)
+        {
+            ProcesosService procesos = new ProcesosService();
+            procesos.CrearArbol(arbol);
+        }
+        public List<Arbol> ListaArboles()
+        {
+            ProcesosService procesos = new ProcesosService();
+            return procesos.ListaArboles();
+        }
         #endregion Procesos
 
         #region Retencion
