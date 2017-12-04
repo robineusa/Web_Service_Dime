@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService, IOfertasComercialesService
     {
         public Usuario MuestraEntidades()
         {
@@ -2966,6 +2966,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             RetencionService retencionservice = new RetencionService();
             return retencionservice.ConsultaAdministradorLog(FechaInicio, FechaFin);
+        }
+        #endregion
+
+        #region Ofertas Comerciales
+        public decimal RegistrarImagen(IMGOfertasComeciales Imagen)
+        {
+            OfertasComercialesService OfertasService = new OfertasComercialesService();
+            return OfertasService.RegistrarImagen(Imagen);
         }
         #endregion
     }
