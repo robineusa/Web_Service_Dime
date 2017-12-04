@@ -17,5 +17,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         Arbol ConsultarArbol(int IdArbol);
         [OperationContract]
         Nodo ConsultarNodoCreado(int IdArbol);
+        [OperationContract]
+        void CrearArbol(Arbol arbol);
+        [OperationContract]
+        List<Arbol> ListaArboles();
     }
 }
