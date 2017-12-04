@@ -102,6 +102,7 @@
     <Compile Include="IGLogRecurrenciaRepository.cs" />
     <Compile Include="IGPrincipalRecurrenciaInboundRepository.cs" />
     <Compile Include="IGPrincipalRecurrenciaRepository.cs" />
+    <Compile Include="IIMGOfertasComecialesRepository.cs" />
     <Compile Include="IInventarioEquiposRepository.cs" />
     <Compile Include="IMaestroFallaCausaRaizRepository.cs" />
     <Compile Include="IMaestroFallaEspecificaRepository.cs" />
