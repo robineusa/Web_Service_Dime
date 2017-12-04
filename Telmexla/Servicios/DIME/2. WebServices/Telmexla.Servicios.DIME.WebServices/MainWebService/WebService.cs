@@ -2975,6 +2975,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             OfertasComercialesService OfertasService = new OfertasComercialesService();
             return OfertasService.RegistrarImagen(Imagen);
         }
+        public IMGOfertasComeciales ConsultarImagenPorId(decimal IdImagen)
+        {
+            OfertasComercialesService OfertasService = new OfertasComercialesService();
+            return OfertasService.ConsultarImagenPorId(IdImagen);
+        }
         #endregion
     }
 }

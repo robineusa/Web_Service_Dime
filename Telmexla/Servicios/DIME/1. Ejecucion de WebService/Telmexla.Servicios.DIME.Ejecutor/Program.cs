@@ -21,22 +21,22 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            DistribucionBlendingService dbss = new DistribucionBlendingService();
+            //DistribucionBlendingService dbss = new DistribucionBlendingService();
 
-            int catidad = dbss.CantidadToquesCuentaRentabilizacion(87287355);
+            //int catidad = dbss.CantidadToquesCuentaRentabilizacion(87287355);
 
 
-            List<string> Lista = new List<string>();
+            //List<string> Lista = new List<string>();
 
-            Lista.Add("2");
-            Lista.Add("10");
+            //Lista.Add("2");
+            //Lista.Add("10");
 
-            BAPActualizarDatos DATOS = new BAPActualizarDatos();
-            DATOS.CuentaAsociada = 73689564;
-            BannerAlertasService bas = new BannerAlertasService();
-            bas.RegistrarActualizaciondeDatos(Lista,DATOS);
+            //BAPActualizarDatos DATOS = new BAPActualizarDatos();
+            //DATOS.CuentaAsociada = 73689564;
+            //BannerAlertasService bas = new BannerAlertasService();
+            //bas.RegistrarActualizaciondeDatos(Lista,DATOS);
 
-            var data = "";
+            //var data = "";
             //ProcesosBusiness por = new ProcesosBusiness();
             //Arbol arbol = new Arbol();
             //arbol = por.ConsultarArbol(1);

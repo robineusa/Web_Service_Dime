@@ -16,5 +16,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             OfertasComercialesBusiness OfertasBusiness = new OfertasComercialesBusiness();
             return OfertasBusiness.RegistrarImagen(Imagen);
         }
+        public IMGOfertasComeciales ConsultarImagenPorId(decimal IdImagen)
+        {
+            OfertasComercialesBusiness OfertasBusiness = new OfertasComercialesBusiness();
+            return OfertasBusiness.ConsultarImagenPorId(IdImagen);
+        }
     }
 }

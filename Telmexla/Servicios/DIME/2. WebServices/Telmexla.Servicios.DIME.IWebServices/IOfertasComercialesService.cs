@@ -13,5 +13,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
     {
         [OperationContract]
         decimal RegistrarImagen(IMGOfertasComeciales Imagen);
+        [OperationContract]
+        IMGOfertasComeciales ConsultarImagenPorId(decimal IdImagen);
     }
 }

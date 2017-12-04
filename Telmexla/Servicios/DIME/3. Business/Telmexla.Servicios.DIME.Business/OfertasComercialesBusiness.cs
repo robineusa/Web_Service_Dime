@@ -22,5 +22,12 @@ namespace Telmexla.Servicios.DIME.Business
             unitWork.Dispose();
             return Imagen.IdImagen;
         }
+        public IMGOfertasComeciales ConsultarImagenPorId(decimal IdImagen)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            IMGOfertasComeciales imagen = new IMGOfertasComeciales();
+            imagen = unitWork.IMGOfertasComeciales.Find(x => x.IdImagen == IdImagen).FirstOrDefault();
+            return imagen;
+        }
     }
 }
