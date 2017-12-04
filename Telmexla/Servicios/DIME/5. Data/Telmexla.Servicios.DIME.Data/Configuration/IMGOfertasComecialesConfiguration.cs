@@ -14,13 +14,13 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             ToTable("TBL_IMG_OFERTAS_COMERCIALES", schema);
             HasKey(x => new { x.IdImagen });
 
-            Property(x => x.IdImagen).HasColumnName(@"ID_SOLICITUD").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.Imagen).HasColumnName(@"CUENTA_CLIENTE").IsOptional().HasColumnType("byte");
-            Property(x => x.Link).HasColumnName(@"LLSOT").IsOptional().HasColumnType("numeric");
-            Property(x => x.Descripcion).HasColumnName(@"TIPO_DE_SOLICITUD").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.Estado).HasColumnName(@"DETALLE_DE_SOLICITUD").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.FechaCreacion).HasColumnName(@"FECHA_DE_SOLICITUD").IsOptional().HasColumnType("datetime");
-            Property(x => x.UsuarioCreacion).HasColumnName(@"USUARIO_QUE_SOLICTA").IsOptional().HasColumnType("numeric");
+            Property(x => x.IdImagen).HasColumnName(@"ID_IMAGEN").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.Imagen).HasColumnName(@"IMAGEN").IsOptional();
+            Property(x => x.Link).HasColumnName(@"LINK").IsOptional().HasColumnType("varchar");
+            Property(x => x.Descripcion).HasColumnName(@"DESCRIPCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.FechaCreacion).HasColumnName(@"FECHA_CREACION").IsOptional().HasColumnType("datetime");
+            Property(x => x.UsuarioCreacion).HasColumnName(@"USUARIO_CREACION").IsOptional().HasColumnType("numeric");
         }
     }
 }
