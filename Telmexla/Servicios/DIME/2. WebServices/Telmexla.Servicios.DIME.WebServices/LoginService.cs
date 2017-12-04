@@ -501,8 +501,8 @@ namespace Telmexla.Servicios.DIME.WebServices
                 {
                     UsuariosMasivoData nuevoUsuario = new UsuariosMasivoData();
                     nuevoUsuario.Cedula = cedulasDecimal[i];
-                    nuevoUsuario.InfoRegistro = "El usuario no se encuentra en holos";
-                    result.Add(nuevoUsuario);
+                    //nuevoUsuario.InfoRegistro = "El usuario no se encuentra en holos";
+                    result.Remove(nuevoUsuario);
                 }
             }
 
@@ -515,15 +515,16 @@ namespace Telmexla.Servicios.DIME.WebServices
                     {
                         UsuariosMasivoData nuevoUsuario = result.FirstOrDefault(c => c.Cedula == cedulasDecimal[j]);
                         result.Remove(nuevoUsuario);
-                        nuevoUsuario.InfoRegistro = "El usuario ya se encuentra creado";
-                        result.Add(nuevoUsuario);
+                        //nuevoUsuario.InfoRegistro = "El usuario ya se encuentra creado";
+                        //result.Add(nuevoUsuario);
                     }
                     else
                     {
                         UsuariosMasivoData nuevoUsuario = new UsuariosMasivoData();
                         nuevoUsuario.Cedula = cedulasDecimal[j];
                         nuevoUsuario.InfoRegistro = "El usuario ya se encuentra creado";
-                        result.Add(nuevoUsuario);
+                        result.Remove(nuevoUsuario);
+                        //result.Add(nuevoUsuario);
 
                     }
 
