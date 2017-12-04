@@ -20,6 +20,12 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+
+            DistribucionBlendingService dbss = new DistribucionBlendingService();
+
+            int catidad = dbss.CantidadToquesCuentaRentabilizacion(87287355);
+
+
             List<string> Lista = new List<string>();
 
             Lista.Add("2");
