@@ -194,10 +194,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             lService.ActualizarAccesosUsuario(idUsuario, idPerfil, idLinea, permisosOtorgados, contraseña, usuarioCambioo);
         }
 
-        public void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo)
+        public void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo, string contraseña)
         {
             LoginService lService = new LoginService();
-            lService.ActualizarAccesosUsuarioMasivo(listaUsuariosCambiados, idLinea, listaPermisos, idUsuarioCambioo);
+            lService.ActualizarAccesosUsuarioMasivo(listaUsuariosCambiados, idLinea, listaPermisos, idUsuarioCambioo, contraseña);
         }
 
 

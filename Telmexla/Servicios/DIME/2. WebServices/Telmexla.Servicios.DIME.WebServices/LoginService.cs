@@ -427,7 +427,7 @@ namespace Telmexla.Servicios.DIME.WebServices
             
         }
 
-        public void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo)
+        public void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo, string contraseña)
         {
             DimeContext dimContext = new DimeContext();
 
@@ -440,8 +440,14 @@ namespace Telmexla.Servicios.DIME.WebServices
                     usuario.IdLinea = idLinea;
                     dimContext.SaveChanges();
                 }
-                DateTime fechaActual = DateTime.Now;
+                if (contraseña != null && contraseña != "")
+                {
+                    usuario.Contrasena = new GeneralEncriptor().GetEncriptedData(contraseña);
+                    usuario.FechaContrasena = Convert.ToDateTime("2015-05-28");
+                    dimContext.SaveChanges();
+                }
 
+                DateTime fechaActual = DateTime.Now;
                 for (int i = 0; i < listaPermisos.Count; i++)
                 {
                     var IdAcceso = Convert.ToInt32(listaPermisos[i]);
