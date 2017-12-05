@@ -286,12 +286,22 @@ namespace Telmexla.Servicios.DIME.Business
             
 
         }
-        public List<FidelizacionTipificacion> getTipificacionAll()
+        public List<FidelizacionTipificacion> getTipificacionAll(decimal eliminado,decimal nivel=0)
         {
+            int a =0;
+            int b = 0;
+            int c = 0;
+            if (nivel == 3)
+                c = 1;
+            else if (nivel == 2)
+                b = 1;
+            else if (nivel == 1)
+                a = 1;
             DimeContext dimeContext = new DimeContext();
             List<FidelizacionTipificacion> objTmp = new List<FidelizacionTipificacion>();
 
             var listado = (from tipificacion in dimeContext.FidelizacionTipificacion
+                           where tipificacion.Eliminado == eliminado && tipificacion.Nivel1 == a && tipificacion.Nivel2 == b && tipificacion.Nivel3 == c
                            orderby tipificacion.Nombre ascending
                            select new
                            {
@@ -305,7 +315,8 @@ namespace Telmexla.Servicios.DIME.Business
                                tipificacion.Nombre,
                                tipificacion.Nota,
                                tipificacion.Registro,
-                               tipificacion.UsuarioId
+                               tipificacion.UsuarioId,
+                               tipificacion.ValidaRetencion
 
                            }
                            ).ToList();
@@ -324,6 +335,7 @@ namespace Telmexla.Servicios.DIME.Business
                 objTmp[i].Nota = listado[i].Nota;
                 objTmp[i].Registro = listado[i].Registro;
                 objTmp[i].UsuarioId = listado[i].UsuarioId;
+                objTmp[i].ValidaRetencion = listado[i].ValidaRetencion;
             }
             return objTmp;
         }
@@ -356,14 +368,21 @@ namespace Telmexla.Servicios.DIME.Business
                                registro.FechaRegistro,
                                registro.Id,
                                registro.Notas,
-                               registro.OtrosOfrecimientosId,
                                registro.Permanencia,
-                               registro.RecursivaId,
+                               registro.RecursivaIdA,
+                               registro.RecursivaIdB,
+                               registro.RecursivaIdC,
                                registro.ServiciosId,
                                registro.ServiciosRetenidosId,
                                registro.SubmotivoId,
                                registro.TipificacionId,
-                               registro.UsuarioId
+                               registro.UsuarioId,
+                               registro.UsuarioTransfiere,
+                               registro.Renta,
+                               registro.Direccion,
+                               registro.Ticket,
+                               registro.Nivel
+
                            }
                            ).ToList();
 
@@ -376,13 +395,19 @@ namespace Telmexla.Servicios.DIME.Business
                 objTmp[i].FechaRegistro = listado[i].FechaRegistro;
                 objTmp[i].Id = listado[i].Id;
                 objTmp[i].Notas = listado[i].Notas;
-                objTmp[i].OtrosOfrecimientosId = listado[i].OtrosOfrecimientosId;
-                objTmp[i].RecursivaId = listado[i].RecursivaId;
+                objTmp[i].RecursivaIdA = listado[i].RecursivaIdA;
+                objTmp[i].RecursivaIdB = listado[i].RecursivaIdB;
+                objTmp[i].RecursivaIdC = listado[i].RecursivaIdC;
                 objTmp[i].ServiciosId = listado[i].ServiciosId;
                 objTmp[i].ServiciosRetenidosId = listado[i].ServiciosRetenidosId;
                 objTmp[i].SubmotivoId = listado[i].SubmotivoId;
                 objTmp[i].TipificacionId = listado[i].TipificacionId;
                 objTmp[i].UsuarioId = listado[i].UsuarioId;
+                objTmp[i].Renta = listado[i].Renta;
+                objTmp[i].UsuarioTransfiere = listado[i].UsuarioTransfiere;
+                objTmp[i].Direccion = listado[i].Direccion;
+                objTmp[i].Ticket = listado[i].Ticket;
+                objTmp[i].Nivel = listado[i].Nivel;
             }
             return objTmp;
         }
@@ -397,6 +422,7 @@ namespace Telmexla.Servicios.DIME.Business
 
             unidadTrabajo.Complete();
         }
+        
         public void updateMotivoCancelacion(FidelizacionMotivosCancelacion objMotivo)
         {
             UnitOfWork unidadTrabajo = new UnitOfWork(new DimeContext());
@@ -452,6 +478,9 @@ namespace Telmexla.Servicios.DIME.Business
             tipificacionActualizado.Nota = objTipificacion.Nota;
             tipificacionActualizado.Registro = objTipificacion.Registro;
             tipificacionActualizado.UsuarioId = objTipificacion.UsuarioId;
+            tipificacionActualizado.ValidaRetencion = objTipificacion.ValidaRetencion
+                ;
+
             unidadTrabajo.Complete();
         }
         public void updateRecursiva(FidelizacionRecursiva objRecursiva)
@@ -478,14 +507,16 @@ namespace Telmexla.Servicios.DIME.Business
             registroActualizado.FechaRegistro = objRegistro.FechaRegistro;
             registroActualizado.Id = objRegistro.Id;
             registroActualizado.Notas = objRegistro.Notas;
-            registroActualizado.OtrosOfrecimientosId = objRegistro.OtrosOfrecimientosId;
             registroActualizado.Permanencia = objRegistro.Permanencia;
-            registroActualizado.RecursivaId = objRegistro.RecursivaId;
+            registroActualizado.RecursivaIdA = objRegistro.RecursivaIdA;
+            registroActualizado.RecursivaIdB = objRegistro.RecursivaIdB;
+            registroActualizado.RecursivaIdC = objRegistro.RecursivaIdC;
             registroActualizado.ServiciosId = objRegistro.ServiciosId;
             registroActualizado.ServiciosRetenidosId = objRegistro.ServiciosRetenidosId;
             registroActualizado.SubmotivoId = objRegistro.SubmotivoId;
             registroActualizado.TipificacionId = objRegistro.TipificacionId;
             registroActualizado.UsuarioId = objRegistro.UsuarioId;
+
             unidadTrabajo.Complete();
         }
         public void updateOtrosCampos(FidelizacionOtrosCampos objOtrosCampos)
@@ -517,11 +548,44 @@ namespace Telmexla.Servicios.DIME.Business
             return fila;
 
         }
-        public List<FidelizacionOtrosCampos> getOtrosCamposAll()
+        public List<FidelizacionRecursiva> getRecursivaArbol(decimal idHijo) {
+            DimeContext contexto = new DimeContext();
+            var l = contexto.Database.SqlQuery<decimal>("WITH Tree AS ( SELECT ID, NOMBRE, PARENT_ID FROM TBL_FID_RECURSIVA WHERE ID = "+ idHijo + " UNION ALL SELECT P.ID, P.NOMBRE, P.PARENT_ID FROM  Tree AS C INNER JOIN dbo.TBL_FID_RECURSIVA AS P ON C.PARENT_ID = P.ID ) SELECT ID FROM Tree WHERE PARENT_ID is not null ORDER BY ID ASC").ToList();
+            List<FidelizacionRecursiva> objTmp = new List<FidelizacionRecursiva>();
+            var t =l[0];
+
+            for (var i = 0; i < l.Count; i++)
+            {
+                var listado = getRecursivaById(l[i]);
+                //test.
+                objTmp.Add(new FidelizacionRecursiva());
+                objTmp[i].Id = listado.Id;
+                objTmp[i].Label = listado.Label;
+                objTmp[i].Nivel = listado.Nivel;
+                objTmp[i].Nombre = listado.Nombre;
+                objTmp[i].ParentId = listado.ParentId;
+                objTmp[i].VerNivel = listado.VerNivel;
+                //objTmp.Add(getRecursivaById(l[i]));
+            }
+
+            return objTmp;
+            
+        }
+        public List<FidelizacionOtrosCampos> getOtrosCamposAll(decimal eliminado,decimal nivel=0)
         {
+            string filter = "0";
+            
+            if (nivel == 3)
+                filter = "/1";
+            else if (nivel == 2)
+                filter = "/1/";
+            else if (nivel == 1)
+                filter = "1/";
+
             DimeContext dimeContext = new DimeContext();
             List<FidelizacionOtrosCampos> objTmp = new List<FidelizacionOtrosCampos>();
             var listado = (from otrosCampos in dimeContext.FidelizacionOtrosCampos
+                           where otrosCampos.Nivel == filter
                            orderby otrosCampos.Nombre ascending
                            select new
                            {
@@ -530,7 +594,7 @@ namespace Telmexla.Servicios.DIME.Business
                                otrosCampos.Nivel,
                                otrosCampos.Nombre,
                                otrosCampos.Opciones,
-                               otrosCampos.Tipo
+                               otrosCampos.Tipo,
                            }
                            ).ToList();
 
@@ -640,5 +704,5 @@ namespace Telmexla.Servicios.DIME.Business
             return fila;
 
         }
-    }
+       }
 }

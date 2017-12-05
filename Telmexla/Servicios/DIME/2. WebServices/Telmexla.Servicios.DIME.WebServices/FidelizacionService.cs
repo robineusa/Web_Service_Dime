@@ -152,10 +152,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             Fidelizacion.updateRegistro(objRegistro);
         }
         [OperationContract]
-        public List<FidelizacionTipificacion> getTipificacionAll()
+        public List<FidelizacionTipificacion> getTipificacionAll(decimal eliminado, decimal nivel = 0)
         {
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
-            return Fidelizacion.getTipificacionAll();
+            return Fidelizacion.getTipificacionAll(eliminado, nivel);
         }
         [OperationContract]
         public FidelizacionTipificacion getTipificacionById(decimal idTipificacion)
@@ -182,10 +182,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             return Fidelizacion.getOtrosCamposById(idOtrosCampos);
         }
         [OperationContract]
-        public List<FidelizacionOtrosCampos> getOtrosCamposAll()
+        public List<FidelizacionOtrosCampos> getOtrosCamposAll(decimal eliminado, decimal nivel = 0)
         {
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
-            return Fidelizacion.getOtrosCamposAll();
+            return Fidelizacion.getOtrosCamposAll(eliminado,nivel);
         }
         [OperationContract]
         public void setRegistroCampos(FidelizacionRegistroCampos objRegistroCampos)
@@ -221,6 +221,12 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
             return Fidelizacion.getRecursivaVistaById(idRecursiva);
+        }
+        [OperationContract]
+        public List<FidelizacionRecursiva> getRecursivaArbol(decimal idHijo)
+        {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            return Fidelizacion.getRecursivaArbol(idHijo);
         }
     }
 }

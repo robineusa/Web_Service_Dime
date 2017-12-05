@@ -32,14 +32,20 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.FechaCorte).HasColumnName(@"FECHA_CORTE").IsOptional().HasColumnType("datetime");
             Property(x => x.FechaRegistro).HasColumnName(@"FECHA_REGISTRO").IsRequired().HasColumnType("datetime");
             Property(x => x.Notas).HasColumnName(@"NOTAS").IsOptional().HasColumnType("varchar").HasMaxLength(5000);
-            Property(x => x.OtrosOfrecimientosId).HasColumnName(@"OTROS_OFRECIMIENTOS_ID").IsOptional().HasColumnType("numeric");
             Property(x => x.Permanencia).HasColumnName(@"PERMANENCIA").IsOptional().HasColumnType("varchar");
-            Property(x => x.RecursivaId).HasColumnName(@"RECURSIVA_ID").IsOptional().HasColumnType("decimal");
+            Property(x => x.RecursivaIdA).HasColumnName(@"RECURSIVA_IDA").IsOptional().HasColumnType("decimal");
+            Property(x => x.RecursivaIdB).HasColumnName(@"RECURSIVA_IDB").IsOptional().HasColumnType("decimal");
+            Property(x => x.RecursivaIdC).HasColumnName(@"RECURSIVA_IDC").IsOptional().HasColumnType("decimal");
             Property(x => x.ServiciosId).HasColumnName(@"SERVICIOS_ID").IsRequired().HasColumnType("varchar");
             Property(x => x.ServiciosRetenidosId).HasColumnName(@"SERVICIOS_RETENIDOS_ID").IsOptional().HasColumnType("varchar");
             Property(x => x.SubmotivoId).HasColumnName(@"SUBMOTIVO_ID").IsRequired().HasColumnType("decimal");
             Property(x => x.TipificacionId).HasColumnName(@"TIPIFICACION_ID").IsOptional().HasColumnType("decimal");
             Property(x => x.UsuarioId).HasColumnName(@"USUARIO_ID").IsRequired().HasColumnType("int");
+            Property(x => x.Renta).HasColumnName(@"RENTA").IsOptional().HasColumnType("numeric");
+            Property(x => x.UsuarioTransfiere).HasColumnName(@"USUARIO_TRANSFIERE").IsOptional().HasColumnType("varchar");
+            Property(x => x.Direccion).HasColumnName(@"DIRECCION").IsOptional().HasColumnType("varchar");
+            Property(x => x.Ticket).HasColumnName(@"TICKET").IsRequired().HasColumnType("numeric");
+            Property(x => x.Nivel).HasColumnName(@"NIVEL").IsRequired().HasColumnType("numeric");
         }
     }
 }

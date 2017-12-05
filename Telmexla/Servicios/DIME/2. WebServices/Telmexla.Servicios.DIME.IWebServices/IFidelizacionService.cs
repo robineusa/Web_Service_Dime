@@ -61,7 +61,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void updateRegistro(FidelizacionRegistro objRegistro);
         [OperationContract]
-        List<FidelizacionTipificacion> getTipificacionAll();
+        List<FidelizacionTipificacion> getTipificacionAll(decimal eliminado, decimal nivel = 0);
         [OperationContract]
         FidelizacionTipificacion getTipificacionById(decimal idTipificacion);
         [OperationContract]
@@ -71,7 +71,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         FidelizacionOtrosCampos getOtrosCamposById(decimal idOtrosCampos);
         [OperationContract]
-        List<FidelizacionOtrosCampos> getOtrosCamposAll();
+        List<FidelizacionOtrosCampos> getOtrosCamposAll(decimal eliminado, decimal nivel = 0);
         [OperationContract]
         void setRegistroCampos(FidelizacionRegistroCampos objRegistroCampos);
         [OperationContract]
@@ -84,5 +84,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<FidelizacionRecursivaVistaDetalle> getRecursivaVistaAll();
         [OperationContract]
         FidelizacionRecursivaVista getRecursivaVistaById(decimal idRecursiva);
+        [OperationContract]
+        List<FidelizacionRecursiva> getRecursivaArbol(decimal idHijo);
     }
 }
