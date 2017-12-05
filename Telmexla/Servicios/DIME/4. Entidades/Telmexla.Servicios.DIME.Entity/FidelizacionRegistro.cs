@@ -5,7 +5,9 @@ namespace Telmexla.Servicios.DIME.Entity
     {
         public decimal Id { get; set; }
         public decimal SubmotivoId { get; set; }
-        public decimal RecursivaId { get; set; }
+        public decimal RecursivaIdA { get; set; }
+        public decimal? RecursivaIdB { get; set; }
+        public decimal? RecursivaIdC { get; set; }
         public string ServiciosId { get; set; }
         public string Permanencia{ get; set; }
         public decimal DiaCorte { get; set; }
@@ -13,9 +15,13 @@ namespace Telmexla.Servicios.DIME.Entity
         public System.DateTime? FechaRegistro { get; set; }
         public int UsuarioId { get; set; }
         public decimal Cuenta { get; set; }
-        public decimal OtrosOfrecimientosId { get; set; }
         public decimal TipificacionId { get; set; }
         public string ServiciosRetenidosId { get; set; }
         public string Notas { get; set; }
+        public string UsuarioTransfiere { get; set; }
+        public decimal Renta { get; set; }
+        public string Direccion { get; set; }
+        public decimal Ticket { get; set; }
+        public decimal Nivel { get; set; }
     }
 }
