@@ -113,7 +113,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void  ActualizarAccesosUsuario(int idUsuario,int idPerfil, int idLinea, string [] permisosOtorgados, string contraseña, string usuarioCambioo);
 
         [OperationContract]
-        void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo);
+        void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo, string contraseña);
 
         [OperationContract]
         List<UsuariosMasivoData> ListaDatosUsuariosHolosPorCedulas(List<string> cedulas);

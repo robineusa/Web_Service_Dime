@@ -153,6 +153,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<RSPSeguimientos> RSPSeguimientos { get; set; }
         public System.Data.Entity.DbSet<RSLSeguimientos> RSLSeguimientos { get; set; }
         public System.Data.Entity.DbSet<RSMArboles> RSMArboles { get; set; }
+        public System.Data.Entity.DbSet<BACActualizarDatos> BACActualizarDatos { get; set; }
+        public System.Data.Entity.DbSet<BAPActualizarDatos> BAPActualizarDatos { get; set; }
+        public System.Data.Entity.DbSet<IMGOfertasComeciales> IMGOfertasComeciales { get; set; }
 
         static DimeContext()
         {
@@ -338,6 +341,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new RSPSeguimientosConfiguration());
             modelBuilder.Configurations.Add(new RSLSeguimientosConfiguration());
             modelBuilder.Configurations.Add(new RSMArbolesConfiguration());
+            modelBuilder.Configurations.Add(new BACActualizarDatosConfiguration());
+            modelBuilder.Configurations.Add(new BAPActualizarDatosConfiguration());
+            modelBuilder.Configurations.Add(new IMGOfertasComecialesConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -476,6 +482,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new RSPSeguimientosConfiguration(schema));
             modelBuilder.Configurations.Add(new RSLSeguimientosConfiguration(schema));
             modelBuilder.Configurations.Add(new RSMArbolesConfiguration(schema));
+            modelBuilder.Configurations.Add(new BACActualizarDatosConfiguration(schema));
+            modelBuilder.Configurations.Add(new BAPActualizarDatosConfiguration(schema));
+            modelBuilder.Configurations.Add(new IMGOfertasComecialesConfiguration(schema));
             return modelBuilder;
         }
 

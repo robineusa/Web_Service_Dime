@@ -254,5 +254,119 @@ namespace Telmexla.Servicios.DIME.Business
                 }
             }
         }
+        //actualizacion de datos
+        public bool ValidarClienteEnActualizaciondeDatos(decimal CuentaCliente)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            var resultado = unitWork.BACActualizarDatos.Find(c => c.CuentaAsociada == CuentaCliente).ToList();
+
+            if (resultado.Count() > 0) { return true; }
+            else { return false; }
+        }
+        public List<BACActualizarDatos> ListaClientesPorTelefono(decimal Telefono)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            List<BACActualizarDatos> Lista = new List<BACActualizarDatos>();
+            Lista = unitWork.BACActualizarDatos.Find(x => x.Telefono == Telefono).ToList();
+            return Lista;
+        }
+        public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, BAPActualizarDatos Datos)
+        {
+            Datos.FechaGestion = DateTime.Now;
+            decimal Telefono = ConsultarTelefonoPorCuenta(Datos.CuentaAsociada);
+
+            //agrega los id con select si
+            DimeContext context = new DimeContext();
+            List<decimal> IdDatos = IdAsociadosSi.ConvertAll(s => Convert.ToDecimal(s));
+            foreach (decimal ID in IdDatos)
+            {
+
+
+                UnitOfWork UnitOfWorkSolicitdActualizable = new UnitOfWork(new DimeContext());
+                BACActualizarDatos SolicitudActualizable = new BACActualizarDatos();
+                SolicitudActualizable = UnitOfWorkSolicitdActualizable.BACActualizarDatos.Find(c => c.Id == ID).FirstOrDefault();
+
+                if (SolicitudActualizable != null)
+                {
+                    //IGUALA Y CREA LA ENTIDAD PARA GUARDAD
+                    BAPActualizarDatos Nueva = new BAPActualizarDatos();
+                    Nueva.FechaGestion = Datos.FechaGestion;
+                    Nueva.UsuarioGestion = Datos.UsuarioGestion;
+                    Nueva.AliadoGestion = Datos.AliadoGestion;
+                    Nueva.OperacionGestion = Datos.OperacionGestion;
+                    Nueva.Telefono = SolicitudActualizable.Telefono;
+                    Nueva.CuentaAsociada = SolicitudActualizable.CuentaAsociada;
+                    Nueva.Direccion = SolicitudActualizable.Direccion;
+                    Nueva.Ciudad = SolicitudActualizable.Ciudad;
+                    Nueva.PropiedadCliente = "SI";
+                    
+                    //GUARDA LOS DATOS
+                    UnitOfWork UnitOfWordGuardar = new UnitOfWork(new DimeContext());
+                    UnitOfWordGuardar.BAPActualizarDatos.Add(Nueva);
+                    UnitOfWordGuardar.Complete();
+                    UnitOfWordGuardar.Dispose();
+
+                    //ELIMINA LOS DATOS ANTERIORES
+                    UnitOfWork UnitOfWordEliminar = new UnitOfWork(new DimeContext());
+                    BACActualizarDatos RegistroParaEliminar = UnitOfWordEliminar.BACActualizarDatos.Find(x => x.Id == SolicitudActualizable.Id).FirstOrDefault();
+                    if (RegistroParaEliminar != null)
+                    {
+                        UnitOfWordEliminar.BACActualizarDatos.Remove(RegistroParaEliminar);
+                        UnitOfWordEliminar.Complete();
+                        UnitOfWordEliminar.Dispose();
+                    }
+                }
+            }
+           
+            List<decimal> ListaNo = ListaClientesPorTelefono(Telefono).Select(x=> x.Id).ToList();
+
+            //inserta id con select no
+            DimeContext context2 = new DimeContext();
+            foreach (decimal Id in ListaNo)
+            {
+                UnitOfWork UnitOfWorkSolicitdActualizable2 = new UnitOfWork(new DimeContext());
+                BACActualizarDatos SolicitudActualizable2 = new BACActualizarDatos();
+                SolicitudActualizable2 = UnitOfWorkSolicitdActualizable2.BACActualizarDatos.Find(c => c.Id == Id).FirstOrDefault();
+
+                if (SolicitudActualizable2 != null)
+                {
+                    //IGUALA LA ENTIDAD Y CREA ESTRUCTURA PARA GUARDAR
+                    BAPActualizarDatos Nueva2 = new BAPActualizarDatos();
+                    Nueva2.FechaGestion = Datos.FechaGestion;
+                    Nueva2.UsuarioGestion = Datos.UsuarioGestion;
+                    Nueva2.AliadoGestion = Datos.AliadoGestion;
+                    Nueva2.OperacionGestion = Datos.OperacionGestion;
+                    Nueva2.Telefono = SolicitudActualizable2.Telefono;
+                    Nueva2.CuentaAsociada = SolicitudActualizable2.CuentaAsociada;
+                    Nueva2.Direccion = SolicitudActualizable2.Direccion;
+                    Nueva2.Ciudad = SolicitudActualizable2.Ciudad;
+                    Nueva2.PropiedadCliente = "NO";
+
+                    //GUARDA LA INFORMACION
+                    UnitOfWork UnitOfWordGuardar2 = new UnitOfWork(new DimeContext());
+                    UnitOfWordGuardar2.BAPActualizarDatos.Add(Nueva2);
+                    UnitOfWordGuardar2.Complete();
+                    UnitOfWordGuardar2.Dispose();
+
+                    //ELIMINA DATOS ANTERIORES
+                    UnitOfWork UnitOfWordEliminar2 = new UnitOfWork(new DimeContext());
+                    BACActualizarDatos RegistroParaEliminar2 = UnitOfWordEliminar2.BACActualizarDatos.Find(x => x.Id == SolicitudActualizable2.Id).FirstOrDefault();
+                    if (RegistroParaEliminar2 != null)
+                    {
+                        UnitOfWordEliminar2.BACActualizarDatos.Remove(RegistroParaEliminar2);
+                        UnitOfWordEliminar2.Complete();
+                        UnitOfWordEliminar2.Dispose();
+                    }
+                }
+            }
+
+        }
+        public decimal ConsultarTelefonoPorCuenta(decimal CuentaCliente)
+        {
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+           BACActualizarDatos result = new BACActualizarDatos();
+            result.Telefono = UnitOfWork.BACActualizarDatos.Find(x => x.CuentaAsociada == CuentaCliente).Select(x=> x.Telefono).FirstOrDefault();
+            return result.Telefono;
+        }
     }
 }

@@ -57,6 +57,8 @@
     <Compile Include="IAccesoRepository.cs" />
     <Compile Include="IAccesosXLineaRepository.cs" />
     <Compile Include="IArbolRepository.cs" />
+    <Compile Include="IBACActualizarDatosRepository.cs" />
+    <Compile Include="IBAPActualizarDatosRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedRepository.cs" />
     <Compile Include="IFidelizacionMotivosCancelacionRepository.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="IGLogRecurrenciaRepository.cs" />
     <Compile Include="IGPrincipalRecurrenciaInboundRepository.cs" />
     <Compile Include="IGPrincipalRecurrenciaRepository.cs" />
+    <Compile Include="IIMGOfertasComecialesRepository.cs" />
     <Compile Include="IInventarioEquiposRepository.cs" />
     <Compile Include="IMaestroFallaCausaRaizRepository.cs" />
     <Compile Include="IMaestroFallaEspecificaRepository.cs" />

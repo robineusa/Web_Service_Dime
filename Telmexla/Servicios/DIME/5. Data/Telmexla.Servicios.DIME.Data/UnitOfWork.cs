@@ -133,6 +133,9 @@ namespace Telmexla.Servicios.DIME.Data
             RSPSeguimientos = new RSPSeguimientosRepository(this.dimeContext);
             RSLSeguimientos = new RSLSeguimientosRepository(this.dimeContext);
             RSMArboles = new RSMArbolesRepository(this.dimeContext);
+            BACActualizarDatos = new BACActualizarDatosRepository(this.dimeContext);
+            BAPActualizarDatos = new BAPActualizarDatosRepository(this.dimeContext);
+            IMGOfertasComeciales = new IMGOfertasComecialesRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -619,6 +622,18 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IRSMArbolesRepository RSMArboles
+        {
+            get; private set;
+        }
+        public IBACActualizarDatosRepository BACActualizarDatos
+        {
+            get; private set;
+        }
+        public IBAPActualizarDatosRepository BAPActualizarDatos
+        {
+            get; private set;
+        }
+        public IIMGOfertasComecialesRepository IMGOfertasComeciales
         {
             get; private set;
         }

@@ -11,10 +11,12 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class ProcesosBusiness
     {
+
         //Crea los nodos
         public void CrearNodo(Nodo nodo)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            nodo.FechaCreacion = DateTime.Now;
             unitWork.Nodo.Add(nodo);
             unitWork.Complete();
             unitWork.Dispose();
@@ -29,6 +31,17 @@ namespace Telmexla.Servicios.DIME.Business
                                 select n).ToList();
             return nodos;
         }
+        public Nodo ConsultarNodoCreado(int IdArbol)
+        {
+            DimeContext Context = new DimeContext();
+            Nodo nodo = new Nodo();
+            nodo = (from n in Context.Nodo
+                    where n.IdArbol== IdArbol
+                    orderby n.FechaCreacion descending
+                    select n).FirstOrDefault();
+            return nodo;
+
+        }
 
         public Arbol ConsultarArbol(int IdArbol)
         {
@@ -38,6 +51,39 @@ namespace Telmexla.Servicios.DIME.Business
                            where n.Id == IdArbol
                            select n).FirstOrDefault();
             return arbol;
+        }
+        public void CrearArbol(Arbol arbol)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            
+            unitWork.Arbol.Add(arbol);
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+        public List<Arbol> ListaArboles()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<Arbol> result = new List<Arbol>();
+            var objetosResult = (from a in dimContext.Arbol
+                                 select new
+                                 {
+                                     a.Id,
+                                     a.NombreArbol,
+                                     a.CodigoHtml,
+                                     a.Estado
+                                 }
+                                 ).ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new Arbol());
+                result[i].Id = objetosResult[i].Id;
+                result[i].NombreArbol = objetosResult[i].NombreArbol;
+                result[i].CodigoHtml = objetosResult[i].CodigoHtml;
+                result[i].Estado = objetosResult[i].Estado;
+            }
+
+            return result;
         }
     }
 }

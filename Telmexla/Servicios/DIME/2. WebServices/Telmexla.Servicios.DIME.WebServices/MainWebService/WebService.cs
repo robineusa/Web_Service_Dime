@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService, IOfertasComercialesService
     {
         public Usuario MuestraEntidades()
         {
@@ -194,10 +194,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             lService.ActualizarAccesosUsuario(idUsuario, idPerfil, idLinea, permisosOtorgados, contraseña, usuarioCambioo);
         }
 
-        public void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo)
+        public void ActualizarAccesosUsuarioMasivo(List<string> listaUsuariosCambiados, int idLinea, List<string> listaPermisos, string idUsuarioCambioo, string contraseña)
         {
             LoginService lService = new LoginService();
-            lService.ActualizarAccesosUsuarioMasivo(listaUsuariosCambiados, idLinea, listaPermisos, idUsuarioCambioo);
+            lService.ActualizarAccesosUsuarioMasivo(listaUsuariosCambiados, idLinea, listaPermisos, idUsuarioCambioo, contraseña);
         }
 
 
@@ -2869,6 +2869,26 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BannerAlertasService banneralertasservice = new BannerAlertasService();
             banneralertasservice.RegistraUsabilidadBanner(Usabilidad);
         }
+        public bool ValidarClienteEnActualizaciondeDatos(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ValidarClienteEnActualizaciondeDatos(CuentaCliente);
+        }
+        public List<BACActualizarDatos> ListaClientesPorTelefono(decimal Telefono)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ListaClientesPorTelefono(Telefono);
+        }
+        public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, BAPActualizarDatos Datos)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            banneralertasservice.RegistrarActualizaciondeDatos(IdAsociadosSi,Datos);
+        }
+        public decimal ConsultarTelefonoPorCuenta(decimal CuentaCliente)
+        {
+            BannerAlertasService banneralertasservice = new BannerAlertasService();
+            return banneralertasservice.ConsultarTelefonoPorCuenta(CuentaCliente);
+        }
         #endregion
 
         #region Procesos
@@ -2889,7 +2909,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             ProcesosService procesos = new ProcesosService();
             return procesos.ConsultarArbol(IdArbol);
         }
-
+        public Nodo ConsultarNodoCreado(int IdArbol)
+        {
+            ProcesosService procesos = new ProcesosService();
+            return procesos.ConsultarNodoCreado(IdArbol);
+        }
+        public void CrearArbol(Arbol arbol)
+        {
+            ProcesosService procesos = new ProcesosService();
+            procesos.CrearArbol(arbol);
+        }
+        public List<Arbol> ListaArboles()
+        {
+            ProcesosService procesos = new ProcesosService();
+            return procesos.ListaArboles();
+        }
         #endregion Procesos
 
         #region Retencion
@@ -2937,6 +2971,19 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             RetencionService retencionservice = new RetencionService();
             return retencionservice.ConsultaAdministradorLog(FechaInicio, FechaFin);
+        }
+        #endregion
+
+        #region Ofertas Comerciales
+        public decimal RegistrarImagen(IMGOfertasComeciales Imagen)
+        {
+            OfertasComercialesService OfertasService = new OfertasComercialesService();
+            return OfertasService.RegistrarImagen(Imagen);
+        }
+        public IMGOfertasComeciales ConsultarImagenPorId(decimal IdImagen)
+        {
+            OfertasComercialesService OfertasService = new OfertasComercialesService();
+            return OfertasService.ConsultarImagenPorId(IdImagen);
         }
         #endregion
     }
