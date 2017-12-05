@@ -20,6 +20,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void CrearArbol(Arbol arbol);
         [OperationContract]
+        void ActualizaHTMLArbol(Arbol model);
+        [OperationContract]
         List<Arbol> ListaArboles();
     }
 }

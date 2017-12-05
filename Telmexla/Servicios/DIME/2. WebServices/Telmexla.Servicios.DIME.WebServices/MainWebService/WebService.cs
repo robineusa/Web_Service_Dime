@@ -2914,6 +2914,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             ProcesosService procesos = new ProcesosService();
             procesos.CrearArbol(arbol);
         }
+        public void ActualizaHTMLArbol(Arbol model)
+        {
+            ProcesosService procesos = new ProcesosService();
+            procesos.ActualizaHTMLArbol(model);
+        }
         public List<Arbol> ListaArboles()
         {
             ProcesosService procesos = new ProcesosService();
