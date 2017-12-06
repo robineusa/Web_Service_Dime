@@ -15,5 +15,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         decimal RegistrarImagen(IMGOfertasComeciales Imagen);
         [OperationContract]
         IMGOfertasComeciales ConsultarImagenPorId(decimal IdImagen);
+        [OperationContract]
+        void ActualizarImagen(IMGOfertasComeciales Imagen);
+        [OperationContract]
+        List<IMGOfertasComeciales> ListaDeImagenesAdmin();
     }
 }
