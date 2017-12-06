@@ -30,7 +30,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<MaestroRecurrencia> MaestroRecurrencia { get; set; } 
         public System.Data.Entity.DbSet<MaestroOpcionesRecurrencia> MaestroOpcionesRecurrencia { get; set; } 
         public System.Data.Entity.DbSet<MaestroFallaEspecifica> MaestroFallaEspecifica { get; set; } 
-        public System.Data.Entity.DbSet<MaestroFallaCausaRaiz> MaestroFallaCausaRaiz{ get; set; } 
+        public System.Data.Entity.DbSet<MaestroFallaCausaRaiz> MaestroFallaCausaRaiz{ get; set; }
+        public System.Data.Entity.DbSet<MaestroFestivos> MaestroFestivos { get; set; }
 
 
         static MaestrosContext()
@@ -96,6 +97,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new MaestroOpcionesRecurrenciaConfiguration());
             modelBuilder.Configurations.Add(new MaestroFallaEspecificaConfiguration());
             modelBuilder.Configurations.Add(new MaestroFallaCausaRaizConfiguration());
+            modelBuilder.Configurations.Add(new MaestroFestivosConfiguration());
 
         }
 
@@ -112,6 +114,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new MaestroOpcionesRecurrenciaConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroFallaEspecificaConfiguration(schema));
             modelBuilder.Configurations.Add(new MaestroFallaCausaRaizConfiguration(schema));
+            modelBuilder.Configurations.Add(new MaestroFestivosConfiguration(schema));
             return modelBuilder;
         }
         

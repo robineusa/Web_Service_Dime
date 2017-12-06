@@ -2537,6 +2537,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getRecursivaArbol(idHijo);
         }
+        public List<MaestroFestivos> getMaestrosByCorteId(decimal numDias, decimal corte)
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getMaestrosByCorteId(numDias, corte);
+        }
         #endregion
 
         #region Verificacion de Inventario
@@ -2989,6 +2994,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             OfertasComercialesService OfertasService = new OfertasComercialesService();
             return OfertasService.ConsultarImagenPorId(IdImagen);
+        }
+        public void ActualizarImagen(IMGOfertasComeciales Imagen)
+        {
+            OfertasComercialesService OfertasService = new OfertasComercialesService();
+            OfertasService.ActualizarImagen(Imagen);
+        }
+        public List<IMGOfertasComeciales> ListaDeImagenesAdmin()
+        {
+            OfertasComercialesService OfertasService = new OfertasComercialesService();
+            return OfertasService.ListaDeImagenesAdmin();
         }
         #endregion
     }

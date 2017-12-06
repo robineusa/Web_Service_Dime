@@ -9,7 +9,7 @@ namespace Telmexla.Servicios.DIME.Entity
     public class MaestroFestivos
     {
         public int Id { get; set; }
-        public int FECHA { get; set; }
+        public DateTime? Fecha { get; set; }
         public string FechaRR { get; set; }
         public string NumeroDia { get; set; }
         public string NombreDia { get; set; }
