@@ -2990,6 +2990,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             OfertasComercialesService OfertasService = new OfertasComercialesService();
             return OfertasService.ConsultarImagenPorId(IdImagen);
         }
+        public void ActualizarImagen(IMGOfertasComeciales Imagen)
+        {
+            OfertasComercialesService OfertasService = new OfertasComercialesService();
+            OfertasService.ActualizarImagen(Imagen);
+        }
+        public List<IMGOfertasComeciales> ListaDeImagenesAdmin()
+        {
+            OfertasComercialesService OfertasService = new OfertasComercialesService();
+            return OfertasService.ListaDeImagenesAdmin();
+        }
         #endregion
     }
 }
