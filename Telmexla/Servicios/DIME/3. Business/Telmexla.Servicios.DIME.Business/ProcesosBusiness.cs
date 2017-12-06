@@ -36,7 +36,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext Context = new DimeContext();
             Nodo nodo = new Nodo();
             nodo = (from n in Context.Nodo
-                    where n.IdArbol== IdArbol
+                    where n.IdArbol == IdArbol
                     orderby n.FechaCreacion descending
                     select n).FirstOrDefault();
             return nodo;
@@ -55,7 +55,7 @@ namespace Telmexla.Servicios.DIME.Business
         public void CrearArbol(Arbol arbol)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-            
+
             unitWork.Arbol.Add(arbol);
             unitWork.Complete();
             unitWork.Dispose();
@@ -95,5 +95,57 @@ namespace Telmexla.Servicios.DIME.Business
 
             return result;
         }
+
+        //public void EliminaNodo(int idNodo, int IdArbol)
+        //{
+        //    DimeContext dimContext = new DimeContext();
+        //    List<int> idEliminar = new List<int>();
+        //    List<int> nodoHijo = new List<int>();
+        //    List<int> preubas = new List<int>();
+        //    idEliminar = (from n in dimContext.Nodo
+        //                  where n.IdArbol == IdArbol && n.IdPadre == idNodo
+        //                  select n.Id).ToList();
+
+        //    foreach (var item in idEliminar)
+        //    {
+        //        nodoHijo = (from n in dimContext.Nodo
+        //                    where n.IdPadre == item
+        //                    select n.Id).ToList();
+        //        if (nodoHijo.Count > 0)
+        //        {
+        //            BuscarHijos(nodoHijo);
+
+        //        }
+        //    }
+        //}
+        //public void BuscarHijos(List<int> preubas)
+        //{
+        //    List<int> nodoHijo = new List<int>();
+        //    List<int> nodos = new List<int>();
+        //    DimeContext dimContext = new DimeContext();
+        //    foreach (var item in preubas)
+        //    {
+        //        nodoHijo = (from n in dimContext.Nodo
+        //                    where n.IdPadre == item
+        //                    select n.Id).ToList();
+
+        //        if (nodoHijo.Count > 0)
+        //        {
+        //            foreach (var n in nodoHijo)
+        //            {
+        //                if (preubas.Any(a => a != n))
+        //                {
+        //                    preubas.Add(n);
+        //                    BuscarHijos(preubas);
+        //                }
+
+        //            }
+        //        }
+
+        //    }
+
+        //}
+
     }
 }
+

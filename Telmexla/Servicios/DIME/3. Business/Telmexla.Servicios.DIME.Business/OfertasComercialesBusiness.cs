@@ -40,6 +40,7 @@ namespace Telmexla.Servicios.DIME.Business
                 ImagenParaActualizar.Descripcion = Imagen.Descripcion;
                 ImagenParaActualizar.UsuarioCreacion = Imagen.UsuarioCreacion;
                 ImagenParaActualizar.FechaCreacion = DateTime.Now;
+                ImagenParaActualizar.Estado = Imagen.Estado;
                 ImagenParaActualizar.Imagen = Imagen.Imagen;
                 unitWork.Complete();
                 unitWork.Dispose();
