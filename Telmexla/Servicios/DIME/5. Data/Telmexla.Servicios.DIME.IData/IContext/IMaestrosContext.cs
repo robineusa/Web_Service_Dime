@@ -30,6 +30,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<MaestroOpcionesRecurrencia> MaestroOpcionesRecurrencia { get; set; }
         System.Data.Entity.DbSet<MaestroFallaEspecifica> MaestroFallaEspecifica { get; set; }
         System.Data.Entity.DbSet<MaestroFallaCausaRaiz> MaestroFallaCausaRaiz { get; set; }
+        System.Data.Entity.DbSet<MaestroFestivos> MaestroFestivos { get; set; }
 
 
         int SaveChanges();

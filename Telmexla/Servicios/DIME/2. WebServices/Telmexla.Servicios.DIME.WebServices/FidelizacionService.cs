@@ -228,5 +228,11 @@ namespace Telmexla.Servicios.DIME.WebServices
             FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
             return Fidelizacion.getRecursivaArbol(idHijo);
         }
+        [OperationContract]
+        public List<MaestroFestivos> getMaestrosByCorteId(decimal numDias, decimal corte)
+        {
+            FidelizacionBusiness Fidelizacion = new FidelizacionBusiness();
+            return Fidelizacion.getMaestrosByCorteId(numDias, corte);
+        }
     }
 }

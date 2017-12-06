@@ -86,5 +86,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         FidelizacionRecursivaVista getRecursivaVistaById(decimal idRecursiva);
         [OperationContract]
         List<FidelizacionRecursiva> getRecursivaArbol(decimal idHijo);
+        [OperationContract]
+        List<MaestroFestivos> getMaestrosByCorteId(decimal numDias, decimal corte);
     }
 }
