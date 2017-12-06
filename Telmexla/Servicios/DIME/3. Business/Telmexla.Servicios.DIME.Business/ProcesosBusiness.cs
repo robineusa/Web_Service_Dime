@@ -96,56 +96,128 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
         }
 
-        //public void EliminaNodo(int idNodo, int IdArbol)
-        //{
-        //    DimeContext dimContext = new DimeContext();
-        //    List<int> idEliminar = new List<int>();
-        //    List<int> nodoHijo = new List<int>();
-        //    List<int> preubas = new List<int>();
-        //    idEliminar = (from n in dimContext.Nodo
-        //                  where n.IdArbol == IdArbol && n.IdPadre == idNodo
-        //                  select n.Id).ToList();
+        public void EliminaNodo(int idNodo)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<int> idEliminar = new List<int>();
+            List<int> nodoHijo = new List<int>();
+            List<int> preubas = new List<int>();
+            idEliminar = (from n in dimContext.Nodo
+                          where n.IdPadre == idNodo
+                          select n.Id).ToList();
 
-        //    foreach (var item in idEliminar)
-        //    {
-        //        nodoHijo = (from n in dimContext.Nodo
-        //                    where n.IdPadre == item
-        //                    select n.Id).ToList();
-        //        if (nodoHijo.Count > 0)
-        //        {
-        //            BuscarHijos(nodoHijo);
+            BuscarHijos(idEliminar);
 
-        //        }
-        //    }
-        //}
-        //public void BuscarHijos(List<int> preubas)
-        //{
-        //    List<int> nodoHijo = new List<int>();
-        //    List<int> nodos = new List<int>();
-        //    DimeContext dimContext = new DimeContext();
-        //    foreach (var item in preubas)
-        //    {
-        //        nodoHijo = (from n in dimContext.Nodo
-        //                    where n.IdPadre == item
-        //                    select n.Id).ToList();
+        }
+        public void BuscarHijos(List<int> idEliminar)
+        {
+            List<int> nodoHijo ;
+            List<int> nodos = new List<int>();
+            DimeContext dimContext = new DimeContext();
+            int index = 0;
+            foreach (var item in idEliminar)
+            {
+                nodoHijo = new List<int>();
+                nodoHijo = (from n in dimContext.Nodo
+                            where n.IdPadre == item
+                            select n.Id).ToList();
 
-        //        if (nodoHijo.Count > 0)
-        //        {
-        //            foreach (var n in nodoHijo)
-        //            {
-        //                if (preubas.Any(a => a != n))
-        //                {
-        //                    preubas.Add(n);
-        //                    BuscarHijos(preubas);
-        //                }
+                if (nodoHijo.Count > 0)
+                {
+                    foreach (var n in nodoHijo)
+                    {
+                        if (!idEliminar.Any(a => a == n))
+                        {
+                            idEliminar.Add(n);
+                            pruebas(idEliminar);
+                            break;
 
-        //            }
-        //        }
+                        }
+                    }
+                }
+            }
 
-        //    }
+           
+        }
+        public void pruebas(List<int> idEliminar)
+        {
+            BuscarHijos(idEliminar);
 
-        //}
-
+        }
     }
 }
 
+
+
+//public void EliminaNodo(int idNodo, int IdArbol)
+//{
+//    DimeContext dimContext = new DimeContext();
+//    List<int> idEliminar = new List<int>();
+//    List<int> nodoHijo = new List<int>();
+//    List<int> preubas = new List<int>();
+//    idEliminar = (from n in dimContext.Nodo
+//                  where n.IdArbol == IdArbol && n.IdPadre == idNodo
+//                  select n.Id).ToList();
+
+//    foreach (var item in idEliminar)
+//    {
+//        nodoHijo = (from n in dimContext.Nodo
+//                    where n.IdPadre == item
+//                    select n.Id).ToList();
+//        if (nodoHijo.Count > 0)
+//        {
+//            BuscarHijos(nodoHijo);
+
+//        }
+//    }
+//}
+//public void BuscarHijos(List<int> preubas)
+//{
+//    List<int> nodoHijo = new List<int>();
+//    List<int> nodos = new List<int>();
+//    DimeContext dimContext = new DimeContext();
+//    foreach (var item in preubas)
+//    {
+//        nodoHijo = (from n in dimContext.Nodo
+//                    where n.IdPadre == item
+//                    select n.Id).ToList();
+
+//        if (nodoHijo.Count > 0)
+//        {
+//            foreach (var n in nodoHijo)
+//            {
+//                if (preubas.Any(a => a != n))
+//                {
+//                    preubas.Add(n);
+//                    BuscarHijos(preubas);
+//                }
+
+//            }
+//        }
+
+//    }
+
+//}
+
+
+//for (int i = 0; i < idEliminar.Count; i++)
+//{
+//    index = idEliminar[i];
+//    nodoHijo = (from n in dimContext.Nodo
+//                where n.IdPadre == index
+//                select n.Id).ToList();
+//    if (nodoHijo.Count > 0)
+//    {
+//        for (int f = 0; f < nodoHijo.Count; f++)
+//        {
+//            if (!idEliminar.Any(a => a == nodoHijo[f]))
+//            {
+//                idEliminar.Add(nodoHijo[f]);
+//                BuscarHijos(idEliminar);
+//                break;
+
+//            }
+//        }
+//    }
+
+//}

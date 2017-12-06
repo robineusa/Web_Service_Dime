@@ -19,34 +19,41 @@ namespace Telmexla.Servicios.DIME.WebServices
 
         public List<Nodo> ConsultarNodos(int IdArbol)
         {
-            ProcesosBusiness crearnodo = new ProcesosBusiness();
-            return crearnodo.ConsultarNodos(IdArbol);
+            ProcesosBusiness consultarnodos = new ProcesosBusiness();
+            return consultarnodos.ConsultarNodos(IdArbol);
         }
 
         public Arbol ConsultarArbol(int IdArbol)
         {
-            ProcesosBusiness crearnodo = new ProcesosBusiness();
-            return crearnodo.ConsultarArbol(IdArbol);
+            ProcesosBusiness consultararbol = new ProcesosBusiness();
+            return consultararbol.ConsultarArbol(IdArbol);
         }
         public Nodo ConsultarNodoCreado(int IdArbol)
         {
-            ProcesosBusiness crearnodo = new ProcesosBusiness();
-            return crearnodo.ConsultarNodoCreado(IdArbol);
+            ProcesosBusiness consultarnodocreado = new ProcesosBusiness();
+            return consultarnodocreado.ConsultarNodoCreado(IdArbol);
         }
         public void CrearArbol(Arbol arbol)
         {
-            ProcesosBusiness crearnodo = new ProcesosBusiness();
-            crearnodo.CrearArbol(arbol);
+            ProcesosBusiness creararbol = new ProcesosBusiness();
+            creararbol.CrearArbol(arbol);
         }
         public void ActualizaHTMLArbol(Arbol model)
         {
-            ProcesosBusiness crearnodo = new ProcesosBusiness();
-            crearnodo.ActualizaHTMLArbol(model);
+            ProcesosBusiness actualizaHTMLArbol = new ProcesosBusiness();
+            actualizaHTMLArbol.ActualizaHTMLArbol(model);
         }
         public List<Arbol> ListaArboles()
         {
-            ProcesosBusiness crearnodo = new ProcesosBusiness();
-            return crearnodo.ListaArboles();
+            ProcesosBusiness listaArboles = new ProcesosBusiness();
+            return listaArboles.ListaArboles();
         }
+
+        public void EliminaNodo(int IdNodo)
+        {
+            ProcesosBusiness eliminaNodo = new ProcesosBusiness();
+            eliminaNodo.EliminaNodo(IdNodo);
+        }
+
     }
 }

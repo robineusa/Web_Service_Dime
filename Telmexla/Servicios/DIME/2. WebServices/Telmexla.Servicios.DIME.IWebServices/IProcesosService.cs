@@ -23,5 +23,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void ActualizaHTMLArbol(Arbol model);
         [OperationContract]
         List<Arbol> ListaArboles();
+        [OperationContract]
+        void EliminaNodo(int IdNodo);
     }
 }

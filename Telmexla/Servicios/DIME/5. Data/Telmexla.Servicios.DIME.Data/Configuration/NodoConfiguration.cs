@@ -19,7 +19,6 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.NombreNodo).HasColumnName(@"NOMBRE_NODO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.CodigoHtml).HasColumnName(@"CODIGO_HTML").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(null);
             Property(x => x.FechaCreacion).HasColumnName(@"FECHA_CREACION").IsRequired().HasColumnType("datetime");
-            Property(x => x.NodosHijos).HasColumnName(@"NODOS_HIJOS").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
         }
     }
 }
