@@ -106,10 +106,10 @@ namespace Telmexla.Servicios.DIME.Business
                           where n.IdPadre == idNodo
                           select n.Id).ToList();
 
-            BuscarHijos(idEliminar);
+            preubas=BuscarHijos(idEliminar);
 
         }
-        public void BuscarHijos(List<int> idEliminar)
+        public List<int> BuscarHijos(List<int> idEliminar)
         {
             List<int> nodoHijo ;
             List<int> nodos = new List<int>();
@@ -129,15 +129,15 @@ namespace Telmexla.Servicios.DIME.Business
                         if (!idEliminar.Any(a => a == n))
                         {
                             idEliminar.Add(n);
-                            pruebas(idEliminar);
-                            break;
+                            return BuscarHijos(idEliminar);
+                           
 
                         }
                     }
                 }
             }
 
-           
+            return idEliminar;
         }
         public void pruebas(List<int> idEliminar)
         {
