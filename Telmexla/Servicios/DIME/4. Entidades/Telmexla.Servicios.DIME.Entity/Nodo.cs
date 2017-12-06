@@ -10,5 +10,6 @@ namespace Telmexla.Servicios.DIME.Entity
         public string NombreNodo { get; set; }
         public string CodigoHtml { get; set; }
         public DateTime  FechaCreacion { get; set; }
+        public string NodosHijos { get; set; }
     }
 }
