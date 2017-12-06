@@ -708,5 +708,25 @@ namespace Telmexla.Servicios.DIME.Business
             return fila;
 
         }
-       }
+        public List<MaestroFestivos> getMaestrosByCorteId(decimal numDias, decimal corte)
+        {
+            var numDia = "01";
+            if (corte == 2)
+                numDia = "02";
+            if (corte == 3)
+                numDia = "03";
+            MaestrosContext contexto = new MaestrosContext();
+            var l = contexto.Database.SqlQuery<MaestroFestivos>("SELECT TOP " + Convert.ToString(numDias) + " FECHA FROM TMP_MAESTRO_FESTIVOS WHERE TIPO_DIA_LUNES_VIERNES = '1' AND FECHA <= (select CONCAT(year(dateadd(month, 1, getdate())), '-', month(dateadd(month, 1, getdate())), '-" + numDia + "')) ORDER BY ID DESC").ToList();
+            List<MaestroFestivos> objTmp = new List<MaestroFestivos>();
+            var t = l[0];
+
+            for (var i = 0; i < l.Count; i++)
+            {
+                objTmp.Add(new MaestroFestivos());
+                objTmp[i].Fecha = l[i].Fecha;
+            }
+
+            return objTmp;
+        }
+    }
 }

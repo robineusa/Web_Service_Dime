@@ -2537,6 +2537,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getRecursivaArbol(idHijo);
         }
+        public List<MaestroFestivos> getMaestrosByCorteId(decimal numDias, decimal corte)
+        {
+            FidelizacionService Fidelizacion = new FidelizacionService();
+            return Fidelizacion.getMaestrosByCorteId(numDias, corte);
+        }
         #endregion
 
         #region Verificacion de Inventario
