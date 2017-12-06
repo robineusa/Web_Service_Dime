@@ -18,7 +18,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
         {
             ToTable("TMP_MAESTRO_FESTIVOS", schema);
             HasKey(x => new { x.Id });
-            Property(x => x.Id).HasColumnName(@"ID").IsOptional().HasColumnType("numeric");
+            Property(x => x.Id).HasColumnName(@"ID").IsOptional().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Ano).HasColumnName(@"ANO").IsOptional().HasColumnType("varchar").HasMaxLength(5);
             Property(x => x.Fecha).HasColumnName(@"FECHA").IsOptional().HasColumnType("datetime");
             Property(x => x.FechaRR).HasColumnName(@"FECHA_RR").IsOptional().HasColumnType("varchar").HasMaxLength(8);
