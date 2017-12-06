@@ -106,6 +106,7 @@
     <Compile Include="IInventarioEquiposRepository.cs" />
     <Compile Include="IMaestroFallaCausaRaizRepository.cs" />
     <Compile Include="IMaestroFallaEspecificaRepository.cs" />
+    <Compile Include="IMaestroFestivosRepository.cs" />
     <Compile Include="IMaestroOpcionesRecurrenciaRepository.cs" />
     <Compile Include="IMaestroRecurrenciaRepository.cs" />
     <Compile Include="IMultiplayCargueRepository.cs" />

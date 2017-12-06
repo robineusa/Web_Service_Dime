@@ -145,6 +145,7 @@
     <Compile Include="InventarioEquipos.cs" />
     <Compile Include="MaestroFallaCausaRaiz.cs" />
     <Compile Include="MaestroFallaEspecifica.cs" />
+    <Compile Include="MaestroFestivos.cs" />
     <Compile Include="MaestroOpcionesRecurrencia.cs" />
     <Compile Include="MaestroRecurrencia.cs" />
     <Compile Include="MultiplayCargue.cs" />

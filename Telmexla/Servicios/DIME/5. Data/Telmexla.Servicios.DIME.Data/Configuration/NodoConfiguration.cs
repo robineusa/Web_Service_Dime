@@ -23,5 +23,4 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
         }
     }
 }
-    }
-}
+   

@@ -78,6 +78,7 @@
     <Compile Include="Configuration\GLogRecurrenciaInboundConfiguration.cs" />
     <Compile Include="Configuration\IMGOfertasComecialesConfiguration.cs" />
     <Compile Include="Configuration\InventarioEquiposConfiguration.cs" />
+    <Compile Include="Configuration\MaestroFestivosConfiguration.cs" />
     <Compile Include="Configuration\NodoConfiguration.cs" />
     <Compile Include="Configuration\RSLSeguimientosConfiguration.cs" />
     <Compile Include="Configuration\RSMArbolesConfiguration.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="IMGOfertasComecialesRepository.cs" />
     <Compile Include="InventarioEquiposRepository.cs" />
     <Compile Include="MaestroFallaEspecificaRepository.cs" />
+    <Compile Include="MaestroFestivosRepository.cs" />
     <Compile Include="MaestroOpcionesRecurrenciaRepository.cs" />
     <Compile Include="MaestroRecurrenciaRepository.cs" />
     <Compile Include="MaestroFallaCausaRaizRepository.cs" />
