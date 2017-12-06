@@ -60,6 +60,16 @@ namespace Telmexla.Servicios.DIME.Business
             unitWork.Complete();
             unitWork.Dispose();
         }
+        public void ActualizaHTMLArbol(Arbol model)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            Arbol ArbolActu = unitWork.Arbol.Find(c => c.Id == model.Id).FirstOrDefault();
+
+            ArbolActu.CodigoHtml = model.CodigoHtml;
+
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
         public List<Arbol> ListaArboles()
         {
             DimeContext dimContext = new DimeContext();
