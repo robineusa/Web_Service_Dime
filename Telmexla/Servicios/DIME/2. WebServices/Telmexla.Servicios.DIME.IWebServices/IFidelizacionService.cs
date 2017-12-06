@@ -41,7 +41,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         FidelizacionRecursiva getRecursivaById(decimal idRecursiva);
         [OperationContract]
-        List<FidelizacionRecursiva> getRecursivaAll(decimal idPadre = 0);
+        List<FidelizacionRecursiva> getRecursivaAll(decimal idPadre = 0, decimal nivel = 0);
         [OperationContract]
         void setRegistro(FidelizacionRegistro objRegistro);
         [OperationContract]

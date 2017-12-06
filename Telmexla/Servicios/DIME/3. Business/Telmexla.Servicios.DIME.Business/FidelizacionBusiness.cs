@@ -223,27 +223,29 @@ namespace Telmexla.Servicios.DIME.Business
             return fila;
 
         }
-        public List<FidelizacionRecursiva> getRecursivaAll(decimal idPadre = 0)
+        public List<FidelizacionRecursiva> getRecursivaAll(decimal idPadre = 0,decimal nivel = 0)
         {
-            
             DimeContext dimeContext = new DimeContext();
             List<FidelizacionRecursiva> objTmp = new List<FidelizacionRecursiva>();
             
             if (idPadre == 0)
             {
-                  var listado = (from recursiva in dimeContext.FidelizacionRecursiva
-                               where recursiva.ParentId != null
+               
+                var listado = (from recursiva in dimeContext.FidelizacionRecursiva
+                                   where recursiva.ParentId != null && 
+                                   ((nivel == 0)?1==1:((nivel == 1)? recursiva.VerNivel.StartsWith("1") :((nivel == 3)? recursiva.VerNivel.EndsWith("1") : ((nivel == 2)?(recursiva.VerNivel.EndsWith("10") || recursiva.VerNivel.EndsWith("11") || recursiva.VerNivel.StartsWith("01") || recursiva.VerNivel.StartsWith("11")) :1==1))))
                                orderby recursiva.Nombre ascending
-                               select new
-                               {
-                                   recursiva.Id,
-                                   recursiva.Label,
-                                   recursiva.Nivel,
-                                   recursiva.Nombre,
-                                   recursiva.ParentId,
-                                   recursiva.VerNivel
-                               }
+                                   select new
+                                   {
+                                       recursiva.Id,
+                                       recursiva.Label,
+                                       recursiva.Nivel,
+                                       recursiva.Nombre,
+                                       recursiva.ParentId,
+                                       recursiva.VerNivel
+                                   }
                                ).ToList();
+                
                 for (var i = 0; i < listado.Count; i++)
                 {
                     objTmp.Add(new FidelizacionRecursiva());
@@ -257,8 +259,10 @@ namespace Telmexla.Servicios.DIME.Business
                 return objTmp;
             }
             else {
-                 var listado = (from recursiva in dimeContext.FidelizacionRecursiva
-                               where recursiva.ParentId == idPadre
+                
+                var listado = (from recursiva in dimeContext.FidelizacionRecursiva
+                               where recursiva.ParentId == idPadre &&
+                               ((nivel == 0) ? 1 == 1 : ((nivel == 1) ? recursiva.VerNivel.StartsWith("1") : ((nivel == 3) ? recursiva.VerNivel.EndsWith("1") : ((nivel == 2) ? (recursiva.VerNivel.EndsWith("10") || recursiva.VerNivel.EndsWith("11") || recursiva.VerNivel.StartsWith("01") || recursiva.VerNivel.StartsWith("11")) : 1 == 1))))
                                orderby recursiva.Nombre ascending
                                select new
                                {

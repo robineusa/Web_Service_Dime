@@ -2422,10 +2422,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             FidelizacionService Fidelizacion = new FidelizacionService();
             return Fidelizacion.getRecursivaById(idRecursiva);
         }
-        public List<FidelizacionRecursiva> getRecursivaAll(decimal idPadre = 0)
+        public List<FidelizacionRecursiva> getRecursivaAll(decimal idPadre = 0, decimal nivel = 0)
         {
             FidelizacionService Fidelizacion = new FidelizacionService();
-            return Fidelizacion.getRecursivaAll(idPadre);
+            return Fidelizacion.getRecursivaAll(idPadre, nivel);
         }
         public void setRegistro(FidelizacionRegistro objRegistro)
         {
