@@ -23,8 +23,8 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
 
             ProcesosBusiness eliminar = new ProcesosBusiness();
-            eliminar.EliminaNodo(1);
-
+            eliminar.ListaArboles();
+            
 
 
 

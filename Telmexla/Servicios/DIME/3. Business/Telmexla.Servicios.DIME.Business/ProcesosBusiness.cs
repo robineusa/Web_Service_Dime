@@ -84,6 +84,7 @@ namespace Telmexla.Servicios.DIME.Business
                                  }
                                  ).ToList();
 
+
             for (int i = 0; i < objetosResult.Count; i++)
             {
                 result.Add(new Arbol());
@@ -96,25 +97,59 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
         }
 
+      /// <summary>
+      /// Elimina los nodos
+      /// </summary>
+      /// <param name="idNodo"></param>
         public void EliminaNodo(int idNodo)
         {
             DimeContext dimContext = new DimeContext();
             List<int> idEliminar = new List<int>();
             List<int> nodoHijo = new List<int>();
-            List<int> preubas = new List<int>();
+            List<int> NodosEliminar = new List<int>();
+            //Consulta los nodos hijos principales
             idEliminar = (from n in dimContext.Nodo
                           where n.IdPadre == idNodo
                           select n.Id).ToList();
 
-            preubas=BuscarHijos(idEliminar);
+            UnitOfWork unitWork;
+            Nodo EntidadEliminar = new Nodo();
+            //Busca y elimina los nodos hijos 
+            if (idEliminar.Count > 0)
+            {
+                NodosEliminar = BuscarHijos(idEliminar);
 
+                foreach (var item in NodosEliminar)
+                {
+                    unitWork = new UnitOfWork(new DimeContext());
+                    EntidadEliminar = unitWork.Nodo.Find(f => f.Id == item).FirstOrDefault();
+                    if (EntidadEliminar != null)
+                        unitWork.Nodo.Remove(EntidadEliminar);
+                    unitWork.Complete();
+                    unitWork.Dispose();
+                }
+            }
+            //Elimina el nodo seleccionado
+            unitWork = new UnitOfWork(new DimeContext());
+            EntidadEliminar = unitWork.Nodo.Find(f => f.Id == idNodo).FirstOrDefault();
+            if (EntidadEliminar != null)
+            {
+                unitWork.Nodo.Remove(EntidadEliminar);
+                unitWork.Complete();
+                unitWork.Dispose();
+            }
         }
-        public List<int> BuscarHijos(List<int> idEliminar)
+        /// <summary>
+        /// Busca todos los nodos hijos y dependiendo, los hijos de sus hijos y asi sucesivamente
+        /// </summary>
+        /// <param name="idEliminar"></param>
+        /// <returns></returns>
+        private List<int> BuscarHijos(List<int> idEliminar)
         {
-            List<int> nodoHijo ;
+            List<int> nodoHijo;
             List<int> nodos = new List<int>();
             DimeContext dimContext = new DimeContext();
-            int index = 0;
+
             foreach (var item in idEliminar)
             {
                 nodoHijo = new List<int>();
@@ -126,12 +161,11 @@ namespace Telmexla.Servicios.DIME.Business
                 {
                     foreach (var n in nodoHijo)
                     {
+                        //Revisa que el id no exista dentro de la coleccion idEliminar
                         if (!idEliminar.Any(a => a == n))
                         {
                             idEliminar.Add(n);
                             return BuscarHijos(idEliminar);
-                           
-
                         }
                     }
                 }
@@ -139,85 +173,8 @@ namespace Telmexla.Servicios.DIME.Business
 
             return idEliminar;
         }
-        public void pruebas(List<int> idEliminar)
-        {
-            BuscarHijos(idEliminar);
-
-        }
     }
 }
 
 
 
-//public void EliminaNodo(int idNodo, int IdArbol)
-//{
-//    DimeContext dimContext = new DimeContext();
-//    List<int> idEliminar = new List<int>();
-//    List<int> nodoHijo = new List<int>();
-//    List<int> preubas = new List<int>();
-//    idEliminar = (from n in dimContext.Nodo
-//                  where n.IdArbol == IdArbol && n.IdPadre == idNodo
-//                  select n.Id).ToList();
-
-//    foreach (var item in idEliminar)
-//    {
-//        nodoHijo = (from n in dimContext.Nodo
-//                    where n.IdPadre == item
-//                    select n.Id).ToList();
-//        if (nodoHijo.Count > 0)
-//        {
-//            BuscarHijos(nodoHijo);
-
-//        }
-//    }
-//}
-//public void BuscarHijos(List<int> preubas)
-//{
-//    List<int> nodoHijo = new List<int>();
-//    List<int> nodos = new List<int>();
-//    DimeContext dimContext = new DimeContext();
-//    foreach (var item in preubas)
-//    {
-//        nodoHijo = (from n in dimContext.Nodo
-//                    where n.IdPadre == item
-//                    select n.Id).ToList();
-
-//        if (nodoHijo.Count > 0)
-//        {
-//            foreach (var n in nodoHijo)
-//            {
-//                if (preubas.Any(a => a != n))
-//                {
-//                    preubas.Add(n);
-//                    BuscarHijos(preubas);
-//                }
-
-//            }
-//        }
-
-//    }
-
-//}
-
-
-//for (int i = 0; i < idEliminar.Count; i++)
-//{
-//    index = idEliminar[i];
-//    nodoHijo = (from n in dimContext.Nodo
-//                where n.IdPadre == index
-//                select n.Id).ToList();
-//    if (nodoHijo.Count > 0)
-//    {
-//        for (int f = 0; f < nodoHijo.Count; f++)
-//        {
-//            if (!idEliminar.Any(a => a == nodoHijo[f]))
-//            {
-//                idEliminar.Add(nodoHijo[f]);
-//                BuscarHijos(idEliminar);
-//                break;
-
-//            }
-//        }
-//    }
-
-//}
