@@ -2939,6 +2939,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             ProcesosService procesos = new ProcesosService();
             procesos.EliminaNodo(IdNodo);
         }
+        public void CambiarNombreNodo(int IdNodo,string NuevoNombre)
+        {
+            ProcesosService procesos = new ProcesosService();
+            procesos.CambiarNombreNodo(IdNodo, NuevoNombre);
+        }
         #endregion Procesos
 
         #region Retencion

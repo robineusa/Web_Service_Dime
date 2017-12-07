@@ -54,6 +54,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             ProcesosBusiness eliminaNodo = new ProcesosBusiness();
             eliminaNodo.EliminaNodo(IdNodo);
         }
-
+        public void CambiarNombreNodo(int IdNodo,string NuevoNombre)
+        {
+            ProcesosBusiness CambiarNombreNodo = new ProcesosBusiness();
+            CambiarNombreNodo.CambiarNombreNodo(IdNodo,NuevoNombre);
+        }
     }
 }

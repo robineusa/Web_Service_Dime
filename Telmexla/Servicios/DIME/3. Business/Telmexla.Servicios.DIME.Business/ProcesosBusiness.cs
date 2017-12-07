@@ -97,10 +97,10 @@ namespace Telmexla.Servicios.DIME.Business
             return result;
         }
 
-      /// <summary>
-      /// Elimina los nodos
-      /// </summary>
-      /// <param name="idNodo"></param>
+        /// <summary>
+        /// Elimina los nodos y sus hijos
+        /// </summary>
+        /// <param name="idNodo"></param>
         public void EliminaNodo(int idNodo)
         {
             DimeContext dimContext = new DimeContext();
@@ -173,6 +173,26 @@ namespace Telmexla.Servicios.DIME.Business
 
             return idEliminar;
         }
+        /// <summary>
+        /// Cambia el nombre del nodo 
+        /// </summary>
+        /// <param name="idNodo"></param>
+        /// <param name="nuevoNombre"></param>
+        public void CambiarNombreNodo(int idNodo, string NuevoNombre)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            Nodo NodoCambiarNombre = new Nodo();
+
+            NodoCambiarNombre = unitWork.Nodo.Find(f => f.Id == idNodo).FirstOrDefault();
+
+            if (NodoCambiarNombre != null)
+            {
+                NodoCambiarNombre.NombreNodo = NuevoNombre;
+                unitWork.Complete();
+                unitWork.Dispose();
+            }
+        }
+
     }
 }
 

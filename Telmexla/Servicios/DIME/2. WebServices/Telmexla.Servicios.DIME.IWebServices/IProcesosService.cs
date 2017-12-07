@@ -25,5 +25,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<Arbol> ListaArboles();
         [OperationContract]
         void EliminaNodo(int IdNodo);
+        [OperationContract]
+        void CambiarNombreNodo(int IdNodo,string NuevoNombre);
     }
 }
