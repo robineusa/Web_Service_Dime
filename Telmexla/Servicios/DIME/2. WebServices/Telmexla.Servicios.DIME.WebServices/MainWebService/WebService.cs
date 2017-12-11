@@ -3015,6 +3015,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             OfertasComercialesService OfertasService = new OfertasComercialesService();
             return OfertasService.ListaDeImagenesAdmin();
         }
+        public List<IMGOfertasComeciales> ListaDeImagenesActivas()
+        {
+            OfertasComercialesService OfertasService = new OfertasComercialesService();
+            return OfertasService.ListaDeImagenesActivas();
+        }
         #endregion
     }
 }
