@@ -31,5 +31,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             OfertasComercialesBusiness OfertasBusiness = new OfertasComercialesBusiness();
             return OfertasBusiness.ListaDeImagenesAdmin();
         }
+        public List<IMGOfertasComeciales> ListaDeImagenesActivas()
+        {
+            OfertasComercialesBusiness OfertasBusiness = new OfertasComercialesBusiness();
+            return OfertasBusiness.ListaDeImagenesActivas();
+        }
     }
 }

@@ -53,5 +53,13 @@ namespace Telmexla.Servicios.DIME.Business
             Lista = unitWork.IMGOfertasComeciales.GetAll().ToList();
             return Lista;
         }
+        public List<IMGOfertasComeciales> ListaDeImagenesActivas()
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            List<IMGOfertasComeciales> Lista = new List<IMGOfertasComeciales>();
+            Lista = unitWork.IMGOfertasComeciales.Find(x=> x.Estado.Equals("ACTIVA")).ToList();
+            Lista = Lista.OrderByDescending(x => x.IdImagen).ToList();
+            return Lista;
+        }
     }
 }

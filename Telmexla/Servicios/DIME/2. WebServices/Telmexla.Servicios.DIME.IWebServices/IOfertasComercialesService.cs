@@ -19,5 +19,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void ActualizarImagen(IMGOfertasComeciales Imagen);
         [OperationContract]
         List<IMGOfertasComeciales> ListaDeImagenesAdmin();
+        [OperationContract]
+        List<IMGOfertasComeciales> ListaDeImagenesActivas();
     }
 }
