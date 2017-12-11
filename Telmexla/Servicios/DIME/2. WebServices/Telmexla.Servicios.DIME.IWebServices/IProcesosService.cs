@@ -27,5 +27,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void EliminaNodo(int IdNodo);
         [OperationContract]
         void CambiarNombreNodo(int IdNodo,string NuevoNombre);
+        [OperationContract]
+        Nodo ConsultarCodigoHtmlNodo(int IdNodo);
+        [OperationContract]
+        void GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml);
     }
 }

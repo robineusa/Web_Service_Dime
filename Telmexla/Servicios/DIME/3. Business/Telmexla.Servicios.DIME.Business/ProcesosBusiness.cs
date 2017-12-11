@@ -17,6 +17,7 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             nodo.FechaCreacion = DateTime.Now;
+            nodo.CodigoHtml = string.Empty;
             unitWork.Nodo.Add(nodo);
             unitWork.Complete();
             unitWork.Dispose();
@@ -139,6 +140,36 @@ namespace Telmexla.Servicios.DIME.Business
                 unitWork.Dispose();
             }
         }
+        /// <summary>
+        /// Consulta el nodo para cargar el codigo html correspondiente
+        /// </summary>
+        /// <param name="IdNodo"></param>
+        /// <returns></returns>
+        public Nodo ConsultarCodigoHtmlNodo(int IdNodo)
+        {
+            DimeContext dimContext = new DimeContext();
+            Nodo nodo = new Nodo();
+            nodo = (from n in dimContext.Nodo
+                    where n.Id== IdNodo
+                    select n).FirstOrDefault();
+            return nodo;
+        }
+        /// <summary>
+        /// Guarda el codigo Html del nodo correspondiente
+        /// </summary>
+        /// <param name="IdNodo"></param>
+        /// <param name="CodigoHtml"></param>
+        public void GuardarCodigoHtmlNodo(int IdNodo,string CodigoHtml)
+        {
+          Nodo nodo = new Nodo();
+
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            nodo = unitWork.Nodo.Find(f => f.Id == IdNodo).FirstOrDefault();
+            nodo.CodigoHtml = CodigoHtml;
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+
         /// <summary>
         /// Busca todos los nodos hijos y dependiendo, los hijos de sus hijos y asi sucesivamente
         /// </summary>

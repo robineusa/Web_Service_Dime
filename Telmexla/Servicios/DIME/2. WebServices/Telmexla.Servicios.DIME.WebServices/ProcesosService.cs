@@ -59,5 +59,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             ProcesosBusiness CambiarNombreNodo = new ProcesosBusiness();
             CambiarNombreNodo.CambiarNombreNodo(IdNodo,NuevoNombre);
         }
+        public Nodo ConsultarCodigoHtmlNodo(int IdNodo)
+        {
+            ProcesosBusiness ConsultarCodigoHtmlNodo = new ProcesosBusiness();
+            return ConsultarCodigoHtmlNodo.ConsultarCodigoHtmlNodo(IdNodo);
+        }
+        public void GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml)
+        {
+            ProcesosBusiness GuardarCodigoHtmlNodo = new ProcesosBusiness();
+            GuardarCodigoHtmlNodo.GuardarCodigoHtmlNodo(IdNodo, CodigoHtml);
+        }
     }
 }
