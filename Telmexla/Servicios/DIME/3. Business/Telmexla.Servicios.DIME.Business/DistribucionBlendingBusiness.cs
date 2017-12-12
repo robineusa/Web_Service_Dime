@@ -1557,6 +1557,7 @@ namespace Telmexla.Servicios.DIME.Business
             GBPDocsis.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(GBPDocsis.Gestion)).Cierre;
             GBPDocsis.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(GBPDocsis.Cierre)).Razon;
             GBPDocsis.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(GBPDocsis.Razon)).Causa;
+            GBPDocsis.Motivo = unitWorkMaestros.maestrosOutboundMotivo.Get(Convert.ToInt32(GBPDocsis.Motivo)).Motivo;
             unitWorkMaestros.Complete();
             unitWorkMaestros.Dispose();
 
@@ -1581,6 +1582,7 @@ namespace Telmexla.Servicios.DIME.Business
             GBLDocsis.Gestion = GBPDocsis.Gestion;
             GBLDocsis.Cierre = GBPDocsis.Cierre;
             GBLDocsis.Razon = GBPDocsis.Razon;
+            GBLDocsis.Motivo = GBPDocsis.Motivo;
             GBLDocsis.FechaSeguimiento = GBPDocsis.FechaSeguimiento;
             GBLDocsis.Observaciones = GBPDocsis.Observaciones;
             GBLDocsis.Aliado = GBPDocsis.Aliado;
@@ -1598,6 +1600,7 @@ namespace Telmexla.Servicios.DIME.Business
             GBPDocsis.Gestion = unitWorkMaestros.maestrosOutboundCierres.Get(Convert.ToInt32(GBPDocsis.Gestion)).Cierre;
             GBPDocsis.Cierre = unitWorkMaestros.maestrosOutboundRazon.Get(Convert.ToInt32(GBPDocsis.Cierre)).Razon;
             GBPDocsis.Razon = unitWorkMaestros.maestrosOutboundCausa.Get(Convert.ToInt32(GBPDocsis.Razon)).Causa;
+            GBPDocsis.Motivo = unitWorkMaestros.maestrosOutboundMotivo.Get(Convert.ToInt32(GBPDocsis.Motivo)).Motivo;
             unitWorkMaestros.Complete();
             unitWorkMaestros.Dispose();
 
@@ -1617,6 +1620,7 @@ namespace Telmexla.Servicios.DIME.Business
             GBPDocsisActualizable.Gestion = GBPDocsis.Gestion;
             GBPDocsisActualizable.Cierre = GBPDocsis.Cierre;
             GBPDocsisActualizable.Razon = GBPDocsis.Razon;
+            GBPDocsisActualizable.Motivo = GBPDocsis.Motivo;
             GBPDocsisActualizable.FechaSeguimiento = GBPDocsis.FechaSeguimiento;
             GBPDocsisActualizable.Observaciones = GBPDocsis.Observaciones;
             GBPDocsisActualizable.Aliado = GBPDocsis.Aliado;
@@ -1639,6 +1643,7 @@ namespace Telmexla.Servicios.DIME.Business
             GBLDocsis.Gestion = GBPDocsis.Gestion;
             GBLDocsis.Cierre = GBPDocsis.Cierre;
             GBLDocsis.Razon = GBPDocsis.Razon;
+            GBLDocsis.Motivo = GBPDocsis.Motivo;
             GBLDocsis.FechaSeguimiento = GBPDocsis.FechaSeguimiento;
             GBLDocsis.Observaciones = GBPDocsis.Observaciones;
             GBLDocsis.Aliado = GBPDocsis.Aliado;
@@ -1708,6 +1713,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Gestion,
                                      a.Cierre,
                                      a.Razon,
+                                     a.Motivo,
                                      a.Observaciones
                                  }
                                  ).ToList();
@@ -1722,6 +1728,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].Gestion = objetosResult[i].Gestion;
                 result[i].Cierre = objetosResult[i].Cierre;
                 result[i].Razon = objetosResult[i].Razon;
+                result[i].Motivo = objetosResult[i].Motivo;
                 result[i].Observaciones = objetosResult[i].Observaciones;
             }
             return result;
@@ -1758,6 +1765,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Gestion,
                                      a.Cierre,
                                      a.Razon,
+                                     a.Motivo,
                                      a.FechaSeguimiento,
                                      a.Observaciones
                                  }
@@ -1773,6 +1781,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].Gestion = objetosResult[i].Gestion;
                 result[i].Cierre = objetosResult[i].Cierre;
                 result[i].Razon = objetosResult[i].Razon;
+                result[i].Motivo = objetosResult[i].Motivo;
                 result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
             }
@@ -1882,6 +1891,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Gestion,
                                      a.Cierre,
                                      a.Razon,
+                                     a.Motivo,
                                      a.FechaSeguimiento,
                                      a.Observaciones,
                                      a.Aliado
@@ -1904,6 +1914,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].Gestion = objetosResult[i].Gestion;
                 result[i].Cierre = objetosResult[i].Cierre;
                 result[i].Razon = objetosResult[i].Razon;
+                result[i].Motivo = objetosResult[i].Motivo;
                 result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
                 result[i].Aliado = objetosResult[i].Aliado;
@@ -1934,6 +1945,7 @@ namespace Telmexla.Servicios.DIME.Business
                                      a.Gestion,
                                      a.Cierre,
                                      a.Razon,
+                                     a.Motivo,
                                      a.FechaSeguimiento,
                                      a.Observaciones,
                                      a.Aliado
@@ -1956,6 +1968,7 @@ namespace Telmexla.Servicios.DIME.Business
                 result[i].Gestion = objetosResult[i].Gestion;
                 result[i].Cierre = objetosResult[i].Cierre;
                 result[i].Razon = objetosResult[i].Razon;
+                result[i].Motivo = objetosResult[i].Motivo;
                 result[i].FechaSeguimiento = objetosResult[i].FechaSeguimiento;
                 result[i].Observaciones = objetosResult[i].Observaciones;
                 result[i].Aliado = objetosResult[i].Aliado;
