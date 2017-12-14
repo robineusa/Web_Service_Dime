@@ -30,6 +30,6 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         Nodo ConsultarCodigoHtmlNodo(int IdNodo);
         [OperationContract]
-        string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml);
+        string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal);
     }
 }

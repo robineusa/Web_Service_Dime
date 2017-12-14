@@ -23,6 +23,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
 
             ProcesosBusiness eliminar = new ProcesosBusiness();
+           
             eliminar.CambiarNombreNodo(141,"nuevo nombre");
             
 

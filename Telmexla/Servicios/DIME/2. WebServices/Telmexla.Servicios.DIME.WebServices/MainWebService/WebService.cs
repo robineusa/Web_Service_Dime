@@ -2949,10 +2949,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             ProcesosService procesos = new ProcesosService();
             return procesos.ConsultarCodigoHtmlNodo(IdNodo);
         }
-        public string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml)
+        public string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal)
         {
             ProcesosService procesos = new ProcesosService();
-            return  procesos.GuardarCodigoHtmlNodo(IdNodo, CodigoHtml);
+            return  procesos.GuardarCodigoHtmlNodo(IdNodo, CodigoHtml,  NodoFinal);
         }
         #endregion Procesos
 
