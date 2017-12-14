@@ -683,7 +683,8 @@ namespace Telmexla.Servicios.DIME.Business
                                recursivaVista.Nombre,
                                recursivaVista.ParentId,
                                recursivaVista.VerNivel,
-                               NombrePadre = b.Nombre
+                               NombrePadre = b.Nombre,
+                               recursivaVista.Ordr
                                
                            }
                            ).ToList();
@@ -697,7 +698,22 @@ namespace Telmexla.Servicios.DIME.Business
                 objTmp[i].Nombre = new String('-', Convert.ToInt32(listado[i].Nivel)) +listado[i].Nombre;
                 objTmp[i].ParentId = listado[i].ParentId;
                 objTmp[i].VerNivel = listado[i].VerNivel;
-                objTmp[i].ParentName = listado[i].NombrePadre;
+                //objTmp[i].ParentName = listado[i].NombrePadre;
+                string[] split = (listado[i].Ordr).Split(new Char[] { '-' });
+                for(var j = 0; j < split.Count()-1; j++){
+                    if (Convert.ToInt32(split[j]) > 1)
+                    {
+                        var padre = getRecursivaById(Convert.ToInt32(split[j]));
+                        objTmp[i].ParentName += padre.Nombre + ": ";// + listado[i].Nombre.Replace("-", "");
+                    }
+                }
+                //objTmp[i].ParentName += listado[i].Nombre.Replace("-", "");
+
+                //if (split.Count() > 3)
+                //{
+                //    var padre = getRecursivaById(Convert.ToInt32(split[2]));
+                //    objTmp[i].ParentName = padre.Nombre + ": " + listado[i].Nombre.Replace("-", "");
+                //}
             }
             return objTmp;
         }
