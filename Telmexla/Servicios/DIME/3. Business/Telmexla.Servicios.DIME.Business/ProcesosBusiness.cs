@@ -159,15 +159,20 @@ namespace Telmexla.Servicios.DIME.Business
         /// </summary>
         /// <param name="IdNodo"></param>
         /// <param name="CodigoHtml"></param>
-        public void GuardarCodigoHtmlNodo(int IdNodo,string CodigoHtml)
+        public string GuardarCodigoHtmlNodo(int IdNodo,string CodigoHtml)
         {
           Nodo nodo = new Nodo();
-
+            string mensaje = string.Empty;
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             nodo = unitWork.Nodo.Find(f => f.Id == IdNodo).FirstOrDefault();
-            nodo.CodigoHtml = CodigoHtml;
+
+            if(nodo!=null)
+                nodo.CodigoHtml = CodigoHtml;
+
+            mensaje = nodo != null ? "Se han guardado los cambios efectuados" : "No se pudo guardar los cambios, revise si existe el nodo";
             unitWork.Complete();
             unitWork.Dispose();
+            return mensaje;
         }
 
         /// <summary>
