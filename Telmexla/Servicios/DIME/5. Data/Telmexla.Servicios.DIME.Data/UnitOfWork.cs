@@ -136,6 +136,8 @@ namespace Telmexla.Servicios.DIME.Data
             BACActualizarDatos = new BACActualizarDatosRepository(this.dimeContext);
             BAPActualizarDatos = new BAPActualizarDatosRepository(this.dimeContext);
             IMGOfertasComeciales = new IMGOfertasComecialesRepository(this.dimeContext);
+            NotificacionSignalR = new NotificacionSignalRRepository(this.dimeContext);
+            UsuariosNotificadosSignalR = new UsuariosNotificadosSignalRRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -634,6 +636,14 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IIMGOfertasComecialesRepository IMGOfertasComeciales
+        {
+            get; private set;
+        }
+        public INotificacionSignalRRepository NotificacionSignalR
+        {
+            get; private set;
+        }
+        public IUsuariosNotificadosSignalRRepository UsuariosNotificadosSignalR
         {
             get; private set;
         }

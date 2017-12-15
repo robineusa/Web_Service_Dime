@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService, IOfertasComercialesService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService, IOfertasComercialesService, ISignalRService
     {
         public Usuario MuestraEntidades()
         {
@@ -3029,6 +3029,24 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             OfertasComercialesService OfertasService = new OfertasComercialesService();
             return OfertasService.ListaDeImagenesActivas();
+        }
+        #endregion
+
+        #region SignalR
+        public void InsertarNotificacionSignalR(NotificacionSignalR model)
+        {
+            SignalRService signalRService = new SignalRService();
+            signalRService.InsertarNotificacionSignalR(model);
+        }
+        public List<NotificacionSignalR> ListaNoNotificados(decimal Usuario)
+        {
+            SignalRService signalRService = new SignalRService();
+            return signalRService.ListaNoNotificados(Usuario);
+        }
+        public void InsertarUsuarioNotificadoSignalR(List<string> ListaNotificaciones, UsuariosNotificadosSignalR model)
+        {
+            SignalRService signalRService = new SignalRService();
+            signalRService.InsertarUsuarioNotificadoSignalR(ListaNotificaciones, model);
         }
         #endregion
     }

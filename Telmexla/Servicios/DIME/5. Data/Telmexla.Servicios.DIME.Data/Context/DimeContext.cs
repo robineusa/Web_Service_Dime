@@ -156,6 +156,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<BACActualizarDatos> BACActualizarDatos { get; set; }
         public System.Data.Entity.DbSet<BAPActualizarDatos> BAPActualizarDatos { get; set; }
         public System.Data.Entity.DbSet<IMGOfertasComeciales> IMGOfertasComeciales { get; set; }
+        public System.Data.Entity.DbSet<NotificacionSignalR> NotificacionSignalR { get; set; }
+        public System.Data.Entity.DbSet<UsuariosNotificadosSignalR> UsuariosNotificadosSignalR { get; set; }
 
         static DimeContext()
         {
@@ -344,6 +346,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BACActualizarDatosConfiguration());
             modelBuilder.Configurations.Add(new BAPActualizarDatosConfiguration());
             modelBuilder.Configurations.Add(new IMGOfertasComecialesConfiguration());
+            modelBuilder.Configurations.Add(new NotificacionSiganlRConfiguration());
+            modelBuilder.Configurations.Add(new UsuariosNotificadosSignalRConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -485,6 +489,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new BACActualizarDatosConfiguration(schema));
             modelBuilder.Configurations.Add(new BAPActualizarDatosConfiguration(schema));
             modelBuilder.Configurations.Add(new IMGOfertasComecialesConfiguration(schema));
+            modelBuilder.Configurations.Add(new NotificacionSiganlRConfiguration(schema));
+            modelBuilder.Configurations.Add(new UsuariosNotificadosSignalRConfiguration(schema));
             return modelBuilder;
         }
 

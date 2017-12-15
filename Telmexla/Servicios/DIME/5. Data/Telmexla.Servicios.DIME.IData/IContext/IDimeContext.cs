@@ -153,6 +153,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<BACActualizarDatos> BACActualizarDatos { get; set; }
         System.Data.Entity.DbSet<BAPActualizarDatos> BAPActualizarDatos { get; set; }
         System.Data.Entity.DbSet<IMGOfertasComeciales> IMGOfertasComeciales { get; set; }
+        System.Data.Entity.DbSet<NotificacionSignalR> NotificacionSignalR { get; set; }
+        System.Data.Entity.DbSet<UsuariosNotificadosSignalR> UsuariosNotificadosSignalR { get; set; }
 
 
 

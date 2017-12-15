@@ -22,9 +22,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
 
-            ProcesosBusiness eliminar = new ProcesosBusiness();
-           
-            eliminar.CambiarNombreNodo(141,"nuevo nombre");
+            SignalRService signal = new SignalRService();
+            var r = signal.ListaNoNotificados(1076622744);
+            //eliminar.CambiarNombreNodo(141,"nuevo nombre");
             
 
 

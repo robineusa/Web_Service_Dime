@@ -92,6 +92,7 @@
     <Compile Include="RecurrenciaBusiness.cs" />
     <Compile Include="RetencionBusiness.cs" />
     <Compile Include="SiembraHDBusiness.cs" />
+    <Compile Include="SignalRBusiness.cs" />
     <Compile Include="TablaActualizarInbound.cs" />
     <Compile Include="DatoConsultaGestion.cs" />
     <Compile Include="UsabilidadBusiness.cs" />

@@ -129,6 +129,8 @@ namespace Telmexla.Servicios.DIME.IData
         IBACActualizarDatosRepository BACActualizarDatos { get; }
         IBAPActualizarDatosRepository BAPActualizarDatos { get; }
         IIMGOfertasComecialesRepository IMGOfertasComeciales { get; }
-        int Complete();
+        INotificacionSignalRRepository NotificacionSignalR { get; }
+        IUsuariosNotificadosSignalRRepository UsuariosNotificadosSignalR { get; }
+    int Complete();
     }
 }
