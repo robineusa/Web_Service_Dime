@@ -131,6 +131,10 @@ namespace Telmexla.Servicios.DIME.IData
         IIMGOfertasComecialesRepository IMGOfertasComeciales { get; }
         INotificacionSignalRRepository NotificacionSignalR { get; }
         IUsuariosNotificadosSignalRRepository UsuariosNotificadosSignalR { get; }
-    int Complete();
+        ICEPAsigDesconexionesRepository CEPAsigDesconexiones { get; }
+        ICEPDesconexionesRepository CEPDesconexiones { get; }
+        ICELDesconexionesRepository CELDesconexiones { get; }
+        ICEMArbolesDeGestionRepository CEMArbolesDeGestion { get; }
+        int Complete();
     }
 }

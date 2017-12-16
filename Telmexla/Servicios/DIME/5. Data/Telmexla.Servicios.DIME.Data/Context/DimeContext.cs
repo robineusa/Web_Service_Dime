@@ -158,6 +158,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<IMGOfertasComeciales> IMGOfertasComeciales { get; set; }
         public System.Data.Entity.DbSet<NotificacionSignalR> NotificacionSignalR { get; set; }
         public System.Data.Entity.DbSet<UsuariosNotificadosSignalR> UsuariosNotificadosSignalR { get; set; }
+        public System.Data.Entity.DbSet<CEPAsigDesconexiones> CEPAsigDesconexiones { get; set; }
+        public System.Data.Entity.DbSet<CEPDesconexiones> CEPDesconexiones { get; set; }
+        public System.Data.Entity.DbSet<CELDesconexiones> CELDesconexiones { get; set; }
+        public System.Data.Entity.DbSet<CEMArbolesDeGestion> CEMArbolesDeGestion { get; set; }
 
         static DimeContext()
         {
@@ -348,6 +352,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new IMGOfertasComecialesConfiguration());
             modelBuilder.Configurations.Add(new NotificacionSiganlRConfiguration());
             modelBuilder.Configurations.Add(new UsuariosNotificadosSignalRConfiguration());
+            modelBuilder.Configurations.Add(new CEPAsigDesconexionesConfiguration());
+            modelBuilder.Configurations.Add(new CEPDesconexionesConfiguration());
+            modelBuilder.Configurations.Add(new CELDesconexionesConfiguration());
+            modelBuilder.Configurations.Add(new CEMArbolesDeGestionConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -491,6 +499,10 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new IMGOfertasComecialesConfiguration(schema));
             modelBuilder.Configurations.Add(new NotificacionSiganlRConfiguration(schema));
             modelBuilder.Configurations.Add(new UsuariosNotificadosSignalRConfiguration(schema));
+            modelBuilder.Configurations.Add(new CEPAsigDesconexionesConfiguration(schema));
+            modelBuilder.Configurations.Add(new CEPDesconexionesConfiguration(schema));
+            modelBuilder.Configurations.Add(new CELDesconexionesConfiguration(schema));
+            modelBuilder.Configurations.Add(new CEMArbolesDeGestionConfiguration(schema));
             return modelBuilder;
         }
 

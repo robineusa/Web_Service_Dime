@@ -63,6 +63,10 @@
     <Compile Include="BAPActualizarDatos.cs" />
     <Compile Include="BSCAdministracionBalanced.cs" />
     <Compile Include="BSCAdministracionBalancedLog.cs" />
+    <Compile Include="CELDesconexiones.cs" />
+    <Compile Include="CEMArbolesDeGestion.cs" />
+    <Compile Include="CEPAsigDesconexiones.cs" />
+    <Compile Include="CEPDesconexiones.cs" />
     <Compile Include="FidelizacionOtrosCampos.cs" />
     <Compile Include="FidelizacionOtrosOfrecimientos.cs" />
     <Compile Include="FidelizacionRecursiva.cs" />

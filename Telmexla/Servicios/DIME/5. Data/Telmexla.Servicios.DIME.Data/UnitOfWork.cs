@@ -138,6 +138,10 @@ namespace Telmexla.Servicios.DIME.Data
             IMGOfertasComeciales = new IMGOfertasComecialesRepository(this.dimeContext);
             NotificacionSignalR = new NotificacionSignalRRepository(this.dimeContext);
             UsuariosNotificadosSignalR = new UsuariosNotificadosSignalRRepository(this.dimeContext);
+            CEPAsigDesconexiones = new CEPAsigDesconexionesRepository(this.dimeContext);
+            CEPDesconexiones = new CEPDesconexionesRepository(this.dimeContext);
+            CELDesconexiones = new CELDesconexionesRepository(this.dimeContext);
+            CEMArbolesDeGestion = new CEMArbolesDeGestionRepository(this.dimeContext);
 
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -644,6 +648,22 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IUsuariosNotificadosSignalRRepository UsuariosNotificadosSignalR
+        {
+            get; private set;
+        }
+        public ICEPAsigDesconexionesRepository CEPAsigDesconexiones
+        {
+            get; private set;
+        }
+        public ICEPDesconexionesRepository CEPDesconexiones
+        {
+            get; private set;
+        }
+        public ICELDesconexionesRepository CELDesconexiones
+        {
+            get; private set;
+        }
+        public ICEMArbolesDeGestionRepository CEMArbolesDeGestion
         {
             get; private set;
         }

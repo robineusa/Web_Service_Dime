@@ -61,6 +61,10 @@
     <Compile Include="IBAPActualizarDatosRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedRepository.cs" />
+    <Compile Include="ICELDesconexionesRepository.cs" />
+    <Compile Include="ICEMArbolesDeGestionRepository.cs" />
+    <Compile Include="ICEPAsigDesconexionesRepository.cs" />
+    <Compile Include="ICEPDesconexionesRepository.cs" />
     <Compile Include="IFidelizacionMotivosCancelacionRepository.cs" />
     <Compile Include="IFidelizacionOtrosCamposRepository.cs" />
     <Compile Include="IFidelizacionOtrosOfrecimientosRepository.cs" />
