@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBannerAlertasService.cs" />
+    <Compile Include="ICierreExperienciaService.cs" />
     <Compile Include="IFidelizacionService.cs" />
     <Compile Include="IActivacionClaroVideoService.cs" />
     <Compile Include="IActivacionSiembraHDService.cs" />

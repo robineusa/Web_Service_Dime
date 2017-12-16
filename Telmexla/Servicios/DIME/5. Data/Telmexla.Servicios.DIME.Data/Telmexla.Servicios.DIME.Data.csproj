@@ -61,9 +61,9 @@
     <Compile Include="BAPActualizarDatosRepository.cs" />
     <Compile Include="BSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="BSCAdministracionBalancedRepository.cs" />
-    <Compile Include="CELDesconexionesConfiguration.cs" />
+    <Compile Include="Configuration\CELDesconexionesConfiguration.cs" />
     <Compile Include="CELDesconexionesRepository.cs" />
-    <Compile Include="CEMArbolesDeGestionConfiguration.cs" />
+    <Compile Include="Configuration\CEMArbolesDeGestionConfiguration.cs" />
     <Compile Include="CEMArbolesDeGestionRepository.cs" />
     <Compile Include="CEPAsigDesconexionesRepository.cs" />
     <Compile Include="CEPDesconexionesRepository.cs" />

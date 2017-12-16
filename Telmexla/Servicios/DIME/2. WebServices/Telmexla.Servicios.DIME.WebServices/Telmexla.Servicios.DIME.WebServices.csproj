@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BannerAlertasService.cs" />
+    <Compile Include="CierreExperienciaService.cs" />
     <Compile Include="FidelizacionService.cs" />
     <Compile Include="ActivacionClaroVideoService.cs" />
     <Compile Include="ActivacionSiembraHDService.cs" />

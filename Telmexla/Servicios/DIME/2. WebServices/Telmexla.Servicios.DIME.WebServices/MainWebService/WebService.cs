@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService, IOfertasComercialesService, ISignalRService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService, IOfertasComercialesService, ISignalRService, ICierreExperienciaService
     {
         public Usuario MuestraEntidades()
         {
@@ -3047,6 +3047,65 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             SignalRService signalRService = new SignalRService();
             signalRService.InsertarUsuarioNotificadoSignalR(ListaNotificaciones, model);
+        }
+        #endregion
+
+        #region CierreExperiencia
+        //Desconexiones
+        public CEPAsigDesconexiones TraeRegistroAsignacion(decimal Id)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.TraeRegistroAsignacion(Id);
+        }
+        public void RegistrarDesconexion(CEPDesconexiones Desconexion, decimal IdBaseAsig)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.RegistrarDesconexion(Desconexion, IdBaseAsig);
+        }
+        public void ActualizarDesconexion(CEPDesconexiones Desconexion)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.ActualizarDesconexion(Desconexion);
+        }
+        public List<CEMArbolesDeGestion> ArbolDeGestionAgente(decimal IdPadre)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ArbolDeGestionAgente(IdPadre);
+        }
+        public void ActualizarArbolCierreExperiencia(CEMArbolesDeGestion Arbol)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.ActualizarArbolCierreExperiencia(Arbol);
+        }
+        public void RegistrarNuevoArbolCierreExperiencia(CEMArbolesDeGestion Arbol)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.RegistrarNuevoArbolCierreExperiencia(Arbol);
+        }
+        public CEMArbolesDeGestion TraerArbolCierreExperienciaPorId(decimal IdArbol)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.TraerArbolCierreExperienciaPorId(IdArbol);
+        }
+        public List<CEPDesconexiones> ListaSeguimientosAgenteCierreExperiencia(decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaSeguimientosAgenteCierreExperiencia(Usuario);
+        }
+        public List<CELDesconexiones> ListaDeGestionAgenteCierreExperiencia(decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaDeGestionAgenteCierreExperiencia(Usuario);
+        }
+        public List<CEPDesconexiones> ConsultaGeneralAdministradorCierreExperiencia(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaGeneralAdministradorCierreExperiencia(FechaInicial, FechaFinal);
+        }
+        public List<CELDesconexiones> ConsultaLogAdministradorCierreExperiencia(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaLogAdministradorCierreExperiencia(FechaInicial, FechaFinal);
         }
         #endregion
     }

@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BannerAlertasBusiness.cs" />
+    <Compile Include="CierreExperienciaBusiness.cs" />
     <Compile Include="FidelizacionBusiness.cs" />
     <Compile Include="ActivacionClaroVideoBusiness.cs" />
     <Compile Include="ArbolesDeTipificacion.cs" />

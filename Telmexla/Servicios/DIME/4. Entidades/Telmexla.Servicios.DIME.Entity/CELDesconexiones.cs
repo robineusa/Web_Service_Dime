@@ -6,7 +6,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public decimal IdTransaccion { get; set; }
         public decimal IdGestion { get; set; }
         public System.DateTime? FechaDeTransaccion { get; set; }
-        public string UsuarioDeTransaccion { get; set; }
+        public decimal UsuarioDeTransaccion { get; set; }
         public string NombreUsuarioTransaccion { get; set; }
         public string CanalDeIngreso { get; set; }
         public decimal CuentaCliente { get; set; }

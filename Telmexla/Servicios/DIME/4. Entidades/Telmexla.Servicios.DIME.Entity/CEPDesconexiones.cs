@@ -4,7 +4,7 @@
     {
         public decimal IdGestion { get; set; }
         public System.DateTime? FechaDeGestion { get; set; }
-        public string UsuarioDeGestion { get; set; }
+        public decimal UsuarioDeGestion { get; set; }
         public string NombreUsuarioGestion { get; set; }
         public string CanalDeIngreso { get; set; }
         public decimal CuentaCliente { get; set; }
