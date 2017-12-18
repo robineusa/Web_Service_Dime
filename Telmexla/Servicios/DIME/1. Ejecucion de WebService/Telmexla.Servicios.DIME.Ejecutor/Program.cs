@@ -21,6 +21,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
+            CierreExperienciaService ces = new CierreExperienciaService();
+            var dato = ces.ListaDeGestionAgenteCierreExperiencia(1032381244);
+            var sss = "";
 
             SignalRService signal = new SignalRService();
             var r = signal.ListaNoNotificados(1076622744);

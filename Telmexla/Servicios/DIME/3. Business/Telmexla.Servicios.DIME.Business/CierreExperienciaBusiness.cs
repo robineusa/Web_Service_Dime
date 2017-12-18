@@ -255,8 +255,13 @@ namespace Telmexla.Servicios.DIME.Business
         /// <returns></returns>
         public List<CELDesconexiones> ListaDeGestionAgenteCierreExperiencia(decimal Usuario)
         {
+
+            DateTime FechaInicial;
+            DateTime FechaFinal;
+            FechaInicial = DateTime.Today;
+            FechaFinal = FechaInicial.AddDays(1);
             UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
-            List<CELDesconexiones> Lista = UnitOfWorkBusqueda.CELDesconexiones.Find(x => x.UsuarioDeTransaccion == Usuario).ToList();
+            List<CELDesconexiones> Lista = UnitOfWorkBusqueda.CELDesconexiones.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion>= FechaInicial && x.FechaDeTransaccion<= FechaFinal).ToList();
             Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
             return Lista;
         }
