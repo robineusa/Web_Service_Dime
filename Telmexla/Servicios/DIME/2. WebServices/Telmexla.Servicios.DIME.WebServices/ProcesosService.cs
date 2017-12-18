@@ -9,7 +9,7 @@ using Telmexla.Servicios.DIME.IWebServices;
 
 namespace Telmexla.Servicios.DIME.WebServices
 {
-    public class ProcesosService: IProcesosService
+    public class ProcesosService : IProcesosService
     {
         public void CrearNodo(Nodo nodo)
         {
@@ -54,10 +54,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             ProcesosBusiness eliminaNodo = new ProcesosBusiness();
             eliminaNodo.EliminaNodo(IdNodo);
         }
-        public void CambiarNombreNodo(int IdNodo,string NuevoNombre)
+        public void CambiarNombreNodo(int IdNodo, string NuevoNombre)
         {
             ProcesosBusiness CambiarNombreNodo = new ProcesosBusiness();
-            CambiarNombreNodo.CambiarNombreNodo(IdNodo,NuevoNombre);
+            CambiarNombreNodo.CambiarNombreNodo(IdNodo, NuevoNombre);
         }
         public Nodo ConsultarCodigoHtmlNodo(int IdNodo)
         {
@@ -68,6 +68,23 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             ProcesosBusiness GuardarCodigoHtmlNodo = new ProcesosBusiness();
             return GuardarCodigoHtmlNodo.GuardarCodigoHtmlNodo(IdNodo, CodigoHtml, NodoFinal);
+        }
+        public void CrearCategoria(Macroprocesos Categoria)
+        {
+            ProcesosBusiness CrearCategoria = new ProcesosBusiness();
+            CrearCategoria.CrearCategoria(Categoria);
+        }
+
+        public void EliminarCategoria(int idCategoria)
+        {
+            ProcesosBusiness EliminarCategoria = new ProcesosBusiness();
+            EliminarCategoria.EliminarCategoria(idCategoria);
+        }
+
+        public List<Macroprocesos> ConsultarCategorias(int idCategoriaPadre)
+        {
+            ProcesosBusiness ConsultarCategorias = new ProcesosBusiness();
+            return ConsultarCategorias.ConsultarCategorias(idCategoriaPadre);
         }
     }
 }

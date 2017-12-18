@@ -142,7 +142,7 @@ namespace Telmexla.Servicios.DIME.Data
             CEPDesconexiones = new CEPDesconexionesRepository(this.dimeContext);
             CELDesconexiones = new CELDesconexionesRepository(this.dimeContext);
             CEMArbolesDeGestion = new CEMArbolesDeGestionRepository(this.dimeContext);
-
+            Macroprocesos = new MacroprocesosRepository(this.dimeContext);
         }
         public IAccesosXLineaRepository AccesosXLinea
         {
@@ -664,6 +664,11 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public ICEMArbolesDeGestionRepository CEMArbolesDeGestion
+        {
+            get; private set;
+        }
+
+        public IMacroprocesosRepository Macroprocesos
         {
             get; private set;
         }

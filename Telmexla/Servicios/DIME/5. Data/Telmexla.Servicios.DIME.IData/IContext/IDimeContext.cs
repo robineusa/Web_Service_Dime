@@ -159,6 +159,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<CEPDesconexiones> CEPDesconexiones { get; set; }
         System.Data.Entity.DbSet<CELDesconexiones> CELDesconexiones { get; set; }
         System.Data.Entity.DbSet<CEMArbolesDeGestion> CEMArbolesDeGestion { get; set; }
+        System.Data.Entity.DbSet<Macroprocesos> Macroprocesos { get; set; }
 
 
 

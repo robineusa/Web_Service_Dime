@@ -162,6 +162,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<CEPDesconexiones> CEPDesconexiones { get; set; }
         public System.Data.Entity.DbSet<CELDesconexiones> CELDesconexiones { get; set; }
         public System.Data.Entity.DbSet<CEMArbolesDeGestion> CEMArbolesDeGestion { get; set; }
+        public System.Data.Entity.DbSet<Macroprocesos> Macroprocesos { get; set; }
 
         static DimeContext()
         {
@@ -356,6 +357,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CEPDesconexionesConfiguration());
             modelBuilder.Configurations.Add(new CELDesconexionesConfiguration());
             modelBuilder.Configurations.Add(new CEMArbolesDeGestionConfiguration());
+            modelBuilder.Configurations.Add(new MacroprocesosConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -503,6 +505,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CEPDesconexionesConfiguration(schema));
             modelBuilder.Configurations.Add(new CELDesconexionesConfiguration(schema));
             modelBuilder.Configurations.Add(new CEMArbolesDeGestionConfiguration(schema));
+            modelBuilder.Configurations.Add(new MacroprocesosConfiguration(schema));
             return modelBuilder;
         }
 

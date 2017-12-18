@@ -31,5 +31,12 @@ namespace Telmexla.Servicios.DIME.IWebServices
         Nodo ConsultarCodigoHtmlNodo(int IdNodo);
         [OperationContract]
         string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal);
+        [OperationContract]
+        void CrearCategoria(Macroprocesos Categoria);
+        [OperationContract]
+        List<Macroprocesos> ConsultarCategorias(int idCategoriaPadre);
+        [OperationContract]
+        void EliminarCategoria(int idCategoria);
+
     }
 }

@@ -108,6 +108,7 @@
     <Compile Include="IGPrincipalRecurrenciaRepository.cs" />
     <Compile Include="IIMGOfertasComecialesRepository.cs" />
     <Compile Include="IInventarioEquiposRepository.cs" />
+    <Compile Include="IMacroprocesosRepository.cs" />
     <Compile Include="IMaestroFallaCausaRaizRepository.cs" />
     <Compile Include="IMaestroFallaEspecificaRepository.cs" />
     <Compile Include="IMaestroFestivosRepository.cs" />

@@ -106,7 +106,6 @@ namespace Telmexla.Servicios.DIME.Business
         {
             DimeContext dimContext = new DimeContext();
             List<int> idEliminar = new List<int>();
-            List<int> nodoHijo = new List<int>();
             List<int> NodosEliminar = new List<int>();
             //Consulta los nodos hijos principales
             idEliminar = (from n in dimContext.Nodo
@@ -150,7 +149,7 @@ namespace Telmexla.Servicios.DIME.Business
             DimeContext dimContext = new DimeContext();
             Nodo nodo = new Nodo();
             nodo = (from n in dimContext.Nodo
-                    where n.Id== IdNodo
+                    where n.Id == IdNodo
                     select n).FirstOrDefault();
             return nodo;
         }
@@ -159,9 +158,9 @@ namespace Telmexla.Servicios.DIME.Business
         /// </summary>
         /// <param name="IdNodo"></param>
         /// <param name="CodigoHtml"></param>
-        public string GuardarCodigoHtmlNodo(int IdNodo,string CodigoHtml,bool NodoFinal)
+        public string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal)
         {
-          Nodo nodo = new Nodo();
+            Nodo nodo = new Nodo();
             string mensaje = string.Empty;
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             nodo = unitWork.Nodo.Find(f => f.Id == IdNodo).FirstOrDefault();
@@ -186,7 +185,6 @@ namespace Telmexla.Servicios.DIME.Business
         private List<int> BuscarHijos(List<int> idEliminar)
         {
             List<int> nodoHijo;
-            List<int> nodos = new List<int>();
             DimeContext dimContext = new DimeContext();
 
             foreach (var item in idEliminar)
@@ -231,6 +229,94 @@ namespace Telmexla.Servicios.DIME.Business
                 unitWork.Dispose();
             }
         }
+
+        public List<Macroprocesos> ConsultarCategorias(int idCategoriaPadre)
+        {
+            DimeContext Context = new DimeContext();
+
+            List<Macroprocesos> Categorias = (from n in Context.Macroprocesos
+                                              where n.IdCategoriaPadre == idCategoriaPadre
+                                              select n).ToList();
+            return Categorias;
+
+        }
+
+        public void CrearCategoria(Macroprocesos Categoria)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            unitWork.Macroprocesos.Add(Categoria);
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
+
+
+        public void EliminarCategoria(int idCategoria)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<int> idEliminar = new List<int>();
+            List<int> CategoriaEliminar = new List<int>();
+            //Consulta los nodos hijos principales
+            idEliminar = (from n in dimContext.Macroprocesos
+                          where n.IdCategoriaPadre == idCategoria
+                          select n.IdCategoria).ToList();
+
+            UnitOfWork unitWork;
+            Macroprocesos EntidadEliminar = new Macroprocesos();
+            //Busca y elimina los nodos hijos 
+            if (idEliminar.Count > 0)
+            {
+                CategoriaEliminar = BuscarHijosCategoria(idEliminar);
+
+                foreach (var item in CategoriaEliminar)
+                {
+                    unitWork = new UnitOfWork(new DimeContext());
+                    EntidadEliminar = unitWork.Macroprocesos.Find(f => f.IdCategoria == item).FirstOrDefault();
+                    if (EntidadEliminar != null)
+                        unitWork.Macroprocesos.Remove(EntidadEliminar);
+                    unitWork.Complete();
+                    unitWork.Dispose();
+                }
+            }
+            //Elimina el nodo seleccionado
+            unitWork = new UnitOfWork(new DimeContext());
+            EntidadEliminar = unitWork.Macroprocesos.Find(f => f.IdCategoria == idCategoria).FirstOrDefault();
+            if (EntidadEliminar != null)
+            {
+                unitWork.Macroprocesos.Remove(EntidadEliminar);
+                unitWork.Complete();
+                unitWork.Dispose();
+            }
+        }
+
+        private List<int> BuscarHijosCategoria(List<int> idEliminar)
+        {
+            List<int> categoriaHijo;
+            DimeContext dimContext = new DimeContext();
+
+            foreach (var item in idEliminar)
+            {
+                categoriaHijo = new List<int>();
+                categoriaHijo = (from n in dimContext.Macroprocesos
+                                 where n.IdCategoriaPadre == item
+                                 select n.IdCategoria).ToList();
+
+                if (categoriaHijo.Count > 0)
+                {
+                    foreach (var n in categoriaHijo)
+                    {
+                        //Revisa que el id no exista dentro de la coleccion idEliminar
+                        if (!idEliminar.Any(a => a == n))
+                        {
+                            idEliminar.Add(n);
+                            return BuscarHijosCategoria(idEliminar);
+                        }
+                    }
+                }
+            }
+
+            return idEliminar;
+        }
+
 
     }
 }

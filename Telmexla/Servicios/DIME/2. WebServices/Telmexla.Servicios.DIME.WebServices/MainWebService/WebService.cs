@@ -2954,6 +2954,27 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             ProcesosService procesos = new ProcesosService();
             return  procesos.GuardarCodigoHtmlNodo(IdNodo, CodigoHtml,  NodoFinal);
         }
+        public void CrearCategoria(Macroprocesos Categoria)
+        {
+            ProcesosService procesos = new ProcesosService();
+            procesos.CrearCategoria(Categoria);
+
+        }
+
+        public List<Macroprocesos> ConsultarCategorias(int idCategoriaPadre)
+        {
+            ProcesosService procesos = new ProcesosService();
+            return procesos.ConsultarCategorias(idCategoriaPadre);
+
+        }
+
+        public void EliminarCategoria(int idCategoria)
+        {
+            ProcesosService procesos = new ProcesosService();
+            procesos.EliminarCategoria(idCategoria);
+        }
+
+
         #endregion Procesos
 
         #region Retencion

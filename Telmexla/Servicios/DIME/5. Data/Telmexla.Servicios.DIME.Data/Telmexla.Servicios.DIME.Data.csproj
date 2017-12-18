@@ -86,6 +86,7 @@
     <Compile Include="Configuration\GLogRecurrenciaInboundConfiguration.cs" />
     <Compile Include="Configuration\IMGOfertasComecialesConfiguration.cs" />
     <Compile Include="Configuration\InventarioEquiposConfiguration.cs" />
+    <Compile Include="Configuration\MacroprocesosConfiguration.cs" />
     <Compile Include="Configuration\MaestroFestivosConfiguration.cs" />
     <Compile Include="Configuration\NodoConfiguration.cs" />
     <Compile Include="Configuration\NotificacionSiganlRConfiguration.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="GPrincipalRecurrenciaRepository.cs" />
     <Compile Include="IMGOfertasComecialesRepository.cs" />
     <Compile Include="InventarioEquiposRepository.cs" />
+    <Compile Include="MacroprocesosRepository.cs" />
     <Compile Include="MaestroFallaEspecificaRepository.cs" />
     <Compile Include="MaestroFestivosRepository.cs" />
     <Compile Include="MaestroOpcionesRecurrenciaRepository.cs" />
