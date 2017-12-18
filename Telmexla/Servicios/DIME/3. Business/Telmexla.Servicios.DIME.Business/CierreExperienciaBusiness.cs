@@ -313,6 +313,16 @@ namespace Telmexla.Servicios.DIME.Business
             Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
             return Lista;
         }
-
+        /// <summary>
+        /// Trae desconexion por id de gestion
+        /// </summary>
+        /// <param name="IdGestion"></param>
+        /// <returns></returns>
+        public CEPDesconexiones TraeDesconexionPorId(decimal IdGestion)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPDesconexiones Registro = UnitOfWorkBusqueda.CEPDesconexiones.Find(x => x.IdGestion == IdGestion).FirstOrDefault();
+            return Registro;
+        }
     }
 }
