@@ -69,5 +69,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
             return CierreExpBusiness.ConsultaLogAdministradorCierreExperiencia(FechaInicial, FechaFinal);
         }
+        public CEPDesconexiones TraeDesconexionPorId(decimal IdGestion)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.TraeDesconexionPorId(IdGestion);
+        }
     }
 }

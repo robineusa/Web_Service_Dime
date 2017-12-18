@@ -3128,6 +3128,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ConsultaLogAdministradorCierreExperiencia(FechaInicial, FechaFinal);
         }
+        public CEPDesconexiones TraeDesconexionPorId(decimal IdGestion)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.TraeDesconexionPorId(IdGestion);
+        }
         #endregion
     }
 }
