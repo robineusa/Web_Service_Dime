@@ -19,9 +19,13 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 model.FechaEntrega = DateTime.Now;
 
-                UnitOfWork unitWork = new UnitOfWork(new DimeContext());
-                unitWork.NotificacionSignalR.Add(model);
-                unitWork.Complete();
+                //UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                //unitWork.NotificacionSignalR.Add(model);
+                //unitWork. ;
+                DimeContext context = new DimeContext();
+                context.NotificacionSignalR.Add(model);
+                context.SaveChanges();
+                var Id = model.Id;
 
 
             }
