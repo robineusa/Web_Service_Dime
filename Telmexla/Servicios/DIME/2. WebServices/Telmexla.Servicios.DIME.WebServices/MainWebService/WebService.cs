@@ -3143,6 +3143,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ListasDeArbolesCierreExperienciaAdmin(IdPadre);
         }
+        public List<CELDesconexiones> ConsultaDeGestionDesconexionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaDeGestionDesconexionesAgente(FechaInicial,FechaFinal,Usuario);
+        }
+        public CEPAsigDesconexiones ValidarCuentaAsignada(decimal Cedula, int noRecursividad, decimal CuentaCliente)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ValidarCuentaAsignada(Cedula, noRecursividad, CuentaCliente);
+        }
+        public CEPDesconexiones ConsultarCuentaDesconexionporCuenta(decimal Cuenta)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultarCuentaDesconexionporCuenta(Cuenta);
+        }
         #endregion
     }
 }

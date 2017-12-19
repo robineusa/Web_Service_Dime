@@ -196,7 +196,8 @@ namespace Telmexla.Servicios.DIME.Business
         public void ActualizarArbolCierreExperiencia(CEMArbolesDeGestion Arbol)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            CEMArbolesDeGestion ArbolActualizable = unitOfWork.CEMArbolesDeGestion.Find(x => x.IdArbol == Arbol.IdArbol).FirstOrDefault();
+            CEMArbolesDeGestion ArbolActualizable = new CEMArbolesDeGestion();
+               ArbolActualizable= unitOfWork.CEMArbolesDeGestion.Find(x => x.IdArbol == Arbol.IdArbol).FirstOrDefault();
             if (ArbolActualizable.IdArbol > 0)
             {
                 ArbolActualizable.IdPadre = Arbol.IdPadre;
@@ -226,7 +227,8 @@ namespace Telmexla.Servicios.DIME.Business
         public CEMArbolesDeGestion TraerArbolCierreExperienciaPorId(decimal IdArbol)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            CEMArbolesDeGestion Arbol = unitOfWork.CEMArbolesDeGestion.Find(x => x.IdArbol == IdArbol).FirstOrDefault();
+            CEMArbolesDeGestion Arbol = new CEMArbolesDeGestion();
+             Arbol=   unitOfWork.CEMArbolesDeGestion.Find(x => x.IdArbol == IdArbol).FirstOrDefault();
             if (Arbol.IdArbol > 0)
             {
                 return Arbol;
@@ -244,7 +246,8 @@ namespace Telmexla.Servicios.DIME.Business
         public List<CEPDesconexiones> ListaSeguimientosAgenteCierreExperiencia(decimal Usuario)
         {
             UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
-            List<CEPDesconexiones> Lista = UnitOfWorkBusqueda.CEPDesconexiones.Find(x => x.UsuarioDeGestion == Usuario && x.Estado.Equals("SEGUIMIENTO")).ToList();
+            List<CEPDesconexiones> Lista = new List<CEPDesconexiones>();
+               Lista = UnitOfWorkBusqueda.CEPDesconexiones.Find(x => x.UsuarioDeGestion == Usuario && x.Estado.Equals("SEGUIMIENTO")).ToList();
             Lista = Lista.OrderBy(x => x.IdGestion).ToList();
             return Lista;
         }
@@ -261,7 +264,8 @@ namespace Telmexla.Servicios.DIME.Business
             FechaInicial = DateTime.Today;
             FechaFinal = FechaInicial.AddDays(1);
             UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
-            List<CELDesconexiones> Lista = UnitOfWorkBusqueda.CELDesconexiones.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion>= FechaInicial && x.FechaDeTransaccion<= FechaFinal).ToList();
+            List<CELDesconexiones> Lista = new List<CELDesconexiones>();
+               Lista = UnitOfWorkBusqueda.CELDesconexiones.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion>= FechaInicial && x.FechaDeTransaccion<= FechaFinal).ToList();
             Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
             return Lista;
         }
@@ -274,7 +278,8 @@ namespace Telmexla.Servicios.DIME.Business
         public List<CEPDesconexiones> ConsultaGeneralAdministradorCierreExperiencia(DateTime FechaInicial, DateTime FechaFinal)
         {
             UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
-            List<CEPDesconexiones> Lista = UnitOfWorkBusqueda.CEPDesconexiones.Find(x => x.FechaDeGestion>= FechaInicial && x.FechaDeGestion<= FechaFinal).ToList();
+            List<CEPDesconexiones> Lista = new List<CEPDesconexiones>();
+               Lista= UnitOfWorkBusqueda.CEPDesconexiones.Find(x => x.FechaDeGestion>= FechaInicial && x.FechaDeGestion<= FechaFinal).ToList();
             Lista = Lista.OrderBy(x => x.IdGestion).ToList();
             return Lista;
         }
@@ -287,7 +292,8 @@ namespace Telmexla.Servicios.DIME.Business
         public List<CELDesconexiones> ConsultaLogAdministradorCierreExperiencia(DateTime FechaInicial, DateTime FechaFinal)
         {
             UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
-            List<CELDesconexiones> Lista = UnitOfWorkBusqueda.CELDesconexiones.Find(x => x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            List<CELDesconexiones> Lista = new List<CELDesconexiones>();
+              Lista=  UnitOfWorkBusqueda.CELDesconexiones.Find(x => x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
             Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
             return Lista;
         }
@@ -299,7 +305,8 @@ namespace Telmexla.Servicios.DIME.Business
         public CEPDesconexiones TraeDesconexionPorId(decimal IdGestion)
         {
             UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
-            CEPDesconexiones Registro = UnitOfWorkBusqueda.CEPDesconexiones.Find(x => x.IdGestion == IdGestion).FirstOrDefault();
+            CEPDesconexiones Registro = new CEPDesconexiones();
+               Registro= UnitOfWorkBusqueda.CEPDesconexiones.Find(x => x.IdGestion == IdGestion).FirstOrDefault();
             return Registro;
         }
         public CEPAsigDesconexiones ApartarCuentadeDesconexiones(decimal Cedula, int noRecursividad)
@@ -326,6 +333,58 @@ namespace Telmexla.Servicios.DIME.Business
             Lista = unitOfWork.CEMArbolesDeGestion.Find(x => x.IdPadre == IdPadre).ToList();
             Lista = Lista.OrderBy(x => x.Descripcion).ToList();
             return Lista;
+        }
+        public List<CELDesconexiones> ConsultaDeGestionDesconexionesAgente(DateTime FechaInicial,DateTime FechaFinal,decimal Usuario)
+        {
+            FechaInicial = DateTime.Today;
+            FechaFinal = FechaInicial.AddDays(1);
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELDesconexiones> Lista = new List<CELDesconexiones>();
+             Lista=   UnitOfWorkBusqueda.CELDesconexiones.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
+            return Lista;
+        }
+        public CEPAsigDesconexiones ValidarCuentaAsignada(decimal Cedula, int noRecursividad, decimal CuentaCliente)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPAsigDesconexiones cuenta = new CEPAsigDesconexiones();
+               cuenta= UnitOfWorkBusqueda.CEPAsigDesconexiones.Find(x => x.CuentaCliente == CuentaCliente).FirstOrDefault();
+            if(cuenta!= null)
+            {
+                cuenta.UsuarioGestionando = Cedula;
+                UnitOfWorkBusqueda.Complete();
+                UnitOfWorkBusqueda.Dispose();
+               return ApartarCuentadeDesconexiones(Cedula,noRecursividad);
+            }
+            else { return cuenta; }
+        }
+        public CEPDesconexiones ConsultarCuentaDesconexionporCuenta(decimal Cuenta)
+        {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            int siguientemes = fechatemp.Month + 1;
+            int siguienteano = fechatemp.Year;
+            if (siguientemes > 12)
+            {
+                siguientemes = 01;
+                siguienteano = siguienteano + 1;
+            }
+            else { }
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(siguienteano, siguientemes, 1).AddDays(-0);
+
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPDesconexiones Desconexion = new CEPDesconexiones();
+            Desconexion= UnitOfWorkBusqueda.CEPDesconexiones.Find(x => x.CuentaCliente == Cuenta && x.FechaDeGestion>= fecha1 && x.FechaDeGestion<= fecha2).FirstOrDefault();
+            if(Desconexion!= null)
+            {
+                return TraeDesconexionPorId(Desconexion.IdGestion);
+            }else
+            {
+                return Desconexion;
+            }
         }
     }
 }
