@@ -3174,10 +3174,25 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             CierreExpService.ActualizarTicket(Ticket);
         }
-        public CEPTickets ConsultaDeTicketPorNumero(decimal NumeroTicket)
+        public CEPTickets ConsultaDeTicketPorNumero(decimal IdGestion)
         {
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
-            return CierreExpService.ConsultaDeTicketPorNumero(NumeroTicket);
+            return CierreExpService.ConsultaDeTicketPorNumero(IdGestion);
+        }
+        public List<CELTickets> ConsultaDeGestionTicketsAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaDeGestionTicketsAgente(FechaInicial,FechaFinal,Usuario);
+        }
+        public List<CELTickets> ListaDeGestionAgenteTicketsCierreExperiencia(decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaDeGestionAgenteTicketsCierreExperiencia(Usuario);
+        }
+        public List<CEPTickets> ListaSeguimientosAgenteTicketCierreExperiencia(decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaSeguimientosAgenteTicketCierreExperiencia(Usuario);
         }
         #endregion
     }

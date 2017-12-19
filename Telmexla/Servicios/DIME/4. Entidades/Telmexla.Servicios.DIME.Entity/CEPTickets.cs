@@ -21,9 +21,12 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Subrazon { get; set; }
         public string Estado { get; set; }
         public string Ajuste { get; set; }
+        public System.DateTime? FechaDeSeguimiento { get; set; }
         public System.DateTime? FechaDeCancelacion { get; set; }
         public string MarcacionCancelacion { get; set; }
         public string UsuarioDeCancelacion { get; set; }
         public string UsuarioDeRetencion { get; set; }
+        public decimal ServiciosDesconectados { get; set; }
+        public string Observaciones { get; set; }
     }
 }

@@ -52,6 +52,12 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void ActualizarTicket(CEPTickets Ticket);
         [OperationContract]
-        CEPTickets ConsultaDeTicketPorNumero(decimal NumeroTicket);
+        CEPTickets ConsultaDeTicketPorNumero(decimal IdGestion);
+        [OperationContract]
+        List<CELTickets> ConsultaDeGestionTicketsAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario);
+        [OperationContract]
+        List<CELTickets> ListaDeGestionAgenteTicketsCierreExperiencia(decimal Usuario);
+        [OperationContract]
+        List<CEPTickets> ListaSeguimientosAgenteTicketCierreExperiencia(decimal Usuario);
     }
 }
