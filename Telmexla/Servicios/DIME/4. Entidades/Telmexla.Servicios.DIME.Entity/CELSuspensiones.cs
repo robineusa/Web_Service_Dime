@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Telmexla.Servicios.DIME.Entity
 {
-    public class CEPSuspensiones
+    public class CELSuspensiones
     {
         public decimal IdGestion { get; set; }
+        public decimal IdGestionPrincipal { get; set; }
         public System.DateTime? FechaGestion { get; set; }
         public decimal UsuarioDeGestion { get; set; }
         public string NombreUsuarioGestion { get; set; }
@@ -24,8 +25,7 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Estado { get; set; }
         public System.DateTime? FechaSeguimiento { get; set; }
         public string Observaciones { get; set; }
-        public decimal UsuarioGestionando { get; set; }
-        
-        public virtual System.Collections.Generic.ICollection<CELSuspensiones> CELSsupensionesVirtual { get; set; }
+
+        public virtual CEPSuspensiones CEPSuspensiones { get; set; }
     }
 }

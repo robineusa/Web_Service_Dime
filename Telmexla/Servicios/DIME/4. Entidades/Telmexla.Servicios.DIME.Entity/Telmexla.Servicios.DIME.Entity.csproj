@@ -64,10 +64,12 @@
     <Compile Include="BSCAdministracionBalanced.cs" />
     <Compile Include="BSCAdministracionBalancedLog.cs" />
     <Compile Include="CELDesconexiones.cs" />
+    <Compile Include="CELSuspensiones.cs" />
     <Compile Include="CELTickets.cs" />
     <Compile Include="CEMArbolesDeGestion.cs" />
     <Compile Include="CEPAsigDesconexiones.cs" />
     <Compile Include="CEPDesconexiones.cs" />
+    <Compile Include="CEPSuspensiones.cs" />
     <Compile Include="CEPTickets.cs" />
     <Compile Include="FidelizacionOtrosCampos.cs" />
     <Compile Include="FidelizacionOtrosOfrecimientos.cs" />
