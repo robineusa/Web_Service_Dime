@@ -136,6 +136,8 @@ namespace Telmexla.Servicios.DIME.IData
         ICELDesconexionesRepository CELDesconexiones { get; }
         ICEMArbolesDeGestionRepository CEMArbolesDeGestion { get; }
         IMacroprocesosRepository Macroprocesos { get; }
+        ICEPTicketsRepository CEPTickets { get; }
+        ICELTicketsRepository CELTickets { get; }
         int Complete();
     }
 }
