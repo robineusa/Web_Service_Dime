@@ -46,5 +46,12 @@ namespace Telmexla.Servicios.DIME.IWebServices
         CEPAsigDesconexiones ValidarCuentaAsignada(decimal Cedula, int noRecursividad, decimal CuentaCliente);
         [OperationContract]
         CEPDesconexiones ConsultarCuentaDesconexionporCuenta(decimal Cuenta);
+        //proceso ticket
+        [OperationContract]
+        void RegistrarTicketBase(CEPTickets Ticket);
+        [OperationContract]
+        void ActualizarTicket(CEPTickets Ticket);
+        [OperationContract]
+        CEPTickets ConsultaDeTicketPorNumero(decimal NumeroTicket);
     }
 }
