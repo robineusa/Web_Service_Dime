@@ -162,6 +162,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<Macroprocesos> Macroprocesos { get; set; }
         System.Data.Entity.DbSet<CEPTickets> CEPTickets { get; set; }
         System.Data.Entity.DbSet<CELTickets> CELTickets { get; set; }
+        System.Data.Entity.DbSet<CEPSuspensiones> CEPSuspensiones { get; set; }
+        System.Data.Entity.DbSet<CELSuspensiones> CELSuspensiones { get; set; }
 
 
 

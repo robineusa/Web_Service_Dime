@@ -138,6 +138,8 @@ namespace Telmexla.Servicios.DIME.IData
         IMacroprocesosRepository Macroprocesos { get; }
         ICEPTicketsRepository CEPTickets { get; }
         ICELTicketsRepository CELTickets { get; }
+        ICEPSuspensionesRepository CEPSuspensiones { get; }
+        ICELSuspensionesRepository CELSuspensiones { get; }
         int Complete();
     }
 }
