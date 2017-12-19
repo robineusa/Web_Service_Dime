@@ -421,10 +421,13 @@ namespace Telmexla.Servicios.DIME.Business
             Log.Subrazon = Ticket.Subrazon;
             Log.Estado = Ticket.Estado;
             Log.Ajuste = Ticket.Ajuste;
+            Log.FechaDeSeguimiento = Ticket.FechaDeSeguimiento;
             Log.FechaDeCancelacion = Ticket.FechaDeCancelacion;
             Log.MarcacionCancelacion = Ticket.MarcacionCancelacion;
             Log.UsuarioDeCancelacion = Ticket.UsuarioDeCancelacion;
             Log.UsuarioDeRetencion = Ticket.UsuarioDeRetencion;
+            Log.ServiciosDesconectados = Ticket.ServiciosDesconectados;
+            Log.Observaciones = Ticket.Observaciones;
 
             UnitOfWorkLog.CELTickets.Add(Log);
             UnitOfWorkLog.Complete();
@@ -459,10 +462,13 @@ namespace Telmexla.Servicios.DIME.Business
             ticketencontrado.Subrazon = Ticket.Subrazon;
             ticketencontrado.Estado = Ticket.Estado;
             ticketencontrado.Ajuste = Ticket.Ajuste;
+            ticketencontrado.FechaDeSeguimiento = Ticket.FechaDeSeguimiento;
             ticketencontrado.FechaDeCancelacion = Ticket.FechaDeCancelacion;
             ticketencontrado.MarcacionCancelacion = Ticket.MarcacionCancelacion;
             ticketencontrado.UsuarioDeCancelacion = Ticket.UsuarioDeCancelacion;
             ticketencontrado.UsuarioDeRetencion = Ticket.UsuarioDeRetencion;
+            ticketencontrado.ServiciosDesconectados = Ticket.ServiciosDesconectados;
+            ticketencontrado.Observaciones = Ticket.Observaciones;
 
             UnitOftWorkBuequeda.Complete();
             UnitOftWorkBuequeda.Dispose();
@@ -489,22 +495,56 @@ namespace Telmexla.Servicios.DIME.Business
             Log.Subrazon = Ticket.Subrazon;
             Log.Estado = Ticket.Estado;
             Log.Ajuste = Ticket.Ajuste;
+            Log.FechaDeSeguimiento = Ticket.FechaDeSeguimiento;
             Log.FechaDeCancelacion = Ticket.FechaDeCancelacion;
             Log.MarcacionCancelacion = Ticket.MarcacionCancelacion;
             Log.UsuarioDeCancelacion = Ticket.UsuarioDeCancelacion;
             Log.UsuarioDeRetencion = Ticket.UsuarioDeRetencion;
+            Log.ServiciosDesconectados = Ticket.ServiciosDesconectados;
+            Log.Observaciones = Ticket.Observaciones;
 
             UnitOfWorkLog.CELTickets.Add(Log);
             UnitOfWorkLog.Complete();
             UnitOfWorkLog.Dispose();
 
         }
-        public CEPTickets ConsultaDeTicketPorNumero(decimal NumeroTicket)
+        public CEPTickets ConsultaDeTicketPorNumero(decimal IdGestion)
         {
             UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
             CEPTickets Ticket = new CEPTickets();
-            Ticket = UnitOfWorkBusqueda.CEPTickets.Find(x => x.NumeroDeTicket == NumeroTicket).FirstOrDefault();
+            Ticket = UnitOfWorkBusqueda.CEPTickets.Find(x => x.IdGestion == IdGestion).FirstOrDefault();
             return Ticket;
+        }
+        public List<CELTickets> ConsultaDeGestionTicketsAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            FechaInicial = DateTime.Today;
+            FechaFinal = FechaInicial.AddDays(1);
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELTickets> Lista = new List<CELTickets>();
+            Lista = UnitOfWorkBusqueda.CELTickets.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
+            return Lista;
+        }
+        public List<CELTickets> ListaDeGestionAgenteTicketsCierreExperiencia(decimal Usuario)
+        {
+
+            DateTime FechaInicial;
+            DateTime FechaFinal;
+            FechaInicial = DateTime.Today;
+            FechaFinal = FechaInicial.AddDays(1);
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELTickets> Lista = new List<CELTickets>();
+            Lista = UnitOfWorkBusqueda.CELTickets.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
+            return Lista;
+        }
+        public List<CEPTickets> ListaSeguimientosAgenteTicketCierreExperiencia(decimal Usuario)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CEPTickets> Lista = new List<CEPTickets>();
+            Lista = UnitOfWorkBusqueda.CEPTickets.Find(x => x.UsuarioDeGestion == Usuario && x.Estado.Equals("SEGUIMIENTO")).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
         }
     }
 }
