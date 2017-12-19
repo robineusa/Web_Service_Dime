@@ -62,11 +62,13 @@
     <Compile Include="IBSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedRepository.cs" />
     <Compile Include="ICELDesconexionesRepository.cs" />
+    <Compile Include="ICELMatrizLiberacionHHPPRepository.cs" />
     <Compile Include="ICELSuspensionesRepository.cs" />
     <Compile Include="ICELTicketsRepository.cs" />
     <Compile Include="ICEMArbolesDeGestionRepository.cs" />
     <Compile Include="ICEPAsigDesconexionesRepository.cs" />
     <Compile Include="ICEPDesconexionesRepository.cs" />
+    <Compile Include="ICEPMatrizLiberacionHHPPRepository.cs" />
     <Compile Include="ICEPSuspensionesRepository.cs" />
     <Compile Include="ICEPTicketsRepository.cs" />
     <Compile Include="IFidelizacionMotivosCancelacionRepository.cs" />

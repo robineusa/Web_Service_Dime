@@ -61,12 +61,15 @@
     <Compile Include="BAPActualizarDatosRepository.cs" />
     <Compile Include="BSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="BSCAdministracionBalancedRepository.cs" />
+    <Compile Include="CELMatrizLiberacionHHPPRepository.cs" />
     <Compile Include="CELSuspensionesRepository.cs" />
     <Compile Include="CELTicketsRepository.cs" />
+    <Compile Include="CEPMatrizLiberacionHHPPRepository.cs" />
     <Compile Include="CEPSuspensionesRepository.cs" />
     <Compile Include="CEPTicketsRepository.cs" />
     <Compile Include="Configuration\CELDesconexionesConfiguration.cs" />
     <Compile Include="CELDesconexionesRepository.cs" />
+    <Compile Include="Configuration\CELMatrizLiberacionHHPPConfiguration.cs" />
     <Compile Include="Configuration\CELSuspensionesConfiguration.cs" />
     <Compile Include="Configuration\CELTicketsConfiguration.cs" />
     <Compile Include="Configuration\CEMArbolesDeGestionConfiguration.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Configuration\BSCAdministracionBalancedLogConfiguration.cs" />
     <Compile Include="Configuration\CEPAsigDesconexionesConfiguration.cs" />
     <Compile Include="Configuration\CEPDesconexionesConfiguration.cs" />
+    <Compile Include="Configuration\CEPMatrizLiberacionHHPPConfiguration.cs" />
     <Compile Include="Configuration\CEPSuspensionesConfiguration.cs" />
     <Compile Include="Configuration\CEPTicketsConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionOtrosCamposConfiguration.cs" />

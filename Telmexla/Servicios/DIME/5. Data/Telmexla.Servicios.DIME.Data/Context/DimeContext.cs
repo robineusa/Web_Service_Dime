@@ -167,6 +167,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<CELTickets> CELTickets { get; set; }
         public System.Data.Entity.DbSet<CEPSuspensiones> CEPSuspensiones { get; set; }
         public System.Data.Entity.DbSet<CELSuspensiones> CELSuspensiones { get; set; }
+        public System.Data.Entity.DbSet<CEPMatrizLiberacionHHPP> CEPMatrizLiberacionHHPP { get; set; }
+        public System.Data.Entity.DbSet<CELMatrizLiberacionHHPP> CELMatrizLiberacionHHPP { get; set; }
 
         static DimeContext()
         {
@@ -366,6 +368,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CELTicketsConfiguration());
             modelBuilder.Configurations.Add(new CEPSuspensionesConfiguration());
             modelBuilder.Configurations.Add(new CELSuspensionesConfiguration());
+            modelBuilder.Configurations.Add(new CEPMatrizLiberacionHHPPConfiguration());
+            modelBuilder.Configurations.Add(new CELMatrizLiberacionHHPPConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -518,6 +522,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CELTicketsConfiguration(schema));
             modelBuilder.Configurations.Add(new CEPSuspensionesConfiguration(schema));
             modelBuilder.Configurations.Add(new CELSuspensionesConfiguration(schema));
+            modelBuilder.Configurations.Add(new CEPMatrizLiberacionHHPPConfiguration(schema));
+            modelBuilder.Configurations.Add(new CELMatrizLiberacionHHPPConfiguration(schema));
             return modelBuilder;
         }
 
