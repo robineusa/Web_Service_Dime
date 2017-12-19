@@ -19,5 +19,10 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get { return Context as DimeContext; }
         }
+        public bool ApartarCuentaGestionDesconexiones(decimal Cedula)
+        {
+            dimeContext.ApartarCuentaGestionDesconexiones(Cedula);
+            return true;
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
             CierreExperienciaService ces = new CierreExperienciaService();
-            var dato = ces.ListaDeGestionAgenteCierreExperiencia(1032381244);
+            CEPAsigDesconexiones dato = ces.ApartarCuentadeDesconexiones(1032381244,0);
             var sss = "";
 
             SignalRService signal = new SignalRService();

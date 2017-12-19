@@ -302,5 +302,30 @@ namespace Telmexla.Servicios.DIME.Business
             CEPDesconexiones Registro = UnitOfWorkBusqueda.CEPDesconexiones.Find(x => x.IdGestion == IdGestion).FirstOrDefault();
             return Registro;
         }
+        public CEPAsigDesconexiones ApartarCuentadeDesconexiones(decimal Cedula, int noRecursividad)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            List<decimal> solicitud = unitWork.CEPAsigDesconexiones.Find(c => c.UsuarioGestionando == Cedula).Select(x => x.Id).ToList();
+            if (solicitud.Count > 0)
+            {
+                CEPAsigDesconexiones solicitudencontrada = new CEPAsigDesconexiones();
+                return TraeRegistroAsignacion(solicitud[0]);
+            }
+            else
+            {
+                unitWork.CEPDesconexiones.ApartarCuentaGestionDesconexiones(Cedula);
+                noRecursividad++;
+                if (noRecursividad > 1) return null;
+                return ApartarCuentadeDesconexiones(Cedula, noRecursividad);
+            }
+        }
+        public List<CEMArbolesDeGestion> ListasDeArbolesCierreExperienciaAdmin(decimal IdPadre)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            List<CEMArbolesDeGestion> Lista = new List<CEMArbolesDeGestion>();
+            Lista = unitOfWork.CEMArbolesDeGestion.Find(x => x.IdPadre == IdPadre).ToList();
+            Lista = Lista.OrderBy(x => x.Descripcion).ToList();
+            return Lista;
+        }
     }
 }

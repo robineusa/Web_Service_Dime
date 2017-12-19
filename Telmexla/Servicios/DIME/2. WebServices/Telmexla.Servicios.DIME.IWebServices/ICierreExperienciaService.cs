@@ -36,5 +36,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<CELDesconexiones> ConsultaLogAdministradorCierreExperiencia(DateTime FechaInicial, DateTime FechaFinal);
         [OperationContract]
         CEPDesconexiones TraeDesconexionPorId(decimal IdGestion);
+        [OperationContract]
+        CEPAsigDesconexiones ApartarCuentadeDesconexiones(decimal Cedula, int noRecursividad);
+        [OperationContract]
+        List<CEMArbolesDeGestion> ListasDeArbolesCierreExperienciaAdmin(decimal IdPadre);
     }
 }

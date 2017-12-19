@@ -237,7 +237,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         int ApartarCuentaIncidente(decimal Cedula, decimal IdRegistro);
         int ActualizaBDPersonal();
         int GeneraJerarquiaRecursiva();
-
+        //apartar cuentadesconexiones
+        int ApartarCuentaGestionDesconexiones(decimal Cedula);
 
     }
 

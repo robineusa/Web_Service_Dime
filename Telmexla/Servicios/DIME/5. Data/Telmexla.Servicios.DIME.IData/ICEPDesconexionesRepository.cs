@@ -9,5 +9,6 @@ namespace Telmexla.Servicios.DIME.IData
 {
     public interface ICEPDesconexionesRepository: IRepository<CEPDesconexiones>
     {
+        bool ApartarCuentaGestionDesconexiones(decimal Decula);
     }
 }

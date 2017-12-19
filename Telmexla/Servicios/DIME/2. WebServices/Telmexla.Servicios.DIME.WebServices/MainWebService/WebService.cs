@@ -3133,6 +3133,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.TraeDesconexionPorId(IdGestion);
         }
+        public CEPAsigDesconexiones ApartarCuentadeDesconexiones(decimal Cedula, int noRecursividad)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ApartarCuentadeDesconexiones(Cedula,noRecursividad);
+        }
+        public List<CEMArbolesDeGestion> ListasDeArbolesCierreExperienciaAdmin(decimal IdPadre)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListasDeArbolesCierreExperienciaAdmin(IdPadre);
+        }
         #endregion
     }
 }
