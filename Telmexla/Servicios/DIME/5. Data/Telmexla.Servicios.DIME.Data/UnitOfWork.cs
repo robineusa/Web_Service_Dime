@@ -143,6 +143,8 @@ namespace Telmexla.Servicios.DIME.Data
             CELDesconexiones = new CELDesconexionesRepository(this.dimeContext);
             CEMArbolesDeGestion = new CEMArbolesDeGestionRepository(this.dimeContext);
             Macroprocesos = new MacroprocesosRepository(this.dimeContext);
+            CEPTickets = new CEPTicketsRepository(this.dimeContext);
+            CELTickets = new CELTicketsRepository(this.dimeContext);
         }
         public IAccesosXLineaRepository AccesosXLinea
         {
@@ -672,6 +674,15 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
+        public ICEPTicketsRepository CEPTickets
+        {
+            get; private set;
+        }
+        public ICELTicketsRepository CELTickets
+        {
+            get; private set;
+        }
+
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

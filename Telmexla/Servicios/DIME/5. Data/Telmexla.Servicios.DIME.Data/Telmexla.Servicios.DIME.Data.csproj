@@ -61,8 +61,11 @@
     <Compile Include="BAPActualizarDatosRepository.cs" />
     <Compile Include="BSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="BSCAdministracionBalancedRepository.cs" />
+    <Compile Include="CELTicketsRepository.cs" />
+    <Compile Include="CEPTicketsRepository.cs" />
     <Compile Include="Configuration\CELDesconexionesConfiguration.cs" />
     <Compile Include="CELDesconexionesRepository.cs" />
+    <Compile Include="Configuration\CELTicketsConfiguration.cs" />
     <Compile Include="Configuration\CEMArbolesDeGestionConfiguration.cs" />
     <Compile Include="CEMArbolesDeGestionRepository.cs" />
     <Compile Include="CEPAsigDesconexionesRepository.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="Configuration\BSCAdministracionBalancedLogConfiguration.cs" />
     <Compile Include="Configuration\CEPAsigDesconexionesConfiguration.cs" />
     <Compile Include="Configuration\CEPDesconexionesConfiguration.cs" />
+    <Compile Include="Configuration\CEPTicketsConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionOtrosCamposConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionOtrosOfrecimientosConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionRecursivaConfiguration.cs" />

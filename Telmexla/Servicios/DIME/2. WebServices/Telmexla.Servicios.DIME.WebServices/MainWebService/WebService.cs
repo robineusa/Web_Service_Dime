@@ -3163,6 +3163,22 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ConsultarCuentaDesconexionporCuenta(Cuenta);
         }
+        //proceso ticket
+        public void RegistrarTicketBase(CEPTickets Ticket)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.RegistrarTicketBase(Ticket);
+        }
+        public void ActualizarTicket(CEPTickets Ticket)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.ActualizarTicket(Ticket);
+        }
+        public CEPTickets ConsultaDeTicketPorNumero(decimal NumeroTicket)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaDeTicketPorNumero(NumeroTicket);
+        }
         #endregion
     }
 }

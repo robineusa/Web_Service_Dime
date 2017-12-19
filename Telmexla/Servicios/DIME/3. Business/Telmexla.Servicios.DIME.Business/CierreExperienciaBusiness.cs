@@ -386,5 +386,125 @@ namespace Telmexla.Servicios.DIME.Business
                 return Desconexion;
             }
         }
+        //proceso tickets
+        public void RegistrarTicketBase(CEPTickets Ticket)
+        {
+            
+            //completa informacion de la fecha de gestion
+            Ticket.FechaDeGestion = DateTime.Now;
+
+            //registra ticket
+            UnitOfWork UnitOfWorkRegistro = new UnitOfWork(new DimeContext());
+            UnitOfWorkRegistro.CEPTickets.Add(Ticket);
+            UnitOfWorkRegistro.Complete();
+            UnitOfWorkRegistro.Dispose();
+
+            //registra log de tickets
+            CELTickets Log = new CELTickets();
+            UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
+
+            Log.IdGestion = Ticket.IdGestion;
+            Log.FechaDeTransaccion = Ticket.FechaDeGestion;
+            Log.UsuarioDeTransaccion = Ticket.UsuarioDeGestion;
+            Log.NombreUsuarioTransaccion = Ticket.NombreUsuarioGestion;
+            Log.CanaldeIngreso = Ticket.CanaldeIngreso;
+            Log.CuentaCliente = Ticket.CuentaCliente;
+            Log.NumeroDeTicket = Ticket.NumeroDeTicket;
+            Log.UsuarioDeCreacion = Ticket.UsuarioDeCreacion;
+            Log.FechaDeCreacion = Ticket.FechaDeCreacion;
+            Log.Srcaus = Ticket.Srcaus;
+            Log.Srreas = Ticket.Srreas;
+            Log.Nota1 = Ticket.Nota1;
+            Log.Nota2 = Ticket.Nota2;
+            Log.Gestion = Ticket.Gestion;
+            Log.Razon = Ticket.Razon;
+            Log.Subrazon = Ticket.Subrazon;
+            Log.Estado = Ticket.Estado;
+            Log.Ajuste = Ticket.Ajuste;
+            Log.FechaDeCancelacion = Ticket.FechaDeCancelacion;
+            Log.MarcacionCancelacion = Ticket.MarcacionCancelacion;
+            Log.UsuarioDeCancelacion = Ticket.UsuarioDeCancelacion;
+            Log.UsuarioDeRetencion = Ticket.UsuarioDeRetencion;
+
+            UnitOfWorkLog.CELTickets.Add(Log);
+            UnitOfWorkLog.Complete();
+            UnitOfWorkLog.Dispose();
+            
+        }
+        public void ActualizarTicket(CEPTickets Ticket)
+        {
+
+            //completa informacion de la fecha de gestion
+            Ticket.FechaDeGestion = DateTime.Now;
+
+            //busca la informacion del ticket actual
+            UnitOfWork UnitOftWorkBuequeda = new UnitOfWork(new DimeContext());
+            CEPTickets ticketencontrado = new CEPTickets();
+            ticketencontrado = UnitOftWorkBuequeda.CEPTickets.Find(x => x.NumeroDeTicket == Ticket.NumeroDeTicket).FirstOrDefault();
+
+            ticketencontrado.FechaDeGestion = Ticket.FechaDeGestion;
+            ticketencontrado.UsuarioDeGestion = Ticket.UsuarioDeGestion;
+            ticketencontrado.NombreUsuarioGestion = Ticket.NombreUsuarioGestion;
+            ticketencontrado.CanaldeIngreso = Ticket.CanaldeIngreso;
+            ticketencontrado.CuentaCliente = Ticket.CuentaCliente;
+            ticketencontrado.NumeroDeTicket = Ticket.NumeroDeTicket;
+            ticketencontrado.UsuarioDeCreacion = Ticket.UsuarioDeCreacion;
+            ticketencontrado.FechaDeCreacion = Ticket.FechaDeCreacion;
+            ticketencontrado.Srcaus = Ticket.Srcaus;
+            ticketencontrado.Srreas = Ticket.Srreas;
+            ticketencontrado.Nota1 = Ticket.Nota1;
+            ticketencontrado.Nota2 = Ticket.Nota2;
+            ticketencontrado.Gestion = Ticket.Gestion;
+            ticketencontrado.Razon = Ticket.Razon;
+            ticketencontrado.Subrazon = Ticket.Subrazon;
+            ticketencontrado.Estado = Ticket.Estado;
+            ticketencontrado.Ajuste = Ticket.Ajuste;
+            ticketencontrado.FechaDeCancelacion = Ticket.FechaDeCancelacion;
+            ticketencontrado.MarcacionCancelacion = Ticket.MarcacionCancelacion;
+            ticketencontrado.UsuarioDeCancelacion = Ticket.UsuarioDeCancelacion;
+            ticketencontrado.UsuarioDeRetencion = Ticket.UsuarioDeRetencion;
+
+            UnitOftWorkBuequeda.Complete();
+            UnitOftWorkBuequeda.Dispose();
+            
+            //registra log de tickets
+            CELTickets Log = new CELTickets();
+            UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
+
+            Log.IdGestion = Ticket.IdGestion;
+            Log.FechaDeTransaccion = Ticket.FechaDeGestion;
+            Log.UsuarioDeTransaccion = Ticket.UsuarioDeGestion;
+            Log.NombreUsuarioTransaccion = Ticket.NombreUsuarioGestion;
+            Log.CanaldeIngreso = Ticket.CanaldeIngreso;
+            Log.CuentaCliente = Ticket.CuentaCliente;
+            Log.NumeroDeTicket = Ticket.NumeroDeTicket;
+            Log.UsuarioDeCreacion = Ticket.UsuarioDeCreacion;
+            Log.FechaDeCreacion = Ticket.FechaDeCreacion;
+            Log.Srcaus = Ticket.Srcaus;
+            Log.Srreas = Ticket.Srreas;
+            Log.Nota1 = Ticket.Nota1;
+            Log.Nota2 = Ticket.Nota2;
+            Log.Gestion = Ticket.Gestion;
+            Log.Razon = Ticket.Razon;
+            Log.Subrazon = Ticket.Subrazon;
+            Log.Estado = Ticket.Estado;
+            Log.Ajuste = Ticket.Ajuste;
+            Log.FechaDeCancelacion = Ticket.FechaDeCancelacion;
+            Log.MarcacionCancelacion = Ticket.MarcacionCancelacion;
+            Log.UsuarioDeCancelacion = Ticket.UsuarioDeCancelacion;
+            Log.UsuarioDeRetencion = Ticket.UsuarioDeRetencion;
+
+            UnitOfWorkLog.CELTickets.Add(Log);
+            UnitOfWorkLog.Complete();
+            UnitOfWorkLog.Dispose();
+
+        }
+        public CEPTickets ConsultaDeTicketPorNumero(decimal NumeroTicket)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPTickets Ticket = new CEPTickets();
+            Ticket = UnitOfWorkBusqueda.CEPTickets.Find(x => x.NumeroDeTicket == NumeroTicket).FirstOrDefault();
+            return Ticket;
+        }
     }
 }

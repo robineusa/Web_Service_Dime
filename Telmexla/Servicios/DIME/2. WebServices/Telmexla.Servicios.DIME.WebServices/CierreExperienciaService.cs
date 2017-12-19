@@ -99,5 +99,21 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
             return CierreExpBusiness.ConsultarCuentaDesconexionporCuenta(Cuenta);
         }
+        //proceso tickets
+        public void RegistrarTicketBase(CEPTickets Ticket)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            CierreExpBusiness.RegistrarTicketBase(Ticket);
+        }
+        public void ActualizarTicket(CEPTickets Ticket)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            CierreExpBusiness.ActualizarTicket(Ticket);
+        }
+        public CEPTickets ConsultaDeTicketPorNumero(decimal NumeroTicket)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ConsultaDeTicketPorNumero(NumeroTicket);
+        }
     }
 }
