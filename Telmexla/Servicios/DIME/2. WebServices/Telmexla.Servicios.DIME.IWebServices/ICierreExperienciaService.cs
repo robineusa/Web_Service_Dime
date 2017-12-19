@@ -40,5 +40,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         CEPAsigDesconexiones ApartarCuentadeDesconexiones(decimal Cedula, int noRecursividad);
         [OperationContract]
         List<CEMArbolesDeGestion> ListasDeArbolesCierreExperienciaAdmin(decimal IdPadre);
+        [OperationContract]
+        List<CELDesconexiones> ConsultaDeGestionDesconexionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario);
+        [OperationContract]
+        CEPAsigDesconexiones ValidarCuentaAsignada(decimal Cedula, int noRecursividad, decimal CuentaCliente);
+        [OperationContract]
+        CEPDesconexiones ConsultarCuentaDesconexionporCuenta(decimal Cuenta);
     }
 }

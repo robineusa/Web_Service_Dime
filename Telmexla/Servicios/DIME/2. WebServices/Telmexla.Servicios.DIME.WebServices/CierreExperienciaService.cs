@@ -84,5 +84,20 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
             return CierreExpBusiness.ListasDeArbolesCierreExperienciaAdmin(IdPadre);
         }
+        public List<CELDesconexiones> ConsultaDeGestionDesconexionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ConsultaDeGestionDesconexionesAgente(FechaInicial,FechaFinal,Usuario);
+        }
+        public CEPAsigDesconexiones ValidarCuentaAsignada(decimal Cedula, int noRecursividad, decimal CuentaCliente)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ValidarCuentaAsignada(Cedula, noRecursividad, CuentaCliente);
+        }
+        public CEPDesconexiones ConsultarCuentaDesconexionporCuenta(decimal Cuenta)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ConsultarCuentaDesconexionporCuenta(Cuenta);
+        }
     }
 }
