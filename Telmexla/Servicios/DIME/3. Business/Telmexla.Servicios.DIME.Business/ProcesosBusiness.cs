@@ -237,6 +237,7 @@ namespace Telmexla.Servicios.DIME.Business
             List<Macroprocesos> Categorias = (from n in Context.Macroprocesos
                                               where n.IdCategoriaPadre == idCategoriaPadre
                                               select n).ToList();
+            
             return Categorias;
 
         }
