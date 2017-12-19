@@ -33,10 +33,10 @@ namespace Telmexla.Servicios.DIME.Business
         {
             //trae la informacion del arbol
             UnitOfWork UnitOfWorkArbol = new UnitOfWork(new DimeContext());
-            Desconexion.Gestion = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.Gestion)).Descripcion;
-            Desconexion.Subrazon = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.Subrazon)).Descripcion;
-            Desconexion.ErrorSolicitud = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.ErrorSolicitud)).Descripcion;
-            Desconexion.TipoDeError = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.TipoDeError)).Descripcion;
+            //Desconexion.Gestion = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.Gestion)).Descripcion;
+            //Desconexion.Subrazon = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.Subrazon)).Descripcion;
+            //Desconexion.CanalDeIngreso = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.CanalDeIngreso)).Descripcion;
+            //Desconexion.TipoDeError = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.TipoDeError)).Descripcion;
             UnitOfWorkArbol.Complete();
             UnitOfWorkArbol.Dispose();
 
@@ -103,10 +103,10 @@ namespace Telmexla.Servicios.DIME.Business
         {
             //trae la informacion del arbol
             UnitOfWork UnitOfWorkArbol = new UnitOfWork(new DimeContext());
-            Desconexion.Gestion = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.Gestion)).Descripcion;
-            Desconexion.Subrazon = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.Subrazon)).Descripcion;
-            Desconexion.ErrorSolicitud = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.ErrorSolicitud)).Descripcion;
-            Desconexion.TipoDeError = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.TipoDeError)).Descripcion;
+            //Desconexion.Gestion = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.Gestion)).Descripcion;
+            //Desconexion.Subrazon = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.Subrazon)).Descripcion;
+            //Desconexion.CanalDeIngreso = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.CanalDeIngreso)).Descripcion;
+            //Desconexion.TipoDeError = UnitOfWorkArbol.CEMArbolesDeGestion.Get(Convert.ToInt32(Desconexion.TipoDeError)).Descripcion;
             UnitOfWorkArbol.Complete();
             UnitOfWorkArbol.Dispose();
 
