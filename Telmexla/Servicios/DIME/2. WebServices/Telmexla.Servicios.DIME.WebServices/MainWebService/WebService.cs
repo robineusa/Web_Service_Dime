@@ -3054,10 +3054,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion
 
         #region SignalR
-        public void InsertarNotificacionSignalR(NotificacionSignalR model)
+        public decimal InsertarNotificacionSignalR(NotificacionSignalR model)
         {
             SignalRService signalRService = new SignalRService();
-            signalRService.InsertarNotificacionSignalR(model);
+            return signalRService.InsertarNotificacionSignalR(model);
         }
         public List<NotificacionSignalR> ListaNoNotificados(decimal Usuario)
         {
@@ -3068,6 +3068,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             SignalRService signalRService = new SignalRService();
             signalRService.InsertarUsuarioNotificadoSignalR(ListaNotificaciones, model);
+        }
+        public List<NotificacionSignalR> ListTodosMensajes()
+        {
+            SignalRService signalRService = new SignalRService();
+            return signalRService.ListTodosMensajes();
         }
         #endregion
 
