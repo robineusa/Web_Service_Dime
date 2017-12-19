@@ -13,8 +13,9 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class SignalRBusiness
     {
-        public void InsertarNotificacionSignalR(NotificacionSignalR model)
+        public decimal InsertarNotificacionSignalR(NotificacionSignalR model)
         {
+            var Id = 0;
             try
             {
                 model.FechaEntrega = DateTime.Now;
@@ -25,9 +26,7 @@ namespace Telmexla.Servicios.DIME.Business
                 DimeContext context = new DimeContext();
                 context.NotificacionSignalR.Add(model);
                 context.SaveChanges();
-                var Id = model.Id;
-
-
+                Id = Convert.ToInt32(model.Id);
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -41,6 +40,7 @@ namespace Telmexla.Servicios.DIME.Business
                     }
                 }
             }
+            return Id;
         }
         public List<NotificacionSignalR> ListaNoNotificados(decimal Usuario)
         {
@@ -84,6 +84,7 @@ namespace Telmexla.Servicios.DIME.Business
                     model.IdNotificacion = Convert.ToDecimal(item);
                     unitWork.UsuariosNotificadosSignalR.Add(model);
                     unitWork.Complete();
+                    unitWork.Dispose();
                 }
                 catch (DbEntityValidationException dbEx)
                 {
@@ -98,6 +99,23 @@ namespace Telmexla.Servicios.DIME.Business
                     }
                 }
             }
+        }
+        public List<NotificacionSignalR> ListTodosMensajes()
+        {
+            DimeContext dimContext = new DimeContext();
+
+            var objeto = (from a in dimContext.NotificacionSignalR.Cast<NotificacionSignalR>().ToList()
+                          where a.TipoNotificacion == "Mensaje Global Buen Servicio"
+                          select new NotificacionSignalR()
+                          {
+                              Id = a.Id,
+                              TipoNotificacion = a.TipoNotificacion,
+                              ContenidoAlerta = a.ContenidoAlerta,
+                              UsuarioNotifica = a.UsuarioNotifica,
+                              FechaEntrega = a.FechaEntrega
+                          }).ToList();
+            
+            return objeto;
         }
     }
 }

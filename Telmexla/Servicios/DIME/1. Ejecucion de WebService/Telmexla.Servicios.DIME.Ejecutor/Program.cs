@@ -26,7 +26,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             var sss = "";
 
             SignalRService signal = new SignalRService();
-            var r = signal.ListaNoNotificados(1076622744);
+            var r = signal.ListTodosMensajes();
             //eliminar.CambiarNombreNodo(141,"nuevo nombre");
             
 

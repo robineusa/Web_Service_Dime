@@ -13,12 +13,15 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface ISignalRService
     {
         [OperationContract]
-        void InsertarNotificacionSignalR(NotificacionSignalR model);
+        decimal InsertarNotificacionSignalR(NotificacionSignalR model);
 
         [OperationContract]
         List<NotificacionSignalR> ListaNoNotificados(decimal Usuario);
 
         [OperationContract]
         void InsertarUsuarioNotificadoSignalR(List<string> ListaNotificaciones, UsuariosNotificadosSignalR model);
+
+        [OperationContract]
+        List<NotificacionSignalR> ListTodosMensajes();
     }
 }

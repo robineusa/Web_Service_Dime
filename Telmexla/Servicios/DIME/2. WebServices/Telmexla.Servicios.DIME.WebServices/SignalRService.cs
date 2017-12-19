@@ -10,10 +10,10 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
     public class SignalRService
     {
-        public void InsertarNotificacionSignalR(NotificacionSignalR model)
+        public decimal InsertarNotificacionSignalR(NotificacionSignalR model)
         {
             SignalRBusiness signalRBusiness = new SignalRBusiness();
-            signalRBusiness.InsertarNotificacionSignalR(model);
+            return signalRBusiness.InsertarNotificacionSignalR(model);
         }
         public List<NotificacionSignalR> ListaNoNotificados(decimal Usuario)
         {
@@ -24,6 +24,11 @@ namespace Telmexla.Servicios.DIME.WebServices
         {
             SignalRBusiness signalRBusiness = new SignalRBusiness();
             signalRBusiness.InsertarUsuarioNotificadoSignalR(ListaNotificaciones, model);
+        }
+        public List<NotificacionSignalR> ListTodosMensajes()
+        {
+            SignalRBusiness signalRBusiness = new SignalRBusiness();
+            return signalRBusiness.ListTodosMensajes();
         }
     }
 }
