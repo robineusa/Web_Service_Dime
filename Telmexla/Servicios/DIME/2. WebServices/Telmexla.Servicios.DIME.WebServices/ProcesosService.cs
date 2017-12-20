@@ -81,10 +81,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             EliminarCategoria.EliminarCategoria(idCategoria);
         }
 
-        public List<Macroprocesos> ConsultarCategorias(int idCategoriaPadre)
+        public List<Macroprocesos> ConsultarCategorias(int idCategoria, bool ConsultarPadre)
         {
             ProcesosBusiness ConsultarCategorias = new ProcesosBusiness();
-            return ConsultarCategorias.ConsultarCategorias(idCategoriaPadre);
+            return ConsultarCategorias.ConsultarCategorias(idCategoria, ConsultarPadre);
         }
     }
 }

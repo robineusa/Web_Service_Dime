@@ -34,7 +34,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void CrearCategoria(Macroprocesos Categoria);
         [OperationContract]
-        List<Macroprocesos> ConsultarCategorias(int idCategoriaPadre);
+        List<Macroprocesos> ConsultarCategorias(int idCategoria, bool ConsultarPadre);
         [OperationContract]
         void EliminarCategoria(int idCategoria);
 

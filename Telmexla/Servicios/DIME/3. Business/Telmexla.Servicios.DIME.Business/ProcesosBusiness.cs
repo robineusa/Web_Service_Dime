@@ -158,7 +158,7 @@ namespace Telmexla.Servicios.DIME.Business
         /// </summary>
         /// <param name="IdNodo"></param>
         /// <param name="CodigoHtml"></param>
-        public string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal,int Categoria,int SubCategoria,int Tipo)
+        public string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal, int Categoria, int SubCategoria, int Tipo)
         {
             Nodo nodo = new Nodo();
             string mensaje = string.Empty;
@@ -233,14 +233,23 @@ namespace Telmexla.Servicios.DIME.Business
             }
         }
 
-        public List<Macroprocesos> ConsultarCategorias(int idCategoriaPadre)
+        public List<Macroprocesos> ConsultarCategorias(int idCategoria, bool ConsultarPadre)
         {
             DimeContext Context = new DimeContext();
+            List<Macroprocesos> Categorias = new List<Macroprocesos>();
 
-            List<Macroprocesos> Categorias = (from n in Context.Macroprocesos
-                                              where n.IdCategoriaPadre == idCategoriaPadre
-                                              select n).ToList();
-            
+            if (ConsultarPadre)
+            {
+                Categorias = (from n in Context.Macroprocesos
+                              where n.IdCategoriaPadre == idCategoria
+                              select n).ToList();
+            }
+            else
+            {
+                Categorias = (from n in Context.Macroprocesos
+                              where n.IdCategoria == idCategoria
+                              select n).ToList();
+            }
             return Categorias;
 
         }
