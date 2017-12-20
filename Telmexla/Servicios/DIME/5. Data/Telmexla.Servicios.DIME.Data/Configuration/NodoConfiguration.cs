@@ -20,6 +20,9 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.CodigoHtml).HasColumnName(@"CODIGO_HTML").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(null);
             Property(x => x.FechaCreacion).HasColumnName(@"FECHA_CREACION").IsRequired().HasColumnType("datetime");
             Property(x => x.EsNodoFinal).HasColumnName(@"ES_NODO_FINAL").IsRequired().HasColumnType("bit");
+            Property(x => x.Categoria).HasColumnName(@"CATEGORIA").IsRequired().HasColumnType("int");
+            Property(x => x.SubCategoria).HasColumnName(@"SUBCATEGORIA").IsRequired().HasColumnType("int");
+            Property(x => x.Tipo).HasColumnName(@"TIPO").IsRequired().HasColumnType("int");
         }
     }
 }

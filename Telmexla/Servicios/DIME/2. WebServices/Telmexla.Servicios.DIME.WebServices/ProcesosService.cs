@@ -64,10 +64,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             ProcesosBusiness ConsultarCodigoHtmlNodo = new ProcesosBusiness();
             return ConsultarCodigoHtmlNodo.ConsultarCodigoHtmlNodo(IdNodo);
         }
-        public string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal)
+        public string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal, int Categoria, int SubCategoria, int Tipo)
         {
             ProcesosBusiness GuardarCodigoHtmlNodo = new ProcesosBusiness();
-            return GuardarCodigoHtmlNodo.GuardarCodigoHtmlNodo(IdNodo, CodigoHtml, NodoFinal);
+            return GuardarCodigoHtmlNodo.GuardarCodigoHtmlNodo(IdNodo, CodigoHtml, NodoFinal, Categoria, SubCategoria, Tipo);
         }
         public void CrearCategoria(Macroprocesos Categoria)
         {

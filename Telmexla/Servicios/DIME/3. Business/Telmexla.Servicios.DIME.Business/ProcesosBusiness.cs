@@ -158,7 +158,7 @@ namespace Telmexla.Servicios.DIME.Business
         /// </summary>
         /// <param name="IdNodo"></param>
         /// <param name="CodigoHtml"></param>
-        public string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal)
+        public string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal,int Categoria,int SubCategoria,int Tipo)
         {
             Nodo nodo = new Nodo();
             string mensaje = string.Empty;
@@ -169,6 +169,9 @@ namespace Telmexla.Servicios.DIME.Business
             {
                 nodo.CodigoHtml = CodigoHtml;
                 nodo.EsNodoFinal = NodoFinal;
+                nodo.Categoria = Categoria;
+                nodo.SubCategoria = SubCategoria;
+                nodo.Tipo = Tipo;
             }
 
             mensaje = nodo != null ? "Se han guardado los cambios efectuados" : "No se pudo guardar los cambios, revise si existe el nodo";
