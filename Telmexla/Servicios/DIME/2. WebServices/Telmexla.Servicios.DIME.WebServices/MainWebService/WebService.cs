@@ -3203,7 +3203,19 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ListaSrreas(Razon);
-        }    
+        }
+        public List<MaestroMarcacione> ListaMarcacionesTickets()
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaMarcacionesTickets();
+        }
+        public CEPTickets ConsultaDeTicketPorTicket(decimal Ticket)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaDeTicketPorTicket(Ticket);
+
+        }
+
         #endregion
     }
 }

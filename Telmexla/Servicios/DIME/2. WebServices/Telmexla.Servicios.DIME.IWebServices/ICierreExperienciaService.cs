@@ -63,5 +63,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<MaestroMarcacione> ListaSrcaus();
         [OperationContract]
         List<MaestroMarcacione> ListaSrreas(string Razon);
+        [OperationContract]
+        List<MaestroMarcacione> ListaMarcacionesTickets();
+        [OperationContract]
+        CEPTickets ConsultaDeTicketPorTicket(decimal Ticket);
     }
 }

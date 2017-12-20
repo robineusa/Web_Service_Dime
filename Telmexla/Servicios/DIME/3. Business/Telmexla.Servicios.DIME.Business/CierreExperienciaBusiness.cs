@@ -582,10 +582,46 @@ namespace Telmexla.Servicios.DIME.Business
             for (int i = 0; i < objetosResult.Count; i++)
             {
                 result.Add(new MaestroMarcacione());
-                result[i].Subrazon = objetosResult[i].Subrazon;
+                
+                if (objetosResult[i].Subrazon == "" || objetosResult[i].Subrazon == null)
+                {
+                    var Subrazon = "NO APLICA";
+                    result[i].Subrazon = Subrazon;
+                }
+                else
+                {
+                    result[i].Subrazon = objetosResult[i].Subrazon;
+                }
+            }
+            return result;
+        }
+        public List<MaestroMarcacione> ListaMarcacionesTickets()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MaestroMarcacione> result = new List<MaestroMarcacione>();
+            var objetosResult = (from a in dimContext.MaestroMarcaciones
+                                 orderby a.Submarcacion ascending
+                                 select new
+                                 {
+                                     a.Submarcacion,
+                                 }
+                                 ).Distinct().ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MaestroMarcacione());
+                result[i].Submarcacion = objetosResult[i].Submarcacion;
 
             }
             return result;
         }
+        public CEPTickets ConsultaDeTicketPorTicket(decimal Ticket)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPTickets TicketEncontrado = new CEPTickets();
+            TicketEncontrado = UnitOfWorkBusqueda.CEPTickets.Find(x => x.NumeroDeTicket == Ticket).FirstOrDefault();
+            return TicketEncontrado;
+        }
+
     }
 }
