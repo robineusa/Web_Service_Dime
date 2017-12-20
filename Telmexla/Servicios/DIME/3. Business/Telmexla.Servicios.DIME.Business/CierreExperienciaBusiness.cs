@@ -546,5 +546,46 @@ namespace Telmexla.Servicios.DIME.Business
             Lista = Lista.OrderBy(x => x.IdGestion).ToList();
             return Lista;
         }
+        public List<MaestroMarcacione> ListaSrcaus()
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MaestroMarcacione> result = new List<MaestroMarcacione>();
+            var objetosResult = (from a in dimContext.MaestroMarcaciones
+                                 orderby a.Razon ascending
+                                 select new
+                                 {
+                                     a.Razon,
+                                 }
+                                 ).Distinct().ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MaestroMarcacione());
+                result[i].Razon = objetosResult[i].Razon;
+
+            }
+            return result;
+        }
+        public List<MaestroMarcacione> ListaSrreas(string Razon)
+        {
+            DimeContext dimContext = new DimeContext();
+            List<MaestroMarcacione> result = new List<MaestroMarcacione>();
+            var objetosResult = (from a in dimContext.MaestroMarcaciones
+                                 where a.Razon.Equals(Razon)
+                                 orderby a.Subrazon ascending
+                                 select new
+                                 {
+                                     a.Subrazon,
+                                 }
+                                 ).Distinct().ToList();
+
+            for (int i = 0; i < objetosResult.Count; i++)
+            {
+                result.Add(new MaestroMarcacione());
+                result[i].Subrazon = objetosResult[i].Subrazon;
+
+            }
+            return result;
+        }
     }
 }

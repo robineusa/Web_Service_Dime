@@ -130,5 +130,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
             return CierreExpBusiness.ListaSeguimientosAgenteTicketCierreExperiencia(Usuario);
         }
+        public List<MaestroMarcacione> ListaSrcaus()
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaSrcaus();
+        }
+        public List<MaestroMarcacione> ListaSrreas(string Razon)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaSrreas(Razon);
+        }
     }
 }

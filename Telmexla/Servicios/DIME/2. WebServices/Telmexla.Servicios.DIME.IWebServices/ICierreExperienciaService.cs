@@ -59,5 +59,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<CELTickets> ListaDeGestionAgenteTicketsCierreExperiencia(decimal Usuario);
         [OperationContract]
         List<CEPTickets> ListaSeguimientosAgenteTicketCierreExperiencia(decimal Usuario);
+        [OperationContract]
+        List<MaestroMarcacione> ListaSrcaus();
+        [OperationContract]
+        List<MaestroMarcacione> ListaSrreas(string Razon);
     }
 }

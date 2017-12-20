@@ -3194,6 +3194,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ListaSeguimientosAgenteTicketCierreExperiencia(Usuario);
         }
+        public List<MaestroMarcacione> ListaSrcaus()
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaSrcaus();
+        }
+        public List<MaestroMarcacione> ListaSrreas(string Razon)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaSrreas(Razon);
+        }    
         #endregion
     }
 }
