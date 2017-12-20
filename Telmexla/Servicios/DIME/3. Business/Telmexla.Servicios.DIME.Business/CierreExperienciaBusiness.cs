@@ -789,5 +789,12 @@ namespace Telmexla.Servicios.DIME.Business
             cuenta = UnitOfWorkBusqueda.CEPAsigSuspenciones.Find(x => x.IdAsignacion == IdAsignacion).FirstOrDefault();
             return cuenta;
         }
+        public CEPSuspensiones TraeSuspensionPorId(decimal IdGestion)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPSuspensiones Registro = new CEPSuspensiones();
+            Registro = UnitOfWorkBusqueda.CEPSuspensiones.Find(x => x.IdGestion == IdGestion).FirstOrDefault();
+            return Registro;
+        }
     }
 }

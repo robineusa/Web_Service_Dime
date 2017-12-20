@@ -3251,6 +3251,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.TraeRegistroAsignacionSuspensiones(IdAsignacion);
         }
+        public CEPSuspensiones TraeSuspensionPorId(decimal IdGestion)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.TraeSuspensionPorId(IdGestion);
+        }
         #endregion
     }
 }

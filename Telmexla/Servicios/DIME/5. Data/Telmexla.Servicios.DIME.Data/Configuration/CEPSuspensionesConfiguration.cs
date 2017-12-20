@@ -32,7 +32,6 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.FechaSeguimiento).HasColumnName(@"FECHA_SEGUIMIENTO").IsOptional().HasColumnType("datetime");
             Property(x => x.Observaciones).HasColumnName(@"OBSERVACIONES").IsOptional().HasColumnType("varchar");
-            Property(x => x.UsuarioDeGestion).HasColumnName(@"USUARIO_GESTIONANDO").IsOptional().HasColumnType("numeric");
             
         }
     }
