@@ -186,5 +186,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
             return CierreExpBusiness.TraeRegistroAsignacionSuspensiones(IdAsignacion);
         }
+        public CEPSuspensiones TraeSuspensionPorId(decimal IdGestion)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.TraeSuspensionPorId(IdGestion);
+        }
     }
 }
