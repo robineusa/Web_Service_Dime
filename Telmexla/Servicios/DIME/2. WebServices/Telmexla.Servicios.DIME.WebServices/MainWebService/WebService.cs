@@ -3236,6 +3236,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ListaSeguimientosAgenteSuspensiones(Usuario);
         }
+        public CEPAsigSuspenciones ValidarCuentaAsigSuspension(decimal Cedula, decimal CuentaCliente)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ValidarCuentaAsigSuspension(Cedula,CuentaCliente);
+        }
+        public CEPAsigSuspenciones ApartarCuentadeSuspensiones(decimal Cedula, int noRecursividad)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ApartarCuentadeSuspensiones(Cedula, noRecursividad);
+        }
+        public CEPAsigSuspenciones TraeRegistroAsignacionSuspensiones(decimal IdAsignacion)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.TraeRegistroAsignacionSuspensiones(IdAsignacion);
+        }
         #endregion
     }
 }

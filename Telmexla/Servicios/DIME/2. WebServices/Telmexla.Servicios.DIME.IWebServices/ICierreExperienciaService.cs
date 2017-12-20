@@ -75,5 +75,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<CELSuspensiones> ListaDeGestionAgenteSuspensiones(decimal Usuario);
         [OperationContract]
         List<CEPSuspensiones> ListaSeguimientosAgenteSuspensiones(decimal Usuario);
+        [OperationContract]
+        CEPAsigSuspenciones ValidarCuentaAsigSuspension(decimal Cedula, decimal CuentaCliente);
+        [OperationContract]
+        CEPAsigSuspenciones ApartarCuentadeSuspensiones(decimal Cedula, int noRecursividad);
+        [OperationContract]
+        CEPAsigSuspenciones TraeRegistroAsignacionSuspensiones(decimal IdAsignacion);
     }
 }

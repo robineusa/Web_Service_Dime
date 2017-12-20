@@ -171,5 +171,20 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
             return CierreExpBusiness.ListaSeguimientosAgenteSuspensiones(Usuario);
         }
+        public CEPAsigSuspenciones ValidarCuentaAsigSuspension(decimal Cedula, decimal CuentaCliente)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ValidarCuentaAsigSuspension(Cedula,CuentaCliente);
+        }
+        public CEPAsigSuspenciones ApartarCuentadeSuspensiones(decimal Cedula, int noRecursividad)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ApartarCuentadeSuspensiones(Cedula, noRecursividad);
+        }
+        public CEPAsigSuspenciones TraeRegistroAsignacionSuspensiones(decimal IdAsignacion)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.TraeRegistroAsignacionSuspensiones(IdAsignacion);
+        }
     }
 }
