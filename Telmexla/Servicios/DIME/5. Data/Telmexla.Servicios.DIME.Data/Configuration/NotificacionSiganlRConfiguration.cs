@@ -24,7 +24,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.ContenidoAlerta).HasColumnName(@"CONTENIDO_ALERTA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(null);
             Property(x => x.UsuarioNotifica).HasColumnName(@"USUARIO_NOTIFICA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.FechaEntrega).HasColumnName(@"FECHA_ENTREGA").IsOptional().HasColumnType("datetime");
-            
+            Property(x => x.NombreUsuarioNotifica).HasColumnName(@"NOMBRE_USUARIO_NOTIFICA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
         }
     }
 }
