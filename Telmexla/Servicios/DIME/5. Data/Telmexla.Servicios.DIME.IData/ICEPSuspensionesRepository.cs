@@ -9,5 +9,6 @@ namespace Telmexla.Servicios.DIME.IData
 {
     public interface ICEPSuspensionesRepository : IRepository<CEPSuspensiones>
     {
+        bool ApartarCuentaGestionSuspensiones(decimal Decula);
     }
 }

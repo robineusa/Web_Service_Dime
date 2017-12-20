@@ -246,7 +246,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         int GeneraJerarquiaRecursiva();
         //apartar cuentadesconexiones
         int ApartarCuentaGestionDesconexiones(decimal Cedula);
-
+        //apartar cuenta suspensiones
+        int ApartarCuentaGestionSuspensiones(decimal Cedula);
     }
 
 

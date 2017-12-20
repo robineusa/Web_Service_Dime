@@ -1203,6 +1203,19 @@ namespace Telmexla.Servicios.DIME.Data.Context
 
             return (int)procResultParam.Value;
         }
+        //apartar cuenta suspensiones
+        public int ApartarCuentaGestionSuspensiones(decimal Cedula)
+        {
+            var cedulaParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@Usuario", SqlDbType = System.Data.SqlDbType.Decimal, Direction = System.Data.ParameterDirection.Input, Value = Cedula, Precision = 18, Scale = 0 };
+            if (cedulaParam.Value == null)
+                cedulaParam.Value = System.DBNull.Value;
+
+            var procResultParam = new System.Data.SqlClient.SqlParameter { ParameterName = "@procResult", SqlDbType = System.Data.SqlDbType.Int, Direction = System.Data.ParameterDirection.Output };
+
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Apartar_Cuenta_Suspensiones] @Usuario", cedulaParam, procResultParam);
+
+            return (int)procResultParam.Value;
+        }
 
     }
 }
