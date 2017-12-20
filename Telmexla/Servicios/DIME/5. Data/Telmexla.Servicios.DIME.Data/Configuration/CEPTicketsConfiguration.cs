@@ -34,11 +34,14 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Subrazon).HasColumnName(@"SUBRAZON").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.Estado).HasColumnName(@"ESTADO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.Ajuste).HasColumnName(@"AJUSTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.FechaDeSeguimiento).HasColumnName(@"FECHA_DE_SEGUIMIENTO").IsOptional().HasColumnType("datetime");
             Property(x => x.FechaDeCancelacion).HasColumnName(@"FECHA_DE_CANCELACION").IsOptional().HasColumnType("datetime");
             Property(x => x.MarcacionCancelacion).HasColumnName(@"MARCACION_DE_CANCELACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.UsuarioDeCancelacion).HasColumnName(@"USUARIO_DE_CANCELACION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.UsuarioDeRetencion).HasColumnName(@"USUARIO_RETENCION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            
+            Property(x => x.ServiciosDesconectados).HasColumnName(@"SERVICIOS_DESCONECTADOS").IsOptional().HasColumnType("numeric");
+            Property(x => x.Observaciones).HasColumnName(@"OBSERVACIONES").IsOptional().HasColumnType("varchar");
+
         }
     }
 }

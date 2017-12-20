@@ -110,10 +110,45 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
             CierreExpBusiness.ActualizarTicket(Ticket);
         }
-        public CEPTickets ConsultaDeTicketPorNumero(decimal NumeroTicket)
+        public CEPTickets ConsultaDeTicketPorNumero(decimal IdGestion)
         {
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
-            return CierreExpBusiness.ConsultaDeTicketPorNumero(NumeroTicket);
+            return CierreExpBusiness.ConsultaDeTicketPorNumero(IdGestion);
+        }
+        public List<CELTickets> ConsultaDeGestionTicketsAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ConsultaDeGestionTicketsAgente(FechaInicial,FechaFinal,Usuario);
+        }
+        public List<CELTickets> ListaDeGestionAgenteTicketsCierreExperiencia(decimal Usuario)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaDeGestionAgenteTicketsCierreExperiencia(Usuario);
+        }
+        public List<CEPTickets> ListaSeguimientosAgenteTicketCierreExperiencia(decimal Usuario)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaSeguimientosAgenteTicketCierreExperiencia(Usuario);
+        }
+        public List<MaestroMarcacione> ListaSrcaus()
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaSrcaus();
+        }
+        public List<MaestroMarcacione> ListaSrreas(string Razon)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaSrreas(Razon);
+        }
+        public List<MaestroMarcacione> ListaMarcacionesTickets()
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaMarcacionesTickets();
+        }
+        public CEPTickets ConsultaDeTicketPorTicket(decimal Ticket)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ConsultaDeTicketPorTicket(Ticket);
         }
     }
 }

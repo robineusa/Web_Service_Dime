@@ -145,6 +145,11 @@ namespace Telmexla.Servicios.DIME.Data
             Macroprocesos = new MacroprocesosRepository(this.dimeContext);
             CEPTickets = new CEPTicketsRepository(this.dimeContext);
             CELTickets = new CELTicketsRepository(this.dimeContext);
+            CEPSuspensiones = new CEPSuspensionesRepository(this.dimeContext);
+            CELSuspensiones = new CELSuspensionesRepository(this.dimeContext);
+            CEPMatrizLiberacionHHPP = new CEPMatrizLiberacionHHPPRepository(this.dimeContext);
+            CELMatrizLiberacionHHPP = new CELMatrizLiberacionHHPPRepository(this.dimeContext);
+            CEPAsigSuspenciones = new CEPAsigSuspencionesRepository(this.dimeContext);
         }
         public IAccesosXLineaRepository AccesosXLinea
         {
@@ -679,6 +684,26 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public ICELTicketsRepository CELTickets
+        {
+            get; private set;
+        }
+        public ICEPSuspensionesRepository CEPSuspensiones
+        {
+            get; private set;
+        }
+        public ICELSuspensionesRepository CELSuspensiones
+        {
+            get; private set;
+        }
+        public ICEPMatrizLiberacionHHPPRepository CEPMatrizLiberacionHHPP
+        {
+            get; private set;
+        }
+        public ICELMatrizLiberacionHHPPRepository CELMatrizLiberacionHHPP
+        {
+            get; private set;
+        }
+        public ICEPAsigSuspencionesRepository CEPAsigSuspenciones
         {
             get; private set;
         }
