@@ -150,5 +150,26 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
             return CierreExpBusiness.ConsultaDeTicketPorTicket(Ticket);
         }
+        //proceso suspensiones temporales
+        public void RegistrarSuspencion(CEPSuspensiones Suspencion, decimal IdAsignacion)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            CierreExpBusiness.RegistrarSuspencion(Suspencion,IdAsignacion);
+        }
+        public void ActualizarSuspencion(CEPSuspensiones Suspencion)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            CierreExpBusiness.ActualizarSuspencion(Suspencion);
+        }
+        public List<CELSuspensiones> ListaDeGestionAgenteSuspensiones(decimal Usuario)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaDeGestionAgenteSuspensiones(Usuario);
+        }
+        public List<CEPSuspensiones> ListaSeguimientosAgenteSuspensiones(decimal Usuario)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaSeguimientosAgenteSuspensiones(Usuario);
+        }
     }
 }

@@ -3215,7 +3215,27 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return CierreExpService.ConsultaDeTicketPorTicket(Ticket);
 
         }
-
+        //proceso suspenciones temporales
+        public void RegistrarSuspencion(CEPSuspensiones Suspencion, decimal IdAsignacion)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.RegistrarSuspencion(Suspencion,IdAsignacion);
+        }
+        public void ActualizarSuspencion(CEPSuspensiones Suspencion)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.ActualizarSuspencion(Suspencion);
+        }
+        public List<CELSuspensiones> ListaDeGestionAgenteSuspensiones(decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaDeGestionAgenteSuspensiones(Usuario);
+        }
+        public List<CEPSuspensiones> ListaSeguimientosAgenteSuspensiones(decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaSeguimientosAgenteSuspensiones(Usuario);
+        }
         #endregion
     }
 }

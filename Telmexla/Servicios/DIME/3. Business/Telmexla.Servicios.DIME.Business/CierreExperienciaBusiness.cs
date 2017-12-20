@@ -623,9 +623,171 @@ namespace Telmexla.Servicios.DIME.Business
             return TicketEncontrado;
         }
         //procesos suspenciones temporales
-        public void RegistrarSuspencion (CEPSuspensiones Suspencion)
+        public void RegistrarSuspencion (CEPSuspensiones Suspencion, decimal IdAsignacion)
+        {
+            //genera informacion adicional
+            Suspencion.FechaGestion = DateTime.Now;
+
+            //registra informacion en tabla principal
+            UnitOfWork UnitOfWorkGuardado = new UnitOfWork(new DimeContext());
+            UnitOfWorkGuardado.CEPSuspensiones.Add(Suspencion);
+            UnitOfWorkGuardado.Complete();
+            UnitOfWorkGuardado.Dispose();
+
+            //Registra informacion en el log
+            UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
+            CELSuspensiones Log = new CELSuspensiones();
+
+            Log.IdGestion = Suspencion.IdGestion;
+            Log.FechaDeTransaccion = Suspencion.FechaGestion;
+            Log.UsuarioDeTransaccion = Suspencion.UsuarioDeGestion;
+            Log.NombreUsuarioTransaccion = Suspencion.NombreUsuarioGestion;
+            Log.CuentaCliente = Suspencion.CuentaCliente;
+            Log.CanalDeIngreso = Suspencion.CanalDeIngreso;
+            Log.FechaCreacion = Suspencion.FechaCreacion;
+            Log.UsuarioCreacion = Suspencion.UsuarioCreacion;
+            Log.ServiciosSuspender = Suspencion.ServiciosSuspender;
+            Log.MotivosSuspension = Suspencion.MotivosSuspension;
+            Log.MesesSuspender = Suspencion.MesesSuspender;
+            Log.Gestion = Suspencion.Gestion;
+            Log.Subrazon = Suspencion.Subrazon;
+            Log.Estado = Suspencion.Estado;
+            Log.FechaSeguimiento = Suspencion.FechaSeguimiento;
+            Log.Observaciones = Suspencion.Observaciones;
+
+            UnitOfWorkLog.CELSuspensiones.Add(Log);
+            UnitOfWorkLog.Complete();
+            UnitOfWorkLog.Dispose();
+
+            //elimina el registro de la base de datos de asignacion
+            if (IdAsignacion > 0)
+            {
+                CEPAsigSuspenciones RegistroCargado = new CEPAsigSuspenciones();
+                UnitOfWork UnitOfWorkElimina = new UnitOfWork(new DimeContext());
+                RegistroCargado = UnitOfWorkElimina.CEPAsigSuspenciones.Find(x => x.IdAsignacion == IdAsignacion).FirstOrDefault();
+                if (RegistroCargado.IdAsignacion > 0)
+                {
+                    UnitOfWorkElimina.CEPAsigSuspenciones.Remove(RegistroCargado);
+                    UnitOfWorkElimina.Complete();
+                    UnitOfWorkElimina.Dispose();
+                }
+            }
+        }
+        public void ActualizarSuspencion(CEPSuspensiones Suspencion)
+        {
+            //genera informacion adicional
+            Suspencion.FechaGestion = DateTime.Now;
+
+            //registra informacion en tabla principal
+            UnitOfWork UnitOfWorkActualizado = new UnitOfWork(new DimeContext());
+            CEPSuspensiones RegistroParaActualizar = new CEPSuspensiones();
+            RegistroParaActualizar = UnitOfWorkActualizado.CEPSuspensiones.Find(x=> x.IdGestion == Suspencion.IdGestion).FirstOrDefault();
+            if (RegistroParaActualizar!= null)
+            {
+                RegistroParaActualizar.FechaGestion = Suspencion.FechaGestion;
+                RegistroParaActualizar.UsuarioDeGestion = Suspencion.UsuarioDeGestion;
+                RegistroParaActualizar.NombreUsuarioGestion = Suspencion.NombreUsuarioGestion;
+                RegistroParaActualizar.CuentaCliente = Suspencion.CuentaCliente;
+                RegistroParaActualizar.CanalDeIngreso = Suspencion.CanalDeIngreso;
+                RegistroParaActualizar.FechaCreacion = Suspencion.FechaCreacion;
+                RegistroParaActualizar.UsuarioCreacion = Suspencion.UsuarioCreacion;
+                RegistroParaActualizar.ServiciosSuspender = Suspencion.ServiciosSuspender;
+                RegistroParaActualizar.MotivosSuspension = Suspencion.MotivosSuspension;
+                RegistroParaActualizar.MesesSuspender = Suspencion.MesesSuspender;
+                RegistroParaActualizar.Gestion = Suspencion.Gestion;
+                RegistroParaActualizar.Subrazon = Suspencion.Subrazon;
+                RegistroParaActualizar.Estado = Suspencion.Estado;
+                RegistroParaActualizar.FechaSeguimiento = Suspencion.FechaSeguimiento;
+                RegistroParaActualizar.Observaciones = Suspencion.Observaciones;
+
+                UnitOfWorkActualizado.Complete();
+                UnitOfWorkActualizado.Dispose();   
+            }
+
+            //Registra informacion en el log
+            UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
+            CELSuspensiones Log = new CELSuspensiones();
+
+            Log.IdGestion = Suspencion.IdGestion;
+            Log.FechaDeTransaccion = Suspencion.FechaGestion;
+            Log.UsuarioDeTransaccion = Suspencion.UsuarioDeGestion;
+            Log.NombreUsuarioTransaccion = Suspencion.NombreUsuarioGestion;
+            Log.CuentaCliente = Suspencion.CuentaCliente;
+            Log.CanalDeIngreso = Suspencion.CanalDeIngreso;
+            Log.FechaCreacion = Suspencion.FechaCreacion;
+            Log.UsuarioCreacion = Suspencion.UsuarioCreacion;
+            Log.ServiciosSuspender = Suspencion.ServiciosSuspender;
+            Log.MotivosSuspension = Suspencion.MotivosSuspension;
+            Log.MesesSuspender = Suspencion.MesesSuspender;
+            Log.Gestion = Suspencion.Gestion;
+            Log.Subrazon = Suspencion.Subrazon;
+            Log.Estado = Suspencion.Estado;
+            Log.FechaSeguimiento = Suspencion.FechaSeguimiento;
+            Log.Observaciones = Suspencion.Observaciones;
+
+            UnitOfWorkLog.CELSuspensiones.Add(Log);
+            UnitOfWorkLog.Complete();
+            UnitOfWorkLog.Dispose();
+            
+        }
+        public List<CELSuspensiones> ListaDeGestionAgenteSuspensiones(decimal Usuario)
         {
 
+            DateTime FechaInicial;
+            DateTime FechaFinal;
+            FechaInicial = DateTime.Today;
+            FechaFinal = FechaInicial.AddDays(1);
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELSuspensiones> Lista = new List<CELSuspensiones>();
+            Lista = UnitOfWorkBusqueda.CELSuspensiones.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
+            return Lista;
+        }
+        public List<CEPSuspensiones> ListaSeguimientosAgenteSuspensiones(decimal Usuario)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CEPSuspensiones> Lista = new List<CEPSuspensiones>();
+            Lista = UnitOfWorkBusqueda.CEPSuspensiones.Find(x => x.UsuarioDeGestion == Usuario && x.Estado.Equals("SEGUIMIENTO")).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
+        public CEPAsigSuspenciones ValidarCuentaAsigSuspension(decimal Cedula, decimal CuentaCliente)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPAsigSuspenciones cuenta = new CEPAsigSuspenciones();
+            cuenta = UnitOfWorkBusqueda.CEPAsigSuspenciones.Find(x => x.CuentaCliente == CuentaCliente).FirstOrDefault();
+            if (cuenta != null)
+            {
+                cuenta.UsuarioGestionando = Cedula;
+                UnitOfWorkBusqueda.Complete();
+                UnitOfWorkBusqueda.Dispose();
+                return ApartarCuentadeSuspensiones(Cedula, 0);
+            }
+            else { return cuenta; }
+        }
+        public CEPAsigSuspenciones ApartarCuentadeSuspensiones(decimal Cedula, int noRecursividad)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            List<decimal> solicitud = unitWork.CEPAsigSuspenciones.Find(c => c.UsuarioGestionando == Cedula).Select(x => x.IdAsignacion).ToList();
+            if (solicitud.Count > 0)
+            {
+                CEPAsigSuspenciones solicitudencontrada = new CEPAsigSuspenciones();
+                return TraeRegistroAsignacionSuspensiones(solicitud[0]);
+            }
+            else
+            {
+                unitWork.CEPSuspensiones.ApartarCuentaGestionSuspensiones(Cedula);
+                noRecursividad++;
+                if (noRecursividad > 1) return null;
+                return ApartarCuentadeSuspensiones(Cedula, noRecursividad);
+            }
+        }
+        public CEPAsigSuspenciones TraeRegistroAsignacionSuspensiones(decimal IdAsignacion)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPAsigSuspenciones cuenta = new CEPAsigSuspenciones();
+            cuenta = UnitOfWorkBusqueda.CEPAsigSuspenciones.Find(x => x.IdAsignacion == IdAsignacion).FirstOrDefault();
+            return cuenta;
         }
     }
 }

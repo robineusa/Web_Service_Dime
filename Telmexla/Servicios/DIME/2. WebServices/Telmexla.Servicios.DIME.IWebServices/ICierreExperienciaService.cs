@@ -67,5 +67,13 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<MaestroMarcacione> ListaMarcacionesTickets();
         [OperationContract]
         CEPTickets ConsultaDeTicketPorTicket(decimal Ticket);
+        [OperationContract]
+        void RegistrarSuspencion(CEPSuspensiones Suspencion, decimal IdAsignacion);
+        [OperationContract]
+        void ActualizarSuspencion(CEPSuspensiones Suspencion);
+        [OperationContract]
+        List<CELSuspensiones> ListaDeGestionAgenteSuspensiones(decimal Usuario);
+        [OperationContract]
+        List<CEPSuspensiones> ListaSeguimientosAgenteSuspensiones(decimal Usuario);
     }
 }
