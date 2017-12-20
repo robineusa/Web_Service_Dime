@@ -622,6 +622,10 @@ namespace Telmexla.Servicios.DIME.Business
             TicketEncontrado = UnitOfWorkBusqueda.CEPTickets.Find(x => x.NumeroDeTicket == Ticket).FirstOrDefault();
             return TicketEncontrado;
         }
+        //procesos suspenciones temporales
+        public void RegistrarSuspencion (CEPSuspensiones Suspencion)
+        {
 
+        }
     }
 }

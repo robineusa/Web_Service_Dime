@@ -67,6 +67,7 @@
     <Compile Include="ICELTicketsRepository.cs" />
     <Compile Include="ICEMArbolesDeGestionRepository.cs" />
     <Compile Include="ICEPAsigDesconexionesRepository.cs" />
+    <Compile Include="ICEPAsigSuspencionesRepository.cs" />
     <Compile Include="ICEPDesconexionesRepository.cs" />
     <Compile Include="ICEPMatrizLiberacionHHPPRepository.cs" />
     <Compile Include="ICEPSuspensionesRepository.cs" />

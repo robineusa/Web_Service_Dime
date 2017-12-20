@@ -24,8 +24,6 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Estado { get; set; }
         public System.DateTime? FechaSeguimiento { get; set; }
         public string Observaciones { get; set; }
-        public decimal UsuarioGestionando { get; set; }
-        
-        public virtual System.Collections.Generic.ICollection<CELSuspensiones> CELSsupensionesVirtual { get; set; }
+       
     }
 }

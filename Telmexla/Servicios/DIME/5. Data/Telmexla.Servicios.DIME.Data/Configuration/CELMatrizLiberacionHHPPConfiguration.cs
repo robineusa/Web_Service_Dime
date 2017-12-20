@@ -42,7 +42,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Observaciones).HasColumnName(@"OBSERVACIONES").IsOptional().HasColumnType("varchar");
 
             // Foreign keys
-            HasOptional(a => a.CEPMatrizLiberacionHHPP).WithMany(b => b.CELMatrizLiberacionHHPPVirtual).HasForeignKey(c => c.IdGestionPrincipal).WillCascadeOnDelete(false);
+            //HasOptional(a => a.CEPMatrizLiberacionHHPP).WithMany(b => b.CELMatrizLiberacionHHPPVirtual).HasForeignKey(c => c.IdGestionPrincipal).WillCascadeOnDelete(false);
         }
     }
 }

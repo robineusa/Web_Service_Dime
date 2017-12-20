@@ -8,11 +8,11 @@ namespace Telmexla.Servicios.DIME.Entity
 {
     public class CELSuspensiones
     {
+        public decimal IdTransaccion { get; set; }
         public decimal IdGestion { get; set; }
-        public decimal IdGestionPrincipal { get; set; }
-        public System.DateTime? FechaGestion { get; set; }
-        public decimal UsuarioDeGestion { get; set; }
-        public string NombreUsuarioGestion { get; set; }
+        public System.DateTime? FechaDeTransaccion { get; set; }
+        public decimal UsuarioDeTransaccion { get; set; }
+        public string NombreUsuarioTransaccion { get; set; }
         public decimal CuentaCliente { get; set; }
         public string CanalDeIngreso { get; set; }
         public System.DateTime? FechaCreacion { get; set; }
@@ -25,7 +25,6 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Estado { get; set; }
         public System.DateTime? FechaSeguimiento { get; set; }
         public string Observaciones { get; set; }
-
-        public virtual CEPSuspensiones CEPSuspensiones { get; set; }
+        
     }
 }

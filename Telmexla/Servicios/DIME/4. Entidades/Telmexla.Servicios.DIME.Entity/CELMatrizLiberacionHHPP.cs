@@ -32,6 +32,6 @@ namespace Telmexla.Servicios.DIME.Entity
         public System.DateTime? FechaSeguimiento { get; set; }
         public string Observaciones { get; set; }
 
-        public virtual CEPMatrizLiberacionHHPP CEPMatrizLiberacionHHPP { get; set; }
+        //public virtual CEPMatrizLiberacionHHPP CEPMatrizLiberacionHHPP { get; set; }
     }
 }

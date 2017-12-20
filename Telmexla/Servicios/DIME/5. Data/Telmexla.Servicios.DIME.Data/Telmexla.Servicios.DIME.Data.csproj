@@ -64,6 +64,7 @@
     <Compile Include="CELMatrizLiberacionHHPPRepository.cs" />
     <Compile Include="CELSuspensionesRepository.cs" />
     <Compile Include="CELTicketsRepository.cs" />
+    <Compile Include="CEPAsigSuspencionesRepository.cs" />
     <Compile Include="CEPMatrizLiberacionHHPPRepository.cs" />
     <Compile Include="CEPSuspensionesRepository.cs" />
     <Compile Include="CEPTicketsRepository.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Configuration\BSCAdministracionBalancedConfiguration.cs" />
     <Compile Include="Configuration\BSCAdministracionBalancedLogConfiguration.cs" />
     <Compile Include="Configuration\CEPAsigDesconexionesConfiguration.cs" />
+    <Compile Include="Configuration\CEPAsigSuspencionesConfiguration.cs" />
     <Compile Include="Configuration\CEPDesconexionesConfiguration.cs" />
     <Compile Include="Configuration\CEPMatrizLiberacionHHPPConfiguration.cs" />
     <Compile Include="Configuration\CEPSuspensionesConfiguration.cs" />
