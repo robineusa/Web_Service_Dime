@@ -233,23 +233,16 @@ namespace Telmexla.Servicios.DIME.Business
             }
         }
 
-        public List<Macroprocesos> ConsultarCategorias(int idCategoria, bool ConsultarPadre)
+        public List<Macroprocesos> ConsultarCategorias(int idCategoria)
         {
             DimeContext Context = new DimeContext();
             List<Macroprocesos> Categorias = new List<Macroprocesos>();
 
-            if (ConsultarPadre)
-            {
                 Categorias = (from n in Context.Macroprocesos
                               where n.IdCategoriaPadre == idCategoria
                               select n).ToList();
-            }
-            else
-            {
-                Categorias = (from n in Context.Macroprocesos
-                              where n.IdCategoria == idCategoria
-                              select n).ToList();
-            }
+            
+
             return Categorias;
 
         }

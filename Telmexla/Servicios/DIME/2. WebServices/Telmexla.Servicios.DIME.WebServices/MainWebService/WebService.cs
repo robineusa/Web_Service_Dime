@@ -2961,10 +2961,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
         }
 
-        public List<Macroprocesos> ConsultarCategorias(int idCategoria, bool ConsultarPadre)
+        public List<Macroprocesos> ConsultarCategorias(int idCategoria)
         {
             ProcesosService procesos = new ProcesosService();
-            return procesos.ConsultarCategorias(idCategoria, ConsultarPadre);
+            return procesos.ConsultarCategorias(idCategoria);
 
         }
 
