@@ -22,6 +22,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.Id).HasColumnName(@"ID").IsRequired().HasColumnType("numeric").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.IdNotificacion).HasColumnName(@"ID_NOTIFICACION").IsOptional().HasColumnType("numeric");
             Property(x => x.UsuarioNotificado).HasColumnName(@"USUARIO_NOTIFICADO").IsOptional().HasColumnType("numeric");
+            Property(x => x.FechaRevisado).HasColumnName(@"FECHA_REVISADO").IsOptional().HasColumnType("datetime");
 
             // Foreign keys
             HasOptional(a => a.notificacionSignalR).WithMany(b => b.usersNoti).HasForeignKey(c => c.IdNotificacion).WillCascadeOnDelete(false);

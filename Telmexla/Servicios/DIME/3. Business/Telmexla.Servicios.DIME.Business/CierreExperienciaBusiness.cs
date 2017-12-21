@@ -336,8 +336,6 @@ namespace Telmexla.Servicios.DIME.Business
         }
         public List<CELDesconexiones> ConsultaDeGestionDesconexionesAgente(DateTime FechaInicial,DateTime FechaFinal,decimal Usuario)
         {
-            FechaInicial = DateTime.Today;
-            FechaFinal = FechaInicial.AddDays(1);
             UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
             List<CELDesconexiones> Lista = new List<CELDesconexiones>();
              Lista=   UnitOfWorkBusqueda.CELDesconexiones.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
@@ -788,6 +786,58 @@ namespace Telmexla.Servicios.DIME.Business
             CEPAsigSuspenciones cuenta = new CEPAsigSuspenciones();
             cuenta = UnitOfWorkBusqueda.CEPAsigSuspenciones.Find(x => x.IdAsignacion == IdAsignacion).FirstOrDefault();
             return cuenta;
+        }
+        public CEPSuspensiones TraeSuspensionPorId(decimal IdGestion)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPSuspensiones Registro = new CEPSuspensiones();
+            Registro = UnitOfWorkBusqueda.CEPSuspensiones.Find(x => x.IdGestion == IdGestion).FirstOrDefault();
+            return Registro;
+        }
+        public CEPSuspensiones ConsultarGestionCuentaSuspensiones(decimal Cuenta)
+        {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            int siguientemes = fechatemp.Month + 1;
+            int siguienteano = fechatemp.Year;
+            if (siguientemes > 12)
+            {
+                siguientemes = 01;
+                siguienteano = siguienteano + 1;
+            }
+            else { }
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(siguienteano, siguientemes, 1).AddDays(-0);
+
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPSuspensiones Suspension = new CEPSuspensiones();
+            Suspension = UnitOfWorkBusqueda.CEPSuspensiones.Find(x => x.CuentaCliente == Cuenta && x.FechaGestion >= fecha1 && x.FechaGestion <= fecha2).FirstOrDefault();
+            if (Suspension != null)
+            {
+                return TraeSuspensionPorId(Suspension.IdGestion);
+            }
+            else
+            {
+                return Suspension;
+            }
+        }
+        public List<CELTickets> ConsultaLogDeGestionTicketsAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELTickets> Lista = new List<CELTickets>();
+            Lista = UnitOfWorkBusqueda.CELTickets.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
+            return Lista;
+        }
+        public List<CELSuspensiones> ConsultaLogDeGestionSuspensionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELSuspensiones> Lista = new List<CELSuspensiones>();
+            Lista = UnitOfWorkBusqueda.CELSuspensiones.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
+            return Lista;
         }
     }
 }

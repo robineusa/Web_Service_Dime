@@ -26,6 +26,7 @@ namespace Telmexla.Servicios.DIME.Business
                 DimeContext context = new DimeContext();
                 context.NotificacionSignalR.Add(model);
                 context.SaveChanges();
+                context.Dispose();
                 Id = Convert.ToInt32(model.Id);
             }
             catch (DbEntityValidationException dbEx)
@@ -63,6 +64,7 @@ namespace Telmexla.Servicios.DIME.Business
                 p.ContenidoAlerta = Object[i].ContenidoAlerta;
                 p.UsuarioNotifica = Object[i].UsuarioNotifica;
                 p.FechaEntrega = Object[i].FechaEntrega;
+                p.NombreUsuarioNotifica = Object[i].NombreUsuarioNotifica;
                 resultado.Add(p);
             }
             int contador = resultado.Count;
@@ -81,6 +83,7 @@ namespace Telmexla.Servicios.DIME.Business
                 try
                 {
                     UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+                    model.FechaRevisado = DateTime.Now;
                     model.IdNotificacion = Convert.ToDecimal(item);
                     unitWork.UsuariosNotificadosSignalR.Add(model);
                     unitWork.Complete();
@@ -112,9 +115,9 @@ namespace Telmexla.Servicios.DIME.Business
                               TipoNotificacion = a.TipoNotificacion,
                               ContenidoAlerta = a.ContenidoAlerta,
                               UsuarioNotifica = a.UsuarioNotifica,
-                              FechaEntrega = a.FechaEntrega
-                          }).ToList();
-            
+                              FechaEntrega = a.FechaEntrega,
+                              NombreUsuarioNotifica = a.NombreUsuarioNotifica
+            }).ToList();
             return objeto;
         }
     }
