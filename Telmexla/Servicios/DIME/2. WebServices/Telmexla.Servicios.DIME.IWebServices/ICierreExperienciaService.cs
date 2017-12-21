@@ -83,5 +83,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         CEPAsigSuspenciones TraeRegistroAsignacionSuspensiones(decimal IdAsignacion);
         [OperationContract]
         CEPSuspensiones TraeSuspensionPorId(decimal IdGestion);
+        [OperationContract]
+        CEPSuspensiones ConsultarGestionCuentaSuspensiones(decimal Cuenta);
     }
 }

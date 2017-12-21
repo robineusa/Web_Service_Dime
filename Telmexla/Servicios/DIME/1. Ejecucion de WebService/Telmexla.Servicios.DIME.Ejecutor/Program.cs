@@ -21,10 +21,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            ProcesosBusiness p = new ProcesosBusiness();
-            var objetos= p.ConsultarCategorias(1); 
-            //CierreExperienciaService ces = new CierreExperienciaService();
-            //CEPAsigDesconexiones dato = ces.ApartarCuentadeDesconexiones(1032381244,0);
+            //ProcesosBusiness p = new ProcesosBusiness();
+            //var objetos= p.ConsultarCategorias(1); 
+            ////CierreExperienciaService ces = new CierreExperienciaService();
+            ////CEPAsigDesconexiones dato = ces.ApartarCuentadeDesconexiones(1032381244,0);
             //var sss = "";
 
             //SignalRService signal = new SignalRService();

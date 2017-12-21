@@ -796,5 +796,34 @@ namespace Telmexla.Servicios.DIME.Business
             Registro = UnitOfWorkBusqueda.CEPSuspensiones.Find(x => x.IdGestion == IdGestion).FirstOrDefault();
             return Registro;
         }
+        public CEPSuspensiones ConsultarGestionCuentaSuspensiones(decimal Cuenta)
+        {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            int siguientemes = fechatemp.Month + 1;
+            int siguienteano = fechatemp.Year;
+            if (siguientemes > 12)
+            {
+                siguientemes = 01;
+                siguienteano = siguienteano + 1;
+            }
+            else { }
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(siguienteano, siguientemes, 1).AddDays(-0);
+
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPSuspensiones Suspension = new CEPSuspensiones();
+            Suspension = UnitOfWorkBusqueda.CEPSuspensiones.Find(x => x.CuentaCliente == Cuenta && x.FechaGestion >= fecha1 && x.FechaGestion <= fecha2).FirstOrDefault();
+            if (Suspension != null)
+            {
+                return TraeSuspensionPorId(Suspension.IdGestion);
+            }
+            else
+            {
+                return Suspension;
+            }
+        }
     }
 }

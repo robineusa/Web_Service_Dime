@@ -10,7 +10,7 @@ namespace Telmexla.Servicios.DIME.Business
     public class ConsultaReporteBlending
     {
         private DistribucionBlending distribucionBlending;
-        private int Cantidad;
+        //private int Cantidad;
         
         public ConsultaReporteBlending()
         {
