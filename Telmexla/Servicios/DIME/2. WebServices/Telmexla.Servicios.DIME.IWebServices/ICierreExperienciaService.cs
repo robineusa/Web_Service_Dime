@@ -85,5 +85,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         CEPSuspensiones TraeSuspensionPorId(decimal IdGestion);
         [OperationContract]
         CEPSuspensiones ConsultarGestionCuentaSuspensiones(decimal Cuenta);
+        [OperationContract]
+        List<CELTickets> ConsultaLogDeGestionTicketsAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario);
+        [OperationContract]
+        List<CELSuspensiones> ConsultaLogDeGestionSuspensionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario);
     }
 }

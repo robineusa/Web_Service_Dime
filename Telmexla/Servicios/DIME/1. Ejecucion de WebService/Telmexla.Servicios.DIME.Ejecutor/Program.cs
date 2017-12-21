@@ -23,14 +23,14 @@ namespace Telmexla.Servicios.DIME.Ejecutor
 
             //ProcesosBusiness p = new ProcesosBusiness();
             //var objetos= p.ConsultarCategorias(1); 
-            ////CierreExperienciaService ces = new CierreExperienciaService();
-            ////CEPAsigDesconexiones dato = ces.ApartarCuentadeDesconexiones(1032381244,0);
-            //var sss = "";
+            CierreExperienciaService ces = new CierreExperienciaService();
+            var dato = ces.ConsultaLogDeGestionTicketsAgente(Convert.ToDateTime("01/12/2017"), Convert.ToDateTime("01/01/2018"), 1031148795);
+            var sss = "";
 
             //SignalRService signal = new SignalRService();
             //var r = signal.ListaNoNotificados(1076622744);
             //eliminar.CambiarNombreNodo(141,"nuevo nombre");
-            
+
 
 
 

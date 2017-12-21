@@ -196,5 +196,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
             return CierreExpBusiness.ConsultarGestionCuentaSuspensiones(Cuenta);
         }
+        public List<CELTickets> ConsultaLogDeGestionTicketsAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ConsultaLogDeGestionTicketsAgente(FechaInicial,FechaFinal,Usuario);
+        }
+        public List<CELSuspensiones> ConsultaLogDeGestionSuspensionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ConsultaLogDeGestionSuspensionesAgente(FechaInicial, FechaFinal, Usuario);
+        }
     }
 }
