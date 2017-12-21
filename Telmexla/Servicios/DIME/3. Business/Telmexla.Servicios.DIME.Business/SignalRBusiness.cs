@@ -115,9 +115,9 @@ namespace Telmexla.Servicios.DIME.Business
                               TipoNotificacion = a.TipoNotificacion,
                               ContenidoAlerta = a.ContenidoAlerta,
                               UsuarioNotifica = a.UsuarioNotifica,
-                              FechaEntrega = a.FechaEntrega
-                          }).ToList();
-            
+                              FechaEntrega = a.FechaEntrega,
+                              NombreUsuarioNotifica = a.NombreUsuarioNotifica
+            }).ToList();
             return objeto;
         }
     }
