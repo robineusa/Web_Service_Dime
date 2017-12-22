@@ -89,5 +89,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<CELTickets> ConsultaLogDeGestionTicketsAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario);
         [OperationContract]
         List<CELSuspensiones> ConsultaLogDeGestionSuspensionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario);
+        [OperationContract]
+        void RegistrarLiberaciones(CEPLiberaciones Liberaciones);
+        [OperationContract]
+        void ActualizarLiberaciones(CEPLiberaciones Liberaciones);
     }
 }

@@ -147,8 +147,8 @@ namespace Telmexla.Servicios.DIME.Data
             CELTickets = new CELTicketsRepository(this.dimeContext);
             CEPSuspensiones = new CEPSuspensionesRepository(this.dimeContext);
             CELSuspensiones = new CELSuspensionesRepository(this.dimeContext);
-            CEPMatrizLiberacionHHPP = new CEPLiberacionesRepository(this.dimeContext);
-            CELMatrizLiberacionHHPP = new CELLiberacionesRepository(this.dimeContext);
+            CEPLiberaciones = new CEPLiberacionesRepository(this.dimeContext);
+            CELLiberaciones = new CELLiberacionesRepository(this.dimeContext);
             CEPAsigSuspenciones = new CEPAsigSuspencionesRepository(this.dimeContext);
         }
         public IAccesosXLineaRepository AccesosXLinea
@@ -695,11 +695,11 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        public ICEPLiberacionesRepository CEPMatrizLiberacionHHPP
+        public ICEPLiberacionesRepository CEPLiberaciones
         {
             get; private set;
         }
-        public ICELLiberacionesRepository CELMatrizLiberacionHHPP
+        public ICELLiberacionesRepository CELLiberaciones
         {
             get; private set;
         }

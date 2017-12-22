@@ -3271,6 +3271,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ConsultaLogDeGestionSuspensionesAgente(FechaInicial, FechaFinal, Usuario);
         }
+        public void RegistrarLiberaciones(CEPLiberaciones Liberaciones)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.RegistrarLiberaciones(Liberaciones);
+        }
+        public void ActualizarLiberaciones(CEPLiberaciones Liberaciones)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.ActualizarLiberaciones(Liberaciones);
+        }
         #endregion
     }
 }

@@ -167,8 +167,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<CELTickets> CELTickets { get; set; }
         public System.Data.Entity.DbSet<CEPSuspensiones> CEPSuspensiones { get; set; }
         public System.Data.Entity.DbSet<CELSuspensiones> CELSuspensiones { get; set; }
-        public System.Data.Entity.DbSet<CEPLiberaciones> CEPMatrizLiberacionHHPP { get; set; }
-        public System.Data.Entity.DbSet<CELLiberaciones> CELMatrizLiberacionHHPP { get; set; }
+        public System.Data.Entity.DbSet<CEPLiberaciones> CEPLiberaciones { get; set; }
+        public System.Data.Entity.DbSet<CELLiberaciones> CELLiberaciones { get; set; }
         public System.Data.Entity.DbSet<CEPAsigSuspenciones> CEPAsigSuspenciones { get; set; }
 
         static DimeContext()

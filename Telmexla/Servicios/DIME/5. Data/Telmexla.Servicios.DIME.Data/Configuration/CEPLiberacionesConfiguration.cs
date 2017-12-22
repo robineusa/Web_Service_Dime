@@ -27,7 +27,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.RegistroModulo).HasColumnName(@"REGISTRO_MODULO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.CanalDeIngreso).HasColumnName(@"CANAL_DE_INGRESO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.UsarioEscala).HasColumnName(@"USUARIO_ESCALA").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.NumeroServicios).HasColumnName(@"NUMERO_SERVICIOS").IsOptional().HasColumnType("numeric");
+            Property(x => x.NumeroServicios).HasColumnName(@"NUMERO_DE_SERVICIOS").IsOptional().HasColumnType("numeric");
             Property(x => x.FechaSolicitud).HasColumnName(@"FECHA_SOLICITUD").IsOptional().HasColumnType("datetime");
             Property(x => x.SolicitudModulo).HasColumnName(@"SOLICITUD_MODULO").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.MotivoDesconexion).HasColumnName(@"MOTIVO_DESCONEXION").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
