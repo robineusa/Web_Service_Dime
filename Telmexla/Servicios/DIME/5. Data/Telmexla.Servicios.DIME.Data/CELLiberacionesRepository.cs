@@ -9,9 +9,9 @@ using Telmexla.Servicios.DIME.IData;
 
 namespace Telmexla.Servicios.DIME.Data
 {
-    class CELMatrizLiberacionHHPPRepository : Repository<CELMatrizLiberacionHHPP>, ICELMatrizLiberacionHHPPRepository
+    public class CELLiberacionesRepository : Repository<CELLiberaciones>, ICELLiberacionesRepository
     {
-        public CELMatrizLiberacionHHPPRepository(DimeContext context) : base(context)
+        public CELLiberacionesRepository(DimeContext context) : base(context)
         {
 
         }
