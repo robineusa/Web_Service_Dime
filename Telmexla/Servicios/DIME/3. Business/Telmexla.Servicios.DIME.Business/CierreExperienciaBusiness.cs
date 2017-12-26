@@ -868,6 +868,7 @@ namespace Telmexla.Servicios.DIME.Business
             Log.MotivoDesconexion = Liberaciones.MotivoDesconexion;
             Log.Vendedor = Liberaciones.Vendedor;
             Log.Grupo = Liberaciones.Grupo;
+            Log.Gestion = Liberaciones.Gestion;
             Log.Subrazon = Liberaciones.Subrazon;
             Log.MotivoLiberacion = Liberaciones.MotivoLiberacion;
             Log.UsuarioQueLibero = Liberaciones.UsuarioQueLibero;
@@ -934,6 +935,7 @@ namespace Telmexla.Servicios.DIME.Business
             Log.MotivoDesconexion = Liberaciones.MotivoDesconexion;
             Log.Vendedor = Liberaciones.Vendedor;
             Log.Grupo = Liberaciones.Grupo;
+            Log.Gestion = Liberaciones.Gestion;
             Log.Subrazon = Liberaciones.Subrazon;
             Log.MotivoLiberacion = Liberaciones.MotivoLiberacion;
             Log.UsuarioQueLibero = Liberaciones.UsuarioQueLibero;
