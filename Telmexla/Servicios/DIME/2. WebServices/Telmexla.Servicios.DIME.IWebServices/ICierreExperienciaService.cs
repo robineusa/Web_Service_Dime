@@ -93,5 +93,13 @@ namespace Telmexla.Servicios.DIME.IWebServices
         void RegistrarLiberaciones(CEPLiberaciones Liberaciones);
         [OperationContract]
         void ActualizarLiberaciones(CEPLiberaciones Liberaciones);
+        [OperationContract]
+        CEPLiberaciones TraeLiberacionPorId(decimal IdGestion);
+        [OperationContract]
+        List<CELLiberaciones> ListaDeGestionAgenteLiberaciones(decimal Usuario);
+        [OperationContract]
+        List<CEPLiberaciones> ListaSeguimientosAgenteLiberaciones(decimal Usuario);
+        [OperationContract]
+        CEPLiberaciones ConsultarGestionCuentaLiberaciones(decimal Cuenta);
     }
 }

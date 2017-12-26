@@ -946,5 +946,62 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWorkLog.Dispose();
 
         }
+        public CEPLiberaciones TraeLiberacionPorId(decimal IdGestion)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPLiberaciones Registro = new CEPLiberaciones();
+            Registro = UnitOfWorkBusqueda.CEPLiberaciones.Find(x => x.IdGestion == IdGestion).FirstOrDefault();
+            return Registro;
+        }
+        public List<CELLiberaciones> ListaDeGestionAgenteLiberaciones(decimal Usuario)
+        {
+
+            DateTime FechaInicial;
+            DateTime FechaFinal;
+            FechaInicial = DateTime.Today;
+            FechaFinal = FechaInicial.AddDays(1);
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELLiberaciones> Lista = new List<CELLiberaciones>();
+            Lista = UnitOfWorkBusqueda.CELLiberaciones.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
+            return Lista;
+        }
+        public List<CEPLiberaciones> ListaSeguimientosAgenteLiberaciones(decimal Usuario)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CEPLiberaciones> Lista = new List<CEPLiberaciones>();
+            Lista = UnitOfWorkBusqueda.CEPLiberaciones.Find(x => x.UsuarioDeGestion == Usuario && x.Estado.Equals("SEGUIMIENTO")).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
+        public CEPLiberaciones ConsultarGestionCuentaLiberaciones(decimal Cuenta)
+        {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            int siguientemes = fechatemp.Month + 1;
+            int siguienteano = fechatemp.Year;
+            if (siguientemes > 12)
+            {
+                siguientemes = 01;
+                siguienteano = siguienteano + 1;
+            }
+            else { }
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(siguienteano, siguientemes, 1).AddDays(-0);
+
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPLiberaciones Liberacion = new CEPLiberaciones();
+            Liberacion = UnitOfWorkBusqueda.CEPLiberaciones.Find(x => x.CuentaCliente == Cuenta && x.FechaGestion >= fecha1 && x.FechaGestion <= fecha2).FirstOrDefault();
+            if (Liberacion != null)
+            {
+                return TraeLiberacionPorId(Liberacion.IdGestion);
+            }
+            else
+            {
+                return Liberacion;
+            }
+        }
     }
 }
