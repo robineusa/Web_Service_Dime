@@ -216,5 +216,25 @@ namespace Telmexla.Servicios.DIME.WebServices
             CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
             CierreExpBusiness.ActualizarLiberaciones(Liberaciones);
         }
+        public CEPLiberaciones TraeLiberacionPorId(decimal IdGestion)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.TraeLiberacionPorId(IdGestion);
+        }
+        public List<CELLiberaciones> ListaDeGestionAgenteLiberaciones(decimal Usuario)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaDeGestionAgenteLiberaciones(Usuario);
+        }
+        public List<CEPLiberaciones> ListaSeguimientosAgenteLiberaciones(decimal Usuario)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ListaSeguimientosAgenteLiberaciones(Usuario);
+        }
+        public CEPLiberaciones ConsultarGestionCuentaLiberaciones(decimal Cuenta)
+        {
+            CierreExperienciaBusiness CierreExpBusiness = new CierreExperienciaBusiness();
+            return CierreExpBusiness.ConsultarGestionCuentaLiberaciones(Cuenta);
+        }
     }
 }
