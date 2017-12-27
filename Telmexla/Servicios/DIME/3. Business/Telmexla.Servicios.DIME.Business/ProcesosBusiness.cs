@@ -18,6 +18,10 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
             nodo.FechaCreacion = DateTime.Now;
             nodo.CodigoHtml = string.Empty;
+            nodo.EsNodoFinal = false;
+            nodo.Categoria = 0;
+            nodo.SubCategoria = 0;
+            nodo.Tipo = 0;
             unitWork.Nodo.Add(nodo);
             unitWork.Complete();
             unitWork.Dispose();

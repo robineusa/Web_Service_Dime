@@ -22,7 +22,17 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
             ProcesosBusiness p = new ProcesosBusiness();
-            var objetos = p.ConsultarTitulos(5,3);
+            Nodo model = new Nodo();
+            model.IdPadre = 0;
+            model.IdArbol = 1;
+            model.NombreNodo = "primer nodo";
+            model.EsNodoFinal = false;
+            model.Categoria = 0;
+            model.SubCategoria = 0;
+            model.Tipo = 0;
+
+            p.EliminarCategoria(4);
+
             string dp = "";
             //CierreExperienciaService ces = new CierreExperienciaService();
             //CEPAsigDesconexiones dato = ces.ApartarCuentadeDesconexiones(1032381244,0);
