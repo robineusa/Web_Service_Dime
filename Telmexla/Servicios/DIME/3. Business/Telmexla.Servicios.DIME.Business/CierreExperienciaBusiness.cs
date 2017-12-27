@@ -839,5 +839,171 @@ namespace Telmexla.Servicios.DIME.Business
             Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
             return Lista;
         }
+        public void RegistrarLiberaciones(CEPLiberaciones Liberaciones)
+        {
+            //genera informacion adicional
+            Liberaciones.FechaGestion = DateTime.Now;
+
+            //registra informacion en tabla principal
+            UnitOfWork UnitOfWorkGuardado = new UnitOfWork(new DimeContext());
+            UnitOfWorkGuardado.CEPLiberaciones.Add(Liberaciones);
+            UnitOfWorkGuardado.Complete();
+            UnitOfWorkGuardado.Dispose();
+
+            //Registra informacion en el log
+            UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
+            CELLiberaciones Log = new CELLiberaciones();
+
+            Log.IdGestion = Liberaciones.IdGestion;
+            Log.FechaDeTransaccion = Liberaciones.FechaGestion;
+            Log.UsuarioDeTransaccion = Liberaciones.UsuarioDeGestion;
+            Log.NombreUsuarioTransaccion = Liberaciones.NombreUsuarioGestion;
+            Log.CuentaCliente = Liberaciones.CuentaCliente;
+            Log.RegistroModulo = Liberaciones.RegistroModulo;
+            Log.CanalDeIngreso = Liberaciones.CanalDeIngreso;
+            Log.UsarioEscala = Liberaciones.UsarioEscala;
+            Log.NumeroServicios = Liberaciones.NumeroServicios;
+            Log.FechaSolicitud = Liberaciones.FechaSolicitud;
+            Log.SolicitudModulo = Liberaciones.SolicitudModulo;
+            Log.MotivoDesconexion = Liberaciones.MotivoDesconexion;
+            Log.Vendedor = Liberaciones.Vendedor;
+            Log.Grupo = Liberaciones.Grupo;
+            Log.Gestion = Liberaciones.Gestion;
+            Log.Subrazon = Liberaciones.Subrazon;
+            Log.MotivoLiberacion = Liberaciones.MotivoLiberacion;
+            Log.UsuarioQueLibero = Liberaciones.UsuarioQueLibero;
+            Log.Estado = Liberaciones.Estado;
+            Log.FechaSeguimiento = Liberaciones.FechaSeguimiento;
+            Log.Observaciones = Liberaciones.Observaciones;
+
+            UnitOfWorkLog.CELLiberaciones.Add(Log);
+            UnitOfWorkLog.Complete();
+            UnitOfWorkLog.Dispose();
+
+            
+        }
+        public void ActualizarLiberaciones(CEPLiberaciones Liberaciones)
+        {
+            //genera informacion adicional
+            Liberaciones.FechaGestion = DateTime.Now;
+
+            //registra informacion en tabla principal
+            UnitOfWork UnitOfWorkActualizado = new UnitOfWork(new DimeContext());
+            CEPLiberaciones RegistroParaActualizar = new CEPLiberaciones();
+            RegistroParaActualizar = UnitOfWorkActualizado.CEPLiberaciones.Find(x => x.IdGestion == Liberaciones.IdGestion).FirstOrDefault();
+            if (RegistroParaActualizar != null)
+            {
+                RegistroParaActualizar.FechaGestion = Liberaciones.FechaGestion;
+                RegistroParaActualizar.UsuarioDeGestion = Liberaciones.UsuarioDeGestion;
+                RegistroParaActualizar.NombreUsuarioGestion = Liberaciones.NombreUsuarioGestion;
+                RegistroParaActualizar.CuentaCliente = Liberaciones.CuentaCliente;
+                RegistroParaActualizar.CanalDeIngreso = Liberaciones.CanalDeIngreso;
+                RegistroParaActualizar.UsarioEscala = Liberaciones.UsarioEscala;
+                RegistroParaActualizar.NumeroServicios = Liberaciones.NumeroServicios;
+                RegistroParaActualizar.FechaSolicitud = Liberaciones.FechaSolicitud;
+                RegistroParaActualizar.SolicitudModulo = Liberaciones.SolicitudModulo;
+                RegistroParaActualizar.MotivoDesconexion = Liberaciones.MotivoDesconexion;
+                RegistroParaActualizar.Vendedor = Liberaciones.Vendedor;
+                RegistroParaActualizar.Grupo = Liberaciones.Grupo;
+                RegistroParaActualizar.Gestion = Liberaciones.Gestion;
+                RegistroParaActualizar.Subrazon = Liberaciones.Subrazon;
+                RegistroParaActualizar.MotivoLiberacion = Liberaciones.MotivoLiberacion;
+                RegistroParaActualizar.UsuarioQueLibero = Liberaciones.UsuarioQueLibero;
+                RegistroParaActualizar.Estado = Liberaciones.Estado;
+                RegistroParaActualizar.FechaSeguimiento = Liberaciones.FechaSeguimiento;
+                RegistroParaActualizar.Observaciones = Liberaciones.Observaciones;
+
+                UnitOfWorkActualizado.Complete();
+                UnitOfWorkActualizado.Dispose();
+            }
+
+            //Registra informacion en el log
+            UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
+            CELLiberaciones Log = new CELLiberaciones();
+
+            Log.IdGestion = Liberaciones.IdGestion;
+            Log.FechaDeTransaccion = Liberaciones.FechaGestion;
+            Log.UsuarioDeTransaccion = Liberaciones.UsuarioDeGestion;
+            Log.NombreUsuarioTransaccion = Liberaciones.NombreUsuarioGestion;
+            Log.CuentaCliente = Liberaciones.CuentaCliente;
+            Log.RegistroModulo = Liberaciones.RegistroModulo;
+            Log.CanalDeIngreso = Liberaciones.CanalDeIngreso;
+            Log.UsarioEscala = Liberaciones.UsarioEscala;
+            Log.NumeroServicios = Liberaciones.NumeroServicios;
+            Log.FechaSolicitud = Liberaciones.FechaSolicitud;
+            Log.SolicitudModulo = Liberaciones.SolicitudModulo;
+            Log.MotivoDesconexion = Liberaciones.MotivoDesconexion;
+            Log.Vendedor = Liberaciones.Vendedor;
+            Log.Grupo = Liberaciones.Grupo;
+            Log.Gestion = Liberaciones.Gestion;
+            Log.Subrazon = Liberaciones.Subrazon;
+            Log.MotivoLiberacion = Liberaciones.MotivoLiberacion;
+            Log.UsuarioQueLibero = Liberaciones.UsuarioQueLibero;
+            Log.Estado = Liberaciones.Estado;
+            Log.FechaSeguimiento = Liberaciones.FechaSeguimiento;
+            Log.Observaciones = Liberaciones.Observaciones;
+
+            UnitOfWorkLog.CELLiberaciones.Add(Log);
+            UnitOfWorkLog.Complete();
+            UnitOfWorkLog.Dispose();
+
+        }
+        public CEPLiberaciones TraeLiberacionPorId(decimal IdGestion)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPLiberaciones Registro = new CEPLiberaciones();
+            Registro = UnitOfWorkBusqueda.CEPLiberaciones.Find(x => x.IdGestion == IdGestion).FirstOrDefault();
+            return Registro;
+        }
+        public List<CELLiberaciones> ListaDeGestionAgenteLiberaciones(decimal Usuario)
+        {
+
+            DateTime FechaInicial;
+            DateTime FechaFinal;
+            FechaInicial = DateTime.Today;
+            FechaFinal = FechaInicial.AddDays(1);
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELLiberaciones> Lista = new List<CELLiberaciones>();
+            Lista = UnitOfWorkBusqueda.CELLiberaciones.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
+            return Lista;
+        }
+        public List<CEPLiberaciones> ListaSeguimientosAgenteLiberaciones(decimal Usuario)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CEPLiberaciones> Lista = new List<CEPLiberaciones>();
+            Lista = UnitOfWorkBusqueda.CEPLiberaciones.Find(x => x.UsuarioDeGestion == Usuario && x.Estado.Equals("SEGUIMIENTO")).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
+        public CEPLiberaciones ConsultarGestionCuentaLiberaciones(decimal Cuenta)
+        {
+            DateTime fechatemp;
+            DateTime fecha1;
+            DateTime fecha2;
+            fechatemp = DateTime.Today;
+            int siguientemes = fechatemp.Month + 1;
+            int siguienteano = fechatemp.Year;
+            if (siguientemes > 12)
+            {
+                siguientemes = 01;
+                siguienteano = siguienteano + 1;
+            }
+            else { }
+            fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            fecha2 = new DateTime(siguienteano, siguientemes, 1).AddDays(-0);
+
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            CEPLiberaciones Liberacion = new CEPLiberaciones();
+            Liberacion = UnitOfWorkBusqueda.CEPLiberaciones.Find(x => x.CuentaCliente == Cuenta && x.FechaGestion >= fecha1 && x.FechaGestion <= fecha2).FirstOrDefault();
+            if (Liberacion != null)
+            {
+                return TraeLiberacionPorId(Liberacion.IdGestion);
+            }
+            else
+            {
+                return Liberacion;
+            }
+        }
     }
 }

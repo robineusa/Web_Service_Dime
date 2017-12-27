@@ -64,9 +64,9 @@
     <Compile Include="BSCAdministracionBalanced.cs" />
     <Compile Include="BSCAdministracionBalancedLog.cs" />
     <Compile Include="CELDesconexiones.cs" />
-    <Compile Include="CELMatrizLiberacionHHPP.cs" />
+    <Compile Include="CELLiberaciones.cs" />
     <Compile Include="CEPAsigSuspenciones.cs" />
-    <Compile Include="CEPMatrizLiberacionHHPP.cs" />
+    <Compile Include="CEPLiberaciones.cs" />
     <Compile Include="CELSuspensiones.cs" />
     <Compile Include="CELTickets.cs" />
     <Compile Include="CEMArbolesDeGestion.cs" />

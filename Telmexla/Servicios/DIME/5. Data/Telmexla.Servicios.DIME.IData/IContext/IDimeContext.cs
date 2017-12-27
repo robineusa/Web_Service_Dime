@@ -164,8 +164,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<CELTickets> CELTickets { get; set; }
         System.Data.Entity.DbSet<CEPSuspensiones> CEPSuspensiones { get; set; }
         System.Data.Entity.DbSet<CELSuspensiones> CELSuspensiones { get; set; }
-        System.Data.Entity.DbSet<CEPMatrizLiberacionHHPP> CEPMatrizLiberacionHHPP { get; set; }
-        System.Data.Entity.DbSet<CELMatrizLiberacionHHPP> CELMatrizLiberacionHHPP { get; set; }
+        System.Data.Entity.DbSet<CEPLiberaciones> CEPLiberaciones { get; set; }
+        System.Data.Entity.DbSet<CELLiberaciones> CELLiberaciones { get; set; }
         System.Data.Entity.DbSet<CEPAsigSuspenciones> CEPAsigSuspenciones { get; set; }
         System.Data.Entity.DbSet<TiposMacroprocesos> TiposMacroprocesos { get; set; }
 

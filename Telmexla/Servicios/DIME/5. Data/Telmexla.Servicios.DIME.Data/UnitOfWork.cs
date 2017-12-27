@@ -147,8 +147,8 @@ namespace Telmexla.Servicios.DIME.Data
             CELTickets = new CELTicketsRepository(this.dimeContext);
             CEPSuspensiones = new CEPSuspensionesRepository(this.dimeContext);
             CELSuspensiones = new CELSuspensionesRepository(this.dimeContext);
-            CEPMatrizLiberacionHHPP = new CEPMatrizLiberacionHHPPRepository(this.dimeContext);
-            CELMatrizLiberacionHHPP = new CELMatrizLiberacionHHPPRepository(this.dimeContext);
+            CEPLiberaciones = new CEPLiberacionesRepository(this.dimeContext);
+            CELLiberaciones = new CELLiberacionesRepository(this.dimeContext);
             CEPAsigSuspenciones = new CEPAsigSuspencionesRepository(this.dimeContext);
             TiposMacroprocesos = new TiposMacroprocesosRepository(this.dimeContext);
         }
@@ -696,11 +696,11 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        public ICEPMatrizLiberacionHHPPRepository CEPMatrizLiberacionHHPP
+        public ICEPLiberacionesRepository CEPLiberaciones
         {
             get; private set;
         }
-        public ICELMatrizLiberacionHHPPRepository CELMatrizLiberacionHHPP
+        public ICELLiberacionesRepository CELLiberaciones
         {
             get; private set;
         }

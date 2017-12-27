@@ -3283,6 +3283,36 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ConsultaLogDeGestionSuspensionesAgente(FechaInicial, FechaFinal, Usuario);
         }
+        public void RegistrarLiberaciones(CEPLiberaciones Liberaciones)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.RegistrarLiberaciones(Liberaciones);
+        }
+        public void ActualizarLiberaciones(CEPLiberaciones Liberaciones)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            CierreExpService.ActualizarLiberaciones(Liberaciones);
+        }
+        public CEPLiberaciones TraeLiberacionPorId(decimal IdGestion)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.TraeLiberacionPorId(IdGestion);
+        }
+        public List<CELLiberaciones> ListaDeGestionAgenteLiberaciones(decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaDeGestionAgenteLiberaciones(Usuario);
+        }
+        public List<CEPLiberaciones> ListaSeguimientosAgenteLiberaciones(decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ListaSeguimientosAgenteLiberaciones(Usuario);
+        }
+        public CEPLiberaciones ConsultarGestionCuentaLiberaciones(decimal Cuenta)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultarGestionCuentaLiberaciones(Cuenta);
+        }
         #endregion
     }
 }

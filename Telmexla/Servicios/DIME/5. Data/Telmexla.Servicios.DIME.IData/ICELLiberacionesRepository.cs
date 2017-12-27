@@ -7,7 +7,7 @@ using Telmexla.Servicios.DIME.Entity;
 
 namespace Telmexla.Servicios.DIME.IData
 {
-    public interface ICELMatrizLiberacionHHPPRepository: IRepository<CELMatrizLiberacionHHPP>
+    public interface ICELLiberacionesRepository : IRepository<CELLiberaciones>
     {
     }
 }
