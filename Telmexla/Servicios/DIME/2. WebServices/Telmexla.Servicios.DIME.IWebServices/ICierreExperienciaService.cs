@@ -101,5 +101,23 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<CEPLiberaciones> ListaSeguimientosAgenteLiberaciones(decimal Usuario);
         [OperationContract]
         CEPLiberaciones ConsultarGestionCuentaLiberaciones(decimal Cuenta);
+        [OperationContract]
+        List<CELLiberaciones> ConsultaLogDeGestionLiberacionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario);
+        [OperationContract]
+        List<CEPDesconexiones> ConsultaAdminPrincipalDesconexiones(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<CEPLiberaciones> ConsultaAdminPrincipalLiberaciones(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<CEPSuspensiones> ConsultaAdminPrincipalSuspensiones(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<CEPTickets> ConsultaAdminPrincipalTickets(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<CELDesconexiones> ConsultaAdminLogDesconexiones(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<CELLiberaciones> ConsultaAdminLogLiberaciones(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<CELSuspensiones> ConsultaAdminLogSuspensiones(DateTime FechaInicial, DateTime FechaFinal);
+        [OperationContract]
+        List<CELTickets> ConsultaAdminLogTickets(DateTime FechaInicial, DateTime FechaFinal);
     }
 }
