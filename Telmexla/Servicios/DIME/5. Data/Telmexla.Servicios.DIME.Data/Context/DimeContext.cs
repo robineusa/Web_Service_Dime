@@ -170,7 +170,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<CEPMatrizLiberacionHHPP> CEPMatrizLiberacionHHPP { get; set; }
         public System.Data.Entity.DbSet<CELMatrizLiberacionHHPP> CELMatrizLiberacionHHPP { get; set; }
         public System.Data.Entity.DbSet<CEPAsigSuspenciones> CEPAsigSuspenciones { get; set; }
-
+        public System.Data.Entity.DbSet<TiposMacroprocesos> TiposMacroprocesos { get; set; }
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -372,6 +372,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CEPMatrizLiberacionHHPPConfiguration());
             modelBuilder.Configurations.Add(new CELMatrizLiberacionHHPPConfiguration());
             modelBuilder.Configurations.Add(new CEPAsigSuspencionesConfiguration());
+            modelBuilder.Configurations.Add(new TipoMacroprocesosConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -527,6 +528,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CEPMatrizLiberacionHHPPConfiguration(schema));
             modelBuilder.Configurations.Add(new CELMatrizLiberacionHHPPConfiguration(schema));
             modelBuilder.Configurations.Add(new CEPAsigSuspencionesConfiguration(schema));
+            modelBuilder.Configurations.Add(new TipoMacroprocesosConfiguration(schema)); 
             return modelBuilder;
         }
 

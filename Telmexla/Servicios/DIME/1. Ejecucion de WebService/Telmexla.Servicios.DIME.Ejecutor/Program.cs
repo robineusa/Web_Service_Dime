@@ -21,9 +21,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
-            //ProcesosBusiness p = new ProcesosBusiness();
-            //var objetos= p.ConsultarCategorias(0,true);
-            //string dp = "";
+            ProcesosBusiness p = new ProcesosBusiness();
+            var objetos = p.ConsultarTitulos(5,3);
+            string dp = "";
             //CierreExperienciaService ces = new CierreExperienciaService();
             //CEPAsigDesconexiones dato = ces.ApartarCuentadeDesconexiones(1032381244,0);
             //var sss = "";
@@ -31,7 +31,7 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //SignalRService signal = new SignalRService();
             //var r = signal.ListaNoNotificados(1076622744);
             //eliminar.CambiarNombreNodo(141,"nuevo nombre");
-            
+
 
 
 

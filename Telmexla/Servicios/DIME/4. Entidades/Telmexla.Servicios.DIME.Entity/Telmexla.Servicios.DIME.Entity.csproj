@@ -271,6 +271,7 @@
     <Compile Include="SmoTarifaActual.cs" />
     <Compile Include="Subrazon1IngresoSoporte.cs" />
     <Compile Include="Subrazon2IngresoSoporte.cs" />
+    <Compile Include="TiposMacroprocesos.cs" />
     <Compile Include="TmpMaestroHobbiesCliente.cs" />
     <Compile Include="TraficoTrasladoCollection.cs" />
     <Compile Include="TraficoTraslado.cs" />

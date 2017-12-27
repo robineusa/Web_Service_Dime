@@ -143,7 +143,7 @@ namespace Telmexla.Servicios.DIME.IData
         ICEPMatrizLiberacionHHPPRepository CEPMatrizLiberacionHHPP { get; }
         ICELMatrizLiberacionHHPPRepository CELMatrizLiberacionHHPP { get; }
         ICEPAsigSuspencionesRepository CEPAsigSuspenciones { get; }
-
+        ITiposMacroprocesosRepository TiposMacroprocesos { get; }
         int Complete();
     }
 }

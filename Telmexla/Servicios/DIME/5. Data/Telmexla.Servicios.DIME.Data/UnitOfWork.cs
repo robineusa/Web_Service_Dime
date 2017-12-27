@@ -150,6 +150,7 @@ namespace Telmexla.Servicios.DIME.Data
             CEPMatrizLiberacionHHPP = new CEPMatrizLiberacionHHPPRepository(this.dimeContext);
             CELMatrizLiberacionHHPP = new CELMatrizLiberacionHHPPRepository(this.dimeContext);
             CEPAsigSuspenciones = new CEPAsigSuspencionesRepository(this.dimeContext);
+            TiposMacroprocesos = new TiposMacroprocesosRepository(this.dimeContext);
         }
         public IAccesosXLineaRepository AccesosXLinea
         {
@@ -708,6 +709,10 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
 
+        public ITiposMacroprocesosRepository TiposMacroprocesos
+        {
+            get; private set;
+        }
         public int Complete()
         {
             return this.dimeContext.SaveChanges();
