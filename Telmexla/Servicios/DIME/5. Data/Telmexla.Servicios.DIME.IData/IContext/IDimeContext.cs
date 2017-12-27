@@ -167,7 +167,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<CEPLiberaciones> CEPLiberaciones { get; set; }
         System.Data.Entity.DbSet<CELLiberaciones> CELLiberaciones { get; set; }
         System.Data.Entity.DbSet<CEPAsigSuspenciones> CEPAsigSuspenciones { get; set; }
-
+        System.Data.Entity.DbSet<TiposMacroprocesos> TiposMacroprocesos { get; set; }
 
 
         int SaveChanges();

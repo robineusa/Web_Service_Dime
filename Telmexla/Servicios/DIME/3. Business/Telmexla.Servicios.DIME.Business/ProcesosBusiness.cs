@@ -233,16 +233,23 @@ namespace Telmexla.Servicios.DIME.Business
             }
         }
 
-        public List<Macroprocesos> ConsultarCategorias(int idCategoria)
+        public List<Macroprocesos> ConsultarCategorias(int idCategoria, int Tipo, bool EsIdPadre)
         {
             DimeContext Context = new DimeContext();
             List<Macroprocesos> Categorias = new List<Macroprocesos>();
 
+            if (EsIdPadre)
+            {
                 Categorias = (from n in Context.Macroprocesos
-                              where n.IdCategoriaPadre == idCategoria
+                              where n.IdCategoriaPadre == idCategoria && n.TipoMacroproceso == Tipo
                               select n).ToList();
-            
-
+            }
+            else
+            {
+                Categorias = (from n in Context.Macroprocesos
+                              where n.IdCategoria == idCategoria && n.TipoMacroproceso == Tipo
+                              select n).ToList();
+            }
             return Categorias;
 
         }
@@ -254,7 +261,6 @@ namespace Telmexla.Servicios.DIME.Business
             unitWork.Complete();
             unitWork.Dispose();
         }
-
 
         public void EliminarCategoria(int idCategoria)
         {
@@ -322,6 +328,52 @@ namespace Telmexla.Servicios.DIME.Business
 
             return idEliminar;
         }
+
+        public TiposMacroprocesos ConsultarTipoMacroproceso(int IdTipo)
+        {
+            DimeContext Context = new DimeContext();
+            TiposMacroprocesos tipo = new TiposMacroprocesos();
+
+            tipo = (from n in Context.TiposMacroprocesos
+                    where n.IdTipo == IdTipo
+                    select n).FirstOrDefault();
+
+            return tipo;
+        }
+
+        public Dictionary<string, string> ConsultarTitulos(int idPadre, int idTipo)
+        {
+            Dictionary<string, string> titulos = new Dictionary<string, string>();
+            Macroprocesos tipo = new Macroprocesos();
+            DimeContext Context = new DimeContext();
+
+
+            tipo = (from n in Context.Macroprocesos
+                    where n.IdCategoria == idPadre
+                    select n).FirstOrDefault();
+
+            string nombrePadre = tipo != null ? tipo.Descripcion : "1";
+            string IdAnterior = tipo != null ? tipo.IdCategoriaPadre.ToString() : "0";
+
+            string IdTipoAnterior = (from n in Context.Macroprocesos
+                                     where n.IdCategoria == Convert.ToInt32(IdAnterior)
+                                     select n.TipoMacroproceso).FirstOrDefault().ToString();
+
+            string nombreTipo = (from n in Context.TiposMacroprocesos
+                                 where n.IdTipo == idTipo
+                                 select n.Descripcion).FirstOrDefault();
+
+
+
+            titulos.Add("IdAnterior", IdAnterior);
+            titulos.Add("IdTipoAnterior", IdTipoAnterior);
+            titulos.Add("NombrePadre", nombrePadre);
+            titulos.Add("nombreTipo", nombreTipo);
+
+            return titulos;
+        }
+
+       
 
 
     }

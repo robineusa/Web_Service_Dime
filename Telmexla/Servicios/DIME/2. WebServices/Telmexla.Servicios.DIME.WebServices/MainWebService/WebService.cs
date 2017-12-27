@@ -2961,10 +2961,10 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
         }
 
-        public List<Macroprocesos> ConsultarCategorias(int idCategoria)
+        public List<Macroprocesos> ConsultarCategorias(int idCategoria, int Tipo, bool EsIdPadre)
         {
             ProcesosService procesos = new ProcesosService();
-            return procesos.ConsultarCategorias(idCategoria);
+            return procesos.ConsultarCategorias(idCategoria,Tipo, EsIdPadre);
 
         }
 
@@ -2974,6 +2974,18 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             procesos.EliminarCategoria(idCategoria);
         }
 
+        public TiposMacroprocesos ConsultarTipoMacroproceso(int IdTipo)
+        {
+            ProcesosService procesos = new ProcesosService();
+            return procesos.ConsultarTipoMacroproceso(IdTipo);
+
+        }
+        public Dictionary<string, string> ConsultarTitulos(int idPadre, int idTipo)
+        {
+            ProcesosService procesos = new ProcesosService();
+            return procesos.ConsultarTitulos(idPadre, idTipo);
+
+        }
 
         #endregion Procesos
 
