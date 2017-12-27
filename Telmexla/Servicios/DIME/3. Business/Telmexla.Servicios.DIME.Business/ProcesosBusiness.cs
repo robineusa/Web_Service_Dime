@@ -352,11 +352,11 @@ namespace Telmexla.Servicios.DIME.Business
                     where n.IdCategoria == idPadre
                     select n).FirstOrDefault();
 
-            string nombrePadre = tipo != null ? tipo.Descripcion : "1";
+            string nombrePadre = tipo != null ? tipo.Descripcion : string.Empty;
             string IdAnterior = tipo != null ? tipo.IdCategoriaPadre.ToString() : "0";
-
+            int idAnterior = Convert.ToInt32(IdAnterior);
             string IdTipoAnterior = (from n in Context.Macroprocesos
-                                     where n.IdCategoria == Convert.ToInt32(IdAnterior)
+                                     where n.IdCategoria == idAnterior
                                      select n.TipoMacroproceso).FirstOrDefault().ToString();
 
             string nombreTipo = (from n in Context.TiposMacroprocesos
@@ -373,7 +373,7 @@ namespace Telmexla.Servicios.DIME.Business
             return titulos;
         }
 
-       
+
 
 
     }
