@@ -1005,5 +1005,79 @@ namespace Telmexla.Servicios.DIME.Business
                 return Liberacion;
             }
         }
+        public List<CELLiberaciones> ConsultaLogDeGestionLiberacionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELLiberaciones> Lista = new List<CELLiberaciones>();
+            Lista = UnitOfWorkBusqueda.CELLiberaciones.Find(x => x.UsuarioDeTransaccion == Usuario && x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdTransaccion).ToList();
+            return Lista;
+        }
+        //consultas administrador
+        public List<CEPDesconexiones> ConsultaAdminPrincipalDesconexiones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CEPDesconexiones> Lista = new List<CEPDesconexiones>();
+            Lista = UnitOfWorkBusqueda.CEPDesconexiones.Find(x=>x.FechaDeGestion>= FechaInicial && x.FechaDeGestion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
+        public List<CEPLiberaciones> ConsultaAdminPrincipalLiberaciones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CEPLiberaciones> Lista = new List<CEPLiberaciones>();
+            Lista = UnitOfWorkBusqueda.CEPLiberaciones.Find(x => x.FechaGestion >= FechaInicial && x.FechaGestion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
+        public List<CEPSuspensiones> ConsultaAdminPrincipalSuspensiones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CEPSuspensiones> Lista = new List<CEPSuspensiones>();
+            Lista = UnitOfWorkBusqueda.CEPSuspensiones.Find(x => x.FechaGestion >= FechaInicial && x.FechaGestion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
+        public List<CEPTickets> ConsultaAdminPrincipalTickets(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CEPTickets> Lista = new List<CEPTickets>();
+            Lista = UnitOfWorkBusqueda.CEPTickets.Find(x => x.FechaDeGestion >= FechaInicial && x.FechaDeGestion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
+        //log
+        public List<CELDesconexiones> ConsultaAdminLogDesconexiones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELDesconexiones> Lista = new List<CELDesconexiones>();
+            Lista = UnitOfWorkBusqueda.CELDesconexiones.Find(x => x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
+        public List<CELLiberaciones> ConsultaAdminLogLiberaciones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELLiberaciones> Lista = new List<CELLiberaciones>();
+            Lista = UnitOfWorkBusqueda.CELLiberaciones.Find(x => x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
+        public List<CELSuspensiones> ConsultaAdminLogSuspensiones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELSuspensiones> Lista = new List<CELSuspensiones>();
+            Lista = UnitOfWorkBusqueda.CELSuspensiones.Find(x => x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
+        public List<CELTickets> ConsultaAdminLogTickets(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            UnitOfWork UnitOfWorkBusqueda = new UnitOfWork(new DimeContext());
+            List<CELTickets> Lista = new List<CELTickets>();
+            Lista = UnitOfWorkBusqueda.CELTickets.Find(x => x.FechaDeTransaccion >= FechaInicial && x.FechaDeTransaccion <= FechaFinal).ToList();
+            Lista = Lista.OrderBy(x => x.IdGestion).ToList();
+            return Lista;
+        }
     }
 }

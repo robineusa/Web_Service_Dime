@@ -3313,6 +3313,51 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ConsultarGestionCuentaLiberaciones(Cuenta);
         }
+        public List<CELLiberaciones> ConsultaLogDeGestionLiberacionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaLogDeGestionLiberacionesAgente(FechaInicial,FechaFinal,Usuario);
+        }
+        public List<CEPDesconexiones> ConsultaAdminPrincipalDesconexiones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaAdminPrincipalDesconexiones(FechaInicial, FechaFinal);
+        }
+        public List<CEPLiberaciones> ConsultaAdminPrincipalLiberaciones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaAdminPrincipalLiberaciones(FechaInicial, FechaFinal);
+        }
+        public List<CEPSuspensiones> ConsultaAdminPrincipalSuspensiones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaAdminPrincipalSuspensiones(FechaInicial, FechaFinal);
+        }
+        public List<CEPTickets> ConsultaAdminPrincipalTickets(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaAdminPrincipalTickets(FechaInicial, FechaFinal);
+        }
+        public List<CELDesconexiones> ConsultaAdminLogDesconexiones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaAdminLogDesconexiones(FechaInicial, FechaFinal);
+        }
+        public List<CELLiberaciones> ConsultaAdminLogLiberaciones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaAdminLogLiberaciones(FechaInicial, FechaFinal);
+        }
+        public List<CELSuspensiones> ConsultaAdminLogSuspensiones(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaAdminLogSuspensiones(FechaInicial, FechaFinal);
+        }
+        public List<CELTickets> ConsultaAdminLogTickets(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            CierreExperienciaService CierreExpService = new CierreExperienciaService();
+            return CierreExpService.ConsultaAdminLogTickets(FechaInicial, FechaFinal);
+        }
         #endregion
     }
 }
