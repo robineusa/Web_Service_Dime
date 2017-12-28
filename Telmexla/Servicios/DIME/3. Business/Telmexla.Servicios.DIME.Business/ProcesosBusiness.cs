@@ -232,9 +232,9 @@ namespace Telmexla.Servicios.DIME.Business
             if (NodoCambiarNombre != null)
             {
                 NodoCambiarNombre.NombreNodo = NuevoNombre;
-                unitWork.Complete();
-                unitWork.Dispose();
             }
+            unitWork.Complete();
+            unitWork.Dispose();
         }
 
         public List<Macroprocesos> ConsultarCategorias(int idCategoria, int Tipo, bool EsIdPadre)
@@ -257,7 +257,6 @@ namespace Telmexla.Servicios.DIME.Business
             return Categorias;
 
         }
-
         public void CrearCategoria(Macroprocesos Categoria)
         {
             UnitOfWork unitWork = new UnitOfWork(new DimeContext());
@@ -265,7 +264,20 @@ namespace Telmexla.Servicios.DIME.Business
             unitWork.Complete();
             unitWork.Dispose();
         }
+        public void EditarCategoria(int IdCategoria, string nombreNuevo)
+        {
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+            Macroprocesos Categoria = new Macroprocesos();
 
+            Categoria = unitWork.Macroprocesos.Find(f => f.IdCategoria == IdCategoria).FirstOrDefault();
+
+            if (Categoria != null)
+            {
+                Categoria.Descripcion = nombreNuevo;
+            }
+            unitWork.Complete();
+            unitWork.Dispose();
+        }
         public void EliminarCategoria(int idCategoria)
         {
             DimeContext dimContext = new DimeContext();

@@ -2986,7 +2986,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return procesos.ConsultarTitulos(idPadre, idTipo);
 
         }
-
+        public void EditarCategoria(int IdCategoria, string nombreNuevo)
+        {
+            ProcesosService procesos = new ProcesosService();
+            procesos.EditarCategoria(IdCategoria, nombreNuevo);
+        }
         #endregion Procesos
 
         #region Retencion
