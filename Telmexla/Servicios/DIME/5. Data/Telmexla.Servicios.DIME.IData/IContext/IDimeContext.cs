@@ -168,6 +168,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<CELLiberaciones> CELLiberaciones { get; set; }
         System.Data.Entity.DbSet<CEPAsigSuspenciones> CEPAsigSuspenciones { get; set; }
         System.Data.Entity.DbSet<TiposMacroprocesos> TiposMacroprocesos { get; set; }
+        System.Data.Entity.DbSet<CargueBaseMidas> CargueBaseMidas { get; set; }
+        System.Data.Entity.DbSet<GPMMidas> GPMMidas { get; set; }
 
 
         int SaveChanges();

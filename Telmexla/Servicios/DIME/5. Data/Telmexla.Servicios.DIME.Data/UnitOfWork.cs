@@ -151,6 +151,8 @@ namespace Telmexla.Servicios.DIME.Data
             CELLiberaciones = new CELLiberacionesRepository(this.dimeContext);
             CEPAsigSuspenciones = new CEPAsigSuspencionesRepository(this.dimeContext);
             TiposMacroprocesos = new TiposMacroprocesosRepository(this.dimeContext);
+            CargueBaseMidas = new CargueBaseMidasRepository(this.dimeContext);
+            GPMMidas = new GPMMidasRepository(this.dimeContext);
         }
         public IAccesosXLineaRepository AccesosXLinea
         {
@@ -713,6 +715,15 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
+        public ICargueBaseMidasRepository CargueBaseMidas
+        {
+            get; private set;
+        }
+        public IGPMMidasRepository GPMMidas
+        {
+            get; private set;
+        }
+        
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

@@ -61,6 +61,7 @@
     <Compile Include="BAPActualizarDatosRepository.cs" />
     <Compile Include="BSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="BSCAdministracionBalancedRepository.cs" />
+    <Compile Include="CargueBaseMidasRepository.cs" />
     <Compile Include="CELLiberacionesRepository.cs" />
     <Compile Include="CELSuspensionesRepository.cs" />
     <Compile Include="CELTicketsRepository.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="CEPLiberacionesRepository.cs" />
     <Compile Include="CEPSuspensionesRepository.cs" />
     <Compile Include="CEPTicketsRepository.cs" />
+    <Compile Include="Configuration\CargueBaseMidasConfiguration.cs" />
     <Compile Include="Configuration\CELDesconexionesConfiguration.cs" />
     <Compile Include="CELDesconexionesRepository.cs" />
     <Compile Include="Configuration\CELLiberacionesConfiguration.cs" />
