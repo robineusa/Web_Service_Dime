@@ -185,7 +185,7 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             List<CEMArbolesDeGestion> Lista = new List<CEMArbolesDeGestion>();
-            Lista = unitOfWork.CEMArbolesDeGestion.Find(x => x.IdPadre == IdPadre ).ToList();
+            Lista = unitOfWork.CEMArbolesDeGestion.Find(x => x.IdPadre == IdPadre && x.EstadoArbol.Equals("ACTIVO")).ToList();
             Lista = Lista.OrderBy(x => x.Descripcion).ToList();
             return Lista;
         }
