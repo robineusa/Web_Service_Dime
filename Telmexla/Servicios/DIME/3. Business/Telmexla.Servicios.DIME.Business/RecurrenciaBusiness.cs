@@ -1165,7 +1165,7 @@ namespace Telmexla.Servicios.DIME.Business
         public List<GPrincipalRecurrencia> CuentaGprincipalRecurrencia(int CuentaCliente)
         {
             DimeContext dimeContext = new DimeContext();
-            List<GPrincipalRecurrencia> result = dimeContext.GPrincipalRecurrencia.Where(c => c.CuentaCliente == CuentaCliente && c.Estado != "FINALIZADO").ToList();
+            List<GPrincipalRecurrencia> result = dimeContext.GPrincipalRecurrencia.Where(c => c.CuentaCliente == CuentaCliente && c.Estado == "SEGUIMIENTO").ToList();
             return result;
         }
         public List<GLogRecurrencia> ListaMiHistorialRecurrencia(string usuarioGestion)

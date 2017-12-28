@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService, IOfertasComercialesService, ISignalRService, ICierreExperienciaService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService, IOfertasComercialesService, ISignalRService, ICierreExperienciaService, IMidasService
     {
         public Usuario MuestraEntidades()
         {
@@ -3361,6 +3361,14 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         {
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ConsultaAdminLogTickets(FechaInicial, FechaFinal);
+        }
+        #endregion
+
+        #region Midas
+        public CargueBaseMidas TraeCuentaMidas(decimal CuentaCliente)
+        {
+            MidasService miadasService = new MidasService();
+            return miadasService.TraeCuentaMidas(CuentaCliente);
         }
         #endregion
     }

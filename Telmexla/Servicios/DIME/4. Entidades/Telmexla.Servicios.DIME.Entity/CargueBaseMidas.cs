@@ -28,5 +28,6 @@ namespace Telmexla.Servicios.DIME.Entity
         public string Campaña1 { get; set; }
         public string Campaña2 { get; set; }
         public string Campaña3 { get; set; }
+        public decimal UsuarioGestionando{ get; set; }
     }
 }

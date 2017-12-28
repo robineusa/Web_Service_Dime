@@ -80,6 +80,7 @@
     <Compile Include="MaestroNodoBusiness.cs" />
     <Compile Include="MarcacionesBusiness.cs" />
     <Compile Include="MecBusiness.cs" />
+    <Compile Include="MidasBusiness.cs" />
     <Compile Include="MultiplayBusiness.cs" />
     <Compile Include="NotificacionesBuenServicioBusiness.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />

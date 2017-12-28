@@ -151,6 +151,7 @@
     <Compile Include="GestionFoxInbound.cs" />
     <Compile Include="GLogRecurrencia.cs" />
     <Compile Include="GLogRecurrenciaInbound.cs" />
+    <Compile Include="GPMMidas.cs" />
     <Compile Include="GPrincipalRecurrencia.cs" />
     <Compile Include="GPrincipalRecurrenciaInbound.cs" />
     <Compile Include="IMGOfertasComeciales.cs" />

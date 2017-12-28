@@ -112,6 +112,7 @@
     <Compile Include="IGestionFoxInboundRepository.cs" />
     <Compile Include="IGLogRecurrenciaInboundRepository.cs" />
     <Compile Include="IGLogRecurrenciaRepository.cs" />
+    <Compile Include="IGPMMidasRepository.cs" />
     <Compile Include="IGPrincipalRecurrenciaInboundRepository.cs" />
     <Compile Include="IGPrincipalRecurrenciaRepository.cs" />
     <Compile Include="IIMGOfertasComecialesRepository.cs" />

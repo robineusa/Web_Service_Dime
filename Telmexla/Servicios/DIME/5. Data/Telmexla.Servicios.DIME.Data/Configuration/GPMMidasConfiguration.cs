@@ -32,7 +32,7 @@ namespace Telmexla.Servicios.DIME.Data.Configuration
             Property(x => x.FallaServPrincipalesSoporte).HasColumnName(@"FALLA_SERV_PRINCIPALES_SOPORTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.FallaServAdicionalesSoporte).HasColumnName(@"FALLA_SERV_ADICIONALES_SOPORTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.TipoFallaSoporte).HasColumnName(@"TIPO_FALLA_SOPORTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
-            Property(x => x.SolucionEspecificaSoporte).HasColumnName(@"SOLUCION_ESPECIFICA_SOPORTE").IsOptional().HasColumnType("datetime");
+            Property(x => x.SolucionEspecificaSoporte).HasColumnName(@"SOLUCION_ESPECIFICA_SOPORTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.EstadoSoporte).HasColumnName(@"ESTADO_SOPORTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(255);
             Property(x => x.FechaSeguimientoSoporte).HasColumnName(@"FECHA_SEGUIMIENTO_SOPORTE").IsOptional().HasColumnType("datetime");
             Property(x => x.ObservacionesSoporte).HasColumnName(@"OBSERVACIONES_SOPORTE").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(1000);
