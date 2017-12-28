@@ -61,6 +61,7 @@
     <Compile Include="IBAPActualizarDatosRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedLogRepository.cs" />
     <Compile Include="IBSCAdministracionBalancedRepository.cs" />
+    <Compile Include="ICargueBaseMidasRepository.cs" />
     <Compile Include="ICELDesconexionesRepository.cs" />
     <Compile Include="ICELLiberacionesRepository.cs" />
     <Compile Include="ICELSuspensionesRepository.cs" />

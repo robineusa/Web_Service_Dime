@@ -63,6 +63,7 @@
     <Compile Include="BAPActualizarDatos.cs" />
     <Compile Include="BSCAdministracionBalanced.cs" />
     <Compile Include="BSCAdministracionBalancedLog.cs" />
+    <Compile Include="CargueBaseMidas.cs" />
     <Compile Include="CELDesconexiones.cs" />
     <Compile Include="CELLiberaciones.cs" />
     <Compile Include="CEPAsigSuspenciones.cs" />

@@ -171,6 +171,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<CELLiberaciones> CELLiberaciones { get; set; }
         public System.Data.Entity.DbSet<CEPAsigSuspenciones> CEPAsigSuspenciones { get; set; }
         public System.Data.Entity.DbSet<TiposMacroprocesos> TiposMacroprocesos { get; set; }
+        public System.Data.Entity.DbSet<CargueBaseMidas> CargueBaseMidas { get; set; }
+        public System.Data.Entity.DbSet<GPMMidas> GPMMidas { get; set; }
+
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -373,6 +376,8 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CELLiberacionesConfiguration());
             modelBuilder.Configurations.Add(new CEPAsigSuspencionesConfiguration());
             modelBuilder.Configurations.Add(new TipoMacroprocesosConfiguration());
+            modelBuilder.Configurations.Add(new CargueBaseMidasConfiguration());
+            modelBuilder.Configurations.Add(new GPMMidasConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -528,7 +533,9 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new CEPLiberacionesConfiguration(schema));
             modelBuilder.Configurations.Add(new CELLiberacionesConfiguration(schema));
             modelBuilder.Configurations.Add(new CEPAsigSuspencionesConfiguration(schema));
-            modelBuilder.Configurations.Add(new TipoMacroprocesosConfiguration(schema)); 
+            modelBuilder.Configurations.Add(new TipoMacroprocesosConfiguration(schema));
+            modelBuilder.Configurations.Add(new CargueBaseMidasConfiguration(schema));
+            modelBuilder.Configurations.Add(new GPMMidasConfiguration(schema));
             return modelBuilder;
         }
 

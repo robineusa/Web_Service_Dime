@@ -20,26 +20,14 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
-
-            ProcesosBusiness p = new ProcesosBusiness();
-            Nodo model = new Nodo();
-            model.IdPadre = 0;
-            model.IdArbol = 1;
-            model.NombreNodo = "primer nodo";
-            model.EsNodoFinal = false;
-            model.Categoria = 0;
-            model.SubCategoria = 0;
-            model.Tipo = 0;
-
-            p.EliminarCategoria(4);
-
-            string dp = "";
             //CierreExperienciaService ces = new CierreExperienciaService();
             //CEPAsigDesconexiones dato = ces.ApartarCuentadeDesconexiones(1032381244,0);
             //var sss = "";
 
-            //SignalRService signal = new SignalRService();
-            //var r = signal.ListaNoNotificados(1076622744);
+            SignalRService signal = new SignalRService();
+            var r = signal.ListaNoNotificados(1076622744);
+
+            var z = "";
             //eliminar.CambiarNombreNodo(141,"nuevo nombre");
 
 
