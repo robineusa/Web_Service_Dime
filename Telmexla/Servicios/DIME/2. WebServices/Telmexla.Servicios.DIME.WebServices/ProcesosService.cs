@@ -97,6 +97,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             ProcesosBusiness ConsultarTitulos = new ProcesosBusiness();
             return ConsultarTitulos.ConsultarTitulos(idPadre, idTipo);
         }
-
+        public void EditarCategoria(int IdCategoria, string nombreNuevo)
+        {
+            ProcesosBusiness ConsultarCategorias = new ProcesosBusiness();
+            ConsultarCategorias.EditarCategoria(IdCategoria, nombreNuevo);
+        }
     }
 }

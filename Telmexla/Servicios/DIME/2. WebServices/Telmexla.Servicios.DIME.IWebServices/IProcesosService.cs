@@ -41,5 +41,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         TiposMacroprocesos ConsultarTipoMacroproceso(int IdTipo);
         [OperationContract]
         Dictionary<string, string> ConsultarTitulos(int idPadre, int idTipo);
+        [OperationContract]
+        void EditarCategoria(int IdCategoria, string nombreNuevo);
     }
 }
