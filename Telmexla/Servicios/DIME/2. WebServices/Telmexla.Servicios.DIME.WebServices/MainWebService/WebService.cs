@@ -79,7 +79,8 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
 
         public bool PreguntasDesbloqueoCompletas(int id)
-        { LoginService lService = new LoginService();
+        {
+            LoginService lService = new LoginService();
             return lService.PreguntasDesbloqueoCompletas(id);
         }
 
@@ -390,7 +391,8 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
 
         public MaestroOutboundRazonCollection ObtenerTiposDeRazonDeCierres(decimal cierreId)
-        { MaestrosService maestrosService = new MaestrosService();
+        {
+            MaestrosService maestrosService = new MaestrosService();
             return maestrosService.ObtenerTiposDeRazonDeCierres(cierreId);
         }
 
@@ -1212,7 +1214,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void RegistrarUmbralesBalanced(BSCAdministracionBalanced Umbrales, decimal Usuario, string NombreUsuario)
         {
             BalanceScoreCardService balancedservice = new BalanceScoreCardService();
-            balancedservice.RegistrarUmbralesBalanced(Umbrales,Usuario,NombreUsuario);
+            balancedservice.RegistrarUmbralesBalanced(Umbrales, Usuario, NombreUsuario);
         }
         public void ActualizarUmbralesBalanced(BSCAdministracionBalanced Umbrales, decimal Usuario, string NombreUsuario)
         {
@@ -1858,11 +1860,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BackEliteService backeliteservice = new BackEliteService();
             return backeliteservice.ConsultadeGestionAgente(Usuario, FechaInicial, FechaFinal);
         }
-        public List<BELSolicitudes> ConsultaSolicitudesAdminLog(DateTime FechaInicial, DateTime FechaFinal) {
+        public List<BELSolicitudes> ConsultaSolicitudesAdminLog(DateTime FechaInicial, DateTime FechaFinal)
+        {
             BackEliteService backeliteservice = new BackEliteService();
             return backeliteservice.ConsultaSolicitudesAdminLog(FechaInicial, FechaFinal);
         }
-        public List<BEPSolicitudes> ConsultaSolicitudesAdminPricipal(DateTime FechaInicial, DateTime FechaFinal) {
+        public List<BEPSolicitudes> ConsultaSolicitudesAdminPricipal(DateTime FechaInicial, DateTime FechaFinal)
+        {
             BackEliteService backeliteservice = new BackEliteService();
             return backeliteservice.ConsultaSolicitudesAdminPricipal(FechaInicial, FechaFinal);
         }
@@ -2136,7 +2140,8 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             BitacoraService.RegistrarOperacionesEnIncidente(Operaciones, IdRegistro);
         }
-        public BIPBitacoraIncidentes TraeIncidentePorId(int IdRegistro) {
+        public BIPBitacoraIncidentes TraeIncidentePorId(int IdRegistro)
+        {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             return BitacoraService.TraeIncidentePorId(IdRegistro);
         }
@@ -2150,7 +2155,8 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             BitacoraService.EliminarOpoeracionDeIncidente(Id);
         }
-        public List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion(decimal Cedula) {
+        public List<BIPBitacoraIncidentes> ListaDeIncidentesEnGestion(decimal Cedula)
+        {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             return BitacoraService.ListaDeIncidentesEnGestion(Cedula);
         }
@@ -2164,7 +2170,8 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             BitacoraService.ActualizarAliado(Aliado);
         }
-        public void AgregarGerencia(BIMGerencias GerenciaNueva) {
+        public void AgregarGerencia(BIMGerencias GerenciaNueva)
+        {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             BitacoraService.AgregarGerencia(GerenciaNueva);
         }
@@ -2173,7 +2180,8 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             BitacoraService.ActualizarGerencia(Gerencia);
         }
-        public void AgregarOperaciones(BIMOperaciones OperacionNueva) {
+        public void AgregarOperaciones(BIMOperaciones OperacionNueva)
+        {
             BitacoraIncidentesService BitacoraService = new BitacoraIncidentesService();
             BitacoraService.AgregarOperaciones(OperacionNueva);
         }
@@ -2379,7 +2387,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<FidelizacionSubmotivosCancelacionDetalle> getSubmotivosCancelacionAll(decimal estado, decimal idMotivo)
         {
             FidelizacionService Fidelizacion = new FidelizacionService();
-            return Fidelizacion.getSubmotivosCancelacionAll(estado,idMotivo);
+            return Fidelizacion.getSubmotivosCancelacionAll(estado, idMotivo);
         }
 
         public FidelizacionSubmotivosCancelacion getSubmotivosCancelacionById(decimal idSubmotivo)
@@ -2475,7 +2483,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<FidelizacionTipificacion> getTipificacionAll(decimal eliminado, decimal nivel = 0)
         {
             FidelizacionService Fidelizacion = new FidelizacionService();
-            return Fidelizacion.getTipificacionAll(eliminado,nivel);
+            return Fidelizacion.getTipificacionAll(eliminado, nivel);
         }
         public FidelizacionTipificacion getTipificacionById(decimal idTipificacion)
         {
@@ -2500,7 +2508,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<FidelizacionOtrosCampos> getOtrosCamposAll(decimal eliminado, decimal nivel = 0)
         {
             FidelizacionService Fidelizacion = new FidelizacionService();
-            return Fidelizacion.getOtrosCamposAll(eliminado,nivel);
+            return Fidelizacion.getOtrosCamposAll(eliminado, nivel);
         }
         public void setRegistroCampos(FidelizacionRegistroCampos objRegistroCampos)
         {
@@ -2603,7 +2611,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<VIPSolicitudes> ConsultaAdminSolicitudesPrincipal(DateTime FechaInicial, DateTime FechaFinal)
         {
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
-            return VerificacionInventarioService.ConsultaAdminSolicitudesPrincipal(FechaInicial,FechaFinal);
+            return VerificacionInventarioService.ConsultaAdminSolicitudesPrincipal(FechaInicial, FechaFinal);
         }
         public List<VILSolicitudes> ListaDeInteraccionesPorSolicitud(decimal IdSolicitud)
         {
@@ -2613,7 +2621,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public VIPSolicitudes ApartarCuentaVerificacionInventario(decimal Cedula, int noRecursividad)
         {
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
-            return VerificacionInventarioService.ApartarCuentaVerificacionInventario(Cedula,noRecursividad);
+            return VerificacionInventarioService.ApartarCuentaVerificacionInventario(Cedula, noRecursividad);
         }
         public VIPSolicitudes ConsultarSolicitudPorIdInventario(decimal Id)
         {
@@ -2648,7 +2656,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<VILSolicitudes> ConsultaDeGestionBack(decimal Cedula, DateTime FechaInicial, DateTime FechaFinal)
         {
             VerificacionDeInventarioService VerificacionInventarioService = new VerificacionDeInventarioService();
-            return VerificacionInventarioService.ConsultaDeGestionBack(Cedula,FechaInicial,FechaFinal);
+            return VerificacionInventarioService.ConsultaDeGestionBack(Cedula, FechaInicial, FechaFinal);
         }
         public List<VILSolicitudes> ConsultaAdminSolicitudesLog(DateTime FechaInicial, DateTime FechaFinal)
         {
@@ -2783,7 +2791,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<VisitasAutorizadas> ConsultaBaseVisitasAutorizadas(DateTime FechaInicial, DateTime FechaFinal)
         {
             VisitasAutorizadasService visitasservice = new VisitasAutorizadasService();
-            return visitasservice.ConsultaBaseVisitasAutorizadas(FechaInicial,FechaFinal);
+            return visitasservice.ConsultaBaseVisitasAutorizadas(FechaInicial, FechaFinal);
         }
         public List<VAMotivosSolicitud> ListaMotivosSolicitud()
         {
@@ -2887,7 +2895,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void RegistrarActualizaciondeDatos(List<string> IdAsociadosSi, BAPActualizarDatos Datos)
         {
             BannerAlertasService banneralertasservice = new BannerAlertasService();
-            banneralertasservice.RegistrarActualizaciondeDatos(IdAsociadosSi,Datos);
+            banneralertasservice.RegistrarActualizaciondeDatos(IdAsociadosSi, Datos);
         }
         public decimal ConsultarTelefonoPorCuenta(decimal CuentaCliente)
         {
@@ -2939,7 +2947,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             ProcesosService procesos = new ProcesosService();
             procesos.EliminaNodo(IdNodo);
         }
-        public void CambiarNombreNodo(int IdNodo,string NuevoNombre)
+        public void CambiarNombreNodo(int IdNodo, string NuevoNombre)
         {
             ProcesosService procesos = new ProcesosService();
             procesos.CambiarNombreNodo(IdNodo, NuevoNombre);
@@ -2952,7 +2960,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public string GuardarCodigoHtmlNodo(int IdNodo, string CodigoHtml, bool NodoFinal, int Categoria, int SubCategoria, int Tipo)
         {
             ProcesosService procesos = new ProcesosService();
-            return  procesos.GuardarCodigoHtmlNodo(IdNodo, CodigoHtml, NodoFinal, Categoria, SubCategoria, Tipo);
+            return procesos.GuardarCodigoHtmlNodo(IdNodo, CodigoHtml, NodoFinal, Categoria, SubCategoria, Tipo);
         }
         public void CrearCategoria(Macroprocesos Categoria)
         {
@@ -2964,7 +2972,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<Macroprocesos> ConsultarCategorias(int idCategoria, int Tipo, bool EsIdPadre)
         {
             ProcesosService procesos = new ProcesosService();
-            return procesos.ConsultarCategorias(idCategoria,Tipo, EsIdPadre);
+            return procesos.ConsultarCategorias(idCategoria, Tipo, EsIdPadre);
 
         }
 
@@ -3032,7 +3040,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<RSPSeguimientos> ConsultaAdministradorPricipal(DateTime FechaInicio, DateTime FechaFin)
         {
             RetencionService retencionservice = new RetencionService();
-            return retencionservice.ConsultaAdministradorPricipal(FechaInicio,FechaFin);
+            return retencionservice.ConsultaAdministradorPricipal(FechaInicio, FechaFin);
         }
         public List<RSLSeguimientos> ConsultaAdministradorLog(DateTime FechaInicio, DateTime FechaFin)
         {
@@ -3157,7 +3165,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public CEPAsigDesconexiones ApartarCuentadeDesconexiones(decimal Cedula, int noRecursividad)
         {
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
-            return CierreExpService.ApartarCuentadeDesconexiones(Cedula,noRecursividad);
+            return CierreExpService.ApartarCuentadeDesconexiones(Cedula, noRecursividad);
         }
         public List<CEMArbolesDeGestion> ListasDeArbolesCierreExperienciaAdmin(decimal IdPadre)
         {
@@ -3167,7 +3175,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<CELDesconexiones> ConsultaDeGestionDesconexionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
         {
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
-            return CierreExpService.ConsultaDeGestionDesconexionesAgente(FechaInicial,FechaFinal,Usuario);
+            return CierreExpService.ConsultaDeGestionDesconexionesAgente(FechaInicial, FechaFinal, Usuario);
         }
         public CEPAsigDesconexiones ValidarCuentaAsignada(decimal Cedula, int noRecursividad, decimal CuentaCliente)
         {
@@ -3198,7 +3206,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<CELTickets> ConsultaDeGestionTicketsAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
         {
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
-            return CierreExpService.ConsultaDeGestionTicketsAgente(FechaInicial,FechaFinal,Usuario);
+            return CierreExpService.ConsultaDeGestionTicketsAgente(FechaInicial, FechaFinal, Usuario);
         }
         public List<CELTickets> ListaDeGestionAgenteTicketsCierreExperiencia(decimal Usuario)
         {
@@ -3235,7 +3243,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public void RegistrarSuspencion(CEPSuspensiones Suspencion, decimal IdAsignacion)
         {
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
-            CierreExpService.RegistrarSuspencion(Suspencion,IdAsignacion);
+            CierreExpService.RegistrarSuspencion(Suspencion, IdAsignacion);
         }
         public void ActualizarSuspencion(CEPSuspensiones Suspencion)
         {
@@ -3255,7 +3263,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public CEPAsigSuspenciones ValidarCuentaAsigSuspension(decimal Cedula, decimal CuentaCliente)
         {
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
-            return CierreExpService.ValidarCuentaAsigSuspension(Cedula,CuentaCliente);
+            return CierreExpService.ValidarCuentaAsigSuspension(Cedula, CuentaCliente);
         }
         public CEPAsigSuspenciones ApartarCuentadeSuspensiones(decimal Cedula, int noRecursividad)
         {
@@ -3280,7 +3288,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<CELTickets> ConsultaLogDeGestionTicketsAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
         {
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
-            return CierreExpService.ConsultaLogDeGestionTicketsAgente(FechaInicial,FechaFinal,Usuario);
+            return CierreExpService.ConsultaLogDeGestionTicketsAgente(FechaInicial, FechaFinal, Usuario);
         }
         public List<CELSuspensiones> ConsultaLogDeGestionSuspensionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
         {
@@ -3320,7 +3328,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         public List<CELLiberaciones> ConsultaLogDeGestionLiberacionesAgente(DateTime FechaInicial, DateTime FechaFinal, decimal Usuario)
         {
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
-            return CierreExpService.ConsultaLogDeGestionLiberacionesAgente(FechaInicial,FechaFinal,Usuario);
+            return CierreExpService.ConsultaLogDeGestionLiberacionesAgente(FechaInicial, FechaFinal, Usuario);
         }
         public List<CEPDesconexiones> ConsultaAdminPrincipalDesconexiones(DateTime FechaInicial, DateTime FechaFinal)
         {
@@ -3363,5 +3371,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             return CierreExpService.ConsultaAdminLogTickets(FechaInicial, FechaFinal);
         }
         #endregion
+
+        #region DiasFestivos
+
+        public int ConsultarDiasFestivos(DateTime FechaInicio, DateTime FechaFinal)
+        {
+            DiasFestivosService ConsultarDiasFestivos = new DiasFestivosService();
+            return ConsultarDiasFestivos.ConsultarDiasFestivos(FechaInicio, FechaFinal);
+        }
+
+
+        #endregion DiasFestivos
     }
 }

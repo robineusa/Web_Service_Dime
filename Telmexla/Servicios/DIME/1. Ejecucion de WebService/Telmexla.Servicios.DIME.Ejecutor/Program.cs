@@ -20,12 +20,20 @@ namespace Telmexla.Servicios.DIME.Ejecutor
     {
         static void Main()
         {
+
+            DiasFestivosBusiness DIAS = new DiasFestivosBusiness();
+            DateTime fechaInicio = new DateTime(2017,12,28);
+            DateTime fechaFinal = new DateTime(2018,01,01);
+            int pruebas = DIAS.ConsultarDiasFestivos(fechaInicio, fechaFinal);
+            var pp=0;
+
+
             //CierreExperienciaService ces = new CierreExperienciaService();
             //CEPAsigDesconexiones dato = ces.ApartarCuentadeDesconexiones(1032381244,0);
             //var sss = "";
 
-            SignalRService signal = new SignalRService();
-            var r = signal.ListaNoNotificados(1076622744);
+            //SignalRService signal = new SignalRService();
+            //var r = signal.ListaNoNotificados(1076622744);
 
             var z = "";
             //eliminar.CambiarNombreNodo(141,"nuevo nombre");

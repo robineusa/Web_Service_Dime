@@ -100,6 +100,7 @@
     <Compile Include="Configuration\FidelizacionTipificacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionRecursivaVistaConfiguration.cs" />
     <Compile Include="Configuration\GLogRecurrenciaInboundConfiguration.cs" />
+    <Compile Include="Configuration\GPMMidasConfiguration.cs" />
     <Compile Include="Configuration\IMGOfertasComecialesConfiguration.cs" />
     <Compile Include="Configuration\InventarioEquiposConfiguration.cs" />
     <Compile Include="Configuration\MacroprocesosConfiguration.cs" />
@@ -243,6 +244,7 @@
     <Compile Include="GLogRecurrenciaInboundRepository.cs" />
     <Compile Include="GLogRecurrenciaRepository.cs" />
     <Compile Include="Configuration\GPrincipalRecurrenciaInboundConfiguration.cs" />
+    <Compile Include="GPMMidasRepository.cs" />
     <Compile Include="GPrincipalRecurrenciaInboundRepository.cs" />
     <Compile Include="GPrincipalRecurrenciaRepository.cs" />
     <Compile Include="IMGOfertasComecialesRepository.cs" />
