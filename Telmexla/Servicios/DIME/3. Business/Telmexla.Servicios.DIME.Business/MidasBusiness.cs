@@ -13,6 +13,11 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class MidasBusiness
     {
-
+        public CargueBaseMidas TraeCuentaMidas(decimal CuentaCliente)
+        {
+            UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
+            CargueBaseMidas Registro = UnitOfWork.CargueBaseMidas.Find(x => x.CuentaCliente == CuentaCliente).FirstOrDefault();
+            return Registro;
+        }
     }
 }

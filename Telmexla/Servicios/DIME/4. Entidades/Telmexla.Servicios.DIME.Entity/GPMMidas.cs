@@ -10,7 +10,7 @@ namespace Telmexla.Servicios.DIME.Entity
     {
         public decimal Id { get; set; }
         public System.DateTime? FechaGestion { get; set; }
-        public string UsuarioGestion { get; set; }
+        public decimal UsuarioGestion { get; set; }
         public string NombreUsuarioGestion { get; set; }
         public string AliadoGestion { get; set; }
         public decimal CuentaCliente { get; set; }

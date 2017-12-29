@@ -32,8 +32,13 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //CEPAsigDesconexiones dato = ces.ApartarCuentadeDesconexiones(1032381244,0);
             //var sss = "";
 
+<<<<<<< HEAD
             //SignalRService signal = new SignalRService();
             //var r = signal.ListaNoNotificados(1076622744);
+=======
+            RecurrenciaService REC = new RecurrenciaService();
+            var h = REC.CuentaGprincipalRecurrencia(5218797);
+>>>>>>> 4d49d9ce079812cb7a453dce90016ccb87e283c8
 
             var z = "";
             //eliminar.CambiarNombreNodo(141,"nuevo nombre");

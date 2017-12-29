@@ -80,6 +80,7 @@
     <Compile Include="IMainWebService\IWebService.cs" />
     <Compile Include="IMarcacionesService.cs" />
     <Compile Include="IMecService.cs" />
+    <Compile Include="IMidasService.cs" />
     <Compile Include="IMultiPlayService.cs" />
     <Compile Include="INotificacionesBuenServicioService.cs" />
     <Compile Include="IOfertasComercialesService.cs" />
