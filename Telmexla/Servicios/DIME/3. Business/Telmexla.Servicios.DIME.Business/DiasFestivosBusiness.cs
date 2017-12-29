@@ -6,21 +6,24 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class DiasFestivosBusiness
     {
-        public int ConsultarDiasFestivos(DateTime FechaInicio,DateTime FechaFinal)
+        public string ConsultarDiasFestivos(DateTime FechaInicio,int Dias)
         {
             string fechaInicial = FechaInicio.ToShortDateString();
-            string fechaFinal = FechaFinal.ToShortDateString();
-            string consulta = "SELECT COUNT(TIPO_DIA_LUNES_VIERNES) AS CANTIDAD FROM TMP_MAESTRO_FESTIVOS" +
-                             " WHERE FECHA BETWEEN CONVERT(DATETIME,'28/12/2017', 103) AND CONVERT(DATETIME,'01/01/2018', 103) " +
-                             " AND TIPO_DIA_LUNES_VIERNES = 0 ";
+            string consulta = string.Format("SELECT dbo.CONSULTAR_DIAS_AVILES(CONVERT(DATETIME,'{0}'),{1});", fechaInicial, Dias);
 
 
             MaestrosContext contexto = new MaestrosContext();
-            var l = contexto.Database.SqlQuery<int>(consulta).FirstOrDefault();
+            var sql = contexto.Database.SqlQuery<DateTime>(consulta).FirstOrDefault();
             //" AND TIPO_DIA_LUNES_VIERNES = '0' " + " ").ToList();
             //" GROUP BY TIPO_DIA_LUNES_VIERNES").FirstOrDefault();
-            int diasFestivos = Convert.ToInt32(l);
+
+            //string diasFestivos = sql.ToString();
+            string diasFestivos = sql.ToShortDateString();
             return diasFestivos;
         }
     }
 }
+
+//string consulta = string.Format("SELECT COUNT(TIPO_DIA_LUNES_VIERNES) AS CANTIDAD FROM TMP_MAESTRO_FESTIVOS" +
+//                 " WHERE FECHA BETWEEN CONVERT(DATETIME,{0}, 103) AND CONVERT(DATETIME,{1}, 103) " +
+//                 " AND TIPO_DIA_LUNES_VIERNES = 0 ", fechaInicial, fechaFinal);

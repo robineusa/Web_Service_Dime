@@ -9,6 +9,6 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface IDiasFestivosService
     {
         [OperationContract]
-        int ConsultarDiasFestivos(DateTime FechaInicio, DateTime FechaFinal);
+        string ConsultarDiasFestivos(DateTime FechaInicio, int Dias);
     }
 }

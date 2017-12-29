@@ -22,9 +22,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
             DiasFestivosBusiness DIAS = new DiasFestivosBusiness();
-            DateTime fechaInicio = new DateTime(2017,12,28);
-            DateTime fechaFinal = new DateTime(2018,01,01);
-            int pruebas = DIAS.ConsultarDiasFestivos(fechaInicio, fechaFinal);
+            string fecha= "29/12/2017";
+            DateTime fechaInicio = Convert.ToDateTime(fecha);
+
+            string pruebas = DIAS.ConsultarDiasFestivos(fechaInicio, 2);
             var pp=0;
 
 
@@ -32,15 +33,15 @@ namespace Telmexla.Servicios.DIME.Ejecutor
             //CEPAsigDesconexiones dato = ces.ApartarCuentadeDesconexiones(1032381244,0);
             //var sss = "";
 
-<<<<<<< HEAD
-            //SignalRService signal = new SignalRService();
-            //var r = signal.ListaNoNotificados(1076622744);
-=======
-            RecurrenciaService REC = new RecurrenciaService();
-            var h = REC.CuentaGprincipalRecurrencia(5218797);
->>>>>>> 4d49d9ce079812cb7a453dce90016ccb87e283c8
+//<<<<<<< HEAD
+//            //SignalRService signal = new SignalRService();
+//            //var r = signal.ListaNoNotificados(1076622744);
+//=======
+//            RecurrenciaService REC = new RecurrenciaService();
+//            var h = REC.CuentaGprincipalRecurrencia(5218797);
+//>>>>>>> 4d49d9ce079812cb7a453dce90016ccb87e283c8
 
-            var z = "";
+//            var z = "";
             //eliminar.CambiarNombreNodo(141,"nuevo nombre");
 
 
