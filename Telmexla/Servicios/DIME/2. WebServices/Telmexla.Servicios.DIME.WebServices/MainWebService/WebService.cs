@@ -3379,7 +3379,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 
         #region DiasFestivos
 
-        public string ConsultarDiasFestivos(DateTime FechaInicio, int Dias)
+        public string ConsultarDiasFestivos(string FechaInicio, int Dias)
         {
             DiasFestivosService ConsultarDiasFestivos = new DiasFestivosService();
             return ConsultarDiasFestivos.ConsultarDiasFestivos(FechaInicio, Dias);

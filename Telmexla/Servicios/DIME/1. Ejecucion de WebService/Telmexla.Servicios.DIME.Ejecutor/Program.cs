@@ -22,10 +22,10 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
             DiasFestivosBusiness DIAS = new DiasFestivosBusiness();
-            string fecha= "29/12/2017";
-            DateTime fechaInicio = Convert.ToDateTime(fecha);
+            string fecha= "03/01/2018";
+            //DateTime fechaInicio = Convert.ToDateTime(fecha);
 
-            string pruebas = DIAS.ConsultarDiasFestivos(fechaInicio, 2);
+            string pruebas = DIAS.ConsultarDiasFestivos(fecha, 15);
             var pp=0;
 
 
