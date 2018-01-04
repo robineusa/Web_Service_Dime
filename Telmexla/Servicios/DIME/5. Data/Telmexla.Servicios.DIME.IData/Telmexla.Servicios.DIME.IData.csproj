@@ -56,7 +56,6 @@
   <ItemGroup>
     <Compile Include="IAccesoRepository.cs" />
     <Compile Include="IAccesosXLineaRepository.cs" />
-    <Compile Include="IArbolesMidasRepository.cs" />
     <Compile Include="IArbolRepository.cs" />
     <Compile Include="IBACActualizarDatosRepository.cs" />
     <Compile Include="IBAPActualizarDatosRepository.cs" />

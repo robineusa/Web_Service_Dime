@@ -153,7 +153,6 @@ namespace Telmexla.Servicios.DIME.Data
             TiposMacroprocesos = new TiposMacroprocesosRepository(this.dimeContext);
             CargueBaseMidas = new CargueBaseMidasRepository(this.dimeContext);
             GPMMidas = new GPMMidasRepository(this.dimeContext);
-            ArbolesMidas = new ArbolesMidasRepository(this.dimeContext);
         }
         public IAccesosXLineaRepository AccesosXLinea
         {
@@ -721,10 +720,6 @@ namespace Telmexla.Servicios.DIME.Data
             get; private set;
         }
         public IGPMMidasRepository GPMMidas
-        {
-            get; private set;
-        }
-        public IArbolesMidasRepository ArbolesMidas
         {
             get; private set;
         }

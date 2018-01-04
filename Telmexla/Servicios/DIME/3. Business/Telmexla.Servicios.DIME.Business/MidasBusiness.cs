@@ -13,55 +13,13 @@ namespace Telmexla.Servicios.DIME.Business
 {
     public class MidasBusiness
     {
-        public List<ArbolesMidas> ListasDeArbolesMidasAdmin(decimal IdPadre)
-        {
-            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            List<ArbolesMidas> Lista = new List<ArbolesMidas>();
-            Lista = unitOfWork.ArbolesMidas.Find(x => x.IdPadre == IdPadre).ToList();
-            Lista = Lista.OrderBy(x => x.Descripcion).ToList();
-            return Lista;
-        }
-        public void ActualizarArbolesMidas(ArbolesMidas Arbol)
-        {
-            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            ArbolesMidas ArbolActualizable = new ArbolesMidas();
-            ArbolActualizable = unitOfWork.ArbolesMidas.Find(x => x.IdArbol == Arbol.IdArbol).FirstOrDefault();
-            if (ArbolActualizable.IdArbol > 0)
-            {
-                ArbolActualizable.IdPadre = Arbol.IdPadre;
-                ArbolActualizable.Descripcion = Arbol.Descripcion;
-                ArbolActualizable.EstadoArbol = Arbol.EstadoArbol;
-                unitOfWork.Complete();
-                unitOfWork.Dispose();
-            }
-        }
-        public void RegistrarNuevoArbolesMidas(ArbolesMidas Arbol)
-        {
-            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            unitOfWork.ArbolesMidas.Add(Arbol);
-            unitOfWork.Complete();
-            unitOfWork.Dispose();
-        }
-        public ArbolesMidas TraerArbolMidasPorId(decimal IdArbol)
-        {
-            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
-            ArbolesMidas Arbol = new ArbolesMidas();
-            Arbol = unitOfWork.ArbolesMidas.Find(x => x.IdArbol == IdArbol).FirstOrDefault();
-            if (Arbol.IdArbol > 0)
-            {
-                return Arbol;
-            }
-            else
-            {
-                return new ArbolesMidas();
-            }
-        }
         public CargueBaseMidas TraeCuentaMidas(decimal CuentaCliente)
         {
             UnitOfWork UnitOfWork = new UnitOfWork(new DimeContext());
             CargueBaseMidas Registro = UnitOfWork.CargueBaseMidas.Find(x => x.CuentaCliente == CuentaCliente).FirstOrDefault();
             return Registro;
         }
+<<<<<<< HEAD
         public List<ArbolesMidas> ArbolDeGestionAgenteMidas(decimal IdPadre)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
@@ -72,5 +30,7 @@ namespace Telmexla.Servicios.DIME.Business
         }
 
 
+=======
+>>>>>>> 114f4a5efe85d6a92b37b98b72b3d5d44b44bf9e
     }
 }
