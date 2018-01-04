@@ -3370,21 +3370,44 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             CierreExperienciaService CierreExpService = new CierreExperienciaService();
             return CierreExpService.ConsultaAdminLogTickets(FechaInicial, FechaFinal);
         }
+        #endregion
+
+        #region Midas
+        public List<ArbolesMidas> ListasDeArbolesMidasAdmin(decimal IdPadre)
+        {
+            MidasService MidasService = new MidasService();
+            return MidasService.ListasDeArbolesMidasAdmin(IdPadre);
+        }
+        public void ActualizarArbolesMidas(ArbolesMidas Arbol)
+        {
+            MidasService MidasService = new MidasService();
+            MidasService.ActualizarArbolesMidas(Arbol);
+        }
+        public void RegistrarNuevoArbolesMidas(ArbolesMidas Arbol)
+        {
+            MidasService MidasService = new MidasService();
+            MidasService.RegistrarNuevoArbolesMidas(Arbol);
+        }
+        public ArbolesMidas TraerArbolMidasPorId(decimal IdArbol)
+        {
+            MidasService MidasService = new MidasService();
+            return MidasService.TraerArbolMidasPorId(IdArbol);
+        }
         public CargueBaseMidas TraeCuentaMidas(decimal CuentaCliente)
         {
-<<<<<<< HEAD
-            MidasService TraeCuentaMidas = new MidasService();
-            return TraeCuentaMidas.TraeCuentaMidas(CuentaCliente);
-=======
             MidasService MidasService = new MidasService();
             return MidasService.TraeCuentaMidas(CuentaCliente);
->>>>>>> parent of 927a754c... Commit
+        }
+        public List<ArbolesMidas> ArbolDeGestionAgenteMidas(decimal IdPadre)
+        {
+            MidasService MidasService = new MidasService();
+            return MidasService.ArbolDeGestionAgenteMidas(IdPadre);
         }
         #endregion
 
         #region DiasFestivos
 
-        public string ConsultarDiasFestivos(DateTime FechaInicio, int Dias)
+        public string ConsultarDiasFestivos(string FechaInicio, int Dias)
         {
             DiasFestivosService ConsultarDiasFestivos = new DiasFestivosService();
             return ConsultarDiasFestivos.ConsultarDiasFestivos(FechaInicio, Dias);

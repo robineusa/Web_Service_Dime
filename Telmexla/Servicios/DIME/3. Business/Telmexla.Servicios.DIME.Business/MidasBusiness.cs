@@ -17,7 +17,9 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             List<ArbolesMidas> Lista = new List<ArbolesMidas>();
+            List<ArbolesMidas> Lista2 = new List<ArbolesMidas>();
             Lista = unitOfWork.ArbolesMidas.Find(x => x.IdPadre == IdPadre).ToList();
+            Lista2 = unitOfWork.ArbolesMidas.GetAll().ToList();
             Lista = Lista.OrderBy(x => x.Descripcion).ToList();
             return Lista;
         }
@@ -62,11 +64,6 @@ namespace Telmexla.Servicios.DIME.Business
             CargueBaseMidas Registro = UnitOfWork.CargueBaseMidas.Find(x => x.CuentaCliente == CuentaCliente).FirstOrDefault();
             return Registro;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 114f4a5e... Revert "Merge branch 'master' of https://github.com/robineusa/Web_Service_Dime"
         public List<ArbolesMidas> ArbolDeGestionAgenteMidas(decimal IdPadre)
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
@@ -76,13 +73,5 @@ namespace Telmexla.Servicios.DIME.Business
             return Lista;
         }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 114f4a5efe85d6a92b37b98b72b3d5d44b44bf9e
-=======
->>>>>>> parent of 114f4a5e... Revert "Merge branch 'master' of https://github.com/robineusa/Web_Service_Dime"
-=======
->>>>>>> parent of 927a754c... Commit
     }
 }
