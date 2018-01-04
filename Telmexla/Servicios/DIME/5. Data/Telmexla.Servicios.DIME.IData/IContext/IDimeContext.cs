@@ -170,6 +170,8 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<TiposMacroprocesos> TiposMacroprocesos { get; set; }
         System.Data.Entity.DbSet<CargueBaseMidas> CargueBaseMidas { get; set; }
         System.Data.Entity.DbSet<GPMMidas> GPMMidas { get; set; }
+        System.Data.Entity.DbSet<ArbolesMidas> ArbolesMidas { get; set; }
+        
 
 
         int SaveChanges();

@@ -12,15 +12,23 @@ namespace Telmexla.Servicios.DIME.IWebServices
     public interface IMidasService
     {
         [OperationContract]
+        List<ArbolesMidas> ListasDeArbolesMidasAdmin(decimal IdPadre);
+
+        [OperationContract]
+        void ActualizarArbolesMidas(ArbolesMidas Arbol);
+
+        [OperationContract]
+        void RegistrarNuevoArbolesMidas(ArbolesMidas Arbol);
+
+        [OperationContract]
+        ArbolesMidas TraerArbolMidasPorId(decimal IdArbol);
+
+        [OperationContract]
         CargueBaseMidas TraeCuentaMidas(decimal CuentaCliente);
 
-        //[OperationContract]
-
-
-        //[OperationContract]
-
-
-        //[OperationContract]
+        [OperationContract]
+        List<ArbolesMidas> ArbolDeGestionAgenteMidas(decimal IdPadre);
+        
 
     }
 }
