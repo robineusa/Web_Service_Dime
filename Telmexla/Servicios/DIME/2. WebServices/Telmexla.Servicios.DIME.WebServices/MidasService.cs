@@ -13,6 +13,26 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
     public class MidasService : IMidasService
     {
+        public List<ArbolesMidas> ListasDeArbolesMidasAdmin(decimal IdPadre)
+        {
+            MidasBusiness miadasBusiness = new MidasBusiness();
+            return miadasBusiness.ListasDeArbolesMidasAdmin(IdPadre);
+        }
+        public void ActualizarArbolesMidas(ArbolesMidas Arbol)
+        {
+            MidasBusiness miadasBusiness = new MidasBusiness();
+            miadasBusiness.ActualizarArbolesMidas(Arbol);
+        }
+        public void RegistrarNuevoArbolesMidas(ArbolesMidas Arbol)
+        {
+            MidasBusiness miadasBusiness = new MidasBusiness();
+            miadasBusiness.RegistrarNuevoArbolesMidas(Arbol);
+        }
+        public ArbolesMidas TraerArbolMidasPorId(decimal IdArbol)
+        {
+            MidasBusiness miadasBusiness = new MidasBusiness();
+            return miadasBusiness.TraerArbolMidasPorId(IdArbol);
+        }
         public CargueBaseMidas TraeCuentaMidas(decimal CuentaCliente)
         {
             MidasBusiness miadasBusiness = new MidasBusiness();

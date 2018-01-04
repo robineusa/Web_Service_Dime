@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="AccesoRepository.cs" />
     <Compile Include="AccesosXLineaRepository.cs" />
+    <Compile Include="ArbolesMidasRepository.cs" />
     <Compile Include="ArbolRepository.cs" />
     <Compile Include="BACActualizarDatosRepository.cs" />
     <Compile Include="BAPActualizarDatosRepository.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="CEPLiberacionesRepository.cs" />
     <Compile Include="CEPSuspensionesRepository.cs" />
     <Compile Include="CEPTicketsRepository.cs" />
+    <Compile Include="Configuration\ArbolesMidasConfiguration.cs" />
     <Compile Include="Configuration\CargueBaseMidasConfiguration.cs" />
     <Compile Include="Configuration\CELDesconexionesConfiguration.cs" />
     <Compile Include="CELDesconexionesRepository.cs" />

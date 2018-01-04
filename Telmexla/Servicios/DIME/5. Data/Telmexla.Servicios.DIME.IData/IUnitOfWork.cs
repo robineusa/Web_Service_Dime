@@ -146,6 +146,9 @@ namespace Telmexla.Servicios.DIME.IData
         ITiposMacroprocesosRepository TiposMacroprocesos { get; }
         ICargueBaseMidasRepository CargueBaseMidas { get; }
         IGPMMidasRepository GPMMidas { get; }
+        IArbolesMidasRepository ArbolesMidas { get; }
+
+
         int Complete();
     }
 }

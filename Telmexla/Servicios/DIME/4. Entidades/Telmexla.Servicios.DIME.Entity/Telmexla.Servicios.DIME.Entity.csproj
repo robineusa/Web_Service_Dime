@@ -59,6 +59,7 @@
     <Compile Include="AccesoCollection.cs" />
     <Compile Include="AccesosXLinea.cs" />
     <Compile Include="Arbol.cs" />
+    <Compile Include="ArbolesMidas.cs" />
     <Compile Include="BACActualizarDatos.cs" />
     <Compile Include="BAPActualizarDatos.cs" />
     <Compile Include="BSCAdministracionBalanced.cs" />
