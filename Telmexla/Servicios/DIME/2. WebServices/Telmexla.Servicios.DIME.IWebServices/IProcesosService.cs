@@ -43,5 +43,9 @@ namespace Telmexla.Servicios.DIME.IWebServices
         Dictionary<string, string> ConsultarTitulos(int idPadre, int idTipo);
         [OperationContract]
         void EditarCategoria(int IdCategoria, string nombreNuevo);
+        [OperationContract]
+        List<Nodo> consultarNodosArbol(int idArbol,int idNodoPadre);
+        [OperationContract]
+        List<IndiceNodoArbol> IndiceNodosArbol(int idNodoActual);
     }
 }

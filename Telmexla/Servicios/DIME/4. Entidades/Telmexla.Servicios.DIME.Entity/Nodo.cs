@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 namespace Telmexla.Servicios.DIME.Entity
 {
     public class Nodo
@@ -14,6 +14,5 @@ namespace Telmexla.Servicios.DIME.Entity
         public int Categoria { get; set; }
         public int SubCategoria { get; set; }
         public int Tipo { get; set; }
-
     }
 }
