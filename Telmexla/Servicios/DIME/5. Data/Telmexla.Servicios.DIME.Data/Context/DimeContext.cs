@@ -173,6 +173,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<TiposMacroprocesos> TiposMacroprocesos { get; set; }
         public System.Data.Entity.DbSet<CargueBaseMidas> CargueBaseMidas { get; set; }
         public System.Data.Entity.DbSet<GPMMidas> GPMMidas { get; set; }
+        public System.Data.Entity.DbSet<ArbolesMidas> ArbolesMidas { get; set; }
 
         static DimeContext()
         {
@@ -378,6 +379,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new TipoMacroprocesosConfiguration());
             modelBuilder.Configurations.Add(new CargueBaseMidasConfiguration());
             modelBuilder.Configurations.Add(new GPMMidasConfiguration());
+            modelBuilder.Configurations.Add(new ArbolesMidasConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -536,6 +538,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new TipoMacroprocesosConfiguration(schema));
             modelBuilder.Configurations.Add(new CargueBaseMidasConfiguration(schema));
             modelBuilder.Configurations.Add(new GPMMidasConfiguration(schema));
+            modelBuilder.Configurations.Add(new ArbolesMidasConfiguration(schema));
             return modelBuilder;
         }
 

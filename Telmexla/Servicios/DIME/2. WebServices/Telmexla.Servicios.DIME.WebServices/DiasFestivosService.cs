@@ -5,7 +5,7 @@ namespace Telmexla.Servicios.DIME.WebServices
 {
    public class DiasFestivosService: IDiasFestivosService
     {
-        public string ConsultarDiasFestivos(DateTime FechaInicio, int Dias)
+        public string ConsultarDiasFestivos(string FechaInicio, int Dias)
         {
             DiasFestivosBusiness ConsultarDiasFestivos = new DiasFestivosBusiness();
             return ConsultarDiasFestivos.ConsultarDiasFestivos(FechaInicio, Dias);
