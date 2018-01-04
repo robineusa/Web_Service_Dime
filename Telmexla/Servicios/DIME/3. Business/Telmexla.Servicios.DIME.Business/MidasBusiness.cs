@@ -64,6 +64,7 @@ namespace Telmexla.Servicios.DIME.Business
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 114f4a5e... Revert "Merge branch 'master' of https://github.com/robineusa/Web_Service_Dime"
         public List<ArbolesMidas> ArbolDeGestionAgenteMidas(decimal IdPadre)
@@ -81,5 +82,7 @@ namespace Telmexla.Servicios.DIME.Business
 >>>>>>> 114f4a5efe85d6a92b37b98b72b3d5d44b44bf9e
 =======
 >>>>>>> parent of 114f4a5e... Revert "Merge branch 'master' of https://github.com/robineusa/Web_Service_Dime"
+=======
+>>>>>>> parent of 927a754c... Commit
     }
 }

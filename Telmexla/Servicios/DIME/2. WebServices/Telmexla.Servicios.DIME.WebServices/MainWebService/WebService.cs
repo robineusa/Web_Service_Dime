@@ -3372,8 +3372,13 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         }
         public CargueBaseMidas TraeCuentaMidas(decimal CuentaCliente)
         {
+<<<<<<< HEAD
             MidasService TraeCuentaMidas = new MidasService();
             return TraeCuentaMidas.TraeCuentaMidas(CuentaCliente);
+=======
+            MidasService MidasService = new MidasService();
+            return MidasService.TraeCuentaMidas(CuentaCliente);
+>>>>>>> parent of 927a754c... Commit
         }
         #endregion
 

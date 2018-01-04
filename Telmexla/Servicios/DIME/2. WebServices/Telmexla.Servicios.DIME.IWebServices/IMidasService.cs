@@ -26,9 +26,5 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         CargueBaseMidas TraeCuentaMidas(decimal CuentaCliente);
 
-        [OperationContract]
-        List<ArbolesMidas> ArbolDeGestionAgenteMidas(decimal IdPadre);
-        
-
     }
 }
