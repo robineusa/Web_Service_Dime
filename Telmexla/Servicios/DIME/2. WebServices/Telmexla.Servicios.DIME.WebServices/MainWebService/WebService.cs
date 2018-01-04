@@ -3398,6 +3398,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MidasService MidasService = new MidasService();
             return MidasService.TraeCuentaMidas(CuentaCliente);
         }
+        public List<ArbolesMidas> ArbolDeGestionAgenteMidas(decimal IdPadre)
+        {
+            MidasService MidasService = new MidasService();
+            return MidasService.ArbolDeGestionAgenteMidas(IdPadre);
+        }
         #endregion
 
         #region DiasFestivos

@@ -62,5 +62,14 @@ namespace Telmexla.Servicios.DIME.Business
             CargueBaseMidas Registro = UnitOfWork.CargueBaseMidas.Find(x => x.CuentaCliente == CuentaCliente).FirstOrDefault();
             return Registro;
         }
+        public List<ArbolesMidas> ArbolDeGestionAgenteMidas(decimal IdPadre)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            List<ArbolesMidas> Lista = new List<ArbolesMidas>();
+            Lista = unitOfWork.ArbolesMidas.Find(x => x.IdPadre == IdPadre && x.EstadoArbol.Equals("ACTIVO")).ToList();
+            Lista = Lista.OrderBy(x => x.Descripcion).ToList();
+            return Lista;
+        }
+
     }
 }

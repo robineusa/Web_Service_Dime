@@ -38,5 +38,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             MidasBusiness miadasBusiness = new MidasBusiness();
             return miadasBusiness.TraeCuentaMidas(CuentaCliente);
         }
+        public List<ArbolesMidas> ArbolDeGestionAgenteMidas(decimal IdPadre)
+        {
+            MidasBusiness miadasBusiness = new MidasBusiness();
+            return miadasBusiness.ArbolDeGestionAgenteMidas(IdPadre);
+        }
     }
 }
