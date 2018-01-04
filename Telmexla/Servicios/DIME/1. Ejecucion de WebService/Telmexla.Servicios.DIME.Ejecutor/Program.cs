@@ -21,15 +21,11 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         static void Main()
         {
 
+            DiasFestivosBusiness DIAS = new DiasFestivosBusiness();
+            string fecha= "29/12/2017";
+            DateTime fechaInicio = Convert.ToDateTime(fecha);
 
-            ProcesosBusiness procesos = new ProcesosBusiness();
-            var result = procesos.IndiceNodosArbol(23);
-
-            //DiasFestivosBusiness DIAS = new DiasFestivosBusiness();
-            //string fecha= "29/12/2017";
-            //DateTime fechaInicio = Convert.ToDateTime(fecha);
-
-            //string pruebas = DIAS.ConsultarDiasFestivos(fechaInicio, 2);
+            string pruebas = DIAS.ConsultarDiasFestivos(fechaInicio, 2);
             var pp=0;
 
 

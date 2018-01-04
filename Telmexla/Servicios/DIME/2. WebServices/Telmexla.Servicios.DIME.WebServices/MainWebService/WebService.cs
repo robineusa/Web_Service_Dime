@@ -12,7 +12,7 @@ using Telmexla.Servicios.DIME.Helpers.Mappers;
 
 namespace Telmexla.Servicios.DIME.WebServices.MainWebService
 {
-    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService, IOfertasComercialesService, ISignalRService, ICierreExperienciaService, IDiasFestivosService, IMidasService
+    public class WebService : IWebService, ILoginService, IInboundService, IMaestrosService, IBlendingService, IMarcacionesService, INotificacionesBuenServicioService, ICasosCelulaService, ICasosAdminService, ITrasladosService, IMaestroNodoService, IActivacionClaroVideoService, IActivacionSiembraHDService, IBalanceScoreCardService, IGraficosService, IUsabilidadService, IDistribucionBlendingService, IMultiPlayService, IMecService, ICierreCicloService, IBackEliteService, IRecurrenciaService, IBitacoraIncidentesService, IPOMSolicitudesService, IFidelizacionService, IVerificacionDeInventarioService, IVisitasAutorizadasService, IBannerAlertasService, IProcesosService, IRetencionService, IOfertasComercialesService, ISignalRService, ICierreExperienciaService,IDiasFestivosService,IMidasService
     {
         public Usuario MuestraEntidades()
         {
@@ -2999,16 +2999,6 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             ProcesosService procesos = new ProcesosService();
             procesos.EditarCategoria(IdCategoria, nombreNuevo);
         }
-        public List<Nodo> consultarNodosArbol(int idArbol, int idNodoPadre)
-        {
-            ProcesosService procesos = new ProcesosService();
-            return procesos.consultarNodosArbol(idArbol, idNodoPadre);
-        }
-        public List<IndiceNodoArbol> IndiceNodosArbol(int idNodoActual)
-        {
-            ProcesosService procesos = new ProcesosService();
-            return procesos.IndiceNodosArbol(idNodoActual);
-        }
         #endregion Procesos
 
         #region Retencion
@@ -3388,6 +3378,7 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
         #endregion
 
         #region DiasFestivos
+
         public string ConsultarDiasFestivos(DateTime FechaInicio, int Dias)
         {
             DiasFestivosService ConsultarDiasFestivos = new DiasFestivosService();
