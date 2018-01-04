@@ -1,29 +1,25 @@
 ﻿using System;
 using System.Linq;
-using System.Globalization;
 using Telmexla.Servicios.DIME.Data.Context;
 
 namespace Telmexla.Servicios.DIME.Business
 {
     public class DiasFestivosBusiness
     {
-        public string ConsultarDiasFestivos(string FechaInicio,int Dias)
+        public string ConsultarDiasFestivos(DateTime FechaInicio,int Dias)
         {
-            //string fechaInicial = FechaInicio.ToShortDateString();
-            //string fechaInicial = FechaInicio.ToString(@"dd/MM/yyyy", new CultureInfo("en-US"));
-
-            string consulta = string.Format("SELECT dbo.CONSULTAR_DIAS_HABILES(CONVERT(DATETIME,'{0}'),{1});", FechaInicio, Dias);
+            string fechaInicial = FechaInicio.ToShortDateString();
+            string consulta = string.Format("SELECT dbo.CONSULTAR_DIAS_AVILES(CONVERT(DATETIME,'{0}'),{1});", fechaInicial, Dias);
 
 
             MaestrosContext contexto = new MaestrosContext();
-            var sql = contexto.Database.SqlQuery<string>(consulta).FirstOrDefault();
+            var sql = contexto.Database.SqlQuery<DateTime>(consulta).FirstOrDefault();
             //" AND TIPO_DIA_LUNES_VIERNES = '0' " + " ").ToList();
             //" GROUP BY TIPO_DIA_LUNES_VIERNES").FirstOrDefault();
 
             //string diasFestivos = sql.ToString();
-            //string diasFestivos = sql.ToShortDateString();
-            //string diasFestivos = sql.ToString(@"dd/MM/yyyy", new CultureInfo("en-US"));
-            return sql;
+            string diasFestivos = sql.ToShortDateString();
+            return diasFestivos;
         }
     }
 }
