@@ -17,9 +17,7 @@ namespace Telmexla.Servicios.DIME.Business
         {
             UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
             List<ArbolesMidas> Lista = new List<ArbolesMidas>();
-            List<ArbolesMidas> Lista2 = new List<ArbolesMidas>();
             Lista = unitOfWork.ArbolesMidas.Find(x => x.IdPadre == IdPadre).ToList();
-            Lista2 = unitOfWork.ArbolesMidas.GetAll().ToList();
             Lista = Lista.OrderBy(x => x.Descripcion).ToList();
             return Lista;
         }
@@ -85,6 +83,7 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
 
             Log.IdGestionPrincipal = model.Id;
+            Log.FechaGestion = model.FechaGestion;
             Log.UsuarioGestion = model.UsuarioGestion;
             Log.NombreUsuarioGestion = model.NombreUsuarioGestion;
             Log.AliadoGestion = model.AliadoGestion;
@@ -212,6 +211,28 @@ namespace Telmexla.Servicios.DIME.Business
             UnitOfWorkLog.Complete();
             UnitOfWorkLog.Dispose();
 
+        }
+        public List<GPMMidas> TraerSeguimientosTipificador()
+        {
+            DimeContext dimeContext = new DimeContext();
+            List<GPMMidas> result = dimeContext.GPMMidas.Where(c => c.EstadoCaso == "SEGUIMIENTO").ToList();
+            return result;
+        }
+        public List<GPMMidas> CargaHistorialCuenta(decimal Cuenta)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            List<GPMMidas> Lista = new List<GPMMidas>();
+            Lista = unitOfWork.GPMMidas.Find(x => x.CuentaCliente == Cuenta).ToList();
+            Lista = Lista.OrderBy(x => x.FechaGestion).ToList();
+            return Lista;
+        }
+        public GPMMidas VerificaCliente(decimal CuentaCliente)
+        {
+
+            UnitOfWork unitOfWork = new UnitOfWork(new DimeContext());
+            GPMMidas Registro = new GPMMidas();
+            Registro = unitOfWork.GPMMidas.Find(x => x.CuentaCliente == CuentaCliente && x.EstadoCaso == "SEGUIMIENTO").LastOrDefault();
+            return Registro;
         }
     }
 }

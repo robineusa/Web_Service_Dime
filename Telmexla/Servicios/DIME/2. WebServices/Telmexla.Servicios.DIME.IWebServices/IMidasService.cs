@@ -35,5 +35,14 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void ActualizarMidasTipificador(GPMMidas model);
 
+        [OperationContract]
+        List<GPMMidas> TraerSeguimientosTipificador();
+
+        [OperationContract]
+        List<GPMMidas> CargaHistorialCuenta(decimal Cuenta);
+
+        [OperationContract]
+        GPMMidas VerificaCliente(decimal CuentaCliente);
+
     }
 }
