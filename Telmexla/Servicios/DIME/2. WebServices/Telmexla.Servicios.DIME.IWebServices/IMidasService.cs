@@ -28,7 +28,12 @@ namespace Telmexla.Servicios.DIME.IWebServices
 
         [OperationContract]
         List<ArbolesMidas> ArbolDeGestionAgenteMidas(decimal IdPadre);
-        
+
+        [OperationContract]
+        void RegistrarMidasTipificador(GPMMidas model);
+
+        [OperationContract]
+        void ActualizarMidasTipificador(GPMMidas model);
 
     }
 }

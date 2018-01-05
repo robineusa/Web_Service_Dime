@@ -3412,6 +3412,16 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MidasService MidasService = new MidasService();
             return MidasService.ArbolDeGestionAgenteMidas(IdPadre);
         }
+        public void RegistrarMidasTipificador(GPMMidas model)
+        {
+            MidasService MidasService = new MidasService();
+            MidasService.RegistrarMidasTipificador(model);
+        }
+        public void ActualizarMidasTipificador(GPMMidas model)
+        {
+            MidasService MidasService = new MidasService();
+            MidasService.ActualizarMidasTipificador(model);
+        }
         #endregion
 
         #region DiasFestivos

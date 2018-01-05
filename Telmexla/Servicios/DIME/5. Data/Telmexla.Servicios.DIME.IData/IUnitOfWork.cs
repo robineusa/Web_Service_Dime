@@ -147,6 +147,7 @@ namespace Telmexla.Servicios.DIME.IData
         ICargueBaseMidasRepository CargueBaseMidas { get; }
         IGPMMidasRepository GPMMidas { get; }
         IArbolesMidasRepository ArbolesMidas { get; }
+        IGLMMidasRepository GLMMidas { get; }
 
 
         int Complete();
