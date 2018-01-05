@@ -43,5 +43,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             MidasBusiness miadasBusiness = new MidasBusiness();
             return miadasBusiness.ArbolDeGestionAgenteMidas(IdPadre);
         }
+        public void RegistrarMidasTipificador(GPMMidas model)
+        {
+            MidasBusiness miadasBusiness = new MidasBusiness();
+            miadasBusiness.RegistrarMidasTipificador(model);
+        }
+        public void ActualizarMidasTipificador(GPMMidas model)
+        {
+            MidasBusiness miadasBusiness = new MidasBusiness();
+            miadasBusiness.ActualizarMidasTipificador(model);
+        }
     }
 }

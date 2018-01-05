@@ -101,6 +101,7 @@
     <Compile Include="Configuration\FidelizacionMotivosCancelacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionTipificacionConfiguration.cs" />
     <Compile Include="Configuration\FidelizacionRecursivaVistaConfiguration.cs" />
+    <Compile Include="Configuration\GLMMidasConfiguration.cs" />
     <Compile Include="Configuration\GLogRecurrenciaInboundConfiguration.cs" />
     <Compile Include="Configuration\GPMMidasConfiguration.cs" />
     <Compile Include="Configuration\IMGOfertasComecialesConfiguration.cs" />
@@ -243,6 +244,7 @@
     <Compile Include="FidelizacionRecursivaVistaRepository.cs" />
     <Compile Include="GestionFoxInboundRepository.cs" />
     <Compile Include="Configuration\GLogRecurrenciaConfiguration.cs" />
+    <Compile Include="GLMMidasRepository.cs" />
     <Compile Include="GLogRecurrenciaInboundRepository.cs" />
     <Compile Include="GLogRecurrenciaRepository.cs" />
     <Compile Include="Configuration\GPrincipalRecurrenciaInboundConfiguration.cs" />

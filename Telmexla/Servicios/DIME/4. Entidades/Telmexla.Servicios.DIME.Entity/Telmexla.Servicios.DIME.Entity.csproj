@@ -150,6 +150,7 @@
     <Compile Include="FidelizacionTipificacion.cs" />
     <Compile Include="FidelizacionRecursivaVista.cs" />
     <Compile Include="GestionFoxInbound.cs" />
+    <Compile Include="GLMMidas.cs" />
     <Compile Include="GLogRecurrencia.cs" />
     <Compile Include="GLogRecurrenciaInbound.cs" />
     <Compile Include="GPMMidas.cs" />

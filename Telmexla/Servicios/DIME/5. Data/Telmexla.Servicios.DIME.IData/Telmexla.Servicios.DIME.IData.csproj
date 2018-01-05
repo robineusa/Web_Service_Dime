@@ -111,6 +111,7 @@
     <Compile Include="IFidelizacionTipificacionRepository.cs" />
     <Compile Include="IFidelizacionRecursivaVistaRepository.cs" />
     <Compile Include="IGestionFoxInboundRepository.cs" />
+    <Compile Include="IGLMMidasRepository.cs" />
     <Compile Include="IGLogRecurrenciaInboundRepository.cs" />
     <Compile Include="IGLogRecurrenciaRepository.cs" />
     <Compile Include="IGPMMidasRepository.cs" />

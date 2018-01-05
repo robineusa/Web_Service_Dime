@@ -72,6 +72,146 @@ namespace Telmexla.Servicios.DIME.Business
             Lista = Lista.OrderBy(x => x.Descripcion).ToList();
             return Lista;
         }
+        public void RegistrarMidasTipificador(GPMMidas model)
+        {
+            model.FechaGestion = DateTime.Now;
 
+            UnitOfWork UnitOfWorkRegistro = new UnitOfWork(new DimeContext());
+            UnitOfWorkRegistro.GPMMidas.Add(model);
+            UnitOfWorkRegistro.Complete();
+            UnitOfWorkRegistro.Dispose();
+
+            GLMMidas Log = new GLMMidas();
+            UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
+
+            Log.IdGestionPrincipal = model.Id;
+            Log.UsuarioGestion = model.UsuarioGestion;
+            Log.NombreUsuarioGestion = model.NombreUsuarioGestion;
+            Log.AliadoGestion = model.AliadoGestion;
+            Log.CuentaCliente = model.CuentaCliente;
+            Log.Gestion = model.Gestion;
+            Log.Cierre = model.Cierre;
+            Log.Razon = model.Razon;
+            Log.Motivo = model.Motivo;
+            Log.FallaServPrincipalesSoporte = model.FallaServPrincipalesSoporte;
+            Log.FallaServAdicionalesSoporte= model.FallaServAdicionalesSoporte;
+            Log.TipoFallaSoporte = model.TipoFallaSoporte;
+            Log.SolucionEspecificaSoporte = model.SolucionEspecificaSoporte;
+            Log.EstadoSoporte = model.EstadoSoporte;
+            Log.FechaSeguimientoSoporte = model.FechaSeguimientoSoporte;
+            Log.ObservacionesSoporte = model.ObservacionesSoporte;
+            Log.ProblemaFacturacion = model.ProblemaFacturacion;
+            Log.SolucionFacturacion = model.ProblemaFacturacion;
+            Log.EstadoFacturacion = model.EstadoFacturacion;
+            Log.FechaSeguimientoFacturacion = model.FechaSeguimientoFacturacion;
+            Log.ObservacionesFacturacion = model.ObservacionesFacturacion;
+            Log.ClienteIntencionCancelacion = model.ClienteIntencionCancelacion;
+            Log.MotivoCancelacion = model.ClienteIntencionCancelacion;
+            Log.RazonCancelacion = model.RazonCancelacion;
+            Log.ObservacionesCancelacion = model.ObservacionesCancelacion;
+            Log.Ofrecimiento1 = model.Ofrecimiento1;
+            Log.AceptacionOfrecimiento1 = model.AceptacionOfrecimiento1;
+            Log.Ofrecimiento2 = model.Ofrecimiento2;
+            Log.AceptacionOfrecimiento2 = model.AceptacionOfrecimiento2;
+            Log.Ofrecimiento3 = model.Ofrecimiento3;
+            Log.AceptacionOfrecimiento3 = model.AceptacionOfrecimiento3;
+            Log.Campaña1 = model.Campaña1;
+            Log.Campaña2 = model.Campaña2;
+            Log.Campaña3 = model.Campaña3;
+
+            UnitOfWorkLog.GLMMidas.Add(Log);
+            UnitOfWorkLog.Complete();
+            UnitOfWorkLog.Dispose();
+
+        }
+        public void ActualizarMidasTipificador(GPMMidas model)
+        {
+            model.FechaGestion = DateTime.Now;
+
+            //actualiza desconexion
+            UnitOfWork UnitOfWorkActualizable = new UnitOfWork(new DimeContext());
+            GPMMidas RegistroActualizable = UnitOfWorkActualizable.GPMMidas.Get(Convert.ToInt32(model.Id));
+            
+            RegistroActualizable.UsuarioGestion = model.UsuarioGestion;
+            RegistroActualizable.NombreUsuarioGestion = model.NombreUsuarioGestion;
+            RegistroActualizable.AliadoGestion = model.AliadoGestion;
+            RegistroActualizable.CuentaCliente = model.CuentaCliente;
+            RegistroActualizable.Gestion = model.Gestion;
+            RegistroActualizable.Cierre = model.Cierre;
+            RegistroActualizable.Razon = model.Razon;
+            RegistroActualizable.Motivo = model.Motivo;
+            RegistroActualizable.FallaServPrincipalesSoporte = model.FallaServPrincipalesSoporte;
+            RegistroActualizable.FallaServAdicionalesSoporte = model.FallaServAdicionalesSoporte;
+            RegistroActualizable.TipoFallaSoporte = model.TipoFallaSoporte;
+            RegistroActualizable.SolucionEspecificaSoporte = model.SolucionEspecificaSoporte;
+            RegistroActualizable.EstadoSoporte = model.EstadoSoporte;
+            RegistroActualizable.FechaSeguimientoSoporte = model.FechaSeguimientoSoporte;
+            RegistroActualizable.ObservacionesSoporte = model.ObservacionesSoporte;
+            RegistroActualizable.ProblemaFacturacion = model.ProblemaFacturacion;
+            RegistroActualizable.SolucionFacturacion = model.ProblemaFacturacion;
+            RegistroActualizable.EstadoFacturacion = model.EstadoFacturacion;
+            RegistroActualizable.FechaSeguimientoFacturacion = model.FechaSeguimientoFacturacion;
+            RegistroActualizable.ObservacionesFacturacion = model.ObservacionesFacturacion;
+            RegistroActualizable.ClienteIntencionCancelacion = model.ClienteIntencionCancelacion;
+            RegistroActualizable.MotivoCancelacion = model.ClienteIntencionCancelacion;
+            RegistroActualizable.RazonCancelacion = model.RazonCancelacion;
+            RegistroActualizable.ObservacionesCancelacion = model.ObservacionesCancelacion;
+            RegistroActualizable.Ofrecimiento1 = model.Ofrecimiento1;
+            RegistroActualizable.AceptacionOfrecimiento1 = model.AceptacionOfrecimiento1;
+            RegistroActualizable.Ofrecimiento2 = model.Ofrecimiento2;
+            RegistroActualizable.AceptacionOfrecimiento2 = model.AceptacionOfrecimiento2;
+            RegistroActualizable.Ofrecimiento3 = model.Ofrecimiento3;
+            RegistroActualizable.AceptacionOfrecimiento3 = model.AceptacionOfrecimiento3;
+            RegistroActualizable.Campaña1 = model.Campaña1;
+            RegistroActualizable.Campaña2 = model.Campaña2;
+            RegistroActualizable.Campaña3 = model.Campaña3;
+
+            UnitOfWorkActualizable.Complete();
+            UnitOfWorkActualizable.Dispose();
+
+            //registra log de desconexiones
+            GLMMidas Log = new GLMMidas();
+            UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
+
+            Log.IdGestionPrincipal = model.Id;
+            Log.UsuarioGestion = model.UsuarioGestion;
+            Log.NombreUsuarioGestion = model.NombreUsuarioGestion;
+            Log.AliadoGestion = model.AliadoGestion;
+            Log.CuentaCliente = model.CuentaCliente;
+            Log.Gestion = model.Gestion;
+            Log.Cierre = model.Cierre;
+            Log.Razon = model.Razon;
+            Log.Motivo = model.Motivo;
+            Log.FallaServPrincipalesSoporte = model.FallaServPrincipalesSoporte;
+            Log.FallaServAdicionalesSoporte = model.FallaServAdicionalesSoporte;
+            Log.TipoFallaSoporte = model.TipoFallaSoporte;
+            Log.SolucionEspecificaSoporte = model.SolucionEspecificaSoporte;
+            Log.EstadoSoporte = model.EstadoSoporte;
+            Log.FechaSeguimientoSoporte = model.FechaSeguimientoSoporte;
+            Log.ObservacionesSoporte = model.ObservacionesSoporte;
+            Log.ProblemaFacturacion = model.ProblemaFacturacion;
+            Log.SolucionFacturacion = model.ProblemaFacturacion;
+            Log.EstadoFacturacion = model.EstadoFacturacion;
+            Log.FechaSeguimientoFacturacion = model.FechaSeguimientoFacturacion;
+            Log.ObservacionesFacturacion = model.ObservacionesFacturacion;
+            Log.ClienteIntencionCancelacion = model.ClienteIntencionCancelacion;
+            Log.MotivoCancelacion = model.ClienteIntencionCancelacion;
+            Log.RazonCancelacion = model.RazonCancelacion;
+            Log.ObservacionesCancelacion = model.ObservacionesCancelacion;
+            Log.Ofrecimiento1 = model.Ofrecimiento1;
+            Log.AceptacionOfrecimiento1 = model.AceptacionOfrecimiento1;
+            Log.Ofrecimiento2 = model.Ofrecimiento2;
+            Log.AceptacionOfrecimiento2 = model.AceptacionOfrecimiento2;
+            Log.Ofrecimiento3 = model.Ofrecimiento3;
+            Log.AceptacionOfrecimiento3 = model.AceptacionOfrecimiento3;
+            Log.Campaña1 = model.Campaña1;
+            Log.Campaña2 = model.Campaña2;
+            Log.Campaña3 = model.Campaña3;
+
+            UnitOfWorkLog.GLMMidas.Add(Log);
+            UnitOfWorkLog.Complete();
+            UnitOfWorkLog.Dispose();
+
+        }
     }
 }
