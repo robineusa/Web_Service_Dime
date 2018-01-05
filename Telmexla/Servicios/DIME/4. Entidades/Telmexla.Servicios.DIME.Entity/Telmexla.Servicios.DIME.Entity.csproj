@@ -156,6 +156,7 @@
     <Compile Include="GPrincipalRecurrencia.cs" />
     <Compile Include="GPrincipalRecurrenciaInbound.cs" />
     <Compile Include="IMGOfertasComeciales.cs" />
+    <Compile Include="IndiceNodoArbol.cs" />
     <Compile Include="InventarioEquipos.cs" />
     <Compile Include="Macroprocesos.cs" />
     <Compile Include="MaestroFallaCausaRaiz.cs" />

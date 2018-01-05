@@ -102,5 +102,15 @@ namespace Telmexla.Servicios.DIME.WebServices
             ProcesosBusiness ConsultarCategorias = new ProcesosBusiness();
             ConsultarCategorias.EditarCategoria(IdCategoria, nombreNuevo);
         }
+        public List<Nodo> consultarNodosArbol(int idArbol, int idNodoPadre)
+        {
+            ProcesosBusiness consultarNodosArbol = new ProcesosBusiness();
+            return consultarNodosArbol.consultarNodosArbol(idArbol, idNodoPadre);
+        }
+        public List<IndiceNodoArbol> IndiceNodosArbol(int idNodoActual)
+        {
+            ProcesosBusiness IndiceNodosArbol = new ProcesosBusiness();
+            return IndiceNodosArbol.IndiceNodosArbol(idNodoActual);
+        }
     }
 }

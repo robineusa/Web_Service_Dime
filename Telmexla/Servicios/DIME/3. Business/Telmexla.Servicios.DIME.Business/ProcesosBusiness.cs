@@ -389,7 +389,81 @@ namespace Telmexla.Servicios.DIME.Business
             return titulos;
         }
 
+        public List<Nodo> consultarNodosArbol(int idArbol, int idNodoPadre)
+        {
+            List<Nodo> resultado = new List<Nodo>();
+            Nodo actual = new Nodo();
+            DimeContext Context = new DimeContext();
 
+            //actual = (from n in Context.Nodo
+            //          where n.Id== idNodoPadre && n.IdArbol== idArbol
+            //          select n).FirstOrDefault();
+            //if (actual != null)
+            //    resultado.Add(actual);
+
+
+            resultado = (from l in Context.Nodo
+                         where l.IdArbol == idArbol && l.IdPadre == idNodoPadre
+                         select l).ToList();
+
+
+            return resultado;
+        }
+        public List<IndiceNodoArbol> IndiceNodosArbol(int idNodoActual)
+        {
+            IndiceNodoArbol indice = new IndiceNodoArbol();
+            List<IndiceNodoArbol> ListaIndice = new List<IndiceNodoArbol>();
+            List<IndiceNodoArbol> resultadoFinal = new List<IndiceNodoArbol>();
+            DimeContext Context = new DimeContext();
+            int NodosPrincipales = 1;
+            int nodoActual = idNodoActual;
+            int cont = 0;
+
+            indice = ConsultarIndice(idNodoActual);
+            ListaIndice.Add(indice);
+            nodoActual = indice.IdPadre;
+            while (NodosPrincipales != 0)
+            {
+                cont++;
+                indice = ConsultarIndice(nodoActual);
+                nodoActual = indice.IdPadre;
+                if (cont == 2)
+                {
+                    ListaIndice.Add(indice);
+                    cont = 0;
+                }
+                if (nodoActual == 0)
+                    NodosPrincipales = 0;
+
+            }
+            //Organiza los indices
+            int contador = ListaIndice.Count();
+            for (int i = 0; i < contador; i++)
+            {
+                resultadoFinal.Add(ListaIndice.LastOrDefault());
+                ListaIndice.Remove(ListaIndice.LastOrDefault());
+            }
+
+            return resultadoFinal;
+
+        }
+
+        private IndiceNodoArbol ConsultarIndice(int nodoActual)
+        {
+            IndiceNodoArbol indice = new IndiceNodoArbol();
+            DimeContext Context = new DimeContext();
+            indice = (from n in Context.Nodo.Cast<Nodo>().ToList()
+                      where n.Id == nodoActual
+                      select new IndiceNodoArbol
+                      {
+                          IdNodo = n.Id,
+                          NombreNodo = n.NombreNodo,
+                          IdPadre = n.IdPadre
+                      }).FirstOrDefault();
+
+            return indice;
+
+        }
 
 
     }

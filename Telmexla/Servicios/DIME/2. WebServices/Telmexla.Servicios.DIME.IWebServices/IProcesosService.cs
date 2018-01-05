@@ -26,7 +26,7 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         void EliminaNodo(int IdNodo);
         [OperationContract]
-        void CambiarNombreNodo(int IdNodo,string NuevoNombre);
+        void CambiarNombreNodo(int IdNodo, string NuevoNombre);
         [OperationContract]
         Nodo ConsultarCodigoHtmlNodo(int IdNodo);
         [OperationContract]
@@ -43,5 +43,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         Dictionary<string, string> ConsultarTitulos(int idPadre, int idTipo);
         [OperationContract]
         void EditarCategoria(int IdCategoria, string nombreNuevo);
+        [OperationContract]
+        List<Nodo> consultarNodosArbol(int idArbol, int idNodoPadre);
+        [OperationContract]
+        List<IndiceNodoArbol> IndiceNodosArbol(int idNodoActual);
+
+
     }
 }
