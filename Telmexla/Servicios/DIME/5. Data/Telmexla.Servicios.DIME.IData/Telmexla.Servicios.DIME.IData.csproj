@@ -199,6 +199,7 @@
     <Compile Include="ITmpMaestroHobbiesClienteRepository.cs" />
     <Compile Include="ITraficoTrasladoRepository.cs" />
     <Compile Include="ITrasladoFallidoRepository.cs" />
+    <Compile Include="ITrazabilidadArbolRepository.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="IUnitOfWorkMaestros.cs" />
     <Compile Include="IUsabilidadBusquedaCuentaInboundRepositiry.cs" />

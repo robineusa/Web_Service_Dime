@@ -96,7 +96,7 @@ namespace Telmexla.Servicios.DIME.IData
         IBIMHerramientasRepository BIMHerramientas { get; }
         IAccesosXLineaRepository AccesosXLinea { get; }
         IPOMSolicitudesRepository POMSolicitudes { get; }
-        IFidelizacionMaestroServiciosRepository FidelizacionMaestroServicios{ get;}
+        IFidelizacionMaestroServiciosRepository FidelizacionMaestroServicios { get; }
         IFidelizacionMotivosCancelacionRepository FidelizacionMotivosCancelacion { get; }
         IFidelizacionSubmotivosCancelacionRepository FidelizacionSubmotivosCancelacion { get; }
         IFidelizacionOtrosOfrecimientosRepository FidelizacionOtrosOfrecimientos { get; }
@@ -148,7 +148,7 @@ namespace Telmexla.Servicios.DIME.IData
         IGPMMidasRepository GPMMidas { get; }
         IArbolesMidasRepository ArbolesMidas { get; }
         IGLMMidasRepository GLMMidas { get; }
-
+        ITrazabilidadArbolRepository TrazabilidadArbol { get; }
 
         int Complete();
     }

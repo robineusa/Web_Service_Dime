@@ -114,6 +114,7 @@
     <Compile Include="Configuration\RSMArbolesConfiguration.cs" />
     <Compile Include="Configuration\RSPSeguimientosConfiguration.cs" />
     <Compile Include="Configuration\TipoMacroprocesosConfiguration.cs" />
+    <Compile Include="Configuration\TrazabilidadArbolConfiguration.cs" />
     <Compile Include="Configuration\UsuariosNotificadosSignalRConfiguration.cs" />
     <Compile Include="Configuration\VAMotivosSolicitudConfiguration.cs" />
     <Compile Include="Configuration\VILSolicitudesConfiguration.cs" />
@@ -371,6 +372,7 @@
     <Compile Include="TmpMaestroHobbiesClienteRepository.cs" />
     <Compile Include="TraficoTrasladoRepository.cs" />
     <Compile Include="TrasladoFallidoRepository.cs" />
+    <Compile Include="TrazabilidadArbolRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="UnitOfWorkMaestros.cs" />
     <Compile Include="UsabilidadBusquedaCuentaInboundRepository.cs" />

@@ -172,7 +172,7 @@ namespace Telmexla.Servicios.DIME.IData.IContext
         System.Data.Entity.DbSet<GPMMidas> GPMMidas { get; set; }
         System.Data.Entity.DbSet<ArbolesMidas> ArbolesMidas { get; set; }
         System.Data.Entity.DbSet<GLMMidas> GLMMidas { get; set; }
-
+        System.Data.Entity.DbSet<TrazabilidadArbol> TrazabilidadArbol { get; set; }
 
 
         int SaveChanges();

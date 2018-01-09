@@ -112,5 +112,10 @@ namespace Telmexla.Servicios.DIME.WebServices
             ProcesosBusiness IndiceNodosArbol = new ProcesosBusiness();
             return IndiceNodosArbol.IndiceNodosArbol(idNodoActual);
         }
+        public void ActualizarTrazabilidad(TrazabilidadArbol TrazaArbol)
+        {
+            ProcesosBusiness ActualizarTrazabilidad = new ProcesosBusiness();
+            ActualizarTrazabilidad.ActualizarTrazabilidad(TrazaArbol);
+        }
     }
 }

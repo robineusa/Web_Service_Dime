@@ -3006,7 +3006,11 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             ProcesosService procesos = new ProcesosService();
             return procesos.IndiceNodosArbol(idNodoActual);
         }
-
+        public void ActualizarTrazabilidad(TrazabilidadArbol TrazaArbol)
+        {
+            ProcesosService procesos = new ProcesosService();
+            procesos.ActualizarTrazabilidad(TrazaArbol);
+        }
 
         #endregion Procesos
 
