@@ -3426,6 +3426,21 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MidasService MidasService = new MidasService();
             MidasService.ActualizarMidasTipificador(model);
         }
+        public List<GPMMidas> TraerSeguimientosTipificador()
+        {
+            MidasService MidasService = new MidasService();
+            return MidasService.TraerSeguimientosTipificador();
+        }
+        public List<GPMMidas> CargaHistorialCuenta(decimal Cuenta)
+        {
+            MidasService MidasService = new MidasService();
+            return MidasService.CargaHistorialCuenta(Cuenta);
+        }
+        public GPMMidas VerificaCliente(decimal CuentaCliente)
+        {
+            MidasService MidasService = new MidasService();
+            return MidasService.VerificaCliente(CuentaCliente);
+        }
         #endregion
 
         #region DiasFestivos
