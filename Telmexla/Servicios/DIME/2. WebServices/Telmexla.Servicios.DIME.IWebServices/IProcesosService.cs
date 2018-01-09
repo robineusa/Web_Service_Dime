@@ -47,7 +47,8 @@ namespace Telmexla.Servicios.DIME.IWebServices
         List<Nodo> consultarNodosArbol(int idArbol, int idNodoPadre);
         [OperationContract]
         List<IndiceNodoArbol> IndiceNodosArbol(int idNodoActual);
-
+        [OperationContract]
+        void ActualizarTrazabilidad(TrazabilidadArbol TrazaArbol);
 
     }
 }

@@ -175,7 +175,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
         public System.Data.Entity.DbSet<GPMMidas> GPMMidas { get; set; }
         public System.Data.Entity.DbSet<ArbolesMidas> ArbolesMidas { get; set; }
         public System.Data.Entity.DbSet<GLMMidas> GLMMidas { get; set; }
-
+        public System.Data.Entity.DbSet<TrazabilidadArbol> TrazabilidadArbol { get; set; }
         static DimeContext()
         {
             System.Data.Entity.Database.SetInitializer<DimeContext>(null);
@@ -382,6 +382,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GPMMidasConfiguration());
             modelBuilder.Configurations.Add(new ArbolesMidasConfiguration());
             modelBuilder.Configurations.Add(new GLMMidasConfiguration());
+            modelBuilder.Configurations.Add(new TrazabilidadArbolConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -542,6 +543,7 @@ namespace Telmexla.Servicios.DIME.Data.Context
             modelBuilder.Configurations.Add(new GPMMidasConfiguration(schema));
             modelBuilder.Configurations.Add(new ArbolesMidasConfiguration(schema));
             modelBuilder.Configurations.Add(new GLMMidasConfiguration(schema));
+            modelBuilder.Configurations.Add(new TrazabilidadArbolConfiguration(schema));
             return modelBuilder;
         }
 

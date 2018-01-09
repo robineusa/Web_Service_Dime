@@ -155,6 +155,7 @@ namespace Telmexla.Servicios.DIME.Data
             GPMMidas = new GPMMidasRepository(this.dimeContext);
             ArbolesMidas = new ArbolesMidasRepository(this.dimeContext);
             GLMMidas = new GLMMidasRepository(this.dimeContext);
+            TrazabilidadArbol = new TrazabilidadArbolRepository(this.dimeContext);
         }
         public IAccesosXLineaRepository AccesosXLinea
         {
@@ -733,7 +734,10 @@ namespace Telmexla.Servicios.DIME.Data
         {
             get; private set;
         }
-        
+        public ITrazabilidadArbolRepository TrazabilidadArbol
+        {
+            get; private set;
+        }
         public int Complete()
         {
             return this.dimeContext.SaveChanges();

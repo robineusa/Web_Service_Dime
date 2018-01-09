@@ -356,7 +356,6 @@ namespace Telmexla.Servicios.DIME.Business
 
             return tipo;
         }
-
         public Dictionary<string, string> ConsultarTitulos(int idPadre, int idTipo)
         {
             Dictionary<string, string> titulos = new Dictionary<string, string>();
@@ -388,7 +387,6 @@ namespace Telmexla.Servicios.DIME.Business
 
             return titulos;
         }
-
         public List<Nodo> consultarNodosArbol(int idArbol, int idNodoPadre)
         {
             List<Nodo> resultado = new List<Nodo>();
@@ -447,7 +445,6 @@ namespace Telmexla.Servicios.DIME.Business
             return resultadoFinal;
 
         }
-
         private IndiceNodoArbol ConsultarIndice(int nodoActual)
         {
             IndiceNodoArbol indice = new IndiceNodoArbol();
@@ -465,6 +462,25 @@ namespace Telmexla.Servicios.DIME.Business
 
         }
 
+        public void ActualizarTrazabilidad(TrazabilidadArbol TrazaArbol)
+        {
+            TrazabilidadArbol Consultar = new TrazabilidadArbol();
+            UnitOfWork unitWork = new UnitOfWork(new DimeContext());
+
+            Consultar = unitWork.TrazabilidadArbol.Find(f => f.Id == TrazaArbol.Id).FirstOrDefault();
+
+            if (Consultar == null)
+            {
+                unitWork.TrazabilidadArbol.Add(TrazaArbol);
+            }
+            else
+            {
+                Consultar = TrazaArbol;
+            }
+            unitWork.Complete();
+            unitWork.Dispose();
+
+        }
 
     }
 }

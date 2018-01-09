@@ -282,6 +282,7 @@
     <Compile Include="TraficoTraslado.cs" />
     <Compile Include="TrasladoFallido.cs" />
     <Compile Include="TrasladoFallidoCollection.cs" />
+    <Compile Include="TrazabilidadArbol.cs" />
     <Compile Include="UsabilidadBusquedaCuentaInbound.cs" />
     <Compile Include="UsabilidadAlertasInbound.cs" />
     <Compile Include="Usuario.cs" />
