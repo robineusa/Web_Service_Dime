@@ -22,8 +22,9 @@ namespace Telmexla.Servicios.DIME.Ejecutor
         {
 
             MidasService MidServcie = new MidasService();
-
-            var r = MidServcie.ListasDeArbolesMidasAdmin(1);
+            System.DateTime F1 = Convert.ToDateTime("2018-01-09");
+            System.DateTime F2 = Convert.ToDateTime("2018-01-10");
+            var r = MidServcie.ConsultaMidasAdminPrincipal(F1,F2);
 
             var z = "";
         }
