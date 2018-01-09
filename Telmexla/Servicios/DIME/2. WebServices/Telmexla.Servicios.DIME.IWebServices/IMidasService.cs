@@ -44,5 +44,11 @@ namespace Telmexla.Servicios.DIME.IWebServices
         [OperationContract]
         GPMMidas VerificaCliente(decimal CuentaCliente);
 
+        [OperationContract]
+        List<GPMMidas> ConsultaMidasAdminPrincipal(DateTime FechaInicial, DateTime FechaFinal);
+
+        [OperationContract]
+        List<GLMMidas> ConsultaMidasAdminLog(DateTime FechaInicial, DateTime FechaFinal);
+
     }
 }

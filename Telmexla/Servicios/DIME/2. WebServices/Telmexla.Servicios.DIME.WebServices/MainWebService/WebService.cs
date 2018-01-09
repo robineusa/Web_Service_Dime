@@ -3437,6 +3437,17 @@ namespace Telmexla.Servicios.DIME.WebServices.MainWebService
             MidasService MidasService = new MidasService();
             return MidasService.VerificaCliente(CuentaCliente);
         }
+        public List<GPMMidas> ConsultaMidasAdminPrincipal(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            MidasService MidasService = new MidasService();
+            return MidasService.ConsultaMidasAdminPrincipal(FechaInicial, FechaFinal);
+        }
+        public List<GLMMidas> ConsultaMidasAdminLog(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            MidasService MidasService = new MidasService();
+            return MidasService.ConsultaMidasAdminLog(FechaInicial, FechaFinal);
+        }
+
         #endregion
 
         #region DiasFestivos

@@ -93,19 +93,19 @@ namespace Telmexla.Servicios.DIME.Business
             Log.Razon = model.Razon;
             Log.Motivo = model.Motivo;
             Log.FallaServPrincipalesSoporte = model.FallaServPrincipalesSoporte;
-            Log.FallaServAdicionalesSoporte= model.FallaServAdicionalesSoporte;
+            Log.FallaServAdicionalesSoporte = model.FallaServAdicionalesSoporte;
             Log.TipoFallaSoporte = model.TipoFallaSoporte;
             Log.SolucionEspecificaSoporte = model.SolucionEspecificaSoporte;
             Log.EstadoSoporte = model.EstadoSoporte;
             Log.FechaSeguimientoSoporte = model.FechaSeguimientoSoporte;
             Log.ObservacionesSoporte = model.ObservacionesSoporte;
             Log.ProblemaFacturacion = model.ProblemaFacturacion;
-            Log.SolucionFacturacion = model.ProblemaFacturacion;
+            Log.SolucionFacturacion = model.SolucionFacturacion;
             Log.EstadoFacturacion = model.EstadoFacturacion;
             Log.FechaSeguimientoFacturacion = model.FechaSeguimientoFacturacion;
             Log.ObservacionesFacturacion = model.ObservacionesFacturacion;
             Log.ClienteIntencionCancelacion = model.ClienteIntencionCancelacion;
-            Log.MotivoCancelacion = model.ClienteIntencionCancelacion;
+            Log.MotivoCancelacion = model.MotivoCancelacion;
             Log.RazonCancelacion = model.RazonCancelacion;
             Log.ObservacionesCancelacion = model.ObservacionesCancelacion;
             Log.Ofrecimiento1 = model.Ofrecimiento1;
@@ -117,6 +117,7 @@ namespace Telmexla.Servicios.DIME.Business
             Log.Campaña1 = model.Campaña1;
             Log.Campaña2 = model.Campaña2;
             Log.Campaña3 = model.Campaña3;
+            Log.EstadoCaso = model.EstadoCaso;
 
             UnitOfWorkLog.GLMMidas.Add(Log);
             UnitOfWorkLog.Complete();
@@ -130,7 +131,8 @@ namespace Telmexla.Servicios.DIME.Business
             //actualiza desconexion
             UnitOfWork UnitOfWorkActualizable = new UnitOfWork(new DimeContext());
             GPMMidas RegistroActualizable = UnitOfWorkActualizable.GPMMidas.Get(Convert.ToInt32(model.Id));
-            
+
+            RegistroActualizable.FechaGestion = model.FechaGestion;
             RegistroActualizable.UsuarioGestion = model.UsuarioGestion;
             RegistroActualizable.NombreUsuarioGestion = model.NombreUsuarioGestion;
             RegistroActualizable.AliadoGestion = model.AliadoGestion;
@@ -147,12 +149,12 @@ namespace Telmexla.Servicios.DIME.Business
             RegistroActualizable.FechaSeguimientoSoporte = model.FechaSeguimientoSoporte;
             RegistroActualizable.ObservacionesSoporte = model.ObservacionesSoporte;
             RegistroActualizable.ProblemaFacturacion = model.ProblemaFacturacion;
-            RegistroActualizable.SolucionFacturacion = model.ProblemaFacturacion;
+            RegistroActualizable.SolucionFacturacion = model.SolucionFacturacion;
             RegistroActualizable.EstadoFacturacion = model.EstadoFacturacion;
             RegistroActualizable.FechaSeguimientoFacturacion = model.FechaSeguimientoFacturacion;
             RegistroActualizable.ObservacionesFacturacion = model.ObservacionesFacturacion;
             RegistroActualizable.ClienteIntencionCancelacion = model.ClienteIntencionCancelacion;
-            RegistroActualizable.MotivoCancelacion = model.ClienteIntencionCancelacion;
+            RegistroActualizable.MotivoCancelacion = model.MotivoCancelacion;
             RegistroActualizable.RazonCancelacion = model.RazonCancelacion;
             RegistroActualizable.ObservacionesCancelacion = model.ObservacionesCancelacion;
             RegistroActualizable.Ofrecimiento1 = model.Ofrecimiento1;
@@ -164,15 +166,17 @@ namespace Telmexla.Servicios.DIME.Business
             RegistroActualizable.Campaña1 = model.Campaña1;
             RegistroActualizable.Campaña2 = model.Campaña2;
             RegistroActualizable.Campaña3 = model.Campaña3;
+            RegistroActualizable.EstadoCaso = model.EstadoCaso;
 
             UnitOfWorkActualizable.Complete();
             UnitOfWorkActualizable.Dispose();
 
-            //registra log de desconexiones
+
             GLMMidas Log = new GLMMidas();
             UnitOfWork UnitOfWorkLog = new UnitOfWork(new DimeContext());
 
             Log.IdGestionPrincipal = model.Id;
+            Log.FechaGestion = model.FechaGestion;
             Log.UsuarioGestion = model.UsuarioGestion;
             Log.NombreUsuarioGestion = model.NombreUsuarioGestion;
             Log.AliadoGestion = model.AliadoGestion;
@@ -189,12 +193,12 @@ namespace Telmexla.Servicios.DIME.Business
             Log.FechaSeguimientoSoporte = model.FechaSeguimientoSoporte;
             Log.ObservacionesSoporte = model.ObservacionesSoporte;
             Log.ProblemaFacturacion = model.ProblemaFacturacion;
-            Log.SolucionFacturacion = model.ProblemaFacturacion;
+            Log.SolucionFacturacion = model.SolucionFacturacion;
             Log.EstadoFacturacion = model.EstadoFacturacion;
             Log.FechaSeguimientoFacturacion = model.FechaSeguimientoFacturacion;
             Log.ObservacionesFacturacion = model.ObservacionesFacturacion;
             Log.ClienteIntencionCancelacion = model.ClienteIntencionCancelacion;
-            Log.MotivoCancelacion = model.ClienteIntencionCancelacion;
+            Log.MotivoCancelacion = model.MotivoCancelacion;
             Log.RazonCancelacion = model.RazonCancelacion;
             Log.ObservacionesCancelacion = model.ObservacionesCancelacion;
             Log.Ofrecimiento1 = model.Ofrecimiento1;
@@ -206,6 +210,7 @@ namespace Telmexla.Servicios.DIME.Business
             Log.Campaña1 = model.Campaña1;
             Log.Campaña2 = model.Campaña2;
             Log.Campaña3 = model.Campaña3;
+            Log.EstadoCaso = model.EstadoCaso;
 
             UnitOfWorkLog.GLMMidas.Add(Log);
             UnitOfWorkLog.Complete();
@@ -233,6 +238,101 @@ namespace Telmexla.Servicios.DIME.Business
             GPMMidas Registro = new GPMMidas();
             Registro = unitOfWork.GPMMidas.Find(x => x.CuentaCliente == CuentaCliente && x.EstadoCaso == "SEGUIMIENTO").LastOrDefault();
             return Registro;
+        }
+        public List<GPMMidas> ConsultaMidasAdminPrincipal(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+
+            var objeto = (from a in dimContext.GPMMidas.Cast<GPMMidas>().ToList()
+                          where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                          select new GPMMidas()
+                          {
+                              Id = a.Id,
+                              FechaGestion = a.FechaGestion,
+                              UsuarioGestion = a.UsuarioGestion,
+                              NombreUsuarioGestion = a.NombreUsuarioGestion,
+                              AliadoGestion = a.AliadoGestion,
+                              CuentaCliente = a.CuentaCliente,
+                              Gestion = a.Gestion,
+                              Cierre = a.Cierre,
+                              Razon = a.Razon,
+                              Motivo = a.Motivo,
+                              FallaServPrincipalesSoporte = a.FallaServPrincipalesSoporte,
+                              FallaServAdicionalesSoporte = a.FallaServAdicionalesSoporte,
+                              TipoFallaSoporte = a.TipoFallaSoporte,
+                              SolucionEspecificaSoporte = a.SolucionEspecificaSoporte,
+                              EstadoSoporte = a.EstadoSoporte,
+                              FechaSeguimientoSoporte = a.FechaSeguimientoSoporte,
+                              ObservacionesSoporte = a.ObservacionesSoporte,
+                              ProblemaFacturacion = a.ProblemaFacturacion,
+                              SolucionFacturacion = a.SolucionFacturacion,
+                              EstadoFacturacion = a.EstadoFacturacion,
+                              FechaSeguimientoFacturacion = a.FechaSeguimientoFacturacion,
+                              ObservacionesFacturacion = a.ObservacionesFacturacion,
+                              ClienteIntencionCancelacion = a.ClienteIntencionCancelacion,
+                              MotivoCancelacion = a.MotivoCancelacion,
+                              RazonCancelacion = a.Razon,
+                              ObservacionesCancelacion = a.ObservacionesCancelacion,
+                              Ofrecimiento1 = a.Ofrecimiento1,
+                              AceptacionOfrecimiento1 = a.AceptacionOfrecimiento1,
+                              Ofrecimiento2 = a.Ofrecimiento2,
+                              AceptacionOfrecimiento2 = a.AceptacionOfrecimiento2,
+                              Ofrecimiento3 = a.Ofrecimiento3,
+                              AceptacionOfrecimiento3 = a.AceptacionOfrecimiento3,
+                              Campaña1 = a.Campaña1,
+                              Campaña2 = a.Campaña2,
+                              Campaña3 = a.Campaña3,
+                              EstadoCaso = a.EstadoCaso
+                          }).ToList();
+            return objeto;
+        }
+        public List<GLMMidas> ConsultaMidasAdminLog(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            DimeContext dimContext = new DimeContext();
+
+            var objeto = (from a in dimContext.GLMMidas.Cast<GLMMidas>().ToList()
+                          where a.FechaGestion >= FechaInicial && a.FechaGestion <= FechaFinal
+                          select new GLMMidas()
+                          {
+                              Id = a.Id,
+                              IdGestionPrincipal = a.IdGestionPrincipal,
+                              FechaGestion = a.FechaGestion,
+                              UsuarioGestion = a.UsuarioGestion,
+                              NombreUsuarioGestion = a.NombreUsuarioGestion,
+                              AliadoGestion = a.AliadoGestion,
+                              CuentaCliente = a.CuentaCliente,
+                              Gestion = a.Gestion,
+                              Cierre = a.Cierre,
+                              Razon = a.Razon,
+                              Motivo = a.Motivo,
+                              FallaServPrincipalesSoporte = a.FallaServPrincipalesSoporte,
+                              FallaServAdicionalesSoporte = a.FallaServAdicionalesSoporte,
+                              TipoFallaSoporte = a.TipoFallaSoporte,
+                              SolucionEspecificaSoporte = a.SolucionEspecificaSoporte,
+                              EstadoSoporte = a.EstadoSoporte,
+                              FechaSeguimientoSoporte = a.FechaSeguimientoSoporte,
+                              ObservacionesSoporte = a.ObservacionesSoporte,
+                              ProblemaFacturacion = a.ProblemaFacturacion,
+                              SolucionFacturacion = a.SolucionFacturacion,
+                              EstadoFacturacion = a.EstadoFacturacion,
+                              FechaSeguimientoFacturacion = a.FechaSeguimientoFacturacion,
+                              ObservacionesFacturacion = a.ObservacionesFacturacion,
+                              ClienteIntencionCancelacion = a.ClienteIntencionCancelacion,
+                              MotivoCancelacion = a.MotivoCancelacion,
+                              RazonCancelacion = a.Razon,
+                              ObservacionesCancelacion = a.ObservacionesCancelacion,
+                              Ofrecimiento1 = a.Ofrecimiento1,
+                              AceptacionOfrecimiento1 = a.AceptacionOfrecimiento1,
+                              Ofrecimiento2 = a.Ofrecimiento2,
+                              AceptacionOfrecimiento2 = a.AceptacionOfrecimiento2,
+                              Ofrecimiento3 = a.Ofrecimiento3,
+                              AceptacionOfrecimiento3 = a.AceptacionOfrecimiento3,
+                              Campaña1 = a.Campaña1,
+                              Campaña2 = a.Campaña2,
+                              Campaña3 = a.Campaña3,
+                              EstadoCaso = a.EstadoCaso
+                          }).ToList();
+            return objeto;
         }
     }
 }

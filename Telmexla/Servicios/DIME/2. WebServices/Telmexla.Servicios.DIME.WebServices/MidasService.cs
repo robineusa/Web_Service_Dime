@@ -68,5 +68,16 @@ namespace Telmexla.Servicios.DIME.WebServices
             MidasBusiness miadasBusiness = new MidasBusiness();
             return miadasBusiness.VerificaCliente(CuentaCliente);
         }
+        public List<GPMMidas> ConsultaMidasAdminPrincipal(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            MidasBusiness miadasBusiness = new MidasBusiness();
+            return miadasBusiness.ConsultaMidasAdminPrincipal(FechaInicial, FechaFinal);
+        }
+        public List<GLMMidas> ConsultaMidasAdminLog(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            MidasBusiness miadasBusiness = new MidasBusiness();
+            return miadasBusiness.ConsultaMidasAdminLog(FechaInicial, FechaFinal);
+        }
+
     }
 }
